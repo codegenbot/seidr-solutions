@@ -12,17 +12,8 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    if(smallest_even == INT_MAX) {
-        return result;
-    }
-
     result.push_back(smallest_even);
-    for(int i=0; i<arr.size(); i++) {
-        if(arr[i] == smallest_even) {
-            result.push_back(i);
-            break;
-        }
-    }
+    result.push_back(std::distance(arr.begin(), std::find(arr.begin(), arr.end(), smallest_even)));
 
     return result;
 }
