@@ -1,9 +1,7 @@
-Here is the Python solution for the problem:
+Here is the Python code to solve the problem:
 
 def kebab_to_camel(s):
-    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s.split('-')))
+    return ''.join(word.capitalize() for word in s.split('-'))
 
-print(kebab_to_camel('nospaceordash'))
-print(kebab_to_camel('two-words'))
-print(kebab_to_camel('two words'))
-print(kebab_to_camel('all separate words'))
+s = input()
+print(kebab_to_camel(s))
