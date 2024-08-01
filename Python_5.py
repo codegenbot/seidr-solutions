@@ -1,6 +1,11 @@
 def process_numbers(numbers, delimiter):
     result = []
-    for number in numbers:
-        result.extend([number, delimiter])
+    for num in numbers:
+        result.extend([num, delimiter])
     result.pop()
     return result
+
+numbers = [1, 2, 3, 4, 5]
+delimiter = '-'
+output = process_numbers(numbers, delimiter)
+print(output)
