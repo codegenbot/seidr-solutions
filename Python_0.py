@@ -1,3 +1,7 @@
+numbers = [5, 8, 15, 3, 12]
+threshold = 2
+
+
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -6,12 +10,4 @@ def check_numbers(numbers, threshold):
     return False
 
 
-# Take input from the user
-numbers = list(map(int, input().split()))
-threshold = int(input())
-
-# Call the function with correct arguments
-result = check_numbers(numbers, threshold)
-
-# Print the result
-print(result)
+has_close_elements = check_numbers(numbers, threshold)
