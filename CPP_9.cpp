@@ -8,12 +8,7 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> rolling_max(vector<int> numbers);
 
 int main() {
-    // Example usage
-    vector<int> numbers = {1, 3, 5, 2, 4};
-    vector<int> result = rolling_max(numbers);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
+    // Add your main function code here if needed
     return 0;
 }
 
