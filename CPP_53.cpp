@@ -9,7 +9,7 @@ int add(int x, int y) {
 
 int main() {
     std::srand((unsigned)std::time(0));
-    int x = rand() % 1000;
-    int y = rand() % 1000;
+    int x = std::rand() % 1000;
+    int y = std::rand() % 1000;
     assert(add(x, y) == x + y);
 }
