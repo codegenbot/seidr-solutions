@@ -25,6 +25,6 @@ bool isPrime(int n) {
 }
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << "The sum of the digits of the max prime number is: " << skjkasdkd(lst) << endl;
+    cout << skjkasdkd(lst) << endl;
     return 0;
 }
