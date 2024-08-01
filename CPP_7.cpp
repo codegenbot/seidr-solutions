@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
-
-bool issame(const vector<string> a, const vector<string> b);
-
-vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(const vector<string> a, const vector<string> b){
     if(a.size() != b.size()) return false;
@@ -37,6 +34,8 @@ int main(){
     } else {
         cout << "Test failed!" << endl;
     }
+
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     
     return 0;
 }
