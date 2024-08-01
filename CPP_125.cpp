@@ -35,21 +35,3 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     }
     return true;
 }
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    std::vector<std::string> a = split_words(input);
-    std::string input2;
-    std::getline(std::cin, input2);
-    std::vector<std::string> b = split_words(input2);
-    
-    if (issame(a, b)) {
-        std::cout << "Same" << std::endl;
-    } else {
-        std::cout << "Different" << std::endl;
-    }
-    
-    return 0;
-}
