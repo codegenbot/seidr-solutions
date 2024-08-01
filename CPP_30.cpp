@@ -7,7 +7,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> vec1, vec2;
-    
+
     // Read input vectors
     int n;
     std::cin >> n;
