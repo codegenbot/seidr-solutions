@@ -6,35 +6,27 @@
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> result;
     int count = 0;
-
     for (char c : music_string) {
-        if (c == '|') {
+        if (c == 'o') {
+            ++count;
+        } else if (c == '.') {
+            if (count > 0) {
+                result.push_back(count);
+                count = 0;
+            }
+        } else if (c == '|') {
             result.push_back(count);
             count = 0;
-        } else if (c == 'o') {
-            count++;
         }
     }
-
     if (count > 0) {
         result.push_back(count);
     }
-
     return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 int main() {
