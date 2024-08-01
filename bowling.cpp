@@ -1,6 +1,8 @@
+```cpp
+#include <iostream>
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
@@ -11,7 +13,7 @@ int bowlingScore(string s) {
             score += 10 + (roll * 10);
             roll++;
         } else {
-            int currentRoll = stoi(string(1, c)) * 10;
+            int currentRoll =stoi(string(1, c)) * 10;
             if (roll < 2) {
                 score += currentRoll;
                 roll++;
@@ -27,3 +29,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
