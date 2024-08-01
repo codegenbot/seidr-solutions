@@ -14,8 +14,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             float diff = std::abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair.first = std::min(numbers[i], numbers[j]);
-                closest_pair.second = std::max(numbers[i], numbers[j]);
+                closest_pair = {numbers[i], numbers[j]};
             }
         }
     }
@@ -24,6 +23,6 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == make_pair(2.2f, 2.2f));
+    assert(std::make_pair(2.2, 3.1) == find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}));
     return 0;
 }
