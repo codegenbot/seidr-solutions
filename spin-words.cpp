@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -20,7 +21,10 @@ std::string spinWords(std::string str) {
             if (wordLength >= 5) {
                 isWordLongEnough = true;
             }
-            result += c;
+            if (!isWordLongEnough)
+                result += c;
+            else
+                result += str[wordLength - 1];
         }
     }
 
