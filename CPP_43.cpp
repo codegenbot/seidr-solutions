@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <cstddef>
+#include <cstddef> // Add the missing include
 
 bool pairs_sum_to_zero(std::vector<int> l) {
     for (size_t i = 0; i < l.size(); ++i) {
@@ -14,7 +14,7 @@ bool pairs_sum_to_zero(std::vector<int> l) {
 }
 
 int main() {
-    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, -2}));
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, -2}) == true);
 
     return 0;
 }
