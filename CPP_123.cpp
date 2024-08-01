@@ -1,11 +1,10 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -27,17 +26,16 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(result.begin(), result.end());
     return result;
-
 }
 
 int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    vector<int> output = get_odd_collatz(num);
-    cout << "The sequence of Collatz Conjecture for the number " << num << " is: ";
-    for (int i : output) {
+    vector<int> res = get_odd_collatz(num);
+    for (int i : res) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
