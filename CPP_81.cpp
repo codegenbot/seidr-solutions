@@ -41,7 +41,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    assert(numerical_letter_grade({0, 0.7f})[0] == "E");
-    assert(numerical_letter_grade({0, 0.7f})[1] == "D-");
+    assert (issame(numerical_letter_grade({0, 0.7f})[0], "E"));
+    assert (issame(numerical_letter_grade({0, 0.7f})[1], "D-"));
     return 0;
 }
