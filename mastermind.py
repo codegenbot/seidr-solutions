@@ -1,11 +1,19 @@
-Here is the solution:
-
+```
 def mastermind(code, guess):
-    count_white = 0
-    count_black = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            count_black += 1
-        elif str(code[i]) in str(guess):
-            count_white += 1
-    return str(count_black) + '\n' + str(count_white)
+    color_count = {}
+    for c in code + guess:
+        if c not in color_count:
+            color_count[c] = 1
+        else:
+            color_count[c] += 1
+    
+    black_peg = 0
+    white_peg = 0
+    for c in color_count:
+        count_c_in_code = code.count(c)
+        count_c_in_guess = guess.count(c)
+        
+        if c in code and c in guess:
+            black_peg += min(count_c_in_code, count_c_in_guess)
+        else:
+            white_peg += min(count_c_in_code + count_c_in_guess - (count_c_in_code * count_c_in_guess), 0)
