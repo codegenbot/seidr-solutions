@@ -1,7 +1,10 @@
-```cpp
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <cmath>
+
+using namespace std;
 
 int main() {
-    int max_val = *max_element(l.begin(), l.end()); return abs(max_val);
+    vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    return abs(*max_element(l.begin(), l.end()));
 }
