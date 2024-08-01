@@ -1,12 +1,16 @@
 Here is the solution:
 
-double probability(int n, int m) {
+double diceGame(int n, int m) {
     double total = (double)n * m;
-    double p = 0;
+    double p = 0.0;
 
-    for (int i = 1; i <= m; i++) {
-        p += (double)(n - i + 1) / total;
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<m; j++) {
+            if(i > j) {
+                p += 1.0;
+            }
+        }
     }
 
-    return p;
+    return p / total;
 }
