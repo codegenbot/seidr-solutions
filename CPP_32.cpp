@@ -17,10 +17,11 @@ double find_zero(const std::vector<double>& coeffs){
 }
 
 int main() {
+    double coeff = 1.0;
     std::vector<double> coeffs;
-    coeffs.push_back(1);
-    coeffs.push_back(-5);
-    coeffs.push_back(6);
+    coeffs.push_back(coeff);
+    coeffs.push_back(-5.0);
+    coeffs.push_back(6.0);
 
     double solution = find_zero(coeffs);
 
