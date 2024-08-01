@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,15 +43,13 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.9, 4.2, 3.5};
-    vector<string> output = numerical_letter_grade(grades);
+    vector<float> grades = {3.8, 4.2, 3.9, 1.5};
+    vector<string> result = numerical_letter_grade(grades);
     
-    // Checking the output of numerical_letter_grade function.
-    vector<string> expected_output = {"A+", "A+", "A-"};
-    if (issame(output, expected_output))
-        std::cout << "The output is as expected.\n";
-    else
-        std::cout << "The output is not as expected.\n";
-    
+    if (issame(result, {"A", "A+", "A", "D-"})) {
+        std::cout << "The output is as expected." << std::endl;
+    } else {
+        std::cout << "The output is not as expected." << std::endl;
+    }
     return 0;
 }
