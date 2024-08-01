@@ -1,15 +1,30 @@
-vector<float> get_positive(vector<float> l) {
+```cpp
+#include <vector>
+
+bool issame(vector<float> a, vector<vector<float>> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        bool same = true;
+        for(float x : a[i]) {
+            bool found = false;
+            for(float y : b[i]) {
+                if(x == y) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) return false;
+        }
+    }
+    return true;
+}
+
+vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for (float i : l) {
-        if (i > 0) {
-            result.push_back(i);
+    for(float x : l) {
+        if(x > 0) {
+            result.push_back(x);
         }
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float>b) {
-    if(a.size() != b.size()) return false;
-    for(float i : a) if(i != b[0]) return false;
-    return true;
 }
