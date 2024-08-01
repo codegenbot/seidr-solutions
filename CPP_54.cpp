@@ -1,16 +1,11 @@
-#include <algorithm>
-#include <string>
-#include <cassert>
-
-bool same_chars(const std::string& s0, const std::string& s1) {
-    std::string tmp_s0 = s0;
-    std::string tmp_s1 = s1;
-    std::sort(tmp_s0.begin(), tmp_s0.end());
-    std::sort(tmp_s1.begin(), tmp_s1.end());
-    return tmp_s0 == tmp_s1;
+bool same_chars(const std::string &s0, const std::string &s1) {
+    std::string s0_copy = s0;
+    std::string s1_copy = s1;
+  
+    std::sort(s0_copy.begin(), s0_copy.end());
+    std::sort(s1_copy.begin(), s1_copy.end());
+  
+    return s0_copy == s1_copy;
 }
 
-int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    return 0;
-}
+assert(same_chars(std::string("aabb"), std::string("aaccc")) == false);
