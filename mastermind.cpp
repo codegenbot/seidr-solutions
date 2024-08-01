@@ -1,25 +1,24 @@
-#include <vector>
-#include <string>
-using namespace std;
-
 int mastermind(string code, string guess) {
-    int white = 0, black = 0;
-    
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+    int white = 0;
+    int black = 0;
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             black++;
         }
     }
-    
-    for(int i = 0; i < 4; i++) {
-        int count = 0;
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == guess[i])
-                count++;
-        }
-        if(count > 1)
-            white += count - 1;
+
+    map<char, int> codeCount, guessCount;
+    for (int i = 0; i < 4; ++i) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
     }
-    
+
+    for (auto &p : codeCount) {
+        if (p.second > 0 && guessCount.count(p.first)) {
+            white += min(p.second, guessCount[p.first]);
+        }
+    }
+
     return black + white;
 }
