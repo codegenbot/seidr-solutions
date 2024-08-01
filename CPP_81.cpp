@@ -1,16 +1,13 @@
-#include <iostream>
+```
 #include <vector>
-using namespace std;
+#include <string>
 
-bool issame(float a, float b) {
-    if (abs(a - b) < 0.01)
-        return true;
-    else
-        return false;
+bool issame(const std::string& s1, const std::string& s2) {
+    return (s1.length() == s2.length()) && std::equal(s1.begin(), s1.end(), s2.begin());
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
         if (grade >= 4.0)
@@ -43,20 +40,10 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades;
-    float grade;
-    cout << "Enter the number of students: ";
-    int n;
-    cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        cout << "Enter student's grade: ";
-        cin >> grade;
-        grades.push_back(grade);
-    }
-    vector<string> letterGrades = numerical_letter_grade(grades);
-    for (string s : letterGrades) {
-        cout << s << endl;
+    std::vector<float> grades = {3.8, 2.9, 4.1, 3.5};
+    std::vector<std::string> output = numerical_letter_grade(grades);
+    for (const auto& letter : output) {
+        std::cout << letter << std::endl;
     }
     return 0;
 }
