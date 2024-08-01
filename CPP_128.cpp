@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
 
-int prod_signs(vector<int> arr) {
+int prod_signs(vector<int> arr){
     int product = 1;
     long long sum = 0;
     
@@ -19,7 +19,7 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, -3};
+    vector<int> arr = {1,2,-3};
     cout << prod_signs(arr) << endl;
     return 0;
 }
