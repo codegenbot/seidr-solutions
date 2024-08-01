@@ -16,7 +16,11 @@ std::vector<int> tri(int n) {
             } else if (i % 2 == 0) {
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2]);
+                if (i == 2) {
+                    result.push_back(result[i - 1] + result[i - 2]);
+                } else {
+                    result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
+                }
             }
         }
     }
@@ -24,6 +28,6 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
-    assert(issame(tri(1), std::vector<int>{3, 1}));
+    assert(issame(tri(1), {3, 1}));
     return 0;
 }
