@@ -7,8 +7,8 @@ std::vector<int> parse_music(const std::string& music) {
     size_t pos = 0;
     size_t next_pos = music.find('|');
 
-    while (next_pos != std::string::npos) {
-        notes.push_back(next_pos - pos);
+    while (next_pos != std::string::npos && pos < music.size()) {
+        notes.push_back(next_pos - pos - 1);
         pos = next_pos + 1;
         next_pos = music.find('|', pos);
     }
