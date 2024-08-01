@@ -1,11 +1,18 @@
-Here is the completed code:
-
 int search(vector<int> lst) {
-    int max = 0;
-    for (auto x : lst) {
-        if (x > 0 && x <= count(lst.begin(), lst.end(), x)) {
-            max = x;
+    unordered_map<int, int> freq;
+    for (int i : lst) {
+        if (!freq.count(i)) {
+            freq[i] = 1;
+        } else {
+            freq[i]++;
         }
     }
-    return max == 0 ? -1 : max;
+    int result = -1;
+    for (auto p : freq) {
+        if (p.second >= p.first && p.first > 0) {
+            result = p.first;
+            break;
+        }
+    }
+    return result;
 }
