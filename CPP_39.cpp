@@ -1,10 +1,8 @@
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
-int prime_fib() {
-    int n;
-    std::cin >> n;
-
+int prime_fib(int n) {
     int a = 2, b = 3, c = 0;
     for (int i = 3; i <= n; ++i) {
         c = a + b;
