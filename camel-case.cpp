@@ -3,20 +3,20 @@
 #include <cctype>
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+std::string input;
+std::getline(std::cin, input);
 
-    bool capitalize = true;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            std::cout << (char)tolower(c);
-            capitalize = false;
-        } else {
-            std::cout << c;
-        }
-    }
+bool capitalize = true;
+for (char &c : input) {
+if (c == '-') {
+capitalize = true;
+} else if (capitalize) {
+std::cout << (char)toupper(c);
+capitalize = false;
+} else {
+std::cout << (char)tolower(c);
+}
+}
 
-    return 0;
+return 0;
 }
