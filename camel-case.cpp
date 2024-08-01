@@ -1,9 +1,7 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
-    if (s.empty()) return "";
+std::string camelCase(std::string s) {
     std::string result = "";
     bool capitalizeNext = true;
     
@@ -23,7 +21,9 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
-    while (std::cin >> s) {
+    while (true) {
+        std::cout << "Enter a string in kebab-case: ";
+        std::cin >> s;
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
