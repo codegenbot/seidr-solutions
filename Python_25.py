@@ -14,8 +14,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 count += 1
                 n //= i
-            factors.append(i ** count)
-            i = 2
+            for _ in range(count):
+                factors.append(i)
     if n > 1:
         factors.append(n)
     return factors
