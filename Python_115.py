@@ -1,3 +1,4 @@
+```
 def max_fill(grid, capacity):
     rows, cols = len(grid), len(grid[0])
     water = 0
