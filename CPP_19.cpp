@@ -45,9 +45,11 @@ string sort_numbers(string numbers) {
     return result;
 }
 
-string input_numbers;
-getline(cin, input_numbers);
-
-cout << sort_numbers(input_numbers) << endl;
-
-return 0;
+int main() {
+    string input_numbers;
+    getline(cin, input_numbers);
+    
+    cout << sort_numbers(input_numbers) << endl;
+    
+    return 0;
+}
