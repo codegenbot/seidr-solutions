@@ -13,19 +13,5 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    
-    std::cout << "The sum of all even-indexed odd numbers is: " << solution(lst) << std::endl;
-    
-    return 0;
+    // Your code here
 }
