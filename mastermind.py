@@ -1,11 +1,12 @@
+Here is the solution:
+
 def mastermind(code, guess):
-    white_pegs = sum(
-        c1 == c2 and i != j
-        for i, (c1, _) in enumerate(guess)
-        for _, c2 in enumerate(code)
-    )
-    black_pegs = sum(
-        (c1, c2) == (_[0], _)[1]
-        for (_, c1), (_, c2) in zip_longest(enumerate(code), enumerate(guess))
-    )
-    return str(white_pegs), str(black_pegs)
+    c = [x for x in code]
+    g = [x for x in guess]
+    white_pegs = sum([1 for i in range(4) if c[i] == g[i]])
+    black_pegs = 0
+    for color in set(c + g):
+        c_count = c.count(color)
+        g_count = g.count(color)
+        black_pegs += min(c_count, g_count)
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
