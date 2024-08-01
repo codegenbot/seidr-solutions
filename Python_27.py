@@ -1,2 +1,2 @@
-def swapcase_string(string):
+def swap_case(string: str) -> str:
     return string.swapcase()
