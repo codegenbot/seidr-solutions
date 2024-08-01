@@ -1,11 +1,10 @@
 #include <vector>
+#include <algorithm>
 
 bool std::issame(std::vector<float> a, std::vector<float> b){
-    vector<float> result;
+    if(a.size() != b.size()) return false;
     for(float x : a) {
-        if(x > 0) {
-            result.push_back(x);
-        }
+        if(!std::count(b.begin(), b.end(), x)) return false;
     }
-    return (result == b);
+    return true;
 }
