@@ -16,7 +16,3 @@ def gcd(a: int, b: int):
     while b != 0:
         a, b = b, a % b
     return abs(a)
-
-
-def modp(n: int, p: int):
-    return pow(n, modinv(p, n), n)
