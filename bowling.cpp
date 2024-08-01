@@ -2,24 +2,20 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
             score += 30;
-            currentFrame++;
-        } else if (c == '/') {
-            score += 10 - (26 - (currentFrame * 2));
-            currentFrame++;
+        } else if (s[i] == '/') {
+            score += 10 - (26 - (i / 2) * 2);
         } else {
-            int pins = c - '0';
+            int pins = s[i] - '0';
             score += pins;
             if (pins < 10) {
-                for (int i = 1; i <= 3 - currentFrame; i++) {
-                    if (s.length() > currentFrame*2 + i && s[currentFrame*2 + i] == '/') {
-                        score += 10 - (26 - (currentFrame * 2));
+                for (int j = i + 1; j <= i + 3 && j < s.length(); j++) {
+                    if (s[j] == '/') {
+                        score += 10 - (26 - (i / 2) * 2);
                         break;
-                    }
-                    else {
+                    } else {
                         pins++;
                     }
                 }
@@ -27,4 +23,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
