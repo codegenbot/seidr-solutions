@@ -1,7 +1,6 @@
-def generate_output(numbers, delimeter):
+def process_numbers(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimeter])
-    if numbers:
-        result.append(numbers[-1])
+    for number in numbers:
+        result.extend([number, delimiter])
+    result.pop()
     return result
