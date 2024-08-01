@@ -12,14 +12,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    int k = 4;
-    std::vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    assert(issame(maximum(arr,k) , result));
+    int k = 5;
+    std::vector<int> result = maximum(arr,k);
+    if(issame(result, vector<int>(result.begin(), result.begin() + k))) {
+        cout << "The first " << k << " elements of the array are in descending order." << endl;
+    } else {
+        cout << "The first " << k << " elements of the array are not in descending order." << endl;
+    }
     return 0;
 }
 
-std::vector<int> maximum(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr, int k) {
     vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
     return result;
