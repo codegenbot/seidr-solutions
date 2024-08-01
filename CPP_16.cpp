@@ -1,9 +1,9 @@
-vector<char> distinctChars;
-    for (char c : str) {
-        char lowerC = tolower(c);
-        if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
-            distinctChars.push_back(lowerC);
-        }
-    }
-    return distinctChars.size();
+#include <algorithm>
+#include <string>
+
+int count_distinct_characters(std::string str) {
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    std::sort(str.begin(), str.end());
+    auto it = std::unique(str.begin(), str.end());
+    return std::distance(str.begin(), it);
 }
