@@ -1,5 +1,5 @@
-from typing import List, Tuple
 import sys, ast
+from typing import List, Tuple
 
 def sum_product() -> Tuple[int, int]:
     numbers = ast.literal_eval(sys.argv[1])
