@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 int digitSum(string s) {
     int sum = 0;
