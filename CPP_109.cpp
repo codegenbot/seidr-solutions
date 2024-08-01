@@ -3,13 +3,13 @@
 #include <cassert>
 
 bool move_one_ball(const std::vector<int>& arr) {
-    std::vector<int> temp = arr;
-    int n = temp.size();
+    std::vector<int> arr_copy = arr; // Make a copy of the input vector
+    int n = arr_copy.size();
     for (int i = 0; i < n; ++i) {
-        if (std::is_sorted(temp.begin(), temp.end())) {
+        if (std::is_sorted(arr_copy.begin(), arr_copy.end())) {
             return true;
         }
-        std::rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend());
+        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
     }
     return false;
 }
