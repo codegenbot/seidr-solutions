@@ -1,39 +1,30 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
+    int currentFrame = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-        } else if (s[i] == '/') {
-            if (i + 2 >= s.size() || s[i+1] == 'X' || s[i+1] - '0' > 10 - (26 - i*2)) {
-                score += 10;
-            } else {
-                int pins = 10 - (s[i+1] - '0') + (s[i+2] - '0');
-                score += pins;
-                i++;
-            }
-        } else if (s[i] - '0' + s[i+1] - '0' <= 10) {
-            int pins = s[i] - '0' + s[i+1] - '0';
-            score += pins;
-            i++;
+            currentFrame++;
+        } else if (c == '/') {
+            score += 10 - (26 - (currentFrame * 2));
+            currentFrame++;
         } else {
-            int firstPins = s[i] - '0';
-            if (s[i+2] == '/') {
-                score += 10;
-            } else {
-                score += firstPins + s[i+1] - '0';
-                i++;
-            }
-            for (int j = 3; j > 0 && i < s.size(); i++, j--) {
-                if (s[i] == 'X') {
-                    score += 30;
-                    break;
-                } else if (s[i] == '/') {
-                    score += 10 - (26 - i*2);
-                    break;
+            int pins = c - '0';
+            score += pins;
+            if (pins < 10) {
+                for (int i = 1; i <= 3; i++) {
+                    if (s[currentFrame*2 + i] == '/') {
+                        score += 10 - (26 - (currentFrame * 2));
+                        break;
+                    }
+                    else {
+                        pins++;
+                    }
                 }
             }
+            currentFrame++;
         }
     }
     return score;
