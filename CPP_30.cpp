@@ -26,7 +26,6 @@ std::vector<float> get_positive(std::vector<float> nums) {
 int main() {
     std::vector<float> vec1, vec2;
 
-    // Read input vectors
     float num;
     int n;
     std::cin >> n;
@@ -40,10 +39,8 @@ int main() {
         vec2.push_back(num);
     }
 
-    // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
-    // Test the get_positive function
     assert(issame(get_positive({-1, 2, 3}), {2, 3}));
 
     return 0;
