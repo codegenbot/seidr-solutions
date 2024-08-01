@@ -4,9 +4,3 @@ def check_numbers(numbers, threshold):
         if abs(numbers[i] - numbers[i + 1]) < threshold:
             return True
     return False
-
-
-numbers_list = [5, 10, 15, 20]
-threshold_value = 2
-result = check_numbers(numbers_list, threshold_value)
-print(result)
