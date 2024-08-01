@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 int search(vector<int> lst) {
     map<int, int> freq;
     for (int num : lst) {
