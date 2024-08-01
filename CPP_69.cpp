@@ -1,5 +1,12 @@
+Here is the completed code:
+
+#include <vector>
+#include <map>
+
+using namespace std;
+
 int search(vector<int> lst) {
-    unordered_map<int, int> freqMap;
+    map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
             freqMap[num] = 1;
@@ -7,6 +14,7 @@ int search(vector<int> lst) {
             freqMap[num]++;
         }
     }
+
     int maxNum = -1;
     for (auto& pair : freqMap) {
         if (pair.second >= pair.first && pair.first > 0) {
@@ -14,5 +22,6 @@ int search(vector<int> lst) {
             break;
         }
     }
+
     return maxNum;
 }
