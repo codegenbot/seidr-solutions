@@ -1,16 +1,17 @@
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = tolower(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = static_cast<char>(base + ((c - base) % 26 + 2) % 26);
-            } else {
-                c = static_cast<char>(base + ((c - base) % 26 + 2) % 26);
-            }
+            c = (c == base + 0 || c == base + 1) ? base : (base + ((c - base) % 26) + 2);
         }
-        result += c;
+        result += tolower(c);
     }
     return result;
 }
