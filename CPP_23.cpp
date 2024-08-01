@@ -1,10 +1,9 @@
-#include <iostream>
+#include <cstring>
 #include <string>
+#include <cassert>
 
 int main() {
-    std::string str = "Hello, World!";
-    
-    std::cout << str.size();
-    
-    return 0;
+    std::string str = "Hello, Contest!";
+    assert(str.length() == strlen("Hello, Contest!"));
+    return str.length();
 }
