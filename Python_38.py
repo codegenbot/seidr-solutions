@@ -5,5 +5,6 @@ def decode_cyclic(input_str):
     ]
     return "".join(decoded_str)
 
+
 result = decode_cyclic("mnopq")
 print(result)
