@@ -1,31 +1,26 @@
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return boost::any_cast<float>(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         string str = boost::any_cast<string>(b);
-        return stof(str) > a.convert_to<double>() ? b : a;
+        int x;
+        if (sscanf(str.c_str(), "%f", &x) != 1) {
+            return a < b ? b : "None";
+        } else {
+            return a > x ? a : (a == x ? "None" : b);
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a), strB = boost::any_cast<string>(b);
+        return strA > strB ? a : (strA < strB ? b : "None");
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a), y = boost::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : "None");
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return stof(str2) > stof(str1) ? b : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        return stof(str) > a.convert_to<int>() ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a > b.convert_to<double>() ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
-        return stof(str) > b.convert_to<int>() ? a : b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a.convert_to<int>() > b.convert_to<int>() ? a : b;
-    }
-    else {
-        return boost::any("None");
-    }
+    return "None";
 }
