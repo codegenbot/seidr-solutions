@@ -9,13 +9,13 @@ std::vector<int> parse_music(std::string music_string) {
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-            i += 2;
+            i += 3;
         } else if (music_string[i] == '.') {
             beats.push_back(1);
-            i += 2;
+            i += 3;
         } else {
             beats.push_back(2);
-            i += 3;
+            i += 4;
         }
     }
     return beats;
@@ -36,6 +36,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>({ 4, 1, 4, 1, 2, 4, 4, 4 }), std::vector<int>({ 4, 1, 4, 1, 2, 4, 4, 4 })));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 4, 4, 4, 4 }));
     return 0;
 }
