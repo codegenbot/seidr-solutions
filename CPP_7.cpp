@@ -6,6 +6,8 @@ using namespace std;
 
 bool issame(const vector<string> a, const vector<string> b);
 
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
 bool issame(const vector<string> a, const vector<string> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
@@ -13,8 +15,6 @@ bool issame(const vector<string> a, const vector<string> b){
     }
     return true;
 }
-
-vector<string> filter_by_substring(vector<string> strings, string substring);
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> filtered_strings;
