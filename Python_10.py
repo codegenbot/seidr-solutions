@@ -1,20 +1,9 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
-
+```
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        reverse = string[::-1]
-        for i in range(len(string)):
-            if string[:i] + reverse != (string + reverse):
-                return string + reverse[i:]
-    else:
-        lower_string = string.lower()
-        for i in range(len(lower_string)):
-            if lower_string[:i] + lower_string[::-1] != (
-                lower_string + lower_string[::-1]
-            ):
-                return (lower_string[:i] + lower_string[::-1]).upper() + lower_string[
-                    i:
-                ].upper()
-    return string + string[::-1]
+    if string == string[::-1]:
+        return string + string
+    for i in range(len(string)):
+        first_part = string[:i]
+        last_part = string[i:][::-1]
+        if first_part == first_part[::-1] and last_part == last_part[::-1]:
+            return first_part + last_part
