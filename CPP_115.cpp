@@ -1,7 +1,34 @@
 #include <iostream>
 #include <vector>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<std::vector<int>> grid(n);
+    for (int i = 0; i < n; i++) {
+        int m;
+        std::cin >> m;
+        grid[i].resize(m);
+
+        for (int j = 0; j < m; j++) {
+            int val;
+            std::cin >> val;
+            grid[i][j] = (val == 1);
+        }
+    }
+
+    int capacity;
+    std::cin >> capacity;
+
+    int ans = max_fill(grid, capacity);
+
+    std::cout << ans << std::endl;
+
+    return 0;
+}
+
+int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int ans = 0;
     for (int i = 0; i < n; i++) {
@@ -12,18 +39,10 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             }
         }
         while (curr > 0) {
-            int fill = std::min(curr, capacity);
+            int fill = min(curr, capacity);
             ans++;
             curr -= fill;
         }
     }
     return ans;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{1, 1, 1}, {1, 0, 1}};
-    int capacity = 2;
-    int result = max_fill(grid, capacity);
-    std::cout << "The maximum number of times the container can be filled is: " << result << std::endl;
-    return 0;
 }
