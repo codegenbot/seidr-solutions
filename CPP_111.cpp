@@ -1,9 +1,6 @@
 #include <iostream>
 #include <map>
 #include <sstream>
-#include <algorithm>
-#include <vector>
-#include <string>
 
 using namespace std;
 
@@ -30,14 +27,10 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    std::string test;
-    getline(cin, test);
-
+    std::string test = "apple banana cherry apple banana";
     std::map<char, int> result = histogram(test);
-
     for (const auto &entry : result) {
-        cout << entry.first << ": " << entry.second << endl;
+        cout << entry.first << " appears " << entry.second << " times" << endl;
     }
-
     return 0;
 }
