@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 int findMaxPrime(vector<int> lst){
     int max_prime = 0;
