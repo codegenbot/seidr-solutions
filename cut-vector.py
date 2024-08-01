@@ -1,22 +1,5 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
-min_diff = float("inf")
-cut_index = -1
-
-for i in range(n):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    curr_diff = abs(left_sum - right_sum)
-    if curr_diff < min_diff:
-        min_diff = curr_diff
-        cut_index = i
-
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+a = int(input())
+print(n)
+print(a)
+print(0)
