@@ -1,34 +1,25 @@
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_none(a) || is_none(b)) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float fa = boost::any_cast<float>(a), fb = boost::any_cast<float>(b);
+        return fa > fb ? a : b;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string sa = boost::any_cast<string>(a), sb = boost::any_cast<string>(b);
+        return sa > sb ? a : b;
+    } else if (a.type() == typeid(int) && (b.type() == typeid(float) || b.type() == typeid(string) ||
+                                            b.type() == typeid(wstring))) {
+        int ai = boost::any_cast<int>(a), fb = boost::any_cast<float>(b);
+        return fb > ai ? b : a;
+    } else if ((a.type() == typeid(float) || a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(int))) {
+        float fa = boost::any_cast<float>(a), bi = boost::any_cast<int>(b);
+        return fa > bi ? a : b;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) && (b.type() == typeid(float))) {
+        string sa = boost::any_cast<string>(a), fb = boost::any_cast<float>(b);
         return "None";
     }
-
-    if (is_numeric(a) && is_numeric(b)) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-
-        if (da > db) {
-            return a;
-        } else if (db > da) {
-            return b;
-        } else {
-            return "None";
-        }
-    }
-
-    string sa = boost::any_cast<string>(a);
-    string sb = boost::any_cast<string>(b);
-
-    if (boost::lexical_cast<double>(sa) > boost::lexical_cast<double>(sb)) {
-        return a;
-    } else if (boost::lexical_cast<double>(sb) > boost::lexical_cast<double>(sa)) {
-        return b;
-    } else {
-        return "None";
-    }
+    return "None";
 }
