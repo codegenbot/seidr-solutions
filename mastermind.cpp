@@ -2,22 +2,42 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+using namespace std;
 
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == guess[i]) {
-                    whitePegs++;
-                    break;
+            count++;
+        }
+    }
+    return count;
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; ++i) {
+        bool correctPosition = false;
+        bool correctColor = false;
+        for (int j = 0; j < 4; ++j) {
+            if (code[i] == guess[j]) {
+                correctColor = true;
+                if (i == j) {
+                    correctPosition = true;
                 }
             }
         }
+        if (!correctPosition && correctColor) {
+            count++;
+        }
     }
+    return count;
+}
 
-    return blackPegs;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    return 0;
 }
