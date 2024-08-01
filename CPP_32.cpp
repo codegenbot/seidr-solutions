@@ -1,17 +1,21 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-double poly(vector<double> xs);
-
-double find_zero(vector<double> xs){
-    assert(xs.size() == 2);
+double poly(std::vector<double> xs){
     double a = xs[0];
     double b = xs[1];
     return -b/a;
 }
 
-int main() {
-    vector<double> coeffs = {5.0, -3.0};
-    double result = find_zero(coeffs);
+int main(){
+    std::vector<double> coeffs = {2.0, 5.0};  // Example coefficients for the polynomial
+
+    assert(coeffs.size() >= 2);  // Ensure there are at least two coefficients provided
+
+    double result = poly(coeffs);
+
+    std::cout << "Zero of the polynomial: " << result << std::endl;
+
     return 0;
 }
