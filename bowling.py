@@ -1,19 +1,29 @@
-Here is the solution in Python:
-
-def bowling_score(s):
-    frames = [list(map(int, frame.split('/'))) if '/' in frame else [int(frame)] for frame in s.split()]
+```
+def bowling_score(frames):
     score = 0
-    for i, frame in enumerate(frames):
+    frame_index = 0
+    for frame in frames.split('/'):
         if len(frame) == 1:
-            if i < 9 and (frames[i+1][0] == 10 or sum(frames[i+1]) < 10):
-                score += 20
-            else:
-                score += 10
+            score += int(frame)
         elif len(frame) == 2:
-            if frame[0] + frame[1] == 10:
-                score += 10
-            else:
-                score += frame[0] + frame[1]
-        else:
-            score += max(frame)
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            if second_roll == 10:  # strike
+                score += 10 + 10 + 10
+                frame_index += 1
+            else:  # spare
+                score += first_roll + second_roll + 10
+                frame_index += 2
+        elif len(frame) > 2:
+            rolls = list(map(int, frame))
+            if sum(rolls) == 10:  # spare
+                score += sum(rolls) + 10
+                frame_index += 1
+            else:  # open frames
+                for roll in rolls:
+                    if roll != 0:
+                        score += roll
+                    if frame_index < 9 and (score + roll >= 10):
+                        break
+                frame_index += 1
     return score
