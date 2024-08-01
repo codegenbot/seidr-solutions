@@ -1,11 +1,15 @@
-def solve(input_str):
-    if input_str == "T":
+Here is the Python solution:
+
+def solve_boolean(s):
+    if s == 't':
         return True
-    elif input_str == "F":
+    elif s == 'f':
         return False
-    elif "&" in input_str:
-        a, b = input_str.split("&")
-        return solve(a) and solve(b)
-    elif "|" in input_str:
-        a, b = input_str.split("|")
-        return solve(a) or solve(b)
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid expression")
+    elif '&' in s:
+        a, b = s.split('&')
+        return bool(eval(a) and eval(b))
+    elif '|' in s:
+        a, b = s.split('|')
+        return bool(eval(a) or eval(b))
