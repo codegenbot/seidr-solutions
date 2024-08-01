@@ -2,7 +2,7 @@
 #include <vector>
 #include <utility>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
@@ -11,9 +11,9 @@ int main() {
     return 0;
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
-    pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
+    std::pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
     float min_diff = abs(numbers[1] - numbers[0]);
     
     for (int i = 1; i < numbers.size() - 1; ++i) {
@@ -24,7 +24,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    vector<pair<float, float>> result;
+    std::vector<std::pair<float, float>> result;
     for (int i = 0; i < numbers.size() - 1; ++i) {
         if (abs(numbers[i+1] - numbers[i]) == min_diff) {
             result.push_back({min(numbers[i], numbers[i+1]), max(numbers[i], numbers[i+1])});
