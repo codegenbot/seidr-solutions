@@ -1,6 +1,5 @@
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [num for num in set(numbers) if numbers.count(num) == 1]
+from typing import List
 
-numbers = list(map(int, input().split()))
-result = remove_duplicates(numbers)
-print(result)
+
+def remove_duplicates(nums: List[int]) -> List[int]:
+    return [num for num in nums if nums.count(num) == 1]
