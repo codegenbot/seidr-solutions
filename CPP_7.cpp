@@ -4,21 +4,13 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring){
     std::vector<std::string> filtered_strings;
     for(const std::string& str : strings){
-        if(str.find(substring) != -1){
+        if(str.find(substring) != std::string::npos){
             filtered_strings.push_back(str);
         }
     }
