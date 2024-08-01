@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<std::string>& b) {
     std::vector<std::string> a_str;
@@ -14,8 +13,6 @@ bool issame(const std::vector<int>& a, const std::vector<std::string>& b) {
 
 int main() {
     std::vector<std::string> by_length;
-
-    assert(issame({9, 4, 8}, {"9", "4", "8"}));
-
+    assert(issame({9, 4, 8}, {"Nine", "Eight", "Four"}));
     return 0;
 }
