@@ -1,4 +1,3 @@
-from typing import list, Any
-
-def filter_integers(values: list[Any]) -> list[int]:
+from typing import List
+def filter_integers(values: List[Any]) -> List[int]:
     return [value for value in values if isinstance(value, int)]
