@@ -1,24 +1,45 @@
 #include <algorithm>
 #include <vector>
 #include <numeric>
+#include <limits>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (std::abs(v1[i] - v2[i]) > std::numeric_limits<float>::epsilon()) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::pair<float, float> closest;
-    float min_diff = std::numeric_limits<float>::max();
+int main() {
+    vector<float> numbers = {1.0, 5.0, 3.0, 4.0};
+    vector<float> result = find_closest_elements(numbers);
+    
+    cout << "Closest elements are: ";
+    for (float num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
+vector<float> find_closest_elements(vector<float> numbers) {
+    float min_diff = numeric_limits<float>::max();
+    float closest1 = 0;
+    float closest2 = 0;
+
+    for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = std::abs(numbers[i] - numbers[j]);
+            float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest = std::make_pair(std::min(numbers[i], numbers[j]), std::max(numbers[i], numbers[j]));
+                closest1 = numbers[i];
+                closest2 = numbers[j];
             }
         }
     }
 
-    return {{closest}};
+    vector<float> result({closest1, closest2});
+    return result;
 }
