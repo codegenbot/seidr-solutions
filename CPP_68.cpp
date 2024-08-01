@@ -1,9 +1,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+std::vector<int> pluck(std::vector<int> arr);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
@@ -25,6 +24,12 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
-int main(){
-    assert (issame(pluck({7, 9, 7, 1}), {})); // Add more test cases if needed
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    
+    return 0;
 }
