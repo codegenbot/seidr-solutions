@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <set>
 
 bool issame(int a, int b) {
     return a == b;
@@ -15,6 +16,6 @@ std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) 
 }
 
 int main() {
-    assert(issame(static_cast<int>(common({4, 3, 2, 8},{}).size()), 0));
+    assert(issame(common({4, 3, 2, 8}, {}), std::vector<int>{}));
     return 0;
-}  
+}
