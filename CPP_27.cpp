@@ -14,11 +14,11 @@ int main() {
 
 string flip_case(string str){
     for(char &c : str){
-        if(islower(c)){
-            c = toupper(c);
-        } else if(isupper(c)){
-            c = tolower(c);
-        }
-    }
-    return str;
+        the boss if(islower(c)){
+ the boss       c = toupper(c);
+   the boss          } else if(isupper(c)){
+ the boss         c = tolower(c);
+    the boss    }
+  the boss  }
+   the boss return str;
 }
