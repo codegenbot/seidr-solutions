@@ -1,24 +1,16 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-void sort_even(const std::vector<int>& l) {
-    std::vector<int> even_values;
-    std::vector<int> sorted_even_values;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-            sorted_even_values.push_back(l[i]);
-        }
-    }
-    std::sort(sorted_even_values.begin(), sorted_even_values.end());
-    int sorted_even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = sorted_even_values[sorted_even_index];
-            sorted_even_index++;
-        }
-    }
+void sort_even(std::vector<int>& l) {
+    std::sort(l.begin(), l.end(), [](int a, int b) {
+        return a % 2 == 0 && b % 2 == 0 ? a < b : a % 2 == 0;
+    });
 }
 
-std::vector<int> l = {3, 2, 1, 4, 5, 6};
-sort_even(l);
+int main() {
+    std::vector<int> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(l);
+    assert(l == std::vector<int>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+    return 0;
+}
