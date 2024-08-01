@@ -1,4 +1,7 @@
 #include <string>
+#include <cassert>
+
+string decode_cyclic(string s);
 
 string encode_cyclic(string s) {
     int l = s.length();
