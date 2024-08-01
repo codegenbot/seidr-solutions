@@ -1,20 +1,23 @@
-#include <vector>
+```cpp
 #include <boost/any.hpp>
+#include <vector>
+#include <list>
 
-vector<int> filter_integers(list_any values) {
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> filter_integers(list< boost::any > values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = boost::any_cast<int>(value);
-            if (i.good()) {
-                result.push_back(i);
-            }
-        } else if (value.type() == typeid(double)) {
-            double d = boost::any_cast<double>(value);
-            if (!d.isNaN()) {
-                result.push_back(static_cast<int>(d));
-            }
+        if (boost::any_cast<int>(value).good()) { 
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_integers({3, boost::any(3), 3, boost::any('a'), boost::any('b') }), vector<int>{3, 3, 3}));
+    return 0;
 }
