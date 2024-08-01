@@ -26,29 +26,28 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
 }
 
 int main() {
-    vector<int> arr = {1, 5, 3, 4, 2, 6};
-    vector<string> result = by_length(arr);
-    vector<string> expected_result = {"Six", "Five", "Four", "Three", "Two", "One"};
+    vector<int> input = {3, 7, 1, 9, 4, 5};
+    vector<string> result = by_length(input);
 
-    if (issame(result, expected_result)) {
-        cout << "Same";
+    vector<string> expected = {"Nine", "Seven", "Four", "Three", "One"};
+
+    if (issame(result, expected)) {
+        cout << "Result matched the expected output" << endl;
     } else {
-        cout << "Not same";
+        cout << "Result did not match the expected output" << endl;
     }
 
     return 0;
