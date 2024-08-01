@@ -20,10 +20,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a.convert_to<float>() > b ? &a : &b;
+        return (float)a < b ? &b : &a;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a.convert_to<double>() > b ? &a : &b;
+        return (double)a < b ? &b : &a;
     }
    	else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         if (stof(a.convert_to<string>().c_str()) < b) {
@@ -58,7 +58,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-	return boost::any();
+   	return boost::any();
 }
 
 int main() {
