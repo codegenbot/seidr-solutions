@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool will_it_fly(std::vector<int> q, int w) {
     int sum = 0;
