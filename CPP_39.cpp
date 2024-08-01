@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
 
 int prime_fib(int n) {
@@ -26,7 +25,8 @@ int prime_fib(int n) {
 }
 
 int main() {
-    assert(prime_fib(10) == 433494437);
+    int n = 10;
+    assert(prime_fib(n) == 433494437);
     
     return 0;
 }
