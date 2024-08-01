@@ -1,38 +1,31 @@
-#include <boost/any.hpp>
-#include <string>
-
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
-            return b;
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stoi(b.convert_to<std::string>().erase(0, 1).erase(b.convert_to<std::string>().find(',') + 1).c_str()) > std::stoi(a.convert_to<std::string>().erase(0, 1).erase(a.convert_to<std::string>().find(',') + 1).c_str()) {
-            return b;
-        } else if (std::stoi(b.convert_to<std::string>().erase(0, 1).erase(b.convert_to<std::string>().find(',') + 1).c_str()) == std::stoi(a.convert_to<std::string>().erase(0, 1).erase(a.convert_to<std::string>().find(',') + 1).c_str())) {
-            return "None";
-        } else {
-            return b;
-        }
-    } else if (a.type() == typeid(double) && a.convert_to<double>() > b.convert_to<double>()) {
-        return a;
-    } else if (b.type() == typeid(double) && b.convert_to<double>() > a.convert_to<double>()) {
-        return b;
-    } else {
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        return stof(str) > a.convert_to<double>() ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return stof(str2) > stof(str1) ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        return stof(str) > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a > b.convert_to<double>() ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(a);
+        return stof(str) > b.convert_to<int>() ? a : b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return a.convert_to<int>() > b.convert_to<int>() ? a : b;
+    }
+    else {
+        return boost::any("None");
     }
 }
