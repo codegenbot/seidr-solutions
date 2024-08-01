@@ -1,5 +1,5 @@
-from functools import reduce
 from typing import List, Tuple
+from functools import reduce
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
