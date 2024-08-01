@@ -4,4 +4,4 @@ def make_palindrome(string: str) -> str:
             new_string = char + string + char
             if is_palindrome(new_string):
                 return new_string
-    return None
+        return None
