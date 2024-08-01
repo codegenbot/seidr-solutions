@@ -1,6 +1,17 @@
-double find_zero(vector<double> xs){
+#include <vector>
+
+double poly(std::vector<double> coeffs, double x);
+
+double find_zero(std::vector<double> xs) {
     double a = xs[0];
     double b = xs[1];
-    double discriminant = b * b - 4 * a;
-    return -b / (2 * a);
+    return -b/a;
+}
+
+double poly(std::vector<double> coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
 }
