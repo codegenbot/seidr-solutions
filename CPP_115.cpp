@@ -2,30 +2,11 @@
 #include <vector>
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<std::vector<int>> grid(n);
-    for (int i = 0; i < n; i++) {
-        int m;
-        std::cin >> m;
-        grid[i].resize(m);
-
-        for (int j = 0; j < m; j++) {
-            int val;
-            std::cin >> val;
-            grid[i][j] = (val == 1);
-        }
-    }
-
-    int capacity;
-    std::cin >> capacity;
-
+    std::vector<std::vector<int>> grid = {{1,0,1},{1,1,0},{0,1,0}};
+    int capacity = 2;
+    
     int ans = max_fill(grid, capacity);
-
-    std::cout << ans << std::endl;
-
-    return 0;
+    std::cout << "Maximum number of times the water tank can be filled: " << ans << "\n";
 }
 
 int max_fill(vector<vector<int>> grid, int capacity) {
