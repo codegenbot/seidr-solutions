@@ -14,8 +14,6 @@ bool solveBoolean(string expression) {
                 break;
             }
             i = j - 1;
-        } else if (expression[i] == 'T') {
-            return true;
         } else if (expression[i] == 'F') {
             return false;
         }
