@@ -1,8 +1,11 @@
-int totalCost(vector<int> costs) {
-    int sum = 0;
-    for (int cost : costs) {
-        int newCost = (cost / 3) - 2;
-        sum += newCost;
+Here is the solution:
+
+int calculateFuelCost(vector<int>& numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int newNum = (num / 3);
+        newNum = (newNum > 0) ? newNum - 2 : 0;
+        total += newNum;
     }
-    return sum;
+    return total;
 }
