@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 int sumOfDigits(int n) {
     int sum = 0;
@@ -37,19 +36,4 @@ int findSumOfDigits(vector<int> lst) {
         return -1;
     else
         return sumOfDigits(maxPrime);
-}
-
-int main() {
-    vector<int> numbers;
-    cout << "Enter the numbers: ";
-    int n;
-    while ((cin >> n) && n != -1) {
-        numbers.push_back(n);
-    }
-    if (numbers.size() > 0) {
-        cout << "Sum of digits of largest prime number is: " << findSumOfDigits(numbers) << endl;
-    } else {
-        cout << "No numbers entered." << endl;
-    }
-    return 0;
 }
