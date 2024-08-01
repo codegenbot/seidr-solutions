@@ -1,9 +1,11 @@
 def cut_vector(vector):
+    if len(vector) == 1:
+        return [vector], []
     min_diff = float("inf")
-    cut_index = 0
-    for i in range(1, len(vector)):
-        diff = abs(np.sum(vector[:i]) - np.sum(vector[i:]))
+    split_index = -1
+    for i in range(len(vector) - 1):
+        diff = abs(sum(vector[: i + 1]) - sum(vector[i + 1 :]))
         if diff < min_diff:
             min_diff = diff
-            cut_index = i
-    return vector[:cut_index], vector[cut_index:]
+            split_index = i
+    return vector[: split_index + 1], vector[split_index + 1 :]
