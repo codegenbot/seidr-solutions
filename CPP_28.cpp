@@ -1,17 +1,18 @@
-#include <unordered_set>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-std::string concatenateNoDuplicates(const std::vector<std::string>& strings){
-    std::unordered_set<char> uniqueLetters;
+std::string concatenate(const std::vector<std::string>& strings){
     std::string result;
-    for(const std::string& s : strings){
-        for(char c : s){
-            if(uniqueLetters.find(c) == uniqueLetters.end()){
-                result += c;
-                uniqueLetters.insert(c);
-            }
-        }
+    for (const std::string& s : strings) {
+        result += s;
     }
     return result;
 }
 
-assert(concatenateNoDuplicates({"x", "y", "z", "w", "k"}) == "xyzwk");
+int main() {
+    std::vector<std::string> strings = {"x", "y", "z", "w", "k"};
+    std::cout << concatenate(strings) << std::endl;
+    return 0;
+}
