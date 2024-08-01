@@ -1,6 +1,4 @@
-bool issame(const vector<int>& a, const vector<int>& b){
-    return a == b;
-}
+
 vector<int> filter_integers(const list<any>& values){
     vector<int> integers;
     for(const auto& val : values){
@@ -9,6 +7,10 @@ vector<int> filter_integers(const list<any>& values){
         }
     }
     return integers;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
 }
 
 int main(){
