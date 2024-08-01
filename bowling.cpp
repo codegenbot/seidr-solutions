@@ -1,5 +1,10 @@
+#include <iostream>
+#include <string>
+
 int score(const std::string &bowls) {
-    // Existing code before the for loop remains the same
+    int total = 0;
+    int frame = 0;
+    int bowlIndex = 0;
     
     for (int i = 0; i < 10; ++i) {
         if (bowls[bowlIndex] == 'X') {
@@ -19,4 +24,11 @@ int score(const std::string &bowls) {
     }
     
     return total;
+}
+
+int main() {
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << score(bowls) << std::endl;
+    return 0;
 }
