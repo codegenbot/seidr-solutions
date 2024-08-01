@@ -1,7 +1,11 @@
 import sys
+from itertools import cycle
 
 def decode_cyclic(input_str):
-    return input_str[-1] + input_str[:-1]
+    decoded = ''
+    for char, digit in zip(input_str, cycle("12345")):
+        decoded += chr(ord(char) - int(digit))
+    return decoded
 
 input_str = sys.stdin.readline().strip()
 result = decode_cyclic(input_str)
