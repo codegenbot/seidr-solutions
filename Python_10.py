@@ -1,4 +1,3 @@
-```
 def make_palindrome(string: str) -> str:
     s = string.lower()
     n = 0
