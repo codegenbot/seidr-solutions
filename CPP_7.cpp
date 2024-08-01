@@ -1,4 +1,4 @@
-```
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -13,21 +13,21 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
     for(string s : strings){
-        if(s.find(substring) != string::npos)
+        if(s.find(substring) != std::string::npos)
             result.push_back(s);
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> vec1 = {"apple", "banana", "cherry"};
-    std::vector<std::string> vec2 = {"banana", "grape", "mango"};
+    std::vector<std::string> v1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> v2 = {"banana", "date", "elderberry"};
 
-    if (issame(filter_by_substring(vec1, "an"), filter_by_substring(vec2, "an"))) {
-        for (const auto& s : filter_by_substring(vec1, "an")) std::cout << s << std::endl;
-        for (const auto& s : filter_by_substring(vec2, "an")) std::cout << s << std::endl;
+    if (issame(filter_by_substring(v1, "an"), filter_by_substring(v2, "an"))) {
+        std::cout << "The vectors contain the same strings.\n";
     } else {
-        std::cout << "Vectors are not same." << std::endl;
+        std::cout << "The vectors do not contain the same strings.\n";
     }
+
     return 0;
 }
