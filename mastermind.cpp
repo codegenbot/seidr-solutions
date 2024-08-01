@@ -1,22 +1,36 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
+            count++;
         }
     }
+    return count;
+}
 
-    for (char c : guess) {
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            if (c == code[i]) {
-                count++;
-            }
+int blackPegs(string code, string guess) {
+    int count = 0;
+    map<char, bool> codeMap;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            codeMap[code[i]] = true;
+        } else {
+            codeMap[guess[i]] = false;
         }
-        white += count - (black > 0);
     }
+    
+    for (int i = 0; i < 4; i++) {
+        if (codeMap.find(code[i]) != codeMap.end() && codeMap[code[i]]) {
+            count++;
+        }
+    }
+    return count;
+}
 
-    return black;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << blackPegs(code, guess) << "\n";
+    cout << whitePegs(code, guess) << "\n";
+    return 0;
 }
