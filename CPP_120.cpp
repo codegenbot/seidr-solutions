@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +19,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
 int main() {
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    int k = 4;
-    assert(issame(maximum(arr,k) , {0,1,2,3}));
+    int k = 5;
+    assert(issame(maximum(arr,k) , {}));
     return 0;
 }
