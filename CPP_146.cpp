@@ -11,7 +11,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, -12, 15, 22};
+    vector<int> nums = {1, -11, 3, -13, 15};
     int count = specialFilter(nums);
     cout << "Count: " << count << endl;
 }
