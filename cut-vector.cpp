@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -7,16 +6,16 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
     vector<vector<int>> result;
-
+    
     for (int i = 0; i < n; i++) {
         if (i == 0 || i == n - 1) {
-            vector<int> left;
-            left.push_back(nums[i]);
+            vector<int> left({nums[i]});
             vector<int> right;
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (nums[i] == nums[0]) {
             int min_diff = INT_MAX, cut_index = -1;
             for (int j = 0; j < i; j++) {
@@ -34,25 +33,46 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == 0) {
+            int min_diff = INT_MAX, cut_index = -1;
+            for (int j = 0; j < i; j++) {
+                int diff = nums[j] - nums[i];
+                if (diff < min_diff) {
+                    min_diff = diff;
+                    cut_index = j;
+                }
+            }
             vector<int> left;
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j <= cut_index; j++) {
                 left.push_back(nums[j]);
             }
             vector<int> right;
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == n - 1) {
-            vector<int> left;
+            int min_diff = INT_MAX, cut_index = -1;
             for (int j = 0; j < i; j++) {
+                int diff = nums[j] - nums[i];
+                if (diff < min_diff) {
+                    min_diff = diff;
+                    cut_index = j;
+                }
+            }
+            vector<int> left;
+            for (int j = 0; j <= cut_index; j++) {
                 left.push_back(nums[j]);
             }
-            vector<int> right;
-            right.push_back(nums[i]);
-            result.push_back({left, right});
+            vector<int> right({nums[i]});
+            for (int j = i + 1; j < n; j++) {
+                right.push_back(nums[j]);
+            }
+            result.push_back(left);
+            result.push_back(right);
         } else {
             int min_diff = INT_MAX, cut_index = -1;
             for (int j = 0; j < i; j++) {
@@ -70,60 +90,31 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    std::vector<int> nums1 = {1};
-    std::vector<int> nums2 = {1, 10};
-    std::vector<int> nums3 = {1, 100};
-    std::vector<int> nums4 = {1, 1000};
-    std::vector<int> nums5 = {1, 10000};
-
-    std::vector<std::vector<int>> result1 = cutVector(nums1);
-    std::vector<std::vector<int>> result2 = cutVector(nums2);
-    std::vector<std::vector<int>> result3 = cutVector(nums3);
-    std::vector<std::vector<int>> result4 = cutVector(nums4);
-    std::vector<std::vector<int>> result5 = cutVector(nums5);
-
-    for (const auto& r : result1) {
-        for (int num : r) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
+    std::cout << "Enter the size of array: ";
+    int n;
+    std::cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> nums[i];
     }
-
-    for (const auto& r : result2) {
-        for (int num : r) {
-            std::cout << num << " ";
+    
+    vector<vector<int>> result = cutVector(nums);
+    for(int i=0;i<result.size();i++){
+        for(int j=0;j<result[i].size();j++){
+            std::cout<<result[i][j]<<" ";
         }
-        std::cout << std::endl;
+        std::cout<<std::endl;
     }
-
-    for (const auto& r : result3) {
-        for (int num : r) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    for (const auto& r : result4) {
-        for (int num : r) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    for (const auto& r : result5) {
-        for (int num : r) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    }
-
+    
     return 0;
 }
