@@ -1,7 +1,4 @@
-```
 def count_upper(s):
-    count = 0
-    for i in range(0, len(s), 2):
-        if s[i].upper() in 'AEIO':
-            count += 1
-    return count
+    return sum(
+        1 for i, c in enumerate(s) if "AEIO".index(c.upper()) % 2 == 0 and c.isupper()
+    )
