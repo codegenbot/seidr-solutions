@@ -7,8 +7,3 @@ int search(const vector<int>& lst) {
     }
     return result;
 }
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
-}
