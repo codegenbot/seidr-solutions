@@ -8,4 +8,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ")":
                 nesting_level -= 1
         result.append(nesting_level)
-    return [i for sub_list in result for i in [sub_list]]
+    return [i for i in result if i != 0]
