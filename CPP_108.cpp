@@ -20,8 +20,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, -4};
+    std::vector<int> nums = {-123, 45, -7, 98};
     int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
+    std::cout << "The number of numbers with odd sum of digits is: " << result << std::endl;
     return 0;
 }
