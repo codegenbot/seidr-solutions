@@ -13,12 +13,12 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;  
-    float odd_sum = 0.0;    
-    for(int i = 1; i <= 10; ++i){
-        lst.push_back((float)i);
-    }
-    for (float num : lst) {
-        if(num % 2 != 0){
+    float odd_sum = 0.0;     
+    for(float i=1.5;i<=10.5;i+=0.5){ 
+        lst.push_back(i); 
+    }    
+    for (float num : lst) { 
+        if(modf(num, &num) != 0) {
             odd_sum += num;
         }
     }
