@@ -1,27 +1,14 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
-int is_bored(string S) {
-    int boredom_count = 0;
-    string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.find("I") != string::npos)
-                boredom_count++;
-            sentence.clear();
-        } else {
-            sentence += c;
+int is_bored(string S){
+    int count = 0;
+    string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == ' ' || S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.size() > 0 && word[0] == 'I')
+                count++;
+            word.clear();
+        }else{
+            word += S[i];
         }
     }
-    return boredom_count;
-}
-
-int main() {
-    string S;
-    cout << "Enter a string of words: ";
-    getline(cin, S);
-    int result = is_bored(S);
-    cout << "Number of boredoms: " << result << endl;
-    return 0;
+    return count;
 }
