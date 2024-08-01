@@ -1,18 +1,17 @@
 #include <vector>
+#include <cassert> 
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> make_a_pile(int size) {
-    std::vector<int> vec;
-    for (int i = 0; i < size; ++i) {
-        vec.push_back(8 + 2*i);
+vector<int> make_a_pile(int n) {
+    vector<int> v;
+    for (int i = 1; i <= n; i++) {
+        v.push_back(2 * i + 6);
     }
-    return vec;
+    return v;
 }
 
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
