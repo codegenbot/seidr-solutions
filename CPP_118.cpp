@@ -1,19 +1,11 @@
-#include <algorithm>
-#include <string>
+#include <iostream>
+#include <cctype>
 
-using namespace std;
-
-string get_closest_vowel(string word) {
-    for (int i = word.length() - 1; i >= 0; --i) {
-        if ("aeiouAEIOU".find(word[i]) != string::npos) {
-            int left = i + 1;
-            while (left < word.length() && !("aeiouAEIOU".find(word[left]) != string::npos)) {
-                ++left;
-            }
-            if (left - 1 > i) {
-                return string(1, word[i]);
-            }
-        }
+int main() {
+    std::string word = "Hello! World!";
+    for (int i = 0; i < word.length(); i++) {
+        if (!std::ispunct(word[i])) continue;
+        return word[i];
     }
-    return "";
+    return 0;
 }
