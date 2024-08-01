@@ -1,5 +1,15 @@
 vector<int> parse_music(string music_string) {
-    // Your code implementation for parse_music function
+    vector<int> result;
+    int count = 0;
+    for (char c : music_string) {
+        if (c == 'o') {
+            count++;
+        } else if (c == '|') {
+            result.push_back(count);
+            count = 0;
+        }
+    }
+    return result;
 }
 
 bool issame(vector<int> a, vector<int> b) {
