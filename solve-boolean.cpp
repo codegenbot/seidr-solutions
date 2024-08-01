@@ -14,14 +14,21 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = s.substr(0, j);
+    
+    if(left == "t" || left == "f")
+        return (left == "t") ? true : false;
 
-    if(left.back() == '&') {
-        return solveBoolean(left.substr(0, left.length()-1)) && solveBoolean(left.back() == '&' ? left.substr(1) : left.substr(1,left.length()-2));
-    } else {
-        return solveBoolean(left);
+    j++;
+    while(j<s.length()) {
+        if(s[j] == '&') break;
+        j++;
     }
+    string right = s.substr(j);
 
-    return false;
+    if(right == "t" || right == "f")
+        return (right == "t") ? true : false;
+
+    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
