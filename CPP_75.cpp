@@ -1,30 +1,32 @@
-bool is_multiply_prime(int num);
+#include <iostream>
+#include <cassert>
 
-bool is_multiply_prime(int num) {
-    if (num <= 1) {
+bool is_prime(int num) {
+    if (num < 2) {
         return false;
     }
-
-    for (int i = 2; i <= num / 2; ++i) {
+    for (int i = 2; i * i <= num; i++) {
         if (num % i == 0) {
             return false;
         }
     }
-
     return true;
 }
 
-int main() {
-    int number;
-
-    std::cout << "Enter a number: ";
-    std::cin >> number;
-
-    if (is_multiply_prime(number)) {
-        std::cout << number << " is a prime number and a multiple of itself." << std::endl;
-    } else {
-        std::cout << number << " is either not a prime number or not a multiple of itself." << std::endl;
+bool is_multiply_prime(int num) {
+    if (num < 2) {
+        return false;
     }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0 && is_prime(i) && is_prime(num / i)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    assert(is_multiply_prime(11 * 13 * 7) == true);
 
     return 0;
 }
