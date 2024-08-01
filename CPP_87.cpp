@@ -26,4 +26,3 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 
     return result;
 }
-
