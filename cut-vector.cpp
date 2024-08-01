@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -14,7 +14,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         }
     }
     
-    return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
+    return {{vec.begin(), vec.begin() + cut_index}}, {vec.begin() + cut_index, vec.end()}};
 }
 
 int main() {
