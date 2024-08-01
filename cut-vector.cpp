@@ -7,34 +7,27 @@ int main() {
         std::cin >> vec[i];
     }
 
-    int totalSum = 0;
+    int left_sum = 0, right_sum = 0;
     for (int i = 0; i < n; ++i) {
-        totalSum += vec[i];
+        right_sum += vec[i];
     }
 
-    int leftSum = 0;
-    int rightSum = totalSum;
-    int minDifference = INT_MAX;
-    int cutIndex = -1;
+    int min_diff = INT_MAX;
+    int cut_position = 0;
 
     for (int i = 0; i < n; ++i) {
-        leftSum += vec[i];
-        rightSum -= vec[i];
+        right_sum -= vec[i];
+        left_sum += vec[i];
 
-        int difference = abs(leftSum - rightSum);
-        if (difference < minDifference) {
-            minDifference = difference;
-            cutIndex = i;
+        int current_diff = abs(right_sum - left_sum);
+        if (current_diff < min_diff) {
+            min_diff = current_diff;
+            cut_position = i;
         }
     }
-    
-    for (int i = 0; i <= cutIndex; ++i) {
-        std::cout << vec[i] << " ";
-    }
-    std::cout << "\n";
-    for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << vec[i] << " ";
-    }
+
+    std::vector<int> left(vec.begin(), vec.begin() + cut_position + 1);
+    std::vector<int> right(vec.begin() + cut_position + 1, vec.end());
 
     return 0;
 }
