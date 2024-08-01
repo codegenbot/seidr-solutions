@@ -1,4 +1,5 @@
 #include <string>
+
 std::string remove_vowels(std::string text);
 
 int main() {
