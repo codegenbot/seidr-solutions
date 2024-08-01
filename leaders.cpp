@@ -1,18 +1,58 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int> arr) {
-    vector<int> result;
+vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    for (int i = 0; i < n; i++) {
-        bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+    vector<int> res;
+    
+    for(int i=n-1; i>=0; i--) {
+        while(i<n-1 && arr[i]>=arr[n-1]) {
+            n--;
         }
-        if (isLeader) result.push_back(arr[i]);
+        res.push_back(arr[i]);
     }
-    return result;
+    
+    reverse(res.begin(), res.end());
+    
+    return res;
+}
+
+int main() {
+    // Example usage:
+    vector<int> input = {0};
+    vector<int> output = leaders(input);
+    for(int num: output) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    input = {1, 0};
+    output = leaders(input);
+    for(int num: output) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    input = {1, 451};
+    output = leaders(input);
+    for(int num: output) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    input = {2, 1000, 0};
+    output = leaders(input);
+    for(int num: output) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    input = {2, 0, 1000};
+    output = leaders(input);
+    for(int num: output) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
