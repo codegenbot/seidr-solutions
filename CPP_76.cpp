@@ -1,6 +1,6 @@
-Here's the solution:
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
-    double res = pow(n, ceil(log(x)/log(n)));
-    return res == x;
+    double y = pow(n, round(log(x)/log(n)));
+    return std::abs(y - x) < 1e-9;
 }
