@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -35,14 +34,12 @@ int main() {
     cout << "Enter a number: ";
     cin >> num;
     vector<int> output = get_odd_collatz(num);
-    if (issame(output, {1})) {
-        cout << "The sequence ends at 1." << endl;
+    if (output.size() == 0) {
+        cout << "1";
     } else {
-        cout << "The sequence is: ";
-        for (int i : output) {
-            cout << i << " ";
+        for (auto i : output) {
+            cout << i << endl;
         }
-        cout << endl;
     }
     return 0;
 }
