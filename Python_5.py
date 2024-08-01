@@ -1,6 +1,6 @@
-def fix_code(numbers, delimeter):
+def concatenate_with_delimiter(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     result.pop()
     return result
