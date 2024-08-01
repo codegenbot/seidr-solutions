@@ -21,5 +21,17 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    // Your code here
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 4, 5};
+
+    if(issame(l1,l2)) {
+        cout << "The lists are the same";
+    } else {
+        vector<int> commonList = common(l1, l2);
+        for(int i : commonList) {
+            cout << i << " ";
+        }
+    }
+
+    return 0;
 }
