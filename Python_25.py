@@ -1,8 +1,3 @@
-```
-from typing import List
-import math
-
-
 n = int(input("Enter a number to factorize: "))
 def factorize():
     factors = []
@@ -20,5 +15,3 @@ def factorize():
     if n > 1:
         factors.append(n)
     return factors
-
-print(factorize())
