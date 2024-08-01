@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
-#include <string>
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
