@@ -2,15 +2,14 @@ vector<int> maximum(vector<int> arr, int k) {
     vector<int> res;
     unordered_set<int> unique;
     
-    for (int i : arr) {
-        if (unique.find(i) == unique.end()) {
-            res.push_back(i);
-            unique.insert(i);
+    for(int i = 0; i < arr.size(); i++){
+        if(unique.find(arr[i]) == unique.end()){
+            unique.insert(arr[i]);
+            if(unique.size() >= k){
+                break;
+            }
         }
-        
-        if (res.size() >= k)
-            break;
     }
-    
-    return vector<int>(res.begin(), res.begin() + k); // Return the first 'k' elements
+    res.assign(unique.begin(), unique.end());
+    return res;
 }
