@@ -3,7 +3,7 @@
 #include <algorithm>
 
 std::string camelCase(const std::string& input) {
-    std::string result = "";
+    std::string result;
     bool firstWord = true;
 
     for (char c : input) {
@@ -14,16 +14,16 @@ std::string camelCase(const std::string& input) {
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += '-';
+                result += char(std::toupper(c));
             }
             firstWord = true;
         } else {
             if (firstWord) {
-                result += std::tolower(c);
-                firstWord = false;
-            } else {
                 result += c;
+            } else {
+                result += char(std::tolower(c));
             }
+            firstWord = false;
         }
     }
 
@@ -34,10 +34,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-
-    // Remove spaces
-    std::replace_if(input.begin(), input.end(), ::isspace, '');
-
+    std::replace_if(input.begin(), input.end(), ::isspace, '\0');
     std::cout << camelCase(input) << std::endl;
 
     return 0;
