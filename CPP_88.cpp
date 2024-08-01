@@ -2,7 +2,10 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
+}
+
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end());
+    return arr;
 }
