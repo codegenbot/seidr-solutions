@@ -1,46 +1,158 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
+vector<vector<int>> cutVector(vector<int> nums) {
+    int n = nums.size();
+    int min_diff = INT_MAX, cut_index = -1;
     
-    for(int i=0; i<n-1; i++) {
-        if(abs(v[i] - v[i+1]) <= 0 || abs(v[0] - v[i]) <= abs(v[i+1] - v[n-1])) {
-            res[0].insert(res[0].end(), v.begin(), v.begin()+i+1);
-            res[1].insert(res[1].begin(), v.begin()+i, v.end());
-            return res;
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || i == n - 1) {
+            vector<int> left;
+            left.push_back(nums[i]);
+            vector<int> right;
+            for (int j = i + 1; j < n; j++) {
+                right.push_back(nums[j]);
+            }
+            vector<vector<int>> result;
+            result.push_back(left);
+            result.push_back(right);
+            return result;
+        } else if (nums[i] == nums[0]) {
+            vector<int> left;
+            left.push_back(nums[0]);
+            for (int j = 1; j < i; j++) {
+                left.push_back(nums[j]);
+            }
+            vector<int> right;
+            for (int j = i; j < n; j++) {
+                right.push_back(nums[j]);
+            }
+        } else if (i == 0) {
+            vector<int> left;
+            for (int j = 0; j <= i; j++) {
+                left.push_back(nums[j]);
+            }
+            vector<int> right;
+            for (int j = i + 1; j < n; j++) {
+                right.push_back(nums[j]);
+            }
+        } else if (i == n - 1) {
+            vector<int> left;
+            for (int j = 0; j < i; j++) {
+                left.push_back(nums[j]);
+            }
+            vector<int> right;
+            right.push_back(nums[i]);
+        } else {
+            int diff = nums[0] - nums[i];
+            if (diff < min_diff) {
+                min_diff = diff;
+                cut_index = 0;
+            }
+            for (int j = 1; j < i; j++) {
+                int temp_diff = nums[j - 1] - nums[j];
+                if (temp_diff < min_diff) {
+                    min_diff = temp_diff;
+                    cut_index = j;
+                }
+            }
         }
     }
     
-    res[0].insert(res[0].end(), v.begin(), v.end());
-    return res;
+    vector<int> left;
+    for (int j = 0; j <= cut_index; j++) {
+        left.push_back(nums[j]);
+    }
+    vector<int> right;
+    for (int j = cut_index + 1; j < n; j++) {
+        right.push_back(nums[j]);
+    }
+    
+    return {{left}, {right}};
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++) {
-        cin >> v[i];
+    // Example inputs
+    vector<int> nums1 = {1};
+    vector<int> nums2 = {1, 10};
+    vector<int> nums3 = {1, 100};
+    vector<int> nums4 = {1, 1000};
+    vector<int> nums5 = {1, 10000};
+
+    // Call the function
+    vector<vector<int>> result1 = cutVector(nums1);
+    vector<vector<int>> result2 = cutVector(nums2);
+    vector<vector<int>> result3 = cutVector(nums3);
+    vector<vector<int>> result4 = cutVector(nums4);
+    vector<vector<int>> result5 = cutVector(nums5);
+
+    // Print the results
+    cout << "Input 1: ";
+    for (int num : nums1) {
+        cout << num << " ";
     }
-    
-    vector<vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for(int i=0; i<result[0].size(); i++) {
-        cout << result[0][i];
-        if(i < result[0].size() - 1) cout << " ";
+    cout << endl;
+    cout << "Output 1: ";
+    for (vector<int> vec : result1) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    cout << "]" << endl;
-    
-    cout << "[";
-    for(int i=0; i<result[1].size(); i++) {
-        cout << result[1][i];
-        if(i < result[1].size() - 1) cout << " ";
+
+    cout << "Input 2: ";
+    for (int num : nums2) {
+        cout << num << " ";
     }
-    cout << "]" << endl;
-    
+    cout << endl;
+    cout << "Output 2: ";
+    for (vector<int> vec : result2) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "Input 3: ";
+    for (int num : nums3) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output 3: ";
+    for (vector<int> vec : result3) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "Input 4: ";
+    for (int num : nums4) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output 4: ";
+    for (vector<int> vec : result4) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    cout << "Input 5: ";
+    for (int num : nums5) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output 5: ";
+    for (vector<int> vec : result5) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }

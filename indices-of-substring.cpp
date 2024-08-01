@@ -3,22 +3,27 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int index = 0;
-    while ((index = text.find(target, index)) != string::npos) {
-        result.push_back(index);
-        index += 1; // to avoid overlapping
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target)
+            result.push_back(i);
     }
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
     string text;
     cin >> text;
-    vector<int> indices = indicesOfSubstring(text, text.substr(0, n));
+    string target;
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
     for (int i : indices) {
         cout << i << endl;
     }
+
     return 0;
 }
