@@ -1,11 +1,9 @@
-def kebab_to_camel(kebab_str):
-    return (
-        "".join(word.capitalize() for word in kebab_str.split("-"))
-        if "-" in kebab_str
-        else kebab_str
-    )
+```
+def camel_case(input_str):
+    return ''.join(word.capitalize() for word in input_str.replace('-', ' ').split()) if input_str else ''
 
-
-while True:
-    user_input = input()
-    print(kebab_to_camel(user_input))
+print(camel_case("camel-case example-test-string"))
+print(camel_case("nospaceordash"))
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
