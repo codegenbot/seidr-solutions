@@ -1,5 +1,7 @@
 #include <string>
-std::vector<std::string> issame(std::string s, std::string c) {
+using namespace std;
+
+std::pair<std::string, std::string> issame(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
