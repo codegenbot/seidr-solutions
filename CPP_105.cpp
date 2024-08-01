@@ -1,6 +1,3 @@
-Here's the corrected code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,33 +7,32 @@ bool isSame(vector<string> a, vector<string>b){
 }
 
 int main() {
-    // Your input and output processing code here
-    vector<int> arr;
-    // Read your input from user
+    int n;
+    std::cin >> n;
 
-    vector<string> result = by_length(arr);
+    std::vector<int> arr(n);
 
-    if(isSame(result, {"Nine","Eight","Seven","Six","Five","Four","Three","Two","One"})){
-        cout << "The output is correct." << endl;
-    } else {
-        cout << "The output is incorrect." << endl;
+    for(int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
     }
+
+    std::vector<string> result = by_length(arr);
 
     return 0;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+std::vector<string> by_length(std::vector<int> arr) {
+    std::vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    std::sort(nums.begin(), nums.end());
+    std::reverse(nums.begin(), nums.end());
 
-    vector<string> result;
+    std::vector<string> result;
     for (int num : nums) {
         switch (num) {
             case 1:
