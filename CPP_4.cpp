@@ -1,4 +1,7 @@
-float mean_absolute_deviation(vector<float> numbers){
+#include <vector>
+#include <cmath>
+
+float mean_absolute_deviation(const std::vector<float>& numbers) {
     float sum = 0;
     for (float num : numbers) {
         sum += num;
