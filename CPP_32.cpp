@@ -1,4 +1,6 @@
 #include <vector>
+#include <cmath>
+#include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
@@ -16,7 +18,9 @@ double find_zero(const std::vector<double>& xs){
 
 int main() {
     std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
-    double solution = find_zero(coeffs);
+    double a = coeffs[0];
+    double b = coeffs[1];
+    double solution = find_zero({a, b});
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
