@@ -1,9 +1,19 @@
 from typing import List
+import math
 
-
-def find_largest_palindrome(n: int) -> int:
-    largest_palindrome = 0
-    for i in range(1, n):
-        if str(i) == str(i)[::-1]:
-            largest_palindrome = i
-    return largest_palindrome
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i ** count)
+    if n > 1:
+        factors.append(n)
+    return factors
