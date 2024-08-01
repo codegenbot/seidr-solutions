@@ -2,43 +2,49 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int split_index = 0;
+    int n = v.size();
+    vector<int> left, right;
     
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[0]);
-        
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_index = i;
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || v[i] <= v[i-1]) {
+            left.push_back(v[i]);
+        } else {
+            break;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + split_index);
-    vector<int> right(v.begin() + split_index, v.end());
+    for (int i = n - 1; i >= 0; i--) {
+        if (i == n - 1 || v[i] >= v[i+1]) {
+            right.push_back(v[i]);
+        } else {
+            break;
+        }
+    }
     
     return {left, right};
 }
 
 int main() {
     int n;
+    cout << "Enter the number of elements in the vector: ";
     cin >> n;
-    vector<int> v(n+1);
-    for (int i = 0; i <= n; i++) {
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
         cin >> v[i];
     }
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (int i = 0; i < result.first.size() - 1; i++) {
-        cout << result.first[i] << " ";
+    cout << "Left subvector: ";
+    for (int x : result.first) {
+        cout << x << " ";
     }
-    cout << result.first.back() << "]\n[";
-    for (int i = 0; i < result.second.size() - 1; i++) {
-        cout << result.second[i] << " ";
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int x : result.second) {
+        cout << x << " ";
     }
-    cout << result.second.back() << "]\n";
+    cout << endl;
     
     return 0;
 }
