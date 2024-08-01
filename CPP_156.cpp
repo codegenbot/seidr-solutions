@@ -1,1 +1,2 @@
-`result += tolower(string(p.second));`
+```cpp
+result += tolower(string(p.second));
