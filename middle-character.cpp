@@ -16,4 +16,3 @@ int main() {
     cin >> str;
     cout << "The middle character is: " << middleCharacter(str) << endl;
     return 0;
-}
