@@ -1,18 +1,17 @@
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+#include <algorithm>
+#include <string>
+#include <vector>
 
-vector<string> reverse_delete(string s, string c);
+using namespace std;
 
-vector<string> reverse_delete(string s, string c){
-    string result;
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+pair<string, string> reverse_delete(const string& s, const string& c) {
+    string result = "";
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    
-    return {result, issame(result, reversed) ? "True" : "False"};
+    string reversed_result = result;
+    reverse(reversed_result.begin(), reversed_result.end());
+    return {result, result == reversed_result ? "True" : "False"};
 }
