@@ -1,4 +1,4 @@
-def get_pegs(code, guess):
-    white = sum(c in code and c != g for c, g in zip(guess, code))
-    black = sum(g in code and g == c for c, g in zip(guess, code))
+def mastermind(code, guess):
+    white = sum([1 for c in zip(code, guess) if c[0] == c[1]])
+    black = 4 - sum([c.count(c2) for c2 in set(guess)])
     return str(white), str(black)
