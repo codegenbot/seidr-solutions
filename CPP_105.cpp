@@ -22,8 +22,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
         }
     }
 
-    std::sort(sorted_arr.begin(), sorted_arr.end());
-    std::reverse(sorted_arr.begin(), sorted_arr.end());
+    std::sort(sorted_arr.begin(), sorted_arr.end(), std::greater<int>());
 
     for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
@@ -33,12 +32,12 @@ std::vector<std::string> by_length(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> input = {5, 2, 7, 1, 9};
-    std::vector<std::string> expected_output = {"Nine", "Seven", "Five", "Two", "One"};
-    
-    std::vector<std::string> result = by_length(input);
-    
-    assert(issame(result, expected_output));
+    std::vector<int> arr = {3, 1, 7, 4, 2, 9};
+    std::vector<std::string> expected_result = {"Nine", "Seven", "Four", "Three", "Two", "One"};
+
+    std::vector<std::string> result = by_length(arr);
+
+    assert(issame(result, expected_result));
 
     return 0;
 }
