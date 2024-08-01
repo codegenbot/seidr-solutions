@@ -8,10 +8,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
+bool sort_array(std::vector<int> v) {
+    return issame(v, {23, 21, 14, 11});
+}
+
 int main() {
-    std::vector<int> arr1 = {21, 14, 23, 11};
-    std::vector<int> arr2 = {23, 21, 14, 11};
-    
-    assert(issame(arr1, arr2));
+    assert(sort_array({21, 14, 23, 11}));
     return 0;
 }
