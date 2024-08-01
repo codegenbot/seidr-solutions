@@ -4,6 +4,8 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression:
-        return eval(" and ".join(map(lambda x: str(x), expression.split("&"))))
+        left, right = expression.split("&")
+        return bool(left) and bool(right)
     elif "|" in expression:
-        return eval(" or ".join(map(lambda x: str(x), expression.split("|"))))
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
