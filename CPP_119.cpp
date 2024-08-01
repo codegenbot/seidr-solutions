@@ -1,19 +1,19 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
-    for (const auto& s : lst) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else if (c == ')') close++;
+            else close++;
         }
     }
     return (open == close) ? "Yes" : "No";
 }
 
 int main() {
-    std::cout << match_parens({")", "("}) << std::endl;
+    assert(match_parens({")", "("}) == "Yes");
     return 0;
 }
