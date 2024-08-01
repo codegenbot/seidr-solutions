@@ -1,7 +1,10 @@
-Here is the completed code:
+Here is the solution:
 
-def basement(vec):
-    for i in range(len(vec)):
-        if sum(vec[:i+1]) < 0:
+def basement(vector):
+    total = 0
+    for i, num in enumerate(vector):
+        total += num
+        if total < 0:
             return i
-    return -1
+
+print(basement(list(map(int, input().split()))))
