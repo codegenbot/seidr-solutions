@@ -1,17 +1,23 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 int main() {
-    string text, target;
-    cin >> text >> target;
+    std::string text, target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
     
-    vector<int> indices;
+    std::vector<int> indices;
     
-    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
+    size_t i;
+    for (i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
     }
     
     for (int idx : indices) {
-        cout << idx << " ";
+        std::cout << idx << " ";
     }
     
     return 0;
