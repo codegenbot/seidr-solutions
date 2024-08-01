@@ -1,23 +1,16 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
+#include <unordered_map>
 
-int search(const vector<int>& lst) {
-    int result = -1;
+int search(vector<int> lst) {
+    int maxFreqNum = -1;
+    unordered_map<int, int> freqMap;
+    
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (num > 0 && freq >= num && num > result) {
-            result = num;
+        freqMap[num]++;
+        if (freqMap[num] >= freqMap[maxFreqNum] && num > maxFreqNum) {
+            maxFreqNum = num;
         }
     }
-    return result;
-}
-
-int main() {
-    cout << (search({3, 10, 10, 9, 2})) << endl;
+    
+    return maxFreqNum;
 }
