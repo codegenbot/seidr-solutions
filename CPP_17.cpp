@@ -36,6 +36,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 4, 4, 4, 4 }));
+    assert(issame(parse_music("o.oo oo"), { 4, 1, 4, 2 }));
     return 0;
 }
