@@ -4,3 +4,6 @@ def camel_case(s):
         if " " in s
         else s.replace("-", "")
     )
+
+
+print(camel_case(input()))
