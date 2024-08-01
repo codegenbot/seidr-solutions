@@ -1,22 +1,23 @@
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
-    int temp = operand[0];
-    
-    for (int i = 1; i < operand.size(); i++) {
-        if (*operator_.begin() == "+") {
-            result += temp + operand[i];
-        } else if (*operator_.begin() == "-") {
-            result -= temp - operand[i];
-        } else if (*operator_.begin() == "*") {
-            result *= temp * operand[i];
-        } else if (*operator_.begin() == "//") {
-            result = temp / (operand[i] + 0.0);
-        } else if (*operator_.begin() == "**") {
-            result = pow(temp, operand[i]);
+    int num1 = operand[0];
+    string op;
+
+    for (int i = 0; i < operator_.size(); i++) {
+        op = operator_[i];
+
+        if (op == "+") {
+            result += operand[i + 1];
+        } else if (op == "-") {
+            result -= operand[i + 1];
+        } else if (op == "*") {
+            result *= operand[i + 1];
+        } else if (op == "//") {
+            result /= operand[i + 1];
+        } else if (op == "**") {
+            result = pow(result, operand[i + 1]);
         }
-        
-        operator_.erase(operator_.begin());
     }
-    
+
     return result;
 }
