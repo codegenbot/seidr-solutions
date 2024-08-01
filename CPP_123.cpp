@@ -1,9 +1,21 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
@@ -14,17 +26,23 @@ std::vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::vector<int> odd_collatz = get_odd_collatz(num);
-    for (int i : odd_collatz) {
-        std::cout << i << " ";
+    cout << "Enter a number: ";
+    cin >> num;
+    vector<int> output = get_odd_collatz(num);
+    if (issame(output, {1})) {
+        cout << "The sequence ends at 1." << endl;
+    } else {
+        cout << "The sequence is: ";
+        for (int i : output) {
+            cout << i << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
