@@ -1,1 +1,2 @@
-return [num for num in numbers if numbers.count(num) == 1]
+def find_unique(numbers):
+    return [num for num in numbers if numbers.count(num) == 1]
