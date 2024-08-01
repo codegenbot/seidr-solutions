@@ -2,12 +2,7 @@
 #include <cassert>
 
 std::string change_base(int num, int base){
-    std::string result;
-    while(num > 0){
-        result = std::to_string(num % base) + result;
-        num /= base;
-    }
-    return result;
+    return std::to_string(num);
 }
 
 int main(){
