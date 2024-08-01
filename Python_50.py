@@ -3,6 +3,5 @@ def decode_shift(s: str):
 
 if __name__ == "__main__":
     input_string = input("Enter the encoded string: ")
-    if input_string.islower():
-        decoded_string = decode_shift(input_string)
-        print(decoded_string)
+    decoded_string = decode_shift(input_string)
+    print(decoded_string)
