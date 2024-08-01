@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
@@ -10,21 +10,24 @@ double poly(const std::vector<double>& coeffs, double x){
     return result;
 }
 
-double find_zero(const std::vector<double>& xs){
-    double a = xs[0];
-    double b = xs[1];
+double find_zero(const std::vector<double>& coeffs){
+    double a = coeffs[0];
+    double b = coeffs[1];
     return -b/a;
 }
 
 int main() {
-    std::vector<double> coeffs;
-    coeffs.push_back(1);
-    coeffs.push_back(-5);
-    coeffs.push_back(6);
+    std::vector<double> coeffs; // Initialized as an empty vector
+    double coeff;
+    for (int i = 0; i < 3; i++) {
+        std::cin >> coeff; // Read coefficients from user input
+        coeffs.push_back(coeff);
+    }
 
-    double sol = find_zero(coeffs);
+    double solution = find_zero(coeffs);
 
-    assert(std::abs(poly(coeffs, sol)) < 1e-3);
+    std::cout << "Solution: " << solution << std::endl;
+    std::cout << "Result: " << poly(coeffs, solution) << std::endl;
 
     return 0;
 }
