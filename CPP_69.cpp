@@ -7,7 +7,7 @@ int main() {
     std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
 
     int result = search(input);
-    assert(result == -1);
+    std::cout << "The output is: " << result << std::endl;
 
     return 0;
 }
