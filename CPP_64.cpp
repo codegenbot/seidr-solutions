@@ -1,10 +1,15 @@
-int vowels_count(string s){
+#include <string>
+using namespace std;
+
+int vowels_count(std::string s){
     int count = 0;
-    string vowels = "aeiouAEIOU";
     for(char c : s){
-        if(vowels.find(c) != string::npos || (c == 'y' && s.back() == 'y')){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
             count++;
         }
+    }
+    if(!s.empty() && (tolower(s.back()) == 'y')){
+        count++;
     }
     return count;
 }
