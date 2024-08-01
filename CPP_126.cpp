@@ -22,7 +22,7 @@ int main() {
     } else {
         std::cout << "The list is not sorted.\n";
     }
-
+    
     return 0;
 }
 
