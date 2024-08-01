@@ -17,7 +17,7 @@ double poly(std::vector<double> coeffs, double x) {
 }
 
 int main() {
-    std::vector<double> coeffs; // Fix added std::
+    std::vector<double> coeffs;
 
     std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
     double coeff;
