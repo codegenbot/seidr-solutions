@@ -1,30 +1,43 @@
+Here's the completed code:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            size_t len = i - start;
-            if (len >= 5) {
-                std::string word = str.substr(start, len);
-                std::reverse(word.begin(), word.end());
-                result += word + " ";
-            } else {
-                result += str.substr(start, len) + " ";
-            }
-            start = i + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordLength = 0;
+    for (char c : str) {
+        if (c == ' ') {
+            if (wordLength >= 5) {
+                for (int i = wordLength - 1; i >= 0; --i)
+                    result += str[wordLength - i - 1];
+                result += " ";
+            } else
+                result += " ";
+            wordLength = 0;
+        } else {
+            result += c;
+            ++wordLength;
         }
     }
+
+    if (wordLength >= 5) {
+        for (int i = wordLength - 1; i >= 0; --i)
+            result += str[wordLength - i - 1];
+    } else
+        result = str;
+
     return result;
 }
 
 int main() {
-    // your test cases here
-    std::cout << spinWords("a") << std::endl; // should print "a"
-    std::cout << spinWords("this is a test") << std::endl; // should print "this is a test"
-    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona test"
-    std::cout << spinWords("hi") << std::endl; // should print "hi"
+    // your code goes here
+    string str;
+    cout << "Enter the input: ";
+    cin >> str;
+    cout << "Output: " << spinWords(str) << endl;
     return 0;
 }
