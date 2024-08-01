@@ -7,7 +7,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0, 0.7};
+    std::vector<float> grades = {0, 0.7};
     auto result = numerical_letter_grade(grades);
     assert(std::issame(result, {"E", "D-"}));
     return 0;
