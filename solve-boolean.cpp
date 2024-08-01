@@ -1,20 +1,44 @@
-string solveBoolean(string s) {
-    bool result = (s == "t");
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            if(result && s.substr(i+1, 1) == "f")
-                return "False";
-            else if (!result && s.substr(i+1, 1) == "t")
-                return "False";
-            i = s.length();
-        }
-        else if(s[i] == '|') {
-            if(!result && s.substr(i+1, 1) == "f")
-                return "False";
-            else if (result && s.substr(i+1, 1) == "t")
-                return "False";
-            i = s.length();
+Here is the solution:
+
+bool solveBoolean(string input) {
+    if (input == "T") return true;
+    if (input == "F") return false;
+    
+    stack<char> st;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == '&') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            st.push('&');
+        } else if (input[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push('|');
+        } else {
+            st.push(input[i]);
         }
     }
-    return result ? "True" : "False";
+    
+    bool result = true;
+    char op = '0';
+    while (!st.empty()) {
+        char c = st.top(); st.pop();
+        if (c == '&') {
+            op = '&';
+        } else if (c == '|') {
+            if (op == '&' || op == '0') {
+                result = false;
+            }
+            op = '0';
+        } else if (c == 'F' && op == '&') {
+            result = false;
+            break;
+        } else if (c == 'T' && op == '|') {
+            break;
+        }
+    }
+    
+    return result;
 }
