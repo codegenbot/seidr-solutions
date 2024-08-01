@@ -13,17 +13,16 @@ std::string camelCase(const std::string& s) {
         }
     }
 
-    std::string result1;
     for (size_t i = 0; i < words.size(); ++i) {
-        if (!result1.empty()) {
-            result1 += toupper(words[i][0]);
-            result1 += tolower(std::string(1, words[i].begin() + 1, words[i].end()));
+        if (!result.empty()) {
+            result += toupper(words[i][0]);
+            result += tolower(std::string(1, words[i].begin() + 1, words[i].end()));
         } else {
-            result1 = tolower(words[i]);
+            result += tolower(words[i]);
         }
     }
 
-    return result1;
+    return result;
 }
 
 int main() {
