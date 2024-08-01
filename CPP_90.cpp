@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,5 +10,5 @@ int next_smallest(vector<int> lst) {
             return sorted_lst[i + 1];
         }
     }
-    return sorted_lst.back();
+    return -1;
 }
