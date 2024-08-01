@@ -1,5 +1,7 @@
 #include <vector>
+#include <cassert>
 #include <iostream>
+using namespace std;
 
 std::vector<int> f(int n){
     std::vector<int> result;
