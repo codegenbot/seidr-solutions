@@ -1,9 +1,10 @@
 from typing import List
 def factorize(n: int) -> List[int]:
     factors = []
-    if n < 2:
-        return factors
     divisor = 2
+    if n < 2:
+        factors.append(n)
+        return factors
     while n > 1:
         if n % divisor == 0:
             factors.append(divisor)
@@ -12,5 +13,4 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-# Call the function with the desired integer input to factorize
-print(factorize(100))
+factorize(56)
