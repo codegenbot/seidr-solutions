@@ -22,7 +22,7 @@ bool by_length(const std::vector<int>& nums) {
             return false;
     }
     
-    return issame(order, {"Nine", "Eight", "Four"});
+  return issame(order, {"Nine", "Eight", "Four"});
 }
 
 int main() {
