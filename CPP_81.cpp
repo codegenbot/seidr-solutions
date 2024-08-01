@@ -28,3 +28,5 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     }
     return result;
 }
+
+assert(numerical_letter_grade({0, 0.7}) == vector<string>{string("E"), string("D-")});
