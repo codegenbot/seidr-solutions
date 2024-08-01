@@ -3,7 +3,6 @@
 
 int score(const std::string &bowls) {
     int total = 0;
-    int frame = 0;
     int bowlIndex = 0;
     
     for (int i = 0; i < 10; ++i) {
@@ -30,4 +29,4 @@ int main() {
     std::cin >> bowls;
     std::cout << score(bowls) << std::endl;
     return 0;
-}  
+}
