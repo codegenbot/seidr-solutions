@@ -1,13 +1,13 @@
 #include <iostream>
+using namespace std;
 
-double getProbability(int n, int m) {
-    double totalPossibilities = (n + m - 1);
-    return ((double)n / totalPossibilities) * ((m - 1) / (totalPossibilities - 1));
+double diceGame(int n, int m) {
+    return 1.0 - (1.0 * m / (n + m));
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << getProbability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
     return 0;
 }
