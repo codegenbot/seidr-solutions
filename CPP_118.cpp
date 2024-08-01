@@ -1,13 +1,17 @@
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = 0; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return word.substr(i + 1).rfind(isvowel) == string::npos ? "" : to_string(word[substr(i + 1, rfind(isvowel)).front()]);
+    int left = 0;
+    for (int right = word.size() - 1; right >= 0 && !isVowel(word[right]); right--) {
+        left = right + 1;
+    }
+    for (int i = left; i < word.size(); i++) {
+        if (isVowel(word[i])) {
+            return string(1, tolower(word[i]));
+        }
     }
     return "";
 }
 
-bool isvowel(char c) {
-    c = toupper(c);
-    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+bool isVowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
