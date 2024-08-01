@@ -1,9 +1,11 @@
-#include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
