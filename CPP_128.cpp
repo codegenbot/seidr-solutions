@@ -1,19 +1,16 @@
+Here is the solution:
+
 int prod_signs(vector<int> arr) {
-    int product = 1;
-    long long sum = 0;
+    long long res = 1; // Initialize result as 1
+    int zeroCount = 0; // Count of zeros in array
     
     for (int num : arr) {
         if (num == 0) {
-            return 0;
+            zeroCount++; // If number is zero, increment count
+        } else {
+            res *= num / abs(num); // Multiply result by sign of number
         }
-        int sign = (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        product *= sign;
-        sum += abs(num);
     }
     
-    if (arr.empty()) {
-        return -32768;
-    }
-    
-    return product * sum;
+    return (zeroCount > 1 || (arr.empty())) ? -32768 : res; // Return -32768 for empty array or more than one zeros
 }
