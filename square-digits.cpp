@@ -1,8 +1,9 @@
-```cpp
 #include <string>
+#include <vector>
+
+using namespace std;
 
 string squareDigits(string input) {
-    using namespace std;
     string output = "";
     for (char c : input) {
         int digit = c - '0';
