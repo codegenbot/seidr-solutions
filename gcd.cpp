@@ -1,17 +1,8 @@
 #include <vector>
 #include <string>
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -23,3 +14,11 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
     return result;
 }
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
