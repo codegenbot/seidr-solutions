@@ -1,35 +1,40 @@
-#include <string>
-#include <algorithm>
-
-std::string scoring(const std::string &str) {
-    int result = 0;
-    for (char c : str) {
-        if (c >= '1' && c <= '9') {
-            result = result * 10 + (c - '0');
-        } else if (c == 'X') {
-            result += 10;
+int bowlingScore(string s) {
+    int score = 0;
+    for(int i=0; i<10; i++) {
+        if(s[i] == 'X') {
+            score += 30;
+        } else if (s[i] == '/') {
+            score += 10 + (i > 0 ? bowlingScoreHelper(&s[i+1]) : 0);
+        } else {
+            int frame = s[i] - '0';
+            if(s[i+1] == 'X') {
+                score += 10 + frame;
+            } else if (s[i+1] == '/') {
+                score += 10 + frame + bowlingScoreHelper(&s[i+2]);
+            } else {
+                score += 10 + frame + s[i+1] - '0';
+            }
         }
     }
-    return std::to_string(result);
+    return score;
 }
 
-int bowlingScore(const std::string &frames) {
+int bowlingScoreHelper(string* s) {
     int score = 0;
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // Strike
-            score += 10 + scoring(std::string(frames.begin()+i+1, frames.end()));
-        } else if (frames[i] == '/') { // Spare
-            int spareValue = 10 - scoring(std::string(frames.begin(), frames.begin()+i)).back();
-            score += 10 + spareValue;
-            i++;
+    for(int i=0; i<2; i++) {
+        if(s[i][0] == 'X') {
+            score += 30;
+            break;
+        } else if (s[i][0] == '/') {
+            score += 10 + (i > 0 ? s[i-1][0] - '0' : 0);
+            break;
         } else {
-            int currentFrameScore = 0;
-            for (int j = i; j < frames.size(); ++j) {
-                if (frames[j] == '/') break;
-                currentFrameScore *= 10;
-                currentFrameScore += scoring(std::string(frames.begin()+i, frames.begin()+j+1)).back() - '0';
+            int frame = s[i][0] - '0';
+            if(i < 1) {
+                score += frame;
+            } else {
+                score += frame + s[i-1][0] - '0';
             }
-            score += currentFrameScore;
         }
     }
     return score;
