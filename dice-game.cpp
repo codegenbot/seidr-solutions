@@ -2,10 +2,11 @@
 #include <iomanip>
 
 double calculateProbability(int n, int m) {
-    double totalPossibilities = (n + m - 1);
-    double peterWins = (m - 1);
-
-    return static_cast<double>(peterWins) / totalPossibilities;
+    double probability = 0;
+    for (int i = m + 1; i <= n; i++) {
+        probability += 1.0 / n * 1.0 / m;
+    }
+    return probability;
 }
 
 int main() {
