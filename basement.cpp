@@ -1,8 +1,8 @@
-int basement(vector<int> arr) {
+int findFirstNegative(vector<int>& v) {
     int total = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        total += arr[i];
+    for (int i = 0; i < v.size(); ++i) {
+        total += v[i];
         if (total < 0) return i;
     }
-    return -1;
+    return -1; // or any other value to indicate no negative sum found
 }
