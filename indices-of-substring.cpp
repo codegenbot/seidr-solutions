@@ -3,8 +3,8 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.size();
-    int m = target.size();
+    int n = text.length();
+    int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
@@ -21,11 +21,12 @@ int main() {
     string target;
     cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> res = indicesOfSubstring(text, target);
 
-    for (int i : indices) {
-        cout << i << endl;
+    for (int i : res) {
+        cout << i << " ";
     }
+    cout << endl;
 
     return 0;
 }
