@@ -1,23 +1,16 @@
-Here's a Python function that evaluates and returns the resulting Boolean value of a given string expression:
-
-```python
-def solveBoolean(expression):
-    def evaluateBoolean(expr):
-        if expr == 'T':
-            return True
-        elif expr == 'F':
-            return False
-        elif '&' in expr:
-            parts = expr.split('&')
-            for part in parts:
-                if part != 'f' and part != 'F':
-                    return False
-            return True
-        elif '|' in expr:
-            parts = expr.split('|')
-            for part in parts:
-                if part != 't' and part != 'T':
-                    return False
-            return True
-
-    return evaluateBoolean(expression)
+def solve_boolean(expression):
+    stack = []
+    for char in expression:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "&":
+            b1 = stack.pop()
+            b2 = stack.pop()
+            stack.append(b1 and b2)
+        elif char == "|":
+            b1 = stack.pop()
+            b2 = stack.pop()
+            stack.append(b1 or b2)
+    return stack[0]
