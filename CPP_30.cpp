@@ -12,4 +12,5 @@ vector<float> get_positive(vector<float> l){
             result.push_back(x);
     }
     return result;
+
 }
