@@ -1,44 +1,37 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-bool solveBoolean(string input) {
-    if (input == "T") return true;
-    if (input == "F") return false;
-    
-    stack<char> st;
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == '&') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            st.push('&');
-        } else if (input[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push('|');
-        } else {
-            st.push(input[i]);
+bool evaluateBooleanExpression(string expression) {
+    stack<char> s;
+    bool res = false;
+
+    for(int i = expression.length() - 1; i >= 0; i--) {
+        if(expression[i] == '&') {
+            res &= s.top() != 'F';
+            s.pop();
+        }
+        else if(expression[i] == '|') {
+            res |= s.top() != 'F';
+            s.pop();
+        }
+        else {
+            s.push(expression[i]);
         }
     }
-    
-    bool result = true;
-    char op = '0';
-    while (!st.empty()) {
-        char c = st.top(); st.pop();
-        if (c == '&') {
-            op = '&';
-        } else if (c == '|') {
-            if (op == '&' || op == '0') {
-                result = false;
-            }
-            op = '0';
-        } else if (c == 'F' && op == '&') {
-            result = false;
-            break;
-        } else if (c == 'T' && op == '|') {
-            break;
-        }
+
+    return (s.empty()) ? res : false;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a boolean expression: ";
+    cin >> expression;
+
+    if(evaluateBooleanExpression(expression)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
-    
-    return result;
+
+    return 0;
 }
