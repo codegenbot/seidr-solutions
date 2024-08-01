@@ -1,6 +1,8 @@
-bool check_dict_case(const std::unordered_map<char, int>& dict) {
-    if(dict.empty()) return false;
+#include <iostream>
+#include <map>
+#include <cctype>
 
+bool check_dict_case(const std::map<char, int>& dict) {
     bool all_lower = true;
     bool all_upper = true;
 
@@ -14,9 +16,4 @@ bool check_dict_case(const std::unordered_map<char, int>& dict) {
     }
 
     return all_lower || all_upper;
-}
-
-int main() {
-    assert (check_dict_case({}) == false);
-    return 0;
 }
