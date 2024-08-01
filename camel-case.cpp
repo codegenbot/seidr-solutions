@@ -7,41 +7,48 @@ std::string capitalize(const std::string& s) {
         return s;
     }
     
-    return toupper(s[0]) + tolower(s.substr(1));
-}
-
-std::vector<std::string> split(const std::string& s, char c) {
-    std::vector<std::string> result;
-    std::string word;
+    std::string result = "";
+    bool capitalizeNext = true;
 
     for (char c : s) {
-        if (c == c) {
-            if (!word.empty()) {
-                result.push_back(word);
-                word.clear();
-            }
+        if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            word += c;
+            result += tolower(c);
         }
-    }
-
-    if (!word.empty()) {
-        result.push_back(word);
     }
 
     return result;
 }
 
+std::vector<std::string> split(const std::string& s, char c) {
+    std::vector<std::string> words;
+
+    size_t pos = 0;
+    while ((pos = s.find(c)) != std::string::npos) {
+        words.push_back(s.substr(0, pos));
+        s.erase(0, pos + 1);
+    }
+
+    if (!s.empty()) {
+        words.push_back(s);
+    }
+
+    return words;
+}
+
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> words = split(s, '-');
+    std::vector<std::string> words = split(s, ' ');
+    
     std::string result;
 
     for (const auto& word : words) {
-        if (!word.empty()) {
+        if (!word.empty()) { // Ignore empty strings
             if (!result.empty()) {
-                result += capitalize(word);
+                result += capitalize(word.substr(1)); // Add capitalized word to result
             } else {
-                result = capitalize(word);
+                result = capitalize(word); // First word, all caps
             }
         }
     }
