@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -29,4 +28,3 @@ int main() {
     cout << luhn(card) << endl;
     return 0;
 }
-```
