@@ -11,7 +11,7 @@ std::string get_closest_vowel(std::string word) {
         }
     }
     for (int i = left; i < word.size(); ++i) {
-        if (std::find(vectors.begin(), vowels.end(), word[i]) != vowels.end()) {
+        if (isvowel(word[i])) {
             return std::string(1, word[i]);
         }
     }
