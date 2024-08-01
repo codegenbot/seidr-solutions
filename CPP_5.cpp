@@ -25,4 +25,4 @@ int main(){
     std::cout << issame(test1, test3) << std::endl;
 
     return 0;
-}
+}×××
