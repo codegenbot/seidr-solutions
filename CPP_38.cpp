@@ -1,18 +1,16 @@
 #include <string>
+#include <cassert>
 
-string encode_cyclic(string s){
-    // implement encoding logic here
-}
+std::string encode_cyclic(std::string s);
 
-string decode_cyclic(string s){ 
-    int l = s.length();
-    string x, output;
+std::string decode_cyclic(std::string s){
+    int l=s.length();
+    std::string x, output;
     int i;
-    for (i = 0; i * 3 < l; i++)
-    {
-        x = s.substr(i * 3, 3);
-        if (x.length() == 3) x = x[2] + x.substr(0, 2);
-        output = output + x;
+    for (i=0;i*3<l;i++) {
+        x=s.substr(i*3,3);
+        if (x.length()==3) x=x[2]+x.substr(0,2);
+        output=output+x;
     }
     return output;
 }
