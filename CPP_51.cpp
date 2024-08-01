@@ -1,13 +1,9 @@
-string::iterator it = text.begin();
-string::iterator end = text.end();
-
-for (; it != end; ++it) {
-    if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u'
-        || tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i'
-        || tolower(*it) == 'o' || tolower(*it) == 'u') {
-        text.erase(it);
-        --end;
+string remove_vowels(string text){
+    string result = "";
+    for(char c : text){
+        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
+            result += tolower(c);
+        }
     }
+    return result;
 }
-
-return text;
