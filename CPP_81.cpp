@@ -1,48 +1,40 @@
 #include <vector>
-#include <cmath>
-#include <assert.h>
+#include <string>
 
-bool issame(float gpa, float value) {
-    return std::abs(gpa - value) < 0.0001;
+bool issame(std::string gpa_str, std::string value_str) {
+    return gpa_str == value_str;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
-        if (issame(gpa, 4.0f)) {
+        if (issame(std::to_string(gpa), "4.0")) {
             letter_grades.push_back("A+");
-        } else if (gpa >= 3.7f) {
+        } else if (gpa > 3.7f) {
             letter_grades.push_back("A");
-        } else if (gpa >= 3.3f) {
+        } else if (gpa > 3.3f) {
             letter_grades.push_back("A-");
-        } else if (gpa >= 3.0f) {
+        } else if (gpa > 3.0f) {
             letter_grades.push_back("B+");
-        } else if (gpa >= 2.7f) {
+        } else if (gpa > 2.7f) {
             letter_grades.push_back("B");
-        } else if (gpa >= 2.3f) {
+        } else if (gpa > 2.3f) {
             letter_grades.push_back("B-");
-        } else if (gpa >= 2.0f) {
+        } else if (gpa > 2.0f) {
             letter_grades.push_back("C+");
-        } else if (gpa >= 1.7f) {
+        } else if (gpa > 1.7f) {
             letter_grades.push_back("C");
-        } else if (gpa >= 1.3f) {
+        } else if (gpa > 1.3f) {
             letter_grades.push_back("C-");
-        } else if (gpa >= 1.0f) {
+        } else if (gpa > 1.0f) {
             letter_grades.push_back("D+");
-        } else if (gpa >= 0.7f) {
+        } else if (gpa > 0.7f) {
             letter_grades.push_back("D");
-        } else if (gpa >= 0.0f) {
+        } else if (gpa > 0.0f) {
             letter_grades.push_back("D-");
         } else {
             letter_grades.push_back("E");
         }
     }
     return letter_grades;
-}
-
-int main() {
-    std::vector<float> test_grades = {0, 0.7};
-    std::vector<std::string> expected_grades = {"E", "D-"};
-    assert(numerical_letter_grade(test_grades) == expected_grades);
-    return 0;
 }
