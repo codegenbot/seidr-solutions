@@ -15,7 +15,6 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         water_taken += min(capacity, total_water - water_taken);
     }
     return buckets_needed;
-
 }
 
 int main() {
