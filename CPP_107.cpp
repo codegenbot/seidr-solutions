@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <iostream>
- 
+
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()){
         return false;
@@ -16,7 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     
     return true;
 }
- 
+
 std::vector<int> even_odd_palindrome(int n){
     std::vector<int> res(2, 0);
     for(int i = 1; i <= n; ++i){
@@ -33,16 +33,19 @@ std::vector<int> even_odd_palindrome(int n){
     }
     return res;
 }
- 
+
 int main(){
+    // Read input
     int n;
     std::cin >> n;
     
+    // Call function and get the result
     std::vector<int> result = even_odd_palindrome(n);
-    
+
+    // Output the result
     for(int i = 0; i < result.size(); ++i){
         std::cout << result[i] << " ";
     }
-    
+
     return 0;
 }
