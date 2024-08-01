@@ -1,11 +1,18 @@
-def solve(input_str):
-    if input_str == "T":
+def solve.Boolean(expression):
+    if expression == 'T':
         return True
-    elif input_str == "F":
+    elif expression == 'F':
         return False
-    elif "&" in input_str:
-        a, b = input_str.split("&")
-        return solve(a) and solve(b)
-    elif "|" in input_str:
-        a, b = input_str.split("|")
-        return solve(a) or solve(b)
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid operation")
+    else:
+        ops = ['&', '|']
+        while '&' in expression or '|' in expression:
+            for op in ops:
+                if op in expression:
+                    left, right = expression.split(op)
+                    if op == '&':
+                        expression = str(eval(left) and eval(right))
+                    elif op == '|':
+                        expression = str(eval(left) or eval(right))
+        return eval(expression)
