@@ -2,13 +2,13 @@ Here's the completed code:
 
 bool is_sorted(vector<int> lst) {
     for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] >= lst[i-1]) continue;
-        int count = 0;
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == lst[i-1]) count++;
+        if (lst[i] >= lst[i - 1]) {
+            continue;
+        } else if (count(lst.begin(), lst.end(), lst[i]) > 1) {
+            return false;
+        } else {
+            return false;
         }
-        if (count > 1) return false;
-        return false;
     }
     return true;
 }
