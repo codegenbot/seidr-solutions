@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <utility>
+#include <pair>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
