@@ -1,8 +1,8 @@
-def camel_case(input_str):
-    output_str = ""
-    for word in input_str.split():
-        if "-" in word:
-            output_str += word.replace("-", "").capitalize() + " "
+def camel_case(input_string):
+    result = ""
+    for word in input_string.split():
+        if not result or "-" in word:
+            result += word.lstrip("-").capitalize()
         else:
-            output_str += word.capitalize() + " "
-    return output_str.strip()
+            result += word.capitalize()
+    return result
