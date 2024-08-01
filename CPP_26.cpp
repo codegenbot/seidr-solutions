@@ -1,20 +1,15 @@
-#include<stdio.h>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        bool found = false;
-        for(int j = 0; j < result.size(); j++){
-            if(result[j] == numbers[i]){
-                found = true;
-                break;
-            }
-        }
-        if(!found){
-            result.push_back(numbers[i]);
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result = numbers;
+    sort(result.begin(), result.end());
+    for (int i = 0; i < result.size() - 1; i++) {
+        if (result[i] == result[i + 1]) {
+            result.erase(result.begin() + i);
+            i--;
         }
     }
     return result;
