@@ -12,14 +12,10 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
+    int index_smallest_even = std::distance(std::begin(arr), std::find(std::begin(arr), std::end(arr), smallest_even));
+    
     result.push_back(smallest_even);
-
-    for(int i=0; i<arr.size(); i++) {
-        if(arr[i] == smallest_even) {
-            result.push_back(i);
-            break;
-        }
-    }
+    result.push_back(index_smallest_even);
 
     return result;
 }
