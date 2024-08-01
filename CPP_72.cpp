@@ -1,9 +1,16 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
-    }
-    return str == reverse(string(str)).c_str() && accumulate(q.begin(), q.end(), 0) <= w;
+    vector<int> revQ = q;
+    reverse(revQ.begin(), revQ.end());
+    if (q != revQ) return false;  // not balanced
+
+    int sum = 0;
+    for (int i : q) sum += i;
+    if (sum > w) return false;     // sum exceeds max weight
+
+    return true;
 }
