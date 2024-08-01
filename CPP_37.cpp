@@ -4,11 +4,11 @@
 
 void sort_even(std::vector<int>& l) {
     std::sort(l.begin(), l.end(), [](int a, int b) {
-        if (a % 2 == 0 && b % 2 == 0) // both even
+        if (a % 2 == 0 && b % 2 == 0)
             return a < b;
-        else if (a % 2 == 0) // a is even
+        else if (a % 2 == 0)
             return true;
-        else // b is even or both are odd
+        else
             return false;
     });
 }
