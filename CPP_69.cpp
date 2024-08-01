@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 
 int main() {
-    int n = 5; // Input size (modify this)
-    std::vector<int> input = {3, 10, 10, 9, 2}; // Example input
+    int n = 5; 
+    std::vector<int> input = {3, 10, 10, 9, 2}; 
 
     int result = search(input);
     assert(result == -1);
