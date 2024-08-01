@@ -1,7 +1,3 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
-
 def make_palindrome(string: str) -> str:
     s = string.lower()
     n = 0
