@@ -1,4 +1,8 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
+#include <algorithm>
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> get_odd_collatz(int n) {
