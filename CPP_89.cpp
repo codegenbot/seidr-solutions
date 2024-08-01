@@ -1,16 +1,22 @@
-string encrypt(string s){
-    string result = "";
-    for(int i=0; i<s.length();i++){
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s) {
+    std::string result = "";
+    for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'm'){
-            result += (char)((c - 'a' + 8) % 26 + 'a');
+            c += 2;
         }
-        else if(c >= 'n' && c <= 'z'){
-            result += (char)((c - 'n' + 6) % 26 + 'n');
+        else if(c > 'm' && c < 'z'){
+            c -= 26 - 2;
         }
-        else{
-            result += c;
-        }
+        result += c;
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
