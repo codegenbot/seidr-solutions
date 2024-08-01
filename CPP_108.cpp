@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -27,7 +28,4 @@ int count_nums(vector<int> v) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    int count = count_nums({-123, -45, 7, 12, 543});
-    cout << "Count of positive numbers: " << count << endl;
-    return 0;
 }
