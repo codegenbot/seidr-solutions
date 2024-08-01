@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(const vector<int>& a, const vector<int>& b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +17,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> pluck(vector<int> arr){
+vector<int> pluck(const vector<int>& arr){
     vector<int> result;
     int smallest_even = INT_MAX;
     int smallest_index = INT_MAX;
