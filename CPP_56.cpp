@@ -12,3 +12,4 @@ bool correct_bracketing(string brackets) {
         }
     }
     return opening == 0;
+}
