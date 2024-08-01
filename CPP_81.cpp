@@ -8,7 +8,9 @@ bool issame(std::string gpa_str, std::string value_str) {
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
-        if (issame(std::to_string(gpa), "4.0")) {
+        std::string gpa_str = std::to_string(gpa);
+        
+        if (issame(gpa_str, "4.0")) {
             letter_grades.push_back("A+");
         } else if (gpa > 3.7f) {
             letter_grades.push_back("A");
