@@ -1,13 +1,4 @@
 def sort_third(l: list):
-    return [
-        (
-            i
-            if i % 3 != 0
-            else (
-                next((x for x in l if x % 3 == 0), -1)
-                if any(i % 3 == 0 for i in l)
-                else -1
-            )
-        )
-        for i in l
-    ]
+    threes = [i for i in l if i % 3 == 0]
+    three_or_default = sorted(threes)[0] if threes else -1
+    return [i if i % 3 != 0 else three_or_default for i in l]
