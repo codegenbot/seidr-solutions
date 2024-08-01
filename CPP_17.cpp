@@ -21,11 +21,16 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-int main() {
-    assert(is_same(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 2, 4, 4, 4 }));
-    return 0;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
