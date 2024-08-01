@@ -1,18 +1,19 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a.convert_to<int>() < b ? &b : &a;
+        return (int)a < b ? &b : &a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a.convert_to<int>() < b ? &b : &a;
+        return (int)a < b ? &b : &a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((int)a.convert_to<int>() > stof(b.convert_to<string>().c_str())) {
+        if ((int)a > stof(b.convert_to<string>().c_str())) {
             return a;
         }
-       	else if ((int)a.convert_to<int>() < stof(b.convert_to<string>().c_str())) {
+       	else if ((int)a < stof(b.convert_to<string>().c_str())) {
             return b;
         }
 		else {
@@ -20,10 +21,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a < b ? &b : &a;
+        return (float)a > b ? &a : &b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a < b ? &b : &a;
+        return (double)a > b ? &a : &b;
     }
    	else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         if (stof(a.convert_to<string>().c_str()) < b) {
@@ -58,7 +59,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-   	return boost::any();
+	return boost::any();
 }
 
 int main() {
