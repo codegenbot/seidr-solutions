@@ -39,6 +39,5 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-std::vector<std::string> a = separate_paren_groups("((A)(B))((C))");
 std::vector<std::string> b = {"(A)", "(B)", "(C)"};
 assert(issame(a, b);
