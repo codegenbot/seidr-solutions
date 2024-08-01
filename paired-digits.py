@@ -1,4 +1,4 @@
 Here is the solution:
 
-def paired_digits(n):
-    return sum(int(d) for d in str(n) if str(n)[str(n).index(d)+1] == d)
+def paired_digits(digits):
+    return sum(int(digit) for digit in digits if digit * 2 in digits)
