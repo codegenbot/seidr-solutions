@@ -6,22 +6,17 @@ def is_prime(num):
             return False
     return True
 
-def prime_fib(n: int):
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
-    
-    count = 0
-    i = 0
-    while count < n:
-        if is_prime(fibonacci(i)):
-            count += 1
-        i += 1
-    return fibonacci(i - 1)
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
-if __name__ == "__main__":
-    n = int(input())
-    result = prime_fib(n)
-    print(result)
+count = 0
+i = 0
+n = int(input("Enter a number: "))
+while count < n:
+    if is_prime(fibonacci(i)):
+        count += 1
+    i += 1
+print(fibonacci(i - 1))
