@@ -17,7 +17,7 @@ vector<string> split_words(string txt) {
     } else {
         int count = 0;
         for (char c : txt) {
-            if ((int)c - (int)'a' % 2 == 0 && (int)c >= (int)'a' && (int)c <= (int)'z') {
+            if ((int)c - 'a' % 2 == 0 && (int)c >= 'a' && (int)c <= 'z') {
                 count++;
             }
         }
