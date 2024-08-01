@@ -2,11 +2,9 @@
 #include <vector>
 #include <iostream>
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-std::vector<std::string> split_words(const std::string& txt){
+std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
     for(char c : txt){
@@ -36,6 +34,18 @@ std::vector<std::string> split_words(const std::string& txt){
     return result;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     std::string input1, input2;
     std::getline(std::cin, input1);
@@ -44,7 +54,7 @@ int main() {
     std::vector<std::string> a = split_words(input1);
     std::vector<std::string> b = split_words(input2);
     
-    if (is_same(a, b)) {
+    if (issame(a, b)) {
         std::cout << "Same" << std::endl;
     } else {
         std::cout << "Different" << std::endl;
