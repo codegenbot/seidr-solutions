@@ -5,7 +5,9 @@
 double poly(std::vector<double> coeffs, double x);
 
 double find_zero(std::vector<double> coeffs) {
-    return -coeffs[1] / coeffs[0];
+    double a = coeffs[0];
+    double b = coeffs[1];
+    return -b / a;
 }
 
 double poly(std::vector<double> coeffs, double x) {
