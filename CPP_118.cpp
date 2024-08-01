@@ -10,7 +10,7 @@ string get_closest_vowel(string word) {
                 if (!isvowel(word[j]) && !isconsonant(word, j)) break;
                 else if (!isvowel(word[j]) && isconsonant(word, j)) continue;
                 else {
-                    return (char)(word[i]);
+                    return string(1, word[i]);
                 }
             }
         }
