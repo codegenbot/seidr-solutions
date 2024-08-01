@@ -1,4 +1,10 @@
+```
 def hex_key(num):
-    primes = {'B': 11, 'D': 13}
-    count = sum(1 for digit in num if (int(str(digit), 16) in primes or int(str(digit), 16) > 1 and all(int(str(digit), 16) % i for i in range(2, int(str(digit), 16))))]
+    primes = set([2, 3, 5, 7, 11, 13, 17])
+    count = 0
+    for digit in num:
+        if digit.upper() in 'BDF':
+            count += 1
+        elif int(digit, 16) in primes:
+            count += 1
     return count
