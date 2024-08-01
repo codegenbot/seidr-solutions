@@ -5,11 +5,9 @@
 std::string get_closest_vowel(std::string word) {
     int left = 0, right = word.size() - 1;
     while (left <= right) {
-        if (isvowel(word[left])) return word.substr(left);
-        left++;
-        
-        if (isvowel(word[right])) return word.substr(0, right + 1);
-        right--;
+        if (!isvowel(word[left])) left++;
+        else if (!isvowel(word[right])) right--;
+        else return word.substr(left + 1, right - left);
     }
     return "";
 }
