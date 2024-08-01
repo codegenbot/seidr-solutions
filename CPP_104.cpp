@@ -8,7 +8,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
-            if (temp % 2 == 0) {
+            if (temp % 10 % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
@@ -26,7 +26,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>{31, 135}));
-    return 0;
-}
+assert(issame(unique_digits({135, 103, 31}), std::vector<int>{31, 135}));
