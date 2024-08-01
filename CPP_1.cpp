@@ -18,10 +18,10 @@ bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::s
 }
 
 std::vector<std::string> separate_paren_groups(const std::string& input) {
-    // Implementation to separate valid parenthesis groups
+    // Your implementation for separate_paren_groups function
 }
 
 int main() {
-    assert(compare_vectors(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    assert(compare_vectors(separate_paren_groups("( ) (( )) (( )( ))") , {"()", "(())", "(()())"}));
     return 0;
 }
