@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -16,13 +16,20 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    vector<string> strings = {"hello", "hi", "hola", "goodbye"};
-    string substring = "hi";
-    vector<string> filtered = filter_by_substring(strings, substring);
-    if(issame(filter_by_substring(filtered, substring), filtered))
-        cout << "The result is the same as expected." << endl;
-    else
-        cout << "The result is not the same as expected." << endl;
+    vector<string> strings = {"hello", "world", "hell", "goodbye"};
+    string substring = "ell";
+    
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
+    
+    if(issame({substring}, filter_by_substring({substring}, substring))){
+        cout << "Substrings are same." << endl;
+    } else {
+        cout << "Substrings are different." << endl;
+    }
+    
+    for(string s : filtered_strings){
+        cout << s << endl;
+    }
     
     return 0;
 }
