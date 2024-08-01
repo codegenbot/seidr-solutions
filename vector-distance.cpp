@@ -5,16 +5,15 @@
 int main() {
     int n;
     std::cin >> n;
+    
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
     std::vector<double> vec2(n);
-    double num;
     for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        vec2[i] = num;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
@@ -23,7 +22,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << distance << std::endl;
 
     return 0;
 }
