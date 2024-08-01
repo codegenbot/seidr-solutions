@@ -1,5 +1,4 @@
-```c++
-#include <iostream> 
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -9,7 +8,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     
     for (int i = 1; i < vec.size(); ++i) {
         int diff = abs(vec[i] - vec[0]);
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
