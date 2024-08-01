@@ -1,23 +1,19 @@
-def bowling_score(frames):
+Here is the solution in Python:
+
+def bowling_score(s):
+    frames = [list(map(int, frame.split('/'))) if '/' in frame else [int(frame)] for frame in s.split()]
     score = 0
-    frame_index = 0
-    for i in range(10):
-        if frames[frame_index] == "X":
-            score += 30
-            frame_index += 1
-        elif frames[frame_index : frame_index + 2].count("/"):
-            strike, spare = map(int, frames[frame_index : frame_index + 2].split("/"))
-            score += strike + spare
-            frame_index += 2
-        else:
-            first_roll, second_roll = map(int, frames[frame_index : frame_index + 2])
-            if first_roll == 10:
-                score += first_roll + second_roll
-                frame_index += 2
-            elif second_roll != "X":
-                score += first_roll + second_roll
-                frame_index += 2
+    for i, frame in enumerate(frames):
+        if len(frame) == 1:
+            if i < 9 and (frames[i+1][0] == 10 or sum(frames[i+1]) < 10):
+                score += 20
             else:
-                score += first_roll
-                frame_index += 1
+                score += 10
+        elif len(frame) == 2:
+            if frame[0] + frame[1] == 10:
+                score += 10
+            else:
+                score += frame[0] + frame[1]
+        else:
+            score += max(frame)
     return score
