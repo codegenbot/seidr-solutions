@@ -1,28 +1,15 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+    priority_queue<int> pq;
+    for (int i : arr) {
+        pq.push(i);
+        if (pq.size() > k) {
+            pq.pop();
+        }
     }
-    return result;
-}
-
-int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5), {243, 3, 2, 1, 0}));
-    cout << "Success" << endl;
-    return 0;
+    vector<int> res(k);
+    for (int i = k - 1; i >= 0; --i) {
+        res[i] = pq.top();
+        pq.pop();
+    }
+    return res;
 }
