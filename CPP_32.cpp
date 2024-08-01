@@ -1,20 +1,17 @@
 #include <vector>
+#include <cassert>
 
-double poly(const std::vector<double>& coefficients, double x);
+double poly(vector<double> xs);
 
-double find_zero(const std::vector<double>& xs) {
+double find_zero(vector<double> xs){
+    assert(xs.size() == 2);
     double a = xs[0];
     double b = xs[1];
     return -b/a;
 }
 
-double poly(const std::vector<double>& coefficients, double x) {
-    double result = 0.0;
-    int degree = coefficients.size() - 1;
-
-    for (int i = 0; i < coefficients.size(); i++) {
-        result += coefficients[i] * pow(x, degree - i);
-    }
-
-    return result;
+int main() {
+    vector<double> coeffs = {5.0, -3.0};
+    double result = find_zero(coeffs);
+    return 0;
 }
