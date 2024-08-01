@@ -1,7 +1,4 @@
-```python
-from typing import List
-
-
+```Python
 def parse_music(music_string: str) -> List[int]:
     note_dict = {'o': 4, 'o|': 2, '.|': 1}
     result = []
