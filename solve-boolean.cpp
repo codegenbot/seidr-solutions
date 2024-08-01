@@ -9,11 +9,13 @@ bool solveBoolean(string expression) {
                 j++;
             }
             string subExpression = expression.substr(i+1, j-i-1);
-            if (subExpression.find('T') == string::npos) {
+            if (subExpression.find('F') != string::npos) {
                 result = false;
                 break;
             }
             i = j - 1;
+        } else if (expression[i] == 'T') {
+            continue;
         } else if (expression[i] == 'F') {
             return false;
         }
