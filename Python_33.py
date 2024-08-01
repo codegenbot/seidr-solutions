@@ -1,8 +1,5 @@
 def sort_third(l: list):
-    for i in range(0, len(l), 3):
-        sublist = l[i:i+3]
-        if len(sublist) < 3:
-            sublist += [0] * (3 - len(sublist))
-        yield sorted(sublist)
+    l += [0] * ((3 - len(l) % 3) % 3)
+    return [sorted(l[i:i+3]) for i in range(0, len(l), 3)]
 
-print(list(sort_third([5, 6, 3, 4, 8, 9, 2, 1])))
+print(sort_third([5, 6, 3, 4, 8, 9, 2, 1]))
