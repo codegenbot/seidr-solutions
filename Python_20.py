@@ -1,5 +1,5 @@
 def find_closest_pair(numbers):
-    numbers.sort()
+    numbers = sorted(numbers)
     min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
     closest_pair = [
         (numbers[i], numbers[i + 1])
