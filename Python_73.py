@@ -1,15 +1,16 @@
 ```
 def smallest_change(arr):
     n = len(arr)
-    count = 0
-    pos = [x for x in range(n)]
+    arr_pos = [*enumerate(arr)]
+    pos_arr = {val:i for i,val in enumerate(arr)}
     
-    for i in sorted(pos):
-        if arr[i] != i:
-            j = pos.index(i)
-            pos[i], pos[j] = pos[j], pos[i]
-            
-            if i != j:
-                count += 1
-                
-    return count
+    ans = 0
+    while len(arr_pos) != 0:
+        max_index = -1
+        for i in arr_pos:
+            if i[1] < arr[pos_arr[min(arr_pos, key=lambda x: x[1])][1]]:
+                max_index = i
+        arr_pos.remove(max_index)
+        pos_arr[arr[max_index[1]]] = max_index[0]
+        ans += 1
+    return ans
