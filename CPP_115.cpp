@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int m = grid[0].size();
@@ -21,10 +19,9 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
                 int remaining_water = capacity;
                 capacity = 0;
                 for (int j = 0; j < m; ++j) {
-                    if (grid[i][j] > 0) {
+                    while (grid[i][j] > 0 && remaining_water > 0) {
                         grid[i][j]--;
                         remaining_water--;
-                        if (remaining_water == 0) break;
                     }
                 }
                 water -= remaining_water;
@@ -33,4 +30,9 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     }
     
     return res;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
