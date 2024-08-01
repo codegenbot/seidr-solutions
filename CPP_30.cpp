@@ -2,35 +2,30 @@
 #include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    return a == b;
+}
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+std::vector<float> createPositiveVector(int n) {
+    std::vector<float> vec;
+    float num;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        if (num > 0) {
+            vec.push_back(num);
         }
     }
-
-    return true;
+    return vec;
 }
 
 int main() {
     std::vector<float> vec1, vec2;
-
-    // Read input vectors
     int n;
+    
     std::cin >> n;
-    float num;
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        vec1.push_back(num);
-    }
+    vec1 = createPositiveVector(n);
+    
     std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        vec2.push_back(num);
-    }
+    vec2 = createPositiveVector(n);
 
     // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
