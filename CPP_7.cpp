@@ -1,10 +1,16 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++){
+        if(find(b.begin(),b.end(),a[i]) == b.end())
+            return false;
+    }
+    return true;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
@@ -14,27 +20,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    vector<string> strings(n);
-    for(int i = 0; i < n; i++) {
-        std::cin >> strings[i];
-    }
-
-    string substring;
-    std::cin >> substring;
-
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-
-    if(issame({}, filtered_strings))
-        cout << "Empty";
-    else
-        for(string s : filtered_strings)
-            cout << s << endl;
-
-    return 0;
 }
