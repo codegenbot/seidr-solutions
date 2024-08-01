@@ -1,11 +1,11 @@
 ```
 def total_match(lst1, lst2):
-    len1 = sum(len(s) for s in lst1)
-    len2 = sum(len(s) for s in lst2)
+    sum1 = sum(len(i) for i in lst1)
+    sum2 = sum(len(i) for i in lst2)
     
-    if len1 < len2:
+    if sum1 < sum2:
         return lst1
-    elif len1 > len2:
+    elif sum2 < sum1:
         return lst2
     else:
         return lst1
