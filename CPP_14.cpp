@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool compare_vectors(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
-}
-
 vector<string> all_prefixes(string str) {
     vector<string> result;
     string prefix = "";
@@ -18,7 +14,13 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
+void solve_problem() {
+    vector<string> expected = {"W", "WW", "WWW"};
+    vector<string> result = all_prefixes("WWW");
+    assert(result == expected);
+}
+
 int main() {
-    assert(compare_vectors(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    solve_problem();
     return 0;
 }
