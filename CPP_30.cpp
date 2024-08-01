@@ -1,15 +1,10 @@
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float i : l) {
-        if (i > 0) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<float> a, vector<float>b) {
+bool std::issame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()) return false;
-    for(float i : a) if(i != b[0]) return false;
+    for(float x : a) {
+        if(!std::count(b.begin(), b.end(), x)) return false;
+    }
     return true;
 }
