@@ -1,20 +1,14 @@
-int luhn(vector<int>& v) {
+int luhn(const vector<int>& digits) {
     int sum = 0;
-    bool doubleDigit = false;
-
-    for(int i = v.size() - 1; i >= 0; --i) {
-        if(doubleDigit) {
-            int digit = v[i] * 2;
-            if(digit > 9) {
-                digit -= 9;
-            }
-            sum += digit;
+    for(int i = 0; i < digits.size(); i++) {
+        if((i % 2) == 1) {
+            int temp = digits[i] * 2;
+            if(temp > 9) 
+                temp -= 9;
+            sum += temp;
         } else {
-            sum += v[i];
+            sum += digits[i];
         }
-
-        doubleDigit = !doubleDigit;
     }
-
     return sum;
 }
