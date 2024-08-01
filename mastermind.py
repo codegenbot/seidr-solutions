@@ -1,15 +1,11 @@
 def mastermind(code, guess):
-    code_count = [0] * 6
-    for c in code:
-        code_count[ord(c) - ord("A")] += 1
-
-    white_peg = 0
-    black_peg = 0
-    for i, c in enumerate(guess):
-        if c == code[i]:
-            black_peg += 1
-        elif code_count[ord(c) - ord("A")] > 0:
-            code_count[ord(c) - ord("A")] -= 1
-            white_peg += 1
-
-    return str(black_peg) + "\n" + str(white_peg)
+    white_pegs = sum(
+        c1 == c2 and i != j
+        for i, (c1, _) in enumerate(guess)
+        for _, c2 in enumerate(code)
+    )
+    black_pegs = sum(
+        (c1, c2) == (_[0], _)[1]
+        for (_, c1), (_, c2) in zip_longest(enumerate(code), enumerate(guess))
+    )
+    return str(white_pegs), str(black_pegs)
