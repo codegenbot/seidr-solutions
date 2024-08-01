@@ -1,49 +1,32 @@
-#include <vector>
-#include <iostream>
-#include <string>
-using namespace std;
+Here is the solution:
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> opStack;
-    stack<string> valStack;
-
-    for (int i = 0; i < expression.length(); i++) {
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1[0] == 'T' && operand2[0] == 'T') ? "T" : "F");
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            opStack.push('&');
+            if (s.empty()) {
+                return "False";
+            }
+            s.push('&');
         } else if (expression[i] == '|') {
-            while (!opStack.empty() && (opStack.top() == '&' || opStack.top() == '|')) {
-                opStack.pop();
-                string operand2 = valStack.top();
-                valStack.pop();
-                string operand1 = valStack.top();
-                valStack.pop();
-                valStack.push((operand1[0] == 'T' && operand2[0] == 'T') ? "T" : "F");
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
-            opStack.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string temp = "";
-            temp += expression[i];
-            valStack.push(temp);
+            if (s.empty()) {
+                return "True";
+            }
+            s.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            s.push('T');
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            s.push('F');
         }
     }
-
-    return valStack.top()[0] == 'T';
-}
-
-int main() {
-    cout << evaluateBooleanExpression("t") << endl;
-    cout << evaluateBooleanExpression("f") << endl;
-    cout << evaluateBooleanExpression("f&f") << endl;
-    cout << evaluateBooleanExpression("f&t") << endl;
-    cout << evaluateBooleanExpression("t&f") << endl;
-
-    return 0;
+    while (!s.empty()) {
+        s.pop();
+    }
+    return s.top() == 'T' ? "True" : "False";
 }
