@@ -1,12 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> sort_third(vector<int> l) {
     vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
+        if (i % 3 == 2) {
             indices.push_back(i);
         }
     }
