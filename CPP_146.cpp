@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 
-int specialFilter(vector<int> nums) {
+int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
@@ -11,8 +12,16 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 12, 15, 20};
-    int count = specialFilter(nums);
-    cout << "Count: " << count << endl;
+    std::vector<int> nums;
+    int num;
+    
+    std::cout << "Enter numbers (enter -1 to stop):" << std::endl;
+    
+    while ((std::cin >> num) && (num != -1)) {
+        nums.push_back(num);
+    }
+    
+    std::cout << "Result: " << specialFilter(nums) << std::endl;
+    
     return 0;
 }
