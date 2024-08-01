@@ -1,5 +1,7 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
+
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
