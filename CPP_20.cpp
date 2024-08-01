@@ -1,10 +1,9 @@
 #include <algorithm>
-#include <numeric>
 #include <limits>
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
-        throw invalid_argument("The vector must have at least two elements.");
+        throw std::invalid_argument("The vector must have at least two elements.");
     }
 
     float min_diff = numeric_limits<float>::max();
