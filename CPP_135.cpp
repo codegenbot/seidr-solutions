@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -14,7 +13,13 @@ int can_arrange(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input; // read your input here
+    vector<int> input; 
+    cout << "Enter the elements of array: ";
+    for(int j = 0; j < 5; j++) {
+        int val;
+        cin >> val;
+        input.push_back(val);
+    }
     assert(can_arrange(input) == -1); // test the function
     return 0;
 }
