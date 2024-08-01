@@ -1,29 +1,29 @@
-```
-#include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2, prevFrame = 0;
-
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') {
+    int roll = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-        } else if (isdigit(s[i])) {
-            roll1 = s[i] - '0';
-            if (i + 2 <= s.length() && s[i+1] == '/' && isdigit(s[i+2])) {
-                roll2 = s[i+2] - '0';
-                score += prevFrame + roll1 + roll2;
-                prevFrame = roll1 + roll2;
-            } else if (i + 1 <= s.length() && s[i+1] == '/') {
-                int spare = 10 - roll1;
-                score += prevFrame + roll1 + spare;
-                prevFrame = roll1 + spare;
+            roll++;
+        } else if (c == '/') {
+            score += 10 + (roll * 10);
+            roll++;
+        } else {
+            int currentRoll = stoi(string(1, c)) * 10;
+            if (roll < 2) {
+                score += currentRoll;
+                roll++;
             } else {
-                score += prevFrame + roll1;
-                prevFrame = roll1;
+                if (currentRoll + 10 <= 30) {
+                    score += currentRoll + 10;
+                    roll++;
+                } else {
+                    score += 30 - (10 - (currentRoll % 10));
+                    roll++;
+                }
             }
         }
     }
-
     return score;
-}
