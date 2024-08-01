@@ -1,9 +1,7 @@
 #include <algorithm>
-#include <numeric>
 #include <limits>
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    vector<pair<float, float>> result;
     pair<float, float> closest;
     float min_diff = numeric_limits<float>::max();
 
@@ -18,6 +16,5 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    result.push_back(closest);
-    return result;
+    return {closest};
 }
