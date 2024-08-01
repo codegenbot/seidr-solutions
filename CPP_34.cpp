@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
 
@@ -18,17 +18,17 @@ std::vector<int> solve(const std::vector<int>& l) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> inputList(n);
+
+    std::vector<int> l(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> inputList[i];
+        std::cin >> l[i];
     }
 
-    std::vector<int> result = solve(inputList);
+    std::vector<int> result = solve(l);
 
-    for (int num : result) {
-        std::cout << num << " ";
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
     }
-    std::cout << std::endl;
 
     return 0;
 }
