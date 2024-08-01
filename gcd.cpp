@@ -37,17 +37,13 @@ int main() {
     int a, b;
     string text, target;
 
-    if (cin >> a >> b) {
-        cin.ignore();
-        getline(cin, text);
-        getline(cin, target);
+    cin >> a >> b >> text >> target;
 
-        cout << gcd(a, b) << endl;
+    cout << gcd(a, b) << endl;
 
-        vector<int> result = indicesOfSubstring(text, target);
-        for (int idx : result) {
-            cout << idx << " ";
-        }
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int idx : result) {
+        cout << idx << " ";
     }
 
     return 0;
