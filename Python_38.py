@@ -1,1 +1,3 @@
-input_str = raw_input("Enter the cyclic encoded string: ") if sys.version_info.major == 2 else input("Enter the cyclic encoded string: ")
+input_str = input("Enter the cyclic encoded string: ").strip()
+result = decode_cyclic(input_str)
+print(result)
