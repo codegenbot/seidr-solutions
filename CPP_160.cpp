@@ -1,30 +1,17 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
-    int temp = operand[0];
-    
-    for (int i = 1; i < operand.size(); i++) {
-        if (*operator_.begin() == "+") {
-            result += temp + operand[i];
-            temp = result;
-            operator_.erase(operator_.begin());
-        } else if (*operator_.begin() == "-") {
-            result -= temp - operand[i];
-            temp = result;
-            operator_.erase(operator_.begin());
-        } else if (*operator_.begin() == "*") {
-            result *= temp * operand[i];
-            temp = result;
-            operator_.erase(operator_.begin());
-        } else if (*operator_.begin() == "//") {
-            result /= static_cast<int>(temp / (double)operand[i]);
-            temp = result;
-            operator_.erase(operator_.begin());
-        } else if (*operator_.begin() == "**") {
-            result = pow(temp, operand[i]);
-            temp = result;
-            operator_.erase(operator_.begin());
+int do_algebra(vector<string> operator_, vector<int> operands) {
+    int result = operands[0];
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
+            result += operands[i + 1];
+        } else if (operator_[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operator_[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operator_[i] == "//") {
+            result = result / operands[i + 1];
+        } else if (operator_[i] == "**") {
+            result = pow(result, operands[i + 1]);
         }
     }
-    
-    return temp;
+    return result;
 }
