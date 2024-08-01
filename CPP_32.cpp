@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cmath>
 
 double poly(std::vector<double> coeffs, double x);
@@ -19,8 +19,8 @@ double poly(std::vector<double> coeffs, double x) {
 }
 
 int main() {
-    std::vector<double> coefficients = {1.0, -3.0, 2.0};
-    std::vector<double> xs = {1.0, -2.0};
+    std::vector<double> coefficients = {1.0, -3.0, 2.0}; // Example coefficients for x^2 - 3x + 2
+    std::vector<double> xs = {1.0, -2.0}; // Example values for a and b in find_zero function
     std::vector<double> coeffs;
 
     for (double coeff : coefficients) {
