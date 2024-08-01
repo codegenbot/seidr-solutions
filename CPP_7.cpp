@@ -3,6 +3,8 @@
 #include <string>
 #include <cassert>
 
+using string = std::basic_string<char>;
+
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size()){
         return false;
