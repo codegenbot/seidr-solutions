@@ -41,7 +41,7 @@ string sort_numbers(string numbers) {
         result += rev_num_map[num] + " ";
     }
     
-    result.pop_back();
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
 
