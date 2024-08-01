@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <cassert>
+#include <cassert> // Add include for assert
 
 bool check_dict_case(const std::map<std::string, int>& dict) {
     if(dict.empty()) return false;
@@ -20,27 +20,6 @@ bool check_dict_case(const std::map<std::string, int>& dict) {
 }
 
 int main() {
-    std::map<std::string, int> dict;
-    int n;
-    std::string key;
-    int value;
-    
-    std::cout << "Enter the number of key-value pairs: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter key: ";
-        std::cin >> key;
-        std::cout << "Enter value: ";
-        std::cin >> value;
-        dict[key] = value;
-    }
-    
-    if(check_dict_case(dict)) {
-        std::cout << "Keys have consistent case.\n";
-    } else {
-        std::cout << "Keys do not have consistent case.\n";
-    }
-    
+    assert(check_dict_case({}) == false);
     return 0;
 }
