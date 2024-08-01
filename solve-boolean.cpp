@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
@@ -13,24 +7,13 @@ bool solveBoolean(string s) {
         if(s[j] == '|') break;
         j++;
     }
-    string left = s.substr(0, j);
-    
-    j++;
+    string left = s.substr(i, j-i);
+    i = j+1; j=0;
     while(j<s.length()) {
         if(s[j] == '&') break;
         j++;
     }
-    string right = s.substr(j);
-
+    string right = (j<s.length()) ? s.substr(i, j-i) : "";
+    
     return solveBoolean(left) || solveBoolean(right);
-}
-
-int main() {
-    // test cases
-    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
-    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
-    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
-    return 0;
 }
