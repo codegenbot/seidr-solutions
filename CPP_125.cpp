@@ -1,28 +1,33 @@
 vector<string> split_words(string txt) {
-    vector<string> words;
-    size_t start = 0;
-    while (start < txt.size()) {
-        if (isspace(txt[start])) {
-            start++;
-            continue;
+    vector<string> result;
+
+    if (txt.find(' ') != string::npos || txt.find(',') == string::npos) {
+        size_t pos = 0;
+        while ((pos = txt.find(' ')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
         }
-        size_t end = start;
-        while (end + 1 <= txt.size() && !isspace(txt[end + 1])) {
-            end++;
-        }
-        words.push_back(txt.substr(start, end - start + 1));
-        start = end + 1;
-    }
-    
-    if (words.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z' && (count % 2 == 0 || c < 'f')) {
-                count++;
+        if (!txt.empty()) {
+            result.push_back(txt);
+        } else {
+            int count = 0;
+            for (char c : txt) {
+                if (c >= 'a' && c <= 'z' && (count & 1)) {
+                    count++;
+                }
             }
+            result.push_back(to_string(count));
         }
-        words.push_back(to_string(count));
+    } else {
+        size_t pos = 0;
+        while ((pos = txt.find(',')) != string::npos) {
+            result.push_back(txt.substr(0, pos));
+            txt.erase(0, pos + 1);
+        }
+        if (!txt.empty()) {
+            result.push_back(txt);
+        }
     }
-    
-    return words;
+
+    return result;
 }
