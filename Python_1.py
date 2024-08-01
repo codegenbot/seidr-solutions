@@ -1,22 +1,15 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
-    nested_level = 0
-
     for char in paren_string:
-        if char == "(":
-            if nested_level > 0:
-                current_group += "("
-            nested_level += 1
-        elif char == ")":
-            nested_level -= 1
-            if nested_level > 0:
-                current_group += ")"
-            if nested_level == 0:
+        if char == "(" or char == ")":
+            current_group += char
+        else:
+            if current_group:
                 result.append(current_group)
                 current_group = ""
-
+    if current_group:
+        result.append(current_group)
     return result
