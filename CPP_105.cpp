@@ -1,3 +1,7 @@
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
@@ -26,7 +30,6 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
 
+    assert(issame(result, vector<string>{ "Nine", "Four", "Eight" }) && "Error at " << __LINE__);
     return result;
 }
-
-assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
