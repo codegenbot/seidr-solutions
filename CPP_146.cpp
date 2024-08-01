@@ -13,16 +13,19 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int num;
-
-    // Read input from user
-    cout << "Enter numbers (enter -1 to stop):" << endl;
-    while ((cin >> num) && (num != -1)) {
-        nums.push_back(num);
+    int n;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> nums.push_back(i);
     }
-
-    // Call the specialFilter function and print the result
-    cout << "Count of filtered numbers: " << specialFilter(nums) << endl;
-
+    
+    int result = specialFilter(nums);
+    
+    std::cout << "Number of elements in the filter: " << result << std::endl;
+    
     return 0;
 }
