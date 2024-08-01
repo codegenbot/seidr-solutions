@@ -1,8 +1,8 @@
-```
+```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
 
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int ans = 0;
     for (int i = 0; i < n; i++) {
@@ -13,7 +13,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
             }
         }
         while (curr > 0) {
-            int fill = min(curr, capacity);
+            int fill = std::min(curr, capacity);
             ans++;
             curr -= fill;
         }
@@ -22,8 +22,8 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{0,1,0},{1,1,1},{0,0,0}};
+    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 0, 0}, {1, 1, 1}};
     int capacity = 2;
-    cout << "Maximum number of times the tank can be filled: " << max_fill(grid, capacity) << endl;
+    std::cout << "Maximum number of times to fill: " << max_fill(grid, capacity) << std::endl;
     return 0;
 }
