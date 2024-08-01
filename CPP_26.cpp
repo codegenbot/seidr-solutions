@@ -1,15 +1,15 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+vector<int> remove_duplicates(vector<int> numbers){
+    vector<int> uniqueNumbers;
+    for (int num : numbers) {
+        if (count(numbers.begin(), numbers.end(), num) == 1) {
+            uniqueNumbers.push_back(num);
+        }
+    }
+    return uniqueNumbers;
 }
 
 int main() {
