@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,6 +17,6 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst = {1.2f, 3.5f, 4.7f};
     long long result = double_the_difference(lst);
-    assert(result == 29); // replace with your actual expected_result
+    assert(result == 21); // Replace with your actual expected result
     return 0;
 }
