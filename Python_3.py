@@ -9,6 +9,5 @@ def below_zero(operations: List[int]) -> bool:
     return False
 
 operations = [int(x) for x in input().split()]
-
 result = below_zero(operations)
 print(result)
