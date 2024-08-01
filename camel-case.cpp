@@ -20,10 +20,10 @@ std::string camelCase(const std::string& input) {
         } else {
             if (firstWord) {
                 result += c;
+                firstWord = false;
             } else {
                 result += char(std::tolower(c));
             }
-            firstWord = false;
         }
     }
 
@@ -34,7 +34,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::replace_if(input.begin(), input.end(), [](char c){return c == '-';}, ' ');
+    std::replace_if(input.begin(), input.end(), [](char c){return c == ' ';}, '_');
     std::cout << camelCase(input) << std::endl;
 
     return 0;
