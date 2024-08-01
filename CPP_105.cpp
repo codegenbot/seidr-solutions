@@ -8,33 +8,31 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<std::string> arr){
+std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
-    std::vector<std::string> sorted_arr;
+    std::vector<int> sorted_arr;
     std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
 
-    for (const std::string& str : arr) {
-        if (num_to_name.find(std::stoi(str)) != num_to_name.end()) {
-            sorted_arr.push_back(str);
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sorted_arr.push_back(num);
         }
     }
 
-    std::sort(sorted_arr.begin(), sorted_arr.end(), [&](const std::string& a, const std::string& b) {
-        return num_to_name[std::stoi(a)] > num_to_name[std::stoi(b)];
-    });
+    std::sort(sorted_arr.begin(), sorted_arr.end(), std::greater<int>());
 
-    for (const std::string& num : sorted_arr) {
-        result.push_back(num_to_name[std::stoi(num)]);
+    for (int num : sorted_arr) {
+        result.push_back(num_to_name[num]);
     }
 
     return result;
 }
 
 int main() {
-    std::vector<std::string> arr = {"3", "1", "7", "4", "2", "9"};
+    std::vector<int> arr = {3, 1, 7, 4, 2, 9};
     std::vector<std::string> expected_result = {"Nine", "Seven", "Four", "Three", "Two", "One"};
 
     std::vector<std::string> result = by_length(arr);
