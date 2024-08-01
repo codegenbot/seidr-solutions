@@ -1,5 +1,8 @@
+#include <string>
+#include <sscanf.h>
+
 int fruit_distribution(const std::string& s, int n) {
-    int apples = 0, oranges = 0;
-    sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
-    return n - apples - oranges;
+    int total_apples = 0, total_oranges = 0;
+    sscanf(s.c_str(), "%d apples and %d oranges", &total_apples, &total_oranges);
+    return n - total_apples - total_oranges;
 }
