@@ -35,22 +35,18 @@ int main() {
     int a, b;
     std::string text, target;
     
-    std::cout << "Enter two integers: ";
+    std::cout << "Enter two integers for gcd calculation: ";
     std::cin >> a >> b;
-    
-    int result_gcd = gcd(a, b);
-    std::cout << "GCD of " << a << " and " << b << " is: " << result_gcd << std::endl;
-    
+    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
+
     std::cout << "Enter text string: ";
     std::cin >> text;
-    
     std::cout << "Enter target string: ";
     std::cin >> target;
-    
-    std::vector<int> results_indices = findIndicesOfSubstring(text, target);
-    
-    std::cout << "Target string appears at indices: ";
-    for (int idx : results_indices) {
+
+    std::vector<int> result = findIndicesOfSubstring(text, target);
+    std::cout << "Indices of the target string in text: ";
+    for (int idx : result) {
         std::cout << idx << " ";
     }
     
