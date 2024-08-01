@@ -11,4 +11,3 @@ bool correct_bracketing(std::string brackets){
         }
     }
     return opening == closing;
-}
