@@ -1,7 +1,5 @@
-def leaders(input):
-    input = list(map(int, input.split()))
-    leaders_list = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= input[i + 1]:
-            leaders_list.insert(0, input[i])
-    return " ".join(str(i) for i in leaders_list)
+Here is the Python solution for the problem:
+
+def leaders(arr):
+    leaders_list = [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:])]
+    return leaders_list
