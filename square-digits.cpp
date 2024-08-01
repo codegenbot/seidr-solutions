@@ -1,14 +1,20 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-int findDigitSquare(int num) {
-    string strNum = to_string(num);
+string squareDigits(string input) {
     string result = "";
-    for (char c : strNum) {
+    for (char c : input) {
         int digit = c - '0';
-        int square = digit * digit;
-        char sq_str[3];
-        sprintf(sq_str, "%d", square);
-        result += sq_str;
+        long long squared = (long long)digit * digit;
+        result += to_string(squared);
     }
-    returnstoi(result);
+    return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << "Result: " << squareDigits(input) << endl;
+    return 0;
 }
