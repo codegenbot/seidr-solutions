@@ -1,12 +1,8 @@
+```cpp
 #include <string>
-using namespace std;
+#include <vector>
 
-int main() {
-    string input = "4939302";
-    string output = squareDigits(input);
-    cout << output << endl;
-    return 0;
-}
+using namespace std;
 
 string squareDigits(string input) {
     string output = "";
