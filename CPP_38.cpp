@@ -1,32 +1,23 @@
 #include <string>
-#include <cassert>
 
-std::string encode_cyclic(std::string s){
+string encode_cyclic(string s) {
     int l = s.length();
-    std::string x, output;
-    int i;
-    for (i = 0; i < l; i += 3) {
-        x = s.substr(i, std::min(3, l - i));
-        if (x.length() == 3) x = x.substr(1) + x[0];
-        output += x;
+    string encoded_str;
+    for (int i = 0; i * 3 < l; i++) {
+        string x = s.substr(i * 3, 3);
+        if (x.length() == 3) x = x[1] + x.substr(0, 2);
+        encoded_str += x;
     }
-    return output;
+    return encoded_str;
 }
 
-std::string decode_cyclic(std::string s){ 
+string decode_cyclic(string s) {
     int l = s.length();
-    std::string x, output;
-    for (int i = 0; i < l; i += 3) {
-        x = s.substr(i, std::min(3, l - i));
+    string decoded_str;
+    for (int i = 0; i * 3 < l; i++) {
+        string x = s.substr(i * 3, 3);
         if (x.length() == 3) x = x[2] + x.substr(0, 2);
-        output += x;
+        decoded_str += x;
     }
-    return output;
-}
-
-int main() {
-    std::string str = "input_string";
-    std::string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
-    return 0;
+    return decoded_str;
 }
