@@ -1,7 +1,24 @@
-vector<int> stones;
-    stones.push_back(n);
-    for(int i = 1; i < n; i++){
-        n = (n % 2 == 0) ? n + 1 : n + 2;
-        stones.push_back(n);
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    for (int i = 1; i <= n; i++) {
+        pile.push_back(i * 2);
     }
-    return stones;
+    return pile;
+}
+
+// Add the missing function
+int count_divisible_piles(std::vector<int> pile) {
+    int count = 0;
+    for (int val : pile) {
+        if (val % 3 == 0) {
+            count++;
+        }
+    }
+    return count;
+}
