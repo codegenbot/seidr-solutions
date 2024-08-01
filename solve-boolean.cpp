@@ -1,14 +1,22 @@
-string solveBoolean(string expression) {
-    stack<char> st;
-    for(int i = 0; i < expression.length(); i++){
-        if(expression[i] == '|'){
-            if(st.top() == '&') return "False";
-            else if(st.top() == 'T' || st.top() == 'F') st.pop();
-        }else if(expression[i] == '&'){
-            if(i == expression.length()-1) return "False";
-        }else{
-            st.push(expression[i]);
+#include <string>
+
+bool solveBoolean(string expression) {
+    bool result = true;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '&') {
+            int j = i + 1;
+            while (j < expression.size() && expression[j] != '|') {
+                j++;
+            }
+            string subExpression = expression.substr(i+1, j-i-1);
+            if (subExpression.find('T') == string::npos) {
+                result = false;
+                break;
+            }
+            i = j - 1;
+        } else if (expression[i] == 'F') {
+            return false;
         }
     }
-    return st.top() == 'T'? "True": "False";
+    return result;
 }
