@@ -1,4 +1,4 @@
-#include <string>
+#include <string> // Include string header
 #include <iostream>
 #include <cassert>
 
@@ -9,4 +9,10 @@ std::string change_base(int x, int base){
         x /= base;
     }
     return result;
+}
+
+int main(){
+    int x = 10;
+    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x))); // Added std:: before to_string
+    return 0;
 }
