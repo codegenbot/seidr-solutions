@@ -1,6 +1,6 @@
 #include <vector>
-#include <climits>
-#include <cassert>
+#include <climits> // for using INT_MAX
+#include <cassert> // for using assert
 
 bool issame(vector<int> a, vector<int> b);
 
