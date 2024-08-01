@@ -1,16 +1,15 @@
-def bowling_score(bowling_str):
+```
+def bowling_score(s):
     score = 0
-    frames = [
-        list(map(int, frame.split("/"))) if "/" in frame else list(map(int, frame))
-        for frame in bowling_str.split()
-    ]
-    for i in range(len(frames)):
-        if len(frames[i]) == 1:
-            score += frames[i][0]
-        elif len(frames[i]) == 2:
-            score += sum(frames[i])
-            if sum(frames[i]) < 10:
-                score += 10 - sum(frames[i])
-        else:
-            score += sum(frames[i])
+    frame = 1
+    for char in s + ' ':
+        if char.isdigit():
+            if frame == 10:
+                if len(s) < 2 or (s[-1] != '/'):
+                    return -1
+            score += int(char)
+        elif char == '/':
+            score -= int(s[s.index(char) - 1])
+            s = s[:s.index(char)]
+            frame += 1
     return score
