@@ -1,26 +1,27 @@
+#include <stdio.h>
 #include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
     size_t pos = 0;
-    int apples = 0, oranges = 0;
+    string apple_str, orange_str;
     
-    while ((pos = s.find(" and ")) != string::npos) {
-        if (s.substr(0, pos).find("apples") != string::npos)
-            apples = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("apples", ""));
-        else if (s.substr(0, pos).find("oranges") != string::npos)
-            oranges = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("oranges", ""));
-        
-        s.erase(0, pos + 5);
+    while ((pos = s.find(" apples")) != string::npos) {
+        apple_str = " " + to_string(n - s.erase(pos, 7).find_last_of(' ') - 1);
+        break;
     }
     
-    if (s.find("apples") != string::npos) {
-        apples = stoi(s.substr(0, s.find(" ")).replace("apples", ""));
-        s.erase(0, s.find(" ") + 1);
-    } else if (s.find("oranges") != string::npos) {
-        oranges = stoi(s.substr(0, s.find(" ")).replace("oranges", ""));
-        s.erase(0, s.find(" ") + 1);
+    if (s.find(" oranges") == string::npos) {
+        return n;
     }
     
-    return n - apples - oranges;
+    while ((pos = s.find(" oranges")) != string::npos) {
+        orange_str = " " + to_string(n - s.erase(pos, 8).find_last_of(' ') - 1);
+        break;
+    }
+    
+    size_t apple_count = stoi(apple_str.substr(2));
+    size_t orange_count = stoi(orange_str.substr(2));
+    
+    return n - (apple_count + orange_count);
 }
