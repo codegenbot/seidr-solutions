@@ -1,36 +1,41 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    bowl_index = 0
-    while frame <= 10:
-        if bowls[bowl_index] == "X":
-            score += 10 + bonus(bowls, bowl_index + 1, 2)
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == "/":
-            score += 10 + bonus(bowls, bowl_index + 2, 1)
-            bowl_index += 2
+    frame_score = [0] * 10
+    for i, bowl in enumerate(bowls):
+        if bowl == "X":
+            score += 10
+            if frame <= 8:
+                if bowls[i + 2] == "/":
+                    score += 10
+                else:
+                    score += get_value(bowls[i + 1]) + get_value(bowls[i + 2])
+            frame_score[frame - 1] = score
+            frame += 1
+        elif bowl == "/":
+            score += 10 - get_value(bowls[i - 1])
+            if frame <= 8:
+                score += get_value(bowls[i + 1])
+            frame_score[frame - 1] = score
+            frame += 1
+        elif bowl == "-":
+            continue
         else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            if bowls[bowl_index] != "-":
-                score -= int(bowls[bowl_index])
-            if bowls[bowl_index + 1] != "-":
-                score -= int(bowls[bowl_index + 1])
-            bowl_index += 2
-        frame += 1
-    return score
+            score += int(bowl)
+            if frame <= 10:
+                frame_score[frame - 1] = score
+            if frame % 2 == 0:
+                frame += 1
+    return sum(frame_score)
 
 
-def bonus(bowls, start_index, num_bonuses):
-    bonus_score = 0
-    for i in range(num_bonuses):
-        if bowls[start_index] == "X":
-            bonus_score += 10
-        elif bowls[start_index] == "/":
-            bonus_score += 10 - int(bowls[start_index - 1])
-        else:
-            bonus_score += int(bowls[start_index])
-        start_index += 1
-    return bonus_score
+def get_value(bowl):
+    if bowl == "X":
+        return 10
+    elif bowl == "-":
+        return 0
+    else:
+        return int(bowl)
 
 
 bowls = input()
