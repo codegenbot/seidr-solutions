@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-void sort_even(std::vector<int> &l) {
+void sort_even(std::vector<int>& l) {
     std::sort(l.begin(), l.end(), [](int a, int b) {
         return a % 2 == 0 && b % 2 == 0 ? a < b : a % 2 == 0;
     });
