@@ -1,6 +1,9 @@
-for (const auto& str : a) {
-        if (find(b.begin(), b.end(), str) == b.end())
+````
+bool issame(const vector<string>& a, const vector<string>& b) {
+    for (const auto& str : a) {
+        if (find(b.begin(), b.end(), str) == b.end()) {
             return false;
+        }
     }
     return true;
 }
