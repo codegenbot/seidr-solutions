@@ -1,23 +1,46 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char i : s) {
-        bool found = false;
-        for (char j : c) {
-            if (i == j) {
-                found = true;
+    
+    for (char x : s) {
+        bool flag = false;
+        for (char y : c) {
+            if (x == y) {
+                flag = true;
                 break;
             }
         }
-        if (!found) {
-            temp += i;
-        }
+        if (!flag)
+            temp += x;
     }
+
     result.push_back(temp);
-    string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
-    result.push_back((temp == revTemp) ? "True" : "False");
+    
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
+    
+    result.push_back((temp == rev) ? "True" : "False");
+    
     return result;
+}
+
+int main() {
+    string s, c;
+    cout << "Enter the first string: ";
+    cin >> s;
+    cout << "Enter the second string: ";
+    cin >> c;
+
+    vector<string> res = reverse_delete(s, c);
+
+    cout << "Result: " << res[0] << ", " << res[1] << endl;
+
+    return 0;
 }
