@@ -3,7 +3,7 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     depths = []
     current_depth = 0
-    
+
     for char in paren_string:
         if char == "(":
             current_depth += 1
@@ -13,7 +13,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 current_depth -= 1
             else:
                 return "Invalid input: Unbalanced parentheses"
-                
+
     if current_depth == 0:
         return depths
     else:
