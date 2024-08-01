@@ -5,3 +5,4 @@ bool prime_length(string str){
         if(length%i == 0) return false;
     }
     return true;
+}
