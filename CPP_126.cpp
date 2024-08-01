@@ -1,22 +1,22 @@
-bool is_sorted(vector<int> lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] >= lst[i - 1]) {
-            continue;
-        } else {
-            bool has_duplicates = false;
-            for (int j = 0; j < lst.size(); j++) {
-                for (int k = j + 1; k < lst.size(); k++) {
-                    if (lst[j] == lst[k]) {
-                        has_duplicates = true;
-                        break;
-                    }
-                }
-                if (has_duplicates) {
-                    break;
-                }
-            }
-            return !has_duplicates;
+#include <vector>
+#include <algorithm>
+
+bool is_sorted(std::vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            return false;
+        }
+    }
+    std::vector<int>::iterator it;
+    for(it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(std::distance(it, lst.end()) > 1){
+            return false;
         }
     }
     return true;
+}
+
+int main(){
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    return 0;
 }
