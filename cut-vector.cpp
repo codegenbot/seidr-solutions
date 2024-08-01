@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -14,7 +14,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         }
     }
     
-    return {{vec.begin(), vec.end() - 1}, {vec.end()}};
+    return {{vec.begin(), vec.end() - 1}, {vec.end()}}; // Return two subvectors
 }
 
 int main() {
