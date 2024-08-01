@@ -8,7 +8,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         if char == '(':
             stack.append(1)
         elif char == ')':
-            level = sum(stack)
-            result.append(level)
             stack.pop()
-    return result
+    max_level = len(stack)
+    result.append(max_level)
+    return [max_level]
