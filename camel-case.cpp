@@ -1,3 +1,6 @@
+Here is the completed code:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -21,10 +24,8 @@ std::string kebabToCamel(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-
-    std::cout << "CamelCase representation: " << kebabToCamel(input) << std::endl;
+    std::cin >> input;
+    std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
 }
