@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -14,15 +15,15 @@ std::string camelCase(const std::string& input) {
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += char(std::toupper(c));
+                result += '-';
+                firstWord = true;
             }
-            firstWord = true;
         } else {
             if (firstWord) {
-                result += c;
+                result += std::tolower(c);
                 firstWord = false;
             } else {
-                result += char(std::tolower(c));
+                result += char(std::toupper(c));
             }
         }
     }
@@ -34,10 +35,7 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-
-    // Remove spaces
-    input = input;
-
+    std::replace_if(input.begin(), input.end(), ::isspace, ' ');
     std::cout << camelCase(input) << std::endl;
 
     return 0;
