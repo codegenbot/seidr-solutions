@@ -1,13 +1,16 @@
-def solveBoolean(s):
-    if s == "T":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif s == "F":
+    elif expression == "F":
         return False
-    elif "&" in s and "|" in s:
-        raise ValueError("Invalid Boolean expression")
-    elif "&" in s:
-        left, right = s.split("&")
-        return not (bool(left) and bool(right))
-    elif "|" in s:
-        left, right = s.split("|")
-        return bool(left) or bool(right)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = eval(
+            " ".join(map(lambda x: f"True" if x == "T" else "False", list(expression)))
+        )
+        return result
+
+
+expression = input()
+print(solve_boolean(expression))
