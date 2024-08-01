@@ -1,21 +1,24 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    int digitCount = 0;
-    bool foundDot = false;
+    int digit_count = 0, dot_count = 0;
+    bool valid = true;
+
     for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
-            digitCount++;
-        }else if(c == '.'){
-            foundDot = true;
-        }else if(c < 'a' || (c > 'z' && c < 'A') || c > 'Z'){
-            return "No";
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            digit_count++;
+        }
+        else if(file_name[i] == '.'){
+            dot_count++;
+        }
+        else if(dot_count > 1 || (i > 0 && !isalpha(file_name[i-1]))){
+            valid = false;
+            break;
         }
     }
-    if(digitCount > 3 || !foundDot) return "No";
-    size_t dotPos = file_name.find('.');
-    string extension = file_name.substr(dotPos+1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if(find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) return "No";
-    return "Yes";
+
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
+        valid = false;
+    }
+
+    return (valid) ? "Yes" : "No";
+}
