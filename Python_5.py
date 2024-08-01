@@ -5,7 +5,6 @@ def format_numbers(numbers, delimiter):
     result.pop()
     return result
 
-
 numbers = input("Enter numbers separated by space: ").split()
 delimiter = input("Enter delimiter: ")
 
