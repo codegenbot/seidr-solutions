@@ -18,4 +18,4 @@ int main() {
     int result = basement(nums);
     cout << result << endl;
     return 0;
-}  
+}
