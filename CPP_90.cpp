@@ -1,25 +1,25 @@
 ```cpp
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
-        return -1; // or any other value that represents None
+        return -1; 
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1])
             return sorted[i + 1];
     }
-    return -1; // or any other value that represents None
+    return -1; 
 }
 
 int main() {
     vector<int> lst;
-    int num;
-    cout << "Enter the numbers separated by space: ";
-    while (cin >> num) {
-        lst.push_back(num);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0;i<n;i++){
+        cout << "Enter element " << i+1 << ": ";
+        cin >> lst.push_back(i);
     }
-    if (lst.size() > 0)
-        cout << "Next smallest number is: " << next_smallest(lst) << endl;
-    else
-        cout << "No numbers entered." << endl;
+    cout << "The next smallest number is: " << next_smallest(lst) << endl;
+    return 0;
 }
