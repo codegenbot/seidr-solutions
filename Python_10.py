@@ -1,5 +1,5 @@
 ```Python
-def make_palindrome(s: str) -> str:
+def make_palindrome(string: str) -> str:
     s = s.lower()
     new_string = []
     
@@ -11,4 +11,4 @@ def make_palindrome(s: str) -> str:
     new_string.insert(0, s[0])
     new_string.append(s[-1])
     
-    return ''.join(new_string).upper()
+    return ''.join(new_string)
