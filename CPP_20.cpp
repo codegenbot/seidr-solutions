@@ -1,9 +1,8 @@
-```
 #include <algorithm>
-#include <vector>
-#include <numeric>
 #include <limits>
-#include <utility>
+#include <vector>
+#include <cmath>
+#include <stdexcept>
 
 bool isSame(float a, float b) {
     return std::abs(a - b) < std::numeric_limits<float>::epsilon();
@@ -22,7 +21,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
             float diff = std::abs(numbers[i] - numbers[j]);
             if (diff < min_diff && !isSame(numbers[i], numbers[j])) {
                 min_diff = diff;
-                closest_pair = {std::min(numbers[i], numbers[j]), std::max(numbers[i], numbers[j])};
+                closest_pair = {numbers[i], numbers[j]};
             }
         }
     }
