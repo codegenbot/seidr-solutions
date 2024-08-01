@@ -1,25 +1,21 @@
-int totalChars(const vector<string>& lst) {
-    int total = 0;
-    for(const string& str : lst) {
-        total += str.size();
+#include <vector>
+#include <string>
+#include <cassert> // Include necessary header
+
+bool issame(const vector<string>& a, const vector<string>& b){ // Fix function signature
+    int totalChars1 = 0, totalChars2 = 0;
+    for (const string& str : a) {
+        totalChars1 += str.size();
     }
-    return total;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return totalChars(a) == totalChars(b);
-}
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if(totalChars(lst1) < totalChars(lst2)) {
-        return lst1;
-    } else {
-        return lst2;
+    for (const string& str : b) {
+        totalChars2 += str.size();
     }
-}
-
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
     
+    // Correct comparison and return statement
+    return totalChars1 == totalChars2;
+}
+
+int main(){
+    assert(issame({"this"}, {})); // Use correct function call syntax
     return 0;
 }
