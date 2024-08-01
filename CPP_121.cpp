@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int solutions(std::vector<int> lst) {
@@ -11,7 +12,5 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
-    int result = solutions(lst);
-    // Your code here
+    return 0;
 }
