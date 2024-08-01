@@ -1,13 +1,9 @@
-```cpp
-bool issame(float x, float y) {
-    if (abs(x - y) < 0.01)
-        return true;
-    else
-        return false;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 int main() {
-    vector<float> grades = {4.2, 3.8, 3.5, 3.1};
+    vector<float> grades = {4.0f, 3.8f, 3.5f, 2.9f, 2.6f, 2.2f};
     vector<string> result = numerical_letter_grade(grades);
     for (string letterGrade : result) {
         cout << letterGrade << endl;
@@ -19,7 +15,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
-        if (issame(grade, 4.0))
+        if (grade >= 4.0)
             letterGrade = "A+";
         else if (grade > 3.7)
             letterGrade = "A";
@@ -42,7 +38,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "E";
+            letterGrade = "F";
         result.push_back(letterGrade);
     }
     return result;
