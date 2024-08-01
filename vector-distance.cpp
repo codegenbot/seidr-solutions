@@ -2,7 +2,12 @@
 #include <iostream>
 #include <cmath>
 
-double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
+using std::cout;
+using std::cin;
+using std::fixed;
+using std::setprecision;
+
+double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     double distance = 0;
     for (int i = 0; i < v1.size(); ++i) {
         distance += pow(v1[i] - v2[i], 2);
@@ -14,7 +19,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n), v2(n);
+    std::vector<float> v1(n), v2(n);
 
     for (int i = 0; i < n; ++i) {
         cin >> v1[i] >> v2[i];
