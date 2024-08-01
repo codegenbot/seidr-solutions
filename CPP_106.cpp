@@ -1,20 +1,22 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+using namespace std;
 
 vector<int> f(int n) {
     vector<int> result(n);
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) { // even index
             int fact = 1;
             for (int j = 1; j <= i; j++) {
                 fact *= j;
             }
-            result[i - 1] = fact;
-        } else {
+            result[i] = fact;
+        } else { // odd index
             int sum = 0;
             for (int j = 1; j <= i; j++) {
                 sum += j;
             }
-            result[i - 1] = sum;
+            result[i] = sum;
         }
     }
     return result;
