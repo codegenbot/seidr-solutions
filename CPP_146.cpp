@@ -12,9 +12,17 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    // Example usage
-    std::vector<int> nums = {11, 12, 13, 14};
-    assert(specialFilter(nums) == 3);
-    
+    std::vector<int> nums;
+    int num;
+
+    // Read input from user
+    cout << "Enter numbers (enter -1 to stop):" << endl;
+    while ((cin >> num) && (num != -1)) {
+        nums.push_back(num);
+    }
+
+    // Call the specialFilter function and print the result
+    cout << "Count of filtered numbers: " << specialFilter(nums) << endl;
+
     return 0;
 }
