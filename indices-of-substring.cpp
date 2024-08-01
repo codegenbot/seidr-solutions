@@ -1,21 +1,14 @@
-Here is the solution:
-
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool match = true;
-        for (int j = 0; j < target.size(); j++) {
-            if (text[i + j] != target[j]) {
-                match = false;
-                break;
-            }
-        }
-        if (match) {
-            result.push_back(i);
-        }
+std::vector<int> findIndices(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    size_t pos = 0;
+    
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += 1; // skip the matched string
     }
-    return result;
+    
+    return indices;
 }
