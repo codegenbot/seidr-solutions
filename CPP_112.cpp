@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,7 +15,6 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
             result += ch;
         }
     }
-    
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
 
@@ -24,6 +22,6 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main(){
-    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
