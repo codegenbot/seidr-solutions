@@ -1,41 +1,54 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
     vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             if (!visited[i][j]) {
-                vector<int> path = dfs(grid, visited, i, j, k);
-                if (!res.size() || path < res) {
-                    res = path;
+                dfs(grid, dp, visited, i, j, k);
+            }
+        }
+    }
+
+    vector<int> res;
+    int maxVal = -1;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] == k) {
+                if (grid[i][j] > maxVal) {
+                    res.clear();
+                    for (int x = 0; x <= k; x++) {
+                        res.push_back(grid[i][j]);
+                    }
+                    maxVal = grid[i][j];
                 }
             }
         }
     }
+
     return res;
 }
 
-vector<int> dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k) {
+void dfs(vector<vector<int>>& grid, vector<vector<int>>& dp, vector<vector<bool>>& visited, int i, int j, int k) {
     int n = grid.size();
-    vector<int> path;
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[x][y]);
-        if (i == k - 1) break;
-        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        random_shuffle(directions.begin(), directions.end());
-        for (auto& d : directions) {
-            int nx = x + d.first;
-            int ny = y + d.second;
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                visited[x][y] = true;
-                return dfs(grid, visited, nx, ny, k - i - 1);
+    if (k == 0) {
+        return;
+    }
+
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            if (x == 0 && y == 0) continue;
+
+            int ni = i + x;
+            int nj = j + y;
+
+            if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
+                visited[ni][nj] = true;
+                dp[ni][nj] = k - 1;
+                dfs(grid, dp, visited, ni, nj, k - 1);
+                visited[ni][nj] = false;
             }
         }
     }
-    return path;
 }
