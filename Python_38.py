@@ -1,9 +1,4 @@
-try:
-    input_str = input("Enter the cyclic encoded string: ")
-except EOFError:
-    print("Program did not receive expected input")
-    exit()
-
+input_str = input("Enter the cyclic encoded string: ")
 def decode_cyclic(s: str):
     groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
