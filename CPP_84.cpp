@@ -1,9 +1,8 @@
 #include <iostream>
-#include <string>
 #include <bitset>
-using namespace std;
+#include <cassert>
 
-string solve(int N) {
+std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
         sum += N % 2;
@@ -14,6 +13,5 @@ string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
-    // Add additional test cases if needed
     return 0;
 }
