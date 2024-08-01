@@ -1,28 +1,24 @@
-Here is the completed code:
+bool hasDigit = false;
+int dotCount = 0;
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(found_dot){
-            string ext = file_name.substr(i);
-            if(ext != "txt" && ext != "exe" && ext != "dll")
-                return "No";
-        }
+for(char c : file_name){
+    if(isdigit(c)){
+        if(hasDigit) return "No";
+        hasDigit = true;
+    }else if(c == '.'){
+        dotCount++;
+        if(dotCount > 1) return "No";
     }
-
-    if(digit_count > 3 || !found_dot)
-        return "No";
-
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z')
-        return "No";
-
-    return "Yes";
 }
+
+if(hasDigit && dotCount != 1) return "No";
+
+string extension = "";
+for(int i = file_name.find('.') + 1; i < file_name.length(); i++){
+    extension += file_name[i];
+}
+extension = extensiontolower();
+
+if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
+return "Yes";
