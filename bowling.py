@@ -1,20 +1,21 @@
-def bowling_score(input_str):
+```
+def bowling_score(rolls):
     score = 0
-    roll = [int(x) for x in re.findall("\d", input_str)]
-    frame = 0
-    while len(roll) > 0:
-        if roll[0] == "/":
-            score += 10
-            del roll[0]
-            continue
-        if roll[0] == "X":
-            score += 10
-            del roll[0]
-            continue
-        if len(roll) >= 2 and int("".join(map(str, roll[:2]))) < 10:
-            score += sum(roll[:2])
-            del roll[:2]
-            continue
-        score += roll[0]
-        del roll[0]
+    roll_idx = 0
+    for frame in range(1, 11):
+        if len(rolls) > roll_idx and rolls[roll_idx] == 'X':
+            score += 10 + (10 - (frame == 10))
+            roll_idx += 1
+        elif len(rolls) > roll_idx and rolls[roll_idx].isdigit():
+            num_rolls = int(rolls[roll_idx])
+            if num_rolls == 2:
+                score += 2 * (10 - (frame == 10))
+                roll_idx += 1
+            else:
+                score += num_rolls + (10 - (frame == 10))
+                roll_idx += num_rolls
+        elif len(rolls) > roll_idx and '/' in rolls[roll_idx]:
+            first, second = map(int, rolls[roll_idx].split('/'))
+            score += first + second + (10 - (frame == 10))
+            roll_idx += 1
     return score
