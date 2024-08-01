@@ -1,6 +1,3 @@
-xs = list(map(int, input().split()))
-
-
 def find_zero(xs: list):
     n = len(xs) - 1
     if n % 2 == 1:
@@ -9,3 +6,5 @@ def find_zero(xs: list):
         if xs[i] * xs[i + 2] < 0:
             return -xs[i + 1] / xs[i]
     return None
+
+xs = list(map(int, input().split()))
