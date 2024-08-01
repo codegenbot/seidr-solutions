@@ -1,10 +1,9 @@
-
 #include <vector>
-#include <string>
-#include <cassert>
+#include <cmath>
+#include <assert.h>
 
 bool issame(float gpa, float value) {
-    return gpa == value;
+    return std::abs(gpa - value) < 0.0001;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -12,27 +11,27 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     for (float gpa : grades) {
         if (issame(gpa, 4.0f)) {
             letter_grades.push_back("A+");
-        } else if (gpa > 3.7f) {
+        } else if (gpa >= 3.7f) {
             letter_grades.push_back("A");
-        } else if (gpa > 3.3f) {
+        } else if (gpa >= 3.3f) {
             letter_grades.push_back("A-");
-        } else if (gpa > 3.0f) {
+        } else if (gpa >= 3.0f) {
             letter_grades.push_back("B+");
-        } else if (gpa > 2.7f) {
+        } else if (gpa >= 2.7f) {
             letter_grades.push_back("B");
-        } else if (gpa > 2.3f) {
+        } else if (gpa >= 2.3f) {
             letter_grades.push_back("B-");
-        } else if (gpa > 2.0f) {
+        } else if (gpa >= 2.0f) {
             letter_grades.push_back("C+");
-        } else if (gpa > 1.7f) {
+        } else if (gpa >= 1.7f) {
             letter_grades.push_back("C");
-        } else if (gpa > 1.3f) {
+        } else if (gpa >= 1.3f) {
             letter_grades.push_back("C-");
-        } else if (gpa > 1.0f) {
+        } else if (gpa >= 1.0f) {
             letter_grades.push_back("D+");
-        } else if (gpa > 0.7f) {
+        } else if (gpa >= 0.7f) {
             letter_grades.push_back("D");
-        } else if (gpa > 0.0f) {
+        } else if (gpa >= 0.0f) {
             letter_grades.push_back("D-");
         } else {
             letter_grades.push_back("E");
@@ -42,7 +41,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    assert (issame(numerical_letter_grade({0, 0.7f})[0], "E"));
-    assert (issame(numerical_letter_grade({0, 0.7f})[1], "D-"));
+    std::vector<float> test_grades = {0, 0.7};
+    std::vector<std::string> expected_grades = {"E", "D-"};
+    assert(numerical_letter_grade(test_grades) == expected_grades);
     return 0;
 }
