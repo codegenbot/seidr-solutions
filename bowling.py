@@ -1,22 +1,24 @@
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in game.replace("/", ""):
-        if frame.isdigit():
-            if len(frame) == 1:
-                score += int(frame)
-                roll += 1
-            elif len(frame) == 2:
-                score += int(frame[0]) + int(frame[1])
-                roll += 1
-            else:
-                raise ValueError("Invalid game string")
+    frame = 1
+    for f in frames:
+        if f == 'X':
+            score += 30
+            frame -= 1
+        elif f == '/':
+            score += 10 + int(frames[frames.index(f) - 1])
+            frame -= 1
         else:
-            if frame == "X":
+            strike = False
+            if f == '0' or f == '0/':
                 score += 10
-                roll += 1
-            elif frame == "-":
-                continue
+                frame -= 1
             else:
-                raise ValueError("Invalid game string")
+                for i in range(1, 4):
+                    if str(i) not in f and '/' not in f:
+                        score += int(f[0])
+                        break
+        if frame == 0:
+            break
     return score
