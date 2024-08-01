@@ -1,7 +1,7 @@
 #include <vector>
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -14,8 +14,11 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back(smallest_even);
-    result.push_back(index_of_smallest_even);
+    vector<int> firstVector;
+    firstVector.push_back(smallest_even);
+    firstVector.push_back(index_of_smallest_even);
+
+    result.push_back(firstVector);
 
     return result;
 }
