@@ -1,13 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
-int main() {
-    assert(issame(std::vector<float>({1}), std::vector<float>()));
-    return 0;
-}
-
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -20,4 +13,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     }
     
     return true;
+}
+
+int main() {
+    assert(issame(std::vector<float>{1}, std::vector<float>{}));
+    return 0;
 }
