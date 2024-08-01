@@ -2,32 +2,36 @@
 #include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
-
-std::vector<float> createPositiveVector(int n) {
-    std::vector<float> vec;
-    float num;
-    for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        if (num > 0) {
-            vec.push_back(num);
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return vec;
+
+    return true;
 }
 
 int main() {
     std::vector<float> vec1, vec2;
+    float num;
     int n;
-    
-    std::cin >> n;
-    vec1 = createPositiveVector(n);
-    
-    std::cin >> n;
-    vec2 = createPositiveVector(n);
 
-    // Check if vectors are the same
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        vec1.push_back(num);
+    }
+
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        vec2.push_back(num);
+    }
+
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
