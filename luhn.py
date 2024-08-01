@@ -1,14 +1,11 @@
-Here is the solution:
-
-def luhn(card):
+def luhn(card_num):
     total = 0
-    for i in range(len(card)):
-        if (i % 2 == 1):
-            temp = int(card[i]) * 2
-            if temp > 9:
-                total += temp - 9
-            else:
-                total += temp
+    for i in range(len(card_num)):
+        if i % 2 == 1:
+            digit = int(card_num[i]) * 2
+            if digit > 9:
+                digit -= 9
         else:
-            total += int(card[i])
+            digit = int(card_num[i])
+        total += digit
     return total
