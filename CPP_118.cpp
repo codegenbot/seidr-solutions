@@ -1,10 +1,12 @@
-#include <iostream>
-#include <cctype>
+char ispunct(char c);
+string word;
 
-int main() {
-    std::string word = "Hello! World!";
+char findPunctuation() {
     for (int i = 0; i < word.length(); i++) {
         if (ispunct(word[i])) return word[i];
     }
-    return 0;
+    for (int j = word.length() - 1; j >= 0; j--) {
+        if (ispunct(word[j])) return word[j];
+    }
+    return '\0';
 }
