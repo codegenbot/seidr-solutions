@@ -3,21 +3,19 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-int total_chars(vector<string> lst) {
+int total_chars(std::vector<std::string> lst) {
     int total = 0;
-    for (string str : lst) {
+    for (std::string str : lst) {
         total += str.length();
     }
     return total;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
     } else {
@@ -26,6 +24,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), std::vector<std::string>{}));
     return 0;
 }
