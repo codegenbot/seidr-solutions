@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool move_one_ball(std::vector<int>& arr) {
