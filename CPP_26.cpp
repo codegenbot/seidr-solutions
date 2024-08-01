@@ -1,9 +1,16 @@
-vector<int> remove_duplicates(vector<int> numbers){
+#include <unordered_set>
+using namespace std;
+
+vector<int> remove_duplicates(vector<int> numbers) {
+    unordered_set<int> seen;
     vector<int> result;
-    for(int num : numbers){
-        if(find(result.begin(), result.end(), num) == result.end()){
+    
+    for (int num : numbers) {
+        if (seen.find(num) == seen.end()) {
+            seen.insert(num);
             result.push_back(num);
         }
     }
+    
     return result;
 }
