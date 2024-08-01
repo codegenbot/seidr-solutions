@@ -3,6 +3,8 @@
 #include <cassert>
 #include <algorithm>
 
+using namespace std;
+
 bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b){
@@ -33,4 +35,4 @@ int main() {
                                        31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 
                                        73, 79, 83, 89, 97}));
     return 0;
-}
+}  
