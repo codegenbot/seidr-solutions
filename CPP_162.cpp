@@ -1,4 +1,3 @@
-```cpp
 #include <openssl/evp.h>
 #include <openssl/ssl.h>
 #include <string>
