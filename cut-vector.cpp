@@ -25,11 +25,13 @@ int main() {
     }
 
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
+    std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
