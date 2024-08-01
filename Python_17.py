@@ -8,7 +8,7 @@ def parse_music(music_string: str) -> List[int]:
             note += char
         elif char == '|':
             if note:
-                result.append(beats_per_note[note])
+                result.append(beats_per_note.get(note, 0))
                 note = ''
         elif char == '.':
             note += char
