@@ -1,17 +1,48 @@
-def bowling_score(frames):
+```
+def bowling_score(bowling):
+    frames = [int(x) if x.isdigit() else 'X' for x in bowling]
     score = 0
-    rolls = frames.split("/")
-    for i, frame in enumerate(rolls):
-        if frame == "X":
-            if i < 9:
-                score += 30
+    frame_index = 0
+    for i in range(1, 11):
+        if frames[frame_index] == 'X':
+            if i < 10:
+                if frames[frame_index+1] != 'X' and frames[frame_index+2] != 'X':
+                    score += (i*10) + int(frames[frame_index+1])
+                    frame_index+=2
+                else:
+                    score += i * 10
+                    frame_index+=1
             else:
-                score += 10
-        elif len(frame) > 1 and frame[0] == "X":
-            if i < 8:
-                score += 20 + int(rolls[i + 1])
+                if frames[frame_index+1] == 'X' and frames[frame_index+2] == 'X':
+                    score += (i*10) + 10
+                    frame_index+=3
+                else:
+                    score += i * 10
+                    frame_index+=1
+        elif frames[frame_index] in ['//']:
+            if i < 5:
+                if frames[frame_index-1] != 'X' and frames[frame_index+2] != 'X':
+                    score += (i*10) + int(frames[frame_index-1])
+                    frame_index+=3
+                else:
+                    score += i * 10
+                    frame_index+=1
             else:
-                score += 10 + int(rolls[-1])
+                if frames[frame_index-1] == 'X' and frames[frame_index+2] == 'X':
+                    score += (i*10) + 10
+                    frame_index+=3
+                else:
+                    score += i * 10
+                    frame_index+=1
         else:
-            score += sum(int(x) for x in frame)
+            strike_score = 0
+            while frame_index < len(frames)-1 and frames[frame_index+1] == 'X':
+                strike_score += (i*10) + 10
+                frame_index+=2
+            if strike_score > 0:
+                score += strike_score
+                frame_index+=1
+            else:
+                score += i * 10
+                frame_index+=1
     return score
