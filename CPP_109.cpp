@@ -11,4 +11,4 @@ bool move_one_ball(vector<int>& arr) {
     return false;
 }
 
-assert(move_one_ball(vector<int>{}) == true);
+assert(move_one_ball(vector<int>{})==true);
