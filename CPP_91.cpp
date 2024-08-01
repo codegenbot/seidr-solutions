@@ -1,14 +1,22 @@
-int is_bored(string S){
-    int count = 0;
-    string boredom = "I";
-    size_t found = 0;
+#include <stdio.h>
+#include <string>
+using namespace std;
 
-    while((found=S.find('.', found))!=string::npos ||
-          (found=S.find('?', found))!=string::npos ||
-          (found=S.find('!', found))!=string::npos){
-        if(S.substr(0, boredom.size()).compare(boredom)==0)
-            count++;
-        found = found + 1;
+int is_bored(string S) {
+    int count = 0;
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == ' ' || pos == 0) {
+            string sentence = S.substr(0, pos + 4);
+            if (sentence.find('.') != string::npos ||
+                sentence.find('?') != string::npos ||
+                sentence.find('!') != string::npos) {
+                count++;
+            }
+            S.erase(0, pos + 4);
+        } else {
+            pos++;
+        }
     }
     return count;
 }
