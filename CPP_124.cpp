@@ -1,4 +1,10 @@
-if(date.empty()) return false;
+#include <iostream>
+#include <cassert>
+#include <cstdio>
+#include <string>
+
+bool valid_date(std::string date) {
+    if(date.empty()) return false;
     
     int month, day, year;
     if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) return false;
@@ -10,4 +16,10 @@ if(date.empty()) return false;
     if(month == 2 && (day < 1 || day > 29)) return false;
     
     return true;
+}
+
+int main() {
+    assert(valid_date("04-2003") == false);
+    
+    return 0;
 }
