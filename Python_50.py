@@ -4,9 +4,9 @@ def decode_shift(s: str):
 if __name__ == "__main__":
     while True:
         input_string = input("Enter the encoded string: ")
-        if all(ch.islower() and ch.isalpha() for ch in input_string):
+        if input_string.islower() and input_string.isalpha():
             decoded_string = decode_shift(input_string)
             print(decoded_string)
             break
         else:
-            print("Invalid input. Please enter a valid encoded string with lowercase alphabets only.")
+            print("Please enter a valid encoded string with lowercase alphabets only.")
