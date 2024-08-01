@@ -1,2 +1,7 @@
-def solve(fuel_costs):
-    return sum((cost - 2) // 3 for cost in map(int, input().split()))
+def fuel_cost():
+    n = int(input())
+    total_fuel = 0
+    for i in range(n):
+        num = int(input())
+        total_fuel += (num // 3) - 2
+    return total_fuel
