@@ -2,16 +2,14 @@
 using namespace std;
 
 double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m; ++i) {
-        total += 1.0 / m; // add the probability of Colin rolling each number
-    }
-    return (n - 1) * 1.0 / m * total; // multiply by the probability of Peter rolling higher
+    double total = (long long)n * m;
+    return (double)(n - 1) / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(4) << probability(n, m) << endl;
+    cout << fixed << setprecision(4);
+    cout << probability(n, m) << endl;
     return 0;
 }
