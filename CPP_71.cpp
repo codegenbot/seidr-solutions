@@ -1,6 +1,5 @@
-#include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
@@ -10,14 +9,4 @@ float triangle_area(float a, float b, float c) {
     } else {
         return -1;
     }
-}
-
-int main() {
-    float a, b, c;
-    std::cin >> a >> b >> c;
-    
-    float result = triangle_area(a, b, c);
-    std::cout << result << std::endl;
-    
-    return 0;
 }
