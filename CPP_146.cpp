@@ -11,8 +11,8 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    vector<int> nums = {1, 12, 15, 20};
     int count = specialFilter(nums);
-    cout << "The number of integers in the range [10, 20] that are not divisible by 2 is: " << count;
+    cout << "Count: " << count << endl;
     return 0;
 }
