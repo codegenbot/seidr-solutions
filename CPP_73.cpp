@@ -1,15 +1,22 @@
-Here is the solution:
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
+    
     for (int i = 0; i < n; i++) {
-        for (int j = i; j >= 0; j--) {
-            if (i == j)
-                dp[i][j] = 0;
-            else
-                dp[i][j] = abs(arr[i] - arr[j]) + (dp[i-1][j-1]);
+        dp[i][i] = 0;
+    }
+    
+    for (int length = 2; length <= n; length++) {
+        for (int i = 0; i <= n - length; i++) {
+            int j = i + length - 1;
+            
+            if (arr[i] == arr[j]) {
+                dp[i][j].push_back(dp[i + 1][j - 1][0]);
+            } else {
+                dp[i][j] = min({dp[i + 1][j][0] + 1, dp[i][j - 1][0] + 1});
+            }
         }
     }
-    return dp[n-1][0];
+    
+    return dp[0][n - 1][0];
 }
