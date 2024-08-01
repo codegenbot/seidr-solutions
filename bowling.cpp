@@ -1,47 +1,36 @@
-int bowlingScore(const string& str) {
-    int score = 0;
-    int roll1, roll2;
-    bool inFrame = false;
+#include <string>
 
-    for (int i = 0; i < str.size(); i++) {
-        if (isdigit(str[i])) {
-            inFrame = true;
-            if (i + 2 <= str.size()) {
-                roll1 = str[i] - '0';
-                if (str[i + 1] == '/') {
-                    score += (roll1 * 10) + 10;
-                    break;
-                } else {
-                    roll2 = str[i + 1] - '0';
-                    if (i + 3 <= str.size()) {
-                        if (isdigit(str[i + 2])) {
-                            if (str[i + 2] != '/') {
-                                score += (roll1 * 10) + roll2;
-                            } else {
-                                score += (roll1 * 10);
-                            }
-                            break;
-                        } else {
-                            score += (roll1 * 10) + roll2;
-                            break;
-                        }
-                    } else if (inFrame) {
-                        score += (roll1 * 10) + roll2;
-                        inFrame = false;
-                        break;
-                    }
-                }
-            } else if (isdigit(str[i])) {
-                int roll = str[i] - '0';
-                if (!inFrame) {
-                    score += (roll * 10);
-                } else if (str[i + 1] == '/') {
-                    score += (roll * 10) + 10;
-                } else {
-                    score += (roll * 10);
-                }
+int bowlingScore(string s) {
+    int score = 0;
+    int currentRolls = 0;
+    int frame = 1;
+
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRolls < 2) {
+                score += 10 - (10 - currentRolls);
             }
+            currentRolls = 0;
+            frame++;
+        } else if (isdigit(c)) {
+            currentRolls *= 10;
+            currentRolls += c - '0';
         }
     }
+
+    // last two rolls
+    if (currentRolls == 10) {
+        score += 10;
+    } else if (frame < 10) {
+        score += currentRolls;
+    } else {
+        for (int i = 0; i < frame - 1; i++) {
+            if (s[i] == '/') {
+                score += 10;
+            }
+        }
+        score += currentRolls;
+    }
+
     return score;
 }
