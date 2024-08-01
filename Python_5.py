@@ -1,4 +1,2 @@
-def fix_code(numbers, delimiter):
-    return [
-        item for sublist in zip(numbers, [delimiter] * len(numbers)) for item in sublist
-    ]
+def intersperse(numbers, delimeter):
+    return [item for sublist in [[num, delimeter] for num in numbers] for item in sublist][:-1]
