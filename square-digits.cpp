@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string squareDigits(std::string n) {
     std::string result = "";
     for (char c : n) {
