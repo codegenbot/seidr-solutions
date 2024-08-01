@@ -12,19 +12,16 @@ int main() {
         std::cin >> vec[i];
     }
     
-    int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
-    int leftSum = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
-    
-    for (int i = 0; i < n; ++i) {
-        int rightSum = totalSum - leftSum;
+    for (int i = 1; i < n; ++i) {
+        int leftSum = std::accumulate(vec.begin(), vec.begin() + i, 0);
+        int rightSum = std::accumulate(vec.begin() + i, vec.end(), 0);
         int diff = std::abs(leftSum - rightSum);
-        if (diff < minDiff) {
+        if (diff < minDiff || (diff == minDiff && leftSum < rightSum)) {
             minDiff = diff;
             cutIndex = i;
         }
-        leftSum += vec[i];
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
