@@ -12,15 +12,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    
-    std::cout << "Enter numbers: ";
-    while(std::cin >> num) {
-        nums.push_back(num);
-    }
-
-    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
-
+    std::vector<int> nums = {1, 12, 123};
+    assert(specialFilter(nums) == 2);
     return 0;
 }
