@@ -1,5 +1,9 @@
-def basement(indexes):
-    for i in range(len(indexes)):
-        if sum(indexes[: i + 1]) < 0:
+Here is the Python solution for the problem:
+
+def basement(vector):
+    total = 0
+    for i in range(len(vector)):
+        total += vector[i]
+        if total < 0:
             return i
     return -1
