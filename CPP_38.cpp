@@ -1,44 +1,39 @@
-#include <iostream>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string encode_cyclic(string s){ 
-    int l=s.length();
-    int num=(l+2)/3;
-    string x,output;
-    int i;
-    for (i=0;i*3<l;i++)
+string encode_cyclic(string s){
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i++)
     {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x.substr(1)+x[0];
-        output=output+x;
+        x = s.substr(i, 1);
+        int pos = (i * 3) % l;
+        output += x;
+        output += s[pos];
     }
+    
     return output;
 }
 
 string decode_cyclic(string s){ 
-    int l=s.length();
-    string x,output;
-    int i;
-    for (i=0;i*3<l;i++)
+    string output;
+    string x;
+    int l = s.length();
+    
+    for (int i = 0; i < l; i += 2)
     {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x.substr(2)+x[0];
-        output=output+x;
+        x = s.substr(i, 1);
+        output += x;
     }
+    
     return output;
 }
 
 int main() {
-    string input;
-    cout << "Enter a string to encode and decode cyclically: ";
-    cin >> input;
-
-    string encoded = encode_cyclic(input);
-    string decoded = decode_cyclic(encoded);
-
-    cout << "Encoded string: " << encoded << endl;
-    cout << "Decoded string: " << decoded << endl;
-
+    string str = "input_string";
+    string encoded_str = encode_cyclic(str);
+    assert(decode_cyclic(encoded_str) == str);
     return 0;
 }
