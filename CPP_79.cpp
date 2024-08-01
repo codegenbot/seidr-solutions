@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
@@ -10,14 +13,4 @@ std::string decimal_to_binary(int decimal){
     }
     
     return "db" + binary + "db";
-}
-
-int main(){
-    int input_decimal;
-    std::cout << "Enter a decimal number: ";
-    std::cin >> input_decimal;
-
-    std::cout << decimal_to_binary(input_decimal) << std::endl;
-
-    return 0;
 }
