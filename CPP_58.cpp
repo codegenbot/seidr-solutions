@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 
@@ -6,21 +5,6 @@ using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
     return a==b;
-}
-
-int main() {
-    vector<int> l1 = {1,2,3};
-    vector<int> l2 = {2,3,4};
-
-    vector<int> result = common(l1,l2);
-
-    cout << "Common elements: ";
-    for(int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -33,4 +17,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
