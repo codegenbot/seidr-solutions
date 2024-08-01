@@ -15,7 +15,7 @@ float triangle_area(float a, float b, float c) {
 int main() {
     assert(std::abs(triangle_area(2, 2, 10) + 1) < 0.01);
     assert(std::abs(triangle_area(3, 4, 5) - 6) < 0.01);
-    assert(std::abs(triangle_area(6, 8, 10) - 24) < 0.01);
+    assert(std::abs(triangle_area(8, 15, 17) - 60) < 0.01);
     
     return 0;
 }
