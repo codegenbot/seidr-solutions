@@ -1,12 +1,13 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(string s1, string s2) {
+    vector<string> result;
+    for (const auto& str : s1) {
+        if (str == s2) {
+            result.push_back(str);
+        }
+    }
+    return !result.empty();
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (str.find(substring) != string::npos)
-            result.push_back(str);
-    }
-    return result;
+int main() {
+    // Your code here
 }
