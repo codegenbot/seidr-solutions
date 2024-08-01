@@ -1,2 +1,2 @@
 #include <string>
-std::string string_sequence(int n){...}
+std::string string_sequence(int n){...} 
