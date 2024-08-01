@@ -1,16 +1,31 @@
-int start1 = interval1[0], end1 = interval1[1];
-    int start2 = interval2[0], end2 = interval2[1];
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cmath>
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start = max(interval1[0], interval2[0]);
+    int end = min(interval1[1], interval2[1]);
     
-    int intersection_start = max(start1, start2);
-    int intersection_end = min(end1, end2);
-    
-    if (intersection_start > intersection_end) {
+    if (start > end) {
         return "NO";
     }
     
-    int intersection_length = intersection_end - intersection_start;
+    int length = end - start + 1;
     
-    if (is_prime(intersection_length)) {
+    if (isPrime(length)) {
         return "YES";
     } else {
         return "NO";
