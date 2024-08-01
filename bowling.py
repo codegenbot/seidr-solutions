@@ -1,23 +1,26 @@
-def bowling_score(game):
+Here is the Python code to solve the problem:
+
+```
+def bowling_score(gutter):
     score = 0
-    frame = 1
-    for i in range(0, len(game), 2):
-        if game[i] == "X":
-            if frame < 10:
-                score += 30
-            else:
-                score += 10
-            frame += 1
-        elif game[i] == "/":
-            right_pin = int(game[i + 1])
-            left_pins = int(game[i - 1]) - 10
-            score += left_pins + right_pin
-            frame += 1
+    roll = gutter.replace('/', '')
+    for i in range(0, 10*2, 2):
+        if 'X' in roll[i:i+2]:
+            score += 30 - (i // 2)
+        elif roll[i] == roll[i+1] == '5':
+            score += 20
         else:
-            right_pin = int(game[i : i + 2])
-            if right_pin >= 10:
-                score += 10
+            strike = False
+            spare = False
+            for j in range(i, i+2):
+                if roll[j] == 'X':
+                    strike = True
+                elif roll[j] == '5':
+                    spare = True
+            if strike:
+                score += 30 - (i // 2)
+            elif spare:
+                score += 20
             else:
-                score += right_pin
-            frame += 1
+                score += int(roll[i])
     return score
