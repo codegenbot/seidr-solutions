@@ -18,10 +18,7 @@ double find_zero(const std::vector<double>& xs){
 
 int main() {
     std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
-    double a = coeffs[0];
-    double b = coeffs[1];
-    std::vector<double> coeffs_vector = {a, b}; // Create vector to store a and b
-    double solution = find_zero(coeffs_vector);
+    double solution = find_zero(coeffs);
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
