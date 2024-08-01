@@ -2,42 +2,43 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int idx = 0;
-    for (int i = 1; i <= v.size(); ++i) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; ++j)
-            sum1 += v[j];
-        for (int j = i; j < v.size(); ++j)
-            sum2 += v[j];
-        if (sum1 == sum2) {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
-        }
-        int diff = abs(sum1 - sum2);
-        if (diff < minDiff) {
-            minDiff = diff;
-            idx = i;
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+    
+    for (int i = 1; i < v.size(); i++) {
+        int sum1 = accumulate(v.begin(), v.begin() + i, 0);
+        int sum2 = accumulate(v.begin() + i, v.end(), 0);
+        
+        if ((sum1 == sum2) || abs(sum1 - sum2) < min_diff) {
+            min_diff = abs(sum1 - sum2);
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
-    vector<int> part1(v.begin(), v.begin() + idx);
-    vector<int> part2(v.begin() + idx, v.end());
-    return {part1, part2};
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v)
-        cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    for (const auto &x : result.first)
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "[";
+    for (auto x : res.first) {
         cout << x << " ";
-    cout << endl;
-    for (const auto &x : result.second)
+    }
+    cout << "]" << endl;
+    
+    cout << "[";
+    for (auto x : res.second) {
         cout << x << " ";
-    cout << endl;
-
+    }
+    cout << "]0" << endl;
+    
     return 0;
 }
