@@ -1,4 +1,10 @@
 double diceGame(int n, int m) {
-    double total = (n > m ? (n * m) : (m * (m - 1)) + (n * (n - 1)));
-    return total == 0 ? 0 : ((n > m ? (n - 1) : m) / total);
+    double total = (double)n * m;
+    double probability = 0.0;
+
+    for (int i = 1; i < n; ++i)
+        for (int j = 1; j <= m && j <= i; ++j)
+            probability += 1.0 / (total);
+
+    return probability;
 }
