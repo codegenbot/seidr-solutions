@@ -1,9 +1,11 @@
-Here is the solution:
+#include<stdio.h>
+#include<math.h>
+using namespace std;
 
 float triangle_area(float a, float b, float c) {
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        float s = (a + b + c) / 2;
-        return round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
+        float s = (a + b + c) / 2.0;
+        return round((sqrt(s * (s-a) * (s-b) * (s-c))) * 100.0) / 100.0;
     } else {
         return -1.0;
     }
