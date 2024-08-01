@@ -1,50 +1,57 @@
 #include <iostream>
-    #include <vector>
-    #include <string>
-    #include <algorithm>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <sstream>
 
-    using namespace std;
+using namespace std;
 
-    int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
     }
+    return gcd(b, a % b);
+}
 
-    std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-        std::vector<int> indices;
-        int n = text.size();
-        int m = target.size();
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    int n = text.size();
+    int m = target.size();
 
-        for (int i = 0; i <= n - m; ++i) {
-            bool found = true;
-            for (int j = 0; j < m; ++j) {
-                if (text[i + j] != target[j]) {
-                    found = false;
-                    break;
-                }
-            }
-            if (found) {
-                indices.push_back(i);
+    for (int i = 0; i <= n - m; ++i) {
+        bool found = true;
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
             }
         }
-
-        return indices;
-    }
-
-    int main() {
-        int a, b;
-        string text, target;
-
-        if (cin >> a >> b >> text >> target) {
-            cout << gcd(a, b) << endl;
-
-            vector<int> result = indicesOfSubstring(text, target);
-            for (int idx : result) {
-                cout << idx << " ";
-            }
+        if (found) {
+            indices.push_back(i);
         }
-
-        return 0;
     }
+
+    return indices;
+}
+
+int main() {
+    int a, b;
+    string text, target;
+    
+    std::string line;
+    getline(cin, line);
+    stringstream ss(line);
+    ss >> a >> b;
+
+    getline(cin, text);
+    getline(cin, target);
+
+    cout << gcd(a, b) << endl;
+
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int idx : result) {
+        cout << idx << " ";
+    }
+
+    return 0;
+}
