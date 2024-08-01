@@ -12,20 +12,20 @@ int main() {
         cin >> vec1[i];
     }
 
-    cin.ignore(); // Consume the newline
-
-    vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
+    int m;
+    cin >> m;
+    vector<double> vec2(m);
+    for (int i = 0; i < m; ++i) {
         cin >> vec2[i];
     }
 
     double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < m; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
     double distance = sqrt(sum);
-    std::cout << distance << std::endl;
+    cout << distance << endl;
 
     return 0;
 }
