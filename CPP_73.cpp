@@ -1,25 +1,36 @@
-int smallest_change(vector<int> arr) {
+Here is the solution:
+
+int smallest_change(vector<int> arr){
     int n = arr.size();
-    string str;
-    for (int i : arr) {
+    string str = "";
+    for(int i : arr) {
         str += to_string(i);
     }
+    
+    int count = 0;
     int left = 0, right = n - 1;
-    int changes = 0;
-    while (left < right) {
-        if (str[left] != str[right]) {
-            changes++;
-            if (str[left] == str[right-1]) {
-                right--;
-            } else if (str[right] == str[left+1]) {
-                left++;
-            } else {
-                left++, right--;
-                changes += 2;
+    while(left < right) {
+        if(str[left] != str[right]) {
+            bool found = false;
+            for(int i = 0; i < n; i++) {
+                if(str[i] == str[right]) {
+                    arr[i] = arr[left];
+                    count++;
+                    found = true;
+                    break;
+                }
             }
+            if(!found) {
+                arr[left] = arr[right];
+                count++;
+            }
+            left++;
+            right--;
         } else {
-            left++, right--;
+            left++;
+            right--;
         }
     }
-    return changes;
+    
+    return count;
 }
