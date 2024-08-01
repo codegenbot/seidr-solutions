@@ -1,7 +1,7 @@
 #include <string>
 #include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -12,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int ai = boost::any_cast<int>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return (ai > std::stof(bs)) ? a : ((std::stof(bs) > ai) ? b : boost::any(std::string("None")));
+        return (ai > stof(bs)) ? a : ((stof(bs) > ai) ? b : boost::any(std::string("None")));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         float af = boost::any_cast<float>(a);
@@ -22,17 +22,17 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string as = boost::any_cast<std::string>(a);
         float bf = boost::any_cast<float>(b);
-        return (std::stof(as) > bf) ? a : ((bf > std::stof(as)) ? b : boost::any(std::string("None")));
+        return (stof(as) > bf) ? a : ((bf > stof(as)) ? b : boost::any(std::string("None")));
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string as = boost::any_cast<std::string>(a);
         int bi = boost::any_cast<int>(b);
-        return (std::stof(as) > bi) ? a : ((bi > std::stof(as)) ? b : boost::any(std::string("None")));
+        return (stof(as) > bi) ? a : ((bi > stof(as)) ? b : boost::any(std::string("None")));
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        return (std::stof(as) > std::stof(bs)) ? a : ((std::stof(bs) > std::stof(as)) ? b : boost::any(std::string("None")));
+        return (stof(as) > stof(bs)) ? a : ((stof(bs) > stof(as)) ? b : boost::any(std::string("None")));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int ai = boost::any_cast<int>(a);
