@@ -31,4 +31,4 @@ int main() {
     assert(decode_cyclic(encoded_str) == str);
     
     return 0;
-}  
+}
