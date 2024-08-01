@@ -1,12 +1,13 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1);
-    if(isalpha(lastChar[0])){
-        for(int i=0; i<txt.length()-1; i++){
-            if(!isspace(txt[i]) && !isalpha(txt[i])){
-                return true;
-            }
-        }
-    }
-    return false;
+#include <cstddef>
+#include <cctype>
+#include <string>
+
+bool check_if_last_char_is_a_letter(const std::string& txt) {
+    size_t pos = txt.find_last_of(" ");
+    if (pos == std::string::npos) return false;
+    return isalpha(txt[pos]);
+}
+
+int main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
 }
