@@ -1,45 +1,21 @@
-Here is the solution:
+Here is the completed code:
 
-```cpp
 string file_name_check(string file_name){
-    int count = 0, dot_count = 0;
-    bool start_with_letter = false;
-    
-    for(int i=0; i<file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            count++;
-        }
-        else if(file_name[i] == '.'){
-            dot_count++;
-            if(dot_count > 1){
-                return "No";
-            }
-        }
-        else{
-            start_with_letter = true;
+    int digitCount = 0;
+    bool foundDot = false;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c >= '0' && c <= '9'){
+            digitCount++;
+        }else if(c == '.'){
+            foundDot = true;
+        }else if(c < 'a' || (c > 'z' && c < 'A') || c > 'Z'){
+            return "No";
         }
     }
-    
-    string extension = "";
-    for(int i=file_name.size()-1; i>=0; i--){
-        if(file_name[i] == '.'){
-            break;
-        }
-        else{
-            extension = file_name[i]+extension;
-        }
-    }
-    
-    if(extension.size() > 3){
-        return "No";
-    }
-    else if(count > 3 || !start_with_letter){
-        return "No";
-    }
-    else if(find({"txt", "exe", "dll"}, &(*extension.begin())) == ("dll").end()){
-        return "Yes";
-    }
-    else{
-        return "No";
-    }
-}
+    if(digitCount > 3 || !foundDot) return "No";
+    size_t dotPos = file_name.find('.');
+    string extension = file_name.substr(dotPos+1);
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if(find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) return "No";
+    return "Yes";
