@@ -1,19 +1,18 @@
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) return result;
 
-    vector<int> minMax;
-    for (int i = 0; i < lst.size(); ) {
-        int minVal = *min_element(lst.begin() + i, lst.end());
-        int maxVal = *max_element(lst.begin() + i, lst.end());
-        minMax.push_back(minVal);
-        result.push_back(maxVal);
-        for (int j = 0; j < lst.size(); j++) {
-            if (lst[j] == minVal || lst[j] == maxVal) {
-                lst.erase(lst.begin() + j);
-                i--;
-                break;
-            }
+    while (!lst.empty()) {
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+
+        if (min_val == max_val) {
+            result.push_back(min_val);
+            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+        } else {
+            result.push_back(min_val);
+            result.push_back(max_val);
+            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
 
