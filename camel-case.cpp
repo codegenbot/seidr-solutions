@@ -8,10 +8,13 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            continue;
-        } else if (c == ' ') {
             if (!firstWord) {
                 result += char(std::toupper(c));
+            }
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += '-';
             }
             firstWord = true;
         } else {
@@ -31,7 +34,10 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::replace_if(input.begin(), input.end(), [](char c){return c == '-';}, ' ');
+
+    // Remove spaces
+    std::replace_if(input.begin(), input.end(), ::isspace, '');
+
     std::cout << camelCase(input) << std::endl;
 
     return 0;
