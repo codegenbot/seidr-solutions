@@ -1,14 +1,17 @@
-def coin_sums():
-    cents = int(input())
-    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
-    results = []
+def coin_sums(cents):
+    quarters = cents // 25
+    remaining_cents = cents % 25
+    dimes = remaining_cents // 10
+    remaining_cents %= 10
+    nickles = remaining_cents // 5
+    pennies = remaining_cents % 5
 
-    for c in coins:
-        r = cents // c
-        results.append(r)
-        cents %= c
-
-    return tuple(map(str, results))
+    return quarters, nickles, dimes, pennies
 
 
-print(*coin_sums(), sep="\n")
+cents = int(input())
+quarters, nickles, dimes, pennies = coin_sums(cents)
+print(quarters)
+print(nickles)
+print(dimes)
+print(pennies)
