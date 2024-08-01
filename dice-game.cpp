@@ -1,20 +1,15 @@
-```cpp
 #include <iostream>
-#include <iomanip>
+using namespace std;
 
 double calculateProbability(int n, int m) {
-    if(n <= m)
-        return 0.0;
-
-    double totalCases = (double)n * m;
-    double successfulCases = (n - 1) * m;
-
-    return 1.0 - successfulCases / totalCases;
+    double totalOutcomes = (double)n * m;
+    double petersWinningRolls = (n - 1) * (m);
+    return petersWinningRolls / totalOutcomes;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << std::fixed << std::setprecision(1) << calculateProbability(n, m) << std::endl;
+    cout << fixed << setprecision(1) << calculateProbability(n, m) << endl;
     return 0;
 }
