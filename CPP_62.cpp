@@ -2,7 +2,7 @@
 
 bool issame(vector<float> a, vector<float> b){
     // Compare vectors a and b here
-    return true; // Placeholder return statement
+    return true;
 }
 
 vector<float> derivative(vector<float> xs){
