@@ -2,15 +2,19 @@
 #include <cctype>
 
 std::string get_closest_vowel(std::string word) {
-    int n = word.size();
-    for (int i = 0; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return word.substr(i + 1).rfind(isvowel) == string::npos ? "" : std::to_string(word.find_first_of("AEIOU"));
+    int left = 0;
+    for (int right = word.size() - 1; right >= 0 && !isVowel(word[right]); right--) {
+        left = right + 1;
+    }
+    for (int i = left; i < word.size(); i++) {
+        if (isVowel(word[i])) {
+            return std::string(1, tolower(word[i]));
+        }
     }
     return "";
 }
 
-bool isvowel(char c) {
-    c = toupper(c);
-    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+bool isVowel(char c) {
+    c = std::tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
