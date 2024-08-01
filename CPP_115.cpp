@@ -2,8 +2,6 @@
 #include <vector>
 using namespace std;
 
-#include <numeric>
-
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
@@ -20,6 +18,6 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2); 
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
     return 0;
 }
