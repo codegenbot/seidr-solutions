@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 
-int luhn(std::vector<int> digits) {
+int luhn(vector<int> digits) {
     int sum = 0;
     for(int i=0; i<digits.size(); i++) {
         if((i+1)%2!=0) {
@@ -15,4 +14,3 @@ int luhn(std::vector<int> digits) {
         }
     }
     return sum;
-}
