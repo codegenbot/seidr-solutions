@@ -3,39 +3,35 @@
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    string num_apples = "";
-    int total_fruits = 0;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (isdigit(s[i])) {
-            num_apples += s[i];
-        } else if (s[i] == ' ') {
-            break;
-        }
+    size_t pos = 0;
+    int apples = 0, oranges = 0;
+
+    while ((pos = s.find(" and ")) != string::npos) {
+        if (s.substr(0, pos).find("apples") != string::npos)
+            apples = stoi(s.substr(0, pos).substr(s.find(" ") + 1));
+        else
+            oranges = stoi(s.substr(0, pos).substr(s.find(" ") + 1));
+
+        s.erase(0, pos + 5);
     }
-    
-    int apples = stoi(num_apples);
-    total_fruits = n - apples;
-    
-    return total_fruits;
+
+    if (s.find("apples") != string::npos)
+        apples = stoi(s.substr(0, s.find(" ")).substr(s.find(" ") + 1));
+    else
+        oranges = stoi(s.substr(0, s.find(" ")).substr(s.find(" ") + 1));
+
+    return n - apples - oranges;
 }
 
 int main() {
-    string s1 = "5 apples and 6 oranges";
-    int n1 = 19;
-    cout << fruit_distribution(s1, n1) << endl;
+    string s;
+    int n;
+    cout << "Enter a string that represents the total number of the apples and oranges: ";
+    cin >> s;
+    cout << "Enter an integer that represent the total number of the fruits in the basket: ";
+    cin >> n;
 
-    string s2 = "0 apples and 1 oranges";
-    int n2 = 3;
-    cout << fruit_distribution(s2, n2) << endl;
-
-    string s3 = "2 apples and 3 oranges";
-    int n3 = 100;
-    cout << fruit_distribution(s3, n3) << endl;
-
-    string s4 = "100 apples and 1 oranges";
-    int n4 = 120;
-    cout << fruit_distribution(s4, n4) << endl;
+    cout << "The number of mango fruits in the basket is: " << fruit_distribution(s, n) << endl;
 
     return 0;
 }
