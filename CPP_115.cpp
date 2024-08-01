@@ -1,17 +1,17 @@
 #include <vector>
-#include <numeric>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+    int res = 0;
+    for (vector<int> well : grid) {
+        int fill = 0;
+        for (int w : well) {
+            if (w == 1) {
+                fill += w;
+                if (fill >= capacity) {
+                    res++;
+                    fill = 0;
+                }
+            }
+        }
     }
-    int water_taken = 0;
-    int buckets_needed = 0;
-    while (water_taken < total_water) {
-        buckets_needed++;
-        water_taken += std::min(capacity, total_water - water_taken);
-    }
-    return buckets_needed;
-}
+    return res;
