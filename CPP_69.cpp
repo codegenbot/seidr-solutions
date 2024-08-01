@@ -1,8 +1,23 @@
+Here is the modified code:
+
+```cpp
 int search(vector<int> lst) {
-    for (int i = 0; i <= lst.size(); i++) {
-        if (freq.find(i) != freq.end() && freq[i] >= i) {
-            return i;
+    map<int, int> freq;
+    for (int num : lst) {
+        if (freq.find(num) == freq.end()) {
+            freq[num] = 1;
+        } else {
+            freq[num]++;
         }
     }
-    return -1;
+
+    int result = -1;
+    for (auto p : freq) {
+        if (p.second >= p.first && p.first > 0) {
+            result = p.first;
+            break;
+        }
+    }
+
+    return result;
 }
