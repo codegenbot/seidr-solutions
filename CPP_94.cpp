@@ -1,4 +1,6 @@
-int skjkasdkd(vector<int> lst){
+#include <vector>
+
+int skjkasdkd(std::vector<int> lst){
     int maxPrimeSum = 0;
     
     for (int num : lst) {
