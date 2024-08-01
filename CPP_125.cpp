@@ -20,14 +20,12 @@ std::vector<std::string> split_words(std::string input) {
     for (char c : input) {
         if (c == ' ') {
             words.push_back(word);
-            word = "";
+            word.clear();
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
+    words.push_back(word);
     return words;
 }
 
