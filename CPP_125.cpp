@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,10 +17,10 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> split_words(string input) {
-    vector<string> words;
-    istringstream iss(input);
-    string word;
+std::vector<std::string> split_words(std::string input) {
+    std::vector<std::string> words;
+    std::istringstream iss(input);
+    std::string word;
     while (iss >> word) {
         words.push_back(word);
     }
@@ -28,16 +28,19 @@ vector<string> split_words(string input) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::vector<std::string> a = split_words(input);
     
-    vector<string> a = split_words(input);
-    vector<string> b = split_words(input);
-    
-    if (issame(a, b)) {
-        cout << "Same" << endl;
+    std::string input2;
+    std::getline(std::cin, input2);
+    std::vector<std::string> c = split_words(input2);
+
+    if (issame(a, c)) {
+        std::cout << "Same" << std::endl;
     } else {
-        cout << "Different" << endl;
+        std::cout << "Different" << std::endl;
     }
     
     return 0;
