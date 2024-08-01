@@ -1,12 +1,15 @@
 ```
 def smallest_change(arr):
     n = len(arr)
-    forward = [arr[i] for i in range(n)]
-    backward = [arr[n-i-1] for i in range(n)]
+    left = right = 0
+    changes = 0
     
-    count = 0
-    for i in range(n):
-        if forward[i] != backward[i]:
-            count += 1
+    while left < n // 2:
+        if arr[left] != arr[n - 1 - left]:
+            changes += 1
+            while left < n // 2 and arr[left] != arr[n - 1 - left]:
+                left += 1
+        else:
+            left += 1
     
-    return count
+    return changes
