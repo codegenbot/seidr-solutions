@@ -1,6 +1,8 @@
-string encrypt(string s){
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
-    string result = "";
+#include <string>
+
+std::string encrypt(std::string s) {
+    std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = tolower(s[i]);
         int index = alphabet.find(c);
