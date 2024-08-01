@@ -1,8 +1,15 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> f(int n){
+    std::vector<int> result;
+    for (int i = 1; i <= n; ++i) {
+        result.push_back(i);
+    }
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,7 +21,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    auto f = [](int n) { return std::vector<int>(n, 1); };
-    assert(issame(f(3), {1, 1, 1}));
+int solveProblem(){
+    int n;
+    std::cin >> n;
+    std::vector<int> result = f(n);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
