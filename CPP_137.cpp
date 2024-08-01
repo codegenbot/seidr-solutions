@@ -4,7 +4,7 @@
 std::string compare_one(std::string a, std::string b) {
     if (a > b) {
         return a;
-    } else if (b > a) {
+    } else if (b > "1") {
         return b;
     } else {
         return "None";
@@ -12,6 +12,7 @@ std::string compare_one(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << compare_one("hello", "world") << std::endl;
+    std::cout << compare_one("apple", "banana") << std::endl;
+    std::cout << compare_one("cat", "dog") << std::endl;
     return 0;
 }
