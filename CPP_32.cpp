@@ -18,9 +18,9 @@ double find_zero(const std::vector<double>& xs){
 
 int main() {
     std::vector<double> coeffs;
-    coeffs.push_back(1);
-    coeffs.push_back(-5);
-    coeffs.push_back(6);
+    coeffs.push_back(1); // coefficient of x^2
+    coeffs.push_back(-5); // coefficient of x
+    coeffs.push_back(6); // constant term
 
     double solution = find_zero(coeffs);
 
