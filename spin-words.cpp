@@ -1,73 +1,39 @@
+#include <iostream>
 #include <string>
-using namespace std;
+#include <algorithm>
 
-string spinWords(string str) {
-    string result = "";
-    int wordLength = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(wordLength, i - wordLength);
-            wordLength = i + 1;
-            if(result[result.length() - 1] == ' ')
-                result = result.substr(0, result.length() - 1);
-        }
-    }
-    result += str.substr(wordLength);
-
-    string temp = "";
-    for (int i = 0; i < result.length(); i++) {
-        temp = (result[i] == ' ') ? temp + " " : temp;
-        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
-            if (result[i + 1] >= 'a' && result[i + 1] <= 'z')
-                i++;
-        }
-    }
-
-    string final = "";
-    int j = temp.length() - 1;
-    for (int i = temp.length() - 1; i >= 0; i--) {
-        if (!ispunct(temp[i])) {
-            final += temp[i];
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    size_t pos = 0;
+    
+    while ((pos = sentence.find(" ")) != std::string::npos) {
+        size_t nextPos = sentence.find(" ", pos + 1);
+        
+        if (nextPos == std::string::npos || (nextPos - pos >= 5)) {
+            if(nextPos - pos >= 5) {
+                std::reverse(sentence.substr(pos, nextPos - pos).begin(), std::reverse(sentence.substr(pos, nextPos - pos).end()));
+            }
+            
+            result += sentence.substr(pos, nextPos - pos) + " ";
         } else {
-            final = temp[i] + final;
+            result += sentence.substr(pos, nextPos - pos) + " ";
+            pos = nextPos;
         }
     }
-
-    int k = 0;
-    for(int i=0;i<final.length();i++){
-        if(final[i]>='A' && final[i]<='Z'){
-            final[k++] = 'a';
-        }else{
-            final[k++] = final[i];
-        }
+    
+    if(nextPos - pos >= 5) {
+        std::reverse(sentence.substr(pos).begin(), std::reverse(sentence.substr(pos).end()));
     }
+    
+    result += sentence.substr(pos);
+    
+    return result;
+}
 
-    string spin = "";
-    bool found = false;
-    int count = 0;
-    for(int i=0;i<final.length();i++){
-        if(final[i] == ' '){
-            if(count > 4) {
-                for (int j = i; j >= 0; j--) {
-                    spin += final[j];
-                }
-                found = true;
-            } else
-                spin += " ";
-            count = 0;
-        }else{
-            spin += final[i];
-            count++;
-        }
+int main() {
+    std::string sentence;
+    while (std::cin >> sentence) {
+        std::cout << spinWords(sentence) << std::endl;
     }
-
-    if(!found)
-        return result;
-
-    string res = "";
-    for(int i=spin.length()-1;i>=0;i--){
-        res+=spin[i];
-    }
-
-    return (res.length() == 0)?result:res;
+    return 0;
 }
