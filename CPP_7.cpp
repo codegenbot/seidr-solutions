@@ -1,9 +1,15 @@
-for (const auto& str1 : a) {
-        for (const auto& str2 : b) {
-            if (str1.find(str2) != string::npos || str2.find(str1) != string::npos) {
-                return true;
-            }
+```bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!filter_by_substring({a[i], b[i]}, "run").size()) {
+            return false;
         }
     }
-    return false;
+    return true;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
