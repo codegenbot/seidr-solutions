@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 string longest(vector<string> strings){
@@ -8,3 +9,4 @@ string longest(vector<string> strings){
             result = str;
     }
     return result;
+}
