@@ -1,21 +1,19 @@
+#include <iostream>
 #include <string>
 
-string encode_cyclic(string s);
+std::string encode_cyclic(std::string s){
+    // implement encoding logic here
+}
 
-string decode_cyclic(string s){ 
+std::string decode_cyclic(std::string s){ 
+    std::string output, x;
     int l = s.length();
-    string x, output, str;
     int i;
     for (i = 0; i * 3 < l; i++)
     {
         x = s.substr(i * 3, 3);
-        if (x.length() == 3) 
-            x = x[2] + x.substr(0, 2);
+        if (x.length() == 3) x = x[2] + x.substr(0, 2);
         output = output + x;
     }
     return output;
-}
-
-string encode_cyclic(string s){
-    // implement encoding logic here
 }
