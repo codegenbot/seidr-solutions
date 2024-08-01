@@ -1,42 +1,40 @@
 #include <vector>
 #include <iostream>
+#include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
 
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[i])
             return false;
-        }
     }
 
     return true;
 }
 
-int get_positive() {
-    int num;
-    std::cin >> num;
-    while (num <= 0) {
-        std::cout << "Enter a positive number: ";
-        std::cin >> num;
+std::vector<float> get_positive(std::vector<float> nums) {
+    std::vector<float> result;
+    for (float num : nums) {
+        if (num > 0)
+            result.push_back(num);
     }
-    return num;
+    return result;
 }
 
 int main() {
     std::vector<float> vec1, vec2;
 
     // Read input vectors
-    int n = get_positive();
     float num;
+    int n;
+    std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec1.push_back(num);
     }
-    
-    n = get_positive();
+    std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec2.push_back(num);
@@ -44,6 +42,9 @@ int main() {
 
     // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
+
+    // Test the get_positive function
+    assert(issame(get_positive({-1, 2, 3}), {2, 3}));
 
     return 0;
 }
