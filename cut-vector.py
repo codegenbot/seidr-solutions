@@ -1,5 +1,6 @@
 n = int(input())
-arr = list(map(int, input().split()))
+arr = [int(x) for x in input().split()]
+
 total_sum = sum(arr)
 left_sum = 0
 right_sum = total_sum
