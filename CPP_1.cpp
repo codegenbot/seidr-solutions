@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -13,7 +14,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> main(std::string paren_string) {
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
     std::string current_group;
     int balance = 0;
@@ -36,4 +37,10 @@ std::vector<std::string> main(std::string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
+    return 0;
 }
