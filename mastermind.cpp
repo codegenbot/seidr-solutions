@@ -1,10 +1,7 @@
-#include <string>
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             count++;
         }
     }
@@ -12,23 +9,20 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int count = 0;
-    for(int i=0; i<4; i++) {
-        for(int j=0; j<4; j++) {
-            if(code[i] == guess[j] && i==j) {
-                count++;
-                break;
-            }
+    int correctCount = 0;
+    for (char c : code) {
+        if (count(guess, c) > 0) {
+            --count(guess, c);
+            ++correctCount;
         }
     }
-    return 4 - count;
+    return correctCount;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = blackPegs(code, guess);
-    int white = 4 - black - whitePegs(code, guess);
-    cout << white << endl << black << endl;
+    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
     return 0;
 }
