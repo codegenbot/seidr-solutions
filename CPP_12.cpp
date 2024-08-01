@@ -11,3 +11,4 @@ string longest(vector<string> strings){
         }
     }
     return result;
+}
