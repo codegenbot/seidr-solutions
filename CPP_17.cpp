@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 #include <string>
 
@@ -35,5 +35,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-assert(issame(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 4, 4, 4, 4 }));
-return 0;
+int main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), { 4, 1, 4, 1, 4, 4, 4, 4 }));
+    return 0;
+}
