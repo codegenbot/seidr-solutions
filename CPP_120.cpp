@@ -1,8 +1,7 @@
-```cpp
 #include <queue>
 #include <vector>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<int> arr,int k){
     std::priority_queue<int> pq;
     for(int i:arr) pq.push(i);
     std::vector<int> res;
