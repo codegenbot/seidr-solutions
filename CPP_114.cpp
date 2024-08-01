@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-long long minSubArraySum(std::vector<long long> nums) {
+long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT_MAX;
     long long current_sum = 0;
 
@@ -19,10 +15,11 @@ long long minSubArraySum(std::vector<long long> nums) {
     }
 
     return min_sum;
+
 }
 
 int main() {
-    std::vector<long long> nums = {1, -1};
+    vector<long long> nums = {1, -1};
     long long result = minSubArraySum(nums);
     assert(result == -1);
     return 0;
