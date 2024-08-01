@@ -29,5 +29,6 @@ int count_nums(vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
+    // You can add more code here, including the input and output.
     return 0;
 }
