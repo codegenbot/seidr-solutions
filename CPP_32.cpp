@@ -20,9 +20,10 @@ int main() {
     std::vector<double> coeffs = {1, -5, 6}; // Example coefficients for x^2 - 5x + 6 = 0
     double a = coeffs[0];
     double b = coeffs[1];
-    std::vector<double> solution = find_zero({a, b});
+    std::vector<double> coeffs_vector = {a, b}; // Create vector to store a and b
+    double solution = find_zero(coeffs_vector);
 
-    assert(std::abs(poly(coeffs, solution[0])) < 1e-3);
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
     return 0;
 }
