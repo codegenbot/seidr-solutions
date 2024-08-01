@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
@@ -12,15 +13,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         return std::any_cast<double>(a) > std::any_cast<double>(b) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) ? a : b;
+        return std::any_cast<std::string>(a) > std::any_cast<std::string>(b) ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int value = std::stoi(std::any_cast<std::string>(b));
-        return (std::any_cast<int>(a) > value) ? a : (std::any_cast<int>(a) < value) ? b : boost::any("None");
+        int x = std::any_cast<int>(a);
+        int y = std::stoi(std::any_cast<std::string>(b));
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        int value = std::any_cast<int>(b);
-        return (std::stoi(std::any_cast<std::string>(a)) > value) ? a : (std::stoi(std::any_cast<std::string>(a)) < value) ? b : boost::any("None");
+        int x = std::stoi(std::any_cast<std::string>(a));
+        int y = std::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else {
         return boost::any("None");
@@ -28,10 +31,8 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    std::cout << std::any_cast<boost::any>(compare_one(boost::any(5), boost::any(3.0))) << std::endl;
-    std::cout << std::any_cast<boost::any>(compare_one(boost::any(3.14), boost::any(3.14159))) << std::endl;
-    std::cout << std::any_cast<boost::any>(compare_one(boost::any("5"), boost::any("3"))) << std::endl;
-    std::cout << std::any_cast<boost::any>(compare_one(boost::any(5), boost::any("3.0"))) << std::endl;
-    std::cout << std::any_cast<boost::any>(compare_one(boost::any("5"), boost::any(3))) << std::endl;
+    boost::any a = 10;
+    boost::any b = "5";
+    std::cout << boost::any_cast<std::string>(compare_one(a, b)) << std::endl;
     return 0;
 }
