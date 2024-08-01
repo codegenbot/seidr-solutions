@@ -26,7 +26,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> res = cutVector({1});
+pair<vector<int>, vector<int>> res = cutVector(v);
 cout << "Left: ";
 for(int x : res.first) cout << x << ' ';
 cout << '\n';
