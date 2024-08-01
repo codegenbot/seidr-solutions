@@ -10,5 +10,5 @@ vector<int> leaders(vector<int>& nums) {
             res.push_back(nums[i]);
         }
     }
-    reverse(res.begin(), res.end());
-    return res;
+    return reverse(res.begin(), res.end());
+}
