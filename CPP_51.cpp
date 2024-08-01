@@ -1,10 +1,13 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' 
-           && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U'){
-            result += c;
-        }
+string::iterator it = text.begin();
+string::iterator end = text.end();
+
+for (; it != end; ++it) {
+    if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u'
+        || tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i'
+        || tolower(*it) == 'o' || tolower(*it) == 'u') {
+        text.erase(it);
+        --end;
     }
-    return result;
 }
+
+return text;
