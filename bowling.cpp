@@ -1,31 +1,34 @@
-int score(string s) {
+#include <iostream>
+#include <string>
+
+int score(const std::string &bowls) {
     int total = 0;
     int frame = 0;
-    for (int i = 0; i < s.size() && frame < 10; ++i) {
-        if (s[i] == 'X') {
+    int bowlIndex = 0;
+    
+    for (int i = 0; i < 10; ++i) {
+        if (bowls[bowlIndex] == 'X') {
             total += 10;
-            if (s[i + 2] == 'X') {
-                total += 10 + (s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
-            } else {
-                total += (s[i + 2] == '/' ? 10 : s[i + 2] - '0') + (s[i + 3] == '/' ? 10 : s[i + 3] == '-' ? 0 : s[i + 3] - '0');
-            }
-            ++frame;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + (s[i + 1] == 'X' ? 10 : s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            ++frame;
-        } else if (s[i] == '-') {
-            total += 0;
-            ++frame;
+            total += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] == '/' ? 10 - (bowls[bowlIndex + 2] - '0') : bowls[bowlIndex + 1] - '0');
+            total += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/' ? 10 - (bowls[bowlIndex + 3] - '0') : bowls[bowlIndex + 2] - '0');
+            bowlIndex++;
+        } else if (bowls[bowlIndex + 1] == '/') {
+            total += 10;
+            total += (bowls[bowlIndex + 2] == 'X') ? 10 : bowls[bowlIndex + 2] - '0';
+            bowlIndex += 2;
         } else {
-            total += s[i] - '0';
+            total += bowls[bowlIndex] - '0';
+            total += bowls[bowlIndex + 1] - '0';
+            bowlIndex += 2;
         }
     }
+    
     return total;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << score(bowls) << std::endl;
     return 0;
 }
