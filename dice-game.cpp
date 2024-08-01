@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 double calculateProbability(int n, int m) {
     double probability = 0;
     for (int i = 1; i <= m; i++) {
-        probability += (n - i) / (n * m);
+        probability += (n - i) / static_cast<double>(n * m);
     }
     return probability;
 }
@@ -12,6 +13,6 @@ double calculateProbability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << calculateProbability(n, m) << endl;
+    cout << std::fixed << std::setprecision(1) << calculateProbability(n, m) << std::endl;
     return 0;
 }
