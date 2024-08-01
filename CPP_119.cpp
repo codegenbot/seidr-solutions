@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    assert(match_parens({}) == "Yes");
+    assert (match_parens({}) == "Yes" );
 }
 
 string match_parens(vector<string> lst) {
