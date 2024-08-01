@@ -18,8 +18,5 @@ int main() {
     vector<int> arr = {1, 3, 4, 2};
     vector<int> result = leaders(arr);
     // Print the result or do something with it
-    for (int i : result) {
-        cout << i << " ";
-    }
     return 0;
 }
