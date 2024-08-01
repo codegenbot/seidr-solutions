@@ -31,17 +31,12 @@ int count_nums(vector<int> nums) {
 }
 
 int main() {
-    vector<int> input;
+    vector<int> input; 
     int num;
-    
-    cout << "Enter numbers (-1 to stop):" << endl;
-    while (true) {
-        cin >> num;
-        if (num == -1)
-            break;
+    while (cin >> num) {
         input.push_back(num);
     }
-    
+
     cout << "Count: " << count_nums(input) << endl;
 
     return 0;
