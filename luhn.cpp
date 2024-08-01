@@ -1,15 +1,16 @@
-int luhnCheck(vector<int> cardNumber) {
+int luhn(vector<int> card) {
     int sum = 0;
-    for (int i = 0; i < cardNumber.size(); i++) {
-        if (i % 2 == 1) {
-            cardNumber[i] *= 2;
-            if (cardNumber[i] > 9) {
-                cardNumber[i] -= 9;
-            }
+    bool alternate = false;
+
+    for (int i = card.size() - 1; i >= 0; --i) {
+        int digit = card[i];
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9) digit -= 9;
         }
+        sum += digit;
+        alternate = !alternate;
     }
-    for (int num : cardNumber) {
-        sum += num;
-    }
+
     return sum;
 }
