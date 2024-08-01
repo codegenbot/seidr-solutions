@@ -33,14 +33,13 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
 int main() {
     int a, b;
-    std::cout << "Enter two integers separated by space: ";
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
     
     std::string text, target;
-    std::cout << "Enter text and target strings separated by whitespace: ";
-    std::cin >> text >> target;
-    
+    std::cin.ignore();
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int index : result) {
         std::cout << index << " ";
