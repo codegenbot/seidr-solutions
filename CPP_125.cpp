@@ -7,7 +7,7 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0;
-    while ((pos = txt.find(" ")) != string::npos) {
+    while ((pos = txt.find_first_of(" ")) != string::npos) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
