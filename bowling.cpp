@@ -30,4 +30,4 @@ int main() {
     std::cin >> bowls;
     std::cout << score(bowls) << std::endl;
     return 0;
-}  
+}
