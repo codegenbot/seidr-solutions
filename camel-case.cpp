@@ -23,10 +23,4 @@ int main() {
         }
         cout << result;
     }
-
-    string s; 
-    cin >> s;
-    toCamelCase(s);
-
-    return 0;
 }
