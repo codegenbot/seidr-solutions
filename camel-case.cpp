@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,10 +7,21 @@ std::string capitalize(const std::string& s) {
     if (s.empty()) {
         return s;
     }
+    
+    std::string result = "";
+    bool capitalizeNext = true;
 
-    std::string result = s[0] >= 'a' && s[0] <= 'z' ? (char)toupper(s[0]) : s[0];
-    for (int i = 1; i < s.size(); ++i) {
-        result += tolower(s[i]);
+    for (char c : s) {
+        if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
+        }
+        
+        if (c == ' ') {
+            capitalizeNext = true;
+        }
     }
 
     return result;
@@ -17,15 +29,13 @@ std::string capitalize(const std::string& s) {
 
 std::string camelCase(const std::string& s) {
     std::vector<std::string> words = split(s, ' ');
-
-    std::string result;
-
+    
     for (const auto& word : words) {
         if (!word.empty()) { 
             if (!result.empty()) {
-                result += capitalize(word.substr(1)); // Add capitalized word to result
+                result += capitalize(word.substr(1)); 
             } else {
-                result = capitalize(word); // First word, all caps
+                result = capitalize(word); 
             }
         }
     }
@@ -33,16 +43,22 @@ std::string camelCase(const std::string& s) {
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, char c) {
+std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> words;
 
-    size_t pos = 0;
-    while ((pos = s.find(c)) != std::string::npos) {
-        words.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
+    if (!s.empty()) {
+        size_t start = 0;
+        while (start < s.size()) {
+            size_t end = s.find(delimiter, start);
+            if (end == std::string::npos) {
+                end = s.size();
+            }
 
-    words.push_back(s);
+            words.push_back(s.substr(start, end - start));
+
+            start = end + 1;
+        }
+    }
 
     return words;
 }
