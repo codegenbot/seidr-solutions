@@ -5,16 +5,24 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.length() > 0) {
-        result.push_back(txt);
-    } else {
-        int count = 0;
-        for (char c : txt) {
-            if ((int)c - (int)'a' % 2 == 0 && (int)c >= (int)'a' && (int)c <= (int)'z') {
-                count++;
+    if (txt.empty()) {
+        return result;
+    }
+    for (size_t i = 0; i < txt.size(); ++i) {
+        if (!isalpha(txt[i])) {
+            size_t j = i;
+            while (j < txt.size() && !isalpha(txt[j])) {
+                ++j;
             }
+            if (j - i > 1) {
+                result.push_back(to_string(j - i));
+                break;
+            }
+            i = j - 1;
         }
-        result.push_back(to_string(count));
+    }
+    if (result.empty()) {
+        result.push_back(to_string(count_if(txt.begin(), txt.end(), ::islower)));
     }
     return result;
 }
