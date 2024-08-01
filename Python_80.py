@@ -1,2 +1,9 @@
+```
 def is_happy(s):
-    return len(s) >= 3 and len(set(s[i : i + 3] for i in range(0, len(s), 3))) == 3
+    if len(s) < 3:
+        return False
+    for i in range(0, len(s), 3):
+        sub_str = s[i:i+3]
+        if sub_str.count(sub_str[0]) != 1:
+            return False
+    return True
