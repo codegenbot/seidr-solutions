@@ -24,6 +24,10 @@ void originalMain() {
 }
 
 int main() {
-    originalMain();
+    vector<int> numbers = {5, 6, 7, 8, 9};
+    vector<int> result = remove_duplicates(numbers);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
