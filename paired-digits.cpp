@@ -10,4 +10,3 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-}
