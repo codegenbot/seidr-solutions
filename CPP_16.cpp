@@ -2,11 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-int count_distinct_characters(std::string str) {
+int count_distinct_characters(const std::string& str) {
     std::vector<char> distinctChars;
     for (char c : str) {
-        char lowerC = tolower(c);
-        if (find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
+        char lowerC = std::tolower(c);
+        if (std::find(distinctChars.begin(), distinctChars.end(), lowerC) == distinctChars.end()) {
             distinctChars.push_back(lowerC);
         }
     }
