@@ -1,26 +1,36 @@
+Here's the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(start, i - start);
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            start = i + 1;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordLength = 0;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += str.substr(wordLength, i - wordLength);
+            result += " ";
+            wordLength = i + 1;
+        } else if (i == str.length() - 1) {
+            if ((str.length() - wordLength) >= 5) {
+                for (int j = str.length() - 1; j >= wordLength; j--)
+                    result += str[j];
+            } else
+                result += str.substr(wordLength);
         }
     }
-    return result.substr(0, result.length() - 1); // remove trailing space
+    
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
+    string str;
+    while (cin >> str) {
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
