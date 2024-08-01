@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums){
+using namespace std;
+
+int specialFilter(vector<int> nums) {
     int count = 0;
-    for(int num : nums){
-        if(num > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0){
+    for (int num : nums) {
+        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10) % 10 % 2 != 0) {
             count++;
         }
     }
     return count;
 }
 
-int main(){
-    std::vector<int> nums = {1, 2, 3};
-    assert(specialFilter(nums) == 0);
+int main() {
+    vector<int> numbers = {123, 456, 789, 1011};
+    cout << "The number of integers in the given list that satisfy the condition is: " << specialFilter(numbers) << endl;
     return 0;
 }
