@@ -11,37 +11,35 @@ vector<string> by_length(vector<int> arr) {
 
     vector<string> result;
     for (int num : nums) {
-        string str = "";
         switch (num) {
             case 1:
-                str = "One";
+                result.push_back("One");
                 break;
             case 2:
-                str = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                str = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                str = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                str = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                str = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                str = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                str = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                str = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        result.push_back(str);
     }
 
     return result;
