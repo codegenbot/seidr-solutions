@@ -1,16 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
