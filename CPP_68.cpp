@@ -2,6 +2,7 @@
 #include <cassert>
 
 std::vector<int> pluck(std::vector<int> arr);
+
 bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> pluck(std::vector<int> arr){
