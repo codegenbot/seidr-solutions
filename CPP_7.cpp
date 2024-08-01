@@ -3,9 +3,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -17,10 +15,10 @@ bool issame(const vector<string>& a, const vector<string>& b){
     return true;
 }
 
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring){
-    vector<string> filtered_strings;
-    for(const string& str : strings){
-        if(str.find(substring) != string::npos){
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring){
+    std::vector<std::string> filtered_strings;
+    for(const std::string& str : strings){
+        if(str.find(substring) != std::string::npos){
             filtered_strings.push_back(str);
         }
     }
@@ -28,18 +26,18 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main(){
-    vector<string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
-    string substring = "an";
+    std::vector<std::string> strings = {"apple", "banana", "cherry", "orange", "kiwi"};
+    std::string substring = "an";
     
-    vector<string> expected_filtered_strings = {"banana", "orange"};
+    std::vector<std::string> expected_filtered_strings = {"banana", "orange"};
     
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
+    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
     
     assert(issame(filtered_strings, expected_filtered_strings));
     
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     
-    cout << "All tests passed" << endl;
+    std::cout << "All tests passed" << std::endl;
     
     return 0;
 }
