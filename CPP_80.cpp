@@ -11,7 +11,7 @@ bool is_happy(const std::string& s) {
     return true;
 }
 
-int main() {
+void solve() {
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
@@ -21,6 +21,8 @@ int main() {
     } else {
         std::cout << "The string is not happy." << std::endl;
     }
+}
 
-    return 0;
+void main() {
+    solve();
 }
