@@ -1,16 +1,15 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 
-bool compare_one(std::string a, double b) {
-    if (std::stod(a) > b)
-        return true;
+std::string compare_one(std::string a, float b) {
+    if (atof(a.c_str()) > b)
+        return "a";
     else
-        return false;
+        return "b";
 }
 
 int main() {
-    std::cout << std::boolalpha;
-    std::cout << compare_one("1.5", 2.0) << std::endl; // prints: true
-    std::cout << compare_one("2.5", 3.0) << std::endl; // prints: false
+    std::cout << compare_one("1.5", 2.0) << std::endl;
     return 0;
 }
