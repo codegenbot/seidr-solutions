@@ -6,7 +6,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    bool capitalize = true;
+    bool capitalize = false;
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
