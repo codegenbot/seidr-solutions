@@ -1,32 +1,32 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <cstring>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
     size_t pos = 0;
-
+    
     while ((pos = sentence.find(" ")) != std::string::npos) {
         size_t nextPos = sentence.find(" ", pos + 1);
-
-        if (nextPos == std::string::npos || (nextPos - pos >= 5)) {
-            if(nextPos - pos >= 5) {
-                std::reverse(sentence.substr(pos, nextPos - pos).begin(), std::reverse(sentence.substr(pos, nextPos - pos).end()));
+        
+        if (nextPos == std::string::npos || strlen(&sentence.substr(pos, nextPos - pos)) >= 5) {
+            if(strlen(sentence.substr(pos, nextPos - pos).c_str()) >= 5) {
+                std::reverse(sentence.substr(pos, nextPos - pos).begin(), sentence.substr(pos, nextPos - pos).end());
             }
-
+            
             result += sentence.substr(pos, nextPos - pos) + " ";
         } else {
             result += sentence.substr(pos, nextPos - pos) + " ";
             pos = nextPos;
         }
     }
-
-    if(nextPos - pos >= 5) {
-        std::reverse(sentence.substr(pos).begin(), std::reverse(sentence.substr(pos).end()));
+    
+    if(strlen(sentence.substr(pos).c_str()) >= 5) {
+        std::reverse(sentence.substr(pos).begin(), sentence.substr(pos).end());
     }
-
+    
     result += sentence.substr(pos);
-
+    
     return result;
 }
 
