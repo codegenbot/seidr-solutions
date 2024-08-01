@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> 
+#include <cassert>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
@@ -28,8 +28,8 @@ void sort_even(std::vector<int>& l) {
 int main() {
     std::vector<int> l = {3, 2, 1, 4, 5, 6};
     sort_even(l);
-    
-    assert(issame(l, {1, 2, 3, 4, 5, 6})); 
-    
+
+    assert(issame(l, {1, 2, 3, 4, 5, 6}));
+
     return 0;
 }
