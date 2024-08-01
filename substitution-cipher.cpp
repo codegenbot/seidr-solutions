@@ -1,31 +1,13 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
-    for (char c : message) {
-        for (int i = 0; i < cipher1.length(); ++i) {
-            if (c == cipher1[i]) {
-                decipheredMessage += cipher2[i];
-                break;
-            }
-        }
-    }
-    return decipheredMessage;
-}
-
-int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second string: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to be deciphered: ";
-    std::cin >> message;
+string decipher(string cipherText1, string cipherText2, string message) {
+    string result = "";
     
-    std::string result = substitutionCipher(cipher1, cipher2, message);
-    std::cout << "Deciphered message: " << result << std::endl;
-
-    return 0;
+    for(int i = 0; i < message.length(); i++) {
+        int index = find(cipherText2.begin(), cipherText2.end(), message[i]) - cipherText2.begin();
+        if(index != string::npos)
+            result += cipherText1[index];
+        else
+            result += message[i];
+    }
+    
+    return result;
 }
