@@ -1,6 +1,9 @@
-def basement(arr):
-    for i in range(len(arr)):
-        total = sum(arr[: i + 1])
-        if total < 0:
+Here is the solution:
+
+def basement(input_list):
+    total_sum = 0
+    for i in range(len(input_list)):
+        if total_sum < 0:
             return i
+        total_sum += input_list[i]
     return -1
