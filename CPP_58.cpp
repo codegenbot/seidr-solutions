@@ -5,7 +5,7 @@
 #include <set>
 #include <iterator>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -18,6 +18,6 @@ std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) 
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}) , std::vector<int>{}));
+    assert(common({4, 3, 2, 8}, {}).empty());
     return 0;
 }
