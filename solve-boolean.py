@@ -5,13 +5,20 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        raise ValueError("Invalid Expression")
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= eval('True' if next_char == 'T' else 'False')
-            elif char == '|':
-                result |= eval('True' if next_char == 'T' else 'False')
-            next_char = char
-        return result
+        def evaluate(expression):
+            stack = []
+            for char in expression:
+                if char in ['&', '|']:
+                    right = stack.pop()
+                    left = stack.pop()
+                    if char == '&':
+                        stack.append(left and right)
+                    elif char == '|':
+                        stack.append(left or right)
+                else:
+                    stack.append(char == 'T')
+            return stack[0]
+
+        return evaluate(expression)
