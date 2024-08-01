@@ -1,6 +1,4 @@
-def leaders(arr):
-    return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x <= arr[i] for x in arr[i + 1 :])
-    ]
+Here is the solution:
+
+def leaders(input_list):
+    return [x for x in reversed(input_list) if all(x >= y for y in input_list[input_list.index(x)+1:])]
