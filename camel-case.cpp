@@ -4,18 +4,21 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int i;
-    for (i = 0; i < s.length(); i++) {
+    bool capitalize = true;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            result += toupper(s[++i]); // capitalize the first letter of each word
-            while (i + 1 < s.length() && s[i + 1] == ' ') {
+            i++; // skip the "-"
+            while (i < s.length() && s[i] == ' ') {
                 i++; // skip the spaces
             }
-        } else if (s[i] != ' ') {
-            result += tolower(s[i]); // convert all letters to lowercase
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(s[i]); 
+            capitalize = false;
+        } else {
+            result += tolower(s[i]);
         }
     }
-    
     return result;
 }
 
