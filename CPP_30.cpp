@@ -11,16 +11,16 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool is_same(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
 int main(){
     std::vector<float> vec1, vec2;
+    int n;
 
     // Read input vectors
     float num;
-    int n;
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
@@ -33,7 +33,7 @@ int main(){
     }
 
     // Check if vectors are the same
-    std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
+    std::cout << std::boolalpha << is_same(vec1, vec2) << std::endl;
 
     return 0;
 }
