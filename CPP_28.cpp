@@ -1,6 +1,8 @@
+Here is the completed code:
+
 string concatenate(vector<string> strings){
     string result = "";
-    for(string s : strings) {
+    for(string s : strings){
         result += s;
     }
     return result;
