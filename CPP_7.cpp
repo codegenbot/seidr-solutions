@@ -31,9 +31,10 @@ int main() {
     vector<string> filtered_strings = filter_by_substring(strings, substring);
 
     if(issame({}, filtered_strings))
-        cout << "All strings contain the substring." << endl;
+        cout << "Empty";
     else
-        cout << "Not all strings contain the substring." << endl;
+        for(string s : filtered_strings)
+            cout << s << endl;
 
     return 0;
 }
