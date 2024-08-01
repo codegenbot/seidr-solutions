@@ -1,11 +1,11 @@
+```c
+#include <stdio.h>
 #include <vector>
-#include <unordered_set>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> unique(vector<int> l) {
-    std::vector<int> result;
-    for (int num : l) {
-        if (find(result.begin(), result.end(), num) == result.end())
-            result.push_back(num);
-    }
+vector<int> unique(vector<int> l) {
+    vector<int> result(l.begin(), std::unique_copy(l.begin(), l.end()));
+    sort(result.begin(), result.end());
     return result;
 }
