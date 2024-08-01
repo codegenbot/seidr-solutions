@@ -32,7 +32,3 @@ int solveProblem(){
     std::cout << std::endl;
     return 0;
 }
-
-int main() {
-    return solveProblem();
-}
