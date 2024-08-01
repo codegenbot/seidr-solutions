@@ -8,17 +8,15 @@ string get_closest_vowel(string word) {
         else if (!isvowel(word[right])) right--;
         else return word.substr(left + 1, right - left - 1);
     }
+    for(int i=0; i<word.size();i++){
+        if(isvowel(tolower(word[i]))){
+            return word.substr(i);
+        }
+    }
     return "";
 }
 
 bool isvowel(char c) {
     return tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' ||
            tolower(c) == 'o' || tolower(c) == 'u';
-}
-int main() {
-    string word;
-    cout << "Enter a word: ";
-    cin >> word;
-    cout << get_closest_vowel(word);
-    return 0;
 }
