@@ -13,7 +13,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             float diff = std::abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
+                closest_pair = make_pair(min(diff, numbers[i]), max(diff, numbers[i]));
             }
         }
     }
