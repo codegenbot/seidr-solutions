@@ -1,32 +1,31 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    vector<string> tokens = split(s, '-');
-    string result;
-    for (int i = 0; i < tokens.size(); i++) {
+std::string camelCase(const std::string& s) {
+    std::vector<std::string> words;
+    for (const auto &token : s.split(" ")) {
+        words.push_back(token);
+    }
+
+    std::string result = "";
+    for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
-            result[0] = toupper(result[0]);
-        }
-        result += tokens[i];
-        if (i != tokens.size() - 1) {
-            result += " ";
+            if (i != 0)
+                result += charToUpper(words[i][0]);
+            else
+                result += words[i];
+        } else {
+            result = words[i];
         }
     }
+
     return result;
 }
 
-vector<string> split(string s, char delimiter) {
-    vector<string> tokens;
-    string token;
-    for (int i = 0; i <= s.length(); i++) {
-        if (s[i] == delimiter || i == s.length()) {
-            if (!token.empty()) {
-                tokens.push_back(token);
-                token.clear();
-            }
-        } else {
-            token += s[i];
-        }
-    }
-    return tokens;
+#include <cctype>
+std::string& stringManipulator(std::string &s) {
+    for (auto &c : s)
+        c = std::toupper(c);
+    return s;
 }
