@@ -1,24 +1,24 @@
-using namespace std;
-
+```
 int bowlingScore(string s) {
     int score = 0;
-    for(int i=0; i<10; i++) {
+    int i = 0;
+    while(i < s.length()) {
         if(s[i] == 'X') {
             score += 30;
+            i++;
         } else if (s[i] == '/') {
-            if(i > 0) {
-                score += 10 + bowlingScoreHelper(&s.substr(i+1));
-            } else {
-                score += 10;
-            }
+            score += 10 + bowlingScoreHelper(&++i);
         } else {
             int frame = s[i] - '0';
-            if(s[i+1] == 'X') {
+            i++;
+            if(s[i] == 'X') {
                 score += 10 + frame;
-            } else if (s[i+1] == '/') {
-                score += 10 + frame + bowlingScoreHelper(&s.substr(i+2));
+                i++;
+            } else if (s[i] == '/') {
+                score += 10 + frame + bowlingScoreHelper(&++i);
             } else {
-                score += 10 + frame + s[i+1] - '0';
+                score += 10 + frame + s[i] - '0';
+                i++;
             }
         }
     }
