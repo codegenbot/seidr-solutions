@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,10 +18,10 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
+bool is_same(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
 }
 
 int main() {
-    assert(get_odd_collatz(1) == std::vector<int>({1}));
+    assert(is_same(get_odd_collatz(1), {1}));
 }
