@@ -7,6 +7,7 @@ int main() {
     std::string text, target;
     std::getline(std::cin, text);
     std::getline(std::cin, target);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     std::vector<int> indices;
     
@@ -15,7 +16,7 @@ int main() {
         if (i <= text.length() - target.length() && text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
-        if (i == text.length() - target.length() && text.substr(i, target.length()) == target) {
+        else if (i == text.length() - target.length() && std::equal(text.begin() + i, text.end(), target.begin())) {
             indices.push_back(i);
         }
     }
