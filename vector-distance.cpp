@@ -18,5 +18,6 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << showpoint << vectorDistance(n) << endl;
     return 0;
+}
