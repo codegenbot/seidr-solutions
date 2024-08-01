@@ -18,7 +18,11 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(!correct_bracketing("<><><<><>><>>><>"));
+    std::string brackets;
+    std::cout << "Enter the bracket sequence: ";
+    std::cin >> brackets;
+    
+    std::cout << (correct_bracketing(brackets) ? "Brackets are correctly balanced" : "Brackets are not correctly balanced") << std::endl;
     
     return 0;
 }
