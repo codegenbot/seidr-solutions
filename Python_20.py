@@ -8,7 +8,6 @@ def find_closest_pair(numbers):
     ][0]
     return closest_pair
 
-
 input_numbers = list(map(int, input().strip().split()))
 result = find_closest_pair(input_numbers)
 print(result)
