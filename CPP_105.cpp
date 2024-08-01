@@ -1,22 +1,18 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> number_words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    std::vector<std::string> b_sorted = b;
-    std::sort(b_sorted.begin(), b_sorted.end());
-    
-    std::vector<std::string> b_by_length;
+    // Convert vector of ints to vector of strings
+    std::vector<std::string> a_str;
     for (int num : a) {
-        b_by_length.push_back(b_sorted[num]);
+        a_str.push_back(std::to_string(num));
     }
-    
-    return b_by_length == b;
+
+    return a_str == b;
 }
 
 int main() {
-    assert(issame({9, 4, 8}, {"Nine", "Four", "Eight"}));
+    assert(issame({9, 4, 8}, {"Nine", "Eight", "Four"}));
     return 0;
 }
