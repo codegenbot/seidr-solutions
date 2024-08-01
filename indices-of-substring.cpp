@@ -4,7 +4,8 @@
 #include <algorithm>
 
 int main() {
-    std::string text = "abcabcaabcab", target = "aba";
+    std::string text = "ababababab";
+    std::string target = "aba";
     
     std::vector<int> indices;
     
