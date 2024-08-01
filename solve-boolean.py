@@ -4,8 +4,8 @@ def solve(input_str):
     elif input_str == "F":
         return False
     elif "&" in input_str:
-        left, right = input_str.split("&")
-        return solve(left) and solve(right)
+        a, b = input_str.split("&")
+        return solve(a) and solve(b)
     elif "|" in input_str:
-        left, right = input_str.split("|")
-        return solve(left) or solve(right)
+        a, b = input_str.split("|")
+        return solve(a) or solve(b)
