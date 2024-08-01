@@ -1,15 +1,13 @@
 #include <iostream>
-#include <vector>
 #include <climits>
+#include <vector>
 #include <cmath>
 
-using namespace std;
-
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
@@ -26,7 +24,7 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
-        int currentDiff = abs(prefixSum - target);
+        int currentDiff = std::abs(prefixSum - target);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -34,10 +32,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << 0 << endl;
+    std::cout << 0 << std::endl;
     
     return 0;
 }
