@@ -4,16 +4,13 @@
 
 using namespace std;
 
-std::vector<int> incr_list(std::vector<int> input) {
+bool issame(vector<int> a, vector<int> b) {
+    return equal(a.begin(), a.end(), b.begin(), b.end());
+}
+
+vector<int> incr_list(vector<int> input) {
     for (int& num : input) {
         num++;
     }
     return input;
-}
-
-int main() {
-    assert(std::equal(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}).begin(),
-                      incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}).end(),
-                      std::vector<int>({6, 3, 6, 3, 4, 4, 10, 1, 124}).begin()));
-    return 0;
 }
