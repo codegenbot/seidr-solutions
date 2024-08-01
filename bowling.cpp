@@ -1,28 +1,33 @@
-int bowlingScore(string s) {
+int bowlingScore(const string &frames) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-            roll++;
-        } else if (c == '/') {
-            score += 10 + (roll * 10);
-            roll++;
+    for (int i = 0; i < frames.size(); ++i) {
+        if (frames[i] == 'X') { // Strike
+            score += 10 + scoring(frames.substr(i+1));
+        } else if (frames[i] == '/') { // Spare
+            int spareValue = 10 - scoring(frames.substr(0, i)).back();
+            score += 10 + spareValue;
+            i++;
         } else {
-            int currentRoll = stoi(string(1, c)) * 10;
-            if (roll < 2) {
-                score += currentRoll;
-                roll++;
-            } else {
-                if (currentRoll + 10 <= 30) {
-                    score += currentRoll + 10;
-                    roll++;
-                } else {
-                    score += 30 - (10 - (currentRoll % 10));
-                    roll++;
-                }
+            int currentFrameScore = 0;
+            for (int j = i; j < frames.size(); ++j) {
+                if (frames[j] == '/') break;
+                currentFrameScore *= 10;
+                currentFrameScore += scoring(frames.substr(i, j-i+1)).front() - '0';
             }
+            score += currentFrameScore;
         }
     }
     return score;
+}
+
+int scoring(const string &str) {
+    int result = 0;
+    for (char c : str) {
+        if (c >= '1' && c <= '9') {
+            result = result * 10 + (c - '0');
+        } else if (c == 'X') {
+            result += 10;
+        }
+    }
+    return {result};
 }
