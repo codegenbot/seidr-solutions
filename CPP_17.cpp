@@ -18,7 +18,7 @@ std::vector<int> parse_music(const std::string& music) {
     return notes;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,7 +32,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 3, 3, 3, 3}));
-    return 0;
-}
+assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 3, 3, 3, 3}));
+return 0;
