@@ -1,1 +1,2 @@
-assert (int_to_mini_roman(1000) == "M");
+``` 
+result += tolower(string(p.second));
