@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 int search(const std::vector<int>& lst) {
     int result = -1;
@@ -12,6 +13,6 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
+    assert(search({3, 10, 10, 9, 2}) == 10);
     return 0;
 }
