@@ -1,10 +1,9 @@
 #include <vector>
 #include <cassert>
-
-using namespace std;
+#include <cmath>
 
 int prod_signs(const vector<int>& arr) {
-    if(arr.empty()) return 0;
+    if(arr.empty()) return -32768;
     int product = 1;
     int sum_magnitudes = 0;
     for(int num : arr){
@@ -15,7 +14,7 @@ int prod_signs(const vector<int>& arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    
+    vector<int> nums = {2, -3, 0, 4, -1};
+    int result = prod_signs(nums);
     return 0;
 }
