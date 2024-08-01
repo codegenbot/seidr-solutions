@@ -23,6 +23,5 @@ def prime_fib(n: int):
     return num
 
 if __name__ == '__main__':
-    n = int(input("Enter a number: "))
-    result = prime_fib(n)
-    print(result)
+    n = int(input())
+    print(prime_fib(n))
