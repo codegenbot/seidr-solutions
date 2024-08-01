@@ -1,6 +1,6 @@
 ```
 def encode(message):
-    result = ""
+    result = ''
     for char in message:
         if char.isalpha():
             if char.isupper():
