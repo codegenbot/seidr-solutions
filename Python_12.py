@@ -1,3 +1,3 @@
 strings = input("Enter a list of strings separated by spaces: ").split()
-result = longest(strings)
+result = max(strings, key=len)
 print(result)
