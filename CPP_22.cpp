@@ -1,13 +1,27 @@
-#include <boost/any_cast.hpp>
+```cpp
+#include <vector>
+#include <list>
+#include <boost/any.hpp>
 
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> filter_integers(std::vector<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        try {
-            int val = boost::any_cast<int>(value);
-            result.push_back(val);
-        } catch (...) {
-            // ignore non-int values
+        if (boost::holds_alternative<int>(value)) {
+            int num = boost::get<int>(value);
+            bool same = true;
+            for (const auto& other_num : result) {
+                if (!issame({other_num}, {num})) {
+                    same = false;
+                    break;
+                }
+            }
+            if (same) {
+                result.push_back(num);
+            }
         }
     }
     return result;
