@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
@@ -17,21 +16,4 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return oddCount == 0 ? "YES" : "NO";
-}
-
-int main() {
-    std::vector<int> lst1;
-    int num;
-    while(std::cin >> num) {
-        lst1.push_back(num);
-    }
-    
-    std::vector<int> lst2;
-    while(std::cin >> num) {
-        lst2.push_back(num);
-    }
-
-    std::cout << exchange(lst1, lst2) << std::endl;
-
-    return 0;
 }
