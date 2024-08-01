@@ -19,6 +19,8 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    // Place inputs and function calls here
+    int n;
+    cin >> n;
+    cout << largest_prime_factor(n) << endl;
     return 0;
 }
