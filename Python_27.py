@@ -1,2 +1,4 @@
-def check(transform_string):
-    return "".join([char.lower() if char.isupper() else char.upper() for char in transform_string])
+def check():
+    def transform_string(string):
+        return "".join([char.lower() if char.isupper() else char.upper() for char in string])
+    return transform_string
