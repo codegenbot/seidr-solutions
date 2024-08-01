@@ -16,8 +16,7 @@ int main() {
         startHeight *= bouncinessIndex;
     }
 
-    cout.precision(4);
-    cout << fixed << totalDistance << endl;
+    cout << fixed << setprecision(4) << totalDistance << endl;
 
     return 0;
 }
