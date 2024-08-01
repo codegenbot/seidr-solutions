@@ -15,28 +15,18 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-int get_positive() {
-    int num;
-    std::cin >> num;
-    while (num <= 0) {
-        std::cout << "Enter a positive number: ";
-        std::cin >> num;
-    }
-    return num;
-}
-
 int main() {
     std::vector<float> vec1, vec2;
 
     // Read input vectors
-    int n = get_positive();
+    int n;
+    std::cin >> n;
     float num;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec1.push_back(num);
     }
-    
-    n = get_positive();
+    std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cin >> num;
         vec2.push_back(num);
