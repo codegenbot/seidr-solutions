@@ -1,4 +1,9 @@
-int start1 = interval1[0], end1 = interval1[1];
+bool is_prime(int num) {
+    // implementation...
+}
+
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start1 = interval1[0], end1 = interval1[1];
     int start2 = interval2[0], end2 = interval2[1];
     
     int intersection_start = max(start1, start2);
