@@ -2,7 +2,23 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> parse_music(const std::string& music) {
+    std::vector<int> notes;
+    size_t pos = 0;
+    size_t next_pos = music.find('|');
+
+    while (next_pos != std::string::npos) {
+        notes.push_back(next_pos - pos - 1);
+        pos = next_pos + 1;
+        next_pos = music.find('|', pos);
+    }
+
+    notes.push_back(music.size() - pos - 1);
+
+    return notes;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
