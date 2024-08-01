@@ -1,19 +1,16 @@
-Here is the solution:
-
 bool is_multiply_prime(int a){
-    bool found[100] = {false};
-    for(int i=2; i<=10; i++){
-        int j=i;
-        while(j <= 10){
-            if(a % j == 0){
-                int k=a / j;
-                while(k > 1 && !found[k]){
-                    found[k] = true;
-                    k /= j;
-                }
-                if(k==1) return true;
+    for(long long i=2; i<=a/3; i++){
+        bool prime = true;
+        for(long long j=2; j*j <= i; j++){
+            if(i % j == 0) prime = false;
+        }
+        if(prime){
+            int b=i*i;
+            while(b<=a){
+                int c=(int)sqrt((double)(a-b));
+                if(c*c==b) return true;
+                b+=i;
             }
-            j++;
         }
     }
     return false;
