@@ -1,13 +1,17 @@
 #include <iostream>
 #include <cassert>
+#include <cstdlib>
 
 int add(int x, int y) {
     return x + y;
 }
 
 int main() {
-    srand((unsigned)time(0));
+    srand(time(0));
     int x = rand() % 1000;
     int y = rand() % 1000;
+    
     assert(add(x, y) == x + y);
+
+    return 0;
 }
