@@ -1,6 +1,4 @@
 #include <vector>
-#include <cmath>
-#include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
