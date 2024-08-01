@@ -30,17 +30,15 @@ int main() {
     
     vector<vector<int>> result = cutVector(v);
     
-    cout << "[";
+    cout << "[" << "";
     for(int i=0; i<result[0].size(); i++) {
-        cout << result[0][i];
-        if(i < result[0].size() - 1) cout << " ";
+        cout << result[0][i] << " ";
     }
     cout << "]" << endl;
     
-    cout << "[";
+    cout << "[" << "";
     for(int i=0; i<result[1].size(); i++) {
-        cout << result[1][i];
-        if(i < result[1].size() - 1) cout << " ";
+        cout << result[1][i] << " ";
     }
     cout << "]" << endl;
     
