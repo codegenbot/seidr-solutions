@@ -2,27 +2,21 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string applyCipher(string key, string cipher, string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        if (i < cipher.length()) {
-            if (cipher[i] == key[0]) {
-                result += message[i];
-            } else {
-                result += message[i];
-            }
+std::string solve(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    string deciphered;
+    for (int i = 0; i < message.length(); ++i) {
+        if (i >= cipher1.length()) {
+            deciphered += message[i];
         } else {
-            result += message[i];
+            deciphered += cipher2[cipher1.find(message[i])];
         }
     }
-    return result;
+    return deciphered;
 }
 
 int main() {
-    string key, cipher, message;
-    cin >> key >> cipher >> message;
-    cout << applyCipher(key, cipher, message) << endl;
+    string cipher1, cipher2, message;
+    cin >> cipher1 >> cipher2 >> message;
+    cout << solve(cipher1, cipher2, message) << endl;
     return 0;
 }
