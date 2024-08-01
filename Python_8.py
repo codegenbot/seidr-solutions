@@ -11,11 +11,12 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return (total_sum if len(numbers) > 0 else 0, product if len(numbers) > 0 else 1)
 
 
+def main():
+    input_list = input("Enter a list of integers separated by space: ")
+    numbers = [int(num) for num in input_list.split()]
+    result = sum_product(numbers)
+    print(f"Sum: {result[0]}, Product: {result[1]}")
+
+
 if __name__ == "__main__":
-    user_input = input("Enter some numbers separated by space: ")
-    try:
-        numbers = [int(num) for num in user_input.split()]
-        sum_result, prod_result = sum_product(numbers)
-        print(f"Sum: {sum_result}, Product: {prod_result}")
-    except ValueError:
-        print("Invalid input. Please enter integers separated by space.")
+    main()
