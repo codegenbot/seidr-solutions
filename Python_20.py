@@ -13,5 +13,5 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
 
 if __name__ == "__main__":
     numbers = list(map(float, input().split()))
-    closest_elements = find_closest_elements(numbers)
-    print(closest_elements)
+    result = find_closest_elements(numbers)
+    print(result[0], result[1])
