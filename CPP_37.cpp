@@ -3,20 +3,9 @@
 #include <cassert>
 
 void sort_even(std::vector<int>& l) {
-    std::vector<int> even_values;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-        }
-    }
-    std::sort(even_values.begin(), even_values.end());
-    int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = even_values[even_index];
-            even_index++;
-        }
-    }
+    std::sort(l.begin(), l.end(), [](int a, int b) {
+        return a % 2 == 0 && b % 2 == 0 ? a < b : a % 2 == 0;
+    });
 }
 
 int main() {
