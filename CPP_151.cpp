@@ -1,4 +1,4 @@
-Here's the completed code:
+Here is the completed code:
 
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
