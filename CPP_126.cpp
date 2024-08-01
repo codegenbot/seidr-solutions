@@ -5,29 +5,24 @@
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            for(int j = 0; j < i; j++)
-                temp.push_back(lst[j]);
-            if(count(temp.begin(), temp.end(), lst[i]) > 1)
-                return false;
-            break;
+            return false;
         }
     }
     return true;
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    vector<int> lst(n);
-    for(int i = 0; i < n; i++){
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> lst[i];
+    vector<int> input;
+    int num;
+    std::cout << "Enter numbers (enter -1 to stop): ";
+    while(true){
+        std::cin >> num;
+        if(num == -1) break;
+        input.push_back(num);
     }
-    if(is_sorted(lst))
-        cout << "The list is sorted.";
+    if(is_sorted(input))
+        std::cout << "The list is sorted.\n";
     else
-        cout << "The list is not sorted.";
+        std::cout << "The list is not sorted.\n";
     return 0;
 }
