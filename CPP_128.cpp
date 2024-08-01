@@ -1,8 +1,6 @@
-```cpp
-#include <iostream>
 #include <vector>
 
-int prod_signs(std::vector<int> arr){
+int prod_signs(vector<int> arr){
     int product = 1;
     long long sum = 0;
     
@@ -16,13 +14,11 @@ int prod_signs(std::vector<int> arr){
     if(arr.empty())
         return -32768;
     
-    std::cout << "Product of signs: " << product << "\n";
-    std::cout << "Sum of absolute values: " << sum << "\n";
     return product * sum;
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, -3, 4};
-    int result = prod_signs(arr);
+    vector<int> arr = {1,2,-3,4};
+    cout << prod_signs(arr) << endl;
     return 0;
 }
