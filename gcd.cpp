@@ -38,10 +38,9 @@ int main() {
     cin >> a >> b;
 
     string text, target;
-    cin.ignore();
-    getline(cin, text);
-    getline(cin, target);
-    
+    getline(cin >> ws, text); 
+    getline(cin >> ws, target);
+
     cout << gcd(a, b) << endl;
 
     vector<int> result = indicesOfSubstring(text, target);
