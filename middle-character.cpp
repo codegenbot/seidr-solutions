@@ -4,3 +4,4 @@ string middleCharacter(string str) {
         return string(1, str[len / 2]);
     else
         return string(1, str[(len - 1) / 2]) + string(1, str[(len + 1) / 2]);
+}
