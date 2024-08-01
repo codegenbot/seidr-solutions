@@ -1,19 +1,17 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    std::cin >> text >> target;
     
     std::vector<int> indices;
     
-    for (size_t i = 0; i < text.length(); ++i) {
+    for (size_t i = 0; i < text.length() - target.length() + 1; ++i) {
         bool found = true;
         for (size_t j = 0; j < target.length(); ++j) {
-            if (i + j >= text.length() || text[i + j] != target[j]) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
