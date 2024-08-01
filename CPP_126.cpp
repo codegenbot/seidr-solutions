@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
@@ -18,19 +20,15 @@ bool is_sorted(vector<int> lst){
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> lst(n);
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> lst[i];
-    }
-
+    cin >> n;
+    vector<int> lst(n);
+    for(int i = 0; i < n; i++)
+        cin >> lst[i];
+    
     if(is_sorted(lst))
-        std::cout << "The list is sorted." << std::endl;
+        cout << "The list is sorted." << endl;
     else
-        std::cout << "The list is not sorted." << std::endl;
+        cout << "The list is not sorted." << endl;
 
     return 0;
 }
