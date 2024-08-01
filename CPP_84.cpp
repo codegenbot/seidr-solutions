@@ -15,5 +15,6 @@ string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
+    // Add additional test cases if needed
     return 0;
 }
