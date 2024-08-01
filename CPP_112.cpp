@@ -1,17 +1,12 @@
-#include <algorithm>
 #include <string>
-#include <vector>
-
-using namespace std;
-
-pair<string, string> reverse_delete(const string& s, const string& c) {
-    string result = "";
+std::vector<std::string> issame(std::string s, std::string c) {
+    std::string result = "";
     for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string reversed_result = result;
+    std::string reversed_result = result;
     reverse(reversed_result.begin(), reversed_result.end());
     return {result, result == reversed_result ? "True" : "False"};
 }
