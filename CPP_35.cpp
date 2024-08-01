@@ -1,8 +1,9 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <cmath>
 
 int main() {
-    //...
-    auto max_val = *max_element(l.begin(), l.end()); return max_val;
-    //...
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    using namespace std;
+    return abs(*max_element(l.begin(), l.end()));
 }

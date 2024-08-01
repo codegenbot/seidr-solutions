@@ -1,35 +1,33 @@
 #include <iostream>
-
 using namespace std;
+
+int prime_fib(int n) {
+    int a = 0, b = 1;
+    for (int i = 0; i < n; ++i) {
+        if (isPrime(b)) {
+            return b;
+        }
+        int temp = a;
+        a = b;
+        b = temp + b;
+    }
+    return -1;
+}
 
 bool isPrime(int num) {
     if (num <= 1)
         return false;
-    for (int i = 2; i * i <= num; i++)
+    for (int i = 2; i * i <= num; ++i) {
         if (num % i == 0)
             return false;
-    return true;
-}
-
-int prime_fib(int n) {
-    int fib_num = 0, fib_prev = 0, fib_curr = 1, count = 0;
-    
-    while (true) {
-        if (isPrime(fib_curr)) {
-            fib_num++;
-            if (fib_num == n)
-                return fib_curr;
-        }
-        
-        fib_prev = fib_curr;
-        fib_curr += fib_prev + 1;
     }
+    return true;
 }
 
 int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    cout << "The " << n << "th prime Fibonacci number is " << prime_fib(n) << endl;
+    cout << "The " << n << "th Fibonacci number that is prime is: " << prime_fib(n) << endl;
     return 0;
 }
