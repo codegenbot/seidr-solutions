@@ -23,6 +23,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
+// Function to find the GCD of two numbers
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -41,3 +42,4 @@ int main() {
     for (int i : indices)
         cout << i << " ";
     return 0;
+}
