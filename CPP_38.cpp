@@ -36,7 +36,7 @@ string decode_cyclic(string s){
 
 int main() {
     string input_string;
-    cin >> input_string;
+    cin >> input_string; // Read input from the user
     string encoded_str = encode_cyclic(input_string);
     assert(decode_cyclic(encoded_str) == input_string);
     return 0;
