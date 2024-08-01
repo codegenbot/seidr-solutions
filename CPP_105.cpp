@@ -3,31 +3,12 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(vector<string> a, vector<string>b){
+bool isSame(std::vector<std::string> a, std::vector<std::string>b){
     return (a == b);
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-
-    vector<string> result = by_length(arr);
-
-    if(isSame(result, {"One", "Four", "Eight", "Five"}))
-        std::cout << "Yes" << std::endl;
-    else
-        std::cout << "No" << std::endl;
-
-    return 0;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
@@ -37,7 +18,7 @@ vector<string> by_length(vector<int> arr) {
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : nums) {
         switch (num) {
             case 1:
@@ -71,4 +52,22 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> arr = {1,2,3};
+    std::vector<std::string> output = by_length(arr);
+    
+    for (const auto& str : output) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
+    
+    if(isSame(output, {"One", "Two", "Three"})){
+        std::cout << "Vectors are same" << std::endl;
+    } else{
+        std::cout << "Vectors are not same" << std::endl;
+    }
+
+    return 0;
 }
