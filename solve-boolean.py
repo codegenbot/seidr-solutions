@@ -1,15 +1,18 @@
 ```
-def solve_boolean(input_str):
-    def evaluate(expression):
-        if expression == 'T':
-            return True
-        elif expression == 'F':
-            return False
-        elif '&' in expression:
-            a, b = expression.split('&')
-            return evaluate(a) and evaluate(b)
-        elif '|' in expression:
-            a, b = expression.split('|')
-            return evaluate(a) or evaluate(b)
+def solve_boolean(expression):
+    def evaluate_expression(expression):
+        stack = []
+        for char in expression[::-1]:
+            if char == '&':
+                right = stack.pop()
+                left = stack.pop()
+                stack.append(left and right)
+            elif char == '|':
+                right = stack.pop()
+                left = stack.pop()
+                stack.append(left or right)
+            else:
+                stack.append(char == 'T')
+        return stack[0]
 
-    return evaluate(input_str)
+    return str(evaluate_expression(expression)).lower()
