@@ -8,8 +8,9 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-input_str = input("Enter a list of integers separated by spaces: ")
-operations = list(map(int, input_str.split()))
+# Read input from user
+operations = list(map(int, input().split()))
 
+# Call the function below_zero with user input
 result = below_zero(operations)
 print(result)
