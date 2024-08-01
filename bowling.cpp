@@ -1,4 +1,4 @@
-#include <iostream>
+# include<iostream>
 using namespace std;
 
 int score(string s);
@@ -16,7 +16,7 @@ int score(string s) {
         if (s[i] == 'X') {
             score += 10;
             if (s[i+2] == 'X' && s[i+4] == 'X') {
-                score += 20;
+                score += 10 + 10;
             } else if (s[i+2] == 'X') {
                 score += 10 + (s[i+4] == 'X' ? 10 : s[i+4] - '0');
             } else if (s[i+3] == '/') {
