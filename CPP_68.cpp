@@ -1,17 +1,26 @@
-```#include <climits>
+#include <climits>
 
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<vector<int>>& arr) {
     vector<pair<int, int>> result;
     
-    if(arr.empty()) return {{-1, -1}}; // Return a pair with -1 values as there are no even values
+    if(arr.empty()) return result;
     
     for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0) {
-            result.push_back({arr[i], i});
+        bool hasEvenValue = false;
+        
+        for(int j = 0; j < arr[i].size(); j++) {
+            if(arr[i][j] % 2 == 0) {
+                hasEvenValue = true;
+                break;
+            }
+        }
+        
+        if(!hasEvenValue) {
+            result.push_back({i, i});
         }
     }
     
     return result;
-}```
+}
