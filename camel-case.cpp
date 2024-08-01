@@ -4,17 +4,17 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalize = true;
+    bool capitalizeNext = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            i++; // skip the "-"
-            while (i < s.length() && s[i] == ' ') {
-                i++; // skip the spaces
-            }
-            capitalize = true;
-        } else if (s[i] != ' ' || !capitalize) {
-            result += (capitalize ? toupper(s[i]) : tolower(s[i]));
-            capitalize = false;
+            capitalizeNext = true;
+            continue;
+        }
+        if (capitalizeNext) {
+            result += toupper(s[i]);
+            capitalizeNext = false;
+        } else {
+            result += tolower(s[i]);
         }
     }
     return result;
