@@ -4,7 +4,7 @@ def check_numbers(numbers, threshold):
         if abs(numbers[i] - numbers[i + 1]) < threshold:
             return True
     return False
-
+    
 has_close_elements = [3, 7, 1, 9, 2]
 threshold = 2
 result = check_numbers(has_close_elements, threshold)
