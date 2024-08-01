@@ -1,5 +1,6 @@
 import sys
 
+
 def find_closest_pair(numbers):
     numbers.sort()
     min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1))
@@ -9,6 +10,7 @@ def find_closest_pair(numbers):
         if numbers[i + 1] - numbers[i] == min_diff
     ][0]
     return closest_pair
+
 
 input_numbers = [int(x) for x in sys.stdin.readline().strip().split()]
 result = find_closest_pair(input_numbers)
