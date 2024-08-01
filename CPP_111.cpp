@@ -1,35 +1,32 @@
-#include <iostream>
-#include <map>
-#include <sstream>
-#include <algorithm>
-
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::istringstream iss(test);
-    std::string word;
+map<char, int> histogram(string test);
+
+int main() {
+    // Your main function code here
+    return 0;
+}
+
+map<char, int> histogram(string test){
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
         }
     }
     int maxCount = 0;
-    for (const auto &entry : result) {
-        maxCount = std::max(maxCount, entry.second);
+    for (const auto& entry : result) {
+        maxCount = max(maxCount, entry.second);
     }
-    std::map<char, int> maxChars;
-    for (const auto &entry : result) {
+    map<char, int> maxChars;
+    for (const auto& entry : result) {
         if (entry.second == maxCount) {
             maxChars[entry.first] = entry.second;
         }
     }
     return maxChars;
-}
-
-int main() {
-    // Your test cases to check the implemented functions
-    return 0;
 }
