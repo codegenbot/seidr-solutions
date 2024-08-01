@@ -33,13 +33,12 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    vector<int> output = get_odd_collatz(num);
-    if (output.size() == 0) {
-        cout << "1";
-    } else {
-        for (auto i : output) {
-            cout << i << endl;
-        }
+    vector<int> sequence = get_odd_collatz(num);
+    cout << "The Collatz sequence up to 1 with only odd terms is: ";
+    for (int i = 0; i < sequence.size(); i++) {
+        cout << sequence[i] << " ";
     }
+    cout << endl;
+    
     return 0;
 }
