@@ -12,7 +12,7 @@ std::vector<float> get_positive(std::vector<float> l){
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return get_positive(a) == get_positive(b);
+    return a == b;
 }
 
 int main(){
@@ -32,7 +32,7 @@ int main(){
         vec2.push_back(num);
     }
 
-    // Check if vectors are the same based on positive elements
+    // Check if vectors are the same
     std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
