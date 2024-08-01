@@ -1,10 +1,13 @@
 from typing import List
 
+
 def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
     return sum(abs(x - mean) for x in numbers) / len(numbers)
 
-# Read input from the user
+
+# Prompt the user to enter numbers
+print("Enter space-separated numbers:")
 numbers = list(map(float, input().split()))
 
 # Calculate and print the mean absolute deviation
