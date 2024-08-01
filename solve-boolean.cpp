@@ -5,31 +5,41 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    if (s == "t") return true;
-    if (s == "f") return false;
-    
-    int i = 0, j = 0;
-    while(j<s.length()) {
-        if(s[j] == '|') break;
-        j++;
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (!st.empty() && st.top() == '|') {
+                st.pop();
+                return false;
+            } else if (!st.empty() && st.top() == 'F') {
+                st.pop();
+                return false;
+            } else if (i == s.length() - 1) {
+                return true;
+            }
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+        } else if (s[i] == 'T' || s[i] == 'F') {
+            st.push(s[i]);
+        }
     }
-    string left = s.substr(i, j-i);
-    i = j+1; j=0;
-    while(j<s.length()) {
-        if(s[j] == '&') break;
-        j++;
-    }
-    string right = s.substr(i, j-i);
-    
-    return solveBoolean(left) || solveBoolean(right);
+    return st.top() == 'T';
 }
 
 int main() {
-    // test cases
-    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
-    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
-    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+    string s;
+    cout << "Enter a Boolean expression: ";
+    cin >> s;
+    bool result = solveBoolean(s);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
