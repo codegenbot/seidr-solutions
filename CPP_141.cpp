@@ -1,34 +1,28 @@
-int count_digits(string file_name) {
-    int count = 0;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count++;
-        }
+```cpp
+int count_digits = 0;
+bool has_dot = false;
+size_t dot_position = string::npos;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        count_digits++;
+    } else if (c == '.') {
+        has_dot = true;
+        dot_position = file_name.find(c);
     }
-    return count;
 }
 
-bool is_valid_format(string file_name) {
-    size_t pos = file_name.find('.');
-    if (pos == string::npos || pos + 4 >= file_name.size()) {
-        return false;
-    }
-    string format = file_name.substr(pos + 1);
-    return format == "txt" || format == "exe" || format == "dll";
+if (count_digits > 3 || !has_dot || dot_position == string::npos) {
+    return "No";
 }
 
-string file_name_check(string file_name) {
-    if (file_name.empty()) {
-        return "No";
+string before_dot = file_name.substr(0, dot_position);
+string after_dot = file_name.substr(dot_position + 1);
+
+if (!before_dot.empty() && isalpha(before_dot[0])) {
+    if (after_dot == "txt" || after_dot == "exe" || after_dot == "dll") {
+        return "Yes";
     }
-    if (!isalpha(file_name[0])) {
-        return "No";
-    }
-    if (count_digits(file_name) > 3) {
-        return "No";
-    }
-    if (!is_valid_format(file_name)) {
-        return "No";
-    }
-    return "Yes";
 }
+
+return "No";
