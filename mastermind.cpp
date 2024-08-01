@@ -4,12 +4,12 @@
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
-    int white = 0;
-    int black = 0;
+    int whitePegs = 0;
+    int blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         }
     }
 
@@ -20,10 +20,10 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        white += count - 1;
+        whitePegs += count - 1;
     }
 
-    return black + white;
+    return blackPegs + whitePegs;
 }
 
 int main() {
