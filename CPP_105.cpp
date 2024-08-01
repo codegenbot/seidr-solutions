@@ -4,7 +4,7 @@
 #include <map>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool is_same(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -37,7 +37,7 @@ int main() {
 
     std::vector<std::string> result = by_length(arr);
 
-    assert(issame(result, expected_result));
+    assert(is_same(result, expected_result));
 
     return 0;
 }

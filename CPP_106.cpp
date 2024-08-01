@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 std::vector<int> f(int n){
@@ -33,6 +32,6 @@ int solveProblem(){
     return 0;
 }
 
-int main() {
+int main(){
     return solveProblem();
 }
