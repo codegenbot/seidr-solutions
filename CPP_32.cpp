@@ -11,15 +11,18 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 double find_zero(const std::vector<double>& coeffs){
+    if (coeffs.empty()) return 0.0;
+
     double a = coeffs[0];
-    double b = coeffs[1];
-    return -b/a;
+    double b = coeffs.size() > 1 ? coeffs[1] : 0.0;
+
+    return (a != 0.0) ? (-b/a) : 0.0;
 }
 
 int main() {
     std::vector<double> coeffs = {1, -5, 6};
 
-    double solution;
+    double solution = find_zero(coeffs);
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
 
