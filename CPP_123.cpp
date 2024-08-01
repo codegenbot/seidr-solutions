@@ -17,6 +17,7 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
+
     std::vector<int> oddNumbers;
     for (int num : result) {
         if (num % 2 != 0) {
@@ -24,10 +25,12 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     std::sort(oddNumbers.begin(), oddNumbers.end());
+
     return oddNumbers;
 }
 
 int main() {
     assert(issame(get_odd_collatz(1), std::vector<int>{1}));
+
     return 0;
 }
