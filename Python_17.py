@@ -8,10 +8,20 @@ def parse_music(music_string: str) -> List[int]:
     for char in music_string:
         if char in ['o', '|']:
             if note:
-                music_list.append(beats_per_note.get(note, 0))
+                if note == 'o':
+                    music_list.append(beats_per_note[note])
+                elif note == 'o|':
+                    music_list.extend([beats_per_note[note]]*2)
+                else:
+                    raise ValueError("Invalid note")
             note = char
         elif char == '.':
             note += char
     if note:
-        music_list.append(beats_per_note.get(note, 0))
+        if note == 'o':
+            music_list.append(beats_per_note[note])
+        elif note == 'o|':
+            music_list.extend([beats_per_note[note]]*2)
+        else:
+            raise ValueError("Invalid note")
     return music_list
