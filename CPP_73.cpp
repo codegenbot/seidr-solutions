@@ -1,28 +1,15 @@
+Here is the solution:
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string str = "";
-    for (int i : arr) {
-        str += to_string(i);
-    }
-    
-    int left = 0;
-    int right = n - 1;
-    int changes = 0;
-    
-    while (left < right) {
-        if (str[left] != str[right]) {
-            if (str[left] == str[right-1]) {
-                right--;
-            } else if (str[right] == str[left+1]) {
-                left++;
-            } else {
-                changes += 2;
-                break;
-            }
+    vector<vector<int>> dp(n, vector<int>(n));
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j >= 0; j--) {
+            if (i == j)
+                dp[i][j] = 0;
+            else
+                dp[i][j] = abs(arr[i] - arr[j]) + (dp[i-1][j-1]);
         }
-        left++;
-        right--;
     }
-    
-    return changes;
+    return dp[n-1][0];
 }
