@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool move_one_ball(const std::vector<int>& arr) {
-    std::vector<int> temp = arr; // Make a copy of the input vector
+    std::vector<int> temp = arr;
     int n = temp.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(temp.begin(), temp.end())) {
