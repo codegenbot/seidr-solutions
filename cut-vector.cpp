@@ -27,7 +27,7 @@ int main() {
     for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = cutIndex; i < n - 1; ++i) {
+    for (int i = cutIndex; i < n; ++i) {
         cout << nums[i] << endl;
     }
     
