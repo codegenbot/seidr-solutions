@@ -3,16 +3,17 @@ string get_closest_vowel(string word) {
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 1 && isupper(word[i-1])) continue;
-        if (islower(word[i]) || isupper(word[i])) {
-            for (int j = i - 1; ; --j) {
-                if (!isalpha(word[j])) break;
-                if (ispunct(word[j]) || isdigit(word[j])) break;
-                if (word[j] == 'Y' && j > 0 && isupper(word[j-1])) break;
-                if (islower(word[j]) || isupper(word[j])) {
-                    return tolower((char)word[i]);
-                }
-            }
+        char c = tolower(word[i]);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            return string(1, word[i]);
+        }
+    }
+    for (int i = 0; i < n - 1; ++i) {
+        if (!isalpha(word[i])) continue;
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        char c = tolower(word[i]);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            return string(1, word[i]);
         }
     }
     return "";
