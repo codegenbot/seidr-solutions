@@ -19,7 +19,7 @@ string string_to_md5(string text) {
     string result;
     for (int i = 0; i < 16; ++i) {
         ostringstream oss;
-        oss << hex << setw(2) << setfill('0') << static_cast<int>(md[i]);
+        oss << hex << setfill('0') << setw(2) << static_cast<int>(md[i]);
         result += oss.str();
     }
 
