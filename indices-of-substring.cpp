@@ -2,23 +2,24 @@
 #include <string>
 #include <vector>
 
+std::vector<int> indices_of_substring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
+    size_t pos = 0;
+    while (pos != text.length()) {
+        pos = text.find(target, pos);
+        if (pos == std::string::npos) break;
+        indices.push_back(pos);
+        pos += (target.length() > 0 ? target.length() : 1);
+    }
+    return indices;
+}
+
 int main() {
     std::string text, target;
-    std::vector<int> indices;
-    int pos = 0;
+    std::cin >> text >> target;
+    std::vector<int> result = indices_of_substring(text, target);
 
-    std::cout << "Enter the text string: ";
-    std::getline(std::cin, text);
-
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
-
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += 1;
-    }
-
-    for (int index : indices) {
+    for (int index : result) {
         std::cout << index << " ";
     }
 
