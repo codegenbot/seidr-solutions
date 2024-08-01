@@ -1,10 +1,10 @@
-// Given a sequence of integers q and an integer w, determine whether it is possible for a plane to land safely with the given weight limit w.
+// Function signature: Determine whether a set of queens can be placed on an NxN chessboard such that none of them attack each other.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != reverse(str).substr(1, str.length() - 1)) return false;
+    if (str != reverse(str).s) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
