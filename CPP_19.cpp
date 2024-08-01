@@ -8,22 +8,23 @@ string sort_numbers(string numbers) {
     vector<string> numVec;
     string temp;
 
-    for (int i = 0; i < numbers.length(); i++) {
-        if (i == 0 || numbers[i] != ' ') {
-            temp += numbers[i];
-        } else {
+    for (char c : numbers) {
+        if (c == ' ') {
+            continue;
+        }
+        temp += c;
+        if (numMap.find(temp) != numMap.end()) {
             numVec.push_back(temp);
             temp = "";
         }
     }
-    numVec.push_back(temp);
 
     sort(numVec.begin(), numVec.end());
 
-    string result;
-    for (const auto &num : numVec) {
-        result += num + " ";
+    string result = "";
+    for (string s : numVec) {
+        result += s + " ";
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
