@@ -1,3 +1,8 @@
+Here is the completed code:
+
+```cpp
+#include <algorithm>
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -7,5 +12,6 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    reverse(result.begin(), result.end());
+    return result;
 }
