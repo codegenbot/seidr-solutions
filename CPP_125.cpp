@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -37,15 +38,4 @@ vector<string> split_words(string txt) {
     }
 
     return result;
-}
-
-int main() {
-    // Example usage
-    string text = "Hello world!";
-    vector<string> words = split_words(text);
-    for (string word : words) {
-        cout << word << endl;
-    }
-
-    return 0;
 }
