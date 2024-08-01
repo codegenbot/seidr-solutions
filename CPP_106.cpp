@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-bool areSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -26,7 +26,7 @@ int main() {
     std::vector<int> expected = {1, 2, 3};
     std::vector<int> result = f(3);
     
-    assert(areSame(result, expected));
+    assert(issame(result, expected));
     std::cout << "Test Passed!" << std::endl;
     
     return 0;
