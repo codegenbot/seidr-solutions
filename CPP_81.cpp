@@ -1,20 +1,25 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool issame(std::string s1, std::string s2) {
-    if(s1.size() != s2.size()) return false;
-    for(int i = 0; i < s1.size(); i++) {
-        if(s1[i] != s2[i]) return false;
-    }
-    return true;
+bool issame(float x, float y) {
+    if (abs(x - y) < 0.01)
+        return true;
+    else
+        return false;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result;
+int main() {
+    vector<float> grades = {4.2, 3.8, 3.5, 3.1};
+    vector<string> result = numerical_letter_grade(grades);
+    for (string letterGrade : result) {
+        cout << letterGrade << endl;
+    }
+    return 0;
+}
+
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
     for (float grade : grades) {
-        std::string letterGrade = "";
-        if (grade >= 4.0)
+        string letterGrade = "";
+        if (issame(grade, 4.0))
             letterGrade = "A+";
         else if (grade > 3.7)
             letterGrade = "A";
@@ -41,15 +46,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
-}
-
-int main() {
-    std::vector<float> grades = {3.8, 2.9, 4.1};
-    std::vector<std::string> result = numerical_letter_grade(grades);
-    for(std::string s : result) {
-        if(!issame(s, "A+")) {
-            std::cout << s << std::endl;
-        }
-    }
-    return 0;
 }
