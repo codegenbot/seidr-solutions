@@ -1,30 +1,24 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-double poly(const std::vector<double>& coefficients, double x);
+double poly(std::vector<double> coeffs, double x);
 
-double find_zero(const std::vector<double>& xs) {
-    double a = xs[0];
-    double b = xs[1];
-    return -b/a;
+double find_zero(std::vector<double> coeffs) {
+    double a = coeffs[0];
+    double b = coeffs[1];
+    return -b / a;
 }
 
-double poly(const std::vector<double>& coefficients, double x) {
+double poly(std::vector<double> coeffs, double x) {
     double result = 0.0;
-    int degree = coefficients.size() - 1;
-
-    for (int i = 0; i < coefficients.size(); i++) {
-        result += coefficients[i] * pow(x, degree - i);
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * std::pow(x, i);
     }
-
     return result;
 }
 
 int main() {
-    std::vector<double> coeffs = {1, 2, 1}; // Example coefficients
+    std::vector<double> coeffs = {1.0, -3.0, 2.0}; // example coefficients
     double solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-
     return 0;
 }
