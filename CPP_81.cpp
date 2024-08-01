@@ -1,19 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    vector<float> grades = {0.0, 0.7};
-    vector<string> result = numerical_letter_grade(grades);
-    assert(issame(result, {"E", "D-"}));
+    std::vector<float> grades = {0, 0.7};
+    auto result = numerical_letter_grade(grades);
+    assert(std::issame(result, {"E", "D-"}));
     return 0;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<string> result;
     for (float grade : grades) {
         string letterGrade;
         if (grade >= 4.0) {
