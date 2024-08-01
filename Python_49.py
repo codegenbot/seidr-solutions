@@ -1,13 +1,13 @@
-def modinv(a: int, p: int):
-    if gcd(a, p) != 1:
+def modinv(a: int, m: int):
+    if gcd(a, m) != 1:
         return None
     else:
-        a, p = abs(a), abs(p)
+        a, m = abs(a), abs(m)
         x0, x1 = 1, 0
-        while p > 0:
-            quotient = a // p
+        while m > 0:
+            quotient = a // m
             x2 = x1 - quotient * x0
-            a, p = p, a % p
+            a, m = m, a % m
             x1, x0 = x0, x2
         return x0
 
