@@ -3,9 +3,7 @@
 #include <any>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -15,6 +13,10 @@ std::vector<int> filter_integers(std::list<std::any> values) {
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
