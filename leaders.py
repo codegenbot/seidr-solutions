@@ -1,8 +1,6 @@
-def leaders(input):
-    result = []
-    max_right = input[-1]
-    for i in range(len(input) - 1, -1, -1):
-        if input[i] >= max_right:
-            result.append(input[i])
-            max_right = input[i]
-    return reversed(result)
+def leaders(input_list):
+    return [
+        x
+        for i, x in enumerate(reversed(input_list))
+        if all(x >= y for y in input_list[i + 1 :])
+    ]
