@@ -3,7 +3,10 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> sort_third(std::vector<int> l) {
