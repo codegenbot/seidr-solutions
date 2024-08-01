@@ -1,9 +1,9 @@
 int search(vector<int> lst) {
-    int max = -1;
-    for (int num : lst) {
-        if (num > 0 && num <= count(lst.begin(), lst.end(), num)) {
-            max = num;
+    int max = 0;
+    for (int i : lst) {
+        if (i > max && count(lst.begin(), lst.end(), i) >= i) {
+            max = i;
         }
     }
-    return max;
+    return max > 0 ? max : -1;
 }
