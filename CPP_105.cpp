@@ -3,8 +3,31 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string>b){
+bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     return (a == b);
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    std::vector<std::string> result = by_length(arr);
+
+    if(isSame(result, {"One", "Four", "Nine"})) {
+        std::cout << "The array is in the desired order." << std::endl;
+    } else {
+        std::cout << "The array is not in the desired order." << std::endl;
+    }
+
+    return 0;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -52,22 +75,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> arr = {1,2,3};
-    std::vector<std::string> output = by_length(arr);
-    
-    for (const auto& str : output) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
-    
-    if(isSame(output, {"One", "Two", "Three"})){
-        std::cout << "Vectors are same" << std::endl;
-    } else{
-        std::cout << "Vectors are not same" << std::endl;
-    }
-
-    return 0;
 }
