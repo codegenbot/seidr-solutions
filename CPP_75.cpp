@@ -1,24 +1,30 @@
 bool is_multiply_prime(int num);
 
 bool is_multiply_prime(int num) {
-    if (num < 2) {
+    if (num <= 1) {
         return false;
     }
-    for (int i = 2; i <= num / 2; i++) {
+
+    for (int i = 2; i <= num / 2; ++i) {
         if (num % i == 0) {
             return false;
         }
     }
+
     return true;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    if (is_multiply_prime(n)) {
-        cout << "True" << endl;
+    int number;
+
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+
+    if (is_multiply_prime(number)) {
+        std::cout << number << " is a prime number and a multiple of itself." << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << number << " is either not a prime number or not a multiple of itself." << std::endl;
     }
+
     return 0;
 }
