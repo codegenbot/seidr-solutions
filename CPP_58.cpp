@@ -20,6 +20,18 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    // Your code here
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 4, 6};
+
+    if(issame(l1,l2)){
+        cout << "Vectors are identical." << endl;
+    } else {
+        vector<int> common_elements = common(l1, l2);
+        for(auto i : common_elements){
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
