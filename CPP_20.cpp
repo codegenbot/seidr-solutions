@@ -1,7 +1,5 @@
 #include <algorithm>
 #include <vector>
-#include <numeric>
-#include <limits>
 
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
@@ -19,7 +17,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             if (abs(numbers[i] - numbers[j]) < min_diff) {
                 min_diff = abs(numbers[i] - numbers[j]);
-                closest_pair = make_pair(min(i, j), max(i, j));
+                closest_pair = make_pair(min(min(i, j), max(i, j)), max(min(i, j), max(i, j)));
             }
         }
     }
