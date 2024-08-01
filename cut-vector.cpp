@@ -1,23 +1,25 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<int> left(n);
-    for (int i = 0; i < n; ++i)
-        left[i] = nums[i];
+vector<vector<int>> cutVector(vector<int> v) {
+    vector<vector<int>> result;
+    int min_diff = INT_MAX;
+    int idx = -1;
     
-    if (n == 1) return {{nums}, {}}; // Edge case when the input is a single element
-    
-    int diffMin = INT_MAX;
-    int cutPoint = -1;
-    for (int i = 0; i < n - 1; ++i) {
-        int diff = abs(left[i] - left[n-1]);
-        if (diff <= diffMin) {
-            diffMin = diff;
-            cutPoint = i;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i+1]);
+        if (diff == 0) {
+            result.push_back({v.begin(), v.end()});
+            return result;
+        } else if (diff <= min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
     
-    return {{}, nums.begin(), nums.end()};
+    vector<int> left(v.begin(), v.begin() + idx);
+    vector<int> right(v.begin() + idx, v.end());
+    result.push_back(left);
+    result.push_back(right);
+    return result;
 }
