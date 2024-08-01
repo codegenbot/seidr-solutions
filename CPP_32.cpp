@@ -1,30 +1,45 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-double poly(const std::vector<double>& coeffs, double x) {
-    double result = 0;
-    for (size_t i = 0; i < coeffs.size(); ++i) {
+double poly(std::vector<double> coeffs, double x);
+double find_zero(std::vector<double> coeffs);
+
+double poly(std::vector<double> coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
         result += coeffs[i] * std::pow(x, i);
     }
     return result;
 }
 
-double find_zero(const std::vector<double>& coeffs) {
-    if (coeffs.size() < 2)
-        return 0; 
+double find_zero(std::vector<double> coeffs) {
+    // Implementing Newton's method to find the root
+    double a = coeffs[0];
+    double b = coeffs[1];
+    double x0 = 0.0; // Initial guess
 
-    double root = -coeffs[0] / coeffs[1]; 
-    return root;
+    while (true) {
+        double x1 = x0 - poly(coeffs, x0) / poly(std::vector<double>{a, b}, x0);
+        if (std::abs(x1 - x0) < 1e-6)
+            return x1;
+        x0 = x1;
+    }
 }
 
 int main() {
     std::vector<double> coeffs;
-    // Populate coeffs vector with coefficients
-    coeffs = {1, -3, 2}; // Example coefficients, here x^2 - 3x + 2
 
-    double solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    std::cout << "Enter the coefficients of the polynomial in order (from highest power to lowest): ";
+    double coeff;
+    while (std::cin >> coeff) {
+        coeffs.push_back(coeff);
+        if (coeffs.size() > 1) break;
+    }
+
+    double solution;
+    solution = find_zero(coeffs);
+    std::cout << "Solution: " << solution << std::endl;
 
     return 0;
 }
