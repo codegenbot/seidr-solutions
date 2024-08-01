@@ -11,7 +11,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
     return result;
 }
 
-int main() {
+int CPP28_main() {
     int n;
     std::vector<std::string> strings;
 
