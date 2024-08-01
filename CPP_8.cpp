@@ -1,7 +1,7 @@
 #include <vector>
-#include <cassert>
+using namespace std;
 
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+vector<int> calculateSumAndProduct(const vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     for (int num : numbers) {
