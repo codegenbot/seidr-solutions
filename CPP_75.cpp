@@ -1,9 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
-bool is_multiply_prime(int num);
-
 bool is_multiply_prime(int num) {
     if (num < 2) {
         return false;
@@ -18,11 +14,11 @@ bool is_multiply_prime(int num) {
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     if (is_multiply_prime(n)) {
-        cout << "True" << endl;
+        std::cout << "True" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "False" << std::endl;
     }
     return 0;
 }
