@@ -1,11 +1,22 @@
+#include <string>
+
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) return "NO";
-        for (int other : lst2) {
-            if (other == num) {
-                return "YES";
-            }
+        if (num % 2 == 0) {
+            evenCount++;
         }
     }
-    return "NO";
+    if (evenCount == lst1.size()) {
+        return "YES";
+    } else {
+        bool possible = false;
+        for (int num : lst2) {
+            if (std::find(lst1.begin(), lst1.end(), num) != lst1.end() && num % 2 != 0) {
+                possible = true;
+                break;
+            }
+        }
+        return possible ? "YES" : "NO";
+    }
 }
