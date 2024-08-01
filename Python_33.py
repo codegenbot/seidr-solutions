@@ -1,5 +1,3 @@
 def sort_third(l: list):
-    third_list = [
-        i if i % 3 != 0 else next((x for x in l if x % 3 == 0), -1) for i in l
-    ]
-    return third_list
+    threes = [x for x in l if x % 3 == 0]
+    return [i if i % 3 != 0 else (threes[0] if len(threes) > 0 else -1) for i in l]
