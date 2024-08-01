@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 double snowDay(int hours, float onGround, float rate, float melt) {
     double total = onGround;
@@ -18,5 +17,5 @@ int main() {
     float onGround, rate, melt;
     std::cin >> onGround >> rate >> melt;
     double result = snowDay(hours, onGround, rate, melt);
-    std::cout << std::fixed << std::setprecision(10) << result << std::endl;
+    std::cout << fixed << setprecision(10) << result << endl;
     return 0;
