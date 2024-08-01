@@ -8,7 +8,7 @@ double calculateProbability(int n, int m) {
 }
 
 int main() {
-    int n = 6; // Change these values to test with different dice sizes
+    int n = 6; 
     int m = 4;
     double probability = calculateProbability(n, m);
     cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
