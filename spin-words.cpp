@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <algorithm>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
@@ -10,20 +9,20 @@ std::string spinWords(std::string sentence) {
     while ((pos = sentence.find(" ")) != std::string::npos) {
         size_t nextPos = sentence.find(" ", pos + 1);
         
-        if (nextPos == std::string::npos || sentence.length() - pos <= 5) {
-            result += sentence.substr(pos, nextPos - pos) + " ";
-        } else {
-            if(sentence.length() - pos > 5) {
-                std::reverse(sentence.substr(pos, nextPos - pos).begin(), (sentence.substr(pos, nextPos - pos)).end());
+        if (nextPos == std::string::npos || strlen(&sentence.substr(pos, nextPos - pos)) >= 5) {
+            if(strlen(sentence.substr(pos, nextPos - pos).c_str()) >= 5) {
+                std::reverse(sentence.substr(pos, nextPos - pos).c_str(), sentence.substr(pos, nextPos - pos).c_str() + strlen(sentence.substr(pos, nextPos - pos).c_str()));
             }
             
+            result += sentence.substr(pos, nextPos - pos) + " ";
+        } else {
             result += sentence.substr(pos, nextPos - pos) + " ";
             pos = nextPos;
         }
     }
     
-    if(sentence.length() - pos > 5) {
-        std::reverse(sentence.substr(pos).begin(), sentence.substr(pos).end());
+    if(strlen(sentence.substr(pos).c_str()) >= 5) {
+        std::reverse(sentence.substr(pos).c_str(), sentence.substr(pos).c_str() + strlen(sentence.substr(pos).c_str()));
     }
     
     result += sentence.substr(pos);
