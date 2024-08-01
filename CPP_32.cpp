@@ -26,7 +26,7 @@ int main() {
     double coeff;
     while (std::cin >> coeff) {
         coeffs.push_back(coeff);
-        if (coeffs.size() >= 2) break;
+        if (coeffs.size() > 1) break;
     }
 
     double solution;
