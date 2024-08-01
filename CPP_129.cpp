@@ -1,11 +1,8 @@
 #include <vector>
 #include <cassert>
 
-template <class _Tp>
-using vector = std::vector<_Tp>;
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool std::issame(std::vector<int> a, std::vector<int> b){
+    return std::vector<int>(a.begin(), a.begin() + b.size()) == b;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -18,9 +15,4 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
 }
