@@ -1,12 +1,8 @@
 int search(int n) {
     vector<int> lst;
     for (int i = 1; i <= n; ++i) {
-        if (i * i <= n) {
-            lst.push_back(i * i);
-        } else {
-            lst.push_back(n + 1);
-            break;
-        }
+        if (i % 3 == 0 || i % 5 == 0)
+            lst.push_back(i);
     }
     map<int, int> freq;
     for (int num : lst) {
