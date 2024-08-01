@@ -1,20 +1,16 @@
-def bowling_score(frames):
+```
+def bowling_score(s):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
-            score += 30
-        elif frames[i] == "/":
-            score += 10 + int(frames[i + 1])
-        else:
-            frame_points = 0
-            for j in range(i, min(i + 2, len(frames))):
-                if frames[j] == "X":
-                    frame_points += 30
-                    break
-                elif frames[j] == "/":
-                    frame_points += 10 + int(frames[j + 1])
-                    break
-                else:
-                    frame_points += int(frames[j])
-            score += frame_points
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit():
+            if int(s[i]) == 10:
+                score += 10 + (10 if i+1 < len(s) and s[i+1].isdigit() else 0)
+                frame += 1
+            elif int(s[i:i+2]) < 11:
+                score += int(s[i:i+2])
+                frame += 1
+        elif s[i] == 'X':
+            score += 10 + (int(s[i+1]) if i+1 < len(s) and s[i+1].isdigit() else 0)
+            frame += 1
     return score
