@@ -12,8 +12,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f, 4.0f};
-    float odd_sum = 14.0;     // Calculate the sum
+    std::vector<float> lst;  
+    float odd_sum = 0.0;    
+    for(int i = 1; i <= 10; ++i){
+        lst.push_back((float)i);
+    }
+    for (float num : lst) {
+        if(num % 2 != 0){
+            odd_sum += num;
+        }
+    }
     assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
