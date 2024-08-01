@@ -3,7 +3,7 @@ def decode_shift(s: str):
 
 if __name__ == "__main__":
     input_string = input("Enter the encoded string: ")
-    while input_string.isalpha() is not True:
+    while not input_string.isalpha():
         input_string = input("Invalid input. Please enter an encoded string: ")
     decoded_string = decode_shift(input_string)
     print(decoded_string)
