@@ -11,18 +11,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
+    return result;
+}
+
 int main() {
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
-    std::cout << "Maximum elements are: ";
-    for(int i=0; i<k;i++){
-        cout << maximum(arr,k)[i]<<" ";
-    }
+    assert(issame(maximum(arr,k) , {0, 1, 2, 3}));
     return 0;
-}
-
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
 }
