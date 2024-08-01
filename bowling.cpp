@@ -12,7 +12,7 @@ int bowlingScore(string s) {
             frame++;
         } else {
             int pins = c - '0';
-            if (frame < 9 && s.find(c) + 1 == s.find('/')) {
+            if (frame < 9 && s.find(c) + 1 == string::npos || s[s.find(c) + 1] == '/') {
                 score += 10 - pins;
                 frame++;
             } else {
