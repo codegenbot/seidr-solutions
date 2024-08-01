@@ -1,11 +1,6 @@
-```
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
-    for i in range(len(string)):
-        if string[:i][::-1] + string[i:] == string + string[::-1]:
-            return string[:i][::-1] + string + string[len(string)-i:][::-1]
-    return string + string[::-1]
+    s = string.lower()
+    n = 0
+    while n < len(s) and s[n] == s[-1 - n]:
+        n += 1
+    return s[:n][::-1] + s + s[n:][::-1]
