@@ -1,2 +1,1 @@
-``` 
-result += tolower(string(p.second));
+`result += tolower(string(p.second));`
