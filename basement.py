@@ -1,10 +1,5 @@
-Here is the solution:
-
-def basement(vector):
-    total = 0
-    for i, num in enumerate(vector):
-        total += num
-        if total < 0:
+def basement(lst):
+    for i in range(len(lst)):
+        if sum(lst[: i + 1]) < 0:
             return i
-
-print(basement(list(map(int, input().split()))))
+    return -1
