@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    string input = "34"; 
+    string input = "34"; // test case
     cout << squareDigits(input) << endl;
     return 0;
 }
