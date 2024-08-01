@@ -1,6 +1,6 @@
-```cpp
+```
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -39,8 +39,8 @@ int main() {
     
     vector<vector<int>> result = cutVector(v);
     
-    for (vector<int>& v : result) {
-        for (int& x : v) cout << x << " ";
+    for (vector<int>& vec : result) {
+        for (int& x : vec) cout << x << " ";
         cout << endl;
     }
     
