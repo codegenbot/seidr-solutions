@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -8,7 +9,8 @@ double snowDay(int hours, float initialSnow, float rateOfFall, float meltingRate
     
     // Add snow and then melt it for each hour
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfFall - meltingRate;
+        totalSnow += rateOfFall;
+        totalSnow -= meltingRate * (totalSnow - initialSnow);
     }
     
     return totalSnow;
@@ -20,7 +22,7 @@ int main() {
 
     cin >> hours >> initialSnow >> rateOfFall >> meltingRate;
 
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall / 3600.0, meltingRate / 3600.0);
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall, meltingRate);
 
     return 0;
 }
