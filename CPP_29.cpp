@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,7 +9,7 @@ bool issame(vector<string> a,vector<string>b){
 vector<vector<string>> filter_by_prefix(vector<vector<string>> strings, string prefix) {
     vector<vector<string>> result;
     for (const auto& str : strings) {
-        if (issame({str}, {prefix})) 
+        if (issame(str, vector<string>(begin(str), end(str))) && str[0].find(prefix) == 0)
             result.push_back(str);
     }
     return result;
