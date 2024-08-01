@@ -1,13 +1,4 @@
 ```cpp
-int skjkasdkd(vector<int> lst);
-bool isPrime(int n);
-int sumOfDigits(int n);
-
-int main() {
-    assert(skkjasdkd({127, 97, 8192}) == 10);
-    return 0;
-}
-
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -33,4 +24,8 @@ int sumOfDigits(int n){
         n /= 10;
     }
     return sum;
+
+int main() {
+    assert (skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
