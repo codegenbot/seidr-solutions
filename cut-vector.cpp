@@ -1,10 +1,13 @@
 #include <vector>
+#include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <limits>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
+    int min_diff = numeric_limits<int>::max();
     int idx = -1;
     
     for(int i = 0; i < v.size() - 1; i++) {
@@ -26,7 +29,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> solve() {
+int main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -38,10 +41,5 @@ pair<vector<int>, vector<int>> solve() {
     cout << "Right: ";
     for(int x : res.second) cout << x << ' ';
     cout << '\n';
-    return res;
-}
-
-int main() {
-    solve();
     return 0;
 }
