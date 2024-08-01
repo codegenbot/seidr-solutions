@@ -1,6 +1,7 @@
-#include<vector>
-#include<string>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ int totalChars(const vector<string>& lst) {
     return total;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b){
+bool issame(const vector<string>& a, const vector<string>& b) {
     return totalChars(a) == totalChars(b);
 }
 
