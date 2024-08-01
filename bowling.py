@@ -1,26 +1,27 @@
 ```
-def bowling_game(bowling_score):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in range(10):
-        if bowling_score[roll] == 'X':
-            score += 30
-            roll += 2
-        elif bowling_score[roll:roll+2].count('X') > 0:
-            if bowling_score[roll:roll+3][1] == '/':
-                score += int(bowling_score[roll:roll+3][:1]) + 10
-            else:
-                score += 20 + int(bowling_score[roll:roll+2].replace('X', '0'))
-            roll += 2
-        elif bowling_score[roll] == '/':
-            score += int(bowling_score[roll:roll+3][:1])
-            roll += 2
-        else:
-            if str(int(bowling_score[roll]) + int(bowling_score[roll+1])) in ['11', '12', '13', '14', '15']:
-                score += 20 + int(bowling_score[roll:roll+2])
-            elif bowling_score[roll] == '0' and bowling_score[roll+1] == 'X':
+    frame_count = 0
+    for frame in frames.split('/'):
+        if len(frame) == 1 or (len(frame) > 1 and int(frame[0]) + int(frame[1]) <= 10):
+            if len(frame) > 1:
                 score += 10
             else:
-                score += int(bowling_score[roll]) + int(bowling_score[roll+1])
-            roll += 2
+                score += int(frame)
+        elif len(frame) > 2:
+            strike = True
+            for i, x in enumerate(map(int, frame)):
+                if i < 2 or (i == 2 and x != 10):
+                    score += x
+                    if not strike: 
+                        break
+                    strike = False
+        else:
+            spare = True
+            for i, x in enumerate(map(int, frame)):
+                if i >= 1:
+                    score += x
+                    if not spare: 
+                        break
+                    spare = False
     return score
