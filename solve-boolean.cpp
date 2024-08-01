@@ -8,29 +8,22 @@ bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
 
-    int i = 0, j = 0;
-    while(j<s.length()) {
-        if(s[j] == '|') break;
-        j++;
-    }
-    string left = s.substr(0, j);
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '|') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
 
-    if(left.find('&') != string::npos || left.find('|') != string::npos) {
-        return solveBoolean(left);
-    }
+            return solveBoolean(left) || solveBoolean(right);
+        }
+        else if(s[i] == '&') {
+            string left = s.substr(0, i);
+            string right = s.substr(i+1);
 
-    j++;
-    while(j<s.length()) {
-        if(s[j] == '&') break;
-        j++;
-    }
-    string right = s.substr(j);
-
-    if(right.find('&') != string::npos || right.find('|') != string::npos) {
-        return solveBoolean(right);
+            return solveBoolean(left) && solveBoolean(right);
+        }
     }
 
-    return solveBoolean(left) && solveBoolean(right);
+    return true;
 }
 
 int main() {
@@ -40,5 +33,11 @@ int main() {
     cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
     cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
     cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+
+    try {
+        cout << (solveBoolean("f|f&t|f&f|t&t&f&f&f&f&f|t&t|t&t|t&t|f") ? "True" : "False") << endl;
+    } catch(const exception &e) {
+        cout << e.what() << endl;
+    }
     return 0;
 }
