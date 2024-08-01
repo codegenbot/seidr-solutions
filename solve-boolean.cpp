@@ -8,19 +8,21 @@ bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
 
-    for(int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if(c == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) || solveBoolean(right);
-        } else if(c == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) && solveBoolean(right);
-        }
+    int i = 0, j = 0;
+    while(j<s.length()) {
+        if(s[j] == '|') break;
+        j++;
     }
-    return (s == "t");
+    string left = s.substr(0, j);
+    
+    j++;
+    while(j<s.length()) {
+        if(s[j] == '&') break;
+        j++;
+    }
+    string right = s.substr(j);
+
+    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
@@ -30,5 +32,10 @@ int main() {
     cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
     cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
     cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+
+    if(s.find('&') == string::npos && s.find('|') == string::npos) {
+        return solveBoolean(s);
+    }
+
     return 0;
 }
