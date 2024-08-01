@@ -21,26 +21,13 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 
 int main() {
     std::vector<int> lst1;
-    std::vector<int> lst2;
-
-    int n, m;
-    std::cout << "Enter number of elements in list1: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+    int num;
+    while(std::cin >> num) {
         lst1.push_back(num);
     }
 
-    std::cout << "Enter number of elements in list2: ";
-    std::cin >> m;
-
-    for (int i = 0; i < m; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+    std::vector<int> lst2;
+    while(std::cin >> num) {
         lst2.push_back(num);
     }
 
