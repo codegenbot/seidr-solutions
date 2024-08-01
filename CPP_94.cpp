@@ -30,7 +30,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int skjkasdkd(vector<int> lst) {
+int findSumOfDigits(vector<int> lst) {
     int maxPrime = largestPrime(lst);
     if (maxPrime < 0)
         return -1;
