@@ -15,7 +15,7 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    vector<int> nums = {11, 12, 13, 14, 15, 16, 17, 18, 19};
-    cout << "Number of special numbers: " << specialFilter(nums) << endl;
+    vector<int> numbers = {123, -15, 942, 7};
+    cout << "The number of special numbers is: " << specialFilter(numbers) << endl;
     return 0;
 }
