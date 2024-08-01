@@ -14,7 +14,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (nums[i] == nums[0]) {
             vector<int> left;
             left.push_back(nums[0]);
@@ -25,7 +26,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == 0) {
             vector<int> left;
             for (int j = 0; j <= i; j++) {
@@ -35,7 +37,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else if (i == n - 1) {
             vector<int> left;
             for (int j = 0; j < i; j++) {
@@ -43,7 +46,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             }
             vector<int> right;
             right.push_back(nums[i]);
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         } else {
             int min_diff = INT_MAX, cut_index = -1;
             for (int j = 0; j < i; j++) {
@@ -61,7 +65,8 @@ vector<vector<int>> cutVector(vector<int> nums) {
             for (int j = i + 1; j < n; j++) {
                 right.push_back(nums[j]);
             }
-            result.push_back({left, right});
+            result.push_back(left);
+            result.push_back(right);
         }
     }
     
