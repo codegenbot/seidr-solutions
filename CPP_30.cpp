@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <cassert>
 
 bool issame(vector<float> a, vector<vector<float>> b) {
     if(a.size() != b.size()) return false;
@@ -17,9 +17,4 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
-}
-
-int main() {
-    assert(std::issame(get_positive({}), {}));
-    // your other code here
 }
