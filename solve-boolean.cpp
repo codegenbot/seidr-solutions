@@ -12,13 +12,12 @@ bool solveBoolean(string expression) {
             if (subExpression.find('F') != string::npos) {
                 result = false;
                 break;
+            } else if (subExpression.find('T') == string::npos) {
+                return false;
             }
             i = j - 1;
-        } else if (expression[i] == 'T') {
-            return true;
         } else if (expression[i] == 'F') {
             return false;
         }
     }
     return result;
-}
