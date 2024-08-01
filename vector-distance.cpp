@@ -12,9 +12,7 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        std::string temp;
-        std::cin >> temp;
-        vec2[i] = std::stod(temp);
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
