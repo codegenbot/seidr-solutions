@@ -1,19 +1,13 @@
-```cpp
 #include <vector>
+#include <cassert>
 
 bool issame(vector<float> a, vector<vector<float>> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        bool same = true;
-        for(float x : a[i]) {
-            bool found = false;
-            for(float y : b[i]) {
-                if(x == y) {
-                    found = true;
-                    break;
-                }
-            }
-            if(!found) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!std::equal(a[i], a[i] + 1, b[i], [](float x, float y){return std::abs(x) == std::abs(y);})) {
+            return false;
         }
     }
     return true;
