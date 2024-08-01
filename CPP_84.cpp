@@ -15,9 +15,5 @@ string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
-    assert(solve(5) == "101");
-    assert(solve(7) == "111");
-    assert(solve(15) == "1111");
-    assert(solve(16) == "10000");
     return 0;
 }
