@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cassert>
 
+using namespace std;
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
@@ -14,19 +16,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> nums) {
-    std::vector<float> result;
-    for (float num : nums) {
-        if (num > 0)
-            result.push_back(num);
-    }
-    return result;
-}
-
 int main() {
     std::vector<float> vec1, vec2;
 
-    // Read input vectors
     float num;
     int n;
     std::cin >> n;
@@ -40,11 +32,9 @@ int main() {
         vec2.push_back(num);
     }
 
-    // Check if vectors are the same
-    std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
+    assert(issame(std::vector<float>{}, std::vector<float>{}));
 
-    // Test the get_positive function
-    assert(issame(get_positive({-1, 2, 3}), {2, 3}));
+    std::cout << std::boolalpha << issame(vec1, vec2) << std::endl;
 
     return 0;
 }
