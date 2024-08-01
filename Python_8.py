@@ -1,5 +1,6 @@
-```Python
+```
 from typing import List, Tuple
+
 
 def sum_product():
     while True:
@@ -8,6 +9,7 @@ def sum_product():
             return sum_product(numbers)
         except ValueError:
             print("Invalid input. Please provide a list of integers separated by spaces.")
+
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = 0
@@ -18,6 +20,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product *= num
 
     return total_sum, product
+
 
 if __name__ == "__main__":
     result = sum_product()
