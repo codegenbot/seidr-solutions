@@ -23,7 +23,7 @@ string sort_numbers(string numbers) {
     map<int, string> sorted_numbers;
     
     size_t start = 0, end = numbers.find(" ");
-    while (end != std::string::npos) {
+    while (end != string::npos) {
         string num_str = numbers.substr(start, end - start);
         sorted_numbers[std::stoi(num_str)] = num_str;
         start = end + 1;
