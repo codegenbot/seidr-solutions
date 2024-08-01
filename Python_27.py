@@ -1,5 +1,6 @@
-def invert_case(string):
-    return "".join(char.lower() if char.isupper() else char.upper() for char in string)
+def swap_case_string(s):
+    return s.swapcase()
 
-# Call the function
-invert_case("Python/27")
+input_string = input()
+output_string = swap_case_string(input_string)
+print(output_string)
