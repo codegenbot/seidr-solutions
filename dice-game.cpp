@@ -1,13 +1,9 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 double calculateProbability(int n, int m) {
     double total = (n + m - 1);
-    for (int i = 1; i <= m; i++) {
-        total -= 1.0;
-    }
-    return total / ((n * m));
+    return (m * 1.0 / total);
 }
 
 int main() {
