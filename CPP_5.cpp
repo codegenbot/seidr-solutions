@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b); // Declare the function before using it
 
 bool issame(std::vector<int> a, std::vector<int> b){
     // Function implementation goes here
