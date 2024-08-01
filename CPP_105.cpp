@@ -1,12 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
-std::vector<std::string> by_length(const std::vector<int>& input) {
-    std::vector<std::string> result = {"Nine", "Seven", "Four", "Three", "Two", "One"};
-    return result;
-}
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
