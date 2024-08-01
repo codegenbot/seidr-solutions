@@ -19,6 +19,7 @@ bool issame_grade(const std::vector<std::string>& a, const std::vector<std::stri
 }
 
 int main() {
-    assert(issame_grade(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"}));
+    auto grades = numerical_letter_grade({0.0f, 0.7f});
+    assert(issame_grade(grades, {"E", "D-"}));
     return 0;
 }
