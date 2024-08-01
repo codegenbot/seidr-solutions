@@ -3,9 +3,8 @@
 #include <vector>
 
 int main() {
-    std::string text;
-    std::cin >> text;
-    std::string target;
+    std::string text, target;
+    std::getline(std::cin, text);
     std::cin >> target;
     
     std::vector<int> indices;
