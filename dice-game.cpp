@@ -1,17 +1,19 @@
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 double calculateProbability(int n, int m) {
     double probability = 0;
-    for (int i = m + 1; i <= n; ++i) {
-        probability += (1.0 / n) * (1.0 / m);
+    
+    for (int i = 1; i <= m; i++) {
+        probability += (n - i + 1) / static_cast<double>(n * m);
     }
+    
     return probability;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << calculateProbability(n, m) << endl;
+    cout << std::fixed << std::setprecision(1) << calculateProbability(n, m) << std::endl;
     return 0;
 }
