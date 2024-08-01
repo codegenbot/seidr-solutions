@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int basement(std::vector<int>& nums) {
     int sum = 0;
@@ -14,19 +15,23 @@ int basement(std::vector<int>& nums) {
 
 int main() {
     int n;
-    while (!(std::cin >> n)) {
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!(std::cin >> n) || n <= 0) {
+        std::cerr << "Invalid input. Please enter a valid integer." << std::endl;
+        return 1;
     }
 
     std::vector<int> nums(n);
+
     for (int i = 0; i < n; ++i) {
-        while (!(std::cin >> nums[i])) {
-            std::cout << "Invalid input. Please enter an integer." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (!(std::cin >> nums[i])) {
+            std::cerr << "Invalid input. Please enter valid integers only." << std::endl;
+            return 1;
         }
+    }
+
+    if (!std::cin.eof()) {
+        std::cerr << "Invalid input. Please enter valid integers only." << std::endl;
+        return 1;
     }
 
     std::cout << basement(nums) << std::endl;
