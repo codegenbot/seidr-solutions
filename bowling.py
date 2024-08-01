@@ -1,21 +1,21 @@
-Here is the solution:
-
-def bowling_score(bowling_str):
+```
+def bowling_score(game):
     score = 0
-    roll = 0
-    for char in bowling_str:
-        if char.isdigit():
-            roll = int(char)
-        elif char == '/':
-            if roll < 10:
-                score += 10 - roll
+    frame = 1
+    for i in range(0, len(game), 2):
+        if game[i] == 'X':
+            if frame < 10:
+                score += 30
             else:
-                score += roll
-            roll = 0
-        else:
-            if roll > 0:
-                score += roll
-            roll = sum(map(int, str(char)))
-    if roll > 0:
-        score += roll
+                score += 10
+            frame += 1
+        elif game[i:i+2] == 'XX':
+            score += 20
+            frame += 1
+        elif game[i].isdigit():
+            if int(game[i]) + int(game[i+1]) >= 10:
+                score += 10 + (10 - int(game[i]) - int(game[i+1]))
+            else:
+                score += int(game[i]) + int(game[i+1])
+            frame += 1
     return score
