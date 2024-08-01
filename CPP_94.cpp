@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -30,3 +31,4 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
+}
