@@ -1,51 +1,46 @@
-#include <algorithm>
 #include <vector>
-#include <numeric>
-#include <limits>
+#include <algorithm>
 
-int main() {
-    vector<float> numbers;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        float num;
-        cin >> num;
-        numbers.push_back(num);
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
     }
-
-    vector<float> result = find_closest_elements(numbers);
-
-    cout << fixed << setprecision(2);
-    for (float num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
-vector<vector<float>> issame(vector<float>& v1, vector<float>& v2) {
-    if(v1.size() != v2.size())
-        return {{v1},{v2}};
-    for(int i = 0; i < v1.size(); ++i)
-        if(abs(v1[i] - v2[i]) > 0.00001f)
-            return {{v1},{v2}};
-    return {{v1},{v2}};
-}
-
-vector<float> find_closest_elements(vector<float> numbers) {
-    float min_diff = numeric_limits<float>::max();
-    vector<float> closest_pair;
-
-    for (int i = 0; i < numbers.size(); ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                closest_pair = {numbers[i], numbers[j]};
-            }
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
         }
     }
+    return true;
+}
 
-    return closest_pair;
+int main() {
+    vector<float> find_closest_elements(vector<float> numbers) {
+        float min_diff = numeric_limits<float>::max();
+        float closest1 = 0;
+        float closest2 = 0;
+
+        for (int i = 0; i < numbers.size(); ++i) {
+            for (int j = i + 1; j < numbers.size(); ++j) {
+                float diff = abs(numbers[i] - numbers[j]);
+                if (diff < min_diff) {
+                    min_diff = diff;
+                    closest1 = numbers[i];
+                    closest2 = numbers[j];
+                }
+            }
+        }
+
+        vector<float> result({closest1, closest2});
+        return result;
+    }
+
+    // Input your test cases
+    std::vector<float> numbers = {1.0f, 5.0f, 15.0f, 25.0f};
+    std::vector<float> result = find_closest_elements(numbers);
+
+    // Print the output
+    for (float num : result) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 }
