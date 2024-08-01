@@ -6,4 +6,5 @@ def largest_prime_factor(n: int):
             i += 1
         else:
             n //= i
+            i = 2
     return n
