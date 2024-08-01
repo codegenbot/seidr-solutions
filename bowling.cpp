@@ -4,30 +4,46 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'X') {
+    while(i < 10) {
+        if(s[i] == 'X') {
             score += 30;
             i++;
         } else if (s[i] == '/') {
-            score += 10;
-            i++;
-            if (i >= s.length() || s[i] != '/') {
-                break;
-            }
-            i++; // skip the '/'
+            score += 10 + bowlingScoreHelper(&s.substr(i+1));
+            i+=3;
         } else {
             int frame = s[i] - '0';
-            if (s[i + 1] == 'X') {
+            i++;
+            if(s[i] == 'X') {
                 score += 10 + frame;
-                i += 2;
-            } else if (s[i + 1] == '/') {
-                score += 10 + frame;
-                i++; // skip the '/'
-                i++; // skip the '/'
+                i++;
+            } else if (s[i] == '/') {
+                score += 10 + frame + bowlingScoreHelper(&s.substr(i+1));
+                i+=3;
             } else {
-                score += 10 + frame + s[i + 1] - '0';
-                i++; // skip the first number
-                i++; // skip the second number
+                score += 10 + frame + s[i] - '0';
+                i++;
+            }
+        }
+    }
+    return score;
+}
+
+int bowlingScoreHelper(std::string* s) {
+    int score = 0;
+    for(int i=0; i<2; i++) {
+        if(s->at(i) == 'X') {
+            score += 30;
+            break;
+        } else if (s->at(i) == '/') {
+            score += 10 + (i > 0 ? s->at(i-1) - '0' : 0);
+            break;
+        } else {
+            int frame = s->at(i) - '0';
+            if(i < 1) {
+                score += frame;
+            } else {
+                score += frame + s->at(i-1) - '0';
             }
         }
     }
