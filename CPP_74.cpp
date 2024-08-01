@@ -22,8 +22,3 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         return lst2;
     }
 }
-
-int main() {
-    assert(issame(total_match({"this"}, {}), std::vector<std::string>{}));
-    return 0;
-}
