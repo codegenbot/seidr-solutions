@@ -1,4 +1,7 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 string string_xor(string a, string b) {
     string result = "";
