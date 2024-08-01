@@ -2,18 +2,47 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    for(int i=0; i<10; i++) {
+    int i = 0;
+    while(i < s.size()) {
         if(s[i] == 'X') {
-            score += 10 + (roll > 0 ? max(1, 10 - roll) : 10);
-            roll = 0;
+            score += 30;
+            i++;
         } else if (s[i] == '/') {
-            score += 10;
-            roll = 2;
+            score += 10 + (i+1<s.size() && s[i+1] != '/' ? bowlingScoreHelper(&s.substr(i+2)) : 0);
+            i+=2;
         } else {
-            roll++;
-            if(roll >= 2) break;
+            int frame = s[i] - '0';
+            if(s[i+1] == 'X') {
+                score += 10 + frame;
+                i+=2;
+            } else if (s[i+1] == '/') {
+                score += 10 + frame + bowlingScoreHelper(&s.substr(i+2));
+                i+=2;
+            } else {
+                score += 10 + frame + s[i+1] - '0';
+                i++;
+            }
         }
     }
     return score;
 }
+
+int bowlingScoreHelper(string* s) {
+    int score = 0;
+    for(int i=0; i<2; i++) {
+        if(s->at(0) == 'X') {
+            score += 30;
+            break;
+        } else if (s->at(0) == '/') {
+            score += 10 + (i > 0 ? s->at(1)-'0' : 0);
+            break;
+        } else {
+            int frame = s->at(0)-'0';
+            if(i < 1) {
+                score += frame;
+            } else {
+                score += frame + s->at(1)-'0';
+            }
+        }
+    }
+    return score;
