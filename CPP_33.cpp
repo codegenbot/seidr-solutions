@@ -9,7 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
+        if (i % 3 == 0) {
             indices.push_back(i);
         }
     }
