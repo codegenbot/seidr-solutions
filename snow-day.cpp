@@ -8,7 +8,7 @@ int main() {
 
     float current_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        current_snow = current_snow + snow_fall_rate - (current_snow * snow_melt_rate);
+        current_snow = current_snow + snow_fall_rate - (current_snow * snow_melt_rate * snow_fall_rate);
     }
 
     cout << current_snow << endl;
