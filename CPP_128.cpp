@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 
-int prod_signs(std::vector<int> arr) {
+int prod_signs(vector<int> arr){
     int product = 1;
     long long sum = 0;
     
@@ -15,4 +16,10 @@ int prod_signs(std::vector<int> arr) {
         return -32768;
     
     return product * sum;
+}
+
+int main() {
+    vector<int> arr = {2, -3, 4};
+    cout << prod_signs(arr) << endl;
+    return 0;
 }
