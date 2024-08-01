@@ -26,7 +26,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-int main() {
+pair<vector<int>, vector<int>> solve() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -38,5 +38,10 @@ int main() {
     cout << "Right: ";
     for(int x : res.second) cout << x << ' ';
     cout << '\n';
+    return res;
+}
+
+int main() {
+    solve();
     return 0;
 }

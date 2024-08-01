@@ -1,24 +1,23 @@
-int mastermind(string code, string guess) {
+#include <string>
+#include <unordered_map>
+
+int mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+    for (char c : guess) {
+        if (code.find(c) != std::string::npos) {
+            ++white;
+            code.erase(code.find(c), 1);
         }
     }
 
-    map<char, int> codeCount, guessCount;
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-
-    for (auto &p : codeCount) {
-        if (p.second > 0 && guessCount.count(p.first)) {
-            white += min(p.second, guessCount[p.first]);
+    for (char c : guess) {
+        if (c == code[0]) {
+            ++black;
+            code.erase(0, 1);
         }
     }
 
-    return black + white;
+    return { black, white };
 }
