@@ -1,6 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
 
 std::string concatenate(const std::vector<std::string>& strings){
