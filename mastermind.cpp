@@ -1,24 +1,27 @@
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
-            code[i] = 'x';
-            guess[i] = 'y';
-        }
+    
+    // Calculate white pegs (correct color, wrong place)
+    map<char, int> codeCount, guessCount;
+    for(int i = 0; i < 4; i++) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
+    }
+    for(auto & p : codeCount) {
+        white += min(p.second, guessCount[p.first]);
     }
 
-    for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i] && code[j] != 'x') {
-                count++;
-            }
+    // Calculate black pegs (correct color, correct place)
+    int correct = 0;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            codeCount[code[i]]--;
+            guessCount[guess[i]]--;
+            correct++;
         }
-        white += min(count, 1);
     }
+    black = correct;
 
-    return black + white;
+    return make_pair(white, black).second;
 }
