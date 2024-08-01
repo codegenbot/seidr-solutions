@@ -3,9 +3,7 @@
 #include <vector>
 #include <numeric>
 
-namespace std {
-using vector = std::vector<float>;
-}
+using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
