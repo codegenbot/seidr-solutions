@@ -2,10 +2,6 @@
 #include <map>
 #include <sstream>
 #include <algorithm>
-#include <vector>
-#include <string>
-
-using namespace std;
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
@@ -34,6 +30,14 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    // Add test cases here
+    // Test case for histogram function
+    std::string testString = "hello world";
+    std::map<char, int> result = histogram(testString);
+
+    // Output the result of the histogram function
+    for (const auto &entry : result) {
+        std::cout << entry.first << ": " << entry.second << std::endl;
+    }
+
     return 0;
 }
