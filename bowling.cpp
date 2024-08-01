@@ -1,24 +1,21 @@
 int score = 0;
-std::string bowls;
-std::cin >> bowls;
+std::string input;
+std::cin >> input;
 
-for (int i = 0; i < bowls.size(); ++i) {
-    if (bowls[i] == 'X') {
+for (int i = 0; i < input.size(); ++i) {
+    if (input[i] == 'X') {
         score += 10;
-        if (i < bowls.size() - 2) {
-            if (bowls[i+2] == '/') {
-                score += 10;
-            } else {
-                if (bowls[i+1] != 'X') score += bowls[i+1] - '0';
-                if (bowls[i+2] != 'X') score += bowls[i+2] - '0';
-            }
+        if (i < input.size() - 3) {
+            if (input[i + 2] == 'X')
+                score += 10 + ((input[i + 4] == 'X') ? 10 : (input[i + 4] - '0'));
+            else
+                score += ((input[i + 2] == '/') ? 10 : (input[i + 2] - '0') + (input[i + 4] == '/' ? 10 : (input[i + 4] - '0')));
         }
-    } else if (bowls[i] == '/') {
-        score += 10 - (bowls[i-1] - '0');
-        if (i < bowls.size() - 1) score += bowls[i+1] - '0';
+    } else if (input[i] == '/') {
+        score += 10 - (input[i - 1] - '0');
+        score += (i < input.size() - 1) ? (input[i + 1] == 'X' ? 10 : (input[i + 1] - '0')) : 0;
     } else {
-        score += bowls[i] - '0';
+        score += (input[i] == '-' ? 0 : (input[i] - '0'));
     }
 }
-
 std::cout << score;
