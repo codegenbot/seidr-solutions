@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -6,13 +7,12 @@ int main() {
     float snow_on_ground, snow_fall_rate, snow_melt_rate;
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
-    float current_snow;
+    float current_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
-        current_snow += snow_fall_rate;
-        snow_on_ground += current_snow - (current_snow * snow_melt_rate);
+        current_snow = current_snow + snow_fall_rate - (current_snow * snow_melt_rate * snow_fall_rate);
     }
 
-    cout << snow_on_ground << endl;
+    cout << fixed << setprecision(15) << current_snow << endl;
 
     return 0;
 }
