@@ -25,10 +25,12 @@ int main() {
     }
 
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << ' ';
+        std::cout << nums[i] << std::endl;
     }
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << ' ';
+        if (i < n - 1) {
+            std::cout << nums[i] << std::endl;
+        }
     }
 
     return 0;
