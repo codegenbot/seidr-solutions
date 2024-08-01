@@ -1,4 +1,5 @@
 arr = list(map(int, input().split()))
+n = len(arr)
 total_sum = sum(arr)
 half_sum = 0
 for i, num in enumerate(arr):
