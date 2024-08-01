@@ -3,9 +3,8 @@
 
 int score(const std::string &bowls) {
     int total = 0;
-    int frame = 0;
     int bowlIndex = 0;
-    
+
     for (int i = 0; i < 10; ++i) {
         if (bowls[bowlIndex] == 'X' || bowls[bowlIndex + 1] == '/' || (i == 9 && bowls[bowlIndex] != '-')) {
             total += 10;
