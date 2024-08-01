@@ -1,27 +1,22 @@
 Here is the solution:
 
-#include <vector>
-#include <iostream>
 #include <string>
+#include <cctype>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool capitalizeNextLetter = true;
 
-int main() {
-    string s;
-    cin >> s;
-    string res = "";
-    bool firstWord = true;
-    for (char c : s) {
+    for (char c : str) {
         if (c == '-') {
-            res += char(toupper(s[s.find(c) + 1]));
-            s.erase(s.find(c), 1);
-        } else if (firstWord) {
-            res += tolower(c);
-            firstWord = false;
+            capitalizeNextLetter = true;
+        } else if (capitalizeNextLetter) {
+            result += toupper(c);
+            capitalizeNextLetter = false;
         } else {
-            res += toupper(c);
+            result += tolower(c);
         }
     }
-    cout << res << endl;
-    return 0;
+
+    return result;
 }
