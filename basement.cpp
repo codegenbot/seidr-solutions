@@ -1,8 +1,8 @@
-int basementIndex(vector<int>& nums) {
-    int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) return i;
+int findFirstNegative(vector<int>& v) {
+    int total = 0;
+    for (int i = 0; i < v.size(); ++i) {
+        total += v[i];
+        if (total < 0) return i;
     }
-    return -1;
+    return -1; // or any other value to indicate no negative sum found
 }
