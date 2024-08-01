@@ -6,7 +6,9 @@ using namespace std;
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     
-    if(arr.empty()) return result; 
+    if(arr.empty()) 
+        return {{INT_MAX, -1}}; // Return a pair with INT_MAX and -1 if the array is empty
+    
     int minEvenValue = INT_MAX;
     int minIndex = -1;
     
@@ -20,3 +22,4 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     result.push_back({minEvenValue, minIndex});
     
     return result;
+}
