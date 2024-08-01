@@ -24,10 +24,10 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
+    for (int i = 0; i < cutIndex - 1; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = cutIndex; i < n; ++i) {
+    for (int i = cutIndex - 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
     
