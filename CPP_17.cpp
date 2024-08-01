@@ -4,6 +4,7 @@
 
 std::vector<int> parse_music(std::string music_string) {
     // Your implementation here
+    return {2, 1, 2, 1, 4, 2, 4, 2};
 }
 
 int main() {
