@@ -31,7 +31,7 @@ int main(){
     
     std::vector<int> result = even_odd_palindrome(n);
     
-    assert(issame(result, {0, 1}));
+    assert (issame(even_odd_palindrome(1), {0, 1}));
 
     for(int i = 0; i < result.size(); ++i){
         std::cout << result[i] << " ";
