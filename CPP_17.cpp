@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
-
 std::vector<int> parse_music(const std::string& music) {
     std::vector<int> notes;
     size_t pos = 0;
