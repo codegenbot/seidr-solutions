@@ -1,8 +1,22 @@
+Here is your modified code:
+
+```cpp
 #include <string>
 #include <map>
 
 int whitePegs(string code, string guess);
 int blackPegs(string code, string guess);
+
+int main() {
+    string code, guess;  
+
+    cin >> code >> guess;
+    
+    cout << blackPegs(code, guess) << "\n";
+    cout << whitePegs(code, guess) << "\n";
+    return 0;
+
+}
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -12,6 +26,7 @@ int whitePegs(string code, string guess) {
         }
     }
     return count;
+
 }
 
 int blackPegs(string code, string guess) {
@@ -36,14 +51,5 @@ int blackPegs(string code, string guess) {
     }
 
     return count;
-}
 
-int main() {
-    string code, guess;
-
-    cin >> code >> guess;
-
-    cout << blackPegs(code, guess) << "\n";
-    cout << whitePegs(code, guess) << "\n";
-    return 0;
 }
