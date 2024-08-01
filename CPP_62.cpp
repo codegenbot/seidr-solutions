@@ -1,14 +1,15 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b){
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> derivative(const std::vector<float>& a){
-    std::vector<float> result(a.size() - 1);
-    for (size_t i = 1; i < a.size(); ++i){
-        result[i - 1] = a[i] - a[i - 1];
+std::vector<float> derivative(const std::vector<float>& polynomial) {
+    std::vector<float> result;
+    for (size_t i = 1; i < polynomial.size(); ++i) {
+        result.push_back(polynomial[i] * i);
     }
     return result;
 }
