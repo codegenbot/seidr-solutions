@@ -1,2 +1,3 @@
+```
 def modp(n: int, p: int):
-    return (n * n) % p
+    return (n * (p-2)) % p
