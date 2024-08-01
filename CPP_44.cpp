@@ -1,6 +1,6 @@
 #include <string>
+#include <iostream>
 #include <cassert>
-#include <sstream> // Include the correct header
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -14,6 +14,6 @@ std::string change_base(int x, int base){
 
 int main(){
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x)); // Specify std::to_string
+    assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
