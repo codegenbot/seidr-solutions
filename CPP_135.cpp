@@ -1,3 +1,4 @@
+```cpp
 int can_arrange(vector<int> arr);
 
 int can_arrange(vector<int> arr){
