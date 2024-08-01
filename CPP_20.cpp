@@ -8,7 +8,7 @@ bool issame(vector<float> a, vector<float> b) {
     });
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
@@ -19,5 +19,5 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     }
     vector<pair<float, float>> result;
     result.push_back(closest_pair);
-    return result;
+    return {result};
 }
