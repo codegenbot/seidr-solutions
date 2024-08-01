@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 int bowlingScore(const std::string& input) {
     int score = 0;
