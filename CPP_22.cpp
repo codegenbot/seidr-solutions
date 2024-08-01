@@ -1,16 +1,22 @@
 #include <vector>
-#include <list>
 #include <boost/any.hpp>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list_any values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
+        try {
+            int val = boost::any_cast<int>(value);
+            if (!isnan(val)) { // Check if the value is NaN
+                result.push_back(val);
+            }
+        } catch (...) {
+            // If it's not an integer, just ignore it
         }
     }
     return result;
