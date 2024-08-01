@@ -1,41 +1,36 @@
-Here's the solution:
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordCount = 0;
-    
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == ' ') {
-            wordCount++;
-            result += " ";
-        }
-        else if(wordCount > 0) {
-            if(i < str.length() - 1 && isalpha(str[i+1])) {
-                for(int j = i; str[j].isalpha(); j++) {
-                    i = j;
-                }
-                string temp = str.substr(i, str.length() - i);
-                if(temp.length() >= 5) {
-                    reverse(temp.begin(), temp.end());
-                }
-                result += temp + " ";
-            } else {
-                result += str.substr(wordCount == 0 ? 0 : i - wordCount, (i > 0 && !str[i-1].isalpha()) || i == str.length() - 1 ? i - wordCount + 1 : i) + " ";
-                wordCount++;
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
+            result += word + " ";
+            word = "";
         } else {
-            if(i < str.length() - 1 && isalpha(str[i+1])) {
-                for(int j = i; str[j].isalpha(); j++) {
-                    i = j;
-                }
-                result += str.substr(0, i) + " ";
-                wordCount++;
-            } else {
-                result += str.substr(0, (i > 0 && !str[i-1].isalpha()) || i == str.length() - 1 ? i : i - 1) + " ";
-                wordCount = 1;
-            }
+            word += str[i];
         }
     }
-    
+
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+
     return result.substr(0, result.length() - 1);
+}
+
+int main() {
+    string input;
+    while (getline(cin, input)) {
+        cout << spinWords(input) << endl;
+    }
+    return 0;
 }
