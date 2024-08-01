@@ -1,31 +1,20 @@
-#include <iostream>
+#include <vector>
 
 using namespace std;
 
 bool is_equal_to_sum_even(int n) {
-    for (int i = 2; i <= n / 2 && !found; i += 2) {
-        found = false;
+    for (int i = 2; i <= n; i += 2) { // iterate over all even numbers up to n
+        vector<int> nums;
         int sum = 0;
-        for (int j = 2; j <= n / 2 && !found; j += 2) {
-            if (i + j > n) break;
-            if (i + j == n) {
-                found = true;
-                sum = i + j;
-            } else if (sum < n) {
-                sum += j;
+        for (int j = 1; j <= 4 && sum < n; ++j) {
+            if (i + (j * 2) <= n) {
+                nums.push_back(i + (j * 2));
+                sum += i + (j * 2);
+            } else {
+                break;
             }
         }
+        if (sum == n) return true;
     }
-    return found;
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    if (is_equal_to_sum_even(n))
-        cout << "The given number can be written as the sum of exactly 4 positive even numbers." << endl;
-    else
-        cout << "The given number cannot be written as the sum of exactly 4 positive even numbers." << endl;
-    return 0;
+    return false;
 }
