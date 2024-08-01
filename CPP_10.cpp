@@ -7,16 +7,13 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str) {
-    int i = 0, j = str.length() - 1;
-    while (i < j && str[i] == str[j]) {
-        i++;
-        j--;
+string make_palindrome(string str){
+    string prefix = "";
+    for(int i=str.length()-1; i>=0; i--){
+        if(is_palindrome(prefix+str.substr(i))){
+            return prefix+str.substr(i)+(prefix);
+        }
+        prefix += str[i];
     }
-    
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(i);
-    reverse(suffix.begin(), suffix.end());
-    
-    return prefix + suffix;
+    return prefix+str+string(str.rbegin(),str.rend());
 }
