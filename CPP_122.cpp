@@ -14,25 +14,22 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> input_array;
-    int num_elements, k;
-
+    vector<int> arr;
+    int n, k;
+    
     cout << "Enter the number of elements: ";
-    cin >> num_elements;
-
-    cout << "Enter the elements: ";
-    for (int i = 0; i < num_elements; ++i) {
-        int element;
-        cin >> element;
-        input_array.push_back(element);
+    cin >> n;
+    
+    for(int i = 0; i < n; ++i) {
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> arr[i];
     }
-
+    
     cout << "Enter k: ";
     cin >> k;
-
-    int result = add_elements(input_array, k);
-
-    cout << "The sum of elements is: " << result << endl;
-
+    
+    int result = add_elements(arr, k);
+    cout << "Sum of elements less than or equal to 2 digits is: " << result << endl;
+    
     return 0;
 }
