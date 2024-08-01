@@ -36,10 +36,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     int a, b;
-    cin >> a >> b;
-
     string text, target;
     
+    cin >> a >> b;
+
     getline(cin, text);
     getline(cin, target);
 
