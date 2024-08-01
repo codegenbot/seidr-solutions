@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,7 +13,6 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    // Add your test cases here
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
 
     return 0;
