@@ -12,15 +12,14 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    int num;
     vector<int> lst;
-    cout << "Enter the numbers separated by space: ";
-    while (cin >> num) {
-        lst.push_back(num);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0;i<n;i++){
+        cout << "Enter element " << i+1 << ": ";
+        cin >> lst.push_back(i);
     }
-    if (lst.size() < 2)
-        cout << "Error: At least two elements are required.\n";
-    else
-        cout << "The next smallest number is: " << next_smallest(lst) << endl;
+    cout << "The next smallest number is: " << next_smallest(lst) << endl;
     return 0;
 }
