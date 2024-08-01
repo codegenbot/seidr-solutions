@@ -2,6 +2,12 @@
 #include <vector>
 using namespace std;
 
+int main() {
+    vector<int> digits = {4,3,2,1,6,5,3,9,8,7,1,6}; // input your digits here
+    cout << luhnCheck(digits) << endl; // print the result
+    return 0;
+}
+
 int luhnCheck(vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
@@ -17,10 +23,4 @@ int luhnCheck(vector<int> digits) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> digits = {1, 2, 3, 4, 5};
-    cout << luhnCheck(digits) << endl;
-    return 0;
 }
