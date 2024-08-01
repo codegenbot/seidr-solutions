@@ -1,20 +1,15 @@
-string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.length() - 1; i >= 0; --i) {
-        if (!isvowel(word[i])) {
-            left = i + 1;
-            break;
-        }
+#include <iostream>
+#include <cctype>
+
+char findPunct(const char* word) {
+    for (int i = 0; word[i]; i++) {
+        if (ispunct(word[i])) return word[i];
     }
-    for (int i = left; i < word.length(); ++i) {
-        if (isvowel(word[i])) {
-            return string(1, tolower(word[i]));
-        }
-    }
-    return "";
+    return '\0';
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+int main() {
+    const char* word = "Hello, World!";
+    std::cout << "The first punctuation mark is: " << findPunct(word) << std::endl;
+    return 0;
 }

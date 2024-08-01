@@ -18,12 +18,11 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             } else {
                 int remaining_water = capacity;
                 capacity = 0;
-                for (int j = m-1; j >= 0; --j) {
-                    while (grid[i][j] > 0 && remaining_water > 0) {
+                for (int j = 0; j < m; ++j) {
+                    while(remaining_water > 0 && grid[i][j] > 0){
                         grid[i][j]--;
                         remaining_water--;
                     }
-                    if (remaining_water == 0) break;
                 }
                 water -= remaining_water;
             }
