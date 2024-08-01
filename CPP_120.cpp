@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,9 +11,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr);
-    sort(result.begin(), result.end());
-    for(int i=1; i<=k; i++){
-        cout << "Element at index " << i << ": " << result[result.size() - i] << endl;
-    }
+    vector<int> result(arr.size());
+    copy_if(arr.begin(), arr.end(), result.begin(), greater<int>());
+    return vector<int>(result.begin(), result.begin() + k);
 }
