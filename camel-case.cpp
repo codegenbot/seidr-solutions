@@ -1,24 +1,25 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string str) {
-    string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            int pos = str.find(c);
-            char temp[1000];
-            strcpy(temp, str.substr(0, pos).c_str());
-            strcat(temp, (char *)(&str[pos+1] + 1));
-            result += toupper(strcat((char *)(&temp[strlen(temp)-1]), "0"));
-        } else if (c == ' ') {
-            int pos = str.find(c);
-            char temp[1000];
-            strcpy(temp, str.substr(0, pos).c_str());
-            strcat(temp, (char *)(&str[pos+1] + 1));
-            result += toupper(strcat((char *)(&temp[strlen(temp)-1]), "0"));
-        } else {
-            result += tolower(c);
+std::string camelCase(const std::string& str) {
+    std::string result;
+    for (const auto& word : str.split("-")) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
+        result += word;
     }
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    while (n--) {
+        string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
+    }
+    return 0;
 }
