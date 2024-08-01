@@ -2,7 +2,7 @@ int luhn(vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = 0; i < digits.size(); i++) {
+    for (int i = digits.size() - 1; i >= 0; --i) {
         int digit = digits[i];
 
         if (doubleNext) {
@@ -13,6 +13,7 @@ int luhn(vector<int> digits) {
         }
 
         sum += digit;
+
         doubleNext = !doubleNext;
     }
 
