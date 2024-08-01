@@ -1,26 +1,25 @@
-int count_nums(vector<int> nums) {
+Here is the completed code:
+
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        if (num > 0) {
-            int sum = 0;
-            bool negativeFound = false;
-            while (num != 0) {
-                int digit = abs(num % 10);
-                if (digit > 5) {
-                    sum += digit - 9;
-                } else {
-                    sum += digit;
-                }
-                num /= 10;
-                if (num < 0 && !negativeFound) {
-                    negativeFound = true;
-                    sum *= -1;
-                }
-            }
-            if (sum > 0) {
-                count++;
-            }
+    for (int num : n) {
+        int sign = 1;
+        if (num < 0) {
+            sign = -1;
+            num = -num;
         }
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        if (sign * sum > 0)
+            count++;
     }
     return count;
 }
