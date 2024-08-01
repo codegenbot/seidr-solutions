@@ -1,5 +1,6 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
@@ -10,7 +11,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             balance += 1
         elif char == ")":
             balance -= 1
-        
+
         current_group += char
 
         if balance == 0:
