@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,12 +13,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    int k = 5;
-    std::vector<int> result = maximum(arr,k);
-    if(issame(result, vector<int>(result.begin(), result.begin() + k))) {
-        cout << "The first " << k << " elements of the array are in descending order." << endl;
-    } else {
-        cout << "The first " << k << " elements of the array are not in descending order." << endl;
+    int k = 4;
+    std::cout << "Maximum elements are: ";
+    for(int i=0; i<k;i++){
+        cout << maximum(arr,k)[i]<<" ";
     }
     return 0;
 }
