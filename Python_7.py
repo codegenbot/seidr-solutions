@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -14,7 +15,7 @@ def filter_by_substring() -> None:
         substring = input("Enter a substring: ")
 
     try:
-        strings_list = [s.strip() for s in strings.split(",")]
+        strings_list = [s.strip() for s in strings.split(',')]
         filtered_strings = [s for s in strings_list if substring.lower() in s.lower()]
         print(f"Strings containing '{substring}' are: {filtered_strings}")
     except Exception as e:
