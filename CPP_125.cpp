@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
+#include <sstream> // for stringstream
+#include <iterator> // for istream_iterator
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -16,19 +17,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> split_words(std::string input) {
-    std::vector<std::string> words;
-    std::istringstream iss(input);
-    std::string word;
-    while (iss >> word) {
-        words.push_back(word);
-    }
+    std::stringstream ss(input);
+    std::vector<std::string> words{std::istream_iterator<std::string>{ss},
+                                    std::istream_iterator<std::string>()};
     return words;
 }
 
 int main() {
     std::string input;
     std::getline(std::cin, input);
-
+    
     std::vector<std::string> a = split_words(input);
     std::vector<std::string> b = split_words(input);
     
