@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int main() {
@@ -20,7 +21,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
     
-    cout << total << "\n";
+    cout << total << '\n';
     
     return 0;
 }
