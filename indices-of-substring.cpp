@@ -1,22 +1,16 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
-    
-    while(start <= text.size() - target.size()) {
-        int end = start + target.size();
-        
-        if(text.substr(start, end-start) == target) {
-            indices.push_back(start);
-            start += target.size();
-        } else {
-            start++;
-        }
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target)
+            result.push_back(i);
     }
-    
-    return indices;
+    return result;
 }
 
 int main() {
@@ -24,13 +18,12 @@ int main() {
     cin >> text;
     string target;
     cin >> target;
-    
-    vector<int> result = findIndices(text, target);
-    
-    for(int i : result) {
-        cout << i << " ";
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int i : indices) {
+        cout << i << endl;
     }
-    cout << endl;
-    
+
     return 0;
 }
