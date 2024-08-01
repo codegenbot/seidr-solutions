@@ -25,6 +25,12 @@ int main() {
         nums.push_back(num);
     }
 
+    if (!std::cin.eof()) {
+        std::cin.clear();
+        std::string dummy;
+        std::getline(std::cin, dummy); // Discard remaining input on the line
+    }
+
     std::vector<int> output = findLeaders(nums);
 
     for (int leader : output) {
