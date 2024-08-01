@@ -1,3 +1,22 @@
-bool issame(const vector<float>& v1, const vector<float>& v2) {
-    return v1 == v2;
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_values;
+    for (int i = 0; i < l.size(); i += 2) {
+        even_values.push_back(l[i]);
+    }
+    sort(even_values.begin(), even_values.end());
+    
+    for (int i = 0, j = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l[i] = even_values[j++];
+        }
+    }
+    
+    return l;
 }
