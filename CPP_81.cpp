@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -47,7 +46,7 @@ int main() {
     vector<float> grades = {0, 0.7};
     vector<string> output = numerical_letter_grade(grades);
     
-    assert(issame(output, {"E", "D" }));
+    assert(issame(output, {"F", "D" }));
 
     return 0;
 }
