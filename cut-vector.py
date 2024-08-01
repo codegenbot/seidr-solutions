@@ -1,21 +1,23 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
+v = [int(x) for x in input().split()]
 
-total_sum = sum(vector)
-left_sum = 0
-min_diff = abs(total_sum - 2 * vector[0])
-cut_position = 0
-
-for i in range(n):
-    left_sum += vector[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_position = i
-
-output_left = vector[: cut_position + 1]
-output_right = vector[cut_position + 1 :]
-
-print(*output_left)
-print(*output_right)
+total_sum = sum(v)
+half_sum = total_sum // 2
+current_sum = 0
+for i, num in enumerate(v):
+    current_sum += num
+    if current_sum >= half_sum:
+        if current_sum == half_sum:
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+        else:
+            if abs(current_sum - half_sum) < abs(current_sum - num - half_sum):
+                print(*v[: i + 1])
+                print(*v[i + 1 :])
+            else:
+                print(*v[:i])
+                print(*v[i:])
+        break
+else:
+    print(*v)
+    print(0)
