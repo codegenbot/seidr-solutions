@@ -1,4 +1,6 @@
-Here is the solution:
+#include <vector>
+
+using namespace std;
 
 vector<int> factorize(int n) {
     vector<int> factors;
@@ -9,14 +11,12 @@ vector<int> factorize(int n) {
                 n /= i;
                 count++;
             }
-            if (count > 0) {
-                factors.push_back(i);
-                factors.insert(factors.end(), count, i);
-            }
+            factors.push_back(i);
+            if (count > 1)
+                factors.push_back(count);
         }
     }
-    if (n > 1) {
+    if (n > 1)
         factors.push_back(n);
-    }
     return factors;
 }
