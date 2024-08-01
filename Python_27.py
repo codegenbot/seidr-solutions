@@ -1,2 +1,2 @@
-def check(flip_case, string):
-    return transform_string(string)
+def transform_string(string):
+    return "".join([char.lower() if char.isupper() else char.upper() for char in string])
