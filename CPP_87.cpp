@@ -1,9 +1,8 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
     return a == b;
 }
 
@@ -28,11 +27,8 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     return result;
 }
 
-int solveProblem() {
-    assert (issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}));
-    return 0;
-}
-
 int main() {
-    return solveProblem();
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    
+    return 0;
 }
