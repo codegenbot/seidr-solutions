@@ -1,15 +1,25 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> numArr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            numArr.push_back(i);
+    vector<int> sortedArr;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sortedArr.push_back(num);
+        }
     }
-    sort(numArr.begin(), numArr.end());
-    reverse(numArr.begin(), numArr.end());
+
+    sort(sortedArr.begin(), sortedArr.end());
+
+    reverse(sortedArr.begin(), sortedArr.end());
+
     vector<string> result;
-    for (int i : numArr) {
+    for (int num : sortedArr) {
         string str = "";
-        switch (i) {
+        switch (num) {
             case 1:
                 str = "One";
                 break;
@@ -36,9 +46,9 @@ vector<string> by_length(vector<int> arr) {
                 break;
             case 9:
                 str = "Nine";
-                break;
         }
         result.push_back(str);
     }
+
     return result;
 }
