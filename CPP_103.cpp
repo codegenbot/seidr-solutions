@@ -1,6 +1,6 @@
 #include <string>
 #include <cmath>
-#include <cassert> // Include the <cassert> header
+#include <cassert>
 
 using namespace std;
 
@@ -27,6 +27,6 @@ string rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101"); // Use assert to check the result
+    assert(rounded_avg(5, 5) == "101");
     return 0;
 }
