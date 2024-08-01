@@ -13,7 +13,7 @@ std::vector<std::string> split_words(const std::string& input) {
         words.push_back(word);
     }
     
-     return words;
+    return words;
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
