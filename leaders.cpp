@@ -12,4 +12,3 @@ vector<int> leaders(vector<int>& nums) {
     }
     reverse(res.begin(), res.end());
     return res;
-}
