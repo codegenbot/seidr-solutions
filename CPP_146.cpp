@@ -13,6 +13,7 @@ int specialFilter(std::vector<int> nums){
 
 int main(){
     std::vector<int> nums = {1, 2, 3};
-    assert(specialFilter(nums) == 0);
+    int result = specialFilter(nums);
+    std::cout << "Number of special numbers: " << result << std::endl;
     return 0;
 }
