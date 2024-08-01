@@ -30,3 +30,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(1) << result << std::endl;
 
     return 0;
+}
