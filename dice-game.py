@@ -1,8 +1,3 @@
 n = int(input())
 m = int(input())
-
-total_outcomes = n * m
-wins_for_peter = sum(n - i for i in range(n)) * m
-prob = wins_for_peter / total_outcomes
-
-print(prob)
+print('{:.2f}'.format(sum(1 for i in range(1, n+1) for j in range(1, m+1) if i > j) / (n*m))
