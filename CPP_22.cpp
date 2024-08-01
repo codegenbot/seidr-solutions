@@ -16,7 +16,11 @@ vector<int> filter_integers(const vector<any>& values){
     return result;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
 int main(){
-    assert(filter_integers({any(3), any(99), any(3), any(3), any(97), any(98)}) == vector<int>{3, 3, 3});
+    assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
     return 0;
 }
