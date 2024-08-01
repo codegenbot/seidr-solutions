@@ -1,29 +1,30 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    pennies_needed = cents
-    quarters_used = 0
-    dimes_used = 0
-    nickels_used = 0
-    pennies_used = 0
-
-    for coin in coins:
-        while pennies_needed >= coin:
-            pennies_needed -= coin
-            if coin == 25:
-                quarters_used += 1
-            elif coin == 10:
-                dimes_used += 1
-            elif coin == 5:
-                nickels_used += 1
-            else:
-                pennies_used += 1
-
-    return quarters_used, dimes_used, nickels_used, pennies_used
+    results = []
+    for i in range(10000):  # Initialize a queue with a large number of iterations
+        q = [
+            (cents, 0, 0, 0, 0)
+        ]  # Initialize the queue with the input cents and zero coins
+        while q:
+            cents_left, pennies, nickles, dimes, quarters = q.pop(0)
+            if cents_left < 0:
+                continue
+            if cents_left == 0:
+                results.append((pennies, nickles, dimes, quarters))
+                continue
+            for coin in coins:
+                if cents_left >= coin:
+                    q.append(
+                        (
+                            cents_left - coin,
+                            pennies + cents_left // coin // 100,
+                            nickles + cents_left // coin // 10,
+                            dimes + cents_left // coin,
+                            quarters + cents_left // coin // 25,
+                        )
+                    )
+        return min(results) if results else [0, 0, 0, 0]
 
 
 cents = int(input())
-quarters, dimes, nickels, pennies = coin_sums(cents)
-print(quarters)
-print(dimes)
-print(nickels)
-print(pennies)
+print(*coin_sums(cents))
