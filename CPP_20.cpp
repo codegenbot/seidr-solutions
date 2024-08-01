@@ -1,13 +1,12 @@
 #include <algorithm>
 #include <vector>
+#include <numeric>
 #include <limits>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-9f) {
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (std::abs(v1[i] - v2[i]) > std::numeric_limits<float>::epsilon()) {
             return false;
         }
     }
@@ -15,28 +14,14 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> numbers;
-    // Read input from user
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        float num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-
+    vector<float> numbers = {1.0, 5.0, 3.0, 4.0};
     vector<float> result = find_closest_elements(numbers);
-
-    // Print the output
-    cout << "The two closest elements are: ";
-    for (float f : result) {
-        cout << f << " ";
+    
+    cout << "Closest elements are: ";
+    for (float num : result) {
+        cout << num << " ";
     }
     cout << endl;
-
-    return 0;
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
