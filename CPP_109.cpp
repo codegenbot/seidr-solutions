@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
-
 bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
@@ -11,9 +7,4 @@ bool move_one_ball(std::vector<int> arr) {
         std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
-}
-
-int main() {
-    assert(move_one_ball(std::vector<int>{}) == true);
-    return 0;
 }
