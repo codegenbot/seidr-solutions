@@ -13,5 +13,6 @@ int how_many_times(std::string str, std::string substring) {
 
 int main() {
     assert(how_many_times("john doe", "john") == 1);
+    // Add more test cases as needed
     return 0;
 }
