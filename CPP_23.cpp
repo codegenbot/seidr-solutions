@@ -1,6 +1,7 @@
-#include <cstring>
+#include <string>
 
 int main() {
-    std::string str = "Hello, Contest!";
-    return strlen(str.c_str());
+    std::string str;
+    std::cin >> str;
+    std::cout << str.length();
 }
