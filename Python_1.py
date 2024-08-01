@@ -3,7 +3,7 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
-    groups = []
+    result = []
     current_group = ''
     
     for char in paren_string:
@@ -16,10 +16,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 current_group += stack.pop()
             if stack:
-                current_group += stack.pop()
-                groups.append(current_group)
-                current_group = ''
-            else:
-                current_group += char
+                stack.pop()  # matched with the opening parenthesis
+            result.append(current_group)
+            current_group = ''
     
-    return groups
+    return result
