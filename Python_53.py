@@ -1,9 +1,11 @@
+```
 def add(x: int, y: int):
     return x + y
 
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
+def main():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    print("The sum is:", add(num1, num2))
 
-result = add(x, y)
-
-print("The result is:", result)
+if __name__ == "__main__":
+    main()
