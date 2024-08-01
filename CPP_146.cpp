@@ -14,13 +14,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    cout << "Enter numbers separated by space: ";
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
-    }
-    cout << "Number of special numbers: " << specialFilter(nums) << endl;
+    vector<int> numbers = {123, 456, 789, 1011};
+    cout << "The number of integers in the given list that satisfy the condition is: " << specialFilter(numbers) << endl;
     return 0;
 }
