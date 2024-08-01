@@ -1,24 +1,30 @@
-string solveBoolean(string booleanExpr) {
-    stack<char> st;
-    for (int i = 0; i < booleanExpr.length(); i++) {
-        if (booleanExpr[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+#include <string>
+using namespace std;
+
+bool solveBoolean(string booleanExpression) {
+    stack<char> expression;
+    
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '|') {
+            while (!expression.empty() && expression.top() != '&') {
+                expression.pop();
             }
-            st.push('&');
-        } else if (booleanExpr[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
+            if (!expression.empty()) {
+                expression.pop();
             }
-            st.push('|');
-        } else {
-            st.push(booleanExpr[i]);
+        } else if (booleanExpression[i] == '&') {
+            expression.push('&');
+        } else if (booleanExpression[i] == 'T' || booleanExpression[i] == 'F') {
+            while (!expression.empty() && expression.top() != '|') {
+                expression.pop();
+            }
+            if (!expression.empty()) {
+                expression.pop();
+            }
+            char result = expression.top() == '&' ? (booleanExpression[i] == 'T') : (booleanExpression[i] == 'T');
+            expression.pop();
         }
     }
-    string result = "";
-    while (!st.empty()) {
-        result += st.top();
-        st.pop();
-    }
-    return (result == "T") ? "True" : ((result == "F") ? "False" : "Invalid");
+    
+    return !expression.empty();
 }
