@@ -2,6 +2,8 @@
 from typing import List
 
 
-def concatenate() -> str:
-    user_input = input("Enter one or more strings separated by spaces: ")
-    return "".join(user_input.split())
+def concatenate(strings: List[str]) -> str:
+    if not strings:
+        return "No strings provided."
+    else:
+        return "".join(strings)
