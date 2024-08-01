@@ -21,10 +21,9 @@ int max_fill(vector<vector<int>> grid, int capacity) {
                 int remaining_water = capacity;
                 capacity = 0;
                 for (int j = 0; j < m; ++j) {
-                    if (grid[i][j] > 0) {
+                    while (grid[i][j] > 0 && remaining_water > 0) {
                         grid[i][j]--;
                         remaining_water--;
-                        if (remaining_water == 0) break;
                     }
                 }
                 water -= remaining_water;
