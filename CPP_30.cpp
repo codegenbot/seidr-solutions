@@ -11,5 +11,5 @@ std::vector<float> get_positive(const std::vector<float>& input) {
 
 int main() {
     assert(issame(get_positive({}), {}));
-    return 0;
+    return 0; 
 }
