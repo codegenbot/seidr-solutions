@@ -11,5 +11,5 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    // Your main function here
+   // Your main function here
 }
