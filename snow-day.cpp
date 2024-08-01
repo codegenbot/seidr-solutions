@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -11,7 +10,6 @@ int main() {
     float current_snow = snow_on_ground;
     for (int i = 0; i < hours; ++i) {
         current_snow = current_snow + snow_fall_rate - (current_snow * snow_melt_rate);
-        current_snow = roundf(current_snow * 1e15) / 1e15; // rounding to 15 decimal places
     }
 
     cout << fixed << setprecision(15) << current_snow << endl;
