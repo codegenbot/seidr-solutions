@@ -22,7 +22,8 @@ int main() {
         }
         cout << result;
     }
-    
-    toCamelCase("camel-case example-test-string");
+    string input;
+    cin >> input;
+    toCamelCase(input);
     return 0;
 }
