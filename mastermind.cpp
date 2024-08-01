@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -15,10 +19,10 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        whitePegs += count - 1;
+        whitePegs += count - blackPegs;
     }
 
-    return blackPegs + whitePegs;
+    return whitePegs + blackPegs;
 }
 
 int main() {
