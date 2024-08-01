@@ -3,13 +3,13 @@
 
 using namespace std;
 
-int search(vector<int> lst) {
+int search(vector<int> nums) {
     map<int, int> freq;
-    for (int num : lst) {
-        if (freq.find(num) == freq.end()) {
-            freq[num] = 1;
+    for (int n : nums) {
+        if (freq.find(n) == freq.end()) {
+            freq[n] = 1;
         } else {
-            freq[num]++;
+            freq[n]++;
         }
     }
 
