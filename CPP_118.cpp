@@ -11,7 +11,7 @@ string get_closest_vowel(string word) {
         }
     }
     for (int i = left; i < word.size(); ++i) {
-        if (find(vowels.begin(), vowels.end(), tolower(word[i])) != vowels.end()) {
+        if (isvowel(word[i])) {
             return string(1, word[i]);
         }
     }
