@@ -1,16 +1,21 @@
 from typing import List, Tuple
 
 
-def sum_product():
-    numbers = list(map(int, input("Enter space-separated integers: ").split()))
-    total_sum = 0
-    product = 1
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not isinstance(numbers, list) or len(numbers) == 0:
+        return None
 
-    for num in numbers:
-        total_sum += num
-        product *= num
+    try:
+        total_sum = 0
+        product = 1
 
-    return total_sum, product
+        for num in numbers:
+            if not isinstance(num, int):
+                raise ValueError
+            total_sum += num
+            product *= num
 
-result = sum_product()
-print(f"Sum: {result[0]}, Product: {result[1]}")
+        return total_sum, product
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
