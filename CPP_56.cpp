@@ -1,13 +1,16 @@
+int stackSize = 0;
+char* stack = new char[stackSize];
+
 bool correct_bracketing(string brackets) {
-    int opening = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
-            opening++;
+            stack[stackSize] = '<';
+            stackSize++;
         } else if (bracket == '>') {
-            if (opening == 0)
+            if (stackSize == 0)
                 return false;
-            opening--;
+            stackSize--;
         }
     }
-    return opening == 0;
+    return stackSize == 0;
 }
