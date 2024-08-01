@@ -3,7 +3,7 @@
 #include <cassert>
 #include <stack>
 
-bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool compare_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if (a.size() != b.size()) {
         return false;
     }
