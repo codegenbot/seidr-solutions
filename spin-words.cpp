@@ -2,27 +2,21 @@
 #include <string>
 
 std::string spinWords(std::string sentence) {
+    std::string result = "";
     std::vector<std::string> words;
-    std::string word;
+    int start = 0;
 
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
+    for (int i = 0; i <= sentence.size(); i++) {
+        if (i == sentence.size() || sentence[i] == ' ') {
+            string word = sentence.substr(start, i - start);
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
             words.push_back(word);
-            word = "";
-        } else {
-            word += sentence[i];
+            start = i + 1;
         }
     }
 
-    words.push_back(word);
-
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
-        }
-    }
-
-    std::string result;
     for (int i = 0; i < words.size(); i++) {
         result += words[i];
         if (i < words.size() - 1) {
@@ -34,9 +28,6 @@ std::string spinWords(std::string sentence) {
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
