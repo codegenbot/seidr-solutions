@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,21 +34,15 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main() {
-    vector<string> input1, input2;
-    string line;
-
-    getline(cin, line);
-    input1 = split_words(line);
-
-    getline(cin, line);
-    input2 = split_words(line);
-
-    cout << (issame(input1, input2) ? "true" : "false") << endl;
-
+    string input;
+    getline(cin, input);
+    
+    vector<string> output = split_words(input);
+    
+    for(const auto& word : output){
+        cout << word << " ";
+    }
+    
     return 0;
 }
