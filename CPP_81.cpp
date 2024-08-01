@@ -11,6 +11,6 @@ bool issame(vector<string> a, vector<string>b) {
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), vector<string>({ "E", "D-" })));
+    assert(issame(numerical_letter_grade({4.5, 3.8}), vector<string>({"A+", "B+"})));
     //... rest of your code
 }
