@@ -8,42 +8,38 @@ std::string capitalize(const std::string& s) {
     }
 
     std::string result = "";
-    if (!s[0].islower()) {
-        result += toupper(s[0]);
-    } else {
-        result += tolower(s[0]);
-    }
+    bool capitalizeNext = true;
 
-    for (int i = 1; i < s.size(); ++i) {
-        result += tolower(s[i]);
+    for (char c : s) {
+        if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
+        } else {
+            result += tolower(c);
+        }
     }
 
     return result;
 }
 
-std::vector<std::string> split(const std::string& s, char c) {
+std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> words;
-    std::string word = "";
 
-    for (char ch : s) {
-        if (ch == c) {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += ch;
-        }
+    size_t pos = 0;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        words.push_back(s.substr(0, pos));
+        s.erase(0, pos + 1);
     }
 
-    if (!word.empty()) {
-        words.push_back(word);
+    if (!s.empty()) {
+        words.push_back(s);
     }
 
     return words;
 }
 
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> words = split(s, ' ');
-
+    std::vector<std::string> words = split(s, '-');
     std::string result;
 
     for (const auto& word : words) {
