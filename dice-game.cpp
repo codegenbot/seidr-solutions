@@ -1,10 +1,16 @@
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double probability = 0.0;
+```cpp
+#include <iostream>
+using namespace std;
 
-    for (int i = 1; i < n; ++i)
-        for (int j = 1; j <= m && j <= i; ++j)
-            probability += 1.0 / (total);
+double calculateProbability(int n, int m) {
+    double total = (n * m);
+    return ((m - 1.0) / total);
+}
 
-    return probability;
+int main() {
+    int n = 6; 
+    int m = 4;
+    double probability = calculateProbability(n, m);
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
+    return 0;
 }
