@@ -40,7 +40,16 @@ string sort_numbers(string numbers) {
     return result;
 }
 
-int main() {
+void assert_test_case(){
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+}
+
+int solve_problem(){
+    // call test cases
+    assert_test_case();
     return 0;
+}
+
+int main(){
+    return solve_problem();
 }
