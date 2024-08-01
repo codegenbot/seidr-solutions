@@ -1,11 +1,28 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-std::vector<int> parse_music(const std::string& music) {
-    // Implement the logic to parse the music string and return the vector of int
+std::vector<int> parse_music(const std::string& input) {
+    std::vector<int> parsed;
+    int count = 0;
+
+    for (char c : input) {
+        if (c == '|') {
+            parsed.push_back(count);
+            count = 0;
+        } else if (c == 'o') {
+            count++;
+        }
+    }
+
+    if (count != 0) {
+        parsed.push_back(count);
+    }
+
+    return parsed;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
