@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 using namespace std;
@@ -10,15 +11,15 @@ vector<int> count_up_to(int n) {
     }
     
     vector<bool> isPrime(n, true);
-    for (int p = 2; p * p < n; p++) {
+    for (int p = 2; p * p <= n; p++) {
         if (isPrime[p]) {
-            for (int i = p * p; i < n; i += p) {
+            for (int i = p * p; i <= n; i += p) {
                 isPrime[i] = false;
             }
         }
     }
     
-    for (int i = 2; i < n; i++) {
+    for (int i = 2; i <= n; i++) {
         if (isPrime[i]) {
             result.push_back(i);
         }
@@ -27,7 +28,7 @@ vector<int> count_up_to(int n) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
