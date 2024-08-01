@@ -6,12 +6,10 @@ using namespace std;
 int luhn(vector<int> cardNum) {
     int sum = 0;
     for (int i = cardNum.size() - 1; i >= 0; i--) {
-        if ((i % 2 == 1 && cardNum[i] * 2 > 9) || (i % 2 == 0)) {
-            int temp = cardNum[i] * 2;
-            if (temp > 9) temp -= 9;
-            sum += temp;
-        } else {
+        if ((i % 2 != 0) || (cardNum[i] * 2) <= 9) {
             sum += cardNum[i];
+        } else {
+            sum += (cardNum[i] * 2) - 9;
         }
     }
     return sum;
