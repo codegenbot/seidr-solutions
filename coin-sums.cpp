@@ -6,24 +6,22 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-
+    
     vector<int> coins = {25, 10, 5, 1}; // values of quarters, dimes, nickels, pennies in cents
-
-    int quarter = cents / 25;
-    int remaining = cents % 25;
-
-    int dime = remaining / 10;
-    remaining %= 10;
-
-    int nickel = remaining / 5;
-    remaining %= 5;
-
-    int penny = remaining;
-
-    cout << quarter << endl;
-    cout << dime << endl;
-    cout << nickel << endl;
-    cout << penny << endl;
-
+    
+    vector<int> result(4, 0); // initialize the result with zeros
+    
+    for (int i = 0; i < 4; i++) {
+        while (cents >= coins[i]) {
+            int count = min(cents / coins[i], INT_MAX);
+            cents -= count * coins[i];
+            result[i] = count;
+        }
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        cout << result[i] << endl;
+    }
+    
     return 0;
 }
