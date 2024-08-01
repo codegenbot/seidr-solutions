@@ -1,7 +1,9 @@
 #include <string>
 
-vector<string> function_name(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> compare_total_chars(const vector<string>& lst1, const vector<string>& lst2) {
     int totalChars1 = 0, totalChars2 = 0;
+    int total_match = 0;
+
     for (const string& str : lst1) {
         totalChars1 += str.size();
     }
@@ -9,9 +11,7 @@ vector<string> function_name(const vector<string>& lst1, const vector<string>& l
         totalChars2 += str.size();
     }
     
-    int total_match = issame(lst1, lst2);
-    
-    if (totalChars1 < totalChars2 && total_match > 0) {
+    if (totalChars1 < totalChars2) {
         return lst1;
     } else {
         return lst2;
