@@ -1,28 +1,33 @@
-int count_nums(vector<int> n){
+#include <vector>
+using namespace std;
+
+int count_nums(vector<int> v) {
     int count = 0;
-    for(int num : n){
-        bool has_positive_sum = false;
-        int sum = 0;
-        if(num < 0) {
-            while(abs(num) > 0) {
+    for (int num : v) {
+        if (num > 0) {
+            int sum = 0;
+            bool negative = false;
+            do {
                 int digit = abs(num) % 10;
-                if(digit != 0) {
-                    sum += (digit >= 5 ? -digit : digit);
+                if (digit != 0 || !negative) {
+                    sum += digit;
+                }
+                if (num < 0 && num % 10 != -1) {
+                    negative = true;
                 }
                 num /= 10;
-                if(sum > 0) has_positive_sum = true;
-            }
-        } else {
-            while(num > 0) {
-                int digit = num % 10;
-                if(digit != 0) {
-                    sum += (digit >= 5 ? -digit : digit);
-                }
-                num /= 10;
-                if(sum > 0) has_positive_sum = true;
+            } while (num);
+            if (sum > 0) {
+                count++;
             }
         }
-        if(has_positive_sum) count++;
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    int count = count_nums({-123, -45, 7, 12, 543});
+    cout << "Count of positive numbers: " << count << endl;
+    return 0;
 }
