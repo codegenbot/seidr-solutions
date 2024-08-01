@@ -1,26 +1,29 @@
+#include <stdio.h>
 #include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    int apples = 0, oranges = 0;
+    int total_apples = 0;
+    int total_oranges = 0;
     
-    while ((pos = s.find(" and ")) != string::npos) {
-        if (s.substr(0, pos).find("apples") != string::npos)
-            apples = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("apples", ""));
-        else if (s.substr(0, pos).find("oranges") != string::npos)
-            oranges = stoi(s.substr(0, pos).substr(0, s.find(" ")).replace("oranges", ""));
+    size_t start = 0;
+    while (start != string::npos) {
+        start = s.find(" apples and ", start);
+        if (start == string::npos)
+            break;
         
-        s.erase(0, pos + 5);
+        int end = s.find(" oranges", start);
+        if (end == string::npos)
+            break;
+        
+        size_t num_start = s.find_first_of("0123456789", start);
+        size_t num_end = s.find_first_not_of("0123456789", num_start);
+        total_apples = stoi(s.substr(num_start, num_end - num_start));
+        
+        start = end + 10;
     }
     
-    if (s.find("apples") != string::npos) {
-        apples = stoi(s.substr(0, s.find(" ")).replace("apples", ""));
-        s.erase(0, s.find(" ") + 1);
-    } else if (s.find("oranges") != string::npos) {
-        oranges = stoi(s.substr(0, s.find(" ")).replace("oranges", ""));
-        s.erase(0, s.find(" ") + 1);
-    }
-    
-    return n - apples - oranges;
+    int remaining_fruits = n;
+    remaining_fruits -= total_apples;
+    return remaining_fruits;
 }
