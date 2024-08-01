@@ -1,4 +1,6 @@
-double calculateProbability(int n, int m) {
-    double total = (n + m - 1);
-    return (m * 1.0 / total);
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(1) << calculateProbability(n, m) << endl;
+    return 0;
 }
