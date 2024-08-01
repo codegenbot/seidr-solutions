@@ -2,30 +2,17 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end()) {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end()) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(std::equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    // Your code here...
+    std::vector<std::string> strings = {"a", "b", "c"};
+    std::string substring = "a";
+    std::vector<std::string> result = filter_by_substring(strings, substring);
+    for (const auto& str : result) {
+        if (!issame({str}, {substring})) {
+            cout << "Not same" << endl;
+        }
+    }
 }
