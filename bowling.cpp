@@ -1,6 +1,3 @@
-```cpp
-#include <string>
-
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
