@@ -17,12 +17,16 @@ bool correct_bracketing(const std::string& brackets) {
     return count == 0;
 }
 
+
 int main() {
     std::string brackets;
-    std::cout << "Enter the bracket sequence: ";
     std::cin >> brackets;
-    
-    std::cout << (correct_bracketing(brackets) ? "Brackets are correctly balanced" : "Brackets are not correctly balanced") << std::endl;
-    
+  
+    if (correct_bracketing(brackets)) {
+        std::cout << "Brackets are correctly balanced.\n";
+    } else {
+        std::cout << "Brackets are not balanced.\n";
+    }
+  
     return 0;
 }
