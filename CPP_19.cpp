@@ -3,33 +3,21 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <string>
-#include <cassert>
 
-string sort_numbers(string numbers);
+using namespace std;
 
-int main() {
-    map<string, int> num_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
-
-    std::string input;
-    std::cout << "Enter numbers separated by space: ";
-    std::getline(std::cin, input);
-
-    std::cout << sort_numbers(input) << std::endl;
-
-    return 0;
-}
+map<string, int> num_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
 string sort_numbers(string numbers){
     map<int, string> rev_num_map;
@@ -53,4 +41,9 @@ string sort_numbers(string numbers){
 
     result.pop_back(); // Remove the extra space at the end
     return result;
+}
+
+int main(){
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
