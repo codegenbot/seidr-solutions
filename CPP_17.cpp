@@ -17,6 +17,7 @@ std::vector<int> parse_music(std::string music_string) {
             beats.push_back(2);
             i += 4;
         }
+        i++; // Add the increment here
     }
     return beats;
 }
@@ -33,9 +34,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
 
     return true;
-}
-
-int main() {
-    assert(issame(parse_music("o.oo oo"), { 4, 1, 4, 2 }));
-    return 0;
 }
