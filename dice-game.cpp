@@ -2,14 +2,11 @@
 using namespace std;
 
 double calculateProbability(int n, int m) {
-    double totalCases = (double)n * m;
-    double favorableCases = 0;
-
-    for(int i = 1; i <= m; i++) {
-        favorableCases += min(n, i);
+    double probability = 0;
+    for (int i = 1; i <= m; i++) {
+        probability += (n - i) / (n * m);
     }
-
-    return favorableCases / totalCases;
+    return probability;
 }
 
 int main() {
