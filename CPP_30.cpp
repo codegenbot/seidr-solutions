@@ -1,11 +1,12 @@
 #include <vector>
+#include <algorithm>
 
-bool std::issame(std::vector<float> a, std::vector<float> b){
-    vector<float> result;
-    for(float x : a) {
-        if(x > 0) {
-            result.push_back(x);
-        }
+bool std::same(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) 
+        return false;
+    for (float x : a) {
+        if (std::find(b.begin(), b.end(), x) == b.end())
+            return false;
     }
-    return (result == b);
+    return true;
 }
