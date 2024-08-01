@@ -22,7 +22,7 @@ double poly(const std::vector<double>& coefficients, double x) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -3.0, 2.0}; 
+    std::vector<double> coeffs = {1.0, -3.0, 2.0}; // Example coefficients
     double solution = find_zero(coeffs);
 
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
