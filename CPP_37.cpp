@@ -1,5 +1,10 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+bool is_same(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
 
 void sort_even(std::vector<int>& l) {
     std::vector<int> even_values;
@@ -20,5 +25,10 @@ void sort_even(std::vector<int>& l) {
     }
 }
 
-std::vector<int> l = {3, 2, 1, 4, 5, 6};
-sort_even(l);
+int main() {
+    std::vector<int> l = {3, 4, 1, 5, 6, 7};
+    sort_even(l);
+    assert(is_same(l, {1, 4, 3, 5, 6, 7}));
+
+    return 0;
+}
