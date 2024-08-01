@@ -1,3 +1,5 @@
+import sys
+
 def decode_cyclic(input_str):
     n = len(input_str)
     decoded_str = [
@@ -5,6 +7,6 @@ def decode_cyclic(input_str):
     ]
     return "".join(decoded_str)
 
-
-result = decode_cyclic("mnopq")
+input_str = sys.argv[1]
+result = decode_cyclic(input_str)
 print(result)
