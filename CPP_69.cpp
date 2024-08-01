@@ -1,6 +1,6 @@
-int search(vector<int> n) {
+int search(vector<int> numbers) {
     map<int, int> freq;
-    for (int num : n) {
+    for (int num : numbers) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
         } else {
@@ -17,4 +17,9 @@ int search(vector<int> n) {
     }
 
     return result;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
