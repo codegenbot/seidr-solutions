@@ -1,8 +1,7 @@
-```
 #include <algorithm>
-#include <limits>
+#include <numeric>
 #include <vector>
-#include <utility>
+#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() < 2) {
