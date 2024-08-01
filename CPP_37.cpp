@@ -20,5 +20,5 @@ void sort_even(std::vector<int>& l) {
     }
 }
 
-std::vector<int> l = {3.5, 2.2, 1.1, 4.4, 5.5, 6.6};
+std::vector<int> l = {3, 2, 1, 4, 5, 6};
 sort_even(l);
