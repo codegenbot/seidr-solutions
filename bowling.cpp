@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 int score(string s) {
     int frame = 1, score = 0, i = 0;
     while (frame <= 10) {
