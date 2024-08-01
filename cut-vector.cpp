@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <climits>
 #include <iostream>
 using namespace std;
 
@@ -8,9 +8,9 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int idx = -1;
     
     for(int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i + 1]);
-        if(diff <= min_diff) {
-            min_diff = diff;
+        int diff = v[i] - v[i + 1];
+        if(abs(diff) <= min_diff) {
+            min_diff = abs(diff);
             idx = i;
         }
     }
@@ -26,10 +26,16 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> res = cutVector(v);
-cout << "Left: ";
-for(int x : res.first) cout << x << ' ';
-cout << '\n';
-cout << "Right: ";
-for(int x : res.second) cout << x << ' ';
-cout << '\n';
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for(auto &x : v) cin >> x;
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "Left: ";
+    for(int x : res.first) cout << x << ' ';
+    cout << '\n';
+    cout << "Right: ";
+    for(int x : res.second) cout << x << ' ';
+    cout << '\n';
+    return 0;
