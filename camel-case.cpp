@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -11,9 +10,11 @@ int main() {
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else {
-            std::cout << (capitalize ? c : (char)tolower(c));
+        } else if (capitalize) {
+            std::cout << (capitalize ? (char)tolower(c) : c);
             capitalize = false;
+        } else {
+            std::cout << (char)tolower(c);
         }
     }
 
