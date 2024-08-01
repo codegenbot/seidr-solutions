@@ -1,13 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <climits> // for INT_MAX
-#include <cassert>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> pluck(vector<int> arr);
 
 bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
@@ -39,9 +34,4 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
 }
