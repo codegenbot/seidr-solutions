@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int pairedDigitsSum(const std::string& str) {
@@ -11,5 +12,8 @@ int pairedDigitsSum(const std::string& str) {
 }
 
 int main() {
+    std::string str = "123211";
+    int result = pairedDigitsSum(str);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
