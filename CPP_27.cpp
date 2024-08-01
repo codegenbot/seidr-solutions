@@ -1,7 +1,10 @@
+Here is the corrected code:
+
+```c++
 #include <iostream>
 #include <string>
 
-std::string flip_case(std::string str){
+std::string flip_case(std::string str) {
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
@@ -15,10 +18,10 @@ std::string flip_case(std::string str){
     return result;
 }
 
-int main(){
-    std::string str;
+int main() {
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Flipped case: " << flip_case(str) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "Flipped case: " << flip_case(input) << std::endl;
     return 0;
 }
