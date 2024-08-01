@@ -12,7 +12,9 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        double val1, val2;
+        std::cin >> val1 >> val2;
+        vec2[i] = val1 - val2;  
     }
 
     double sum = 0.0;
