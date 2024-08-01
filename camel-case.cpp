@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -37,8 +36,7 @@ int main() {
     std::getline(std::cin, input);
 
     // Remove spaces
-    input = "#include <algorithm>\nstd::string camelCase(const std::string& input) {\n    std::string result = \"\";\n    bool firstWord = true;\n\n    for (char c : input) {\n        if (c == '-') {\n            if (!firstWord) {\n                result += char(std::toupper(c));\n            }\n            firstWord = false;\n        } else if (c == ' ') {\n            if (!firstWord) {\n                result += char(std::toupper(c));\n            }\n            firstWord = true;\n        } else {\n            if (firstWord) {\n                result += c;\n                firstWord = false;\n            } else {\n                result += char(std::tolower(c));\n            }\n        }\n    }\n\n    return result;\n}\nint main() {\n    std::string input;\n    std::cout << \"Enter a string in kebab-case: \";\n    std::getline(std::cin, input);\n    std::cout << camelCase(input) << std::endl;\n\n    return 0;\n}"
-    std::replace_if(input.begin(), input.end(), ::isspace, ' ');
+    std::replace_if(input.begin(), input.end(), ::isspace, '\0');
 
     std::cout << camelCase(input) << std::endl;
 
