@@ -1,21 +1,30 @@
-int bowlingScore(string s) {
+int bowling(string s) {
     int score = 0;
-    for(int i = 0; i < 10; i++) {
-        if(s[i] == '/') {
-            string firstRoll = s.substr(0, i);
-            string secondRoll = s.substr(i + 1);
-            int firstRollValue = stoi(firstRoll);
-            int secondRollValue = stoi(secondRoll);
-            
-            if(firstRollValue + secondRollValue >= 10) {
-                score += 10;
+    bool spare = false;
+    int lastRoll = 0;
+
+    for (char c : s) {
+        if (c == '/') {
+            spare = true;
+        } else if (c == 'X') {
+            score += 30;
+            lastRoll = 10;
+        } else if (c >= '1' && c <= '9') {
+            int roll = c - '0';
+            if (!spare) {
+                score += roll;
             } else {
-                score += firstRollValue + secondRollValue;
+                spare = false;
+            }
+            if (lastRoll == 0) {
+                lastRoll = roll;
+            } else if (roll > 10 - lastRoll) {
+                roll = 10 - lastRoll;
             }
         } else {
-            int rollValue = s[i] - '0';
-            score += rollValue;
+            // ignore non-digit characters
         }
     }
+
     return score;
 }
