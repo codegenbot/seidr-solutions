@@ -10,7 +10,7 @@ int score(const std::string bowls) {
             bowlIndex++;
         } else if (bowls[bowlIndex] == '/') {
             total += 10;
-            total += (bowls[bowlIndex + 2] == 'X') ? 10 : bowls[bowlIndex + 2] - '0';
+            total += (bowls[bowlIndex + 1] == 'X') ? 10 : bowls[bowlIndex + 1] - '0';
             bowlIndex += 2;
         } else {
             total += bowls[bowlIndex] - '0';
