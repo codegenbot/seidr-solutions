@@ -1,13 +1,10 @@
-def solveBoolean(inputString):
-    if inputString == "T":
+def solveBoolean(expression):
+    if expression == 'T':
         return True
-    elif inputString == "F":
+    elif expression == 'F':
         return False
-    elif "&" in inputString and "|" in inputString:
+    elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif "&" in inputString:
-        left, right = inputString.split("&")
-        return not (solveBoolean(left) and solveBoolean(right))
-    elif "|" in inputString:
-        left, right = inputString.split("|")
-        return solveBoolean(left) or solveBoolean(right)
+    else:
+        result = eval(' '.join(map(lambda x: str(x) if x in ['T', 'F'] else x, expression)))
+        return result
