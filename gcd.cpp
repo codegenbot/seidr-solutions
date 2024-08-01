@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -37,7 +38,10 @@ int main() {
     int a, b;
     string text, target;
 
-    cin >> a >> b >> text >> target;
+    cin >> a >> b;
+    cin.ignore();
+    getline(cin, text);
+    getline(cin, target);
 
     cout << gcd(a, b) << endl;
 
