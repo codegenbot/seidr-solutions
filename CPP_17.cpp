@@ -4,16 +4,16 @@
 
 std::vector<int> parse_music(const std::string& music) {
     std::vector<int> notes;
-    std::size_t pos = 0;
-    std::size_t next_pos = music.find('|');
+    size_t pos = 0;
+    size_t next_pos = music.find('|');
 
     while (next_pos != std::string::npos) {
-        notes.push_back(next_pos - pos - 1);
+        notes.push_back(next_pos - pos);
         pos = next_pos + 1;
         next_pos = music.find('|', pos);
     }
 
-    notes.push_back(music.size() - pos - 1);
+    notes.push_back(music.size() - pos);
 
     return notes;
 }
