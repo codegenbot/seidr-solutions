@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> sortArray(vector<int>& lst) {
+vector<int> rearrangeArray(vector<int>& lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int i = 0, j = lst.size() - 1;
