@@ -1,15 +1,16 @@
-#include <iostream>
+#include <string>
+#include <cctype>
 #include <cassert>
 
-std::string flip_case(std::string s) {
-    for (char &c : s) {
-        if (islower(c)) {
+std::string flip_case(std::string str){
+    for(char &c : str){
+        if(islower(c)){
             c = toupper(c);
-        } else if (isupper(c)) {
+        } else if(isupper(c)){
             c = tolower(c);
         }
     }
-    return s;
+    return str;
 }
 
 int main() {
