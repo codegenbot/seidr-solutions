@@ -1,4 +1,4 @@
-`def rolling_max(numbers):
+def rolling_max(numbers):
     result = []
     max_num = float("-inf")
     for num in numbers:
@@ -6,6 +6,7 @@
         result.append(max_num)
     return result
 
+
 numbers = [int(x) for x in input().split()]
 output = rolling_max(numbers)
-print(output)`
+print(output)
