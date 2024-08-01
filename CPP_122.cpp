@@ -15,17 +15,22 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     vector<int> arr;
-    cout << "Enter the elements of the array: ";
-    int n;
+    int n, k;
+
+    cout << "Enter the number of elements: ";
     cin >> n;
-    for(int i = 0; i < n; ++i){
-        int temp;
-        cin >> temp;
-        arr.push_back(temp);
+
+    arr.resize(n);
+
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
     }
-    int k;
-    cout << "Enter the number of elements to add: ";
+
+    cout << "Enter k: ";
     cin >> k;
-    cout << "The sum of the added elements is: " << add_elements(arr, k) << endl;
+
+    int result = add_elements(arr, k);
+    cout << "Sum of elements that have a string representation size less than or equal to 2 is: " << result << endl;
     return 0;
 }
