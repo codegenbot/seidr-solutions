@@ -1,22 +1,35 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool solveBoolean(string s) {
-    stack<char> st;
-    for (char c : s) {
-        if (c == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-        } else if (c == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-        } else {
-            st.push(c);
-        }
+    if (s == "t") return true;
+    if (s == "f") return false;
+    
+    int i = 0, j = 0;
+    while(j<s.length()) {
+        if(s[j] == '|') break;
+        j++;
     }
-    while (!st.empty()) {
-        st.pop();
+    string left = s.substr(i, j-i);
+    i = j+1; j=0;
+    while(j<s.length()) {
+        if(s[j] == '&') break;
+        j++;
     }
-    return false;
+    string right = s.substr(i, j-i);
+    
+    return solveBoolean(left) || solveBoolean(right);
+}
+
+int main() {
+    // test cases
+    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
+    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
+    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
+    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
+    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+    return 0;
 }
