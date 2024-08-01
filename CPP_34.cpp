@@ -1,8 +1,9 @@
-```cpp
+```
 vector<int> unique(vector<int> l){
+    unordered_set<int> seen;
     vector<int> result;
     for (int i : l) {
-        if (find(result.begin(), result.end(), i) == result.end())
+        if (seen.insert(i).second)
             result.push_back(i);
     }
     return result;
