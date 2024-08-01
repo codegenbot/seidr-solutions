@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 std::string remove_vowels(std::string text) {
     text.erase(std::remove_if(text.begin(), text.end(), [](char c) {
@@ -10,7 +9,8 @@ std::string remove_vowels(std::string text) {
     return text;
 }
 
+// Test the function
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
-}
+}  
