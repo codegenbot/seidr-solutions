@@ -2,11 +2,7 @@
 from typing import List
 
 
-def filter_by_prefix():
-    strings = input("Enter comma-separated list of strings: ").split(',')
-    prefix = input("Enter the prefix: ")
-    
-    return [s.strip() for s in strings if s.strip().startswith(prefix)]
-
-
-print(filter_by_prefix())
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    if not isinstance(strings, list):
+        return "Error: Input must be a list of strings"
+    return [s for s in strings if s.startswith(prefix)]
