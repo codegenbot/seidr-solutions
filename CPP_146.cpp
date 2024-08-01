@@ -9,12 +9,11 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
-    std::vector<int> nums = {12,15,20,25};
+    std::vector<int> nums = {1,11,13};
     int result = specialFilter(nums);
-    std::cout << "Number of special numbers: " << result << std::endl;
+    std::cout << "The number of integers in the vector that satisfy the condition is: " << result << std::endl;
     return 0;
 }
