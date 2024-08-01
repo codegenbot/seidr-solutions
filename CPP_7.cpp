@@ -3,7 +3,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool are_same(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -33,9 +33,9 @@ int main(){
     
     std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
     
-    assert(issame(filtered_strings, expected_filtered_strings));
+    assert(are_same(filtered_strings, expected_filtered_strings));
     
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(are_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     
     std::cout << "All tests passed" << std::endl;
     
