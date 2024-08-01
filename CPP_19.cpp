@@ -3,7 +3,6 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <assert.h>
 
 using namespace std;
 
@@ -45,15 +44,11 @@ string sort_numbers(string numbers) {
     return result;
 }
 
-int main_func() {
+int main() {
     string input_numbers;
     getline(cin, input_numbers);
     
     cout << sort_numbers(input_numbers) << endl;
     
     return 0;
-}
-
-int main() {
-    return main_func();
 }
