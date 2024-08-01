@@ -1,29 +1,24 @@
 #include <vector>
 using namespace std;
 
-vector<int> substringIndices(string text, string target) {
-    vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (j < targetLen && i + j < text.length() && text[i+j] == target[j]) {
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int j = 0; // index of target
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        if (text.substr(i, target.length()) == target) {
+            result.push_back(i);
             j++;
         }
-        if (j < targetLen) break;
-        indices.push_back(i);
     }
-    return indices;
+    return result;
 }
 
-int main() {
-    int a, b; // Two integers
-    cin >> a >> b;
-    cout << __gcd(a,b) << endl;
-
-    string text, target; // Text and Target strings
-    cin >> text >> target;
-    vector<int> result = substringIndices(text, target);
-    for(int i : result)
-        cout<<i<<" ";
-    return 0;
+// function to find the greatest common divisor
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
