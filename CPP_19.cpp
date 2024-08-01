@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <map>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -21,15 +23,15 @@ string sort_numbers(string numbers) {
     map<int, string> sorted_numbers;
     
     size_t start = 0, end = numbers.find(" ");
-    while (end != string::npos) {
+    while (end != std::string::npos) {
         string num_str = numbers.substr(start, end - start);
-        sorted_numbers[number_map[num_str]] = num_str;
+        sorted_numbers[std::stoi(num_str)] = num_str;
         start = end + 1;
         end = numbers.find(" ", start);
     }
     
     string num_str = numbers.substr(start);
-    sorted_numbers[number_map[num_str]] = num_str;
+    sorted_numbers[std::stoi(num_str)] = num_str;
     
     for (const auto& pair : sorted_numbers) {
         result += pair.second + " ";
@@ -38,7 +40,6 @@ string sort_numbers(string numbers) {
     result.pop_back(); // Remove the extra space at the end
     return result;
 }
-
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
