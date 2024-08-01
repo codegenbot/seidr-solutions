@@ -1,20 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
 
     int sum = 0;
     for (int num : nums) {
-        sum += std::max(0, num / 3 - 2);
+        sum += num / 3 - 2;
     }
 
-    std::cout << sum;
+    cout << sum;
 
     return 0;
 }
