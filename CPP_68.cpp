@@ -3,22 +3,10 @@
 #include <climits> // for INT_MAX
 #include <cassert>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b){
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> pluck(const vector<int>& arr){
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
     int smallest_even = INT_MAX;
     int smallest_index = INT_MAX;
     
