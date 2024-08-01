@@ -4,11 +4,9 @@ def find_zero(a: int, b: int, c: int):
     else:
         return -b / (2 * c)
 
-# Read input from the user
-a, b, c = map(int, input().split())
+a = int(input("Enter value for a: "))
+b = int(input("Enter value for b: "))
+c = int(input("Enter value for c: "))
 
-# Call the find_zero function with input integers
 result = find_zero(a, b, c)
-
-# Print the output
 print(result)
