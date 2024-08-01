@@ -2,15 +2,9 @@
 #include <algorithm>
 
 bool std::issame(std::vector<float> a, std::vector<float> b){
-    if(a.size() != b.size()) {
-        return false;
+    if(a.size() != b.size()) return false;
+    for(float x : a) {
+        if(!std::count(b.begin(), b.end(), x)) return false;
     }
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
     return true;
 }
