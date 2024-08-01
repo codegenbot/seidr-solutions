@@ -18,7 +18,6 @@ int bowlingScore(string s) {
         }
     }
 
-    // last two rolls
     if (currentRolls == 10) {
         score += 10;
     } else if (frame < 10) {
