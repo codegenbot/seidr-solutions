@@ -1,2 +1,5 @@
-def camel_case(input_string):
-    return ''.join(word.capitalize() for word in input_string.split()) if ' ' in input_string else input_string.capitalize()
+```
+def camel_case(s):
+    return s.replace("-", " ").replace(" ", lambda x: x.group().capitalize()) + " "
+
+print(camel_case(input()))
