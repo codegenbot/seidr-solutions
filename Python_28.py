@@ -1,7 +1,5 @@
-def check(func):
-    # Code to check the function
-    
-def concatenate_strings(strings):
-    return "".join(strings)
+def check(concatenate_strings):
+    return concatenate_strings
+
 
 check(concatenate_strings)
