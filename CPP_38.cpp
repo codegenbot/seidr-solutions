@@ -1,44 +1,20 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string encode_cyclic(string s);
-string decode_cyclic(string s);
-
 string encode_cyclic(string s){
     string output;
-    string x;
-    int l = s.length();
-    
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < s.length(); i++)
     {
-        x = s.substr(i, 1);
-        int pos = (i * 3) % l;
-        output += x;
-        output += s[pos];
+        output += s[(i + 2) % s.length()];
     }
-    
     return output;
 }
 
 string decode_cyclic(string s){
     string output;
-    string x;
-    int l = s.length();
-    
-    for (int i = 0; i < l; i += 2)
+    for (int i = 0; i < s.length(); i++)
     {
-        x = s.substr(i, 1);
-        output += x;
+        output += s[(i - 2 + s.length()) % s.length()]; // Reverse the cyclic shifting
     }
-    
     return output;
-}
-
-int main() {
-    string str = "input_string";
-    string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
-    return 0;
 }
