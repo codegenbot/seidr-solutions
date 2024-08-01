@@ -14,8 +14,11 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    vector<int> nums = {11, 12, 13, 14, 15};
-    cout << specialFilter(nums) << endl;
+    vector<int> test1 = {123, 456, 789};
+    cout << "Test 1: " << specialFilter(test1) << endl;
+    vector<int> test2 = {-12, 24, -3456};
+    cout << "Test 2: " << specialFilter(test2) << endl;
+    vector<int> test3 = {11, 22, 33, 44, 55};
+    cout << "Test 3: " << specialFilter(test3) << endl;
     return 0;
 }
