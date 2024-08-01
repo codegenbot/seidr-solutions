@@ -3,56 +3,21 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> res;
+    vector<int> result;
     
-    for(int i=n-1; i>=0; i--) {
-        while(i<n-1 && arr[i]>=arr[n-1]) {
-            n--;
+    for (int i = 0; i < n; i++) {
+        bool is_leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                is_leader = false;
+                break;
+            }
         }
-        res.push_back(arr[i]);
+        
+        if (is_leader) {
+            result.push_back(arr[i]);
+        }
     }
     
-    reverse(res.begin(), res.end());
-    
-    return res;
-}
-
-int main() {
-    // Example usage:
-    vector<int> input = {0};
-    vector<int> output = leaders(input);
-    for(int num: output) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    input = {1, 0};
-    output = leaders(input);
-    for(int num: output) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    input = {1, 451};
-    output = leaders(input);
-    for(int num: output) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    input = {2, 1000, 0};
-    output = leaders(input);
-    for(int num: output) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    input = {2, 0, 1000};
-    output = leaders(input);
-    for(int num: output) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
+    return result;
 }
