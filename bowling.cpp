@@ -1,15 +1,24 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            int first = s[i-1] - '0';
-            int second = s[i+1] - '0';
-            score += first + second;
-        } else if (isdigit(s[i])) {
-            score += s[i] - '0';
+    int roll = 0;
+    int frame = 1;
+
+    for (char c : input) {
+        if (c == '/') {
+            score += min(10 - '0', 10);
+            frame++;
+            roll = 0;
         } else {
-            score += 10;
+            roll++;
+            if (roll > 2) {
+                score += min(10, '0' + c - '0') * 2;
+                frame++;
+                roll = 0;
+            } else {
+                score += '0' + c - '0';
+            }
         }
     }
+
     return score;
 }
