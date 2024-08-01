@@ -1,4 +1,3 @@
-# Code after modification
 #include <iostream>
 #include <string>
 
