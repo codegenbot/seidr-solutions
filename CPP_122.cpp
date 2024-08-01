@@ -14,7 +14,15 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    // Your code here
-    assert(add_elements({1}, 1) == 1);
+    vector<int> arr;
+    int n, k;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> k;
+        arr.push_back(k);
+    }
+    cout << "Sum of elements with length <= 2 is: " << add_elements(arr, n) << endl;
     return 0;
 }
