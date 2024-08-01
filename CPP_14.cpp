@@ -14,9 +14,6 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-int main() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    vector<string> result = all_prefixes("WWW");
-    assert(result == expected);
-    return 0;
-}
+vector<string> expected = {"W", "WW", "WWW"};
+vector<string> result = all_prefixes("WWW");
+assert(result == expected);
