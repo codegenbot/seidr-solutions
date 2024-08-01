@@ -2,16 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
-    if (a.size() != b.size()) {
-        return a.size() < b.size();
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return a[i] < b[i];
-        }
-    }
-    return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
