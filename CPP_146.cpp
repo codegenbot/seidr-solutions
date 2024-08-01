@@ -15,12 +15,12 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
+    std::cout << "Enter numbers: ";
+    while(std::cin >> num) {
         nums.push_back(num);
     }
-    
-    int result = specialFilter(nums);
-    std::cout << "Count: " << result << std::endl;
+
+    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
+
     return 0;
 }
