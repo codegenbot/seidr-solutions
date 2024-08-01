@@ -1,14 +1,15 @@
-```cpp
+#include <iostream>
 #include <iomanip>
 
 double calculateProbability(int n, int m) {
-    if (n == m)
-        return 0;
-    
-    double totalPossibilities = static_cast<double>(n * m);
-    double peterWins = static_cast<double>(m - 1) + static_cast<double>(n - m);
+    double totalPossibleRolls = (n + m - 1);
+    double peterWins = 0;
 
-    return peterWins / totalPossibilities;
+    for (int i = m; i <= n - 1; ++i) {
+        peterWins += (n - i) * 2;
+    }
+
+    return peterWins / totalPossibleRolls;
 }
 
 int main() {
