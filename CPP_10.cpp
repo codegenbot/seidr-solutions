@@ -7,15 +7,16 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str) {
-    int i = 0, j = str.length() - 1;
-    while (i < j && str[i] == str[j]) {
-        i++;
-        j--;
+string make_palindrome(string str){
+    int left = 0, right = str.length() - 1;
+    
+    while (left < right && str[left] == str[right]) {
+        left++;
+        right--;
     }
     
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(i);
+    string prefix = str.substr(0, left);
+    string suffix = str.substr(left);
     reverse(suffix.begin(), suffix.end());
     
     return prefix + suffix;
