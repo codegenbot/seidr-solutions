@@ -1,19 +1,14 @@
-bool hasOdd(int num) {
-    return (num & 1);
-}
-
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int evenCount = 0;
     for (int num : lst1) {
-        if (!hasOdd(num)) continue;
-        bool found = false;
-        for (int other : lst2) {
-            if (hasOdd(other)) {
-                swap(lst1[distance(lst1.begin(), find(lst1.begin(), lst1.end(), num))], other);
-                found = true;
-                break;
-            }
+        if (num % 2 == 0) {
+            evenCount++;
         }
-        if (!found) return "NO";
     }
-    return "YES";
+    for (int num : lst2) {
+        if (num % 2 == 0) {
+            evenCount++;
+        }
+    }
+    return evenCount == lst1.size() ? "YES" : "NO";
 }
