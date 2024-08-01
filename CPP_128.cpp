@@ -1,16 +1,18 @@
-Here is the solution:
+#include <vector>
 
-int prod_signs(vector<int> arr) {
-    long long res = 1; // Initialize result as 1
-    int zeroCount = 0; // Count of zeros in array
+int prod_signs(std::vector<int> arr) {
+    int product = 1;
+    long long sum = 0;
     
-    for (int num : arr) {
-        if (num == 0) {
-            zeroCount++; // If number is zero, increment count
-        } else {
-            res *= num / abs(num); // Multiply result by sign of number
-        }
+    for(int i : arr) {
+        if(i == 0)
+            return 0;
+        product *= (i > 0 ? 1 : -1);
+        sum += abs(i);
     }
     
-    return (zeroCount > 1 || (arr.empty())) ? -32768 : res; // Return -32768 for empty array or more than one zeros
+    if(arr.empty())
+        return -32768;
+    
+    return product * sum;
 }
