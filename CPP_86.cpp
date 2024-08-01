@@ -1,15 +1,20 @@
-string result = "";
-    string word = "";
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    std::string word = "";
     for (char c : s) {
         if (c == ' ') {
-            sort(word.begin(), word.end());
+            std::sort(word.begin(), word.end());
             result += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
-    sort(word.begin(), word.end());
+    std::sort(word.begin(), word.end());
     result += word;
     return result;
 }
