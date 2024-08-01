@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -15,10 +16,9 @@ int main() {
         totalDistance += pow(2, i) * (1 - bouncinessIndex);
     }
 
-    cout.precision(6); // to get the correct decimal places
+    cout.precision(6); 
     cout << fixed;
     cout << totalDistance << endl;
 
     return 0;
-
-#include <cmath>
+}
