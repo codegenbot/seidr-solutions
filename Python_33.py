@@ -1,5 +1,5 @@
 def sort_third(l: list):
-    result = [
+    return [
         (
             i
             if i % 3 != 0
@@ -11,4 +11,3 @@ def sort_third(l: list):
         )
         for i in l
     ]
-    return result
