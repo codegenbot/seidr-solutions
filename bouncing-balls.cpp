@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```c++
+```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
