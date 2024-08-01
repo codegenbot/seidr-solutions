@@ -1,26 +1,15 @@
-Here is the Python code for the bowling problem:
-
-def bowling_score(frames):
+def bowling_score(rolls):
     score = 0
-    frame_count = 1
-    for frame in frames:
-        if frame == 'X':
-            score += 30
-            frame_count += 1
-        elif '/' in frame:
-            roll1, roll2 = map(int, re.split('/|\-X', frame))
-            score += roll1 + roll2
-            frame_count += 1
+    roll = 0
+    for frame in rolls.split("/"):
+        if len(frame) == 1:
+            score += 10
+        elif len(frame) == 2:
+            score += int(frame[0]) * 2 + 10 - int(frame[0])
         else:
-            for i in range(len(frame)):
-                if frame[i] == 'X':
-                    score += 10 + (i * 10)
-                    frame_count += 1
-                    break
-                elif frame[i] == '/':
-                    first_roll = int(frame[:i])
-                    second_roll = 10 - first_roll
-                    score += first_roll + second_roll
-                    frame_count += 1
-                    break
+            if int(frame[0]) == 10:
+                score += 10 + 10
+            else:
+                score += int(frame[0]) * 2
+            roll += 1
     return score
