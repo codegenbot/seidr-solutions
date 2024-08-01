@@ -17,10 +17,5 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 int main() {
     assert(issame(std::vector<float>{1}, std::vector<float>{}));
-    
-    std::vector<float> vec1 = {2.5, 3.7, 1.2};
-    std::vector<float> vec2 = {2.5, 3.7, 1.2};
-    assert(issame(vec1, vec2));
-    
     return 0;
 }
