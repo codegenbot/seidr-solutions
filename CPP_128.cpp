@@ -1,5 +1,5 @@
 #include <vector>
-#include <numeric>
+#include <algorithm>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
@@ -8,5 +8,6 @@ int prod_signs(std::vector<int> arr) {
             return -32768; 
         product *= (num > 0 ? 1 : -1);
     }
-    return abs(accumulate(arr.begin(), arr.end(), 0));
+    int result = accumulate(arr.begin(), arr.end(), 0);
+    return result;
 }
