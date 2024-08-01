@@ -13,6 +13,6 @@ bool sort_array(std::vector<int> v) {
 }
 
 int main() {
-    assert(sort_array({21, 14, 23, 11}));
+    assert(sort_array({23, 21, 14, 11}));
     return 0;
 }
