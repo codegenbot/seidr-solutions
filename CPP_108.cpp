@@ -4,7 +4,7 @@ int count_nums(vector<int> v) {
     int count = 0;
     for (int num : v) {
         if (num < 0) {
-            num = -num; 
+            num = -num; // make number positive to simplify sum of digits calculation
         }
         int sum_of_digits = 0;
         while (num > 0) {
