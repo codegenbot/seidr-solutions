@@ -28,7 +28,7 @@ int main() {
         int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
-            cut_spot = = i;
+            cut_spot = i;
         }
     }
 
