@@ -1,12 +1,14 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    return result;
+    vector<int> res;
+    unordered_set<int> unique;
+
+    for(int i : arr) {
+        if(unique.find(i) == unique.end()) {
+            res.push_back(i);
+            if(res.size() == k) break;
+            unique.insert(i);
+        }
+    }
+
+    return res;
 }
