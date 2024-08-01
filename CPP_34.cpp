@@ -2,11 +2,7 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique(l.begin(), l.end()).end());
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end(), result.begin()));
+    sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    // Your code here...
-    return 0;
 }
