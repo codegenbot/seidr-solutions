@@ -1,26 +1,26 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    bool firstBallInFrame = true;
-    for (char c : s) {
-        if (c == 'X') { // strike
-            score += 10 + 10 + 10;
-            firstBallInFrame = true;
-        } else if (c == '/') { // spare
-            score += 10 + 0 + 10 - 1; // minus one because we have to add the next ball score later
-            firstBallInFrame = false;
-        } else {
-            int frameScore = c - '0';
-            if (!firstBallInFrame) { // second ball in a frame
-                if (frameScore == 10) { // spare
-                    score += 10 + 10;
-                } else { // open frame
-                    score += frameScore + frameScore;
-                }
-            } else {
-                score += frameScore;
-                firstBallInFrame = false;
+    bool inFrame = false;
+    queue<int> rolls;
+    
+    for (char c : input) {
+        if (c == 'X') {
+            score += 10 + (inFrame ? 10 : 0);
+            inFrame = false;
+        } else if (c == '/') {
+            int currentRoll = 10 - rolls.front();
+            score += rolls.front();
+            rolls.pop();
+            while (!rolls.empty() && rolls.front() != currentRoll) {
+                score += rolls.front();
+                rolls.pop();
             }
+            inFrame = true;
+        } else if (isdigit(c)) {
+            int roll = c - '0';
+            rolls.push(roll);
         }
     }
+    
     return score;
 }
