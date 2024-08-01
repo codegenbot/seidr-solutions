@@ -1,5 +1,3 @@
-#include <vector>
-
 vector<int> count_up_to(int n) {
     vector<int> result;
     if (n <= 1) {
