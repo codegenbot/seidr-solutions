@@ -1,11 +1,13 @@
-def luhn(card_number):
-    card_number = list(map(int, card_number.split()))
-    card_number.reverse()
+Here is the Python solution for the given problem:
+
+```
+def luhn(card_num):
     total = 0
-    for i in range(0, len(card_number)):
-        if (i % 2) != 0:
-            card_number[i] *= 2
-            if card_number[i] > 9:
-                card_number[i] -= 9
-        total += card_number[i]
-    return str(total)
+    for i, n in enumerate(reversed(str(card_num))):
+        n = int(n)
+        if (i % 2) == 1:
+            n *= 2
+            if n > 9:
+                n -= 9
+        total += n
+    return total
