@@ -2,6 +2,23 @@
 #include <vector>
 #include <string>
 
+std::vector<std::string> split_words(std::string input) {
+    std::vector<std::string> words;
+    std::string word;
+    for (char c : input) {
+        if (c == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word); // Add the last word
+    return words;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -12,12 +29,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         }
     }
     return true;
-}
-
-std::vector<std::string> split_words(std::string input) {
-    std::vector<std::string> words;
-    // Code to split input string into words and store in 'words' vector
-    return words;
 }
 
 int main() {
