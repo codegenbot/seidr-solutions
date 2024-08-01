@@ -1,10 +1,20 @@
-def solveBoolean(expression):
-    if expression == 'T':
+def solve_boolean(boolean_expression):
+    if boolean_expression == "T":
         return True
-    elif expression == 'F':
+    elif boolean_expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
+    elif "&" in boolean_expression and "|" in boolean_expression:
         raise ValueError("Invalid expression")
     else:
-        result = eval(' '.join(map(lambda x: str(x) if x in ['T', 'F'] else x, expression)))
-        return result
+        stack = []
+        for char in boolean_expression[::-1]:
+            if char in ["&", "|"]:
+                right = stack.pop()
+                left = stack.pop()
+                if char == "&":
+                    stack.append(left and right)
+                elif char == "|":
+                    stack.append(left or right)
+            else:
+                stack.append(char != "F")
+        return stack[0]
