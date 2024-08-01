@@ -16,7 +16,7 @@ int main() {
         totalDistance += pow(2, i) * (1 - bouncinessIndex);
     }
 
-    cout.precision(6); 
+    cout.precision(6); // to get the correct decimal places
     cout << fixed;
     cout << totalDistance << endl;
 
