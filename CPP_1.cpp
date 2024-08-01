@@ -1,44 +1,33 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <stack>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool are_equal(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    return vec1 == vec2;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
+std::vector<std::string> separate_paren_groups(const std::string& input) {
+    std::stack<char> stk;
     std::string current_group;
-    int balance = 0;
+    std::vector<std::string> groups;
 
-    for (char c : paren_string) {
+    for (char c : input) {
         if (c == '(') {
-            if (balance > 0) {
+            stk.push(c);
+            if (stk.size() > 1) {
                 current_group += c;
             }
-            balance++;
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else if (balance == 0) {
-                result.push_back(current_group);
+            stk.pop();
+            if (stk.empty()) {
+                groups.push_back(current_group);
                 current_group = "";
+            } else {
+                current_group += c;
             }
         }
     }
 
-    return result;
+    return groups;
 }
-
-std::vector<std::string> a = separate_paren_groups("((A)(B))((C))");
-std::vector<std::string> b = {"(A)", "(B)", "(C)"};
-assert(issame(a, b);
