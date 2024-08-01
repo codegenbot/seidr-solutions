@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
+
 using namespace std;
 
 int prod_signs(const vector<int>& arr);
