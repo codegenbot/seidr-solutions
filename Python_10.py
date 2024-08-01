@@ -1,4 +1,3 @@
-```
 def make_palindrome(string: str) -> str:
     if not is_palindrome(string):
         for char in string:
