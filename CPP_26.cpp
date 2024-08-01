@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -25,10 +24,6 @@ void originalMain() {
 }
 
 int main() {
-    vector<int> numbers = {5, 6, 7, 8, 9};
-    vector<int> result = remove_duplicates(numbers);
-    for (int num : result) {
-        cout << num << " ";
-    }
+    originalMain();
     return 0;
 }
