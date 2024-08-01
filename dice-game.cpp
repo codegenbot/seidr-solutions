@@ -1,22 +1,19 @@
 ```cpp
 #include <iostream>
-#include <cmath>
+using namespace std;
 
 double calculateProbability(int n, int m) {
     double total = (n + m - 1);
-    double probability = 0;
-    
-    for (int i = 1; i <= m - 1; i++) {
-        probability += (m * 1.0 / total) * (n - i) / (n - 1);
+    for (int i = 1; i <= m; i++) {
+        total -= 1.0;
     }
-    
-    return probability;
+    return total / ((n * m));
 }
 
 int main() {
     int n = 6; 
     int m = 4;
     double probability = calculateProbability(n, m);
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << std::endl;
+    cout << "The probability that Peter rolls strictly higher than Colin is: " << probability << endl;
     return 0;
 }
