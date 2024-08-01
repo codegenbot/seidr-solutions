@@ -1,5 +1,4 @@
-Here is the solution:
-
+```
 def mastermind(code, guess):
     white = 0
     black = 0
