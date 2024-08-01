@@ -13,7 +13,7 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         if (lst[i].size() == x) {
-            result.push_back(std::vector<int>{i, lst[i].size()});
+            result.push_back({i, lst[i].size()});
         }
     }
     std::sort(result.begin(), result.end(), issame);
