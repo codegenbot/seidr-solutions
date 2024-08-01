@@ -1,32 +1,24 @@
 #include <vector>
 #include <cassert>
+#include <string>
 #include <sstream>
 
 std::vector<int> parse_music(const std::string& music) {
     std::vector<int> result;
-    std::istringstream iss(music);
+    std::stringstream ss(music);
     char c;
-    int num;
-    
-    while (iss >> c >> num) {
-        result.push_back(num);
+    while (ss >> c) {
+        if (c == 'o') {
+            result.push_back(2);
+        } else if (c == '.') {
+            result.push_back(1);
+        }
     }
-
     return result;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 int main() {
