@@ -1,55 +1,39 @@
-#include <iostream>
 #include <vector>
+#include <queue>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; i++) {
-        dp[i][0] = grid[i][0];
-    }
-    
-    for (int j = 1; j < n; j++) {
-        for (int i = 0; i < n; i++) {
-            if (i == 0) {
-                dp[i][j] = max(dp[0][j - 1], dp[1][j - 1]);
-            } else if (i == n - 1) {
-                dp[i][j] = max(dp[i - 1][j - 1], dp[i][j - 1]);
-            } else {
-                dp[i][j] = max({dp[i - 1][j - 1], dp[i][j - 1], dp[i + 1][j - 1]});
-            }
-        }
-    }
-    
+    vector<vector<int>> visited(n, vector<int>(n, -1));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> , greater<> > pq;
+    pq.push({0, {0, 0}});
     vector<int> res;
-    int i = n / 2, j = n - k;
-    while (k > 0) {
-        res.push_back(grid[i][j]);
-        if (i == 0) {
-            i++;
-        } else if (i == n - 1) {
-            i--;
-        } else {
-            if (dp[i - 1][j] < dp[i + 1][j]) {
-                i--;
-            } else {
-                i++;
+
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+
+        if (visited[x][y] != -1) continue;
+        visited[x][y] = 0;
+
+        res.push_back(val);
+
+        for (int dx : {-1, 0, 1}) {
+            for (int dy : {-1, 0, 1}) {
+                int nx = x + dx;
+                int ny = y + dy;
+                if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
+                if (visited[nx][ny] != -1) continue;
+
+                pq.push({val + grid[nx][ny], {nx, ny}});
             }
         }
-        j--;
-        k--;
-    }
-    
-    return res;
-}
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
+        if (res.size() == k) break;
     }
-    return 0;
+
+    return res;
 }
