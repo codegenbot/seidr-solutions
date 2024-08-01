@@ -1,6 +1,5 @@
-```c++
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int fuelCost(vector<int> v) {
