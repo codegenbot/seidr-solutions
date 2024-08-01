@@ -1,11 +1,8 @@
-Here is the completed code:
-
-def leaders(a):
-    n = len(a)
-    result = [a[n-1]]
-    
-    for i in range(n-2, -1, -1):
-        if a[i] >= a[i+1]:
-            result.append(a[i])
-            
-    return list(reversed(result))
+def leaders(input):
+    output = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            output.append(input[i])
+            max_right = input[i]
+    return output[::-1]
