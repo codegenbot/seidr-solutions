@@ -11,7 +11,7 @@ vector<int> strange_sort_vector(vector<int> lst) {
         
         if (min_val == max_val) {
             result.push_back(min_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+            lst.erase/remove(lst.begin() + lst.size() - 1);
         } else {
             result.push_back(min_val);
             vector<int> new_lst;
@@ -28,10 +28,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input_vector = {4, 2, 9, 6, 23, 12, 34, 27};
+    vector<int> input_vector = {4, 2, 5, 3};
     vector<int> sorted_vector = strange_sort_vector(input_vector);
-    for (int num : sorted_vector) {
-        cout << num << " ";
+    for (int i : sorted_vector) {
+        cout << i << " ";
     }
     return 0;
 }
