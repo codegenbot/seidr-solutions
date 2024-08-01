@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,5 +23,6 @@ int count_nums(std::vector<int> nums) {
 int main() {
     std::vector<int> nums = {1, -2, 3, -4};
     int result = count_nums(nums);
-    std::cout << "The number of numbers is: " << result << std::endl;
+    std::cout << "The number of positive sums is: " << result << std::endl;
+    return 0;
 }
