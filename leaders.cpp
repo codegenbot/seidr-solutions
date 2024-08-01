@@ -12,7 +12,7 @@ vector<int> findLeaders(vector<int> nums) {
             maxRight = nums[i];
         }
     }
-    leaders.push_back(maxRight);
+    leaders.push_back(maxRight); // add the maxRight leader after the loop
     return leaders;
 }
 
