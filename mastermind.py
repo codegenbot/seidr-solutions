@@ -1,4 +1,5 @@
-def get_pegs(code, guess):
-    white = sum(c in code and c != g for c, g in zip(guess, code))
-    black = sum(g in code and g == c for c, g in zip(guess, code))
-    return str(white), str(black)
+def mastermind(code, guess):
+    correct_place = sum([1 if c1 == c2 else 0 for c1, c2 in zip(code, guess)])
+    correct_color = sum([min(1, code.count(c)) for c in set(guess)])
+
+    return str(correct_place), str(correct_color)
