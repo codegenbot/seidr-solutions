@@ -1,12 +1,18 @@
-````
-bool issame(const vector<string>& a, const vector<string>& b) {
-    for (const auto& s : a) {
-        if (find(b.begin(), b.end(), s) == b.end())
-            return false;
+```cpp
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos)
+            result.push_back(str);
     }
-    return true;
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == {"grunt", "prune"});
+    return 0;
 }
