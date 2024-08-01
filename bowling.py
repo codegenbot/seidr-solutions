@@ -1,17 +1,23 @@
 def bowling_score(game):
     score = 0
     frame = 1
-    for bowl in game:
-        if bowl == "X":
-            score += 10 + (10 - frame)
-            frame = 11
-        elif bowl == "/":
-            score += 10
-            frame = 11
-        else:
-            if int(bowl) >= 5:
-                score += 10 + 10 - int(bowl)
-                frame = 11
+    for i in range(0, len(game), 2):
+        if game[i] == "X":
+            if frame < 10:
+                score += 30
             else:
-                score += int(bowl)
+                score += 10
+            frame += 1
+        elif game[i] == "/":
+            right_pin = int(game[i + 1])
+            left_pins = int(game[i - 1]) - 10
+            score += left_pins + right_pin
+            frame += 1
+        else:
+            right_pin = int(game[i : i + 2])
+            if right_pin >= 10:
+                score += 10
+            else:
+                score += right_pin
+            frame += 1
     return score
