@@ -10,11 +10,14 @@ string substitutionCipher(string key1, string key2, string message) {
         if (i >= key1.length()) {
             result += message[i];
         } else {
-            if (key1[i] == message[i]) {
-                result += key2[i];
-            } else {
-                result += message[i];
+            for (int j = 0; j < key1.length(); j++) {
+                if (key1[j] == message[i]) {
+                    result += key2[j];
+                    break;
+                }
             }
+            if (result.back() != message[i])
+                result += message[i];
         }
     }
     return result;
