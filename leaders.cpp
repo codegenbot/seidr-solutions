@@ -8,19 +8,15 @@ int main() {
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
+    vector<int> leaders;
     
-    for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+    int rightMostLeaderIndex = n - 1;
+    for(int i=n-2; i>=0; i--) {
+        if(arr[rightMostLeaderIndex] <= arr[i]) {
+            rightMostLeaderIndex = i;
         }
-        
-        if(leader) result.push_back(arr[i]);
     }
     
-    return result;
+    leaders.push_back(arr[rightMostLeaderIndex]);
+    return leaders;
 }
