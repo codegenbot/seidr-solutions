@@ -18,6 +18,6 @@ int score(const std::string &bowls) {
             bowlIndex += 2;
         }
     }
-
+    
     return total;
 }
