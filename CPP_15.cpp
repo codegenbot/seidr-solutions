@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <cassert>
 
 string string_sequence(int n) {
     ostringstream oss;
