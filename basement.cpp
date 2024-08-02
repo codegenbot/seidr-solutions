@@ -2,8 +2,10 @@
 #include <vector>
 
 int basement(std::vector<int> nums) {
+    if (nums.empty()) return -1;
+
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (size_t i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
             return i;
@@ -13,17 +15,14 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    int n, num;
+    int n;
     std::cin >> n;
-    std::vector<int> nums;
-    
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> num;
-        nums.push_back(num);
+        std::cin >> nums[i];
     }
-    
-    int result = basement(nums);
-    std::cout << result << std::endl;
-    
+
+    std::cout << basement(nums) << std::endl;
+
     return 0;
 }
