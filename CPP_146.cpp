@@ -14,8 +14,8 @@ int specialFilter(vector<int> nums){
 
 int main(){
     assert(specialFilter({}) == 0);
-    assert(specialFilter({1, 11, 21, 31}) == 4);
-    assert(specialFilter({-11, -21, -31}) == 3);
-    assert(specialFilter({12, 22, 32}) == 0);
+    assert(specialFilter({11,12,13,14,15}) == 5);
+    assert(specialFilter({1,2,3,4,5,-11,-12,-13,-14,-15}) == 10);
+    assert(specialFilter({16,17,18,19,20,30,31,32,33,34,35}) == 0);
     return 0;
 }
