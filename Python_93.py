@@ -3,8 +3,8 @@ def encode(message):
 
     for char in message:
         if char.isalpha():
-            offset = ord('A') if char.isupper() else ord('a')
-            new_char = chr((ord(char) - offset + 2) % 26 + offset)
+            base = ord('a') if char.islower() else ord('A')
+            new_char = chr(((ord(char) - base + 2) % 26) + base)
             encoded_message += new_char
         else:
             encoded_message += char
