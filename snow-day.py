@@ -1,15 +1,16 @@
-def snow_day(hours, snow_on_ground, rate_of_snow_fall, snow_melting_proportion):
-    snow = snow_on_ground
-    for i in range(hours):
-        snow += rate_of_snow_fall
-        snow -= snow * snow_melting_proportion
-    return snow
+def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
+    snow = [snow_on_ground]
+    for _ in range(hours):
+        snow_on_ground = (
+            snow_on_ground + snow_fall_rate - (snow_fall_rate * snow_melt_rate)
+        )
+        snow.append(snow_on_ground)
+    return snow[-1]
 
 
 hours = int(input())
 snow_on_ground = float(input())
-rate_of_snow_fall = float(input())
-snow_melting_proportion = float(input())
-
-result = snow_day(hours, snow_on_ground, rate_of_snow_fall, snow_melting_proportion)
+snow_fall_rate = float(input())
+snow_melt_rate = float(input())
+result = snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate)
 print(result)
