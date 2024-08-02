@@ -4,7 +4,7 @@ int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            tolower(c) == 'y') {
+            (c == 'y' && s.length() > 1 && s[s.length() - 1] == 'y')) {
             count++;
         }
     }
