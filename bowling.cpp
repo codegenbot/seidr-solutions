@@ -17,8 +17,21 @@ int bowlingScore(string bowls) {
                 roll2 = 10 - roll1;
             }
             score += roll1 + roll2;
+        } else if (bowls[i] == 'X') {
+            score += 10;
+            if (i < 8) {
+                if (isdigit(bowls[i + 1])) {
+                    score += bowls[i + 1] - '0';
+                    i++;
+                } else {
+                    score += 10;
+                }
+            } else {
+                score += 10;
+            }
         } else {
             score += 10;
         }
     }
     return score;
+}
