@@ -1,10 +1,13 @@
-def add(x: int, y: int) -> int:
+def add(x: int, y: int):
     return x + y
 
-
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
+while True:
+    try:
+        x = int(input("Enter the first number: "))
+        y = int(input("Enter the second number: "))
+        break
+    except ValueError:
+        print("Please enter integers only. Try again.")
 
 result = add(x, y)
-
-print(f"The result of adding {x} and {y} is: {result}")
+print("The result of adding", x, "and", y, "is:", result)
