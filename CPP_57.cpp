@@ -1,15 +1,13 @@
 #include <vector>
 #include <cassert>
 
-bool monotonic(std::vector<float> l){
+bool monotonic(const std::vector<int>& l) {
     bool increasing = true, decreasing = true;
-    for (size_t i = 1; i < l.size(); i++) {
-        if (l[i] < l[i - 1]) {
+    for (size_t i = 1; i < l.size(); ++i) {
+        if (l[i] < l[i - 1])
             increasing = false;
-        }
-        if (l[i] > l[i - 1]) {
+        if (l[i] > l[i - 1])
             decreasing = false;
-        }
     }
     return increasing || decreasing;
 }
