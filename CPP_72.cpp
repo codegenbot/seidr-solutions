@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert> // Add this header for 'assert' macro
+#include <cassert>
 
 bool will_it_fly(const std::vector<int>& q, int w) {
     int sum = 0;
