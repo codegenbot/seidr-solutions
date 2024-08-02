@@ -5,7 +5,7 @@
 int main() {
     std::vector<int> lst = {127, 97, 8192};
     int result = skjkasdkd(lst);
-    std::cout << "The sum of the digits of the largest prime number is: " << result << std::endl;
+    std::cout << "The sum of the digits is: " << result << std::endl;
     return 0;
 }
 
