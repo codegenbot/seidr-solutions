@@ -14,12 +14,10 @@ def minPath(grid, k):
                 if next_cell is None or grid[ni][nj] < grid[next_cell[0]][next_cell[1]]:
                     next_cell = (ni, nj)
 
-        if next_cell:
-            return dfs(
-                next_cell[0], next_cell[1], path + [grid[next_cell[0]][next_cell[1]]]
-            )
-        else:
+        if next_cell is None:
             return path
+
+        return dfs(next_cell[0], next_cell[1], path + [grid[next_cell[0]][next_cell[1]])
 
     min_value = min(min(row) for row in grid)
     start_cell = [
