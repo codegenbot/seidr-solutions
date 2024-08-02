@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
-// Forward declaration
-std::vector<int> maximum(const std::vector<int>& arr, int k);
+std::vector<int> maximum(const std::vector<int>& arr, int k) {
+    // Your implementation of the maximum function goes here
+}
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
