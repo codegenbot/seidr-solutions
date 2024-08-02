@@ -6,5 +6,6 @@ def check(lst):
     return odd_sum
 
 input_list = list(map(int, input().split()))
+
 result = check(input_list)
 print(result)
