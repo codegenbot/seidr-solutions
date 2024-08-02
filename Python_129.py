@@ -1,18 +1,16 @@
-```
-def minPath(grid, k):
-    n = len(grid)
-    visited = [[False] * n for _ in range(n)]
-    queue = [(0, 0, [])]
-    visited[0][0] = True
-    min_path = None
-    while queue:
-        x, y, path = queue.pop(0)
-        if len(path) == k:
-            if min_path is None or path < min_path:
-                min_path = path
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                queue.append((nx, ny, path + [grid[nx][ny]]))
-                visited[nx][ny] = True
-    return min_path
+def findMinStep(s):
+    n = len(s)
+    dp = [[float("inf")] * (n + 1) for _ in range(n + 1)]
+
+    for i in range(n):
+        dp[i][i] = 0
+    for length in range(2, n + 1):
+        for i in range(n - length + 1):
+            j = i + length - 1
+            for k in range(i, j + 1):
+                if s[i] == s[k]:
+                    dp[i][j] = min(
+                        dp[i][j],
+                        dp[i][k - 1] if k > i else 0 + (0 if s[i] != s[k] else 1),
+                    )
+    return dp[0][n - 1]
