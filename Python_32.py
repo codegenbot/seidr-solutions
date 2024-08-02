@@ -1,8 +1,5 @@
-def find_zero():
-    a = float(input("Enter a: "))
-    b = float(input("Enter b: "))
-    c = float(input("Enter c: "))
-    
+def find_zero(xs: list):
+    a, b, c = xs
     discriminant = (b**2) - (4*a*c)
     if discriminant < 0:
         return None
@@ -11,6 +8,8 @@ def find_zero():
     x2 = (-b - sqrt_discriminant) / (2 * a)
     return x1 if x1 == x2 else (x1, x2)
 
-# Test cases
 if __name__ == "__main__":
-    print(find_zero())
+    coefficients = [float(input("Enter coefficient a: ")), 
+                    float(input("Enter coefficient b: ")), 
+                    float(input("Enter coefficient c: "))]
+    print(find_zero(coefficients))
