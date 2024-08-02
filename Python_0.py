@@ -5,7 +5,6 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-
 # Call the function with appropriate inputs
 numbers = [1, 2, 3, 4, 5]
 threshold = 2
