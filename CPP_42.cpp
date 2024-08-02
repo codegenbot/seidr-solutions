@@ -6,11 +6,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> incr_list(std::vector<int> l) {
-    std::vector<int> result;
-    for (int num : l) {
-        result.push_back(num + 1);
+    for (int& num : l) {
+        num++;
     }
-    return result;
+    return l;
 }
 
 int main() {
