@@ -13,8 +13,8 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
-    int black = 0, white = 0;
-    
+    int black = 0;
+    int white = 0;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
@@ -26,6 +26,5 @@ vector<int> compare(vector<int> game, vector<int> guess) {
             result.push_back(1);
         }
     }
-    
     return result;
 }
