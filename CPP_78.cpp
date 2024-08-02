@@ -4,7 +4,13 @@ int hex_key(string num) {
         if (c >= '2' && c <= '7') {
             count++;
         } else if ((c >= 'A' && c <= 'B') || (c >= 'D' && c <= 'F')) {
-            count++;
+            switch (c) {
+                case 'B':
+                case 'D':
+                case 'F':
+                    count++;
+                    break;
+            }
         }
     }
     return count;
