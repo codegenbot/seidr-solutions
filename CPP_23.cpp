@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int my_strlen(std::string str){
@@ -6,4 +7,5 @@ int my_strlen(std::string str){
 
 int main() {
     assert(my_strlen("asdasnakj") == 12);
+    // do something
 }
