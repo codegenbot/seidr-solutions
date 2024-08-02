@@ -1,15 +1,24 @@
-int bowlingScore(string bowls) {
+int bowlingScore(string str) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (isdigit(bowls[i])) {
-            score += stol(to_string(i+1) + bowls[i]) - 48;
-        } else {
-            if (i < 8 && (bowls[i-1] == '/' || i > 3)) {
-                score += 10 + stol(to_string(i+1)+bowsls[i]) - 48;
+    int roll1, roll2;
+
+    for (int frame = 1; frame <= 10; ++frame) {
+        if (str[3*frame-3] == 'X') {
+            score += 10;
+        } else if (isdigit(str[3*frame-3])) {
+            roll1 = str[3*frame-2] - '0';
+            if (str[3*frame-1] == '/') {
+                roll2 = 10 - roll1;
+                score += roll1 + roll2;
             } else {
-                score += stol(to_string(i+1) + bows[i]);
+                int rolls[] = {roll1, str[3*frame-1] - '0'};
+                std::sort(rolls, rolls+2);
+                score += (rolls[0]+rolls[1]);
             }
+        } else {
+            score += 10;
         }
     }
+
     return score;
 }
