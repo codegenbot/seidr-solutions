@@ -21,13 +21,8 @@ int main() {
     std::vector<int> nums;
     int num;
 
-    while (std::cin >> num) {
+    while (std::cin >> num || !std::cin.eof()) {
         nums.push_back(num);
-    }
-
-    if (!std::cin.eof()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> output = findLeaders(nums);
