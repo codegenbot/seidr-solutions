@@ -1,4 +1,3 @@
-```cpp
 #include <set>
 #include <algorithm>
 
@@ -14,5 +13,5 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
         inserter(common, common.begin()));
 
-    return std::vector<int>(common.begin(), common.end());
+    return vector<int>(common.begin(), common.end());
 }
