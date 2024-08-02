@@ -1,12 +1,15 @@
+```cpp
 #include <vector>
 #include <string>
 
 using namespace std;
 
+// Function to check if two vectors of strings are equal
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
+// Function to filter strings by substring
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
