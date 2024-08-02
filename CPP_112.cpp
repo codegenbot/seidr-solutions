@@ -12,12 +12,15 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
             }
         }
     }
+
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
+
     return result == result_reverse;
 }
 
 int main() {
-    assert(issame({"mamma"}, {"mia"}) == true);
+    assert(issame({"mamma"}, {"mia"}));
+
     return 0;
 }
