@@ -1,9 +1,7 @@
-#include <openssl/md5.h>
-#include <openssl/ssl.h>
 #include <string>
 #include <algorithm>
 #include <iomanip>
-#include <sstream>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -13,18 +11,12 @@ string string_to_md5(string text) {
     MD5_CTX context;
     unsigned char mdBuffer[16];
     
-    // call MD5_Init
     MD5_Init(&context);
-    
     const char* p = text.c_str();
     while (*p) {
-        // call MD5_Update
         MD5_Update(&context, p, 1);
         p++;
     }
-    
-    // finalize...
-    // call MD5_Final
     MD5_Final(mdBuffer, &context);
 
     ostringstream oss;
