@@ -1,9 +1,4 @@
 #include <string>
-#include <cctype>
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-}
 
 string solve(string s) {
     string result = "";
