@@ -8,10 +8,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    return {0, n % 2};
+    if (n % 2 == 0) {
+        return std::vector<int>{0, 1};
+    } else {
+        return std::vector<int>{0};
+    }
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert(issame(even_odd_palindrome(1), std::vector<int>{0, 1}));
     return 0;
 }
