@@ -1,10 +1,11 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    code_count = [code.count(c) for c in set(code)]
-    guess_count = [guess.count(c) for c in set(guess)]
-    
-    white_peg = sum(min(count1, count2) for count1, count2 in zip(code_count, guess_count))
-    black_peg = sum(min(count1, 0) for count1 in code_count)
-    
-    return str(white_peg), str(black_peg)
+    correct_color_wrong_place = 0
+    correct_color_correct_place = 0
+
+    for i in range(4):
+        if code[i] == guess[i]:
+            correct_color_correct_place += 1
+        elif str(guess[i]) in code:
+            correct_color_wrong_place += 1
+
+    return str(correct_color_wrong_place), str(correct_color_correct_place)
