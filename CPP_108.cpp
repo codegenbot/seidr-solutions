@@ -10,9 +10,7 @@ int count_nums(std::vector<int> n) {
             sum += temp % 10;
             temp /= 10;
         }
-        if (sum > 0) {
-            count++;
-        }
+        count += (sum > 0) ? 1 : 0;
     }
     return count;
 }
