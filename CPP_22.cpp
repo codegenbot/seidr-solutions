@@ -14,6 +14,6 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == (std::vector<int>{3, 3, 3}));
+    assert(filter_integers({3, 4, 5, 'c', 3, 3, 'a', 'b'}) == std::vector<int>({3, 3, 3}));
     return 0;
 }
