@@ -1,3 +1,6 @@
+numbers = [1, 2, 3, 4, 5]
+threshold = 2
+
 def check_threshold(numbers, threshold):
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
@@ -5,5 +8,5 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-has_close_elements = check_threshold([1, 2, 3, 4, 5], 2)
-print(has_close_elements)
+result = check_threshold(numbers, threshold)
+print(result)
