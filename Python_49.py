@@ -11,4 +11,5 @@ def gcd(a: int, b: int):
         a, b = b, a%b
     return a
 
-print(modp(31, 5))
+# Example usage:
+print(modp(31, 5))  # Should print 3
