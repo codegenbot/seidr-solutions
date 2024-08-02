@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -10,9 +9,31 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            result &= true;
+            bool temp = result;
+            result &= false;
+            for (; i < s.length() && s[i] != '|'; i++) {
+                if (s[i] == 'T') {
+                    result = true;
+                    break;
+                } else if (s[i] == 'F') {
+                    result = false;
+                    break;
+                }
+            }
+            result = temp;
         } else if (s[i] == '|') {
-            result |= true;
+            bool temp = result;
+            result |= false;
+            for (; i < s.length() && s[i] != '&'; i++) {
+                if (s[i] == 'T') {
+                    result = true;
+                    break;
+                } else if (s[i] == 'F') {
+                    result = false;
+                    break;
+                }
+            }
+            result = temp;
         }
     }
     return result;
