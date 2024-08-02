@@ -12,3 +12,4 @@ std::string flip_case(std::string str){
             result += c;
     }
     return result;
+}
