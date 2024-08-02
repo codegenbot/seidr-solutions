@@ -1,16 +1,13 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
 bool move_one_ball(vector<int> arr) {
-    for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] <= arr[0]) return true;
+    int n = arr.size();
+    if (n == 0) return true; // If the vector is empty, return true
+    
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[0]) return false; // If any element in the vector is less than the first one, it's not possible to get a non-decreasing order
     }
-    return false;
-}
-
-int main() {
-    vector<int> arr = {3, 4, 5, 1, 2};
-    cout << move_one_ball(arr) << endl; // Output: 1
-    return 0;
+    
+    return true;
 }
