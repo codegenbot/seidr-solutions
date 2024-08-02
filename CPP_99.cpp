@@ -1,8 +1,4 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-int closest_integer(string value) {
-    double num = stod(value);
-    int integer = (num > 0) ? ceil(num) : floor(num);
-    return integer;
-}
+double num = stod(value);
+return (num >= 0) ? ceil(num) : floor(num);
