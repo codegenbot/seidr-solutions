@@ -2,10 +2,10 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> numbers) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for (float num : numbers) {
-        if (num > 0 && std::floor(num) == num) {
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) {
             sum += pow(num, 2);
         }
     }
@@ -13,14 +13,16 @@ long long double_the_difference(std::vector<float> numbers) {
 }
 
 int main() {
+    std::vector<float> numbers;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
+        float num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers[i];
+        std::cin >> num;
+        numbers.push_back(num);
     }
 
     long long result = double_the_difference(numbers);
