@@ -2,14 +2,7 @@
 #include <vector>
 #include <utility>
 
-bool issame(int a, int b) {
-    if(a==b)
-        return true;
-    else
-        return false;
-}
-
-int order_by_points(std::vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
@@ -25,5 +18,5 @@ int order_by_points(std::vector<int> nums) {
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
-    return 0; // Return type should be changed according to the task
+    return result;
 }
