@@ -1,27 +1,20 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string s) {
     std::string result = "";
-    int i = 0;
+    int start = 0;
     
-    while (i < s.length()) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] != ' ') {
-                i++;
+    for(int i = 0; i <= s.length(); i++) {
+        if(i == s.length() || (s[i] == ' ' && i > start)) {
+            if(start < i) {
+                char c = toupper(s[start]);
+                result += c;
+                for(int j = start + 1; j < i; j++)
+                    result += tolower(s[j]);
             }
-            if (i < s.length()) {
-                result += toupper(s[i]);
-                i++;
-            }
-        } else {
-            if (result.empty()) {
-                result = tolower(s[i]);
-            } else {
-                result += tolower(s[i]);
-            }
-            i++;
+            start = i + 1;
         }
     }
     
@@ -30,7 +23,7 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string s;
-    while (std::cin >> s) {
+    while(std::cin >> s) {
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
