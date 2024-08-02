@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -13,9 +14,8 @@ int sum_squares(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input = { -1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5,
-        14, -14, 6, 13, 11, 16, 16, 4, 10 };
-    int output = sum_squares(input);
-    std::cout << "Output: " << output << std::endl;
+    std::vector<int> lst = { -1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5,
+        14, -14, 6, 13, 11, 16, 16, 4, 10};
+    std::cout << "The sum of squares is: " << sum_squares(lst) << std::endl;
     return 0;
 }
