@@ -2,14 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-int sum_of_extremes(std::vector<int> vec);
+int sum_of_extremes(std::vector<int> vec) {
+    return vec.front() + vec.back();
+}
 
 bool is_sum_of_extremes_same(std::vector<int> a, std::vector<int> b) {
     return (sum_of_extremes(a) == sum_of_extremes(b));
-}
-
-int sum_of_extremes(std::vector<int> vec) {
-    return vec.front() + vec.back();
 }
 
 int main() {
