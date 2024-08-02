@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip> // Include <iomanip> header to use std::setprecision
 #include <vector>
+#include <iomanip>
 
 int main() {
     int n;
