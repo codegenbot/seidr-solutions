@@ -14,9 +14,9 @@ int main() {
             std::cout << (capitalize ? (char)toupper(c) : (char)tolower(c));
             capitalize = false;
         }
-        if(c == ' ' || c == '-') {
+        if(c == ' ') {
             capitalize = true;
-            std::cout << (c == ' ' ? " " : "");
+            std::cout << " ";
         }
     }
     
