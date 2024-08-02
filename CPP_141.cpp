@@ -1,26 +1,37 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid_start = false;
+Here is the completed code:
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        } else if(isdigit(file_name[i])){
-            digit_count++;
-        } else if(isalpha(file_name[i])) {
-            valid_start = true;
+```cpp
+bool hasDigit = false;
+int dotCount = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!hasDigit) {
+            hasDigit = true;
+        } else {
+            return "No";
         }
     }
 
-    if(dot_count > 1 || digit_count > 3 || !valid_start){
-        return "No";
+    if (c == '.') {
+        dotCount++;
     }
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if(extension != "txt" && extension != "exe" && extension != "dll"){
-        return "No";
-    }
-
-    return "Yes";
 }
+
+if (dotCount > 1 || !hasDigit || file_name[0] < 'a' && file_name[0] > 'z' && file_name[0] < 'A' && file_name[0] > 'Z') {
+    return "No";
+}
+
+string extension = "";
+for (int i = file_name.find('.') + 1; i < file_name.length(); i++) {
+    if (file_name[i] == '.') {
+        break;
+    }
+    extension += file_name[i];
+}
+
+if (extension != "txt" && extension != "exe" && extension != "dll") {
+    return "No";
+}
+
+return "Yes";
