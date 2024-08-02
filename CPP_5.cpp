@@ -1,8 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> intersperse(vector<int> numbers, int delimiter) {
+    vector<int> result;
     for (int i = 0; i < numbers.size(); i++) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
