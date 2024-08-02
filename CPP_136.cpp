@@ -1,7 +1,3 @@
-bool issame(int a, int b) {
-    return (a == 0 && b == 0) || (a != 0 && b != 0);
-}
-
 vector<int> largest_smallest_integers(vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
@@ -15,5 +11,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {issame(maxNeg, 0) ? 0 : maxNeg, issame(minPos, INT_MAX) ? 0 : minPos};
+    return std::make_pair((maxNeg == 0 ? 0 : maxNeg), (minPos == INT_MAX ? 0 : minPos));
 }
