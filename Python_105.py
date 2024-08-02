@@ -1,8 +1,14 @@
-Here is the completed code:
-
 def by_length(arr):
-    return [naming(i) for i in sorted([i for i in arr if 1 <= i <= 9])][::-1]
-
-def naming(i):
-    names = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
-    return names[i-1]
+    names = {
+        1: "One",
+        2: "Two",
+        3: "Three",
+        4: "Four",
+        5: "Five",
+        6: "Six",
+        7: "Seven",
+        8: "Eight",
+        9: "Nine",
+    }
+    result = sorted([i for i in arr if 1 <= i <= 9])
+    return [names[i] for i in reversed(result)]
