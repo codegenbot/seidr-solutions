@@ -3,17 +3,10 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        for i in range(len(string)):
-            postfix = string[i:]
-            if is_palindrome(postfix):
-                return string + "#" * (len(string) - len(postfix)) + postfix[::-1]
-    else:
-        for i in range(len(string)):
-            postfix = string[i:].lower()
-            if is_palindrome(postfix):
-                return (
-                    string[0].upper()
-                    + "#" * (len(string) - len(postfix))
-                    + postfix[::-1].capitalize()
-                )
+    s = string.lower()
+    for i in range(len(s), 0, -1):
+        if not is_palindrome(s[:i]):
+            break
+    suffix = s[:i][::-1]
+    prefix = s[i:][::-1]
+    return string + suffix + prefix
