@@ -7,7 +7,13 @@ bool issame(vector<float>, vector<float>);
 
 int main() {
     vector<float> numbers;
-    // your code here
+    // input your data here
+    for (float num : {1.0, 2.0, 3.0, 4.0, 5.0}) {
+        numbers.push_back(num);
+    }
+    
+    vector<float> result = find_closest_elements(numbers);
+    return 0;
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
