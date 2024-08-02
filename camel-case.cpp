@@ -1,25 +1,33 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
+using namespace std;
+
+string toCamelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && isspace(s[i])) i++;
-            if (i < s.length()) {
-                if (!result.empty()) {
-                    result += char(toupper(s[i]));
-                } else {
-                    result = toupper(s[i]) + "";
-                }
+    size_t pos = 0;
+    while (pos < s.length()) {
+        if (s[pos] == '-') {
+            pos++;
+            while (pos < s.length() && s[pos] != ' ') {
+                pos++;
             }
-        } else if (!isspace(s[i])) {
-            if (!result.empty() && !isspace(result.back())) {
-                result += char(toupper(s[i]));
-            } else {
-                result += tolower(s[i]);
-            }
+        } else if (s[pos] == ' ') {
+            pos++;
+            continue;
         }
+        result += toupper(s[pos]);
+        pos++;
     }
     return result;
+}
+
+int main() {
+    string input;
+    while (true) {
+        cin >> input;
+        cout << toCamelCase(input) << endl;
+    }
+    return 0;
 }
