@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
 #include <any>
-#include <boost/any.hpp>
 
+// Define the issame function here
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -17,6 +16,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
+// Define the filter_integers function here
 std::vector<int> filter_integers(const std::list<std::any>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
@@ -25,6 +25,7 @@ std::vector<int> filter_integers(const std::list<std::any>& values) {
         }
     }
     return result;
+}
 
 int main() {
     assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
