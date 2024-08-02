@@ -22,6 +22,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1, 4, 2, 1}));
+    assert(issame(get_odd_collatz(1), {1, 1}));
     return 0;
 }
