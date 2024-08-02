@@ -1,6 +1,6 @@
 #include <string>
 
-string solve(string s){
+string solve(string s) {
     string result = "";
     for(int i=0; i<s.size(); i++){
         if(isalpha(s[i])){
