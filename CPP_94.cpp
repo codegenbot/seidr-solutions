@@ -1,4 +1,4 @@
-```
+```cpp
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int i : lst){
