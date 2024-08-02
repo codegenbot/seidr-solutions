@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-// Function prototype declaration (assuming string_to_md5 function exists)
 std::string string_to_md5(const std::string& text);
 
 int main() {
