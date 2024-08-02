@@ -27,11 +27,11 @@ int bowlingScore(std::string bowls) {
                         x = bowls[i] - '0';
                         break;
                     } else {
-                        x = 10 - 10;
+                        x = 10;
                         i++;
                     }
                 } else {
-                    x = 10 - 10;
+                    x = 10;
                 }
             }
             score += x;
