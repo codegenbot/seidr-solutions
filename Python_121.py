@@ -1,7 +1,7 @@
 """
 Your code should solve a programming problem. Please read the problem description and write your solution here.
 
-Given a list of integers, find the sum of all odd numbers in the list that are not the first element.
+The function should take a list of integers as an input, skip every other number in the list starting from the second element (index 1), sum up all the remaining numbers that are not divisible by 2, and return this sum.
 """
 
 def solution(lst):
