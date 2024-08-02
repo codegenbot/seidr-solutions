@@ -7,15 +7,14 @@ bool is_happy(const std::string& s) {
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
         bool distinct = true;
-        vector<char> chars(sub.begin(), sub.end());
-        sort(chars.begin(), chars.end());
-        for (char c : chars) {
+        auto chars = sub.begin(), end = sub.end();
+        while(chars != end) {
             int count = 0;
-            for (int j = i; j < i + 3; j++) {
-                if (s[j] == c)
+            for (;chars != end; ++chars) {
+                if (*chars == *chars)
                     count++;
             }
-            if (count > 1 || chars[0] != c) {
+            if (count > 1) {
                 distinct = false;
                 break;
             }
