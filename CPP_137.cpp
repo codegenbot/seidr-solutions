@@ -1,6 +1,5 @@
 #include <any>
 #include <string>
-#include <typeinfo>
 #include <cassert>
 
 template <typename T>
@@ -24,8 +23,8 @@ std::any compare(std::any a, std::any b) {
     }
     return "None";
 }
-
+    
 int main() {
-    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(compare_one<std::string>("1", "1")) == "None");
     return 0;
 }
