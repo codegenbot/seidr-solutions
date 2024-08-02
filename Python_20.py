@@ -1,8 +1,9 @@
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    assert isinstance(numbers, list) and all(isinstance(num, float) for num in numbers), "Input must be a list of float numbers"
-    
+    if not all(isinstance(num, float) for num in numbers):
+        raise ValueError("Input list must only contain float numbers")
+
     numbers.sort()
     min_diff = float("inf")
     result = (0.0, 0.0)
