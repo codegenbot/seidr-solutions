@@ -1,18 +1,8 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2){
-    if(v1.size() != v2.size()) {
-        return false;
-    }
-
-    for(size_t i = 0; i < v1.size(); ++i) {
-        if(v1[i] != v2[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> f(int n) {
@@ -32,15 +22,15 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    int n = 5; // Example input
-    std::vector<int> output = f(n);
-    for (int num : output) {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> result = f(n);
+
+    for (int num : result) {
         std::cout << num << " ";
     }
-
-    std::vector<int> test1 = {1, 3, 3, 15, 15}; // Example comparison vector
-    bool isSame = issame(output, test1);
-    std::cout << std::endl << "Is the output same as the test vector? " << std::boolalpha << isSame;
+    std::cout << std::endl;
 
     return 0;
 }
