@@ -5,19 +5,19 @@ def minPath(grid, k):
     visited = {(start[0], start[1])}
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
+    next_cell = (0, 0)  
     while len(path) < k:
         min_val = float("inf")
-        next_cell = None
         for dx, dy in directions:
             x, y = start[0] + dx, start[1] + dy
             if 0 <= x < n and 0 <= y < n and (x, y) not in visited:
                 if grid[x][y] < min_val:
                     min_val = grid[x][y]
                     next_cell = (x, y)
-        
-        if next_cell is not None:
-            start = next_cell
-            path.append(grid[start[0]][start[1]])
-            visited.add((start[0], start[1]))
+        if next_cell is None:  
+            break
+        start = next_cell
+        path.append(grid[start[0]][start[1]])
+        visited.add((start[0], start[1]))
 
     return path
