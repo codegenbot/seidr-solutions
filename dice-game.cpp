@@ -1,10 +1,14 @@
-Here is the solution:
+Here is the completed code:
 
-double diceGame(int n, int m) {
-    if (n <= 1 || m <= 1) return 0.0;
-    double count = 0;
-    for (int i = 2; i <= n; i++) {
-        count += 1.0 / (n * m);
-    }
-    return count;
+double probability(int n, int m) {
+    double total = (double)n * m;
+    return (n - 1) / total;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(4);
+    cout << probability(n, m) << endl;
+    return 0;
 }
