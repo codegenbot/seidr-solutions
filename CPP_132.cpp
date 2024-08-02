@@ -1,12 +1,15 @@
-bool is_nested(string str) {
-    int count = 0;
-    for (char c : str) {
+int is_nested(const std::string& str) {
+    int count_open = 0, count_close = 0;
+
+    for (char c : std::vector<char>(str.begin(), str.end())) { 
         if (c == '[') {
-            count++;
+            count_open++;
+            count_close = 0;
         } else if (c == ']') {
-            if (count > 1) return true;
-            count--;
+            count_close++;
+            if (count_open <= count_close) return false; 
+            count_open--;
         }
     }
-    return false;
+    return count_open > 0;
 }
