@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -14,7 +15,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i : sortedArr) {
         switch (i) {
             case 1:
@@ -51,5 +52,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
 int main() {
     assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    // Other assertions or operations can be performed here.
 }
