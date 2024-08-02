@@ -1,3 +1,4 @@
 ```
 def remove_vowels(text):
-    return ''.join(c for c in text if c.lower() not in 'aeiou')
+    vowels = 'aeiouAEIOU'
+    return ''.join([char for char in text if char not in vowels])
