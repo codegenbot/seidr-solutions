@@ -1,10 +1,10 @@
-int getFuelCost(vector<int> vec) {
+#include <vector>
+
+int calculateFuelCost(vector<int> prices) {
     int total = 0;
-    for (int i : vec) {
-        if (i % 3 == 0)
-            total += ((i / 3) - 2);
-        else
-            total += ((i / 3) - 1);
+    for (int price : prices) {
+        int newPrice = floor((double)price / 3 - 2);
+        total += newPrice;
     }
     return total;
 }
