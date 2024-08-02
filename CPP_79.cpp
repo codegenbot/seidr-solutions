@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0) {
