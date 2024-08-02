@@ -4,13 +4,13 @@
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     bool capitalize = true;
     for (char c : input) {
         if (c == '-') {
             capitalize = true;
         } else if (c != ' ') {
-            std::cout << (capitalize && c != ' ' ? (char)toupper(c) : (char)tolower(c));
+            std::cout << (capitalize ? (char)toupper(c) : tolower(c));
             capitalize = false;
         }
         if (c == ' ') {
@@ -18,6 +18,6 @@ int main() {
             std::cout << " ";
         }
     }
-    
+
     return 0;
 }
