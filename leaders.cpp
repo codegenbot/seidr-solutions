@@ -1,11 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Include for INT_MIN
+#include <climits>
 
 std::vector<int> findLeaders(const std::vector<int>& nums);
 
 int main() {
-    // Code remains the same as before
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
+    std::vector<int> leaders = findLeaders(nums);
+
+    std::cout << "Leaders: ";
+    for (int leader : leaders) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
