@@ -1,3 +1,4 @@
+````
 // Complete the following code given the task description and function signature.
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -14,3 +15,4 @@ bool check_dict_case(map<string, string> dict) {
     }
     return allLower || allUpper;
 }
+```
