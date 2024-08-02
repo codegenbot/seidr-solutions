@@ -1,22 +1,27 @@
-string solve(const string &s) {
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+    
+std::string solve(std::string s) {
+    bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+            hasLetter = true;
+            if (islower(c)) {
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+    if (!hasLetter) {
         reverse(s.begin(), s.end());
     }
-    
     return s;
 }
+
 int main() {
-    // Add necessary #include statements here
-    
-    // Test the solve function with input
-    string input = "AbC123Def";
-    cout << solve(input) << endl;
-    
+    assert(solve("#ccc") == "#CCC");
     return 0;
 }
