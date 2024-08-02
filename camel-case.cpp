@@ -1,29 +1,35 @@
-Here is the solution:
-
 #include <iostream>
-using namespace std;
+#include <string>
 
-string camelCase(string str) {
-    string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            result += toupper(str[i + 1]);
-            i++;
-        } else if (result != "" && !isSpace(str[i])) {
-            result += tolower(str[i]);
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool capitalize = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
+        } else {
+            result += tolower(c);
         }
     }
+
     return result;
 }
 
-bool isSpace(char ch) {
-    return ch == ' ';
-}
-
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << camelCase(str) << endl;
+    std::string input;
+
+    while (true) {
+        std::cout << "Enter a string in kebab-case: ";
+        std::getline(std::cin, input);
+        if (input == "nospaceordash") {
+            break;
+        }
+        std::cout << camelCase(input) << std::endl;
     }
+
     return 0;
 }
