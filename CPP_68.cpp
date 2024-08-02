@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -6,7 +7,6 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    
     if (arr.empty()) {
         return {{}, 0};
     }
@@ -26,7 +26,10 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     return result;
 }
 
-vector<pair<int, int>> res = pluck({4, 2, 3});
-for (auto p : res) {
-    cout << p.first << " " << p.second << endl;
+int main() {
+    vector<int> arr = {4, 2, 3};
+    vector<pair<int, int>> res = pluck(arr);
+    for (auto p : res) {
+        cout << p.first << " " << p.second << endl;
+    }
 }
