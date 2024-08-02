@@ -1,10 +1,22 @@
-Here is the completed code:
+#include<stdio.h>
+#include<vector>
+using namespace std;
+vector<int> largest_smallest_integers(vector<int> lst){
+    vector<int> result(2);
+    int max_negative = 0;
+    int min_positive = INT_MAX;
 
-vector<int> largest_smallest_integers(vector<int> lst) {
-    int a = 0, b = INT_MAX;
-    for (int x : lst) {
-        if (x < 0 && x > a) a = x;
-        if (x > 0 && x < b) b = x;
+    for(int i : lst){
+        if(i < 0 && i > max_negative){
+            max_negative = i;
+        }
+        else if(i > 0 && i < min_positive){
+            min_positive = i;
+        }
     }
-    return {(a >= 0) ? 0 : a, (b <= 0) ? 0 : b};
+
+    result[0] = (max_negative == 0) ? 0 : max_negative;
+    result[1] = (min_positive == INT_MAX) ? 0 : min_positive;
+
+    return result;
 }
