@@ -1,16 +1,16 @@
+#include <vector>
 #include <algorithm>
-using namespace std;
-
-vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_element(l.begin(), l.end()));
-    return result;
-}
 
 int main() {
-    vector<int> numbers = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result = unique(numbers);
-    for (auto i : result) {
-        printf("%d ", i);
+    bool same(vector<int> a, vector<int> b) {
+        return a == b;
     }
+    vector<int> unique(vector<int> l) {
+        vector<int> result = l;
+        sort(result.begin(), result.end());
+        result.erase(unique(result.begin(), result.end()), result.end());
+        return result;
+    }
+    assert(same(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}) , {0, 2, 3, 5,9, 123}));
     return 0;
 }
