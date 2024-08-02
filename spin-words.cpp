@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -19,11 +18,10 @@ std::string spinWords(std::string input) {
     output += word;
 
     for (int i = 0; i <= output.length(); i++) {
-        if (output[i] == ' ' && i < output.length() - 4) {
-            std::string temp = output.substr(i + 1, 5);
+        if (output[i] == ' ' && i + 1 < output.length() && (i+1) >= 5) {
+            std::string temp = output.substr(i + 1);
             std::reverse(temp.rbegin(), temp.rend());
-            output.replace(i + 1, 5, temp);
-            i += 4;
+            output.replace(i + 1, temp.length(), temp);
         }
     }
 
