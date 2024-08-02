@@ -1,15 +1,11 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    int sum_digits_a = 0, sum_digits_b = 0;
-    for (auto num : a) {
-        sum_digits_a += abs(num) % 10;
-    }
-    for (auto num : b) {
-        sum_digits_b += abs(num) % 10;
-    }
-    return sum_digits_a == sum_digits_b;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -30,4 +26,9 @@ vector<int> order_by_points(vector<int> nums) {
         return sum_digits_a < sum_digits_b;
     });
     return nums;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
