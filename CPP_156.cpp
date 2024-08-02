@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <utility>
 #include <iostream>
 #include <cassert>
 
@@ -19,4 +20,9 @@ std::string int_to_mini_roman(int number){
     }
 
     return roman;
+}
+
+int main() {
+    assert(int_to_mini_roman(1000) == "m");
+    return 0;
 }
