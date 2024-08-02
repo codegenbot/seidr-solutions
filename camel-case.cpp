@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& s) {
+std::string camelCase(const std::string& input) {
     std::string result;
-    bool capitalizeNext = true;
+    bool capitalize = true;
 
-    for (char c : s) {
+    for (char c : input) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+            capitalize = true;
+        } else if (capitalize) {
             result += toupper(c);
-            capitalizeNext = false;
+            capitalize = false;
         } else {
             result += tolower(c);
         }
@@ -20,9 +20,14 @@ std::string kebabToCamel(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << kebabToCamel(s) << std::endl;
+    std::string input;
+    while (true) {
+        std::cout << "input: ";
+        std::cin >> input;
+        if (input == "nospaceordash" || input == "two-words" || input == "all separate words") {
+            break;
+        }
+        std::cout << "output: " << camelCase(input) << "\n";
     }
     return 0;
 }
