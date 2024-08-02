@@ -1,19 +1,25 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst);
-
-int main() {
-    std::vector<float> lst; 
-    return 0;
-}
-
-long long double_the_difference(vector<float> lst){
+long long double_the_difference(const std::vector<int>& lst) {
     long long sum = 0;
-    for(auto x : lst) {
-        if(int(x) > 0 && int(x) == round(x)) {
-            sum += pow(int(x), 2);
+    for (int num : lst) {
+        if (num > 0) {
+            sum += pow(num, 2);
         }
     }
     return sum;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> lst(n);
+    for (int& x : lst) {
+        std::cin >> x;
+    }
+    long long result = double_the_difference(lst);
+    std::cout << result << std::endl;
+    return 0;
 }
