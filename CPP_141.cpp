@@ -1,11 +1,14 @@
-string file_name_check(string file_name) {
+#include <string>
+#include <cassert>
+
+std::string file_name_check(std::string file_name) {
     int dot_pos = file_name.find(".");
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.length() - 1) {
+    if (dot_pos == std::string::npos || dot_pos == 0 || dot_pos == file_name.length() - 1) {
         return "No";
     }
 
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
+    std::string before_dot = file_name.substr(0, dot_pos);
+    std::string after_dot = file_name.substr(dot_pos + 1);
 
     int digit_count = 0;
     for (char c : before_dot) {
@@ -29,4 +32,9 @@ string file_name_check(string file_name) {
     }
 
     return "Yes";
+}
+
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
 }
