@@ -1,27 +1,28 @@
 #include <vector>
 
 namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b){
+    bool issame(std::vector<int> a, std::vector<int> b) {
         return a == b;
     }
 
     std::vector<int> pluck(std::vector<int> arr);
 
-    std::vector<int> pluck(std::vector<int> arr){
-        int smallestEven = -1;
-        int smallestEvenIndex = -1;
+}
 
-        for(int i = 0; i < arr.size(); i++) {
-            if(arr[i] % 2 == 0 && (smallestEven == -1 || arr[i] < smallestEven)) {
-                smallestEven = arr[i];
-                smallestEvenIndex = i;
-            }
-        }
+std::vector<int> std::pluck(std::vector<int> arr) {
+    int smallestEven = -1;
+    int smallestEvenIndex = -1;
 
-        if(smallestEvenIndex == -1) {
-            return {};
-        } else {
-            return {smallestEven};
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && (smallestEven == -1 || arr[i] < smallestEven)) {
+            smallestEven = arr[i];
+            smallestEvenIndex = i;
         }
+    }
+
+    if (smallestEvenIndex == -1) {
+        return {};
+    } else {
+        return { smallestEven };
     }
 }
