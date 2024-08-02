@@ -6,7 +6,7 @@
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (std::any_cast<int>(a[i]) != std::any_cast<int>(b[i])) return false;
     }
     return true;
 }
