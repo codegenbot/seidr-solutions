@@ -20,6 +20,10 @@ string get_closest_vowel(string word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    // Add more test cases here
+    assert(get_closest_vowel("Hello") == "o");
+    assert(get_closest_vowel("Algorithm") == "i");
+    assert(get_closest_vowel("Laptop") == "o");
+    assert(get_closest_vowel("Bye") == "y");
+    
     return 0;
 }
