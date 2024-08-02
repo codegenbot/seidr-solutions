@@ -1,28 +1,15 @@
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> result;
+std::vector<int> leaders(const std::vector<int>& nums) {
+    int rightmost = nums.back();
+    std::vector<int> leaders;
     
-    // rightmost element is always a leader
-    if(n > 0) {
-        result.push_back(arr[n-1]);
-    }
-    
-    for(int i = n - 2; i >= 0; --i) {
-        bool leaderFound = false;
-        for(int j = i+1; j < n; ++j) {
-            if(arr[j] >= arr[i]) {
-                leaderFound = true;
-                break;
-            }
-        }
-        
-        if(leaderFound) {
-            result.push_back(arr[i]);
+    for (int i = nums.size() - 2; i >= 0; --i) {
+        if (nums[i] >= rightmost) {
+            leaders.push_back(nums[i]);
+            rightmost = nums[i];
         }
     }
     
-    return result;
+    return leaders;
 }
