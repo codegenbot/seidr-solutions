@@ -1,3 +1,4 @@
+```
 #include <vector>
 using namespace std;
 
@@ -27,7 +28,7 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    for (int num : result[1]) {
+    for(int num : result[1]) {
         cout << num << " ";
     }
     cout << endl;
