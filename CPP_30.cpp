@@ -1,10 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a, vector<vector<float>> b) {
-    if (a.size() != b.size()) return false;
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (!std::equal(a[i].begin(), a[i].end(), b[i].begin())) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
