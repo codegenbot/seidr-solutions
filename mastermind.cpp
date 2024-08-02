@@ -16,7 +16,7 @@ int getWhitePegs(const std::string& code, const std::string& guess) {
 int getBlackPegs(const std::string& code, const std::string& guess) {
     int blackPegs = 0;
     for (char c : code) {
-        if (std::find(guess.begin(), guess.end(), c) != guess.end()) {
+        if (c == guess[0]) {
             blackPegs++;
         }
     }
@@ -30,4 +30,3 @@ int main() {
     int blackPegs = getBlackPegs(code, guess);
     std::cout << whitePegs << "\n" << blackPegs << "\n";
     return 0;
-}
