@@ -5,6 +5,11 @@
 #include <utility>
 #include <cassert>
 
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return fabs(a[0] - b[0]) < std::numeric_limits<float>::epsilon() &&
+           fabs(a[1] - b[1]) < std::numeric_limits<float>::epsilon();
+}
+
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     std::vector<float> sorted_numbers = numbers;
     std::sort(sorted_numbers.begin(), sorted_numbers.end());
@@ -15,7 +20,7 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
             min_diff = sorted_numbers[i + 1] - sorted_numbers[i];
             num1 = sorted_numbers[i];
             num2 = sorted_numbers[i + 1];
-        } else if (sorted_numbers[i + 1] - sorted_numbers[i] == min_diff) {
+        } else if (issame({sorted_numbers[i], sorted_numbers[i + 1]}, {num1, num2})) {
             if (sorted_numbers[i] < num1) {
                 num1 = sorted_numbers[i];
                 num2 = sorted_numbers[i + 1];
@@ -25,7 +30,4 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     return {num1, num2};
 }
 
-int main() {
-    auto result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    assert(result.first == 2.2 && result.second == 3.1);
-}
+assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
