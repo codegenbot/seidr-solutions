@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
+```
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -44,20 +45,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     else {
         return b;
     }
-}
-
-int main() {
-    boost::any a = 10; // any number
-    boost::any b = "hello"; // any string
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(string)) {
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    }
-    else {
-        cout << "The result is: " << boost::any_cast<int>(result) << endl;
-    }
-
-    return 0;
 }
