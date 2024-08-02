@@ -35,6 +35,6 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
             maxRight = nums[i];
         }
     }
-    std::copy(leaders.begin(), leaders.end(), std::back_inserter(leaders));
+    std::copy(leaders.rbegin() + 1, leaders.rend(), std::back_inserter(leaders));
     return leaders;
 }
