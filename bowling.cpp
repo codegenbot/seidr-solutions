@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int bowlingScore(string s) {
@@ -19,8 +20,11 @@ int bowlingScore(string s) {
             score += frameScore;
             rolls++;
         } else if (s[i] == '/') {
-            int nextRoll = s[++i] - '0';
-            score += nextRoll;
+            int leftRoll = 10 - (s[i - 1] - '0');
+            int rightRoll = 10 - (s[i + 1] - '0');
+
+            score += leftRoll + rightRoll;
+            i++;
             rolls++;
         }
 
