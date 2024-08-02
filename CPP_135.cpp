@@ -5,10 +5,8 @@ int can_arrange(vector<int> arr){
             return i;
     }
     return -1;
-
 }
 
 int main(){
     assert(can_arrange({}) == -1);
-    // ... your code here
 }
