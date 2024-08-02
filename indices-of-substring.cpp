@@ -8,16 +8,15 @@ int main() {
     getline(cin, text);
     getline(cin, target);
     vector<int> indices;
-    
+
     if (target.empty()) {
-        for (int i = 0; i < text.length() + 1; ++i) {
+        cout << endl;
+        return 0;
+    }
+
+    for (size_t i = 0; i <= text.length() - target.length() + 1; ++i) {
+        if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
-        }
-    } else {
-        for (size_t i = 0; i <= text.length() - target.length() + 1; ++i) {
-            if (text.substr(i, target.length()) == target) {
-                indices.push_back(i);
-            }
         }
     }
 
@@ -25,5 +24,6 @@ int main() {
         cout << index << " ";
     }
     cout << endl;
+
     return 0;
 }
