@@ -1,13 +1,21 @@
+#include <algorithm>
+using namespace std;
+
 vector<float> sort_even(vector<float> l) {
-    vector<float> result;
+    vector<float> l_prime;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evenIndices = vector<float>(l.begin() + i, l.begin() + i + 1);
-            sort(evenIndices.begin(), evenIndices.end());
-            result.push_back(evenIndices[0]);
+            // even indices, sort the values
+            vector<float> temp;
+            for (int j = 0; j < l.size(); j++)
+                if (j % 2 == 0)
+                    temp.push_back(l[j]);
+            sort(temp.begin(), temp.end());
+            l_prime.push_back(temp[0]);
         } else {
-            result.push_back(l[i]);
+            // odd indices, keep the values as is
+            l_prime.push_back(l[i]);
         }
     }
-    return result;
+    return l_prime;
 }
