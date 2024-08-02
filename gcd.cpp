@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int n = text.size();
