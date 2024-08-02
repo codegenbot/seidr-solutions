@@ -3,10 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-std::pair<std::string, bool> issame(std::string a, std::string b) {
+std::pair<std::string, bool> isPalindrome(std::vector<std::string> a, std::vector<std::string> b) {
     std::string result = "";
-    for (auto ch : a) {
-        if (b.find(ch) == std::string::npos) {
+    for(auto ch : a[0]){
+        if(b[0].find(ch) == std::string::npos){
             result += ch;
         }
     }
@@ -16,7 +16,6 @@ std::pair<std::string, bool> issame(std::string a, std::string b) {
 }
 
 int main() {
-    assert(issame("mamma", "mia") == std::make_pair("", true));
-    
+    assert(isPalindrome({"mamma"}, {"mia"}) == std::make_pair("", true));
     return 0;
 }
