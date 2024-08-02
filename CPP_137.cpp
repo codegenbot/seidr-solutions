@@ -1,7 +1,7 @@
 #include <any>
 #include <string>
 #include <typeinfo>
-#include <cassert>  
+#include <cassert>
 
 template <typename T>
 std::any compare_one(T a, T b) {
@@ -22,7 +22,7 @@ std::any compare(std::any a, std::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return std::any("None");  
+    return std::any("None");
 }
 
 int main() {
