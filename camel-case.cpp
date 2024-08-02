@@ -1,38 +1,35 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words = split(str, " ");
-    std::string result;
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += std::string(1, char(std::toupper(word[0])));
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') i++;
+            if (result.length() > 0) result += char(toupper(s[i]));
+            else result += tolower(s[i]);
+        } else if (s[i] == ' ') {
+            if (result.length() > 0) result += char(toupper(s[i+1]));
+            else result += s[i];
         } else {
-            result += word;
-        }
-        for (int i = 1; i < word.size(); ++i) {
-            result += std::string(1, char(std::tolower(word[i])));
+            if (i == 0 || s[i-1] == '-') result = tolower(s[i]);
+            else if (isupper(s[i])) result += char(tolower(s[i]));
+            else result += s[i];
         }
     }
     return result;
 }
 
-std::vector<std::string> split(const std::string& str, const std::string& delimiter) {
-    size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.size());
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
 int main() {
-    std::cout << kebabToCamel("nospaceordash") << std::endl;
-    std::cout << kebabToCamel("two-words") << std::endl;
-    std::cout << kebabToCamel("two words") << std::endl;
-    std::cout << kebabToCamel("all separate words") << std::endl;
+    string s;
+    while (true) {
+        cout << "Enter a string in kebab-case: ";
+        cin >> s;
+        cout << "camelCase: " << camelCase(s) << endl;
+    }
     return 0;
 }
