@@ -13,11 +13,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-#include <algorithm>
-#include <iostream>
-#include <string>
-#include <vector>
-
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
     std::string current_group;
