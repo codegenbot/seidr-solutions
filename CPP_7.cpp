@@ -1,3 +1,4 @@
+```cpp
 vector<vector<string>> issame(vector<string> a, string substring){
     vector<vector<string>> result;
     for (const auto& s : a) {
