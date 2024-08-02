@@ -1,11 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
+using namespace std;
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
     if (!is_palindrome(str)) return false;
     int sum = 0;
@@ -15,9 +16,9 @@ bool will_it_fly(std::vector<int> q, int w) {
     return sum <= w;
 }
 
-bool is_palindrome(std::string s) {
-    std::string rev = s;
-    std::reverse(rev.begin(), rev.end());
+bool is_palindrome(string s) {
+    string rev = s;
+    reverse(rev.begin(), rev.end());
     return s == rev;
 }
 
