@@ -11,8 +11,6 @@ int main() {
     }
 
     std::vector<float> discounts(n);
-    std::vector<float> totals(n);
-
     for (int i = 0; i < n; ++i) {
         std::cin >> discounts[i];
     }
