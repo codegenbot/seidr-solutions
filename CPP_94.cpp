@@ -28,11 +28,10 @@ int main() {
 
     vector<int> lst;
     int num;
-    cout << "Enter numbers to find the sum of their digits (type -1 to stop entering numbers):" << endl;
-    while ((cin >> num) && (num != -1)) {
+    cout << "Enter numbers separated by space: ";
+    while ((cin >> num)) {
         lst.push_back(num);
     }
-    cout << "The sum of the digits is: " << skjkasdkd(lst) << endl;
-
+    cout << "Sum of last digits of prime numbers is: " << skjkasdkd(lst) << endl;
     return 0;
 }
