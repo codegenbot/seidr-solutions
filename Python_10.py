@@ -1,9 +1,11 @@
 ```
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
 def make_palindrome(string: str) -> str:
-    s = string.lower()
-    for i in range(len(s), 0, -1):
-        if not is_palindrome(s[:i]):
-            break
-    suffix = s[i-1::-1]
-    prefix = s[1:i][::-1] + s[0]
-    return prefix + s + suffix
+    if string == string[::-1]:
+        return string + string[::-1]
+    for i in range(len(string)):
+        if string[:i+1] == string[:i+1][::-1]:
+            return string[:i+1] + string[i:][::-1]
+    return string + string[::-1]
