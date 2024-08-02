@@ -1,22 +1,20 @@
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(vector<string> lst1,vector<string> lst2){
     vector<string> result;
-    int count1 = 0, count2 = 0;
+    int sum1 = 0, sum2 = 0;
 
-    for (const string& s : lst1) {
-        count1 += s.size();
-    }
-    for (const string& s : lst2) {
-        count2 += s.size();
+    for (const auto &str : lst1) {
+        sum1 += str.length();
     }
 
-    if (count1 < count2) {
+    for (const auto &str : lst2) {
+        sum2 += str.length();
+    }
+
+    if (sum1 < sum2) {
         return lst1;
-    } else if (count1 > count2) {
+    } else if (sum1 > sum2) {
         return lst2;
     } else {
-        if (&lst1 != &lst2) { // check if they are the same vector
-            return lst1; // if not, return the first one
-        }
-        return result; // if they are the same, just return an empty vector
+        return lst1;
     }
 }
