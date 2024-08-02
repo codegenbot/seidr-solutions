@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
-
 using namespace std;
 
 int main() {
-    double n;
+    int n;
     cin >> n;
     vector<double> vec1(n);
     vector<double> vec2(n);
@@ -20,7 +18,8 @@ int main() {
         distance += diff * diff;
     }
     distance = sqrt(distance);
-    cout << fixed << setprecision(13) << distance << endl;
+    cout.precision(14); // Set the decimal precision to avoid truncation
+    cout << fixed << distance << endl;
 
     return 0;
 }
