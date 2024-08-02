@@ -11,7 +11,7 @@ int main() {
     }
 
     std::vector<float> discounts(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i <= n; ++i) {
         std::cin >> discounts[i];
     }
 
