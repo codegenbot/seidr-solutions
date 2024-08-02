@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
@@ -14,7 +20,7 @@ bool solveBoolean(string s) {
         if(s[j] == '&') break;
         j++;
     }
-    string right = (s.length() > j) ? s.substr(j) : ""; 
+    string right = (s.length() > j) ? s.substr(j) : "";
 
     return solveBoolean(left) || solveBoolean(right);
 }
