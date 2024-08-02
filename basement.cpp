@@ -1,12 +1,12 @@
 #include <vector>
-using namespace std;
 
-int basementIndex(vector<int> arr) {
-    int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
-        if (sum < 0)
-            return i;
+int firstNegative(vector<int> &numbers) {
+    for (int i = 0; i < numbers.size(); ++i) {
+        int sum = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum += numbers[j];
+            if (sum < 0) return j;
+        }
     }
-    return -1; // Return -1 as the input does not contain a basement.
+    return -1;
 }
