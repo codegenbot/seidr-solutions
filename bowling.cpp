@@ -1,25 +1,30 @@
-```
 using namespace std;
 
-int bowlingScore(string& s) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (s[i] == '/') {
-            score += 10 + (s[i+1] - '0');
-            i++;
-        } else {
-            int sum = s[i] - '0';
-            if (i < 8 && s[i+1] != '/') {
-                sum += s[i+1] - '0';
-            }
-            if (sum == 10) {
-                score += 10;
+    int currentRoll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (currentRoll < 2) {
+                score += min(10, currentRoll);
+                currentRoll = 0;
             } else {
-                score += sum;
+                score += sumOfLastTwo(currentRoll);
+                currentRoll = 0;
             }
+        } else if (isdigit(c)) {
+            currentRoll *= 10;
+            currentRoll += c - '0';
         }
     }
+    if (currentRoll > 0) {
+        score += min(10, currentRoll);
+    } else if (currentRoll < 2) {
+        score += sumOfLastTwo(currentRoll);
+    }
     return score;
+}
+
+int sumOfLastTwo(int x) {
+    return x + (10 - x);
 }
