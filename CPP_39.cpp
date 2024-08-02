@@ -3,12 +3,15 @@
 using namespace std;
 
 int prime_fib(int n) {
-    int a = 0, b = 1;
-    for (int i = 2; ; i++) {
-        int fib = a + b;
-        if (fib > n) return i;
+    int fib = 0, a = 1, b = 1;
+    for (int i = 1; ; i++) {
+        if (i == n) {
+            return fib;
+        }
+        fib = a + b;
+        int temp = a;
         a = b;
-        b = fib;
+        b = temp + fib;
         bool isPrime = true;
         for (int j = 2; j * j <= fib; j++) {
             if (fib % j == 0) {
@@ -16,14 +19,17 @@ int prime_fib(int n) {
                 break;
             }
         }
-        if (!isPrime) continue;
-        return i;
+        if (!isPrime) {
+            a = b;
+            b = temp + fib;
+        }
     }
 }
 
 int main() {
     int n;
+    cout << "Enter the number: ";
     cin >> n;
-    cout << prime_fib(n) << endl;
+    cout << "The " << n << "th number that is a Fibonacci number and it's also prime is: " << prime_fib(n) << endl;
     return 0;
 }
