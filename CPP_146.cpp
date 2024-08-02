@@ -20,6 +20,5 @@ int main() {
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The count of numbers that satisfy the condition is: " << result << std::endl;
     return 0;
 }
