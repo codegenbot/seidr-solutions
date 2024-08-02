@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -7,10 +6,10 @@ bool issame(vector<string> a, vector<string> b) {
     return sort(a.begin(), a.end()) == sort(b.begin(), b.end());
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
+    vector<vector<string>> result;
     for(auto str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        if(find_if(str.begin(), str.end(), [substring](string s){ return s.find(substring) != string::npos; }) != str.end()) {
             result.push_back(str);
         }
     }
