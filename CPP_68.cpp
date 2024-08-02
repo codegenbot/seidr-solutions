@@ -1,3 +1,9 @@
+#include <vector>
+
+bool issame(int a, int b){
+    return a == b;
+}
+
 vector<int> pluck(vector<int> arr){
     int smallestEven = -1;
     int smallestEvenIndex = -1;
