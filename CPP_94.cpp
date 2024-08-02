@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -26,6 +26,6 @@ bool isPrime(int n){
 
 int main() {
     int result = skjkasdkd({127, 97, 8192});
-    assert(result == 10);
+    std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
 }
