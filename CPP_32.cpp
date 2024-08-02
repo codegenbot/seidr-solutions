@@ -1,12 +1,25 @@
-double find_zero(vector<double> xs){
-    double left = 1e9;
-    double right = -1e9;
-    
-    for(int i = 0; i < xs.size(); i++){
-        if(i % 2 == 0) continue;
-        right = min(right, xs[i] / (double)i);
-        left = max(left, -xs[i] / (double)i);
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        sum+=xs[i]*pow(x,i);
     }
-    
-    return (left + right) / 2.0;
+    return sum;
+}
+
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1.0; // If the number of coefficients is odd, there's no root
+    double max_coeff = 0;
+    for(int i = 0; i < xs.size(); i++){
+        if(abs(xs[i]) > abs(max_coeff)){
+            max_coeff = xs[i];
+        }
+    }
+    return -max_coeff;
 }
