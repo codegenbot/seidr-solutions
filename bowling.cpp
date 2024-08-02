@@ -21,13 +21,13 @@ int score(string s) {
             scores[ball++] = c - '0';
         }
     }
-    
+
     if (scores[20] == 10 || (scores[20] + scores[21] == 10 && s.size() > 20)) {
         total += scores[20] + scores[21] + scores[22];
     } else {
         total += scores[20] + scores[21];
     }
-    
+
     for (int i = 0; i < 10; i++) {
         if (scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 1] + scores[i * 2 + 2];
@@ -40,7 +40,7 @@ int score(string s) {
             total += scores[i * 2] + scores[i * 2 + 1];
         }
     }
-    
+
     return total;
 }
 
