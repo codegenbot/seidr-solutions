@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int main() {
     std::string input;
@@ -10,8 +11,7 @@ int main() {
         if (c == '-' || c == ' ') {
             capitalize = true;
         } else {
-            if (capitalize) c = std::toupper(c);
-            else c = std::tolower(c);
+            c = (capitalize) ? c : std::toupper(c);
             capitalize = false;
         }
     }
