@@ -1,32 +1,50 @@
-```cpp
 #include <boost/any.hpp>
-using namespace boost;
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b.convert_to<float>() ? a : boost::any("None");
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return boost::any(max(get<string>(a), get<string>(b)));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        return boost::any(max(get<double>(b), get<double>(a)));
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int aInt = get<int>(a);
+        int bInt = get<int>(b);
+        if (aInt > bInt)
+            return a;
+        else if (aInt < bInt)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double aDouble = get<double>(a);
+        double bDouble = get<double>(b);
+        if (aDouble > bDouble)
+            return a;
+        else if (aDouble < bDouble)
+            return b;
+        else
+            return boost::any("None");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return b.convert_to<string>() > a.convert_to<string>() ? b : (b.convert_to<string>() == a.convert_to<string>() ? boost::any("") : b);
+        string aString = get<string>(a);
+        string bString = get<string>(b);
+        if (aString > bString)
+            return a;
+        else if (aString < bString)
+            return b;
+        else
+            return boost::any("None");
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        float fa = (float)a.convert_to<int>();
-        return fa > std::stof(b.convert_to<string>()) ? &fa : a;
+    else {
+        throw invalid_argument("Invalid types");
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        float fb = std::stof(a.convert_to<string>());
-        return fb > b.convert_to<int>() ? boost::any(a) : boost::any("");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float fa = a.convert_to<float>();
-        return fa > std::stof(b.convert_to<string>()) ? a : boost::any("");
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float fb = std::stof(a.convert_to<string>());
-        return fb > a.convert_to<float>() ? a : boost::any("");
-    }
-    return boost::any("");
 }
