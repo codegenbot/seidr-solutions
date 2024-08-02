@@ -4,17 +4,19 @@
 #include <cassert>
 
 std::string solve(const std::string &s) {
-    for (char &c : s) {
+    std::string modifiedString = s; // Make a copy of the input string
+    
+    for (char &c : modifiedString) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(s.begin(), s.end());
+
+    if (count_if(modifiedString.begin(), modifiedString.end(), [](char c) { return isalpha(c); }) == 0) {
+        std::reverse(modifiedString.begin(), modifiedString.end());
     }
-    
-    return s;
+
+    return modifiedString;
 }
 
 int main() {
