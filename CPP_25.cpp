@@ -13,16 +13,3 @@ vector<int> factorize(int n){
     }
     return factors;
 }
-
-int main(){
-    vector<int> a = factorize(3*2*3);
-    vector<int> b = {2, 3, 3};
-    
-    assert(a.size() == b.size());
-    
-    for(int i = 0; i < a.size(); i++){
-        assert(a[i] == b[i]);
-    }
-    
-    return 0;
-}
