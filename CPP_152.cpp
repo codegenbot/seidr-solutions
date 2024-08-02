@@ -8,6 +8,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
+        } else if ((guess[i] > game[i] && abs(guess[i] - game[i]) % 2 == 1) || 
+                   (guess[i] < game[i] && abs(guess[i] - game[i]) % 2 == 0)) {
+            result.push_back(1);
         } else {
             result.push_back(abs(guess[i] - game[i]));
         }
@@ -16,11 +19,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game = {1, 2, 3, 5};
-    vector<int> guess = {-1, 2, 3, 4};
-    cout << "The comparison is: ";
-    for (int i : compare(game, guess)) {
-        cout << i << " ";
-    }
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
