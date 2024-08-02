@@ -37,10 +37,10 @@ int main() {
         std::cout << output[i];
         if (i < output.size() - 1) {
             std::cout << " ";
+        } else {
+            std::cout << std::endl;
         }
     }
-
-    std::cout << std::endl;
 
     return 0;
 }
