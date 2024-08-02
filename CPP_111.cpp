@@ -1,25 +1,29 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
-    if(test.empty()) return result;
-
-    size_t pos = 0;
-    char c;
-    int count = 1;
-
-    while((pos = test.find(' ')) != string::npos) {
-        c = test[0];
-        result[c] = count;
-        test.erase(0, pos+1);
-        if(!test.empty()) {
-            count = 1;
-            c = test[0];
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    string temp = "";
+    for (char c : test) {
+        if (c == ' ') {
+            if (!temp.empty()) {
+                ++result[temp[0]];
+                temp.clear();
+            }
+        } else {
+            temp += c;
         }
     }
-
-    if(!test.empty()) {
-        c = test[0];
-        result[c] = count;
+    if (!temp.empty()) {
+        ++result[temp[0]];
     }
-
-    return result;
+    map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxCountMap.clear();
+            maxCountMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
+            maxCountMap[it->first] = it->second;
+        }
+    }
+    return maxCountMap;
 }
