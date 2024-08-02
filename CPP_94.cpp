@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 
 int sumOfDigits(int num) {
@@ -28,3 +29,4 @@ int largestPrime(vector<int> lst) {
         }
     }
     return 0;
+}
