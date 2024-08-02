@@ -2,10 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> order_by_points(std::vector<int> nums){
@@ -33,5 +32,8 @@ std::vector<int> order_by_points(std::vector<int> nums){
     return nums;
 }
 
-assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
-```
+int main(){
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    std::cout << "Test passed successfully" << std::endl;
+    return 0;
+}
