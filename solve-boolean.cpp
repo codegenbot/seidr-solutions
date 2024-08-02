@@ -3,20 +3,26 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == 'T') {
             return true;
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            bool temp = result;
-            result = false;
+            i++; // Skip &
+            if (s[i] == 'F') {
+                return false; // If & operator is followed by F, result is F
+            }
         } else if (s[i] == '|') {
-            result = temp | result;
-            temp = false;
-        }
+            i++; // Skip |
+            if (s[i] == 'F') {
+                return false; // If | operator is followed by F, result is F
+            }
+        } 
+        i++;
     }
-    return result;
+    return true;
 }
 
 int main() {
