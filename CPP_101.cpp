@@ -1,12 +1,4 @@
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -27,6 +19,6 @@ vector<string> words_string(string s){
     return words;
 }
 
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
