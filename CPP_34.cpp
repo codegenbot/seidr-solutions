@@ -9,7 +9,7 @@ vector<int> unique(vector<int> l) {
 
 vector<int>::iterator unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
     sort(first, last);
-    auto it = first;  // corrected local variable
+    auto it = first;  
     while (it != last) {
         *first = *it;
         ++first;
