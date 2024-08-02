@@ -18,4 +18,4 @@ vector<int> findLeaders(vector<int> nums) {
     reverse(leaders.begin(), leaders.end());
     
     return leaders;
-}   
+}
