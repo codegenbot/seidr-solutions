@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 int main() {
@@ -8,8 +6,11 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     
     for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
+        for (int i = 0; i < cipher1.size(); i++) {
+            if (c == cipher2[i]) {
+                c = cipher1[i];
+                break;
+            }
         }
     }
     
