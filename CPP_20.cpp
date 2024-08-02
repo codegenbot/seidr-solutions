@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <algorithm>
 #include <cmath>
@@ -10,20 +9,19 @@ bool issame(float a, float b) {
     return (fabs(a - b) < 0.0001);
 }
 
-pair<float, float> find_closest_elements(const vector<float>& numbers) {
-    vector<float> sorted_numbers = numbers;
-    sort(sorted_numbers.begin(), sorted_numbers.end());
-    float min_diff = sorted_numbers[1] - sorted_numbers[0];
-    float num1 = sorted_numbers[0], num2 = sorted_numbers[1];
-    for (int i = 1; i < sorted_numbers.size() - 1; ++i) {
-        if (sorted_numbers[i + 1] - sorted_numbers[i] < min_diff) {
-            min_diff = sorted_numbers[i + 1] - sorted_numbers[i];
-            num1 = sorted_numbers[i];
-            num2 = sorted_numbers[i + 1];
-        } else if (issame(sorted_numbers[i + 1] - sorted_numbers[i], min_diff)) {
-            if (sorted_numbers[i] < num1) {
-                num1 = sorted_numbers[i];
-                num2 = sorted_numbers[i + 1];
+pair<float, float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
+    float min_diff = numbers[1] - numbers[0];
+    float num1 = numbers[0], num2 = numbers[1];
+    for (int i = 1; i < numbers.size() - 1; ++i) {
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
+            num1 = numbers[i];
+            num2 = numbers[i + 1];
+        } else if (issame(numbers[i + 1] - numbers[i], min_diff)) {
+            if (numbers[i] < num1) {
+                num1 = numbers[i];
+                num2 = numbers[i + 1];
             }
         }
     }
