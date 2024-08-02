@@ -30,7 +30,7 @@ int main() {
         expected.push_back(grid[i % n][1]);
     }
 
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
+    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+
     return 0;
 }
