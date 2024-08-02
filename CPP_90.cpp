@@ -1,12 +1,11 @@
-int next_smallest(vector<int> lst) {
-    if(lst.size() < 2)
-        return -1; // or any value that represents "None"
-    
-    vector<int>::iterator it = min_element(lst.begin(), lst.end());
-    for(auto i=it+1; i!=lst.end(); ++i){
-        if(*i > *it) {
-            return *i;
-        }
+Here is the completed code:
+
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // Return None (or -1 in this case)
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for(int i=0; i<copy.size()-1; i++){
+        if(copy[i] != copy[i+1]) return copy[i];
     }
-    return -1; // or any value that represents "None"
+    return -1;
 }
