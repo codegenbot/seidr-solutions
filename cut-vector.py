@@ -1,7 +1,11 @@
-n, v = 0, list(map(int, input().split()))
+n = int(input())
+v = list(map(int, input().split()))
+
 total_sum = sum(v)
-left_sum, right_sum = 0, total_sum
-min_diff, cut_index = float("inf"), -1
+left_sum = 0
+right_sum = total_sum
+min_diff = float("inf")
+cut_index = -1
 
 for i in range(n):
     left_sum += v[i]
