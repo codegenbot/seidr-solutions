@@ -6,6 +6,10 @@
 
 using namespace std;
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> modified_lst = lst;
     modified_lst.erase(remove_if(modified_lst.begin(), modified_lst.end(), [](const string& s){return s.length() % 2 != 0;}), modified_lst.end());
