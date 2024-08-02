@@ -8,11 +8,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    if (n % 2 == 0) {
-        return {0, 1};
-    } else {
-        return {0};
+    std::vector<int> result;
+    for (int i = n % 2; i >= 0; --i) {
+        result.push_back(i);
     }
+    return result;
 }
 
 int main() {
