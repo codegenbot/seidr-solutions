@@ -11,12 +11,12 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int m = grid[0].size();
     int i = 0, j = 0;
     
-    while(k > 0){
+    while (k > 0) {
         path.push_back(grid[i][j]);
         k--;
         
-        if(j < m-1) j++;
-        else if(i < n-1) i++;
+        if (j < m-1) j++;
+        else if (i < n-1) i++;
         else break;
     }
     
@@ -24,6 +24,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
 }
 
 int main() {
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>({1, 3, 3, 2})));
+    assert(isSame(minPath({{1, 3}, {3, 2}}, 4), std::vector<int>({1, 3, 3, 2})));
     return 0;
 }
