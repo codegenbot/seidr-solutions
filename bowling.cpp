@@ -1,36 +1,31 @@
-int bowlingScore(string s) {
+int calculateScore(string frames) {
     int score = 0;
-    vector<int> rolls(21); // stores the number of pins knocked down per roll
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            int strikeOrSpare = 10 - stoi(s.substr(i-1, 1)); 
-            score += 10 + strikesAndSpares(rolls, i);
-            rolls[i] = 10;
-        } else if (s[i] == 'X') {
-            score += 10;
-            rolls[i] = 10;
-        } else {
-            int roll = stoi(s.substr(i, 1));
-            score += roll;
-            rolls[i] = roll;
+    int currentFrame = 1;
+    int lastRoll = 0;
+
+    for (int i = 0; i < frames.length(); i++) {
+        if(frames[i] == 'X') { // strike
+            score += 10 + lastRoll * 2;
+            currentFrame++;
+        } else if(frames[i] == '/') { // spare
+            score += 10 - lastRoll;
+            currentFrame++;
+        } else { // normal roll
+            int thisRoll = frames[i] - '0';
+            if(currentFrame < 10 && thisRoll + lastRoll > 10) {
+                score += 10;
+                currentFrame++;
+            } else {
+                score += thisRoll + lastRoll;
+                currentFrame++;
+                if(thisRoll == 1) {
+                    score += frames[++i] - '0';
+                    i++;
+                }
+            }
         }
+        lastRoll = thisRoll;
     }
 
     return score;
-}
-
-int strikesAndSpares(vector<int> rolls, int i) {
-    int bonus = 0;
-    
-    for (int j = i+1; j <= i + 1 && j < 11; j++) {
-        if (rolls[j] == 10) {
-            bonus += 20 - rolls[i];
-            break;
-        } else {
-            bonus += rolls[i];
-        }
-    }
-
-    return bonus;
 }
