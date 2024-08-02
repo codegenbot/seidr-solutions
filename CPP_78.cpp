@@ -8,8 +8,8 @@ int hex_key(const std::string& num) {
         }
     }
     return count;
-
 }
+
 int main() {
     assert(hex_key("") == 0);
 }
