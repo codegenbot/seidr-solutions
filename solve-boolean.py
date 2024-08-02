@@ -1,15 +1,19 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return not bool(solve_boolean(left)) or bool(solve_boolean(right))
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return bool(solve_boolean(left)) or bool(solve_boolean(right))
+        raise ValueError("Invalid Boolean operation")
     else:
-        raise ValueError("Invalid expression")
+        result = True if expression[0] == 't' else False
+        for i in range(1, len(expression)):
+            if expression[i] in '&|':
+                if expression[i-1] != expression[i]:
+                    return False
+            elif expression[i] == '&':
+                result = result and (expression[i+1] == 't')
+            elif expression[i] == '|':
+                result = result or (expression[i+1] == 't')
+        return result
