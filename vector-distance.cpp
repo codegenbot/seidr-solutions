@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
+
 using namespace std;
 
 int main() {
-    int n;
+    double n;
     cin >> n;
     vector<double> vec1(n);
     vector<double> vec2(n);
@@ -14,11 +16,11 @@ int main() {
 
     double distance = 0;
     for (int i = 0; i < n; ++i) {
-        distance += pow(vec1[i] - vec2[i], 2);
+        double diff = vec1[i] - vec2[i];
+        distance += diff * diff;
     }
-    
-    cout.precision(15);
-    cout << sqrt(distance) << endl;
+    distance = sqrt(distance);
+    cout << fixed << setprecision(13) << distance << endl;
 
     return 0;
 }
