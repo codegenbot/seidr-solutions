@@ -1,9 +1,10 @@
+```
 #include <vector>
 
-int calculateFuelCost(vector<int> prices) {
+int calculateFuelCost(std::vector<int> prices) {
     int total = 0;
     for (int price : prices) {
-        int newPrice = static_cast<int>(floor((double)price / 3)) - 2;
+        int newPrice = std::floor((double)price / 3 - 2);
         total += newPrice;
     }
     return total;
