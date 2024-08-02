@@ -1,33 +1,31 @@
-#include <bits/stdc++.h>
+#include <map>
+#include <cassert>
 
-using namespace std;
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
-    int maxCount = 0;
-
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
-            maxCount = max(maxCount, count[c]);
+    for (const auto &pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+            return false;
         }
     }
 
-    for (auto &entry : count) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
-        }
-    }
-
-    return result;
+    return true;
 }
 
-bool issame(map<char,int> a, map<char,int> b){
-    return a == b;
-}
+std::map<char, int> histogram(std::string test);
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::map<char, int> result = histogram(input);
+
+    for (const auto &pair : result) {
+        std::cout << pair.first << " " << pair.second << std::endl;
+    }
+
     return 0;
 }
