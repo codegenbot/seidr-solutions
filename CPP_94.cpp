@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 int sumOfDigits(int num) {
@@ -12,7 +11,6 @@ int sumOfDigits(int num) {
 }
 
 int largestPrime(vector<int> lst) {
-    int maxPrime = 0;
     for (int i = 2; i <= 1000000; i++) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; j++) {
@@ -22,7 +20,7 @@ int largestPrime(vector<int> lst) {
             }
         }
         if (isPrime) {
-            maxPrime = i;
+            int maxPrime = i;
             for (int num : lst) {
                 if (num > maxPrime)
                     maxPrime = num;
