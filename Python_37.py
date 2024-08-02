@@ -1,4 +1,6 @@
 def sort_even(l: list):
-    evens = sorted([x for i, x in enumerate(l) if i % 2 == 0])
-    odds = sorted([x for i, x in enumerate(l) if i % 2 != 0])
-    return [evens[i // 2] if i % 2 == 0 else odds[i // 2] for i in range(len(l))]
+    if not l:
+        return []
+    even = [x for i, x in enumerate(l) if i % 2 == 0]
+    odd = [x for i, x in enumerate(l) if i % 2 != 0]
+    return [even[i // 2] if i < len(even) else odd[i - len(even)] for i in range(len(l))]
