@@ -12,8 +12,6 @@ def decode_cyclic(s: str):
     if temp:
         if len(temp) > 3:
             result.append(temp[1:] + temp[0])
-        elif len(temp) == 3:
-            result.extend([temp[2], temp[0], temp[1]])
         else:
-            result.append(temp)
+            result.append(temp[0] + "".join(reversed(temp[1:])))
     return "".join(result)
