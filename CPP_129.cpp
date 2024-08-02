@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -7,23 +8,29 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
-    int n = grid.size();
-    int m = grid[0].size();
-    int i = 0, j = 0;
-    
-    while (k > 0) {
-        path.push_back(grid[i][j]);
-        k--;
-        
-        if (j < m-1) j++;
-        else if (i < n-1) i++;
-        else break;
+    for(int i = 0; i < k; i++){
+        path.push_back(grid[i % grid.size()][0]);
+        path.push_back(grid[i % grid.size()][1]);
     }
-    
     return path;
 }
 
 int main() {
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 4), std::vector<int>({1, 3, 3, 2})));
+    int n, k;
+    std::cin >> n >> k;
+
+    std::vector<std::vector<int>> grid(n, std::vector<int>(2));
+    for (int i = 0; i < n; i++) {
+        std::cin >> grid[i][0] >> grid[i][1];
+    }
+
+    std::vector<int> expected;
+    for(int i = 0; i < k; i++){
+        expected.push_back(grid[i % n][0]);
+        expected.push_back(grid[i % n][1]);
+    }
+
+    assert(isSame(minPath(grid, k), expected));
+    
     return 0;
 }
