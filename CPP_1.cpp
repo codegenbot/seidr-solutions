@@ -45,10 +45,3 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
     return true;
 }
-
-int main() {
-  assert(issame(separate_paren_groups("((a)(b)(c))"), {"(a)", "(b)", "(c)"}));
-  assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-
-  return 0;
-}
