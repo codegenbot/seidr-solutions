@@ -1,9 +1,11 @@
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+#include <string>
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = count(extension.begin(), extension.end(), toupper);
+        int cap = count(extension.begin(), extension.end(), toupper('a'));
         int sm = extension.length() - cap;
         int strength = cap - sm;
 
