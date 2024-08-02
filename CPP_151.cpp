@@ -13,22 +13,20 @@ long long double_the_difference(vector<float> lst) {
 
 int main() {
     vector<float> lst;
-    // Read input from user
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        lst.push_back(x);
+    float num;
+    cout << "Enter numbers separated by spaces: ";
+    while (cin >> num) {
+        lst.push_back(num);
     }
     long long odd_sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0.0) {
             odd_sum += num * num;
-        } else if (modf(num, &num) != 0.0) {
-            odd_sum -= num;
+        } else {
+            odd_sum -= num * num;
         }
     }
-    assert(double_the_difference(lst) == odd_sum);
+    cout << "Double the difference: " << double_the_difference(lst) << endl;
+    cout << "Odd sum: " << odd_sum << endl;
     return 0;
 }
