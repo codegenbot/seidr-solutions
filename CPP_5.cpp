@@ -13,7 +13,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vetor<int> a, std::vector<int> b){
     return a == b;
 }
 
