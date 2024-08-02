@@ -1,35 +1,26 @@
 ```cpp
 #include <sstream>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int rolls = 0;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
+    std::istringstream iss(s);
+    std::string frame;
+
+    while (std::getline(iss, frame)) {
+        if (frame == "X") {
             score += 30;
             rolls++;
-        } else if (isdigit(s[i])) {
-            int frameScore = 10 - (s[i] - '0');
-
-            if (i + 1 < s.length() && s[i + 1] == '/') {
-                frameScore = 10 - (s[i] - '0') / 2;
-                i++;
-            }
-
-            score += frameScore;
+        } else if (frame.length() > 1 && frame[1] == '/') {
+            int spare = 10 - (frame[0] - '0');
+            score += spare;
             rolls++;
-        } else if (s[i] == '/') {
-            int j = i + 1;
-            while (j < s.length() && isdigit(s[j])) {
-                frameScore = frameScore * 10 + (s[j] - '0');
-                j++;
-            }
-            score += frameScore;
+        } else {
+            int strike = 10 - (frame[0] - '0');
+            score += strike;
             rolls++;
         }
-
-        if (rolls >= 10) break;
     }
 
     return score;
