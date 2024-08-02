@@ -11,7 +11,8 @@ def find_zero():
 
 # Test cases
 if __name__ == "__main__":
-    input_1 = tuple(map(int, input().split()))
-    input_2 = tuple(map(int, input().split()))
-    print(find_zero())  # Input: 1 -3 2, Output: (2.0, 1.0)
-    print(find_zero())  # Input: 1 2 1, Output: -1.0
+    values = input("Enter values for test case 1 (e.g., 1 -3 2): ")
+    print(find_zero())
+    
+    values = input("Enter values for test case 2 (e.g., 1 2 1): ")
+    print(find_zero())
