@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <algorithm>
 #include <iomanip>
@@ -15,7 +14,8 @@ string string_to_md5(string text) {
     MD5_Init(&ctx);
     const char* p = text.c_str();
     while (*p) {
-        MD5_Update(&ctx, p++, 1);
+        MD5_Update(&ctx, p, 1);
+        p++;
     }
     MD5_Final(mdBuffer, &ctx);
 
