@@ -1,6 +1,10 @@
+#include <iostream>
+#include <typeinfo>
 #include <boost/any.hpp>
 #include <cassert>
 #include <string>
+
+boost::any compare_one(boost::any a, boost::any b);
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -23,9 +27,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any();
-}
-
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)).empty());
-    return 0;
 }
