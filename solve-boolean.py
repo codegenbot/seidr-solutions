@@ -1,10 +1,17 @@
-```
-def solve_boolean(expression):
-    if expression == 'T':
+def solveBoolean(expression):
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    result = eval(' '.join(map(lambda x: str(x) if x in ['T', 'F'] else x, expression)))
-    return result
+    elif "&" in expression:
+        parts = expression.split("&")
+        for part in parts:
+            if part != "F":
+                return False
+        return True
+    elif "|" in expression:
+        parts = expression.split("|")
+        for part in parts:
+            if part != "F":
+                return True
+        return False
