@@ -1,8 +1,7 @@
-#include <set>
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-vector<int> unique(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    vector<int> result(s.begin(), s.end());
-    return result;
+int main() {
+    // Your test case here...
 }
