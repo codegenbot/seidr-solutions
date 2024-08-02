@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 #include <vector>
 #include <iostream>
@@ -8,36 +8,41 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool firstWord = true;
-    
-    for (char c : s) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
             }
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
-        } else {
-            if (firstWord) {
-                result += tolower(c);
+            if (result != "") {
+                result += std::toupper(s[i]);
             } else {
-                result += toupper(c);
+                result = std::toupper(s[i]);
             }
-            firstWord = false;
+        } else {
+            if (s[i] == ' ') {
+                while (i < s.length() && s[i] == ' ') {
+                    i++;
+                }
+            } else {
+                if (result != "") {
+                    result += std::tolower(s[i]);
+                } else {
+                    result = std::tolower(s[i]);
+                }
+            }
         }
     }
-    
     return result;
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << camelCase(s) << endl;
+    string input;
+    while (true) {
+        cout << "Enter a string in kebab-case (or 'exit' to stop): ";
+        cin >> input;
+        if (input == "exit") break;
+        cout << camelCase(input) << endl;
     }
     return 0;
 }
