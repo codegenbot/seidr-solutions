@@ -1,3 +1,5 @@
+#include <string>
+
 std::string file_name_check(const std::string& file_name) {
     int digitCount = 0;
     for (char c : file_name) {
