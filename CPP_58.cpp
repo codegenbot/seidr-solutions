@@ -1,10 +1,15 @@
-bool std::issame(std::vector<int> a, std::vector<int> b){
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
 }
 
-std::vector<int> std::common(std::vector<int> l1, std::vector<int> l2){
+std::vector<int> common(std::vector<int> l1, std::vector<int> l2){
     std::sort(l1.begin(), l1.end());
     std::sort(l2.begin(), l2.end());
     std::vector<int> result;
