@@ -31,8 +31,8 @@ int main() {
     vector<int> numbers;
     int num;
     
-    cout << "Enter the numbers (0 to stop):" << endl;
-    while ((cin >> num) && (num != 0)) {
+    cout << "Enter numbers separated by space: ";
+    while (cin >> num) {
         numbers.push_back(num);
     }
     
