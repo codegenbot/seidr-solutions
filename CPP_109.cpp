@@ -9,9 +9,7 @@ bool move_one_ball(std::vector<int> arr) {
         if (std::is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        std::vector<int> arr_copy(arr);
-        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
-        arr = arr_copy;
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
