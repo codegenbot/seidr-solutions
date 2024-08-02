@@ -1,8 +1,15 @@
-int basement(vector<int>& nums) {
+#include <vector>
+using namespace std;
+
+int findNegativeIndex(vector<int>& nums) {
+    int index = 0;
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        if (sum < 0) return i;
+    
+    for (const auto& num : nums) {
+        sum += num;
+        if (sum < 0) return index;
+        index++;
     }
-    return -1;
+    
+    return -1; // Return -1 if no such index is found
 }
