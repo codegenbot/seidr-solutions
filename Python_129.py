@@ -5,8 +5,8 @@ def minPath(grid, k):
 
     while queue:
         row, col, path = queue.pop(0)
-        if len(path) == k and "A" not in path:
-            return []
+        if len(path) >= k and all(cell == "A" for cell in path):
+            return path
 
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = row + dr, col + dc
