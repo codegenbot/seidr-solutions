@@ -1,16 +1,14 @@
-#include <iostream>
+#include <boost/any.hpp>
 #include <list>
 #include <vector>
-#include <any>
 
-using namespace std;
+using namespace boost;
 
-bool issame(const any& a, const any& b) {
-    return get_if<list_any>(boost::any_cast<any>(&a)) == get_if<list_any>(boost::any_cast<any>(&b));
+bool is_same(const any& a, const any& b) {
+    return a.type() == b.type();
 }
 
 int main() {
-    list_any values;
-    // Add elements to the list
-    filter_integers(values);
+    assert(is_same(any(1), any(1)) && "Error: is_same failed");
+    return 0;
 }
