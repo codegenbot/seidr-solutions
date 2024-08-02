@@ -12,10 +12,10 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         [](int a, int b){return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0);});
     
     if(*it % 2 == 0) {
-        result = {{*it, distance(arr.begin(), it)}}; // Modified this line
+        result.push_back({*it, distance(arr.begin(), it)});
     } else {
         auto first_even_it = find_if(arr.begin(), arr.end(), [](int x){return x % 2 == 0;});
-        result = {{*first_even_it, distance(arr.begin(), first_even_it)}}; // Modified these lines
+        result.push_back({*first_even_it, distance(arr.begin(), first_even_it)});
     }
     
     return result;
