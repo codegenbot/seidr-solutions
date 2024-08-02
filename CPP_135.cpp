@@ -10,7 +10,6 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    std::vector<int> vec = {4, 2, 3, 1};
-    int result = can_arrange(vec);
-    // Your function call code
+    int result = can_arrange({5, 3, 4, 2});
+    std::cout << "The output is: " << result << std::endl;
 }
