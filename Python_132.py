@@ -1,4 +1,3 @@
-"""
 def is_nested(string):
     stack = []
     for char in string:
@@ -9,4 +8,3 @@ def is_nested(string):
                 return False
             stack.pop()
     return len(stack) > 0
-"""
