@@ -2,14 +2,17 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int max_negative = 0, min_positive = INT_MAX;
+    vector<int> result(2);
+    result[0] = 0;
+    result[1] = INT_MAX;
+
     for (int num : lst) {
-        if (num < 0 && num > max_negative) {
-            max_negative = num;
-        }
-        else if (num > 0 && num < min_positive) {
-            min_positive = num;
+        if (num < 0 && num > result[0]) {
+            result[0] = num;
+        } else if (num > 0 && num < result[1]) {
+            result[1] = num;
         }
     }
-    return {(max_negative == 0), (min_positive == INT_MAX)};
+
+    return result;
 }
