@@ -1,38 +1,56 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cmath>
 
 using namespace std;
 
-vector<int> order_by_points(vector<int> nums); // Function declaration
-
-bool issame(vector<int> a, vector<int> b) {
-    // Existing comparison logic
+bool issame(const vector<int>& a, const vector<int>& b) {
+    int sum_a = 0, sum_b = 0;
+    for (int num : a) {
+        int temp_a = abs(num);
+        while (temp_a > 0) {
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
+    }
+    
+    for (int num : b) {
+        int temp_b = abs(num);
+        while (temp_b > 0) {
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
+    }
+    
+    return sum_a == sum_b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    // Existing ordering logic
+vector<int> order_by_points(const vector<int>& nums) {
+    vector<int> sorted_nums = nums;
+    sort(sorted_nums.begin(), sorted_nums.end(), [](int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        int temp_a = abs(a), temp_b = abs(b);
+        while (temp_a > 0) {
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
+        while (temp_b > 0) {
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
+        if (sum_a == sum_b) {
+            return a < b;
+        }
+        return sum_a < sum_b;
+    });
+    
+    return sorted_nums;
 }
 
 int main() {
     vector<int> numbers = {123, 321, 456, 789};
-    
-    sort(numbers.begin(), numbers.end(), issame);
-    
-    for (int num : numbers) {
-        cout << num << " ";
-    }
-    
-    cout << endl;
-    
-    numbers = order_by_points(numbers);
-    
-    for (int num : numbers) {
-        cout << num << " ";
-    }
-    
-    // Additional test case
+
     assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
     
     return 0;
