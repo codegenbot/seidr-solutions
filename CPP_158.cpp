@@ -1,4 +1,3 @@
-```cpp
 #include <set>
 #include <algorithm>
 
