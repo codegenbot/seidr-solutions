@@ -5,10 +5,9 @@ bool issame(float a, float b) {
 pair<float, float> find_closest_elements(const vector<float>& numbers);
 
 int main() {
-    vector<float> test_numbers = {1.2, 4.5, 2.2, 0.8, 5.1};
-    pair<float, float> result = find_closest_elements(test_numbers);
-    assert(issame(result.first, 4.5));
-    assert(issame(result.second, 5.1));
+    vector<float> input = {1.2, 3.4, 5.6, 7.8, 9.0};
+    pair<float, float> result = find_closest_elements(input);
+    assert(result.first == 5.6 && result.second == 7.8);
     return 0;
 }
 
