@@ -4,17 +4,10 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    deque<pair<int, int>> window;
-  
+    int max_val = INT_MIN;
     for (int i = 0; i < numbers.size(); ++i) {
-        while (!window.empty() && window.back().first <= numbers[i]) {
-            window.pop_back();
-        }
-        window.emplace_back(numbers[i], i);
-        while (!window.empty() && window.front().second <= i - window_size) {
-            window.pop_front();
-        }
-        result.push_back(window.front().first);
+        max_val = max(max_val, numbers[i]);
+        result.push_back(max_val);
     }
     return result;
 }
