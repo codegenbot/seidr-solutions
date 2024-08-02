@@ -1,5 +1,10 @@
 #include <algorithm>
+#include <vector>
 #include <numeric>
+
+bool issame(vector<float> a, vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     vector<float> result;
@@ -24,7 +29,4 @@ vector<float> find_closest_elements(vector<float> numbers) {
     result.push_back(closest_pair.second);
 
     return result;
-
-bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
