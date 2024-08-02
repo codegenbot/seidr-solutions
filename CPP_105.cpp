@@ -1,39 +1,18 @@
-```c++
+```
 #include <vector>
-#include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string>b) {
-    if (a == b)
-        return true;
-    else
-        return false;
-}
-
-int main() {
-    vector<int> arr = {3, 5, 1, 9, 2};
-    vector<string> result = by_length(arr);
-    for (string s : result) {
-        cout << s << endl;
-    }
-    if (issame(result, {"Nine", "Five", "Three", "One", "Two"})) {
-        cout << "The strings are the same." << endl;
-    } else {
-        cout << "The strings are not the same." << endl;
-    }
-    return 0;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            temp.push_back(to_string(i));
+            temp.push_back(i);
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<string> result;
-    for (string s : temp) {
-        switch (stoi(s)) {
+    std::vector<std::string> result;
+    for (int i : temp) {
+        switch (i) {
             case 1:
                 result.push_back("One");
                 break;
