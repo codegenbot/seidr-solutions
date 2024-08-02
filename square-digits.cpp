@@ -10,3 +10,4 @@ string squareDigits(long int num) {
     }
     
     return result;
+}
