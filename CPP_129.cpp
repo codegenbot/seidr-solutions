@@ -1,20 +1,11 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> minPath(const vector<vector<int>>& grid, int k) {
