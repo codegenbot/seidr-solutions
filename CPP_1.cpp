@@ -1,5 +1,21 @@
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> groups;
+#include <vector>
+#include <cassert>
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    int minSize = min(a.size(), b.size());
+    for (int i = 0; i < minSize; i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
     int open_count = 0;
 
@@ -11,20 +27,16 @@ vector<string> separate_paren_groups(const string& paren_string) {
             open_count++;
         } else if (c == ')') {
             open_count--;
-            if (open_count > 0) {
+            if (open_count == 0) {
+                result.push_back(current_group);
+                current_group.clear();
+            } else {
                 current_group += c;
-            } else if (open_count == 0) {
-                groups.push_back(current_group);
-                current_group = "";
             }
         }
     }
 
-    return groups;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return result;
 }
 
 int main() {
