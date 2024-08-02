@@ -1,17 +1,32 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 1e-6) return false;
+int main() {
+    vector<float> l;
+    cout << "Enter numbers (enter 'stop' to finish):" << endl;
+    string s;
+    while (true) {
+        cin >> s;
+        if (s == "stop") break;
+        float x = stof(s);
+        l.push_back(x);
     }
-    return true;
+    vector<float> result = get_positive(l);
+    for (float x : result) {
+        cout << x << endl;
+    }
+    return 0;
 }
 
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float x : l) {
+        if (x > 0) {
+            result.push_back(x);
+        }
+    }
+    return result;
 }
