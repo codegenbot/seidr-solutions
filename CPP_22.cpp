@@ -1,11 +1,13 @@
-#include <boost/any.hpp>
-#include <boost/algorithm/string.hpp>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <any>
 
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (auto& value : values) {
-        if (boost::holds_alternative<boost::int_<int>>(value)) {
-            result.push_back(boost::get<boost::int_<int>>(value).get());
+        if (value.type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
