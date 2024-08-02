@@ -1,37 +1,28 @@
-int bowling(string str) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int roll = 0;
-    int frame = 0;
-
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == '/') {
-            if(roll == 1 || str[i-1] == 'X') {
-                score += 10 + ((str[i+1] - '0') * 10);
-            } else {
-                score += (str[i-1] - '0') * 10 + (str[i+1] - '0');
-            }
-            roll = 0;
-            frame++;
-        } else if(str[i] == 'X') {
-            score += 10;
-            roll = 1;
-        } else {
-            int temp = str[i] - '0';
-            if(roll == 1) {
-                if(temp + (str[i+1] - '0') >= 10) {
-                    score += 10;
-                    i++;
+    vector<int> rolls(21); // Assuming maximum of 21 frames in a game.
+    
+    for (int i = 0; i < input.length(); i++) {
+        if (isdigit(input[i])) {
+            if (input[i + 1] == '/') { // Strike
+                score += 10 + rolls[i + 2];
+                i++; // Move forward two positions to get the next frame.
+            } else if (isdigit(input[i + 1])) { // Spare
+                int spare = input[i] - '0' + (input[i + 1] - '0');
+                score += 10;
+                rolls[i + 2] = spare; // Update the roll for the next frame.
+                i++; // Move forward two positions to get the next frame.
+            } else { // Regular Roll
+                int roll1 = input[i] - '0';
+                if (input[i + 1] == 'X') { // Strike in the next frame
+                    score += roll1;
                 } else {
-                    score += temp + (str[i+1] - '0');
+                    int roll2 = input[i + 1] - '0';
+                    score += roll1 + roll2; 
                 }
-                roll = 0;
-                frame++;
-            } else {
-                score += temp;
-                roll = 1;
             }
         }
     }
-
+    
     return score;
 }
