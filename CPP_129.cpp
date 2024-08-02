@@ -1,19 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int n = grid.size();
     vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!res.empty() && res.back() > grid[i][j]) continue;
-            vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-            for (pair<int, int> d : dir) {
-                int ni = i + d.first, nj = j + d.second;
-                if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                    res.push_back(grid[ni][nj]);
-                    if (res.size() == k) return res;
-                    res.pop_back();
+    for (int i = 0; i < k; i++) {
+        int maxVal = 1;
+        for (int j = 0; j < grid.size(); j++) {
+            for (int col = 0; col < grid[j].size(); col++) {
+                if (grid[j][col] > maxVal) {
+                    maxVal = grid[j][col];
+                    res.push_back(maxVal);
                 }
             }
         }
     }
-    return {};
+    return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto val : result) {
+        cout << val << " ";
+    }
+    return 0;
 }
