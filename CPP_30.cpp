@@ -1,20 +1,17 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
     vector<float> l;
-    cout << "Enter numbers (type 'stop' to finish): ";
-    string s;
-    while (true) {
-        cin >> s;
-        if (s == "stop") break;
-        float x = stof(s);
+    float x;
+    cout << "Enter numbers (enter 'q' to quit):" << endl;
+    while (cin >> x) {
+        if (x == 'q') break;
         l.push_back(x);
     }
     vector<float> result = get_positive(l);
-    cout << "Positive numbers: ";
     for (float x : result) {
         cout << x << " ";
     }
