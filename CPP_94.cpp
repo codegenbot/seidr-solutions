@@ -1,6 +1,6 @@
 int main() {
     vector<int> lst = {127, 97, 8192};
     int result = skjkasdkd(lst);
-    cout << "The output is: " << result;
+    assert(result == 10); // your expected output here
     return 0;
 }
