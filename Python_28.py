@@ -4,5 +4,5 @@ from typing import List
 
 def concatenate(strings: List[str]) -> str:
     if not strings:
-        return "List is empty"
+        return "No strings to concatenate"
     return "".join(strings)
