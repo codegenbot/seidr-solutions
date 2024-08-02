@@ -1,34 +1,41 @@
-#include <string>
+Here is the solution:
+
 #include <vector>
+#include <iostream>
+#include <string>
 
-std::string spinWords(const std::string& str) {
-    std::vector<std::string> words;
-    std::stringstream ss(str);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        if (word.length() >= 5)
-            words.push_back(word.substr(rev(word)));
-        else
-            words.push_back(word);
+string spinWords(string str) {
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str[i] == ' ') {
+            result += " ";
+            i++;
+        } else if (i + 4 >= str.length() || str[i+5] == ' ') {
+            for (int j = i; j < str.length(); j++) {
+                if (j != i && j - i >= 5) break;
+                if (j >= i + 5 && str[j] == ' ') break;
+                result += str[j];
+            }
+        } else {
+            int length = 0;
+            for (int j = i; j < str.length(); j++) {
+                if (str[j] == ' ') break;
+                length++;
+            }
+            for (int j = length - 1; j >= 0; j--) {
+                result += str[i + j];
+            }
+            i += length;
+        }
     }
-
-    std::stringstream result;
-    for (const auto& w : words) {
-        result << w << " ";
-    }
-    return result.str();
+    return result;
 }
 
-std::string rev(const std::string& s) {
-    int len = s.length();
-    char* arr = new char[len + 1];
-    strcpy(arr, s.c_str());
-
-    for (int i = 0; i < len / 2; ++i) {
-        char t = arr[i];
-        arr[i] = arr[len - i - 1];
-        arr[len - i - 1] = t;
-    }
-    return arr;
+int main() {
+    // Input string here...
+    cout << spinWords("this is another test") << endl;
+    return 0;
 }
