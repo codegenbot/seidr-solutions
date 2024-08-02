@@ -1,4 +1,11 @@
-int count = 0;
+#include <vector>
+
+int count_nums(std::vector<int> n);
+
+#include <iostream>
+
+int count_nums(std::vector<int> n) {
+    int count = 0;
     for (int num : n) {
         int sum = 0;
         int temp = abs(num);
