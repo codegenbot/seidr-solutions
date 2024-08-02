@@ -1,4 +1,3 @@
-
 double poly(const vector<double>& coeffs, double x){
     double result = 0;
     for(int i=0; i<coeffs.size(); ++i){
@@ -14,7 +13,7 @@ double find_zero(const vector<double>& coeffs){
 }
 
 int main() {
-    vector<double> coeffs = {1, -3, 2}; 
+    vector<double> coeffs = {1, -3, 2}; // Example coefficients of a quadratic polynomial: x^2 - 3x + 2
     double solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
     return 0;
