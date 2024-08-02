@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT64_MAX;
