@@ -1,13 +1,10 @@
-```
 def sum_squares(lst):
-    total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0:
-            total += lst[i] ** 2
-        elif i % 4 == 0:
-            total += lst[i] ** 3
-    return total
-
-n = int(input("Enter the number of elements: "))
-lst = [int(input(f"Enter element {i+1}: ")) for i in range(n)]
-print(sum_squares(lst))
+    total_sum = 0
+    for num in lst:
+        if isinstance(num, int):
+            total_sum += num**2
+        elif isinstance(num, str):
+            if num.lower() == "sum":
+                return total_sum
+            elif num.lower() == "reset":
+                return 0
