@@ -6,11 +6,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> generate_integers(int start, int end) {
-    std::vector<int> result;
+    std::vector<int> integers;
     for (int i = start; i <= end; ++i) {
-        result.push_back(i);
+        integers.push_back(i);
     }
-    return result;
+    return integers;
 }
 
 int main() {
