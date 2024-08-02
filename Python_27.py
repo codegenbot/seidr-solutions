@@ -1,7 +1,6 @@
-def swap_case_string(input_string):
-    return input_string.swapcase()
+def swap_case(string):
+    return string.swapcase()
 
-# Call the function with the given string
-result = swap_case_string("your_input_string_here")
-
-print(result)
+input_string = input()
+output_string = swap_case(input_string)
+print(output_string)
