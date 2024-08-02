@@ -37,10 +37,8 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
     
     std::string text, target;
-    std::cin >> std::ws;
-    std::cin >> std::ws;
     std::cin >> text;
-    std::cin >> target;
+    std::getline(std::cin, target);
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int index : result) {
         std::cout << index << " ";
