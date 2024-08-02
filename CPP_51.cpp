@@ -1,12 +1,13 @@
-string remove_vowels(string text) {
-    string result = "";
+#include <string>
+#include <cctype>
+
+std::string remove_vowels(std::string text) {
+    std::string result = "";
     for (char c : text) {
-        if (!isalpha(c)) {
+        if (!ispunct(c) && !isupper(c) && !islower(c))
+            continue;
+        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'))
             result += c;
-        } else if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
-                   c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-            result += c;
-        }
     }
     return result;
 }
