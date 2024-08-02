@@ -18,24 +18,22 @@ string anti_shuffle(string s) {
 
     result += temp;
 
+    string output = "";
+    int minChar = 0;
     for (int i = 0; i < result.length(); i++) {
         char c = result[i];
         bool found = false;
         for (char d : result) {
-            if (d < c) {
-                c = d;
+            if ((int)d < (int)c && !found) {
+                minChar = (int)d;
                 found = true;
-                break;
             }
         }
-        if (!found) {
-            c = ' ';
-        }
-
-        while (result[i] != c) {
-            temp += result[i];
+        while (result[i] != minChar) {
+            output += result[i];
             i++;
         }
     }
 
-    return temp;
+    return output;
+}
