@@ -16,13 +16,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != "(":
                 current_group += stack.pop()
             if stack:
-                while stack:
-                    current_group += stack.pop()
+                current_group += stack.pop()
             else:
                 groups.append(current_group)
                 current_group = ""
 
-    if current_group:
-        groups.append(current_group)
+    if stack:
+        while stack:
+            current_group += stack.pop()
 
     return [group.strip() for group in groups]
