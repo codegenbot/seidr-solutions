@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int solve() {
@@ -10,7 +9,7 @@ int solve() {
     }
     long long sum = 0;
     for (int x : v) {
-        int y = static_cast<int>(std::floor((double)x / 3)) - 2;
+        int y = (x / 3) - 2;
         if (y < 0) y = 0;
         sum += y;
     }
