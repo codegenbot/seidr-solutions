@@ -1,7 +1,6 @@
-def join_with_delimeter(numbers, delimeter):
+def concatenate_numbers(numbers, delimiter):
     result = []
-    for i in range(len(numbers)):
-        result.append(numbers[i])
-        if i < len(numbers) - 1:
-            result.append(delimeter)
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()
     return result
