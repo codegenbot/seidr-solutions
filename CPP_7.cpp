@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert> // Step 1: Include the <cassert> header
+#include <cassert>
 
 using namespace std;
 
@@ -18,6 +18,6 @@ vector<string> filter_by_substring(vector<string> words, string substr) {
 
 int main() {
     vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert((result == vector<string>{"grunt", "prune"})); // Step 3: Check the filtered words properly
+    assert((result == vector<string>{"grunt", "prune"}));
     return 0;
 }
