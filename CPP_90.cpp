@@ -9,5 +9,5 @@ int min_element(std::vector<int> lst) {
     } else if (lst.size() < 2) {
         return *it;
     }
-    return 0; 
+    return 0; // default value
 }
