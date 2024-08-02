@@ -7,7 +7,7 @@ bool issame(int a, int b){
 vector<int> pluck(vector<int> arr);
 
 int main(){
-    assert (issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
 
 vector<int> pluck(vector<int> arr){
