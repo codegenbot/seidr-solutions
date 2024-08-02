@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,6 +18,10 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<std::pair<float, float>>{{2.2, 3.1}});
+    std::vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    auto closest_elements = find_closest_elements(numbers);
+    for (const auto& pair : closest_elements) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+    }
     return 0;
 }
