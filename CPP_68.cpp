@@ -1,24 +1,25 @@
-```
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if(arr.empty()) {
-        result.push_back(-1);
-        result.push_back(-1);
-        return result;
-    }
+#include <vector>
+#include <climits>
+using namespace std;
 
-    int minEven = INT_MAX;
-    int index = -1;
-
-    for(int i=0; i<arr.size(); i++) {
-        if(arr[i]%2==0 && arr[i] < minEven) {
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+    
+    int minEven = std::numeric_limits<int>::max();
+    int minIndex = -1;
+    
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
             minEven = arr[i];
-            index = i;
+            minIndex = i;
         }
     }
-
-    result.push_back(minEven);
-    result.push_back(index);
-
+    
+    if (minIndex != -1) {
+        result.push_back({minEven, minIndex});
+    } else {
+        result.push_back({0, -1});
+    }
+    
     return result;
-}
