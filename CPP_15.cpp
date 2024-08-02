@@ -1,11 +1,11 @@
-```cpp
+```
 #include <iostream>
 #include <sstream>
 using namespace std;
 
 string string_sequence(int n) {
     ostringstream oss;
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 0; i <= n; ++i) {
         oss << i << " ";
     }
     return oss.str();
@@ -15,6 +15,7 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << string_sequence(n);
+    string result = string_sequence(n);
+    cout << result << endl;
     return 0;
 }
