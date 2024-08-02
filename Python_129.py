@@ -6,12 +6,7 @@ def minPath(grid, k):
             return path
         for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
             nx, ny = x + dx, y + dy
-            if (
-                0 <= nx < N
-                and 0 <= ny < N
-                and (nx, ny) not in visited
-                and len(path) + remaining_steps > k
-            ):
+            if 0 <= nx < N and 0 <= ny < N and (nx, ny) not in visited and len(path) + remaining_steps > k:
                 visited.add((nx, ny))
                 res = dfs(nx, ny, path + [grid[nx][ny]], remaining_steps - 1)
                 if res:
