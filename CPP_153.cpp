@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cctype>
 
 int Strongest_Extension(string class_name, vector<string> extensions){
     int strongest_strength = 0;
@@ -25,4 +26,11 @@ int Strongest_Extension(string class_name, vector<string> extensions){
     }
     
     return class_name + "." + strongest_extension;
+}
+
+int main() {
+    vector<string> extensions = {"java", "cpp", "python", "swift"};
+    string class_name = "Class";
+    cout << Strongest_Extension(class_name, extensions) << endl;
+    return 0;
 }
