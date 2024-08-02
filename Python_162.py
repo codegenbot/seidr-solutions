@@ -1,5 +1,7 @@
+text = input().strip()
+
 import hashlib
 
 def string_to_md5(text):
-    if text is None: return None
+    if not text: return None
     return hashlib.md5(text.encode()).hexdigest()
