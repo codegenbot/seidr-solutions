@@ -1,6 +1,6 @@
 #include <string>
 
-std::string checkFileName(std::string file_name) {
+std::string functionName(std::string file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
