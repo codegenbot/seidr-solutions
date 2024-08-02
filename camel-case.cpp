@@ -10,17 +10,15 @@ int main() {
     for (char& c : input) {
         if (c == '-' || c == ' ') {
             capitalize = true;
-        } else {
-            if (capitalize) {
-                c = std::toupper(c);
-                capitalize = false;
-            } else if (std::isalpha(c)) {
-                c = std::tolower(c);
-            }
+        } else if (capitalize) {
+            c = std::toupper(c);
+            capitalize = false;
+        } else if (std::isalpha(c)) {
+            c = std::tolower(c);
         }
     }
-
+    
     std::cout << input << std::endl;
-
+    
     return 0;
 }
