@@ -24,9 +24,6 @@ int prime_fib(int n) {
 }
 
 int main() {
-    assert(prime_fib(10) == 233);
-    int n;
-    std::cin >> n;
-    std::cout << prime_fib(n) << std::endl;
+    assert(prime_fib(10) == 433494437);
     return 0;
 }
