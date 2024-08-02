@@ -5,20 +5,15 @@ using namespace std;
 
 int main() {
     vector<float> l;
-    cout << "Enter numbers (type 'stop' to finish): ";
-    string s;
-    while (true) {
-        cin >> s;
-        if (s == "stop") break;
-        float x = stof(s);
+    cout << "Enter numbers (enter -1 to finish): ";
+    float x;
+    while ((cin >> x) && (x != -1)) {
         l.push_back(x);
     }
     vector<float> result = get_positive(l);
-    cout << "Positive numbers: ";
     for (float x : result) {
         cout << x << " ";
     }
-    cout << endl;
     return 0;
 }
 
