@@ -13,12 +13,7 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> unique(vector<int> l){
     vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
     sort(result.begin(), result.end());
-    vector<int> temp;
-    for(int i = 0; i < result.size(); i++) {
-        if(i == 0 || !issame({result[i]}, {temp.back()}))
-            temp.push_back(result[i]);
-    }
-    return temp;
+    return vector<int>(unique_copy(result.begin(), result.end()));
 }
 
 vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iterator end) {
@@ -35,10 +30,34 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
 }
 
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5, 6};
-    vector<int> result = unique(v);
-    for(int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        input.push_back(x);
     }
+    
+    vector<int> output = unique(input);
+    
+    if(output.size() == 1) {
+        cout << "The set is a singleton." << endl;
+    } else {
+        cout << "Unique elements: ";
+        for(int i = 0; i < output.size(); i++) {
+            cout << output[i] << " ";
+        }
+        cout << endl;
+        
+        if(issame(input, vector<int>(output.begin(), output.end()))) {
+            cout << "The original set is the same as the unique set." << endl;
+        } else {
+            cout << "The original set and the unique set are different." << endl;
+        }
+    }
+    
     return 0;
 }
