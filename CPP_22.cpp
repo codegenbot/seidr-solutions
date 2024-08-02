@@ -3,14 +3,14 @@
 #include <list>
 #include <any>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(std::list<std::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (std::any_cast<int>(value).good()) {
+        if (std::any_cast<int>(value).has_value()) {
             result.push_back(std::any_cast<int>(value).get());
         }
     }
@@ -18,6 +18,6 @@ vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 4, 3, 4, 1, 2}), vector<int>({1, 2, 3, 3, 4, 4}));
+    assert(issame(filter_integers({3, 4, 3, 4, 1, 2}), {1, 2, 3, 3, 4, 4}));
     return 0;
 }
