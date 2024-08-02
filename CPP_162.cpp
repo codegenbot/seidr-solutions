@@ -16,7 +16,8 @@ string string_to_md5(string text) {
     EVP_MD_CTX_init(&mdctx);
 
     digest = EVP_get_digestbyname("MD5");
-    if (digest == NULL) {
+
+    if (!digest) {
         return "";
     }
 
@@ -30,8 +31,8 @@ string string_to_md5(string text) {
         return "";
     }
 
-    unsigned char md_value[16];
-    int md_length;
+    unsigned char md_value[EVP_MAX_MD_SIZE];
+    size_t md_length;
 
     if (1 != EVP_DigestFinal_ex(&mdctx, md_value, &md_length)) {
         return "";
