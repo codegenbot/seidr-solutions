@@ -1,28 +1,23 @@
-```
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False]*N for _ in range(N)]
-    res = []
+    n = len(grid)
+    memo = set()
     
     def dfs(i, j, path):
-        if len(path) == k:
-            nonlocal res
-            res = sorted(path)
-            return True
+        if (i, j) in memo:
+            return []
+        memo.add((i, j))
+        new_path = path + [grid[i][j]]
         
-        if visited[i][j] or (i<0 or i>=N or j<0 or j>=N):
-            return False
-        
-        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i+x, j+y
-            if dfs(ni, nj, path+[grid[ni][nj]]):
-                return True
-        
-        return False
+        if len(new_path) == k:
+            return [new_path]
+        res = []
+        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] == 1 and (ni, nj) not in memo:
+                res.extend(dfs(ni, nj, new_path))
+        return res
     
-    for i in range(N):
-        for j in range(N):
-            if not visited[i][j]:
-                dfs(i, j, [grid[i][j]])
-    
-    return res
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 1:
+                return sum(dfs(i, j, []) for _ in range(k), [])
