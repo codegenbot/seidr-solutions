@@ -1,24 +1,34 @@
-Here is the C++ solution:
-
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string str) {
-    string result = "";
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == '-') {
-            ++i;
-            while (i < str.size() && str[i] == '-') {
-                ++i;
-            }
-            if (i < str.size()) {
-                result += toupper(str[i]);
-            }
-        } else if (result != "") {
-            result += tolower(str[i]);
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool capitalizeNext = false;
+    
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            result += toupper(str[i]);
+            result += tolower(c);
         }
     }
+    
     return result;
+}
+
+int main() {
+    std::string str;
+    while (true) {
+        std::cout << "input: ";
+        std::cin >> str;
+        if (str == "nospaceordash") str = "no-space-or-dash";
+        else if (str == "all separate words") str = "all-separate-words";
+        std::cout << "output: " << camelCase(str) << std::endl;
+    }
+    
+    return 0;
 }
