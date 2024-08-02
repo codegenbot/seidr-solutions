@@ -1,4 +1,4 @@
-int is_bored(string S){
+int is_bored(string S) {
     int count = 0;
     size_t pos = 0;
     while ((pos = S.find("I", pos)) != string::npos) {
@@ -6,9 +6,7 @@ int is_bored(string S){
             count++;
             pos += 1; // skip the punctuation
         }
-        else {
-            pos++; // move to next character
-        }
+        pos++; // move to the next character
     }
     return count;
 }
