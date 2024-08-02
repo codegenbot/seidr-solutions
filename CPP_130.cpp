@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -7,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> tri(int n) {
     std::vector<int> result;
-    
+
     if (n >= 0) {
         for (int i = 0; i <= n; ++i) {
             if (i == 0) {
