@@ -22,4 +22,3 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
-}
