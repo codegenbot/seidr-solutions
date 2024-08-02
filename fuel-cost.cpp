@@ -9,7 +9,9 @@ int main() {
     int n;
     while (!cin.eof()) {
         cin >> n;
-        numbers.push_back(n);
+        if (!cin.eof()) {
+            numbers.push_back(n);
+        }
     }
 
     int sum = 0;
