@@ -5,5 +5,4 @@ def decode_shift():
     )
     print("Decoded message:", decoded_message)
 
-
 decode_shift()
