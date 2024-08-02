@@ -21,18 +21,23 @@ int score(string s) {
             scores[ball++] = c - '0';
         }
     }
-    
-    if (scores[20] == 10 || (scores[19] + scores[20] == 10)) {
+
+    if (scores[20] == 10 || scores[19] + scores[20] == 10) {
         total += scores[19] + scores[20] + scores[21];
     } else {
         total += scores[19] + scores[20];
     }
-    
+
     for (int i = 0; i < 10; i++) {
-        if (scores[i * 2] == 10 || (scores[i * 2] + scores[i * 2 + 1] == 10)) {
+        if (scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 1] + scores[i * 2 + 2];
-            if (scores[i * 2 + 1] == 10 && scores[i * 2 + 2] != 0 && i < 9) {
-                total += scores[i * 2 + 3];
+            if (scores[i * 2 + 1] == 10 && i < 9) {
+                total += scores[i * 2 + 2];
+                if (scores[i * 2 + 2] == 10 && i < 8) {
+                    total += scores[i * 2 + 3];
+                } else {
+                    total += scores[i * 2 + 3];
+                }
             }
         } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
             total += 10 + scores[i * 2 + 2];
@@ -40,7 +45,7 @@ int score(string s) {
             total += scores[i * 2] + scores[i * 2 + 1];
         }
     }
-    
+
     return total;
 }
 
