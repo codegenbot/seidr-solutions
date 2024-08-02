@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cassert>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 1e-6;
@@ -17,4 +18,11 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
         }
     }
     return {num1, num2};
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).first, 2.2) &&
+           issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).second, 3.1));
+    
+    return 0;
 }
