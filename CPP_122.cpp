@@ -12,8 +12,6 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 10, 20};
-    int k = arr.size();
-    int result = add_elements(arr, k);
-    return 0;
+    // Your code here
+    assert(add_elements({1}, 1) == 1);
 }
