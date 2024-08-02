@@ -14,4 +14,13 @@ def factorize(n: int) -> List[int]:
                 factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    print(factors)
+    return factors
+
+
+def main():
+    num = int(input("Enter a number: "))
+    print(factorize(num))
+
+
+if __name__ == "__main__":
+    main()
