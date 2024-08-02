@@ -17,9 +17,9 @@ int main() {
                     std::cout << (char)tolower(c);
                 } else {
                     std::cout << (char)toupper(c);
-                    firstWord = false;
                 }
                 capitalize = false;
+                firstWord = false;
             } else {
                 if(std::isalpha(c)) {
                     std::cout << c;
