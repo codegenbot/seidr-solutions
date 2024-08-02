@@ -1,7 +1,7 @@
 #include <cmath>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 double mean_absolute_deviation(const vector<double>& numbers) {
     double sum = 0;
