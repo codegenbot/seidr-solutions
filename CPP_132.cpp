@@ -2,8 +2,7 @@ bool is_nested(string str) {
     int open = 0, close = 0;
     for (char c : str) {
         if (c == '[') open++;
-        else close++;
-        if (open < close) return false;
+        else if (c == ']') close++;
     }
-    return open > 0;
+    return open > 0 && close >= open;
 }
