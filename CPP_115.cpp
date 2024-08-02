@@ -20,6 +20,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 int main() {
     std::vector<std::vector<int>> grid = {{1,2,3},{4,5,6}};
     int capacity = 7;
-    std::cout << max_fill(grid, capacity) << std::endl;
+    std::cout << "Maximum times to fill: " << max_fill(grid, capacity) << std::endl;
     return 0;
 }
