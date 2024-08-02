@@ -1,11 +1,2 @@
-Here is the solution:
-
 def leaders(arr):
-    n = len(arr)
-    leader = [arr[n-1]]
-    
-    for i in range(n-2,-1,-1):
-        if arr[i] >= arr[i+1]:
-            leader.append(arr[i])
-    
-    return leader[::-1]
+    return [i for i in arr[::-1] if all(j <= i for j in arr[arr.index(i) + 1 :])][::-1]
