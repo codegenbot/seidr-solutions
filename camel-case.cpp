@@ -12,10 +12,10 @@ int main() {
             capitalize = true;
         } else {
             if (capitalize) {
-              c = std::toupper(c);
-              capitalize = false;
+                c = std::tolower(c); // Modify this line
+                capitalize = false;
             } else if (std::isalpha(c)) {
-               c = std::tolower(c);
+                c = std::tolower(c);
             }
         }
     }
