@@ -1,47 +1,35 @@
-#include <string>
-#include <cctype>
+Here is the completed code:
 
+```cpp
+#include <iostream>
 using namespace std;
 
-int countDigits(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            found_dot = true;
+        }
+        else if(!found_dot){
+            if(file_name[i] < 'a' || file_name[i] > 'z') 
+                if(file_name[i] < 'A' || file_name[i] > 'Z')
+                    return "No";
         }
     }
-    return count;
+    if(found_dot){
+        string ext = file_name.substr(file_name.find('.')+1);
+        if(ext != "txt" && ext != "exe" && ext != "dll") 
+            return "No";
+    }
+    else return "No";
+    return "Yes";
 }
 
-string file_name_check(string file_name) {
-    int digitCount = countDigits(file_name);
-    int dotCount = 0;
-    bool validStart = false;
-
-    for (int i = 0; i < file_name.length(); i++) {
-        if (file_name[i] == '.') {
-            dotCount++;
-        }
-        else if (!isalpha((unsigned char)file_name[i])) {
-            return "No";
-        }
-        else {
-            validStart = true;
-        }
-    }
-
-    if (!validStart || dotCount > 1) {
-        return "No";
-    }
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if (find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) {
-        return "No";
-    }
-
-    if (digitCount > 3) {
-        return "No";
-    }
-    return "Yes";
+int main() {
+    // Your code here
 }
