@@ -22,6 +22,6 @@ int main() {
     cout << get_closest_vowel("Example") << endl;
     cout << get_closest_vowel("Hello") << endl;
     cout << get_closest_vowel("Algorithm") << endl;
-    
+
     return 0;
 }
