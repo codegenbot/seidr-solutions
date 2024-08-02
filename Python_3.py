@@ -1,8 +1,6 @@
-def below_zero() -> bool:
-    n = int(input())
+def below_zero(operations: list[int]) -> bool:
     balance = 0
-    for _ in range(n):
-        operation = int(input())
+    for operation in operations:
         balance += operation
         if balance < 0:
             return True
