@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
 string string_sequence(int n) {
     ostringstream oss;
