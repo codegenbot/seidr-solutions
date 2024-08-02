@@ -1,32 +1,42 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
+    int currentFrame = 1;
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
-            vector<int> rolls;
-            while (i < s.length() && s[i] != '/') {
-                int roll = 0;
-                while (i < s.length() && s[i] >= '1' && s[i] <= '9') {
-                    roll = roll * 10 + s[i++] - '0';
+            int firstRoll = (s[i-1] - '0') + (s[i-2] - '0');
+            int secondRoll = (s[i+1] - '0') + (s[i+2] - '0');
+            if (currentFrame < 10) {
+                if (firstRoll + secondRoll == 10) {
+                    score += 10;
+                    currentFrame++;
+                } else {
+                    score += firstRoll;
+                    currentFrame++;
                 }
-                i++;
-                if (roll == 10) break;
-                rolls.push_back(roll);
+            } else {
+                score += firstRoll;
             }
-            int bonus = 0;
-            for (int j = 0; j < rolls.size(); j++) {
-                score += rolls[j];
-                if (j > 0 && rolls[j] + rolls[j-1] >= 10) {
-                    bonus = max(bonus, rolls[j]);
+        } else if (s[i] >= 'X' && s[i] <= '9') {
+            int roll = (s[i] - '0');
+            if (currentFrame < 10) {
+                if (roll == 10) {
+                    score += roll + 10;
+                    currentFrame++;
+                } else {
+                    score += roll;
+                    currentFrame++;
                 }
+            } else {
+                score += roll;
             }
-            score += bonus;
         } else {
-            int roll = 0;
-            while (i < s.length() && s[i] >= '1' && s[i] <= '9') {
-                roll = roll * 10 + s[i++] - '0';
+            int roll = (s[i] - '0');
+            if (currentFrame < 10) {
+                score += roll;
+                currentFrame++;
+            } else {
+                score += roll;
             }
-            i++;
-            score += roll;
         }
     }
     return score;
