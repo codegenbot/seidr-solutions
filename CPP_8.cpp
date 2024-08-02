@@ -19,7 +19,7 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    assert(issame(sum_product({10}).first, 10) && issame(sum_product({10}).second, 10));
+    assert(sum_product({10}).first == 10 && sum_product({10}).second == 10);
     
     return 0;
 }
