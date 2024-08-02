@@ -7,6 +7,6 @@ bool issame(vector<float> a, vector<float> b) {
 
 int main() {
     vector<float> l = {};
-    assert(issame(get_positive(l), vector<float>()) || get_positive(l).empty());
+    assert(issame(get_positive(l), vector<float>()) );
     return 0;
 }
