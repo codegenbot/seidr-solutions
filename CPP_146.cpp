@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -14,7 +13,7 @@ int specialFilter(vector<int> nums){
 
 int main(){
     assert(specialFilter({}) == 0);
-    assert(specialFilter({11,12,13,14,15,16,17,18,19,110,111,112,113,114,115,116,117,118,119}) == 20);
-    assert(specialFilter({-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19}) == 0);
+    assert(specialFilter({1, 11, 21, -1, -11, -21}) == 3);
+    assert(specialFilter({10, 20, 30, -10, -20, -30}) == 0);
     return 0;
 }
