@@ -14,7 +14,7 @@ def minPath(grid, k):
                 if grid[x][y] < min_val:
                     min_val = grid[x][y]
                     next_cell = (x, y)
-        
+
         if next_cell is not None:
             start = next_cell
             path.append(grid[start[0]][start[1]])
