@@ -16,12 +16,3 @@ string get_closest_vowel(string word) {
     }
     return "";
 }
-
-int main() {
-    cout << get_closest_vowel("Above") << endl;
-    cout << get_closest_vowel("Example") << endl;
-    cout << get_closest_vowel("Hello") << endl;
-    cout << get_closest_vowel("Algorithm") << endl;
-
-    return 0;
-}
