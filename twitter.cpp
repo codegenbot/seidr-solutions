@@ -18,11 +18,11 @@ std::string validateTweet(std::string tweet) {
 int main() {
     int numTests;
     std::cin >> numTests;
-
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
+    
     for(int i = 0; i < numTests; ++i) {
         std::string tweet;
+        std::cin >> std::ws; // Read whitespace characters only
         std::getline(std::cin, tweet);
         std::cout << validateTweet(tweet) << std::endl;
     }
