@@ -1,19 +1,11 @@
 #include <vector>
-using namespace std;
 
-class Solution {
-public:
-    int can_arrange(vector<int> arr) {
-        for(int i = arr.size() - 1; i >= 1; i--){
-            if(arr[i] < arr[i-1]){
-                return i - 1;
-            }
+int can_arrange(const std::vector<int>& arr) {
+    int largestIndex = -1;
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] < arr[i - 1]) {
+            largestIndex = i;
         }
-        return -1;
     }
-};
-
-int main() {
-    // Test your code here
-    return 0;
+    return largestIndex;
 }
