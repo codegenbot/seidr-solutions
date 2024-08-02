@@ -4,24 +4,24 @@
 using namespace std;
 
 int main() {
-    double n;
+    int n;
     cin >> n;
-    vector<double> vec1(n);
-    vector<double> vec2(n);
+    vector<long double> vec1(n);
+    vector<long double> vec2(n);
 
-    for (double i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
-    for (double i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
 
-    double sum = 0;
-    for (double i = 0; i < n; ++i) {
+    long double sum = 0;
+    for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    double distance = sqrt(sum);
+    long double distance = sqrt(sum);
     cout << distance << endl;
 
     return 0;
