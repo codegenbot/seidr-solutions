@@ -1,16 +1,11 @@
-#include <iostream>
-#include <list>
-#include <vector>
-#include <any>
+#include <boost/any.hpp>
+#include <boost/algorithm/string.hpp>
 
-using namespace std;
-
-bool issame(const any& a, const any& b) {
-    return get_if<list_any>(boost::any_cast<any>(&a)) == get_if<list_any>(boost::any_cast<any>(&b));
-}
-
-int main() {
-    list_any values;
-    // Add elements to the list
-    filter_integers(values);
-}
+vector<int> filter_integers(list_any values) {
+    vector<int> result;
+    for (auto& value : values) {
+        if (boost::holds_alternative<boost::int_<int>>(value)) {
+            result.push_back(boost::get<boost::int_<int>>(value).get());
+        }
+    }
+    return result;
