@@ -8,5 +8,5 @@ boost::any compare_one(std::string s1, std::string s2) {
 }
 
 int main() {
-    assert(boost::any_cast<std::string>(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
 }
