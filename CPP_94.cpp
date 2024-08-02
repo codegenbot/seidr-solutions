@@ -1,8 +1,34 @@
+#include <iostream>
+#include <vector>
+
+int skjkasdkd(std::vector<int> lst) {
+    int maxPrime = 0;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime)
+            maxPrime = i;
+    }
+    int sum = 0;
+    while(maxPrime){
+        sum += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sum;
+}
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+
 int main() {
-    vector<int> lst;
-    cout << "Enter numbers (separated by space): ";
-    for(int i; cin >> i) lst.push_back(i);
+    std::vector<int> lst;
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
     int result = skjkasdkd(lst); 
-    cout << "Sum of last digits of prime numbers: " << result << endl;
+    std::cout << "Sum of the last digits of all prime numbers: " << result << std::endl;
     return 0;
 }
