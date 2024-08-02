@@ -13,7 +13,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> f(int n){
+std::vector<int> f(int n) {
     return std::vector<int>(n);
 }
 
