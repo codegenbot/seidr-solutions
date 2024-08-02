@@ -5,11 +5,9 @@ using namespace std;
 float snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
     float totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateFall;
+        totalSnow += rateFall - (groundSnow * meltRate);
         if (totalSnow > groundSnow) {
             totalSnow -= (totalSnow - groundSnow);
-        } else {
-            totalSnow -= groundSnow * meltRate;
         }
     }
     return totalSnow;
