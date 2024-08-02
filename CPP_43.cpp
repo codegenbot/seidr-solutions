@@ -15,8 +15,8 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 
 int main() {
     assert (pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-    assert (pairs_sum_to_zero({1, -1, 2, -2, 3, -3}) == true);
-    assert (pairs_sum_to_zero({10, 20, 30, 40, -10, -20}) == true);
+    assert (pairs_sum_to_zero({-2, 1, 3, -1}) == true);
+    assert (pairs_sum_to_zero({5, -5, 0, 2}) == true);
 
     return 0;
 }
