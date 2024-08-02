@@ -1,24 +1,36 @@
 #include <cassert>
 #include <string>
 #include <openssl/md5.h>
+#include <openssl/evp.h>
+#include <openssl/bio.h>
+#include <openssl/buffer.h>
 
 std::string string_to_md5(const std::string& str) {
-    MD5_CTX ctx;
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, str.c_str(), str.size());
-    MD5_Final(digest, &ctx);
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md = EVP_md5();
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    unsigned int digest_len;
 
-    char mdString[33];
-    for (int i = 0; i < 16; ++i) {
-        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
-    }
-    mdString[32] = '\0';
+    mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, str.c_str(), str.length());
+    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
+    EVP_MD_CTX_free(mdctx);
 
-    return std::string(mdString);
+    std::string result;
+    BIO *bmem = BIO_new(BIO_s_mem());
+    BIO_write(bmem, digest, digest_len);
+    BUF_MEM *bptr;
+    BIO_get_mem_ptr(bmem, &bptr);
+
+    result.assign(bptr->data, bptr->data + bptr->length);
+
+    BIO_free_all(bmem);
+
+    return result;
 }
 
-int main() {
+int test_main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
