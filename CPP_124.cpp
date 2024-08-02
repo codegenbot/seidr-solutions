@@ -1,5 +1,3 @@
-bool valid_date(std::string date);
-
 bool valid_date(std::string date) {
     int days_in_month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (date.size() != 10) return false;
