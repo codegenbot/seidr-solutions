@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,33 +8,45 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
+    std::vector<std::string> strings;
+    std::string substring;
+
+    // Read input from user
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    std::vector<std::string> str1, str2;
-
+    
     for(int i = 0; i < n; i++) {
         std::string s;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::cin >> s;
-        str1.push_back(s);
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, s);
+        strings.push_back(s);
     }
 
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+    std::cout << "Enter the substring: ";
+    std::getline(std::cin, substring);
 
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::cin >> s;
-        str2.push_back(s);
+    // Filter by substring
+    vector<string> result = filter_by_substring(strings, substring);
+
+    // Check if all filtered strings are same
+    if(result.size() > 0) {
+        for(int i = 1; i < result.size(); i++) {
+            if(!issame(vector<string>(1,result[i-1]), vector<string>(1,result[i])))
+                break;
+            if(i == result.size() - 1)
+                std::cout << "All filtered strings are same: " << result[0] << std::endl;
+        }
     }
-
-    if(issame(str1, str2))
-        std::cout << "The two sets of strings are the same.\n";
-    else
-        std::cout << "The two sets of strings are not the same.\n";
 
     return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(string s : strings){
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
+    }
+    return result;
 }
