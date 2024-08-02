@@ -10,11 +10,12 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_any_of_type<std::string>(a) && is_any_of_type<std::string>(b)) {
         return (std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) > std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str())) ? a : ((std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) == std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str()))) ? any("None") : b;
     } else {
-        return "Invalid input type";
+        return any("Invalid input type");
     }
 }
 
-bool is_any_of_type(T t, boost::any a) {
+template<typename T>
+bool is_any_of_type(boost::any a) {
     try {
         if (a.type() == typeid(T)) {
             return true;
