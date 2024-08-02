@@ -1,19 +1,17 @@
 #include <vector>
 #include <list>
-#include <any>
+#include <boost/any.hpp>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
-    for (const auto& value : values) {
-        int integer = boost::any_cast<int>(value);
-        if (!integer.empty()) { 
-            result.push_back(integer);
+typedef std::list<boost::any> list_any;
+using namespace std;
+
+vector<int> filter_integers(list_any values){
+    vector<int> result;
+    for(auto& value : values){
+        if(value.type().which() == boost::any::type::type_index()){
+            int val = boost::any_cast<int>(value);
+            result.push_back(val);
         }
     }
     return result;
-}
-
-int main() {
-    assert(filter_integers({3, 4, 5, 'c', 3, 3, 'a', 'b'}) == std::vector<int>({3, 3, 3}));
-    return 0;
 }
