@@ -4,8 +4,8 @@
 #include <typeinfo>
 #include <cassert>
 
-template <typename T1, typename T2>
-std::any compare_one(T1 a, T2 b) {
+template <typename T, typename U>
+std::any compare_one(T a, U b) {
     if (a == b) {
         return std::any("None");
     } else {
