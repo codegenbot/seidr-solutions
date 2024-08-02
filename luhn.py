@@ -1,10 +1,13 @@
-def luhn_check(cc_number):
-    cc_number = list(map(int, cc_number))
+Here is the solution:
+
+def luhn(card):
     sum = 0
-    for i in range(len(cc_number)):
+    for i in range(len(card)):
         if (i % 2) == 1:
-            cc_number[i] *= 2
-            if cc_number[i] > 9:
-                cc_number[i] -= 9
-        sum += cc_number[i]
+            num = int(card[i]) * 2
+            if num > 9:
+                num -= 9
+        else:
+            num = int(card[i])
+        sum += num
     return sum
