@@ -1,33 +1,25 @@
-int bowlingScore(string input) {
+```cpp
+#include <string>
+
+int bowlingScore(std::string& s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
-        if (input[i] == '/') {
-            if (input[i-1] - '0' == 10) {
-                score += 10 + sum(input.substr(i+1));
-            } else {
-                score += input[i-1] - '0';
-                score += max(input[i+1]-'0', 0);
-            }
-        } else if (input[i] == 'X') {
-            score += 10;
-            score += sum(input.substr(i+1));
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (s[i] == '/') {
+            score += 10 + (s[i+1] - '0');
+            i++;
         } else {
-            int count = 0;
-            while (i < 9 && input[i] != '/') i++;
-            for (int j = i; j >= i-count; j--) {
-                score += input[j]-'0';
-                if (count == 10) break;
-                if (input[j]-'0' < 5) count++;
+            int sum = s[i] - '0';
+            if (i < 8 && s[i+1] != '/') {
+                sum += s[i+1] - '0';
+            }
+            if (sum == 10) {
+                score += 10;
+            } else {
+                score += sum;
             }
         }
     }
     return score;
-}
-
-int sum(string s) {
-    int total = 0;
-    for (char c : s) {
-        total += c - '0';
-    }
-    return total;
 }
