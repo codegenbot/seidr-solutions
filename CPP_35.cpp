@@ -6,5 +6,5 @@
 int main() {
     std::vector<float> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     vector<float> v = l; 
-    return abs(*max_element(v.begin(),v.end())-12.4)<1e-4;
+    return abs(*std::max_element(v.begin(),v.end())-12.4)<1e-4;
 }
