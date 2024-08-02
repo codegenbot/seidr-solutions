@@ -1,3 +1,9 @@
+Here is the modified code:
+
+```c++
+#include <vector>
+#include <string>
+
 int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = -1e9;
     string strongest_extension;
