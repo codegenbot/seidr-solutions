@@ -1,16 +1,18 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
+#include <cassert>
 
-bool compare_vectors(vector<int> a, vector<int> b) {
+bool compare_vectors(std::vector<int> a, std::vector<int> b) {
     // Your comparison logic here
 }
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == typeid(int)) {
-            result.push_back(any_cast<int>(value));
+        if (value.type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
