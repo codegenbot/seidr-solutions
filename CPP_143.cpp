@@ -1,32 +1,25 @@
-string words_in_sentence(string sentence){
+string words_in_sentence(string sentence) {
     string result = "";
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
+    int i = 0;
+    while (i < sentence.size()) {
+        int j = i + 1;
+        for (; j <= sentence.size(); j++) {
+            if (j == sentence.size() || !isalpha(sentence[j])) {
+                break;
+            }
+        }
+        string word = sentence.substr(i, j - i);
+        bool isPrime = true;
+        for (int k = 2; k * k <= word.length(); k++) {
+            if (word.length() % k == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
             result += word + " ";
         }
+        i = j;
     }
-    return result.substr(0, result.length() - 1);
-}
-
-vector<string> split(const string& str, char c) {
-    vector<string> tokens;
-    string token;
-    for (const auto& ch : str) {
-        if (ch == c) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += ch;
-        }
-    }
-    tokens.push_back(token);
-    return tokens;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
+    return result.substr(0, result.size() - 1);
 }
