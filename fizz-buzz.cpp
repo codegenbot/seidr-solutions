@@ -1,12 +1,14 @@
-Here is the solution:
+#include <string>
 
-int fizzBuzz(int x) {
+string fizzBuzz(int x) {
+    string result;
     if (x % 3 == 0 && x % 5 == 0)
-        return std::string("FizzBuzz");
+        return "FizzBuzz";
     else if (x % 3 == 0)
-        return std::string("Fizz");
+        return "Fizz";
     else if (x % 5 == 0)
-        return std::string("Buzz");
+        return "Buzz";
     else
-        return std::to_string(x);
+        result = to_string(x);
+    return result;
 }
