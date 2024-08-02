@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     N = len(grid)
     values = [[(i * N + j, val) for j, val in enumerate(row)] for i, row in enumerate(grid)]
@@ -18,4 +17,3 @@ def minPath(grid, k):
                     queue.append((nx, ny, new_path))
         if len(path) == k:
             return sorted(path)
-    return []
