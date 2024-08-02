@@ -8,7 +8,7 @@ using namespace std;
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    EVP_MD_CTX* md_ctx;
+    EVP_MD_CTX *md_ctx;
     unsigned char hash[16];
     unsigned int hash_len = 0;
 
