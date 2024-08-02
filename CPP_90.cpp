@@ -2,7 +2,7 @@
 #include <vector>
 
 int findSecondMinElement(std::vector<int> lst) {
-    vector<int>::iterator it = min_element(lst.begin(), lst.end());
+    std::vector<int>::iterator it = std::min_element(lst.begin(), lst.end());
     if (std::next(it) != lst.end()) {
         return *std::next(it);
     } else if (lst.size() < 2) {
