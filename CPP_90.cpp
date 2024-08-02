@@ -1,9 +1,11 @@
+Here is the completed code:
+
 int next_smallest(vector<int> lst){
-    vector<int> v = lst;
-    if(v.size() < 2) return -1; // or any value that represents "None"
-    sort(v.begin(), v.end());
-    for(int i = 1; i < v.size(); i++){
-        if(v[i] != v[0]) return v[i];
+    if(lst.size() < 2) return -1; // returning None
+    vector<int> temp = lst;
+    sort(temp.begin(), temp.end());
+    for(int i=0; i<temp.size()-1; i++){
+        if(temp[i] != temp[i+1]) return temp[i+1];
     }
-    return -1; // or any value that represents "None"
+    return -1; // returning None
 }
