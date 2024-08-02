@@ -11,6 +11,8 @@ bool below_zero(const vector<int>& operations) {
     return false;
 }
 
-vector<int> operations{1, -3, 2, -5, 7};
-
-bool result = below_zero(operations);
+int main() {
+    vector<int> operations = {1, -2, 3, -4, 5};
+    below_zero(operations);
+    return 0;
+}
