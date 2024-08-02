@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     bool same = true;
     for (const auto& s : a) {
