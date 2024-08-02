@@ -1,3 +1,7 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
 bool issame(const string& first, const string& second) {
     return first.length() == second.length();
 }
