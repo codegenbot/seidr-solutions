@@ -1,11 +1,15 @@
+```cpp
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any other value that represents "None"
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 1; i < sorted.size(); i++) {
-        if (sorted[i] != sorted[0]) {
-            return sorted[i];
+    if (lst.size() < 2) return -1; 
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    for (int i = 1; i < sorted_lst.size(); i++) {
+        if (sorted_lst[i] > sorted_lst[0]) {
+            return sorted_lst[i];
         }
     }
-    return -1; // or any other value that represents "None"
+    return -1; 
 }
