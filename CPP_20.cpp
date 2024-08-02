@@ -5,36 +5,23 @@
 bool issame(vector<float>, vector<float>);
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    vector<float> numbers;
+    // your code here
+}
 
-    vector<float> numbers(n);
-    for (int i = 0; i < n; ++i) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> numbers[i];
-    }
+vector<float> find_closest_elements(vector<float> numbers) {
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
 
-    vector<float> find_closest_elements(vector<float> numbers) {
-        float min_diff = numeric_limits<float>::max();
-        pair<float, float> closest_pair;
-
-        for (int i = 0; i < numbers.size() - 1; ++i) {
-            for (int j = i + 1; j < numbers.size(); ++j) {
-                float diff = numbers[j] - numbers[i];
-                if (abs(diff) < min_diff) {
-                    min_diff = abs(diff);
-                    closest_pair = {numbers[i], numbers[j]};
-                }
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            float diff = numbers[j] - numbers[i];
+            if (abs(diff) < min_diff) {
+                min_diff = abs(diff);
+                closest_pair = {numbers[i], numbers[j]};
             }
         }
-
-        return vector<float>(closest_pair.begin(), closest_pair.end());
     }
 
-    cout << "Closest pair: ";
-    for (float num : find_closest_elements(numbers)) {
-        cout << num << " ";
-    }
-    cout << endl;
+    return vector<float>(closest_pair.begin(), closest_pair.end());
 }
