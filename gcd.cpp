@@ -2,14 +2,16 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 int gcd(int a, int b) {
     if (b == 0)
         return a;
     return gcd(b, a % b);
 }
 
-std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+vector<int> findIndicesOfSubstring(const string& text, const string& target) {
+    vector<int> indices;
     int n = text.size();
     int m = target.size();
     
@@ -33,18 +35,18 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
 int main() {
     int a, b;
-    std::string text, target;
-    
-    std::cin >> a >> b;
-    std::cin >> text >> target;
-    
-    std::cout << gcd(a, b) << std::endl;
-    
-    std::vector<int> result = findIndicesOfSubstring(text, target);
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    cin.ignore();
+    getline(cin, text);
+    cin >> target;
+    vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
-    
+    cout << endl;
+
     return 0;
 }
