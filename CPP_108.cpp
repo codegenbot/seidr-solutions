@@ -28,8 +28,16 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3};
+    vector<int> numbers;
+    int num;
+    
+    cout << "Enter the numbers (0 to stop):" << endl;
+    while ((cin >> num) && (num != 0)) {
+        numbers.push_back(num);
+    }
+    
     int result = count_nums(numbers);
     cout << "The result is: " << result << endl;
+    
     return 0;
 }
