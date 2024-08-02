@@ -10,7 +10,7 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            result &= false;
+            result &= true;
         } else if (s[i] == '|') {
             result |= true;
         }
