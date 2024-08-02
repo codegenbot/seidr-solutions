@@ -1,13 +1,11 @@
-def check_date():
-    date = input("Enter a date (mm-dd-yyyy): ")
-    mm_dd_yyyy = date.replace('-', '')
-    if len(mm_dd_yyyy) != 8:
-        print("Invalid date format")
-    else:
-        month, day, year = map(int, (mm_dd_yyyy[:2], mm_dd_yyyy[2:4], mm_dd_yyyy[4:]))
-        if not (1 <= month <= 12):
-            print("Invalid month")
-        elif not (1 <= day <= [31,28,29,30,31,30,31,31,30,31,30,31][month-1]):
-            print("Invalid day")
+def get_valid_dates():
+    dates = []
+    while True:
+        user_date = input("Enter a date (MM-DD-YYYY) or 'q' to quit: ")
+        if user_date.lower() == "q":
+            break
+        if valid_date(user_date):
+            dates.append(user_date)
         else:
-            print("Date is valid")
+            print(f"Invalid date. Please enter a valid date in MM-DD-YYYY format.")
+    return dates
