@@ -1,20 +1,51 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
+#include <cctype>
+#include <string>
 
-int do_algebra(std::vector<std::string> operator_, std::vector<int> operands) {
-    int result = (int)operands[0];
-    for(int i = 1; i < operands.size(); i++) {
-        if(operator_[i-1] == "+") {
-            result += (int)operands[i];
-        } else if(operator_[i-1] == "-") {
-            result -= (int)operands[i];
-        } else if(operator_[i-1] == "*") {
-            result *= (int)operands[i];
-        } else if(operator_[i-1] == "//") {
-            result = (int)(result / (double)operands[i]);
-        } else if(operator_[i-1] == "**") {
-            result = pow((double)result, (double)operands[i]);
+using namespace std;
+
+int do_algebra(vector<string> operator_, vector<int> operand) {
+    int result = 0;
+    string expression;
+
+    for (int i = 0; i < operator_.size(); i++) {
+        if (i == 0) {
+            for (int j = 0; j < operand.size() - 1; j++)
+                expression += to_string(operand[j]);
+            expression += " ";
+        }
+        expression += operator_[i];
+    }
+
+    for (int i = operand.size() - 1; i >= 1; i--) {
+        if (expression.back() == ' ')
+            expression.pop_back();
+    }
+
+    int temp = eval(expression);
+    return temp;
+}
+
+long long eval(const string& s) {
+    long long res = 0;
+    long long num = 0;
+    char sign = '+';
+    for (char c : s + "+") {
+        if (isdigit(c)) {
+            num = num * 10 + (c - '0');
+        } else {
+            if (sign == '+')res += num;
+            else res -= num;
+            sign = c;
+            num = 0;
         }
     }
-    return result;
+    return res;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
