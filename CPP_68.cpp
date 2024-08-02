@@ -1,13 +1,16 @@
+#include <climits>
 #include <vector>
 
 using namespace std;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    
+    if (arr.empty()) return {0};
     
     int smallest = INT_MAX;
     int index = -1;
+    
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < smallest) {
             smallest = arr[i];
@@ -15,6 +18,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    result.push_back({smallest, index});
+    result.push_back(smallest);
+    
     return result;
 }
