@@ -1,11 +1,16 @@
-bool issame(vector<int> a,vector<int>b){
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
     for(int num : numbers) {
-        if(find(result.begin(), result.end(), num) == result.end()) {
+        if (find(result.begin(), result.end(), num) == result.end()) {
             result.push_back(num);
         }
     }
@@ -13,6 +18,6 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    assert (issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
