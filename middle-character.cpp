@@ -11,9 +11,9 @@ string middleCharacter(string s) {
 }
 
 int main() {
-    string input;
+    string s;
     cout << "Enter a string: ";
-    cin >> input;
-    cout << "Middle character(s): " << middleCharacter(input) << endl;
+    cin >> s;
+    cout << "Middle character(s): " << middleCharacter(s) << endl;
     return 0;
 }
