@@ -5,8 +5,10 @@ def check_numbers_within_threshold(numbers, threshold):
             return True
     return False
 
+# Input from user
 numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
 threshold = int(input("Enter threshold: "))
 
+# Call the function with user input
 result = check_numbers_within_threshold(numbers, threshold)
 print(result)
