@@ -1,4 +1,6 @@
-#include <set>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
