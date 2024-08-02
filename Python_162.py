@@ -1,4 +1,4 @@
 import hashlib
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode()).hexdigest() if text else None
+    return hashlib.md5(text.encode() if text else b'').hexdigest()
