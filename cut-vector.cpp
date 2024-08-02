@@ -1,44 +1,35 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++) {
-            left_sum += v[j];
+vector<vector<int>> cutVector(vector<int>& v) {
+    int n = v.size();
+    vector<int> left(n);
+    for (int i = 0; i < n; i++) {
+        left[i] = v[i];
+    }
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
+    for (int i = 0; i < n; i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
         }
-        
-        for (int k = i; k < v.size(); k++) {
-            right_sum += v[k];
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
         }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(v.begin(), v.begin() + i);
-            result.second = vector<int>(v.begin() + i, v.end());
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-    
+    vector<vector<int>> result(2);
+    for (int i = 0; i <= splitIndex; i++) {
+        result[0].push_back(v[i]);
+    }
+    for (int i = splitIndex + 1; i < n; i++) {
+        result[1].push_back(v[i]);
+    }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    
-    cout << "[";
-    for (const auto &x : res.first) cout << x << " ";
-    cout << "] [" << endl;
-    for (const auto &x : res.second) cout << x << " ";
-    
-    return 0;
 }
