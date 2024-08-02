@@ -1,7 +1,8 @@
+#include <iostream>
 #include <stack>
 #include <string>
 
-bool solveBoolean(string booleanExp) {
+bool solveBoolean(std::string booleanExp) {
     stack<char> s;
     for (int i = 0; i < booleanExp.length(); i++) {
         if (booleanExp[i] == '&') {
