@@ -1,14 +1,15 @@
+
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-std::vector<std::string> odd_count(const std::vector<std::string>& lst){
+std::vector<std::string> odd_count(std::vector<std::string> lst){
     std::vector<std::string> result;
-    for (const std::string& s : lst) {
+    for (std::string s : lst) {
         int odd_count = 0;
         for (char c : s) {
             if ((c - '0') % 2 != 0) {
