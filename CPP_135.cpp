@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int can_arrange(std::vector<int> arr){
     for(int i=1; i<arr.size(); i++){
@@ -9,23 +9,13 @@ int can_arrange(std::vector<int> arr){
     return -1;
 }
 
-int main(){
-    int n, k;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> arr(n);
-    for(int i=0; i<n; i++){
-        std::cout << "Element " << i+1 << ": ";
-        std::cin >> arr[i];
+int main() {
+    std::vector<int> arr = {5, 3, 4};
+    int result = can_arrange(arr);
+    if(result != -1) {
+        std::cout << "The first pair of numbers that are out of order is at index " << result << "." << std::endl;
+    } else {
+        std::cout << "The array is already in order." << std::endl;
     }
-    
-    k = can_arrange(arr);
-    
-    if(k == -1)
-        std::cout << "The array can be arranged.\n";
-    else
-        std::cout << "The first element that cannot be arranged is at index " << k << ".\n";
-    
     return 0;
 }
