@@ -1,6 +1,4 @@
 #include <string>
-#include <algorithm>
-
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
@@ -9,7 +7,7 @@ int bowlingScore(string s) {
             score += 30;
             roll++;
         } else if (c == '/') {
-            score += 10 + std::max(roll, 1);
+            score += 10 + (roll > 0 ? roll : 1);
             roll = 0;
         } else {
             int points = c - '0';
