@@ -1,3 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string current_word;
