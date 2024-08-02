@@ -7,7 +7,7 @@ def find_zero(xs: list):
     x1 = (-b + sqrt_discriminant) / (2 * a)
     x2 = (-b - sqrt_discriminant) / (2 * a)
     return x1 if x1 == x2 else (x1, x2)
-
+    
 if __name__ == "__main__":
     coefficients = [float(input("Enter coefficient a: ")), 
                     float(input("Enter coefficient b: ")), 
