@@ -26,13 +26,18 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
             }
         }
     }
+
+    if (indices.size() == 0) {
+        return {-1};
+    }
     
     return indices;
 }
 
 int main() {
     // Test cases
-    int result = gcd(545559, 90516);  // Should return 3
+    std::vector<int> indices1 = findIndicesOfSubstring("ababab", "aba");  
+    std::vector<int> indices2 = findIndicesOfSubstring("AAAAA", "AA");    
 
     return 0;
 }
