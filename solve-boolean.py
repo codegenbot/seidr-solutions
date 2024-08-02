@@ -1,19 +1,17 @@
-```
-def solve_boolean(expression):
+def solveBoolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid Boolean operation")
-    else:
-        result = True if expression[0] == 't' else False
-        for i in range(1, len(expression)):
-            if expression[i] in '&|':
-                if expression[i-1] != expression[i]:
-                    return False
-            elif expression[i] == '&':
-                result = result and (expression[i+1] == 't')
-            elif expression[i] == '|':
-                result = result or (expression[i+1] == 't')
-        return result
+    elif '&' in expression:
+        terms = expression.split('&')
+        for term in terms:
+            if 'T' in term or any(char.isdigit() for char in term):
+                return False
+        return True
+    elif '|' in expression:
+        terms = expression.split('|')
+        for term in terms:
+            if 'F' in term or any(char.isdigit() for char in term):
+                return True
+        return False
