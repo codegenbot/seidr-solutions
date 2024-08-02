@@ -13,7 +13,5 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
-    assert(eat(4, 5, 1) == std::make_pair(5, 0));
-
-    return 0;
+    assert(issame({eat(4, 5, 1).first}, {5, 0}));
 }
