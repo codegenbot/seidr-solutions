@@ -1,30 +1,36 @@
-if (a.type() == boost::any::typeless_type) {
-    if (b.type() == boost::any::typeless_type) {
-        return "None";
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
+
+using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a, b);
     }
-    else if (boost::any_cast<double>(b) > boost::any_cast<double>(a)) {
-        return b;
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a, b);
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string str_a = boost::any_cast<string>(a);
+        string str_b = boost::any_cast<string>(b);
+        return (str_b > str_a) ? b : ((str_a == str_b) ? "None" : a);
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string str_b = boost::any_cast<string>(b);
+        float num_a = boost::lexical_cast<float>(boost::any_cast<boost::any>(a));
+        return (str_b > to_string(num_a)) ? b : ((num_a == boost::lexical_cast<float>(str_b)) ? "None" : a);
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string str_a = boost::any_cast<string>(a);
+        float num_b = boost::lexical_cast<float>(boost::any_cast<boost::any>(b));
+        return (str_a > to_string(num_b)) ? a : ((num_b == boost::lexical_cast<float>(str_a)) ? "None" : b);
     }
     else {
-        return a;
-    }
-}
-else if (b.type() == boost::any::typeless_type) {
-    if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
-        return a;
-    }
-    else {
-        return "None";
-    }
-}
-else {
-    if (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b)) {
-        return a;
-    }
-    else if (boost::any_cast<std::string>(b) > boost::any_cast<std::string>(a)) {
-        return b;
-    }
-    else {
-        return "None";
+        throw invalid_argument("Invalid input types");
     }
 }
