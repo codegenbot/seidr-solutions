@@ -2,7 +2,12 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
