@@ -1,29 +1,44 @@
+#include <iostream>
 #include <map>
+#include <sstream>
 #include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
-    return a == b;
+using namespace std;
+
+map<char, int> histogram(string test);
+
+int main() {
+    map<char, int> result = histogram("a");
+    map<char, int> expected = {{'a', 1}};
+    
+    assert (result == expected);
+
+    return 0;
 }
 
-std::map<char, int> histogram(std::string test);
-
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::map<char, int> count;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    stringstream ss(test);
+    string word;
+    while (ss >> word) {
+        for (char c : word) {
+            result[c]++;
+        }
+    }
+    
     int maxCount = 0;
-
-    for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
-            maxCount = std::max(maxCount, count[c]);
+    for (const auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
         }
     }
 
-    for (auto &entry : count) {
-        if (entry.second == maxCount) {
-            result[entry.first] = entry.second;
+    map<char, int> mostRepeated;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            mostRepeated[pair.first] = pair.second;
         }
     }
-
-    return result;
+    
+    return mostRepeated;
 }
