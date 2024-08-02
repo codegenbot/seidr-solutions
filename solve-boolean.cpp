@@ -1,14 +1,12 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <stack>
 
 using namespace std;
 
-stack<char> operatorStack;
-
 bool evaluateBoolean(string expression) {
     stack<char> operatorStack;
+    stack<char> operatorStack; 
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operatorStack.empty() && operatorStack.top() == '|')
