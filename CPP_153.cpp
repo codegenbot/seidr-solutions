@@ -1,20 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <cassert>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    std::string strongest_extension;
     int max_strength = INT_MIN;
-    std::string strongest_extension = "";
 
-    for(const auto& ext : extensions){
-        int CAP = 0, SM = 0;
-        for(const auto& c : ext){
-            if(std::isupper(c)) CAP++;
-            if(std::islower(c)) SM++;
+    for (const std::string& ext : extensions) {
+        int cap_count = 0, sm_count = 0;
+        for (char c : ext) {
+            if (isupper(c)) {
+                cap_count++;
+            } else if (islower(c)) {
+                sm_count++;
+            }
         }
-        int strength = CAP - SM;
-        if(strength > max_strength || (strength == max_strength && ext < strongest_extension)){
+
+        int strength = cap_count - sm_count;
+        if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
             max_strength = strength;
             strongest_extension = ext;
         }
@@ -24,11 +28,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::string class_name = "ClassA";
-    std::vector<std::string> extensions = {"extA", "extB", "extC", "eXtD"};
-
-    std::string result = Strongest_Extension(class_name, extensions);
-    std::cout << result << std::endl;
-
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    
     return 0;
 }
