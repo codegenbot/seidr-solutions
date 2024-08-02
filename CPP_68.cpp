@@ -1,8 +1,8 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 
-namespace mynamespace {
+namespace std {
     bool issame(std::vector<int> a, std::vector<int> b) {
         return a == b;
     }
@@ -29,13 +29,13 @@ namespace mynamespace {
 int main() {
     std::vector<int> nums {3, 1, 4, 1, 5, 9, 2, 6, 5};
 
-    std::vector<int> result = mynamespace::pluck(nums);
+    std::vector<int> result = std::pluck(nums);
     
     for(auto num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
 
-    assert(mynamespace::issame(mynamespace::pluck({7, 9, 7, 1}), {}));
+    assert(std::issame(std::pluck({7, 9, 7, 1}), {}));
     
     return 0;
 }
