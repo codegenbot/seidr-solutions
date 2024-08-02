@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -27,8 +28,8 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    for (int num : result[1]) {
-        cout << num << " ";
+    for(int i=0; i<result[1].size();i++){
+        cout << result[1][i] << " ";
     }
     cout << endl;
     return 0;
