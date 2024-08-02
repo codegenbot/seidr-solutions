@@ -14,5 +14,3 @@ vector<string> all_prefixes(string str){
     }
     return result;
 }
-
-```
