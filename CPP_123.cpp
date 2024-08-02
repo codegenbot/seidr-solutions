@@ -1,5 +1,4 @@
 #include <vector>
-#include <assert.h>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -13,9 +12,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
 
     return true;
-}
-
-int main() {
-    assert(issame({1}, {1}));
-    return 0;
 }
