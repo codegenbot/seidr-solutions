@@ -3,18 +3,26 @@ Here is the solution:
 #include <string>
 using namespace std;
 
-string camelCase(string str) {
+string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            for (int j = i + 1; j <= str.find(' ', i); j++) {
-                result += toupper(str[j]);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
             }
-            result += ' ';
-            i = str.find(' ', i);
-        } else if (str[i] != ' ') {
-            result += tolower(str[i]);
+            result += toupper(s[i]);
+        } else if (s[i] != ' ') {
+            result += tolower(s[i]);
         }
     }
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    cin >> input;
+    cout << "The camelCase version is: " << camelCase(input) << endl;
+    return 0;
 }
