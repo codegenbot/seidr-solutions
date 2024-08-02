@@ -1,2 +1,2 @@
 def words_string(s):
-    return re.findall(r'\w+', s)
+    return [word.strip() for word in s.replace(",", " ").split()]
