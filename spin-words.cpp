@@ -1,26 +1,34 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while(i < str.length()) {
-        if(str[i] == ' ') {
-            result += str.substr(i,1);
-        } else if (str.length() - i <= 5 || isSpace(str[i+1])) {
-            result += str.substr(i);
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            result += " ";
         } else {
-            string word = str.substr(i);
-            reverse(word.begin(),word.end());
-            result += word + " ";
-            i += word.length();
+            int j = i;
+            while (++i && str[i] != ' ');
+            if ((j + 1) > 4) {
+                for (; j >= 0; j--)
+                    result += str[j];
+                result += " ";
+            } else
+                result += str.substr(j, i - j);
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
-bool isSpace(char c) {
-    if(c == ' ')
-        return true;
-    return false;
+int main() {
+    string str;
+    while (true) {
+        cout << "Enter a sentence ('stop' to finish): ";
+        cin >> str;
+        if (str == "stop")
+            break;
+        cout << spinWords(str) << endl;
+    }
+    return 0;
 }
