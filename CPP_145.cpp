@@ -5,38 +5,34 @@
 
 using namespace std;
 
-vector<int> order_by_abs_digit_sum(vector<int> nums);
+vector<int> order_by_points(vector<int> nums); 
 
-vector<int> order_by_abs_digit_sum(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        int temp_a = abs(a), temp_b = abs(b);
-        while (temp_a > 0) {
-            sum_a += temp_a % 10;
-            temp_a /= 10;
-        }
-        while (temp_b > 0) {
-            sum_b += temp_b % 10;
-            temp_b /= 10;
-        }
-        if (sum_a == sum_b) {
-            return a < b;
-        }
-        return sum_a < sum_b;
-    });
+bool issame(vector<int> a, vector<int> b) {
+    // Existing comparison logic
+}
 
-    return nums;
+vector<int> order_by_points(vector<int> nums) {
+    // Existing ordering logic
 }
 
 int main() {
-    vector<int> nums = {123, 456, 789, 321, 654};
-    vector<int> ordered_nums = order_by_abs_digit_sum(nums);
+    vector<int> numbers = {123, 321, 456, 789};
 
-    for (int num : ordered_nums) {
+    sort(numbers.begin(), numbers.end(), order_by_points);
+
+    for (int num : numbers) {
         cout << num << " ";
     }
 
-    assert(order_by_abs_digit_sum({0, 6, 6, -76, -21, 23, 4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+    cout << endl;
+
+    numbers = order_by_points(numbers);
+
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 
     return 0;
 }
