@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -19,7 +18,10 @@ string get_closest_vowel(string word) {
     return "";
 }
 
-assert(get_closest_vowel("Above") == "o");
-assert(get_closest_vowel("Example") == "e");
-assert(get_closest_vowel("Hello") == "o");
-assert(get_closest_vowel("Algorithm") == "o");
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    assert(get_closest_vowel("Example") == "e");
+    assert(get_closest_vowel("Hello") == "o");
+    assert(get_closest_vowel("Algorithm") == "o");
+    return 0;
+}
