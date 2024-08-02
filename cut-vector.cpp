@@ -1,37 +1,40 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <numeric>
 #include <cmath>
 
+using namespace std;
+
 int main() {
-    int n, cutIndex;
-    std::cin >> n >> cutIndex;
-    std::vector<int> nums(n);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+    }
+    
+    int leftSum = 0, totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int minDiff = INT_MAX, cutIndex = 0;
     
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-
-    int minDiff = INT_MAX;
-    int splitIndex = -1;
-
-    for (int i = 0; i < n; ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0)
-                          - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = abs(2*leftSum - totalSum);
         if (diff < minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            cutIndex = i;
         }
+        leftSum += nums[i];
     }
-
+    
     for (int i = 0; i < n; ++i) {
-        if (i == splitIndex) {
-            std::cout << std::endl;
-        } else if (i != splitIndex - 1) {
-            std::cout << nums[i] << " ";
+        if (i == cutIndex) {
+            cout << endl;
+        } else if (i < cutIndex) {
+            cout << nums[i] << " ";
         } else {
-            std::cout << nums[i] << std::endl;
+            cout << nums[i] << " ";
         }
     }
-
+    
     return 0;
 }
