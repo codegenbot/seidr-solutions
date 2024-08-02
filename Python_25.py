@@ -16,5 +16,5 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
             n //= i**count
     if n > 1:
-        factors.append(n)
+        factors.extend([n] * 1)
     return factors
