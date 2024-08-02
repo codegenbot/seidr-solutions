@@ -1,41 +1,39 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(string bowled) {
     int score = 0;
-    int roll1 = 0, roll2 = 0, currentFrame = 1;
+    int currentFrame = 1;
+    int strikes = 0;
 
-    for (char c : s) {
-        if (c != '/') {
-            if (c == 'X') {
-                score += 30;
-                currentFrame++;
-            } else if (c >= '1' && c <= '9') {
-                int val = c - '0';
-                roll1 = val;
-
-                if (currentFrame < 10) {
-                    // If we're in the last two frames, 
-                    // and there's no strike or spare
-                    score += val;
-                } else if (currentFrame == 10) {
+    for (int i = 0; i <= bowled.size() - 1; i++) {
+        if (bowled[i] == 'X') {
+            score += 10 + (10 * (currentFrame < 10));
+            currentFrame++;
+            strikes++;
+        } else if (bowled[i] == '/') {
+            int firstRoll = bowled[i - 1] - '0';
+            int secondRoll = bowled[i + 1] - '0';
+            score += (firstRoll + secondRoll);
+            currentFrame++;
+        } else {
+            int roll = bowled[i] - '0';
+            if (currentFrame < 10) {
+                score += roll;
+                if (strikes == 2 || i > 18) continue;
+                for (int j = i; j < bowled.size() - 1 && j <= 18; j++) {
+                    if (bowled[j] != '/') break;
+                }
+                if (j - i > 1) {
+                    int nextTwoRolls = (bowled[j - 1] - '0') + (bowled[j] - '0');
+                    score += roll * 2 + nextTwoRolls;
+                    currentFrame++;
+                    i = j;
+                } else {
+                    score += roll * 2;
                     currentFrame++;
                 }
-            } else if (c == '-') {
-                score += roll1 + roll2;
-                currentFrame++;
-                roll1 = 0;
-                roll2 = 0;
-            } else {
-                int val = c - '0';
-                roll2 = val;
-                if (currentFrame < 10) {
-                    score += roll1 + roll2;
-                    currentFrame++;
-                    roll1 = 0;
-                    roll2 = 0;
-                }
-            }
+            } else continue;
         }
     }
 
