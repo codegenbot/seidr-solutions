@@ -47,18 +47,15 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    // Example usage
     std::vector<std::string> words = select_words("Hello world! This is a test.", 2);
     for (std::string word : words) {
         std::cout << word << std::endl;
     }
     
-    // Compare two vectors of strings
     std::vector<std::string> a = {"apple", "banana", "orange"};
     std::vector<std::string> b = {"apple", "grape", "orange"};
     std::cout << issame(a, b) << std::endl;
     
-    // Additional test using assert
     assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
     
     return 0;
