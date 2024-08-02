@@ -1,9 +1,2 @@
 ```
-def sum_squares(lst):
-    total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total += lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += lst[i] ** 3
-    return total
+print("Here is the completed code:\ndef sum_squares(lst):\n    total = 0\n    for i in range(len(lst)):\n        if i % 3 == 0 and i % 4 != 0:\n            total += lst[i] ** 2\n        elif i % 4 == 0 and i % 3 != 0:\n            total += lst[i] ** 3\n    return total")
