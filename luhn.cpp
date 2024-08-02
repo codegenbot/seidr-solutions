@@ -9,9 +9,9 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 15; i >= 0; --i) {
         int num = digits[i];
-        if (i % 2 == 0) {
+        if ((15 - i) % 2 == 1) {
             num *= 2;
             if (num > 9) {
                 num -= 9;
