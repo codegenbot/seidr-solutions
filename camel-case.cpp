@@ -1,31 +1,36 @@
+Here is the completed code:
+
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-string kebabToCamel(const string &s) {
-    string res;
-    bool capitalize = true;
+string kebabToCamel(string str) {
+    string result = "";
+    int i = 0;
     
-    for (char c : s) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            res += toupper(c);
-            capitalize = false;
+    while (i < str.size()) {
+        if (str[i] == '-') {
+            // skip -
+            i++;
+            continue;
+        }
+        
+        if (result != "") {
+            // capitalize first letter of each new word
+            result[0] -= 'a' - 'A';
         } else {
-            res += tolower(c);
+            result = str.substr(i);
+            i += result.size();
         }
     }
     
-    return res;
+    return result;
 }
 
 int main() {
-    int t;
-    cin >> t;
-    while(t--) {
-        string s;
-        cin >> s;
-        cout << kebabToCamel(s) << endl;
-    }
+    string input;
+    cin >> input;
+    cout << kebabToCamel(input) << endl;
     return 0;
 }
