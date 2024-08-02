@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <set>
@@ -25,5 +26,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    return 0;
 }
