@@ -1,20 +1,12 @@
-def cut_vector(vector):
-    if len(vector) == 1:
-        return [vector], [0]
-
-    left = []
-    right = []
+def cut_vector(v):
+    v = sorted(v)
     min_diff = float("inf")
-    split_index = -1
+    split_index = 0
 
-    for i in range(1, len(vector)):
-        diff = abs(np.sum(vector[:i]) - np.sum(vector[i:]))
-
+    for i in range(len(v) - 1):
+        diff = abs((v[i] + v[i + 1]) / 2 - v[i])
         if diff < min_diff:
             min_diff = diff
             split_index = i
 
-    left = vector[:split_index]
-    right = vector[split_index:]
-
-    return [left], [right, 0]
+    return v[: split_index + 1], v[split_index:]
