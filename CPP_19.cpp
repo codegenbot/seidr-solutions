@@ -1,25 +1,23 @@
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
 string sort_numbers(string numbers) {
-    map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                 {"eight", 8}, {"nine", 9}};
-    vector<string> num_str;
-    string temp;
-    for (char c : numbers) {
-        if (c == ' ') {
-            num_str.push_back(temp);
-            temp = "";
-        } else {
-            temp += c;
-        }
+    istringstream iss(numbers);
+    string word;
+    vector<string> words;
+    
+    while (iss >> word) {
+        words.push_back(word);
     }
-    num_str.push_back(temp);
-
-    sort(num_str.begin(), num_str.end());
-
-    string result = "";
-    for (string s : num_str) {
-        result += s + " ";
+    
+    sort(words.begin(), words.end());
+    
+    stringstream ss;
+    for (const auto& word : words) {
+        ss << word << " ";
     }
-
-    return result.substr(0, result.size() - 1);
+    
+    return ss.str();
 }
