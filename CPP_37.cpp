@@ -1,28 +1,26 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+std::vector<float> sort_even(std::vector<float> vec) {
+    std::vector<float> even_elements;
+    for (float num : vec) {
+        if (static_cast<int>(num) % 2 == 0) {
+            even_elements.push_back(num);
+        }
+    }
+    std::sort(even_elements.begin(), even_elements.end());
+    int idx = 0;
+    for (int i = 0; i < vec.size(); ++i) {
+        if (static_cast<int>(vec[i]) % 2 == 0) {
+            vec[i] = even_elements[idx++];
+        }
+    }
+    return vec;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> even_indices;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
-        }
-    }
-    std::sort(even_indices.begin(), even_indices.end());
-    int j = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = even_indices[j];
-            j++;
-        }
-    }
-    return l;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
 }
 
 int main() {
