@@ -1,24 +1,42 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& str) {
-    std::string result;
-    for (char c : str) {
-        if (c == '-') {
-            result += char(toupper(c + 1));
-        } else if (c == ' ') {
-            // ignore spaces
-        } else {
-            result += tolower(c);
+using namespace std;
+
+string kebabToCamel(string str) {
+    string result = "";
+    int count = 0;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            count++;
+            continue;
+        }
+        
+        if (count > 0) {
+            result[0] = toupper(str[i]);
+            result += str.substr(i + 1);
+            break;
+        }
+        
+        if (str[i] != ' ') {
+            if (result.length() == 0)
+                result += tolower(str[i]);
+            else
+                result += str[i];
         }
     }
+    
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "CamelCase: " << camelCase(input) << std::endl;
+    string input;
+    cout << "Enter the kebab-case string: ";
+    cin >> input;
+    cout << "The camelCase string is: " << kebabToCamel(input) << endl;
     return 0;
 }
