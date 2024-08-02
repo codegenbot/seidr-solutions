@@ -1,8 +1,8 @@
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <iomanip>
 #include <openssl/evp.h>
-#include <string>
 
 using namespace std;
 
@@ -14,22 +14,23 @@ string string_to_md5(string text) {
     MD5_Init(&mdContext);
     const char* ptr = text.c_str();
     while (*ptr) {
-        MD5_Update(&mdContext, ptr++, 1);
+        MD5_Update(&mdContext, ptr, 1);
+        ptr++;
     }
     MD5_Final(result, &mdContext);
 
     ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        oss << setfill('0') << setw(2) << hex << uint16_t(result[i]);
+        oss << setfill('0') << setw(2) << hex << (int)result[i];
     }
 
     return oss.str();
 }
 
 int main() {
-    string input;
+    string text;
     cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "MD5 Hash: " << string_to_md5(input) << endl;
+    getline(cin, text);
+    cout << "MD5 hash: " << string_to_md5(text) << endl;
     return 0;
 }
