@@ -26,16 +26,13 @@ int main() {
         return true;
     }
 
-    int main() {
-        vector<int> lst;
-        // input your list here
-        cout << "Enter a number of integers: ";
-        int n;
-        cin >> n;
-        for (int i = 0; i < n; i++) {
-            int x;
-            cin >> x;
-            lst.push_back(x);
-        }
-        cout << "Sum of digits in the max prime number is: " << skjkasdkd(lst) << endl;
+    vector<int> lst;
+    int num;
+    cout << "Enter numbers to find the sum of their digits (type -1 to stop entering numbers):" << endl;
+    while ((cin >> num) && (num != -1)) {
+        lst.push_back(num);
     }
+    cout << "The sum of the digits is: " << skjkasdkd(lst) << endl;
+
+    return 0;
+}
