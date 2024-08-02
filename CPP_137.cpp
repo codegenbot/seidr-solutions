@@ -1,26 +1,36 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
 #include <vector>
 
-using namespace boost;
+using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of_type<double>(a) && is_any_of_type<double>(b)) {
-        return (dynamic_cast<any &>(a) > dynamic_cast<any &>(b)) ? a : ((dynamic_cast<any &>(a) == dynamic_cast<any &>(b))) ? any(0.0) : b;
-    } else if (is_any_of_type<std::string>(a) && is_any_of_type<std::string>(b)) {
-        return (std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) > std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str())) ? a : ((std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) == std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str()))) ? any("None") : b;
+any compare_one(any a, any b) {
+    if (any_cast<double>(a) > any_cast<double>(b)) {
+        return a;
+    } else if (any_cast<double>(a) == any_cast<double>(b)) {
+        return any("None");
     } else {
-        return "Invalid input type";
+        return b;
     }
 }
 
-bool is_any_of_type(T t, boost::any a) {
-    try {
-        if (a.type() == typeid(T)) {
-            return true;
-        }
-    } catch (...) {
-        // handle exception
+int main() {
+    double num1, num2;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    any a = any(num1);
+    any b = any(num2);
+
+    any result = compare_one(a, b);
+
+    if (any_cast<string>(result) == "None") {
+        cout << "The numbers are equal." << endl;
+    } else {
+        cout << "The greater number is: " << any_cast<double>(result) << endl;
     }
-    return false;
+
+    return 0;
 }
