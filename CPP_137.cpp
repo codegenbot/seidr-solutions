@@ -19,13 +19,13 @@ std::any compare(std::any a, std::any b) {
         } else if (a.type() == typeid(float) && std::any_cast<float>(a) != std::any_cast<float>(b)) {
             return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
         } else if (a.type() == typeid(std::string) && std::any_cast<std::string>(a) != std::any_cast<std::string>(b)) {
-            return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
+            return (stof(std::any_cast<std::string>(a)) > stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
     return "None";
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(compare_one("1", "1")) == "None");
     return 0;
 }
