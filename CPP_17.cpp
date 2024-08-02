@@ -1,9 +1,8 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+#include <vector>
+#include <cassert>
 
-vector<int> parse_music(string music_string){
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string){
+    std::vector<int> beats;
     int count = 0;
     for (char note : music_string) {
         if (note == 'o') {
@@ -21,7 +20,11 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
+bool is_same(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 int main(){
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    assert (is_same(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
