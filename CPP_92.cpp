@@ -1,23 +1,8 @@
-#include <iostream>
-using namespace std;
-
-bool any_int(float a, float b, float c) {
-    int ai = a, bi = b, ci = c;
-    if (ai == bi + ci || bi == ai + ci || ci == ai + bi)
-        return true;
-    else
-        return false;
-}
-
-int main() {
-    float x, y, z;
-    cout << "Enter three numbers: ";
-    cin >> x >> y >> z;
-    
-    if (any_int(x, y, z))
-        cout << "The equation is an integer equation.\n";
-    else
-        cout << "The equation is not an integer equation.\n";
-    
+float a, b, c;
+    std::cout << "Enter three numbers: ";
+    std::cin >> a >> b >> c;
+    if (!any_int(a, b, c)) {
+        std::cout << "No integer can be expressed as the sum of two other integers.\n";
+    }
     return 0;
 }
