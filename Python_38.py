@@ -5,10 +5,8 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-# Input prompt
 input_string = input("Enter the input string: ")
 while len(input_string) % 3 != 0:
-    print("Input string length must be a multiple of 3 characters. Please try again.")
-    input_string = input("Enter the input string: ")
+    input_string = input("Please enter a string that is a multiple of 3 characters long: ")
 result = decode_cyclic(input_string)
 print(result)
