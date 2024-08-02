@@ -1,12 +1,15 @@
-#include <algorithm>
+#include <string>
 using namespace std;
 
-string make_palindrome(string str) {
-    string rev = str;
-    reverse(rev.begin(), rev.end());
-    size_t pos = 0;
-    while (pos < str.length() && str[pos] == rev[rev.size()-1-pos]) {
-        pos++;
+bool is_palindrome(string str){
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
+
+string make_palindrome(string str){
+    string prefix = str;
+    while (!is_palindrome(prefix)) {
+        prefix += (prefix[0]);
     }
-    return str.substr(0, pos) + rev.substr(rev.size()-pos);
+    return prefix + string(str.rbegin(),str.rend());
 }
