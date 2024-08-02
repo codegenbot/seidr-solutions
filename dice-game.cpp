@@ -4,7 +4,6 @@
 double diceGame(int n, int m) {
     double total = 0.0;
     
-    // calculate the number of ways Peter can get a score that is strictly higher than Colin
     for (int i = m + 1; i <= n; ++i) {
         total += 1.0 / m;
     }
