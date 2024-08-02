@@ -1,11 +1,10 @@
-#include <iostream>
 #include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return (a == b);
+    return a == b;
 }
 
 int main(){
-    assert(issame(get_positive({}), {}));
+    assert (issame(get_positive({}) , {}));
     return 0;
 }
