@@ -2,14 +2,12 @@
 #include <algorithm>
 
 int count_ones(int n) {
-    int ones = 0;
+    int count = 0;
     while (n > 0) {
-        if ((n & 1) == 1) {
-            ones++;
-        }
-        n >>= 1;
+        n &= n - 1;
+        count++;
     }
-    return ones;
+    return count;
 }
 
 bool issame(vector<int> a, vector<int> b) {
