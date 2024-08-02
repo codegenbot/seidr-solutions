@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+bool issame(vector<string> v1, vector<string> v2) {
     return v1 == v2;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string);
-
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string current_group;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
     int open_braces = 0;
 
     for (char c : paren_string) {
