@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
+
 #include <openssl/ssl.h>
 #include <openssl/x509v3.h>
-
-using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) {
@@ -18,9 +16,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < 16; ++i) {
-        ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<int>(md[i]);
-        result += oss.str();
+        char buf[3];
+        sprintf(buf, "%02x", md[i]);
+        result += buf;
     }
 
     return result;
