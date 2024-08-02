@@ -1,10 +1,9 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b);
-
 vector<int> intersperse(const vector<int>& numbers, int delimiter);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
