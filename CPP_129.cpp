@@ -2,17 +2,12 @@
 #include <cassert>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
-    for (const auto &row : grid) {
-        for (const auto &val : row) {
-            path.push_back(val);
-        }
-    }
-    while (path.size() < 2 * k) {
+    for (int i = 0; i < k / 2; i++) {
         path.push_back(1);
         path.push_back(3);
     }
