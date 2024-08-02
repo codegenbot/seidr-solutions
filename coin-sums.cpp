@@ -1,34 +1,22 @@
-#include <vector>
 #include <iostream>
-
 using namespace std;
 
-int pennies = 100; // value of a penny in cents
-int nickles = 25;   // value of a nickel in cents
-int dimes = 10;     // value of a dime in cents
-int quarters = 25;  // value of a quarter in cents
-
-void makeChange(int amount) {
-    int quartersNeeded = amount / quarters;
-    amount %= quarters;
-
-    int dimesNeeded = amount / dimes;
-    amount %= dimes;
-
-    int nicklesNeeded = amount / nickles;
-    amount %= nickles;
-
-    int penniesNeeded = amount / pennies;
-
-    cout << penniesNeeded << endl;
-    cout << quartersNeeded - dimesNeeded - 2*nicklesNeeded << endl;
-    cout << dimesNeeded - nicklesNeeded << endl;
-    cout << nicklesNeeded << endl;
-}
-
 int main() {
-    int amount;
-    cin >> amount;
-    makeChange(amount);
+    int cents;
+    cin >> cents;
+
+    int quarters = cents / 25;
+    cents %= 25;
+    int dimes = cents / 10;
+    cents %= 10;
+    int nickles = cents / 5;
+    cents %= 5;
+    int pennies = cents;
+
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
+
     return 0;
 }
