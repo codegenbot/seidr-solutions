@@ -4,17 +4,17 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int capitalizeNext = true;
+    bool capitalizeNextLetter = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++; // skip the "-"
             while (i < s.length() && s[i] == ' ') {
                 i++; // skip the spaces
             }
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+            capitalizeNextLetter = true;
+        } else if (capitalizeNextLetter) {
             result += toupper(s[i]); // capitalize the first letter of each word
-            capitalizeNext = false;
+            capitalizeNextLetter = false; // set to false until next dash is found
         } else {
             result += tolower(s[i]); // convert all letters to lowercase
         }
@@ -25,7 +25,7 @@ string camelCase(string s) {
 int main() {
     string s;
     while (cin >> s) {
-        cout << camelCase(s) << endl; 
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
