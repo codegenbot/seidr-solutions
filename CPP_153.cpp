@@ -2,14 +2,14 @@
 #include <vector>
 #include <cctype>
 
-int Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int strongest = -1;
-    string strongest_extension;
-    for (auto &extension : extensions) {
+    std::string strongest_extension;
+    for(auto &extension : extensions){
         int cap = 0, sm = 0;
-        for (char c: extension){
-            if(isupper(c)) cap++;
-            else if(islower(c)) sm++;
+        for(char c: extension){
+            if(std::isupper(c)) cap++;
+            else if(std::islower(c)) sm++;
         }
         int strength = cap - sm;
         if(strength > strongest){
@@ -20,11 +20,4 @@ int Strongest_Extension(string class_name, vector<string> extensions) {
         }
     }
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    string class_name = "MyClass";
-    vector<string> extensions = {"Hello", "WORLD", "hello", "world"};
-    cout << Strongest_Extension(class_name, extensions) << endl;
-    return 0;
 }
