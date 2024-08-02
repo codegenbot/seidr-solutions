@@ -1,16 +1,25 @@
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a, vector<string> b) {
     return sort(a.begin(), a.end()) == sort(b.begin(), b.end());
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
-    vector<vector<string>> result;
-    for(auto str : strings) {
-        if(find_if(str.begin(), str.end(), [substring](const string& s){ return s.find(substring) != string::npos; }) != str.end()) {
-            result.push_back(str);
-        }
+int main() {
+    vector<string> strings;
+    string input;
+    
+    while(getline(cin, input)) {
+        strings.push_back(input);
     }
-    return result;
+    
+    string substring;
+    getline(cin, substring);
+
+    vector<string> result = filter_by_substring(strings, substring);
+
+    if(issame(result, strings) || issame(result, vector<string>{substring})) {
+        cout << "The resulting vector contains the same elements as the original or just the given substring." << endl;
+    } else {
+        cout << "The resulting vector does not contain the same elements as the original or just the given substring." << endl;
+    }
+
+    return 0;
 }
