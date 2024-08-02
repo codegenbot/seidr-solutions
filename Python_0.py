@@ -5,7 +5,6 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-
 has_close_elements = [2, 4, 6, 8, 10]
 threshold_value = 2
 result = check_threshold(has_close_elements, threshold_value)
