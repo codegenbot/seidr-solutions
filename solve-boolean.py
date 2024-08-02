@@ -5,7 +5,7 @@ def solve_boolean(expression):
         return False
     elif "&" in expression:
         a, b = expression.split("&")
-        return bool(int(a)) and bool(int(b))
+        return solve_boolean(a) and solve_boolean(b)
     elif "|" in expression:
         a, b = expression.split("|")
-        return bool(int(a)) or bool(int(b))
+        return solve_boolean(a) or solve_boolean(b)
