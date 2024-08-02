@@ -1,10 +1,8 @@
 def encode_cyclic(s: str):
     result = ""
     for char in s:
-        if result:
-            result = char + result
+        if result == "":
+            result += char
         else:
-            result = char
-    while len(result) > 1 and result[0] == "1":
-        result = "0" + result[1:] + result[0]
+            result = char + result[0] + result[1:]
     return result
