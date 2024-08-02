@@ -3,7 +3,7 @@
 using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), min(arr.begin() + k, arr.end()));
+    vector<int> result(arr.begin(), min(arr.end(), arr.begin() + k + 1));
     sort(result.begin(), result.end());
     return result;
 }
