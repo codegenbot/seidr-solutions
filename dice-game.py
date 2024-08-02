@@ -1,4 +1,6 @@
 n = int(input())
 m = int(input())
-probability = sum([(n-i) / (n*m) for i in range(1, n)])
-print("{:.8f}".format(probability))
+result = 0
+for i in range(1, n):
+    result += i / n * (m / (n * m))
+print("{:.8f}".format(result))
