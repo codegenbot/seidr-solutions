@@ -1,9 +1,8 @@
 #include <vector>
-
 vector<int> pluck(vector<int> arr);
 
 bool issame(vector<int> a, vector<int> b) {
-    // Function body remains the same
+    return a == b;
 }
 
 vector<int> pluck(vector<int> arr){
