@@ -1,5 +1,9 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
+```
+#include <vector>
+#include <utility>
+
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
             evenNodes.push_back({arr[i], i});
@@ -7,7 +11,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     if (evenNodes.empty()) {
-        return {{}};
+        return {};
     }
     
     int minEvenValue = evenNodes[0].first;
@@ -18,7 +22,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             minEvenValue = evenNodes[i].first;
             minIndex = evenNodes[i].second;
         } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = min(evenNodes[i].second, minIndex);
+            minIndex = std::min(evenNodes[i].second, minIndex);
         }
     }
     
