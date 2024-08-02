@@ -3,7 +3,7 @@ def minPath(grid, k):
     visited = [[False] * n for _ in range(n)]
 
     def dfs(x, y, path):
-        if len(path) == k:
+        if len(path) >= k:
             return path
 
         visited[x][y] = True
