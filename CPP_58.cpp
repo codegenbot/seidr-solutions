@@ -5,8 +5,8 @@ bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -20,9 +20,5 @@ vector<int> common(vector<int> l1, vector<int> l2) {
                       std::inserter(intersection, intersection.end()));
 
     vector<int> result(intersection.begin(), intersection.end());
-    
-    // Check if the two lists are same
-    if(!issame(l1,l2)) return vector<int>();
-
     return result;
 }
