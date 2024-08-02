@@ -29,8 +29,8 @@ string spinWords(string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            for (int i = word.length()-1; i >= 0; i--) {
-                result += word[i];
+            for (int j = word.length()-1; j >= 0; j--) {
+                result += word[j];
             }
         } else {
             result += word;
