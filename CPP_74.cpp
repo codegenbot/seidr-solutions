@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -17,7 +15,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (total_chars(lst1) < total_chars(lst2)) {
         return lst1;
     } else if (total_chars(lst1) == total_chars(lst2)) {
-        return lst1;
+        return lst2;
     } else {
         return lst2;
     }
