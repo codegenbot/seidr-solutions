@@ -1,13 +1,19 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+vector<int> unique(vector<int> l) {
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
+    return result;
 }
 
-vector<int> unique(vector<int> l){
-    sort(l.begin(), l.end());
-    auto end = unique(l.begin(), l.end());
-    l.erase(end, l.end());
-    return l;
+vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+    sort(first, last);
+    auto it = first;
+    while (it != last) {
+        *first = *it;
+        ++first;
+        ++it;
+    }
+    return ++first;
 }
