@@ -1,3 +1,4 @@
+```
 def solution(lst):
     result = 0
     odd_count = 0
