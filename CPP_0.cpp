@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool has_close_elements(const std::vector<float>& numbers, float threshold) {
+using namespace std;
+
+bool has_close_elements(const vector<float>& numbers, float threshold) {
     sort(numbers.begin(), numbers.end());
     for (int i = 0; i < numbers.size() - 1; i++) {
         if (abs(numbers[i] - numbers[i + 1]) < threshold) {
@@ -12,14 +16,8 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> numbers = {3.5, 1.2, 5.8, 4.9};
-    float threshold = 0.5;
-    
-    if (has_close_elements(numbers, threshold)) {
-        std::cout << "Close elements found!\n";
-    } else {
-        std::cout << "No close elements found.\n";
-    }
+    vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
     
     return 0;
 }
