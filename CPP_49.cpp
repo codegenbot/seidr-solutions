@@ -1,13 +1,9 @@
 int modp(int n, int p) {
-    if (n < 0) {
-        n = pow(-1, n) * (pow(p, -1) % p);
+    if (n == 0)
+        return 1;
+    long long res = 1;
+    for (int i = 1; i <= n; i++) {
+        res = (res * i) % p;
     }
-    long long result = 1;
-    while (n > 0) {
-        if (n & 1)
-            result = (long long)(result * p) % p;
-        n >>= 1;
-        p = (long long)p * p % p;
-    }
-    return result;
+    return res;
 }
