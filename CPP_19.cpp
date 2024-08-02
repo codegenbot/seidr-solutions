@@ -1,12 +1,8 @@
-#include <iostream>
-#include <map>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <cassert>
+#include <string>
+using namespace std;
 
-int main() {
-    map<string, int> number_map = {
+string sort_numbers(string numbers) {
+    map<string, int> num_map = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -19,28 +15,14 @@ int main() {
         {"nine", 9}
     };
 
-    string sort_numbers(string numbers, const map<string, int>& number_map) {
-        stringstream ss(numbers);
-        string word;
-        vector<string> words;
-        
-        while (ss >> word) {
-            words.push_back(word);
+    string result = "";
+    for (auto const& [key, value] : num_map) {
+        size_t pos = 0;
+        while ((pos = numbers.find(key, pos)) != string::npos) {
+            result += key + " ";
+            pos += key.length();
         }
-        
-        sort(words.begin(), words.end(), [&](const string& a, const string& b) {
-            return number_map[a] < number_map[b];
-        });
-        
-        string result;
-        for (const string& w : words) {
-            result += w + " ";
-        }
-        
-        return result;
     }
 
-    assert(sort_numbers("six five four three two one zero", number_map) == "zero one two three four five six");
-    
-    return 0;
+    return result;
 }
