@@ -1,7 +1,6 @@
 #include <any>
 #include <string>
 #include <cassert>
-#include <string_view>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -18,7 +17,7 @@ std::any compare_one(std::any a, std::any b) {
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         float val1 = std::stof(std::any_cast<std::string>(a));
-        float val2 = std::stof(std::any_cast<std::string_view>(b));
+        float val2 = std::stof(std::any_cast<std::string>(b));
         if (val1 > val2) {
             return a;
         } else if (val1 < val2) {
