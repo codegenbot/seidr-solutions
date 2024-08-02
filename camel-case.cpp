@@ -5,14 +5,14 @@ using namespace std;
 int main() {
     string input;
     getline(std::cin, input);
-
+    
     bool capitalize = true;
     for(char c : input) {
         if(c == '-') {
             capitalize = true;
         } else if(c != ' ') {
             if(capitalize) {
-                std::cout << (char)toupper(c);
+                std::cout << (capitalize ? (char)toupper(c) : c);
                 capitalize = false;
             } else {
                 std::cout << c;
@@ -23,6 +23,6 @@ int main() {
             std::cout << " ";
         }
     }
-
+    
     return 0;
 }
