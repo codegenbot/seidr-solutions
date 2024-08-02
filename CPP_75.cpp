@@ -1,9 +1,9 @@
 bool is_multiply_prime(int a) {
     if (a < 30) return false;
-    for (int i = 2; i <= static_cast<int>(sqrt(a)); ++i) {
-        if (a % i == 0) {
-            int j = a / i;
-            if (i * j == a && i != j) {
+    for (int i = 2; i <= a / 3; ++i) {
+        for (int j = i; j <= sqrt(a / i); ++j) {
+            int k = a / (i * j);
+            if (i * j * k == a && i != j && j != k && i != k) {
                 return true;
             }
         }
