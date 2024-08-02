@@ -35,7 +35,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
-}
 
 vector<string> grades = {4.0, 3.0, 1.7, 2.0, 3.5};
 vector<string> result = numerical_letter_grade(grades);
