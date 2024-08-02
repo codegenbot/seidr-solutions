@@ -3,19 +3,20 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    paren_level = 0
-
+    in_parentheses = False
     for char in paren_string:
         if char == "(":
-            if paren_level > 0:
-                temp += char
-            paren_level += 1
+            in_parentheses = True
+            temp += char
         elif char == ")":
-            paren_level -= 1
-            if paren_level > 0:
-                temp += char
-            else:
-                result.append(temp + char)
-                temp = ""
-
+            in_parentheses = False
+            temp += char
+            result.append(temp)
+            temp = ""
+        elif in_parentheses:
+            temp += char
+        else:
+            result.append(char)
     return result
+
+print(separate_paren_groups("aab(bcd)e"))
