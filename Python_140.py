@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     text = text.strip()
     new_text = ""
