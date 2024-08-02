@@ -1,4 +1,5 @@
 ```
 import re
+
 def words_string(s):
-    return re.split(',\s*|', s)
+    return re.split(", | ", s)
