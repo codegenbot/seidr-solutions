@@ -1,3 +1,3 @@
-```
 def sort_third(l: list):
-    return [sorted([x for x in l[i:i+3]]) for i in range(0, len(l), 3)]
+    multiples_of_3 = [i for i in l if i % 3 == 0]
+    return [i if i % 3 != 0 else min(multiples_of_3) for i in l]
