@@ -7,18 +7,18 @@ using namespace std;
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> groups;
     int count = 0;
-    string temp = "";
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (count > 0) temp += c;
+    string current = "";
+    for(char c : paren_string){
+        if(c == '('){
             count++;
-        } else if (c == ')') {
+        }
+        else if(c == ')'){
             count--;
-            if (count > 0) temp += c;
-            if (count == 0 && !temp.empty()) {
-                groups.push_back(temp);
-                temp = "";
-            }
+        }
+        current += c;
+        if(count == 0){
+            groups.push_back(current);
+            current = "";
         }
     }
     return groups;
