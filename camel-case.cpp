@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 string camelCase(string s) {
@@ -12,7 +12,11 @@ string camelCase(string s) {
             }
             result += toupper(s[i]); // capitalize the first letter of each word
         } else if (s[i] != ' ') {
-            result += tolower(s[i]); // convert all letters to lowercase
+            if (!result.empty()) {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+            }
         }
     }
     return result;
@@ -21,7 +25,7 @@ string camelCase(string s) {
 int main() {
     string s;
     while (cin >> s) {
-        cout << camelCase(s) << endl; 
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
