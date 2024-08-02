@@ -3,26 +3,24 @@
 #include <algorithm>
 #include <cassert>
 
-std::string solve(const std::string &s) {
-    std::string modifiedString = s; 
-
-    for (char &c : modifiedString) {
+std::string solve(std::string s) {
+    for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-
-    if (count_if(modifiedString.begin(), modifiedString.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(modifiedString.begin(), modifiedString.end());
+    
+    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+        std::reverse(s.begin(), s.end());
     }
-
-    return modifiedString;
+    
+    return s;
 }
 
 int main() {
     std::string input = "test123";
     std::string result = solve(input);
     assert(result == "tEST123");
-
+    
     return 0;
-}
+}   
