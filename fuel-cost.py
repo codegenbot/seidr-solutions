@@ -1,9 +1,4 @@
-Here is the solution:
+Here is the Python solution for the problem:
 
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        num = int(input())
-        total += (num // 3 - 2)
-    return total
+def fuel_cost(vector):
+    return sum((num // 3 - 2) for num in vector)
