@@ -1,7 +1,8 @@
-def leaders(a):
-    n = len(a)
-    leaders_list = [a[n - 1]]
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            leaders_list.append(a[i])
-    return reversed(leaders_list)
+Here is the Python solution for the problem:
+
+def leaders(nums):
+    result = [nums[-1]]
+    for i in range(len(nums) - 2, -1, -1):
+        if nums[i] >= nums[i + 1]:
+            result.append(nums[i])
+    return reversed(result)
