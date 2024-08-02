@@ -1,4 +1,11 @@
-vector<string> all_prefixes(string str){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> all_prefixes(string str) {
     vector<string> prefixes;
     string prefix = "";
     for (char c : str) {
