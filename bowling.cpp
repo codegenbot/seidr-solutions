@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 int bowlingScore(string& s) {
@@ -8,18 +7,17 @@ int bowlingScore(string& s) {
             score += 30;
         } else if (s[i] == '/') {
             score += 10 + (s[i+1] - '0');
-            if(s.length()-2 > i) i++;
+            i++;
         } else {
             int sum = s[i] - '0';
-            if(i < 8 && s[i+1] != '/') {
+            if (i < 8 && s[i+1] != '/') {
                 sum += s[i+1] - '0';
             }
-            if(sum == 10) {
-                score += 10;
-            } else {
+            if (sum <= 10) {
                 score += sum;
+            } else {
+                score += 10 + (sum - 10);
             }
         }
     }
     return score;
-}
