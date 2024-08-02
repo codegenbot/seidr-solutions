@@ -1,5 +1,5 @@
-#include<vector>
-#include<cmath>
+#include <vector>
+#include <cmath>
 
 int sum_squares(vector<int> lst) {
     int result = 0;
@@ -10,4 +10,3 @@ int sum_squares(vector<int> lst) {
             result += pow(lst[i], 3);
     }
     return result;
-}
