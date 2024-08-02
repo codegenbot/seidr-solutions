@@ -1,6 +1,7 @@
 ```
 from typing import List
 
+
 def filter_by_substring():
     user_strings = input("Enter a list of strings (separated by spaces): ")
     user_substring = input("Enter the substring: ")
