@@ -1,10 +1,8 @@
 def find_zero(xs: list):
-    a, b = xs
+    n = len(xs) // 2
+    a, b = xs[0], xs[1]
     return -b / a
 
-# Read input from user
-input_list = list(map(float, input().split()))
-
-# Call the function with user input
-result = find_zero(input_list)
+xs = list(map(float, input("Enter a list of numbers separated by spaces: ").split()))
+result = find_zero(xs)
 print(result)
