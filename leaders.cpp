@@ -1,9 +1,6 @@
 #include <vector>
-#include <algorithm>
-using namespace std;
-
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxRight = INT_MIN;
     
