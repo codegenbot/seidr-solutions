@@ -7,7 +7,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     if (evenNodes.empty()) {
-        return {{-1, -1}}; // Return {-1,-1} when the input array is empty
+        return {{0, -1}}; // Return an empty pair with default values
     }
     
     int minEvenValue = evenNodes[0].first;
