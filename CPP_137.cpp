@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -9,10 +10,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return max(a, b);
+        return boost::any(max(get<string>(b), get<double>(a)));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return max(b, a);
+        return boost::any(max(get<double>(b), get<string>(a)));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (get<int>(a) > get<int>(b))
