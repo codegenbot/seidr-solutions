@@ -1,5 +1,3 @@
 ```
 def solve(N):
-    while N % 2 == 0:
-        N //= 2
-    return bin(N)[2:]
+    return str(bin(sum(int(i) for i in str(bin(N)[2:]))))[2:]
