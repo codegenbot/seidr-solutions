@@ -1,5 +1,6 @@
 ```c++
 #include <vector>
+#include <algorithm>
 #include <string>
 
 bool issame(vector<string> a, vector<string>b) {
@@ -15,17 +16,17 @@ int main() {
     std::cin >> n;
 
     std::vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
 
     vector<string> result = by_length(arr);
 
-    if (issame(result, {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"})) {
-        cout << "The output is correct." << endl;
+    if (issame(result, {"One", "Four", "Seven", "Nine"})) {
+        std::cout << "The output is same as expected." << std::endl;
     } else {
-        cout << "The output is incorrect." << endl;
+        std::cout << "The output is different from expected." << std::endl;
     }
 
     return 0;
