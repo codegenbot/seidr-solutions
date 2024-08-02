@@ -13,7 +13,7 @@ bool solveBoolean(string booleanExp) {
                 s.pop();
             }
             s.push('&');
-        } else if (booleanExp[i] == 'T' || booleanExp[i] == 'F') {
+        } else {
             s.push(booleanExp[i]);
         }
     }
@@ -22,12 +22,14 @@ bool solveBoolean(string booleanExp) {
     while (!s.empty()) {
         char c = s.top();
         s.pop();
-        if (c == '&') {
+        if (c == 'T') {
+            result = true;
+        } else if (c == 'F') {
+            result = false;
+        } else if (c == '&') {
             result = !result;
         } else if (c == '|') {
             result = true;
-        } else {
-            result = (c == 'T');
         }
     }
     
