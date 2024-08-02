@@ -6,19 +6,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> collatz;
-    collatz.push_back(n);
+    std::vector<int> result;
     while (n != 1) {
+        result.push_back(n);
         if (n % 2 == 0) {
-            n /= 2;
+            n = n / 2;
         } else {
             n = 3 * n + 1;
         }
-        if (n % 2 != 0) {
-            collatz.push_back(n);
-        }
     }
-    return collatz;
+    result.push_back(1);
+    return result;
 }
 
 int main() {
