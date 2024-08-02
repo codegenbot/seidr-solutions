@@ -2,23 +2,23 @@
 #include <vector>
 #include <string>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     int result = 0;
-    string expression = "";
+    std::string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         if (i > 0) {
             expression += " ";
         }
-        expression += to_string(operand[i]);
+        expression += std::to_string(operand[i]);
         expression += operator_[i];
     }
-    expression += to_string(operand.back());
+    expression += std::to_string(operand.back());
     
     int temp = eval(expression);
     return temp;
 }
 
-int eval(string s) {
+int eval(std::string s) {
     int result = 0;
     int sign = 1;
     int num = 0;
@@ -41,9 +41,9 @@ int eval(string s) {
 }
 
 int main() {
-    // test cases
-    vector<string> operator_;
-    vector<int> operand;
+    // test your code here
+    std::vector<std::string> operator_;
+    std::vector<int> operand;
 
     // add your test cases here
 
