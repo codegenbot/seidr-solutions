@@ -8,9 +8,10 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((string)a.convert_to<string>() > (string)b.convert_to<string>())
+        string str1 = (string)a.convert_to<string>(), str2 = (string)b.convert_to<string>();
+        if (str1 > str2)
             return a;
-        else if ((string)a.convert_to<string>() < (string)b.convert_to<string>())
+        else if (str1 < str2)
             return b;
         else
             return boost::any("None");
@@ -20,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (to_string(i) > str)
             return a;
         else if (to_string(i) < str)
-            return boost::any(b);
+            return b;
         else
             return boost::any("None");
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
@@ -79,29 +80,7 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    int i, j;
-    float f;
-    string str1, str2;
-
-    cout << "Enter 3 values: ";
-    cin >> i >> f >> str1;
-
-    boost::any a = boost::any(i);
-    boost::any b = boost::any(f);
-
-    if (str1 == "int") {
-        str2 = "float";
-        b = boost::any(f);
-    } else if (str1 == "float") {
-        str2 = "int";
-        b = boost::any(i);
-    } else if (str1 == "string") {
-        str2 = "int";
-        a = boost::any(str1);
-        b = boost::any(i);
-    }
-
-    cout << "Result: " << compare_one(a, b) << endl;
-
+    boost::any a = 10, b = "hello";
+    cout << compare_one(a, b).type().name() << endl;
     return 0;
 }
