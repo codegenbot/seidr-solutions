@@ -10,7 +10,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round((double)sum / (m - n + 1));
-    string res = "";
+    std::string res = "";
     while (avg > 0) {
         if (avg % 2) res.push_back('1');
         else res.push_back('0');
