@@ -18,7 +18,6 @@ int getBlackPegs(const std::string& code, const std::string& guess) {
     for (char c : code) {
         if (c == guess[0]) {
             blackPegs++;
-            break;
         }
     }
     return blackPegs;
