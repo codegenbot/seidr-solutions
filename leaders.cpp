@@ -7,13 +7,12 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     int n = nums.size();
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
-    for (int i = n - 2; i >= 0; i--) {
+    for (int i = n - 2; i > 0; i--) {
         if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
             maxRight = nums[i];
         }
     }
-    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
@@ -36,10 +35,10 @@ int main() {
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i];
         if (i < output.size() - 1) {
-            std::cout << " "; // Add space after each output element
+            std::cout << " ";
         }
     }
-  
+
     std::cout << std::endl;
 
     return 0;
