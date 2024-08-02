@@ -12,7 +12,7 @@ int specialFilter(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {};
-    assert(specialFilter(nums) == 0);
+    std::vector<int> nums = {}; 
+    assert(specialFilter(nums) == 0); 
     return 0;
 }
