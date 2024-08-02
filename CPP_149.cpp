@@ -6,18 +6,18 @@
 
 using namespace std;
 
-vector<string> sorted_list_sum(const vector<string>& a, const vector<string>& b) {
-    vector<string> result = a;
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> result = lst;
     
-    result.insert(result.end(), b.begin(), b.end());
-    sort(result.begin(), result.end(), [](const string& x, const string& y){
-        return x.length() == y.length() ? x < y : x.length() < y.length();
+    result.erase(remove_if(result.begin(), result.end(), [](const string& s){return s.length() % 2 != 0;}), result.end());
+    sort(result.begin(), result.end(), [](const string& a, const string& b){
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
     });
     
     return result;
-}
-
-int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == sorted_list_sum({"cc", "dd", "aaaa", "bbbb"},{"aaaa", "bbbb", "dd", "cc"}));
-    return 0;
 }
