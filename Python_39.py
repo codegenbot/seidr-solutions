@@ -13,7 +13,15 @@ def is_prime(num):
             return False
     return True
 
-def prime_fib(n):
+def prime_fib():
+    try:
+        n = int(input("Enter the number of prime Fibonacci numbers you want to find: "))
+        if n <= 0:
+            raise ValueError("Please enter a positive integer.")
+    except ValueError as e:
+        print(e)
+        return
+    
     def fibonacci(n):
         if n <= 0:
             return 0
@@ -32,5 +40,4 @@ def prime_fib(n):
             count += 1
     return num
 
-n = int(input("Enter the number of prime Fibonacci numbers you want to find: "))
-print(prime_fib(n))
+print(prime_fib())
