@@ -1,4 +1,3 @@
-```cpp
 cpp_string solve(cpp_string s){
     cpp_string result = "";
     for(int i=0; i<s.size(); i++){
