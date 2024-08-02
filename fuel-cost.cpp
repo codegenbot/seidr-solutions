@@ -1,15 +1,14 @@
-```c++
 #include <vector>
 using namespace std;
 
 int fuelCost(vector<int> nums) {
     int sum = 0;
     for (int num : nums) {
-        int result = static_cast<int>(num / 3.0);
-        if (result >= 1) {
-            result--;
-        } else {
+        int result = (num / 3);
+        if (result < 1) {
             result = 0;
+        } else {
+            result--;
         }
         sum += result;
     }
@@ -17,7 +16,7 @@ int fuelCost(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {1, 2, 3}; // example input
+    vector<int> nums = {1, 2, 3}; 
     int result = fuelCost(nums);
     cout << "Result: " << result << endl;
     return 0;
