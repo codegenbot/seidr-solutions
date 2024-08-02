@@ -1,23 +1,36 @@
-Here is the solution:
+using namespace std;
 
-string solveBoolean(string s) {
-    stack<char> st;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == '&'){
-            char t1 = st.top();st.pop();
-            char t2 = st.top();st.pop();
-            if(t1 == 'T' && t2 == 'T') st.push('T');
-            else if(t1 == 'F' || t2 == 'F') st.push('F');
-        }
-        else if(s[i] == '|'){
-            char t1 = st.top();st.pop();
-            char t2 = st.top();st.pop();
-            if(t1 == 'T' && t2 == 'T') st.push('T');
-            else st.push('F');
-        }
-        else {
-            st.push(s[i]);
+bool solveBoolean(string booleanExp) {
+    stack<char> s;
+    for (int i = 0; i < booleanExp.length(); i++) {
+        if (booleanExp[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if (booleanExp[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
+        } else {
+            s.push(booleanExp[i]);
         }
     }
-    return st.top() == 'T'? "True": "False";
-}
+    
+    bool result = false;
+    while (!s.empty()) {
+        char c = s.top();
+        s.pop();
+        if (c == 'T') {
+            result = true;
+        } else if (c == 'F') {
+            result = false;
+        } else if (c == '&') {
+            result = !result;
+        } else if (c == '|') {
+            result = true;
+        }
+    }
+    
+    return result;
