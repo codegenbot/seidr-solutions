@@ -7,8 +7,8 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    assert(cycpattern_check("abc", "cab")); // returns true
-    assert(!cycpattern_check("abc", "bac")); // returns false
-    assert(cycpattern_check("hello", "lohel")); // returns true
+    assert(cycpattern_check("abc", "cab"));
+    assert(!cycpattern_check("abc", "bac"));
+    assert(cycpattern_check("hello", "lohel"));
     return 0;
 }
