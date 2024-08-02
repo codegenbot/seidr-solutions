@@ -1,18 +1,15 @@
-#include <string>
 #include <iostream>
-#include <openssl/md5.h>
+#include <string>
+#include <cassert>
+#include "md5_library.h"
 
-std::string string_to_md5(const std::string& input) {
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((const unsigned char*)input.c_str(), input.length(), result);
+int main() {
+    std::string input_text;
+    std::cout << "Enter a text to convert to MD5: ";
+    std::cin >> input_text;
 
-    std::stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)result[i];
-    }
-
-    return ss.str();
+    std::string md5_result = string_to_md5(input_text);
+    std::cout << "MD5 hash: " << md5_result << std::endl;
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
-
-std::string input_text = "[input_value]";
-std::string md5_result = string_to_md5(input_text);
