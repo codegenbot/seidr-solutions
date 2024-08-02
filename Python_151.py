@@ -1,4 +1,4 @@
-def check():
-    numbers = list(map(int, input("Enter space-separated integers: ").split()))
-    result = double_the_difference(numbers)
-    print(f"The doubled difference is {result}")
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+
+double_the_difference([1, 3, 5])
