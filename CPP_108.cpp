@@ -1,17 +1,22 @@
-int count_nums(vector<int> nums) {
+Here is the solution:
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        if (num < 0) {
-            num = -num;
+    for (int i : n) {
+        if (i < 0) {
+            i = -i;
         }
-        int sum_digits = 0;
-        while (num > 0) {
-            sum_digits += num % 10;
-            num /= 10;
+        bool has_positive_sum = false;
+        while (i > 0) {
+            int digit = i % 10;
+            i /= 10;
+            if (digit > 0) {
+                has_positive_sum = true;
+                break;
+            }
         }
-        if (sum_digits > 0) {
+        if (has_positive_sum) {
             count++;
         }
     }
     return count;
-}
