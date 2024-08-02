@@ -1,5 +1,8 @@
-def check(lst1, lst2):
-    return abs(double_the_difference(lst2) - double_the_difference([lst1[0], lst1[1]]))
+def check():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    lst = [num1, num2]
+    print(double_the_difference(lst))
 
 
 def double_the_difference(lst):
