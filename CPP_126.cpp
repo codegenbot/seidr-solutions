@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 bool is_sorted(const vector<int>& lst) {
@@ -12,10 +13,11 @@ bool is_sorted(const vector<int>& lst) {
     return true;
 }
 
-bool is_distinct(const vector<int>& lst) {
-    return lst.size() == set<int>(lst.begin(), lst.end()).size();
-}
-
-bool is_sorted_and_distinct(const vector<int>& lst) {
-    return is_sorted(lst) && is_distinct(lst);
+int main() {
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    assert(is_sorted({-5, -2, 0, 5, 7}) == true);
+    assert(is_sorted({4, 3, 2, 1}) == false);
+    assert(is_sorted({1, 2, 2, 3}) == false);
+    
+    return 0;
 }
