@@ -1,4 +1,6 @@
-vector<int> unique(vector<int> l) {
+Here is the completed code:
+
+vector<int> unique(vector<int> l){
     vector<int> result = l;
     sort(result.begin(), result.end());
     result.erase(unique(result.begin(), result.end()), result.end());
