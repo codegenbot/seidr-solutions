@@ -1,17 +1,11 @@
 #include <vector>
-#include <cassert>
 
-int can_arrange(std::vector<int> arr){
-    int idx = -1;
-    for (int i = 1; i < arr.size(); ++i) {
-        if (arr[i] <= arr[i - 1]) {
-            idx = i - 1;
+size_t can_arrange(const std::vector<int>& arr){
+    size_t index = -1;
+    for(size_t i = 1; i < arr.size(); i++){
+        if(arr[i] <= arr[i-1]){
+            index = i - 1;
         }
     }
-    return idx;
-}
-
-int main() {
-    assert(can_arrange({}) == -1);
-    return 0;
+    return index;
 }
