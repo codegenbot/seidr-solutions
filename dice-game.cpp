@@ -9,3 +9,4 @@ double getProbability(int n, int m) {
     }
 
     return count / total;
+}
