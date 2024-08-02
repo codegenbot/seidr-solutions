@@ -1,15 +1,26 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(const std::string& a, const std::string& b) {
+bool issame(const string& a, const string& b) {
     return a == b;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2){
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+vector<string> bf(string planet1, string planet2);
+
+int main() {
+    vector<string> result = bf("Mars", "Jupiter");
+    
+    for (const auto& planet : result) {
+        cout << planet << " ";
+    }
+    
+    return 0;
+}
+
+vector<string> bf(string planet1, string planet2){
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
@@ -26,7 +37,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2){
     }
 
     if (start > end) {
-        std::swap(start, end);
+        swap(start, end);
     }
 
     for (int i = start + 1; i < end; ++i) {
@@ -34,9 +45,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2){
     }
 
     return result;
-}
-
-int main() {
-    // Add test cases or user input handling if needed
-    return 0;
 }
