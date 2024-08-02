@@ -1,8 +1,12 @@
 def check():
-    n = int(input("Enter the number of elements in the list: "))
-    lst = []
-    for i in range(n):
-        num = int(input(f"Enter element {i+1}: "))
-        lst.append(num)
-    result = double_the_difference(lst)
-    print(f"The sum of squares of even numbers is: {result}")
+    numbers = input("Enter space-separated numbers: ").split()
+    try:
+        numbers = [int(num) for num in numbers]
+    except ValueError:
+        print("Invalid input. Please enter integers only.")
+        return
+    result = double_the_difference(numbers)
+    if result == 0:
+        print("No such number exists.")
+    else:
+        print(f"The doubled difference is {result}.")
