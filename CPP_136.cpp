@@ -3,11 +3,17 @@
 #include <cassert>
 
 int sum_of_extremes(std::vector<int> vec) {
+    std::sort(vec.begin(), vec.end());
     return vec.front() + vec.back();
 }
 
 bool is_sum_of_extremes_same(std::vector<int> a, std::vector<int> b) {
     return (sum_of_extremes(a) == sum_of_extremes(b));
+}
+
+std::pair<int, int> largest_smallest_integers(std::vector<int> vec) {
+    std::sort(vec.begin(), vec.end());
+    return std::make_pair(vec.back(), vec.front());
 }
 
 int main() {
