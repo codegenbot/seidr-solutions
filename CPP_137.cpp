@@ -1,5 +1,6 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
+#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -19,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string sa = boost::any_cast<std::string>(a);
         std::string sb = boost::any_cast<std::string>(b);
-        return ((std::stof(sa) > std::stof(sb)) ? a : b);
+        return (std::stof(sa) > std::stof(sb)) ? a : b;
     }
-    return boost::any((boost::any_cast<int>("None")));
+    return boost::any("None");
 }
