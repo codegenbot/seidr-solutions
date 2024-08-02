@@ -1,10 +1,10 @@
-#include <vector>  // Include the necessary header
+#include <vector> 
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) { // Specify `std::` namespace for vector
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> incr_list(std::vector<int> l) { // Specify `std::` namespace for vector
+std::vector<int> incr_list(std::vector<int> l) {
     for (int& num : l) {
         num++;
     }
