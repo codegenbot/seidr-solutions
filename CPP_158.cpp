@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
+
 using namespace std;
 
 string find_max(const vector<string>& words){
@@ -20,6 +21,3 @@ string find_max(const vector<string>& words){
 }
 
 int main(){
-    // Test your function here
-    return 0;
-}
