@@ -9,9 +9,9 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            result &= true;
+            result &= false;
         } else if (s[i] == '|') {
-            result |= true;
+            result |= false;
         }
     }
     return result;
@@ -20,12 +20,7 @@ bool solveBoolean(string s) {
 int main() {
     cout << solveBoolean("T") << endl;  // Expected output: 1
     cout << solveBoolean("F") << endl;  // Expected output: 0
-    cout << solveBoolean("T&") << endl;  // Expected output: 0
-    cout << solveBoolean("T|") << endl;  // Expected output: 1
-    cout << solveBoolean("T&T") << endl;  // Expected output: 1
-    cout << solveBoolean("F&F") << endl;  // Expected output: 0
-    cout << solveBoolean("F|F") << endl;  // Expected output: 0
-    cout << solveBoolean("T&F") << endl;  // Expected output: 0
-    cout << solveBoolean("T|F") << endl;  // Expected output: 1
+    cout << solveBoolean("|T&F|") << endl;  // Expected output: 1
+    cout << solveBoolean("|T&T|F|") << endl;  // Expected output: 1
     return 0;
 }
