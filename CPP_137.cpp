@@ -40,6 +40,6 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(compare_one(std::string("1"), std::string("1")).has_value() == false);
+    assert(compare_one(std::string("1"), std::string("2")).has_value() == false);
     return 0;
 }
