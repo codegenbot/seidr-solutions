@@ -1,6 +1,7 @@
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
+using namespace std;
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
