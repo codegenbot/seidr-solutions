@@ -1,4 +1,3 @@
-```
 def get_max_triples(n):
     max_count = 0
     for i in range(1, n+1):
