@@ -4,16 +4,16 @@
 
 std::string string_sequence(int n) {
     std::ostringstream oss;
-    for (int i = 0; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         oss << i << " ";
     }
     return oss.str();
 }
 
 int main() {
-    int num;
+    int n;
     std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << string_sequence(num) << std::endl;
+    std::cin >> n;
+    std::cout << string_sequence(n) << std::endl;
     return 0;
 }
