@@ -1,17 +1,14 @@
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        if (i == n) {
-            return b;
+    int a = 0, b = 1, count = 0;
+    while (true) {
+        if (b > n) return b;
+        if (isPrime(b)) {
+            count++;
+            if (count == n) return b;
         }
-        fib = a + b;
+        int temp = a + b;
         a = b;
-        b = fib;
-        if (!isPrime(fib)) {
-            a++;
-            b = a + 1;
-            i--;
-        }
+        b = temp;
     }
 }
 
