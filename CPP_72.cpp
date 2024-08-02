@@ -1,14 +1,12 @@
-```cpp
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <string>
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != string(str).reverse()) {
+    if (str != string(reverse(str).begin(), reverse(str).end())) {
         return false;
     }
     int sum = 0;
