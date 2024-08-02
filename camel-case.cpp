@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 int main() {
     std::string input;
@@ -10,13 +9,14 @@ int main() {
     for (char& c : input) {
         if (c == '-' || c == ' ') {
             capitalize = true;
-        } else if (capitalize) {
-            c = std::tolower(c); // Convert first character to lowercase
+        } else {
+            c = (capitalize) ? std::toupper(c) : std::tolower(c);
             capitalize = false;
-        } else if (std::isalpha(c)) {
-            c = std::tolower(c); // Convert non-first characters to lowercase
         }
     }
+    
+    if (!input.empty())
+        input[0] = std::toupper(input[0]); // Capitalize the first letter
     
     std::cout << input << std::endl;
     
