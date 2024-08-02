@@ -1,31 +1,28 @@
-Here is the solution:
-
-```cpp
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<vector<vector<int>>> dp(grid.size(), vector<vector<int>>(grid[0].size(), vector<int>(k + 1)));
-    
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j][0] = grid[i][j];
-            } else if (i == 0) {
-                dp[i][j][0] = grid[i][j] + dp[i][j - 1][0];
-            } else if (j == 0) {
-                dp[i][j][0] = grid[i][j] + dp[i - 1][j][0];
+vector<int> minPath(vector<vector<int>>& grid, int k) {
+    int n = grid.size();
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (res.empty()) {
+                res.push_back(grid[i][j]);
             } else {
-                dp[i][j][0] = grid[i][j] + min({dp[i - 1][j][0], dp[i][j - 1][0]});
+                bool found = false;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        int nx = i + x, ny = j + y;
+                        if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
+                            if (res.back() == grid[nx][ny]) {
+                                res.push_back(grid[nx][ny]);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found) break;
+                }
             }
         }
     }
-    
-    vector<int> res;
-    int val = dp[grid.size() - 1][grid[0].size() - 1][k];
-    for (int i = k; i >= 0; i--) {
-        if (val == dp[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()][i]) {
-            res.push_back(grid[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()]);
-            val -= grid[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()];
-        }
-    }
-    
+    while (k > 0 && res.size() > k) res.pop_back();
     return res;
 }
