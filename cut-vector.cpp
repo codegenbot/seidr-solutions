@@ -4,18 +4,14 @@
 int main() {
     int n;
     std::cin >> n;
-
-    if (n < 2) {
-        std::cout << "Invalid input. Vector size must be at least 2." << std::endl;
-        return 0;
+    if (n <= 0) {
+        return 1;
     }
 
     int cutIndex;
     std::cin >> cutIndex;
-
     if (cutIndex < 1 || cutIndex >= n) {
-        std::cout << "Invalid cutIndex. Please provide a valid index within the range [1, " << n - 1 << "]." << std::endl;
-        return 0;
+        return 1;
     }
 
     std::vector<int> nums(n);
@@ -47,4 +43,4 @@ int main() {
     }
 
     return 0;
-}  
+}
