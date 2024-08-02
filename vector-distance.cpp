@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -18,7 +19,8 @@ int main() {
         distance += diff * diff;
     }
     distance = sqrt(distance);
-    cout << fixed << distance << endl;
+
+    cout << fixed << setprecision(13) << distance << endl;
 
     return 0;
 }
