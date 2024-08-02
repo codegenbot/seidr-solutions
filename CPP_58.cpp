@@ -1,5 +1,6 @@
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -12,4 +13,15 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+int main() {
+    // Example usage
+    vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
+    vector<int> l2 = {5, 7, 1, 5, 9, 653, 121};
+    vector<int> result = common(l1, l2);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
