@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -14,22 +14,22 @@ std::string spinWords(std::string input) {
                 output += word[i];
             output += ' ';
         } else {
-            output.append(input.substr(0, pos + 1));
+            output += input.substr(0, pos + 1);
         }
         input.erase(0, pos + 1);
     }
 
     if (!input.empty())
-        output.append(input);
+        output += input;
 
     return output;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
 
     return 0;
 }
