@@ -1,42 +1,34 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-
-    if (str[0] != '-') { // handle the first character
-        result += toupper(str[0]);
-        for (int i = 1; i < str.length(); ++i) {
-            if (str[i] == '-') {
-                capitalizeNext = true;
-            } else if (capitalizeNext) {
-                result += toupper(str[i]);
-                capitalizeNext = false;
-            } else {
-                result += tolower(str[i]);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
             }
-        }
-    } else {
-        for (char c : str) {
-            if (c == '-') {
-                capitalizeNext = true;
-            } else if (capitalizeNext) {
-                result += toupper(c);
-                capitalizeNext = false;
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
+        } else {
+            if (!result.empty()) {
+                result += tolower(s[i]);
             } else {
-                result += tolower(c);
+                result += toupper(s[i]);
             }
         }
     }
-
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    string s;
+    while (true) {
+        cout << "Enter a string in kebab-case: ";
+        cin >> s;
+        cout << "The camelCase version is: " << camelCase(s) << endl;
     }
     return 0;
 }
