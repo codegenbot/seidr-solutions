@@ -18,7 +18,7 @@ int main() {
     cin >> groundSnow >> rateFall >> meltRate;
     
     double result = snowDay(hours, groundSnow, rateFall, meltRate);
-    cout << setprecision(2) << fixed << result << endl;
+    cout << fixed << setprecision(10) << result << endl;
 
     return 0;
 }
