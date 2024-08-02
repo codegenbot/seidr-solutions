@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -18,14 +18,11 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s1 = "T|F";
-    cout << solveBoolean(s1) << endl;  // Expected output: 1
-
-    string s2 = "&T|F";
-    cout << solveBoolean(s2) << endl;  // Expected output: 0
-
-    string s3 = "T&T&F";
-    cout << solveBoolean(s3) << endl;  // Expected output: 0
-
+    cout << boolalpha;
+    cout << solveBoolean("T") << endl;  // Should print: true
+    cout << solveBoolean("F") << endl;  // Should print: false
+    cout << solveBoolean("T|F") << endl;  // Should print: true
+    cout << solveBoolean("T&F") << endl;  // Should print: false
+    cout << solveBoolean("|F") << endl;   // Should print: true
     return 0;
 }
