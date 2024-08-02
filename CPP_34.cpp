@@ -1,15 +1,21 @@
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> unique(vector<int> l) {
+    vector<int> result(l.begin(), l.end());
+    sort(result.begin(), result.end());
+    return result;
 }
 
-vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(),l.end());
-    sort(result.begin(),result.end());
-    auto it = unique(result.begin(),result.end());
-    result.erase(it,result.end());
-    return result;
+int main() {
+    // Example usage:
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> output = unique(input);
+    for (int i : output) {
+        cout << i << " ";
+    }
+    return 0;
 }
