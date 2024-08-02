@@ -9,11 +9,10 @@ using namespace std;
 string string_to_md5(string text) {
     if (text.empty()) return "None";
     
-    stringstream ss;
+    MD5_CTX md5ctx;
     unsigned char result[16];
     unsigned char buffer[1024];
 
-    MD5_CTX md5ctx;
     MD5_Init(&md5ctx);
 
     for(size_t i = 0; i < text.size(); i += 1024) {
@@ -25,6 +24,7 @@ string string_to_md5(string text) {
 
     MD5_Final(result, &md5ctx);
 
+    stringstream ss;
     ss << setfill('0') << setw(32) << hex;
     for(size_t i = 0; i < 16; ++i)
         ss << std::setw(2) << (int)result[i];
