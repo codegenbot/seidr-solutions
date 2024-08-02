@@ -18,7 +18,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
             
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = std::make_pair(std::min(numbers[i], numbers[j]), std::max(numbers[i], numbers[j]));
+                closest_pair = std::make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
