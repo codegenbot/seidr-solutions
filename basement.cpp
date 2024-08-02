@@ -13,11 +13,13 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int input;
-    while (std::cin >> input) {
-        nums.push_back(input);
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
-    std::cout << basement(nums) << std::endl;
+    int result = basement(nums);
+    std::cout << result << std::endl;
     return 0;
 }
