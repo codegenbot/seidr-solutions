@@ -7,8 +7,8 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == 2*k:
             nonlocal min_path
-            if not min_path or len(path) < len(min_path):
-                min_path = path[:]
+            if not min_path or path + [grid[i][j]] < min_path:
+                min_path = path + [grid[i][j]]
             return
 
         visited.add((i, j))
