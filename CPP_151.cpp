@@ -13,16 +13,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; // Declare the list
-    float num;
-    int count = 0;
-
-    while(count < 5) { 
-        cin >> num;
-        lst.push_back(num);
-        count++;
-    }
-
-    cout << "The double difference is: " << double_the_difference(lst) << endl;
-    
+    std::vector<float> lst = {1.5f, 2.0f, 3.0f};
+    long long result = double_the_difference(lst);
+    std::cout << "The doubled difference is: " << result << std::endl;
+    return 0;
 }
