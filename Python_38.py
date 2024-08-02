@@ -6,7 +6,11 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 
-# Input prompt
-input_string = input("Enter the input string: ").strip()
+while True:
+    input_string = input("Enter the input string: ")
+    if len(input_string) % 3 == 0:
+        break
+    print("Input string length must be a multiple of 3. Please try again.")
+
 result = decode_cyclic(input_string)
 print(result)
