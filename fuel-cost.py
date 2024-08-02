@@ -1,4 +1,2 @@
-Here's the Python solution:
-
-def fuel_cost(fuel_prices):
-    return sum((price // 3) - 2 for price in fuel_prices)
+def fuel_cost(vector):
+    return sum((i // 3) - 2 for i in vector)
