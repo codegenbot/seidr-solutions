@@ -1,4 +1,4 @@
-def dfs(x, y, path, k, minPath):
+def dfs(x, y, path):
     if len(path) > k:
         return None
 
@@ -17,8 +17,11 @@ def dfs(x, y, path, k, minPath):
 
     for nx, ny in neighbors:
         if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-            res = dfs(nx, ny, path + [grid[nx][ny]], k, minPath)
+            res = dfs(nx, ny, path + [grid[nx][ny]])
             if res:
                 return res
 
     visited[x][y] = False
+
+minPath = dfs(start_x, start_y, [grid[start_x][start_y]])
+check(minPath)
