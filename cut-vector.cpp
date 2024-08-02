@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Add this line for INT_MAX
-#include <numeric> // Add this line for std::accumulate
+#include <climits>
+#include <numeric>
 
 int main() {
     int n, cutIndex;
