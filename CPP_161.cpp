@@ -1,12 +1,17 @@
-string solve(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+using namespace std;
+
+string solve(string s) {
+    string res = "";
+    bool has_letter = false;
+    
+    for (char c : s) {
+        if (isalpha(c)) {
+            has_letter = true;
+            res += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += s[i];
+            res += c;
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? 
-           string(result.rbegin(), result.rend()) : result;
+    
+    return has_letter ? res : string(rbegin(s), rend(s));
 }
