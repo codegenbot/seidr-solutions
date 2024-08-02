@@ -1,8 +1,7 @@
 def check():
-    num1 = int(input("Enter the first number: "))
-    num2 = int(input("Enter the second number: "))
-    lst = [num1, num2]
-    print(double_the_difference(lst))
+    numbers = input("Enter a list of numbers: ").split()
+    result = double_the_difference([int(num) for num in numbers])
+    print(f"The sum of the squares of positive integers is {result}.")
 
 
 def double_the_difference(lst):
