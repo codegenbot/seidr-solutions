@@ -20,11 +20,11 @@ vector<int> findLeaders(const vector<int>& nums) {
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
     vector<int> result = findLeaders(nums);
-    
+
     cout << "Leaders are: ";
     for (int leader : result) {
         cout << leader << " ";
     }
-    
+
     return 0;
 }
