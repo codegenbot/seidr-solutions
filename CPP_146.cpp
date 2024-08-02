@@ -20,6 +20,6 @@ int main() {
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The number of filtered elements is: " << result << std::endl;
+    std::cout << "The count of numbers that satisfy the condition is: " << result << std::endl;
     return 0;
 }
