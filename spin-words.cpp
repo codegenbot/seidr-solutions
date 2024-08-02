@@ -1,5 +1,3 @@
-Here's the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,32 +6,39 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int start = 0;
-    
-    for(int i = 0; i <= str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            
-            if(word.length() >= 5)
-                result += reverse(word) + " ";
-            else
-                result += word + " ";
-            
-            start = i + 1;
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        char c = str[i];
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
+                }
+            } else {
+                result += word;
+            }
+            word = "";
+        } else {
+            word += c;
         }
     }
-    
+
+    if (word.length() >= 5) {
+        for (int j = word.length() - 1; j >= 0; j--) {
+            result += word[j];
+        }
+    } else {
+        result += word;
+    }
+
     return result;
 }
 
-string reverse(string s) {
-    string r = "";
-    for(int i = s.length()-1; i >= 0; i--)
-        r += s[i];
-    return r;
-}
-
 int main() {
-    // Your code here
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
