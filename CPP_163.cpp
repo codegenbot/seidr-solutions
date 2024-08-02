@@ -16,6 +16,6 @@ std::vector<int> generate_integers(int a, int b){
 }
 
 int main(){
-    assert(issame(generate_integers(17,89), {}));
+    assert(issame(generate_integers(17, 89), {})); // Assert that the generated integers match the expected empty vector.
     return 0;
 }
