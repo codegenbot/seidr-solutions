@@ -2,9 +2,23 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> odd_count(std::vector<std::string> lst);
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
+    for (string s : lst) {
+        int odd_count = 0;
+        for (char c : s) {
+            if ((c - '0') % 2 != 0) {
+                odd_count++;
+            }
+        }
+        result.push_back("the number of odd elements " + to_string(odd_count) + " in the string " + s + " of the input.");
+    }
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -15,18 +29,4 @@ int main() {
         "the number of odd elements 2 in the string 314 of the input."
     }));
     return 0;
-}
-
-std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result;
-    for (std::string s : lst) {
-        int odd_count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
-                odd_count++;
-            }
-        }
-        result.push_back("the number of odd elements " + std::to_string(odd_count) + " in the string " + s + " of the input.");
-    }
-    return result;
 }
