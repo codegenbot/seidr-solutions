@@ -25,7 +25,7 @@ int main() {
 
     long long result = double_the_difference(numbers);
 
-    std::cout << "The sum of squares of positive integers is: " << result << std::endl;
+    std::cout << "The sum of squares is: " << result << std::endl;
 
     return 0;
 }
