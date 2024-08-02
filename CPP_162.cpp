@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
-#include <string>
 #include <sstream>
-#include <iomanip>
+#include <string>
 #include <openssl/evp.h>
 
 using namespace std;
@@ -31,6 +31,7 @@ int main() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
-    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
+    string md5_hash = string_to_md5(text);
+    cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
 }
