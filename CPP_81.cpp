@@ -1,4 +1,7 @@
 ```cpp
+#include <vector>
+#include <string>
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
@@ -31,7 +34,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         } else if (g >= 0.0) {
             result.push_back("D-");
         } else {
-            result.push_back("E");
+            result.push_back("F");
         }
     }
     return result;
