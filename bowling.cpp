@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int score(string s) {
@@ -15,7 +15,6 @@ int score(string s) {
         } else if (c == '/') {
             scores[ball - 1] = 10 - scores[ball - 2];
             frame++;
-            if (frame > 10) frame = 10;
         } else if (c == '-') {
             scores[ball++] = 0;
         } else {
@@ -28,7 +27,7 @@ int score(string s) {
             if (scores[i * 2 + 1] == 10) {
                 total += scores[i * 2 + 3];
             }
-        } else if (scores[i * 2] + scores[i * 2 + 1] == 10 && scores[i * 2 + 1] != 0) {
+        } else if (i < 9 && scores[i * 2] + scores[i * 2 + 1] == 10 && scores[i * 2 + 1] != 0) {
             total += 10 + scores[i * 2 + 2];
         } else {
             total += scores[i * 2] + scores[i * 2 + 1];
