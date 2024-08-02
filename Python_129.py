@@ -1,7 +1,4 @@
 def minPath(grid, k):
-    if not grid or not all(len(row) == len(grid) for row in grid):
-        return "Invalid input grid"
-
     n = len(grid)
     start = min(min(row) for row in grid)
     path = [start]
@@ -9,7 +6,7 @@ def minPath(grid, k):
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
     i, j = 0, 0
 
-    while len(path) < k:
+    while len(set(path)) < k:
         current = path[-1]
         next_cell = None
         for di, dj in directions:
@@ -22,4 +19,4 @@ def minPath(grid, k):
             visited.add(next_cell)
             i, j = next_cell
 
-    return path
+    return path[-1]
