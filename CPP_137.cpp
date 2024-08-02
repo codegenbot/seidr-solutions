@@ -3,13 +3,11 @@
 #include <typeinfo>
 #include <cassert>
 
+using namespace std;
+
 template <typename T>
 std::any compare_one(T a, T b) {
-    if (a == b) {
-        return "None";
-    } else {
-        return (a > b) ? std::any(a) : std::any(b);
-    }
+    return (a > b) ? std::any(a) : std::any(b);
 }
 
 std::any compare(std::any a, std::any b) {
