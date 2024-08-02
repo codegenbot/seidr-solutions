@@ -1,13 +1,3 @@
-#include <vector>
-#include <string>
-#include <iostream>
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int n = text.size();
@@ -29,21 +19,4 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
     }
     
     return indices;
-}
-
-int main() {
-    // Add your testing code here
-    std::vector<int> result1 = findIndicesOfSubstring("abracadabra", "abra");
-    for (int index : result1) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
-
-    std::vector<int> result2 = findIndicesOfSubstring("ababab", "aba");
-    for (int index : result2) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
