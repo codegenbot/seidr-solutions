@@ -1,19 +1,29 @@
-#include <string>
-
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (s[i] == '/') {
-            score += 10 + (stoi(s.substr(i+1, 2)) - 5);
+    int roll = 0;
+    bool spare = false;
+
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - roll;
+            }
+            roll = 0;
+            spare = true;
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
+            spare = false;
         } else {
-            int currentFrameScore = stoi(s.substr(i, 1));
-            if (currentFrameScore < 10) {
-                score += currentFrameScore;
-            } else {
-                score += 10 + (stoi(s.substr(i+1, 1)) - 0);
+            int val = c - '0';
+            roll += val;
+            if (roll >= 2) {
+                score += roll;
+                roll = 0;
+                spare = false;
             }
         }
     }
+
     return score;
+}
