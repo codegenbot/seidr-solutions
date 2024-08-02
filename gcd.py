@@ -1,4 +1,5 @@
-```
+Here is the completed code:
+
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -10,7 +11,3 @@ def indices_of_substring(text, target):
         if text[i:i+len(target)] == target:
             result.append(i)
     return result
-
-# Test cases
-print(gcd(1, 1)) 
-print(indices_of_substring("banana", "ana"))
