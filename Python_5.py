@@ -1,11 +1,7 @@
-def manipulate_numbers(numbers):
-    return (
-        [item for sublist in [[num, delimeter] for num in numbers[:-1]] for item in sublist]
-        + [numbers[-1]]
-        if numbers
-        else []
-    )
-
-numbers = [1, 2, 3, 4, 5]
-result = manipulate_numbers(numbers)
-print(result)
+def format_numbers(numbers, delimiter):
+    result = []
+    for num in numbers[:-1]:
+        result.extend([num, delimiter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
