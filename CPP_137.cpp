@@ -1,12 +1,12 @@
 #include <any>
 #include <string>
 #include <typeinfo>
-#include <cassert>  // Added to include assert
+#include <cassert>
 
 template <typename T>
 std::any compare_one(T a, T b) {
     if (a == b) {
-        return std::any("None");  // Updated to return std::any("None")
+        return std::any("None");
     } else {
         return (a > b) ? std::any(a) : std::any(b);
     }
@@ -22,10 +22,10 @@ std::any compare(std::any a, std::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return std::any("None");  // Updated to return std::any("None")
+    return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");  // Fixed assert condition
+    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");
     return 0;
 }
