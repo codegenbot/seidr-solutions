@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <climits>
-
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
