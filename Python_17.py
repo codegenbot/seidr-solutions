@@ -1,4 +1,5 @@
-def parse_music(music_string: str) -> list[int]:
+```
+def parse_music(music_string: str) -> list:
     music_list = []
     for char in music_string:
         if char == "o":
