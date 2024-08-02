@@ -2,10 +2,15 @@
 #include <string>
 
 std::string camelCase(std::string str) {
-    std::string result;
+    std::string result = "";
     bool capitalizeNext = true;
 
-    for (char c : str) {
+    if (str[0] != '-') { // Handle the first character
+        result += toupper(str[0]);
+        capitalizeNext = false;
+    }
+
+    for (char c : str.substr(1)) { // Start from the second character
         if (c == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
@@ -14,10 +19,6 @@ std::string camelCase(std::string str) {
         } else {
             result += tolower(c);
         }
-    }
-    // Capitalize the first character
-    if (!str.empty()) {
-        result[0] = toupper(result[0]);
     }
 
     return result;
