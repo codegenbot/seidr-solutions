@@ -19,6 +19,5 @@ int test_avg() {
 }
 
 int main() {
-    test_avg();
-    return 0;
+    return test_avg();
 }
