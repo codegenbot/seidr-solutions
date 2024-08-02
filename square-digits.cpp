@@ -1,16 +1,13 @@
-```c++
-#include <string>
-using namespace std;
-
-int main() {
-    string input;
-    cout << "Enter an integer: ";
-    cin >> input;
-    string result = "";
-    for (char c : input) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+string squareDigits(long int num) {
+    string str = to_string(num);
+    string result;
+    
+    for (int i = 0; i < str.length(); i++) {
+        int digit = str[i] - '0';
+        long long squared = (long long)digit * digit;
+        char c = (char)(squared + '0');
+        result += c;
     }
-    cout << "Squared digits: " << result << endl;
-    return 0;
+    
+    return result;
 }
