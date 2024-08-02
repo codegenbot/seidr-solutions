@@ -10,6 +10,7 @@ int sum_squares(std::vector<int> lst){
             total += lst[i] * lst[i] * lst[i];
     }
     return total;
+
 }
 
 int main(){
