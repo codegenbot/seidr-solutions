@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -21,4 +20,3 @@ std::string borrowed(int n) {
         s = "0" + s;
     }
     return s;
-}
