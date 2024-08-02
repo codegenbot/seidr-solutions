@@ -3,58 +3,51 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
+    int cut_idx = 0;
     
-    for (int i = 1; i <= v.size(); i++) {
+    for (int i = 1; i <= v.size(); ++i) {
         int left_sum = 0, right_sum = 0;
         
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++) {
-                left_sum += v[j];
-            }
-            for (int j = i; j < v.size(); j++) {
-                right_sum += v[j];
-            }
-        } else {
-            left_sum = accumulate(v.begin(), v.end(), 0);
-            right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += v[j];
+        }
+        
+        for (int k = i; k < v.size(); ++k) {
+            right_sum += v[k];
         }
         
         int diff = abs(left_sum - right_sum);
         
         if (diff < min_diff) {
             min_diff = diff;
-            cut_index = i;
+            cut_idx = i;
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0] = v.begin(), result[0].insert(result[0].end(), v.begin() + cut_index, v.end());
-    result[1] = v.begin(), result[1].insert(result[1].begin(), v.begin(), v.begin() + cut_index);
-    
-    return result;
+    return {{v.begin(), v.begin() + cut_idx}, {v.begin() + cut_idx, v.end()}};
 }
 
 int main() {
-    vector<int> v;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        v.push_back(x);
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    vector<vector<int>> res = cutVector(v);
-    cout << "First subvector: ";
-    for (int x : res[0]) {
-        cout << x << " ";
+    
+    vector<vector<int>> result = cutVector(v);
+    
+    cout << "[";
+    for (auto num : result[0]) {
+        cout << num << " ";
     }
-    cout << endl;
-    cout << "Second subvector: ";
-    for (int x : res[1]) {
-        cout << x << " ";
+    cout << "]" << endl;
+    
+    cout << "[";
+    for (int i = 1; i < result[1].size(); ++i) {
+        cout << result[1][i] << " ";
     }
-    cout << endl;
+    cout << "0]" << endl;
     
     return 0;
 }
