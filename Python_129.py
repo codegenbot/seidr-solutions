@@ -12,7 +12,7 @@ def minPath(grid, k):
         next_moves.sort(key=lambda x: (grid[x[0]][x[1]], x))
 
         for ni, nj in next_moves:
-            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
+            if not visited[ni][nj]:
                 res = dfs(ni, nj, path + [grid[ni][nj]])
                 if res:
                     return res
