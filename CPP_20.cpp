@@ -1,10 +1,14 @@
-#include <vector>
-#include <algorithm>
-#include <cmath>
-#include <cassert>
-
 bool issame(float a, float b) {
     return (fabs(a - b) < 0.0001);
+}
+
+pair<float, float> find_closest_elements(const vector<float>& numbers);
+
+int main() {
+    vector<float> input = {1.2, 3.4, 5.6, 7.8, 9.0};
+    pair<float, float> result = find_closest_elements(input);
+    assert(result.first == 5.6 && result.second == 7.8);
+    return 0;
 }
 
 pair<float, float> find_closest_elements(const vector<float>& numbers) {
