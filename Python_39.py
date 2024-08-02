@@ -1,4 +1,3 @@
-
 n = 5
 
 def is_prime(num):
