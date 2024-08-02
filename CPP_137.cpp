@@ -9,40 +9,25 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return boost::any(max(get<string>(a), get<string>(b)));
+        return any_cast<string>(a) > any_cast<string>(b) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return boost::any(max(get<double>(b), get<string>(a)));
+        return any_cast<double>(b) > any_cast<double>(a) ? b : a;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = get<int>(a);
-        int y = get<int>(b);
-        if(x > y)
-            return a;
-        else if(x < y)
-            return b;
-        else
-            return boost::any("None");
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = get<double>(a);
-        double y = get<double>(b);
-        if(x > y)
-            return a;
-        else if(x < y)
-            return b;
-        else
-            return boost::any("None");
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = get<string>(a);
-        string y = get<string>(b);
-        if(x > y)
-            return a;
-        else if(x < y)
-            return b;
-        else
-            return boost::any("None");
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
     }
     else {
         throw invalid_argument("Invalid types");
