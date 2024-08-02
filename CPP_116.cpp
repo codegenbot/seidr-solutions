@@ -1,17 +1,15 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result = arr;
-    std::sort(result.begin(), result.end(),
-            [](int a, int b) {
-                int ones_a = __builtin_popcount(a);
-                int ones_b = __builtin_popcount(b);
+using namespace std;
 
-                if (ones_a != ones_b)
-                    return ones_a < ones_b;
-
-                return a < b;
-            });
-    return result;
+vector<int> sort_vector(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count(binary(a).begin(), binary(a).end(), '1') != count(binary(b).begin(), binary(b).end(), '1')) {
+            return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
+        } else {
+            return a < b;
+        }
+    });
+    return arr;
 }
