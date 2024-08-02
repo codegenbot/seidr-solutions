@@ -1,9 +1,12 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <climits>
+
+using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT64_MAX;
+    long long min_sum = LLONG_MAX;
     long long current_sum = 0;
 
     for (int i = 0; i < nums.size(); i++) {
@@ -15,7 +18,7 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
 
-    return min_sum == INT64_MAX ? 0 : min_sum;
+    return min_sum == LLONG_MAX ? 0 : min_sum;
 }
 
 int main() {
