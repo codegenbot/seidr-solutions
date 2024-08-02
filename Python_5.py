@@ -1,13 +1,6 @@
-def join_with_delimeter(numbers, delimeter):
+def add_delimiters(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimeter])
-    if numbers:
-        result.append(numbers[-1])
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop() if result else None
     return result
-
-# Call the function with appropriate arguments
-numbers = [1, 2, 3, 4, 5]
-delimeter = "-"
-output = join_with_delimeter(numbers, delimeter)
-print(output)
