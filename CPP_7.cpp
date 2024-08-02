@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a,vector<string>b){
     if(a.size() != b.size()) return false;
     for(auto s : a) {
@@ -11,6 +14,7 @@ bool issame(vector<string> a,vector<string>b){
     }
     return true;
 }
+
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
