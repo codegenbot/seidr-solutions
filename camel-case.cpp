@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -33,4 +32,3 @@ int main() {
     cin >> input;
     cout << camelCase(input) << endl;
     return 0;
-}
