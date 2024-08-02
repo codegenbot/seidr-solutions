@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -6,18 +5,13 @@ bool move_one_ball(vector<int> arr) {
     int n = arr.size();
     if (n == 0)
         return true;
+    
     for (int i = 1; i < n; i++) {
-        if (arr[i] <= arr[0]) {
-            return false;
-        }
+        if (arr[i] >= arr[0])
+            continue;
+        else
+            break;
     }
-    return true;
-}
-
-int main() {
-    vector<int> vec = {3, 4, 5, 1, 2};
-    bool result = move_one_ball(vec);
-    cout << "Result: " << (result ? "true" : "false") << endl;
-
-    return 0;
+    
+    return i == n;
 }
