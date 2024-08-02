@@ -8,4 +8,4 @@ input_strings = input("Enter a list of strings separated by spaces: ").split()
 
 # Call the function with the input provided by the user
 result = longest(input_strings)
-print(result) 
+print(result)
