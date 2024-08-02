@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,33 +11,29 @@ int main() {
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
-    vector<string> strings(n);
-    for(int i = 0; i < n; i++){
+    std::vector<std::string> str1, str2;
+
+    for(int i = 0; i < n; i++) {
+        std::string s;
         std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, strings[i]);
+        std::cin >> s;
+        str1.push_back(s);
     }
 
-    string substring;
-    std::cout << "Enter the substring: ";
-    std::getline(std::cin, substring);
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
 
-    vector<string> result = filter_by_substring(strings, substring);
-    if(result.empty()) {
-        cout << "No strings contain the substring." << endl;
-    } else {
-        for(string s : result) {
-            cout << s << endl;
-        }
+    for(int i = 0; i < n; i++) {
+        std::string s;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::cin >> s;
+        str2.push_back(s);
     }
+
+    if(issame(str1, str2))
+        std::cout << "The two sets of strings are the same.\n";
+    else
+        std::cout << "The two sets of strings are not the same.\n";
 
     return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
 }
