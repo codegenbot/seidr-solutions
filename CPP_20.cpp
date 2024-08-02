@@ -1,17 +1,18 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <cmath>
 
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) 
+    if (a.size() != b.size()) {
         return false;
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(abs(a[i] - b[i]) > 1e-9)
-            return false;
     }
-    
+    for (int i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-6) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -28,18 +29,21 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> num1 = {0.5, 2.3, 4.8, 6.9, 10.2};
-    vector<float> num2 = {0.50005, 2.30001, 4.80002, 6.90003, 10.20004};
-
-    if(issame(num1, num2)) {
-        cout << "The two arrays are the same." << endl;
-    } else {
-        cout << "The two arrays are not the same." << endl;
+    vector<float> numbers;
+    // read input from user
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float num;
+        cin >> num;
+        numbers.push_back(num);
     }
-
-    vector<pair<float, float>> result = find_closest_elements(num1);
-    for (const auto& pair : result) {
-        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    
+    vector<pair<float, float>> closest_pairs = find_closest_elements(numbers);
+    if (!issame(closest_pairs[0].first, closest_pairs[0].second)) {
+        cout << "Not a pair" << endl;
+    } else {
+        cout << "Pair: (" << closest_pairs[0].first << ", " << closest_pairs[0].second << ")" << endl;
     }
     
     return 0;
