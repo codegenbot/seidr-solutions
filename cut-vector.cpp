@@ -1,49 +1,48 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::vector<int> cutVector(const std::vector<int>& v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_idx = -1;
+    vector<int> left;
+    vector<int> right;
 
-    for (int i = 0; i < v.size() - 1; ++i) {
-        int left_sum = 0;
-        int right_sum = 0;
-
-        for (int j = 0; j <= i; ++j) {
-            left_sum += v[j];
+    for (int i = 1; i <= v.size(); i++) {
+        if (i == v.size()) {
+            left = v.substr(0, i);
+            right = {v[i]};
+        } else {
+            left = v.substr(0, i);
+            right = v.substr(i);
         }
 
-        for (int j = i + 1; j < v.size(); ++j) {
-            right_sum += v[j];
-        }
-
-        int diff = abs(left_sum - right_sum);
+        int diff = abs(left.back() - right.front());
         if (diff < min_diff) {
             min_diff = diff;
-            cut_idx = i;
+            break;
         }
     }
 
-    return {std::vector<int>(v.begin(), v.begin() + cut_idx),
-            std::vector<int>(v.begin() + cut_idx, v.end())};
+    return {left, right};
 }
 
 int main() {
+    vector<int> input;
+    // Read the input from user
     int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec[i];
+    cin >> n;
+    while(n--) {
+        int num;
+        cin >> num;
+        input.push_back(num);
     }
 
-    auto result = cutVector(vec);
+    vector<vector<int>> result = cutVector(input);
 
-    for (const auto& v : result) {
-        for (int x : v) {
-            std::cout << x << " ";
+    for (auto vec : result) {
+        for (int i : vec) {
+            cout << i << " ";
         }
-        std::cout << "\n";
+        cout << endl;
     }
 
     return 0;
