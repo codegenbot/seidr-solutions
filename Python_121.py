@@ -1,5 +1,7 @@
 """
-Given a list of integers, return the sum of all odd numbers starting from the second element and then every other number.
+Your code should solve a programming problem. Please read the problem description and write your solution here.
+
+Given a list of integers, find the sum of all odd numbers in the list that are not the first element.
 """
 
 def solution(lst):
