@@ -17,11 +17,8 @@ def prime_fib(n: int):
     num = 1
     while count < n:
         num += 1
-        if is_prime(num):
-            if num == fibonacci(num):
+        fib_num = fibonacci(num)
+        if is_prime(fib_num):
+            if num == fib_num:
                 count += 1
-    return num
-
-n = int(input("Enter a number: "))
-result = prime_fib(n)
-print(result)
+    return fib_num
