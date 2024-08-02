@@ -13,6 +13,7 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
+    // Read input from user
     for (int i = 0; i < 5; ++i) {
         int num;
         std::cin >> num;
