@@ -1,8 +1,6 @@
-bool issame(float a, float b) {
-    return fabs(a - b) < numeric_limits<float>::epsilon();
+bool issame(float a, float b){
+    return a == b;
 }
-
-pair<float, float> find_closest_elements(vector<float>& numbers);
 
 pair<float, float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
@@ -21,4 +19,10 @@ pair<float, float> find_closest_elements(vector<float>& numbers) {
         }
     }
     return {num1, num2};
+}
+
+int main() {
+    assert (issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).first , 2.2);
+    assert (issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).second, 3.1);
+    return 0;
 }
