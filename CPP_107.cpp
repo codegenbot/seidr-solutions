@@ -1,19 +1,11 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 std::vector<int> even_odd_palindrome(int num) {
-    std::vector<int> palindrome;
-    if (num % 2 == 0) {
-        for (int i = 0; i <= num; ++i) {
-            palindrome.push_back(i / 2);
-        }
-    } else {
-        for (int i = 0; i <= num; ++i) {
-            palindrome.push_back(i / 2);
-        }
-    }
-    return palindrome;
+    // Implement the function to generate even or odd palindrome
+    std::vector<int> result;
+    // Generate even/odd palindrome based on num
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
