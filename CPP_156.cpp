@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -14,5 +13,11 @@ std::string int_to_roman(int number) {
             number -= p.first;
         }
     }
+    
+    // Continue subtracting and adding Roman numerals until the number becomes zero
+    if(number > 0) {
+        result = "Invalid Input";
+    }
+    
     return result;
 }
