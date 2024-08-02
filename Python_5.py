@@ -1,4 +1,4 @@
-def process_numbers(numbers, delimiter):
+def check(numbers, delimiter):
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
@@ -8,5 +8,5 @@ def process_numbers(numbers, delimiter):
 
 numbers = [1, 2, 3, 4, 5]
 delimiter = ","
-output = process_numbers(numbers, delimiter)
+output = check(numbers, delimiter)
 print(output)
