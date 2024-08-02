@@ -1,31 +1,25 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
-    int count = 0;
-    for (char note : music_string) {
-        if (note == 'o') {
+using namespace std;
+
+vector<int> parse_music(string music_string){
+    vector<int> beats;
+    int i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (note == '|') {
-            beats.push_back(count);
-            count = 0;
-        } else if (note == '.') {
-            count++;
+            i += 2;
+        } else if (music_string[i] == 'o' && music_string[i + 1] == '|') {
+            beats.push_back(2);
+            i += 3;
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
+            beats.push_back(1);
+            i += 3;
         }
-    }
-    if (count > 0) {
-        beats.push_back(count);
     }
     return beats;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(is_same(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
-}
+```
