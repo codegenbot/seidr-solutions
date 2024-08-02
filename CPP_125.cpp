@@ -3,13 +3,15 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using std::string;
+
+bool issame(std::vector<string> a, std::vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+std::vector<string> split_words(string txt) {
+    std::vector<string> result;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -36,6 +38,6 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), std::vector<std::string>{}));
+    assert(issame(split_words(""), std::vector<string>{}));
     return 0;
 }
