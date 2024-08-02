@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -17,14 +16,5 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    vector<string> strings = {"hello", "world", "hell", "world"};
-    string substring = "world";
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
-
-    if(issame(filtered_strings, strings))
-        std::cout << "All strings contain the substring." << std::endl;
-    else
-        std::cout << "Not all strings contain the substring." << std::endl;
-
-    return 0;
+    // your code here
 }
