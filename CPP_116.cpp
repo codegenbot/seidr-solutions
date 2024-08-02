@@ -1,6 +1,16 @@
 #include <vector>
 
-bool issame(const std::vector<int>& arr) {
+bool issame(int a, int b) {
+    return a == b;
+}
+
+std::vector<int> sort_array(const std::vector<int>& arr);
+
+int main() {
+    // Main function code here
+}
+
+std::vector<int> sort_array(const std::vector<int>& arr) {
     std::vector<int> sorted_arr = arr;
     std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
@@ -12,9 +22,4 @@ bool issame(const std::vector<int>& arr) {
     });
 
     return sorted_arr;
-}
-
-int main() {
-    // Main function implementation
-    return 0;
 }
