@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -11,22 +12,21 @@ int sumOfDigits(int num) {
 }
 
 int largestPrime(vector<int> lst) {
-    int maxPrime = 2;
+    int maxPrime = 0;
     for (int i : lst) {
-        if (i > maxPrime)
-            maxPrime = i;
-    }
-    for (int i = maxPrime; ; i++) {
         bool isPrime = true;
+        if (i <= 1)
+            continue;
         for (int j = 2; j * j <= i; j++) {
             if (i % j == 0) {
                 isPrime = false;
                 break;
             }
         }
-        if (isPrime)
-            return sumOfDigits(i);
+        if (isPrime && i > maxPrime)
+            maxPrime = i;
     }
+    return sumOfDigits(maxPrime);
 }
 
 int main() {
