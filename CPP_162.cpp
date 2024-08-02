@@ -1,22 +1,51 @@
 #include <openssl/evp.h>
+#include <string>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char *s = text.c_str();
-    size_t len = text.size();
-    MD5_Update(&ctx, s, len);
-    MD5_Final(md, &ctx);
-
+    unsigned char buffer[1024];
     string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", md[i]);
-        result += buf;
+    EVP_MD_CTX mdctx;
+    EVP_MD *md = NULL;
+    const EVP_MD* digest = NULL;
+    unsigned char hash[16];
+
+    // Initialize the context
+    EVP_MD_CTX_init(&mdctx);
+
+    // Set the algorithm to MD5
+    if ((digest = EVP_get_digestbyname("MD5")) == NULL) {
+        return "";
     }
+
+    // Set the message digest initialization function for this type of message.
+    if (1 != EVP_DigestInit_ex(&mdctx, digest, NULL)) {
+        return "";
+    }
+
+    // Update the message digest context with the data
+    const char *p = text.c_str();
+    size_t len = text.length();
+    if ((len > sizeof(buffer) - 1) || (1 != EVP_DigestUpdate(&mdctx, p, len))) {
+        return "";
+    }
+
+    // Finalize the message digest
+    if (1 != EVP_DigestFinal_ex(&mdctx, hash, NULL)) {
+        return "";
+    }
+
+    // Convert the binary hash to hexadecimal
+    for(int i = 0; i < 16; ++i) {
+        char buffer[3];
+        sprintf(buffer, "%02x", hash[i]);
+        result.append(buffer);
+    }
+
+    EVP_MD_CTX_cleanup(&mdctx);
 
     return result;
 }
