@@ -1,3 +1,5 @@
-v = list(map(int, input().split()))
-total = sum(map(lambda x: max(0, x // 3 - 2), v))
+n = int(input())
+nums = [int(input()) for _ in range(n)]
+
+total = sum((num // 3) - 2 for num in nums)
 print(total)
