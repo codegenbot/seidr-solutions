@@ -1,0 +1,20 @@
+```
+def minSubArraySum(nums):
+    if not nums:
+        return 0
+    
+    min_sum = float('inf')
+    left = 0
+    curr_sum = 0
+    
+    for right in range(len(nums)):
+        curr_sum += nums[right]
+        
+        while curr_sum > min_sum and left <= right:
+            curr_sum -= nums[left]
+            left += 1
+        
+        if curr_sum < min_sum:
+            min_sum = curr_sum
+    
+    return min_sum
