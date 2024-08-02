@@ -14,7 +14,7 @@ string camelCase(string s) {
             capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(s[i]); 
-            capitalizeNext = false; 
+            capitalizeNext = false;
         } else {
             result += tolower(s[i]);
         }
@@ -25,7 +25,7 @@ string camelCase(string s) {
 int main() {
     string s;
     while (cin >> s) {
-        cout << camelCase(s) << endl;
+        cout << camelCase(s) << endl; 
     }
     return 0;
 }
