@@ -6,9 +6,17 @@ int add(int x, int y) {
     return x + y;
 }
 
-srand(time(0));
+void test() {
+    srand(time(0));
 
-int x = rand() % 1000;
-int y = rand() % 1000;
+    int x = rand() % 1000;
+    int y = rand() % 1000;
 
-assert(add(x, y) == x + y);
+    assert(add(x, y) == x + y);
+}
+
+int main() {
+    test();
+
+    return 0;
+}
