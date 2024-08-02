@@ -13,13 +13,12 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    // Read input from user
     for (int i = 0; i < 5; ++i) {
         int num;
         std::cin >> num;
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The number of special numbers is: " << result << std::endl;
+    std::cout << "The count of numbers that meet the condition is: " << result << std::endl;
     return 0;
 }
