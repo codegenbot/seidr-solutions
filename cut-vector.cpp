@@ -1,13 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    int cutIndex;
-    std::cin >> cutIndex;
+    int n, cutIndex;
+    std::cin >> n >> cutIndex;
 
     std::vector<int> nums(n);
 
@@ -20,7 +16,7 @@ int main() {
 
     for (int i = cutIndex + 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
-        if (newDiff < diff || (newDiff == diff && abs(i - cutIndex) < abs(right - left))) {
+        if (newDiff < diff) {
             diff = newDiff;
             left = i - 1;
             right = i;
