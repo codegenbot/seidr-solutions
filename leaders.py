@@ -1,4 +1,6 @@
-Here is the Python code for the problem:
-
-def leaders(a):
-    return [a[i] for i in range(len(a)-1,-1,-1) if a[i] >= max(a[i+1:])]
+def leaders(integers):
+    return [
+        integer
+        for integer in integers[::-1]
+        if all(i <= integer for i in integers[integers.index(integer) + 1 :])
+    ]
