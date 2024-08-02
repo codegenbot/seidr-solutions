@@ -1,14 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b) {
-    return sort(a.begin(), a.end()) == sort(b.begin(), b.end());
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
-    vector<vector<string>> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(auto str : strings) {
-        if(issame(str, {substring})) {
+        if(str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
