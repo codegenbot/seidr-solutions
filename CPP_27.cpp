@@ -1,7 +1,3 @@
-```c++
-#include <string>
-using namespace std;
-
 string flip_case(string str) {
     string result = "";
     for (char c : str) {
@@ -14,9 +10,4 @@ string flip_case(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    cout << flip_case("These violent delights have violent ends") << endl;
-    return 0;
 }
