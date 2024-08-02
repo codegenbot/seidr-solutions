@@ -23,12 +23,12 @@ int main() {
         cin >> nums[i];
     }
     vector<int> result = cutVector(nums);
-    for (auto num : std::vector<int>(result[0]).begin(), e = std::vector<int>(result[0]).end(); num != e; ++num) {
-        cout << *num << " ";
+    for (auto it = std::vector<int>(result[0]).begin(), e = std::vector<int>(result[0]).end(); it != e; ++it) {
+        cout << *it << " ";
     }
     cout << endl;
-    for (auto num : std::vector<int>(result[1]).begin(), e = std::vector<int>(result[1]).end(); num != e; ++num) {
-        cout << *num << " ";
+    for (auto it = std::vector<int>(result[1]).begin(), e = std::vector<int>(result[1]).end(); it != e; ++it) {
+        cout << *it << " ";
     }
     cout << endl;
     return 0;
