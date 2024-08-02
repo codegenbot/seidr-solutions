@@ -2,13 +2,11 @@
 #include <algorithm>
 
 bool issame(vector<int> a,vector<int>b){
-    if(a.size()!=b.size())
-        return false;
+    if(a.size()!=b.size())return false;
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
     for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])
-            return false;
+        if(a[i]!=b[i])return false;
     }
     return true;
 }
@@ -22,5 +20,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
                       std::inserter(intersection, intersection.end()));
 
     vector<int> result(intersection.begin(), intersection.end());
+    if(!issame(result,l1) || !issame(result,l2)) return {};
     return result;
 }
