@@ -2,9 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& words) {
-    // Function logic as described in the given code
-}
+bool is_same(const std::string& txt);
 
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
@@ -34,4 +32,8 @@ std::vector<std::string> split_words(const std::string& txt) {
     }
 
     return result;
+}
+
+bool is_same(const std::string& txt) {
+    // Code for is_same function
 }
