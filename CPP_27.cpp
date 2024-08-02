@@ -15,4 +15,15 @@ std::string flip_case(const std::string& str){
     return result;
 }
 
-assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::string output = flip_case(input);
+
+    assert(flip_case("Hello World") == "hELLO wORLD");
+
+    std::cout << output << std::endl;
+
+    return 0;
+}
