@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool is_same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -45,13 +45,8 @@ int main() {
     cin >> input;
 
     vector<string> groups = separate_paren_groups(input);
-    vector<string> expected = {"abc", "def"};
+    vector<string> expected = separate_paren_groups(input);
 
-    if (issame(groups, expected)) {
-        cout << "Groups are same" << endl;
-    } else {
-        cout << "Groups are different" << endl;
-    }
-
+    bool same = is_same(groups, expected);
     return 0;
 }
