@@ -1,8 +1,15 @@
-string solve(int N){
-    int sum = 0;
-    while(N > 0) {
-        sum += (N & 1);
-        N >>= 1;
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+string solve(int N) {
+    string res = "";
+    while (N > 0) {
+        if (N % 2 == 1)
+            res += "1";
+        else
+            res += "0";
+        N /= 2;
     }
-    return to_string(sum);
+    return res;
 }
