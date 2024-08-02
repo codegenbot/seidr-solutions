@@ -1,3 +1,6 @@
+Here is the modified code:
+
+#include <iostream>
 #include <vector>
 
 using namespace std;
