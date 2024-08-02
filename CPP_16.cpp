@@ -1,12 +1,10 @@
-#define ONLINE_JUDGE
-
-#ifndef ONLINE_JUDGE
 #include <iostream>
 #include <algorithm>
 #include <string>
 #include <cassert>
 
-int count_distinct_characters(const std::string& str) {
+int count_distinct_characters(const std::string &str)
+{
     std::string sorted_str = str;
     std::transform(sorted_str.begin(), sorted_str.end(), sorted_str.begin(), ::tolower);
     std::sort(sorted_str.begin(), sorted_str.end());
@@ -14,9 +12,9 @@ int count_distinct_characters(const std::string& str) {
     return sorted_str.size();
 }
 
-int main() {
+int main()
+{
     assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
     
     return 0;
 }
-#endif
