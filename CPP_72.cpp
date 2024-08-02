@@ -1,12 +1,26 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <string>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool is_palindrome(std::string s) {
+    std::string t = s;
+    std::reverse(t.begin(), t.end());
+    return t == s;
+}
+
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != reverse(str).s) return false;
-    int sum = 0;
-    for (int i : q) sum += i;
-    return sum <= w;
+    if (!is_palindrome(str)) {
+        return false;
+    } else {
+        int sum = 0;
+        for (int i : q) {
+            sum += i;
+        }
+        return sum <= w;
+    }
 }
