@@ -8,11 +8,10 @@ std::string string_to_md5(const std::string& text) {
         return "None";
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    MD5_CTX context;
+    MD5_Init(&context);
+    MD5_Update(&context, text.c_str(), text.length());
+    MD5_Final(digest, &context);
 
     char mdString[33];
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++)
