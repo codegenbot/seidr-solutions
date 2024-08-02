@@ -1,5 +1,5 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
