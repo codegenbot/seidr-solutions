@@ -1,6 +1,5 @@
 #include <cstring>
 
 int main() {
-    assert (strlen("asdasnakj") == 9);
-    return 0;
+    assert(strlen("asdasnakj") == 9);
 }
