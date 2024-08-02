@@ -11,20 +11,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 int main() {
     std::vector<int> a, b;
     int x;
-
     std::cout << "Enter elements for vector a (space-separated): ";
     while (std::cin >> x) {
         a.push_back(x);
-        if(std::cin.peek() == '\n') break; // Stop reading if newline is encountered
+        if (std::cin.get() == '\n') break;
     }
-
-    std::cin.clear(); // Clear previous input state
-    std::cin.ignore(256, '\n'); // Ignore remaining characters in input buffer
-
+    std::cin.clear();
     std::cout << "Enter elements for vector b (space-separated): ";
     while (std::cin >> x) {
         b.push_back(x);
-        if(std::cin.peek() == '\n') break; // Stop reading if newline is encountered
+        if (std::cin.get() == '\n') break;
     }
 
     bool result = issame(a, b);
