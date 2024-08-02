@@ -1,22 +1,11 @@
 #include <vector>
+#include <assert.h>
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for(float num : l) {
-        if(num > 0)
-            result.push_back(num);
-    }
-    return result;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    std::vector<float> a = {1, -2, 3};
-    std::vector<float> b = {-4, 5, -6};
-    
-    bool issame = true;
-    
-    if(get_positive(a) != get_positive(b))
-        issame = false;
-    
-    return !issame;
+    assert (std::equal(get_positive({}), {}));
+    return 0;
 }
