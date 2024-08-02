@@ -2,8 +2,6 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    // implement your comparison logic here
-    // for example, you can compare sizes or contents of vectors
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
