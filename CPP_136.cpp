@@ -1,4 +1,3 @@
-
 #include <vector>
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
