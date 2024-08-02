@@ -1,13 +1,22 @@
+Here is the completed code:
+
+```cpp
+#include <cctype>
+
 string encrypt(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c >= 'a' && c <= 'z') {
-            c = (char)((c - 'a' + 26) % 26 + 'a');
-        } else if (c >= 'A' && c <= 'Z') {
-            c = (char)((c - 'A' + 26) % 26 + 'A');
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = tolower(c);
+            if (base >= 'a' && base <= 'm') {
+                base += 4;
+            } else if (base >= 'n' && base <= 'z') {
+                base -= 26 - 4;
+            }
+            result += isupper(c) ? toupper(base) : base;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
