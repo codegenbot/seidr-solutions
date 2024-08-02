@@ -13,9 +13,9 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst;
-    float n;
-    while(std::cin >> n){
-        lst.push_back(n);
+    float num;
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
     long long odd_sum = double_the_difference(lst);
     assert(double_the_difference(lst) == odd_sum );
