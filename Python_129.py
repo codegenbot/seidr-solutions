@@ -22,6 +22,6 @@ def dfs(x, y, path):
                 return res
 
     visited[x][y] = False
-    
+
 minPath = dfs(start_x, start_y, [grid[start_x][start_y]])
 check(minPath)
