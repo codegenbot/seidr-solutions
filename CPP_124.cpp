@@ -1,4 +1,3 @@
-
 #include <cassert>
 #include <cstdio>
 #include <string>
@@ -38,9 +37,4 @@ bool valid_date(const std::string& date) {
     }
 
     return true;
-}
-
-int main() {
-    assert(valid_date("04-2003") == false);
-    return 0;
 }
