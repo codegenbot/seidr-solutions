@@ -1,13 +1,13 @@
-def solve_boolean(expression):
-    if expression == 't':
+Here is the Python code to solve the problem:
+
+def solve.Boolean(expression):
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        for i in range(len(expression)):
-            if expression[i] == '&':
-                return not (expression[:i].endswith('t') and expression[i+1:].endswith('t'))
-            elif expression[i] == '|':
-                return expression.count('t') > 0
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return bool(int(left)) and bool(int(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return bool(int(left)) or bool(int(right))
