@@ -1,3 +1,4 @@
+grid = [list(map(int, input().split())) for _ in range(n)]
 def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
@@ -20,10 +21,3 @@ def minPath(grid, k):
             i, j = next_cell
 
     return path
-
-n = int(input())
-grid = [list(map(int, input().split())) for _ in range(n)]
-k = int(input())
-
-result = minPath(grid, k)
-print(result)
