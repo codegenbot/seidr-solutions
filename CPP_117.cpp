@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cctype> // for isalpha function
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
@@ -32,7 +33,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c) && std::find_if("aeiouAEIOU", "aeiouAEIOU"+10, [c](char v) { return c == v; }) == "aeiouAEIOU"+10) {
+        } else if (isalpha(c) && std::find_if("aeiouAEIOU", "aeiouAEIOU"+10, [c](char v) { return std::toupper(c) == v; }) == "aeiouAEIOU"+10) {
             consonant_count++;
         }
         word += c;
