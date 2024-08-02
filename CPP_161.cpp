@@ -1,14 +1,13 @@
-cpp_string solve(cpp_string s){
-    cpp_string result = "";
-    for(int i=0; i<s.size(); i++){
+#include <string>
+
+string solve(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
-        }
-        else
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+        }else{
             result += s[i];
+        }
     }
-    return (result.empty()) ? cpp_string(1, s.back()).append(result) : result;
+    return result;
 }
