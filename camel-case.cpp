@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,24 +6,28 @@ std::string kebabToCamel(const std::string& str) {
     std::vector<std::string> words;
     size_t start = 0;
     for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
+        if (i == str.size() || str[i] == '-') {
             words.push_back(str.substr(start, i - start));
             start = i + 1;
         }
     }
 
     std::string result;
+    bool firstWord = true;
     for (const auto& word : words) {
         size_t pos = 0;
         while (pos < word.size() && word[pos] == '-') {
             ++pos;
         }
-        if (!result.empty()) {
-            result += toupper(word[0]);
+        if (!firstWord) {
+            result += char(toupper(word[0]));
         } else {
-            result += word.substr(0, 1);
+            firstWord = false;
+            result += tolower(word);
+        } else {
+            result += word.substr(0, 1).toLowerCase();
+            result += word.substr(1);
         }
-        result += towupper(word.substr(pos + 1));
     }
 
     return result;
