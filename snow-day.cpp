@@ -8,7 +8,7 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         snow_on_ground += snow_fall_rate;
         double current_snow_on_ground = snow_on_ground;
-        double snow_melted = snow_fall_rate * snow_melt_rate;  // Update this line
+        double snow_melted = snow_fall_rate * snow_melt_rate;
         snow_on_ground -= snow_melted;
     }
     
