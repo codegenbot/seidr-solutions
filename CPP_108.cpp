@@ -17,11 +17,10 @@ int count_nums(vector<int> n) {
                 sum_of_digits += absolute_num % 10;
                 absolute_num /= 10;
             }
-            has_positive_sum_of_digits = sum_of_digits > 1; 
+            has_positive_sum_of_digits = sum_of_digits > 1; // first signed digit is negative
         }
         if (has_positive_sum_of_digits) {
             count++;
         }
     }
     return count;
-}
