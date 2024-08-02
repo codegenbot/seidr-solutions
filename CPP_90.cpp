@@ -1,13 +1,12 @@
-Here is the completed code:
+Here is the solution:
 
 int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // Return None
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i == 0 || sorted[i] != sorted[i-1]) {
-            if (i == 1) return sorted[i];
+    if (lst.size() < 2) return -1; // None in Python
+    sort(lst.begin(), lst.end());
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] > lst[0]) {
+            return lst[i];
         }
     }
-    return -1; // Return None
+    return -1; // None in Python
 }
