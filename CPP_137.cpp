@@ -1,56 +1,36 @@
-```cpp
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        return (ai > bi) ? a : ((ai < bi) ? b : boost::any("None")));
+        return max(a, b);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float af = boost::any_cast<float>(a);
-        float bf = boost::any_cast<float>(b);
-        return (af > bf) ? a : ((af < bf) ? b : boost::any("None")));
+        return max(a, b);
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        return (as > bs) ? a : ((as < bs) ? b : boost::any("None")));
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string str_a = boost::any_cast<string>(a);
+        string str_b = boost::any_cast<string>(b);
+        return (str_b > str_a) ? b : ((str_a == str_b) ? "None" : a);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int ai = boost::any_cast<int>(a);
-        float bf = boost::any_cast<float>(b);
-        return (ai > bf) ? a : ((ai < bf) ? b : boost::any("None")));
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string str_b = boost::any_cast<string>(b);
+        float num_a = boost::lexical_cast<float>(boost::any_cast<boost::any>(a));
+        return (str_b > to_string(num_a)) ? b : ((num_a == boost::lexical_cast<float>(str_b)) ? "None" : a);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ai = boost::any_cast<int>(a);
-        string bs = boost::any_cast<string>(b);
-        return (ai > stoi(bs)) ? a : ((ai < stoi(bs)) ? b : boost::any("None")));
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float af = boost::any_cast<float>(a);
-        int bi = boost::any_cast<int>(b);
-        return (af > bi) ? a : ((af < bi) ? b : boost::any("None")));
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float af = boost::any_cast<float>(a);
-        string bs = boost::any_cast<string>(b);
-        return (af > stof(bs)) ? a : ((af < stof(bs)) ? b : boost::any("None")));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string as = boost::any_cast<string>(a);
-        int bi = boost::any_cast<int>(b);
-        return (stof(as) > bi) ? a : ((stof(as) < bi) ? b : boost::any("None")));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string as = boost::any_cast<string>(a);
-        float bf = boost::any_cast<float>(b);
-        return (stof(as) > bf) ? a : ((stof(as) < bf) ? b : boost::any("None")));
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string str_a = boost::any_cast<string>(a);
+        float num_b = boost::lexical_cast<float>(boost::any_cast<boost::any>(b));
+        return (str_a > to_string(num_b)) ? a : ((num_b == boost::lexical_cast<float>(str_a)) ? "None" : b);
     }
     else {
-        return a;
+        throw invalid_argument("Invalid input types");
     }
 }
