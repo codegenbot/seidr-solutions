@@ -1,5 +1,4 @@
 #include <vector>
-#include <cstddef>
 
 int basement(std::vector<int> nums) {
     if (nums.empty()) return -1;
