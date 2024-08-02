@@ -11,11 +11,6 @@ int search(vector<int> lst) {
     return max == 0 ? -1 : max;
 }
 
-int count(int num, vector<int> vec) {
-    int cnt = 0;
-    for (int i : vec) {
-        if (i == num)
-            cnt++;
-    }
-    return cnt;
+int count(int n, vector<int> v) {
+    return std::count(v.begin(), v.end(), n);
 }
