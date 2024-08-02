@@ -1,21 +1,22 @@
 #include <iostream>
 #include <cmath>
 
-int x_or_y(int n, int x, int y) {
+bool is_prime(int n) {
     if (n <= 1) {
-        return y;
+        return false;
     }
     for (int i = 2; i <= sqrt(n); ++i) {
         if (n % i == 0) {
-            return y;
+            return false;
         }
     }
-    return x;
+    return true;
 }
 
-int main() {
-    int n, x, y;
-    std::cin >> n >> x >> y;
-    std::cout << x_or_y(n, x, y) << std::endl;
-    return 0;
+int x_or_y(int n, int x, int y) {
+    if (is_prime(n)) {
+        return x;
+    } else {
+        return y;
+    }
 }
