@@ -1,11 +1,15 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int basement(const vector<int>& numbers) {
+int findFirstNegativeIndex(vector<int> v) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
-        if (sum < 0)
-            return i;
+    int index = -1;
+    for (int i = 0; i < v.size(); i++) {
+        sum += v[i];
+        if (sum < 0) {
+            index = i;
+            break;
+        }
     }
-    return -1;
+    return index;
 }
