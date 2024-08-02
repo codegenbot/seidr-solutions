@@ -1,29 +1,50 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < k; i++) {
-        int maxVal = 1;
-        for (int j = 0; j < grid.size(); j++) {
-            for (int col = 0; col < grid[j].size(); col++) {
-                if (grid[j][col] > maxVal) {
-                    maxVal = grid[j][col];
-                    res.push_back(maxVal);
-                }
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<pair<int, int>>> graph(n);
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) {
+                graph[i].push_back({grid[i-1][j], -1});
+            }
+            if (j > 0) {
+                graph[i].push_back({grid[i][j-1], -1});
+            }
+            if (i < n-1) {
+                graph[i].push_back({grid[i+1][j], -1});
+            }
+            if (j < n-1) {
+                graph[i].push_back({grid[i][j+1], -1});
             }
         }
     }
-    return res;
-}
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (auto val : result) {
-        cout << val << " ";
+    vector<int> res;
+    priority_queue<pair<vector<int>, int>> pq;
+    pq.push({vector<int>(), 0});
+
+    while (!pq.empty()) {
+        auto [path, steps] = pq.top();
+        pq.pop();
+
+        if (steps == k) {
+            return path;
+        }
+
+        for (auto &p : graph[path.size() % n]) {
+            int val = p.first;
+            int dir = p.second;
+            vector<int> newPath = path;
+            newPath.push_back(val);
+            pq.push({newPath, steps + 1});
+        }
     }
-    return 0;
+
+    return {};
 }
