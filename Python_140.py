@@ -1,11 +1,12 @@
-def replace_spaces(s):
-    result = ''
-    for i in range(len(s)):
-        if s[i] == ' ':
-            if len(result) > 0 and result[-1] != ' ':
-                result += '%20'
+```
+def fix_spaces(text):
+    new_text = ''
+    for char in text:
+        if char == ' ':
+            if len(new_text) > 0 and new_text[-1] != ' ':
+                new_text += '-'
             else:
-                result += s[i]
+                new_text += '_'
         else:
-            result += s[i]
-    return result
+            new_text += char
+    return new_text
