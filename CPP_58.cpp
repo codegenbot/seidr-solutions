@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <set>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
