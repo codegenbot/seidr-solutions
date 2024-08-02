@@ -27,5 +27,7 @@ std::any compare(std::any a, std::any b) {
 
 int main() {
     assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<int>(compare(3, 5)) == 5);
+    assert(std::any_cast<float>(compare(2.5f, 1.8f)) == 2.5f);
     return 0;
 }
