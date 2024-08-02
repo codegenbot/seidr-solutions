@@ -10,9 +10,8 @@ std::pair<std::string, bool> issame(std::vector<std::string> a, std::vector<std:
             result += ch;
         }
     }
-    std::string result_reverse = result;
-    std::reverse(result_reverse.begin(), result_reverse.end());
-    return {result, result == result_reverse};
+    std::reverse(result.begin(), result.end());
+    return {result, result == result};
 }
 
 int main() {
