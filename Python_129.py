@@ -1,3 +1,4 @@
+```Python
 def minPath(grid, k):
     N = len(grid)
     seen = set()
