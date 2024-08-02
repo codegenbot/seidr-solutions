@@ -1,12 +1,11 @@
-def luhn_sum(card):
-    return (
-        sum(2 * int(x) if i % 2 else int(x) for i, x in enumerate(card))
-        - sum(
-            int(x) // 10 + int(x) % 10
-            for x in (
-                str(2 * int(x)) if i % 2 else str(int(x)) for i, x in enumerate(card)
-            )
-        )
-        if len(card) == 16
-        else None
-    )
+def luhn(card):
+    card = list(map(int, str(card)))
+    double_even = False
+    total_sum = 0
+    for i in range(len(card)):
+        if double_even:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+        double_even = not double_even
+    return sum(card)
