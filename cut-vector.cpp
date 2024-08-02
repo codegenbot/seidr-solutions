@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -59,4 +59,3 @@ int main() {
     cout << endl;
     
     return 0;
-}
