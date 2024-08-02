@@ -1,8 +1,19 @@
-long long double_the_difference(vector<float> lst){
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for(auto x : lst){
-        if(std::abs(x) == static_cast<long long>(x) && x > 0)
-            sum += std::pow(x, 2);
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) {
+            sum += pow(num, 2);
+        }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> lst = {1.5f, 2.3f, 4.6f}; 
+    long long odd_sum = double_the_difference(lst);
+    long long result = double_the_difference(lst);
+    return 0;
 }
