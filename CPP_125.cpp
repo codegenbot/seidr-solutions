@@ -1,14 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using std::string;
 using std::vector;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
 
 vector<string> split_words(string txt) {
     vector<string> result;
@@ -26,19 +21,14 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) {
+    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
         int oddCount = 0;
-        for (char c : result[0]) {
-            if (std::islower(c) && ((c - 'a') % 2 == 1)) {
+        for (int i = 0; i < result[0].size(); ++i) {
+            if (islower(result[0][i]) && i % 2 == 1) {
                 oddCount++;
             }
         }
         result = {std::to_string(oddCount)};
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), vector<string>{}));
-    return 0;
 }
