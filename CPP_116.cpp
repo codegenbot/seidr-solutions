@@ -1,9 +1,12 @@
+Here is the completed code:
+
 vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (bitset<32>(a).count() == bitset<32>(b).count()) {
-            return a < b;
-        }
-        return bitset<32>(a).count() < bitset<32>(b).count();
-    });
+    sort(arr.begin(), arr.end(), 
+         [](int a, int b) {
+             int ones_a = __builtin_popcount(a);
+             int ones_b = __builtin_popcount(b);
+             if (ones_a != ones_b) return ones_a < ones_b;
+             return a < b;
+         });
     return arr;
 }
