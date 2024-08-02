@@ -20,13 +20,8 @@ int main() {
     std::cout << "Enter the second binary string: ";
     std::cin >> str2;
     
-    if(str1.length() != str2.length()) {
-        std::cout << "Error: Strings must be of same length." << std::endl;
-        return 0;
-    }
-    
     std::string result = string_xor(str1, str2);
-    std::cout << "XOR operation result: " << result << std::endl;
+    std::cout << "The XOR of the two strings is: " << result << std::endl;
     
     return 0;
 }
