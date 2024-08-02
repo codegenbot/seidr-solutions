@@ -1,6 +1,4 @@
-def swap_case(string):
-    return string.swapcase()
+def transform_string(string):
+    return "".join([char.upper() if char.islower() else char.lower() for char in string])
 
-input_string = input()
-output_string = swap_case(input_string)
-print(output_string)
+check(transform_string)
