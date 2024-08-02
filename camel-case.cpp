@@ -8,21 +8,21 @@ int main() {
     
     bool capitalize = true;
     for(char c : input) {
-        if(c == '-') {
+        if (c == '-') {
             capitalize = true;
-        } else if(c != ' ') {
-            if(capitalize) {
+        } else if (c != ' ') {
+            if (capitalize) {
                 std::cout << (char)toupper(c);
                 capitalize = false;
             } else {
                 std::cout << c;
             }
         }
-        if(c == ' ') {
+        if (c == ' ') {
             capitalize = true;
             std::cout << " ";
         }
     }
-    
+
     return 0;
 }
