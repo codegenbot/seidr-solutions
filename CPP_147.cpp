@@ -1,4 +1,8 @@
-vector<int> a(n);
+#include <iostream>
+#include <vector>
+
+int get_matrix_triples(int n) {
+    std::vector<int> a(n);
     for (int i = 0; i < n; i++) {
         a[i] = i * i - i + 1;
     }
@@ -15,4 +19,9 @@ vector<int> a(n);
     }
 
     return count;
+}
+
+int main() {
+    assert(get_matrix_triples(100) == 53361);
+    return 0;
 }
