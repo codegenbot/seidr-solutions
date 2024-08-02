@@ -5,11 +5,14 @@ using namespace std;
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        totalSnow += rate - groundSnow * melt;
-        if (totalSnow > groundSnow) {
-            totalSnow = groundSnow;
-        } else if (totalSnow < 0) {
-            totalSnow = 0;
+        totalSnow += rate;
+        if(totalSnow > groundSnow){
+            totalSnow -= (totalSnow - groundSnow);
+        } else{
+            totalSnow -= groundSnow * melt;
+            if(totalSnow < 0) {
+                totalSnow = 0;
+            }
         }
     }
     return totalSnow;
