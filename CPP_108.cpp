@@ -31,7 +31,7 @@ int main() {
     vector<int> numbers;
     int num;
     
-    cout << "Enter the numbers (enter -1 to stop):" << endl;
+    cout << "Enter the numbers: ";
     while ((cin >> num) && (num != -1)) {
         numbers.push_back(num);
     }
