@@ -21,4 +21,4 @@ int main() {
     std::cout << std::fixed << std::setprecision(2) << total << std::endl;
 
     return 0;
-}
+}  
