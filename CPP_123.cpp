@@ -1,3 +1,5 @@
+Here is the solution:
+
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
