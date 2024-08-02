@@ -1,20 +1,19 @@
-```cpp
 #include <string>
 #include <vector>
 #include <cctype>
 
-std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions) {
+std::string Strongest_Extension(const std::string& class_name, const std::vector<std::string>& extensions){
     int strongest = -1;
     std::string strongest_extension;
-    for (auto extension : extensions) {
+    for(auto extension:extensions){
         int cap = 0;
         int sm = 0;
-        for (char c : extension) {
-            if (isupper(c)) cap++;
-            else if (islower(c)) sm++;
+        for(char c:extension){
+            if(isupper(c)) cap++;
+            else if(islower(c)) sm++;
         }
         int strength = cap - sm;
-        if (strength > strongest) {
+        if(strength > strongest){
             strongest = strength;
             strongest_extension = extension;
         }
