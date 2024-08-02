@@ -9,6 +9,6 @@ std::string change_base(int x, int base){
     return result;
 }
 
-int x; 
+int x;
 std::cin >> x;
 std::cout << change_base(x, x + 1);
