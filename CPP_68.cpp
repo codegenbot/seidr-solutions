@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -20,4 +19,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     return {{}};
-}
