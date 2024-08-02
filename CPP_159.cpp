@@ -1,15 +1,14 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
+}
+
+std::vector<int> eat(int a, int b, int c) {
+    return {a + b, b - a, c};
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), std::vector<int>{5, 0, 1}));
 }
