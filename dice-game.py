@@ -1,2 +1,8 @@
-def dice_game(n, m):
-    return 1 - (n + m - 2) / n / m if min(n, m) > 1 else 0
+n = int(input())
+m = int(input())
+
+peter_wins = sum(1 for i in range(n + 1) if i > m)
+total_outcomes = n * m
+probability = peter_wins / total_outcomes
+
+print(probability)
