@@ -1,37 +1,22 @@
-#include <iostream>
-#include <string>
+bool solveBoolean(string expression) {
+    stack<char> ops;
+    stack<bool> values;
 
-bool evaluateBooleanExpression(const std::string &expression) {
-    bool result = true;
-    for (char c : expression) {
-        switch (c) {
-            case 'T':
-                return true;
-            case 'F':
-                return false;
-            case '|':
-                result = true;
-                break;
-            case '&':
-                result = true;
-                break;
-            default:
-                std::cerr << "Invalid input. Only T, F, |, and & are allowed." << std::endl;
-                return false;
+    for(int i=0; i<expression.length(); i++) {
+        if(expression[i] == 't') {
+            values.push(true);
+        } else if(expression[i] == 'f') {
+            values.push(false);
+        } else if(expression[i] == '&') {
+            while(values.size()>1&&values.top()) {
+                values.pop();
+            }
+        } else if(expression[i] == '|') {
+            while(values.size()>1) {
+                values.pop();
+            }
         }
     }
-    return result;
-}
 
-int main() {
-    std::string expression;
-    std::cout << "Enter a Boolean expression (T/F/|/&): ";
-    std::cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
-    return 0;
+    return values.top();
 }
