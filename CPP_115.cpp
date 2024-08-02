@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <numeric>
 
@@ -10,7 +9,7 @@ int main() {
             total_water += std::accumulate(row.begin(), row.end(), 0);
         }
         return (total_water + capacity - 1) / capacity;
-    };
+    }
     
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
 }
