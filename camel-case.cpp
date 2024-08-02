@@ -7,23 +7,15 @@ int main() {
     getline(std::cin, input);
     
     bool capitalize = true;
-    bool firstWord = true;
     for(char c : input) {
         if(c == '-') {
             capitalize = true;
         } else if(c != ' ') {
             if(capitalize) {
-                if(!firstWord) {
-                    std::cout << (char)tolower(c);
-                } else {
-                    std::cout << (char)toupper(c);
-                }
+                std::cout << (char)tolower(c);  // Modify this line
                 capitalize = false;
-                firstWord = false;
             } else {
-                if(std::isalpha(c)) {
-                    std::cout << c;
-                }
+                std::cout << c;
             }
         }
     }
