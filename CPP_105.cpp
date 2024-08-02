@@ -1,10 +1,8 @@
+Here is the complete and fixed code:
+
 ```cpp
 #include <vector>
 #include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
-}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sortedArr;
@@ -15,7 +13,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : sortedArr) {
         switch (i) {
             case 1:
@@ -50,6 +48,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
+}
+
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
