@@ -1,6 +1,3 @@
 n = int(input())
 m = int(input())
-result = 0
-for i in range(1, n):
-    result += i / n * (m / (n * m))
-print("{:.8f}".format(result))
+print(round(sum([(n-i)/n for i in range(1, n+1) for j in range(1, m+1) if i > j])/n, 2))
