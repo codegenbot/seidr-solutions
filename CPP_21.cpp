@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> std::rescale_to_unit(const std::vector<float>& numbers) {
+std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
     float max_num = *std::max_element(numbers.begin(), numbers.end());
     std::vector<float> result;
