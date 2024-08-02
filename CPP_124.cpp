@@ -1,6 +1,4 @@
-#include <cassert>
-#include <cstdio>
-#include <string>
+#include <iostream>
 
 bool valid_date(const std::string& date) {
     if(date.empty()) {
@@ -34,9 +32,9 @@ bool valid_date(const std::string& date) {
                 return false;
             }
         }
+    }
 
     return true;
-    }
 }
 
 int main() {
