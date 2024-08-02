@@ -9,20 +9,20 @@ std::string string_to_md5(const std::string& text) {
     }
 
     unsigned char digest[16];
-    EVP_MD_CTX* mdctx;
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    
+    MD5_CTX mdctx;
+    MD5_Init(&mdctx);
+    MD5_Update(&mdctx, text.c_str(), text.length());
+    MD5_Final(digest, &mdctx);
+
     char mdString[33];
     for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i * 2], "%02x", digest[i]);
+        sprintf(&mdString[i*2], "%02x", digest[i]);
     }
 
     return std::string(mdString);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
