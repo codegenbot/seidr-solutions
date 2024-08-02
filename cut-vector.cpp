@@ -1,31 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <numeric>
+#include <cstdlib>
 
 int main() {
-    int n, cutPosition;
-    std::cin >> n >> cutPosition;
+    int n;
+    std::cin >> n;
+
+    int cutIndex;
+    std::cin >> cutIndex;
+
     std::vector<int> nums(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
 
-    int diff = INT_MAX;
-    cutPosition = -1;
-    for (int i = 1; i < n; ++i) {
-        int diffTemp = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (diffTemp < diff || (diffTemp == diff && abs(nums[i] - nums[i - 1]) < abs(nums[cutPosition] - nums[cutPosition - 1]))) {
-            diff = diffTemp;
-            cutPosition = i;
+    int diff = abs(nums[cutIndex - 1] - nums[cutIndex]);
+    int left = cutIndex - 1, right = cutIndex;
+
+    for (int i = cutIndex + 1; i < n; ++i) {
+        int newDiff = abs(nums[i] - nums[i - 1]);
+        if (newDiff < diff || (newDiff == diff && abs(i - cutIndex) < abs(right - left))) {
+            diff = newDiff;
+            left = i - 1;
+            right = i;
         }
     }
 
     for (int i = 0; i < n; ++i) {
-        if (i == cutPosition) {
+        if (i == left) {
             std::cout << std::endl;
-        } else if (i != cutPosition - 1) {
+        } else if (i != right) {
             std::cout << nums[i] << " ";
         } else {
             std::cout << nums[i] << std::endl;
