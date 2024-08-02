@@ -1,20 +1,46 @@
+Here is the completed code:
+
 string words_in_sentence(string sentence){
     string result = "";
-    int primeCount = 0;
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            primeCount++;
-            continue;
+    int n = 0;
+    for(int i=2; i<=10000; i++){
+        if(isPrime(i)){
+            n++;
         }
-        bool isPrime = true;
-        for (int j = 2; j * j <= i + 1 && isPrime; j++) {
-            if ((i + 1) % j == 0 || (i + 1) % (j * j) == 0)
-                isPrime = false;
-        }
-        if (isPrime) {
-            result += sentence.substr(i - primeCount, i - i);
-            primeCount++;
+        else break;
+    }
+
+    vector<string> primeWords;
+    string temp = "";
+    for(auto word: split(sentence, ' ')){
+        if(word.length() <= n){
+            temp += word + " ";
+            primeWords.push_back(word);
         }
     }
-    return result;
+
+    return result + temp.substr(0, temp.size()-1);
+}
+
+vector<string> split(string s, char ch) {
+    vector<string> ar;
+    string temp = "";
+    for (auto c: s) {
+        if (c == ch) {
+            ar.push_back(temp);
+            temp = "";
+        } else {
+            temp += c;
+        }
+    }
+    ar.push_back(temp);
+    return ar;
+}
+
+bool isPrime(int num) {
+    if(num <= 1) return false;
+    for(int i=2; i*i<=num; i++){
+        if(num%i == 0) return false;
+    }
+    return true;
 }
