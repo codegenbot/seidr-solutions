@@ -1,27 +1,42 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a != b)
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for(int i = 0; i < a.size(); i++){
+        sort(a[i].begin(), a[i].end());
+        sort(b[i].begin(), b[i].end());
+        if(a[i] != b[i])
             return false;
     }
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(auto str : strings){
-        if(str.find(prefix) == 0)
-            result.push_back(str);
-    }
-    return result;
-
-}
 int main() {
-    assert(isame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    vector<string> strings;
+    string prefix;
+    
+    cin >> prefix;
+    
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++){
+        string s;
+        cin >> s;
+        if(s.find(prefix) == 0)
+            strings.push_back(s);
+    }
+    
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+    
+    if(issame(filtered_strings, strings))
+        cout << "All strings start with the given prefix." << endl;
+    else
+        cout << "Not all strings start with the given prefix." << endl;
+    
     return 0;
 }
