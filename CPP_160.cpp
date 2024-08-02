@@ -25,15 +25,22 @@ int eval(string s) {
     for (char c : s) {
         if (isdigit(c)) {
             num = num * 10 + (c - '0');
-        } else if (c == '+' || c == '-') {
-            result += sign * num;
-            num = 0;
-            sign = (c == '+') ? 1 : -1;
+        } else if (isalpha(c)) {
+            if (c == '+') {
+                result += sign * num;
+                num = 0;
+                sign = 1;
+            } else if (c == '-') {
+                result += sign * num;
+                num = 0;
+                sign = -1;
+            }
         }
     }
     return result + sign * num;
 }
 
 int main() {
+    // Your code to test the do_algebra function
     return 0;
 }
