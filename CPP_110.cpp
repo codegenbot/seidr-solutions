@@ -1,27 +1,23 @@
-Here is the completed code:
+Here's the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool foundOdd = false;
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            foundOdd = true;
-            break;
-        }
+        if (num % 2 == 0)
+            evenCount++;
     }
-    if (!foundOdd) return "YES";
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            int oddInLst1 = 0;
-            bool hasFoundOdd = false;
-            for (int n : lst1) {
-                if (n % 2 != 0) {
-                    hasFoundOdd = true;
-                    break;
-                }
-                oddInLst1++;
+    if (evenCount == lst1.size())
+        return "YES";
+    else {
+        bool foundOdd = false;
+        for (int num : lst2) {
+            if (num % 2 != 0) {
+                foundOdd = true;
+                break;
             }
-            if (!hasFoundOdd && oddInLst1 == 0) return "YES";
         }
+        if (!foundOdd)
+            return "YES";
     }
     return "NO";
 }
