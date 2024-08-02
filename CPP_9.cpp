@@ -34,9 +34,7 @@ int main() {
     
     assert(issame(expected_output, computed_output));
     
-    vector<int> expected_output2 = {3, 3, 3, 100, 100};
-    vector<int> computed_output2 = rolling_max({3, 2, 3, 100, 3});
-    assert(issame(expected_output2, computed_output2));
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), vector<int>{3, 3, 3, 100, 100}));
     
     return 0;
 }
