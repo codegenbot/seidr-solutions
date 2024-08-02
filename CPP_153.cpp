@@ -5,7 +5,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     std::string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = count(extension.begin(), extension.end(), toupper);
+        int cap = count(extension.begin(), extension.end(), toupper('a'));
         int sm = extension.length() - cap;
         int strength = cap - sm;
 
