@@ -13,6 +13,8 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // Add your code here
+    std::vector<int> nums = {123, 4567, 8785, 2133, 9191};
+    int result = specialFilter(nums);
+    std::cout << "The number of integers in the input vector that satisfy the condition is: " << result;
     return 0;
 }
