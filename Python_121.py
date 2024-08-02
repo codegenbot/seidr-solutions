@@ -1,5 +1,5 @@
 """
-Write a function that takes a list of integers as input and returns the sum of all odd numbers in the list.
+Given a list of integers, return the sum of all odd numbers starting from the second element and then every other number.
 """
 
 def solution(lst):
