@@ -1,30 +1,40 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(std::string str) {
-    std::vector<std::string> words = {""};
+string kebabToCamel(string str) {
+    string result = "";
+    string currentWord = "";
+
     for (char c : str) {
         if (c == '-') {
-            words.back() += ' ';
-            words.push_back("");
-        } else if (c != ' ') {
-            words.back() += c;
+            if (!currentWord.empty()) {
+                result += toupper(currentWord[0]);
+                currentWord = currentWord.substr(1);
+            }
+        } else if (c == ' ') {
+            if (!currentWord.empty()) {
+                result += currentWord;
+                currentWord = "";
+            }
+        } else {
+            currentWord += c;
         }
     }
-    std::string result = "";
-    for (int i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result[0] -= 32;
-        }
-        result += words[i];
+
+    if (!currentWord.empty()) {
+        result += toupper(currentWord[0]);
+        currentWord = currentWord.substr(1);
+        result += currentWord;
     }
+
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << std::endl;
+    string str;
+    while (cin >> str) {
+        cout << kebabToCamel(str) << endl;
     }
     return 0;
 }
