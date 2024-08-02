@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -15,7 +14,7 @@ int do_algebra(std::vector<std::string> operator_, std::vector<int> operands) {
         } else if(operator_[i-1] == "//") {
             result = (int)(result / prev_operand);
         } else if(operator_[i-1] == "**") {
-            result = pow((double)result, prev_operand);
+            result = pow(result, prev_operand);
         }
         prev_operand = (double)operands[i];
     }
