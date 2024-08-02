@@ -3,19 +3,10 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (!is_palindrome(str)) {
-        return false;
-    } else {
-        int sum = 0;
-        for (int i : q) {
-            sum += i;
-        }
-        return sum <= w;
+    if (str != reverse(str).s) return false;
+    int sum = 0;
+    for (int i : q) {
+        sum += i;
     }
-}
-
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return t == s;
+    return sum <= w;
 }
