@@ -1,7 +1,5 @@
 #include <any>
 #include <string>
-#include <typeinfo>
-#include <cstdlib>
 
 if (a.type() == b.type()) {
     if (a.type() == typeid(int) && std::any_cast<int>(a) != std::any_cast<int>(b)) {
