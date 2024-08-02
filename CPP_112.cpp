@@ -15,16 +15,7 @@ bool issame(const std::string& a, const std::string& b) {
     return result == result_reverse;
 }
 
-std::vector<std::string> reverse_delete(const std::string& a, const std::string& b) {
-    if (issame(a, b)) {
-        return {a, "True"};
-    } else {
-        return {a, ""};
-    }
-}
-
 int main() {
     assert(issame("mamma", "mia") == true);
-    assert(reverse_delete("mamma", "mia") == std::vector<std::string>{"mamma", ""});
     return 0;
 }
