@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -9,31 +10,34 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return max(a, b);
+        return any_cast< string >(a) > any_cast< string >(b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return max(b, a);
+        return any_cast< double >(b) > any_cast< double >(a);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (get<int>(a) > get<int>(b))
+        int x = get<int>(a), y = get<int>(b);
+        if (x > y)
             return a;
-        else if (get<int>(a) < get<int>(b))
+        else if (x < y)
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        if (get<double>(a) > get<double>(b))
+        double x = get<double>(a), y = get<double>(b);
+        if (x > y)
             return a;
-        else if (get<double>(a) < get<double>(b))
+        else if (x < y)
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (get<string>(a) > get<string>(b))
+        string x = any_cast< string >(a), y = any_cast< string >(b);
+        if (x > y)
             return a;
-        else if (get<string>(a) < get<string>(b))
+        else if (x < y)
             return b;
         else
             return boost::any("None");
