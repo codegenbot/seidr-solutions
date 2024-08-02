@@ -14,10 +14,3 @@ std::string flip_case(const std::string& str){
     }
     return result;
 }
-
-int main() {
-    std::string input_str;
-    std::cin >> input_str;
-    assert(flip_case(input_str) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
