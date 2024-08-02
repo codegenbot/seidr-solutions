@@ -10,14 +10,9 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
-        bool issameFlag = true;
-        for(string t : strings) {
-            if(s.find(substring) != string::npos && !issame({s}, {t})) {
-                issameFlag = false;
-                break;
-            }
+        if(s.find(substring) != string::npos || issame({s}, {substring})){
+            result.push_back(s);
         }
-        if(issameFlag) result.push_back(s);
     }
     return result;
 }
