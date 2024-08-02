@@ -1,11 +1,12 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <set>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    return true;
+    return a == b;
 }
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2){
