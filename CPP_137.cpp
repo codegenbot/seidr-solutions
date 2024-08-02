@@ -9,10 +9,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return max(a, b);
+        return boost::any(max(get<string>(a), get<string>(b)));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return max(b, a);
+        return boost::any(max(get<double>(b), get<double>(a)));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (get<int>(a) > get<int>(b))
