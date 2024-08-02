@@ -6,10 +6,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> maximum(const std::vector<int>& arr, int k) {
-    std::vector<int> temp = arr;
-    std::sort(temp.rbegin(), temp.rend());
-    return std::vector<int>(temp.begin(), temp.begin() + k);
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::sort(arr.rbegin(), arr.rend());
+    return std::vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
