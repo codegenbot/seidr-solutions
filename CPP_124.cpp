@@ -34,9 +34,9 @@ bool valid_date(const std::string& date) {
                 return false;
             }
         }
-    }
 
     return true;
+    }
 }
 
 int main() {
