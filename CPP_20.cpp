@@ -1,19 +1,22 @@
-#include <vector>
 #include <algorithm>
 
-std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    float min_diff = std::numeric_limits<float>::max();
-    pair<float, float> closest_pair;
-    
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i+1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_pair.first = numbers[i];
-            closest_pair.second = numbers[i+1];
+vector<float> find_closest_elements(vector<float> numbers) {
+    if (numbers.size() < 2) {
+        throw runtime_error("Vector must have at least two elements");
+    }
+
+    pair<vector<float>::iterator, vector<float>::iterator> closestPair = make_pair(numbers.begin(), numbers.begin());
+    float minDiff = numeric_limits<float>::max();
+
+    for (vector<float>::iterator i = numbers.begin(); i != numbers.end() - 1; ++i) {
+        for (vector<float>::iterator j = i + 1; j != numbers.end(); ++j) {
+            float diff = *j - *i;
+            if (abs(diff) < minDiff) {
+                minDiff = abs(diff);
+                closestPair = make_pair(i, j);
+            }
         }
     }
-    
-    return closest_pair;
+
+    return vector<float>(vector<float>::iterator(closestPair.first), vector<float>::iterator(closestPair.second + 1));
 }
