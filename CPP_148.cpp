@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,8 +11,9 @@ vector<string> bf(string planet1, string planet2) {
     if (planet1 == "Mercury" && planet2 == "Neptune") {
         for (int i = 0; i < planets.size(); i++) {
             if (planet1 != planets[i] && planet2 != planets[i]) {
-                return vector<string>(planets.begin() + (find(planets.begin(), planets.end(), planet1) - planets.begin()), 
-                                     planets.begin() + (find(planets.begin(), planets.end(), planet2) - planets.begin()));
+                return vector<string>(std::find(planets.begin(), planets.end(), planet1) + 
+                                       (std::find(planets.begin(), planets.end(), planet2) - std::find(planets.begin(), planets.end(), planet1)),
+                                     std::find(planets.begin(), planets.end(), planet2));
             }
         }
     } else if ((find(planets.begin(), planets.end(), planet1) == planets.end()) || 
