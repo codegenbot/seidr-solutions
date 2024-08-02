@@ -7,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     }
     
     for (size_t i = 0; i < a.size(); ++i){
-        if (a[i] != b[i]){
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -17,7 +17,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k){
     std::vector<int> result;
-    for (int i = 0; i < k; ++i){
+    for (int i = 0; i < (k/grid.size()); ++i){
         for (const auto& row : grid){
             for (int num : row){
                 result.push_back(num);
