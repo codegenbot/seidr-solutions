@@ -1,13 +1,14 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2)
-        return NULL;
-
-    vector<int>::iterator it = min_element(lst.begin(), lst.end());
-    for (vector<int>::iterator i = it; i != lst.end(); ++i) {
-        if (*i > *it)
-            return *i;
+    vector<int> v(lst);
+    if(v.size() < 2)
+        return -1; // Return None
+    sort(v.begin(), v.end());
+    for(int i = 0; i < v.size()-1; i++) {
+        if(v[i] != v[i+1])
+            return v[i+1];
     }
-    return NULL;
+    return -1; // Return None
 }
