@@ -1,31 +1,53 @@
-```cpp
 #include <string>
 
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (currentRoll < 2) {
-                score += min(10, currentRoll);
-                currentRoll = 0;
-            } else {
-                score += sumOfLastTwo(currentRoll);
-                currentRoll = 0;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            string firstHalf = s.substr(0, i);
+            string secondHalf = s.substr(i + 1);
+            int firstHalfScore = 0;
+            int j = 0;
+            for (; j < firstHalf.length(); j++) {
+                if (firstHalf[j] != 'X') {
+                    firstHalfScore += (firstHalf[j] - '0');
+                } else {
+                    firstHalfScore += 10;
+                    break;
+                }
             }
-        } else if (isdigit(c)) {
-            currentRoll *= 10;
-            currentRoll += c - '0';
+            if (j == firstHalf.length()) {
+                firstHalfScore = 10;
+            }
+            int secondHalfScore = 0;
+            j = 0;
+            for (; j < secondHalf.length(); j++) {
+                if (secondHalf[j] != 'X') {
+                    secondHalfScore += (secondHalf[j] - '0');
+                } else {
+                    secondHalfScore += 10;
+                    break;
+                }
+            }
+            if (j == secondHalf.length()) {
+                secondHalfScore = 10;
+            }
+            score += firstHalfScore + secondHalfScore;
+        } else {
+            int frameScore = 0;
+            j = 0;
+            for (; j < i; j++) {
+                if (s[j] != 'X') {
+                    frameScore += (s[j] - '0');
+                } else {
+                    frameScore += 10;
+                    break;
+                }
+            }
+            if (j == i) {
+                frameScore = 10;
+            }
+            score += frameScore;
         }
     }
-    if (currentRoll > 0) {
-        score += min(10, currentRoll);
-    } else if (currentRoll < 2) {
-        score += sumOfLastTwo(currentRoll);
-    }
     return score;
-}
-
-int sumOfLastTwo(int x) {
-    return x + (10 - x);
-}
