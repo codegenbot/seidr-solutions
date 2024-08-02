@@ -9,7 +9,10 @@ int count_distinct_characters(std::string str) {
 }
 
 int main() {
-    std::string testString = "aAbbCcdDe";
-    assert(count_distinct_characters(testString) == 4);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    int result = count_distinct_characters(input);
+    std::cout << "Number of distinct characters: " << result << std::endl;
     return 0;
 }
