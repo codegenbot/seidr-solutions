@@ -3,16 +3,14 @@
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result = arr;
-    for (int i = 0; i < k; i++) {
-        int maxIndex = -1;
-        int maxValue = INT_MIN;
-        for (int j = 0; j < arr.size(); j++) {
-            if (arr[j] > maxValue) {
-                maxValue = arr[j];
-                maxIndex = j;
-            }
+    for(int i=k; i>0; i--){
+        if(result[i-1] > 0){
+            result[i-1] = 0;
+            break;
         }
-        result[maxIndex] = INT_MAX;
+        else{
+            result[i-1] = 0;
+        }
     }
     return result;
 }
