@@ -1,27 +1,26 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
-            digit_count++;
-        }
-        else if(c == '.'){
-            has_dot = true;
-        }
-        else{
-            if(i > 0 && !has_dot){
-                return "No";
-            }
-        }
+Here is the completed code:
+
+```cpp
+bool has_digits = false;
+int dot_count = 0;
+
+for(int i = 0; i < file_name.size(); i++) {
+    if(isdigit(file_name[i])) {
+        if(has_digits) return "No";
+        has_digits = true;
+    } else if(file_name[i] == '.') {
+        dot_count++;
     }
-    if(digit_count > 3 || !has_dot){
-        return "No";
-    }
-    size_t pos = file_name.find('.');
-    string extension = file_name.substr(pos+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll"){
-        return "No";
-    }
-    return "Yes";
 }
+
+if(dot_count != 1 || !has_digits || (file_name[0] < 'a' && file_name[0] > 'z') && (file_name[0] < 'A' && file_name[0] > 'Z')) return "No";
+
+string extension = "";
+for(int i = file_name.find('.') + 1; i < file_name.size(); i++) {
+    if(file_name[i] == '.') break;
+    extension += file_name[i];
+}
+
+if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
+return "Yes";
