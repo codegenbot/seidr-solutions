@@ -4,7 +4,7 @@ def minPath(grid, k):
     path = [start]
     visited = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-    
+
     i, j = next(iter(visited))  # Initialize i, j with the last cell coordinates
 
     while len(path) < k:
