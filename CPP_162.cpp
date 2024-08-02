@@ -22,6 +22,8 @@ string string_to_md5(string text) {
         oss << setfill('0') << setw(2) << hex << (int)md5digest[i];
     }
     string result = oss.str();
-    oss.str(); // clear internal state
+    ss.str(""); // Add this line
+    oss.str(""); // Add this line
+
     return result;
 }
