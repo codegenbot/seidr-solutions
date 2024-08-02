@@ -1,6 +1,5 @@
 """
-Your code should solve a programming problem. Please read the problem description
-and write your solution here.
+Write a function that takes a list of integers as input and returns the sum of all odd numbers in the list.
 """
 
 def solution(lst):
