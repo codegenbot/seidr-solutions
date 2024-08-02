@@ -35,7 +35,6 @@ string spinWords(string str) {
         } else {
             result += word;
         }
-        word.clear();
     }
     
     return result;
