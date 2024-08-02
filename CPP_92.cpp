@@ -1,13 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    if ((ai == bi + ci) || (ai == ci + bi) || (bi == ai + ci) || (bi == ci + ai) || (ci == ai + bi) || (ci == bi + ai)) {
-        return true;
-    } else {
-        return false;
+    if (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c)) {
+        return (a == b + c || a == c + b || b == a + c);
     }
+    return false;
 }
