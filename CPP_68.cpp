@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -7,7 +6,7 @@ using namespace std;
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     
-    if(arr.empty()) return {{}};
+    if(arr.empty()) return {{}}; 
     
     auto it = min_element(arr.begin(), arr.end(), 
         [](int a, int b){return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0);});
