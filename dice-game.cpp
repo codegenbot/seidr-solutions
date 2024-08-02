@@ -1,12 +1,16 @@
-Here is the solution:
+#include <iostream>
 
-double calculateProbability(int n, int m) {
-    return (double)min(n - 1, m) / (n * m);
+double game(int n, int m) {
+    double sum = 0;
+    for (int i = n + 1; i <= m * 2; i++) {
+        sum += 1.0 / (n * 1.0) * 1.0 / (m * 1.0);
+    }
+    return sum;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(6) << calculateProbability(n, m) << endl;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(1) << game(n, m) << '\n';
     return 0;
 }
