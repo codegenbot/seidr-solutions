@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <cmath> // For log10
 
 int add_elements(vector<int> arr,int k){
     int sum = 0;
