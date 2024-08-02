@@ -1,19 +1,18 @@
-#include <stack>
 #include <string>
 
 bool solveBoolean(string booleanExp) {
     stack<char> s;
     for (int i = 0; i < booleanExp.length(); i++) {
-        if (booleanExp[i] == '&') {
+        if (booleanExp[i] == '|') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            s.push('&');
-        } else if (booleanExp[i] == '|') {
+            s.push('|');
+        } else if (booleanExp[i] == '&') {
             while (!s.empty()) {
                 s.pop();
             }
-            s.push('|');
+            s.push('&');
         } else {
             s.push(booleanExp[i]);
         }
@@ -30,7 +29,18 @@ bool solveBoolean(string booleanExp) {
         } else if (c == '&') {
             result = !result;
         } else if (c == '|') {
-            result = true;
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if (!s.empty()) {
+                if (s.top() == 'T') {
+                    result = true;
+                } else {
+                    result = false;
+                }
+            } else {
+                result = true;
+            }
         }
     }
     
