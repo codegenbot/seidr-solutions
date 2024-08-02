@@ -41,6 +41,7 @@ bool solveBoolean(string s) {
 }
 
 int main() {
+    // test cases
     cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
     cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
     cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
