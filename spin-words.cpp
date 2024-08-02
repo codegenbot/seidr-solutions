@@ -1,37 +1,27 @@
-#include <iostream>
+Here's the solution:
+
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::string word = "";
-
-    for (char c : str) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                for (int i = word.length() - 1; i >= 0; --i)
-                    result += word[i];
-            } else
-                result += word;
-            word = "";
-        } else {
-            word += c;
+string spinWords(string input) {
+    string output = "";
+    int wordLength;
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i + 1] != ' ') {
+            wordLength = i - output.length();
+            if (wordLength >= 5) {
+                string reversedWord = "";
+                for (int j = wordLength - 1; j >= 0; j--) {
+                    reversedWord += input[output.length() + j];
+                }
+                output += reversedWord;
+            } else {
+                output += input.substr(output.length(), wordLength);
+            }
+            if (i < input.length()) {
+                output += " ";
+            }
         }
     }
-
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; --i)
-            result += word[i];
-    } else
-        result += word;
-
-    return result;
-}
-
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-
-    return 0;
+    return output;
 }
