@@ -1,5 +1,5 @@
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
@@ -9,13 +9,3 @@ std::string encrypt(std::string s) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(encrypt("a") == "e");
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
-    return 0;
-}
