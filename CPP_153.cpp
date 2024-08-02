@@ -24,11 +24,11 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::string class_name = "Class";
-    std::vector<std::string> extensions = {"Cpp", "PYthon", "JAvA"};
+    std::string class_name = "ClassA";
+    std::vector<std::string> extensions = {"extA", "extB", "extC", "eXtD"};
 
     std::string result = Strongest_Extension(class_name, extensions);
-    std::cout << "Strongest Extension: " << result << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
