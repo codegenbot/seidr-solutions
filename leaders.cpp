@@ -13,6 +13,34 @@ std::vector<int> findLeaders(std::vector<int> nums) {
             maxRight = nums[i];
         }
     }
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-```
+
+int main() {
+    std::vector<int> nums;
+    int num;
+    int inputSize;
+
+    std::cout << "Enter the number of integers: ";
+    std::cin >> inputSize;
+
+    std::cout << "Enter the integers:\n";
+    for (int i = 0; i < inputSize; i++) {
+        std::cin >> num;
+        nums.push_back(num);
+    }
+
+    std::vector<int> output = findLeaders(nums);
+
+    for (int i = 0; i < output.size(); i++) {
+        std::cout << output[i];
+        if (i < output.size() - 1) {
+            std::cout << " ";
+        }
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
