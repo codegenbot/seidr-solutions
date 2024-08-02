@@ -22,5 +22,7 @@ string match_parens(const vector<string>& lst) {
     return (cnt == 0) ? "Yes" : "No";
 }
 
-cout << match_parens({")", "("}) << endl;
-return 0;
+int main() {
+    cout << match_parens({")", "("}) << endl;
+    return 0;
+}
