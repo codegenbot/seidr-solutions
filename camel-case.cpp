@@ -2,7 +2,7 @@
 #include <string>
 
 std::string camelCase(const std::string& s) {
-    std::string result;
+    std::string result = "";
     bool capitalizeNext = true;
 
     for (char c : s) {
@@ -20,9 +20,10 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::cin >> input;
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
+
     return 0;
 }
