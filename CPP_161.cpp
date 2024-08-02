@@ -1,11 +1,17 @@
+using namespace std;
+
 string solve(string s) {
-    string result = "";
+    string res = "";
+    bool has_letter = false;
+    
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+            has_letter = true;
+            res += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += c;
+            res += c;
         }
     }
-    return result.empty() ? string(s.rbegin(), s.rend()) : result;
+    
+    return has_letter ? res : string(rbegin(s), rend(s));
 }
