@@ -1,44 +1,34 @@
-#include <vector>
-#include <iostream>
 #include <string>
+#include <vector>
 
-using namespace std;
+std::string spinWords(const std::string& str) {
+    std::vector<std::string> words;
+    std::stringstream ss(str);
+    std::string word;
 
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--) {
-                    result += word[j];
-                }
-            } else {
-                result += word;
-            }
-            word = "";
-        } else {
-            word += c;
-        }
+    while (ss >> word) {
+        if (word.length() >= 5)
+            words.push_back(word.substr(rev(word)));
+        else
+            words.push_back(word);
     }
 
-    if (word.length() >= 5) {
-        for (int j = word.length() - 1; j >= 0; j--) {
-            result += word[j];
-        }
-    } else {
-        result += word;
+    std::stringstream result;
+    for (const auto& w : words) {
+        result << w << " ";
     }
-
-    return result;
+    return result.str();
 }
 
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+std::string rev(const std::string& s) {
+    int len = s.length();
+    char* arr = new char[len + 1];
+    strcpy(arr, s.c_str());
+
+    for (int i = 0; i < len / 2; ++i) {
+        char t = arr[i];
+        arr[i] = arr[len - i - 1];
+        arr[len - i - 1] = t;
+    }
+    return arr;
 }
