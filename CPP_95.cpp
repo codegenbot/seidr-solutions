@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <map>
@@ -22,13 +23,13 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 
 int main() {
     std::map<std::string, std::string> dict;
-    dict["hello"] = "Hello";
-    dict["world"] = "WORLD";
+    dict["A"] = "apple";
+    dict["B"] = "banana";
 
     if (check_dict_case(dict)) {
-        std::cout << "The dictionary has at least one case that is all lower or all upper." << std::endl;
+        std::cout << "The map contains a mix of uppercase and lowercase keys." << std::endl;
     } else {
-        std::cout << "The dictionary does not have any cases that are all lower or all upper." << std::endl;
+        std::cout << "The map contains either all uppercase or all lowercase keys." << std::endl;
     }
 
     return 0;
