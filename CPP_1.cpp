@@ -1,9 +1,9 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(std::vector<string> a, std::vector<string> b);
+using namespace std;
 
-bool issame(std::vector<string> a, std::vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +15,8 @@ bool issame(std::vector<string> a, std::vector<string> b) {
     return true;
 }
 
-std::vector<string> separate_paren_groups(string paren_string) {
-    std::vector<string> result;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
     int open_braces = 0;
 
@@ -38,4 +38,20 @@ std::vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    string input;
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+    vector<string> expected = {"abc", "def"};
+
+    if (issame(groups, expected)) {
+        cout << "Groups are same" << endl;
+    } else {
+        cout << "Groups are different" << endl;
+    }
+
+    return 0;
 }
