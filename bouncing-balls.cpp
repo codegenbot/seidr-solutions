@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int main() {
     double start_height, bounce_height, bounciness_index;
@@ -15,7 +16,7 @@ int main() {
         bounce_height *= bounciness_index; // decrease on each bounce
     }
     
-    std::cout << total_distance << std::endl;
+    std::cout << total_distance << "\n";
     
     return 0;
 }
