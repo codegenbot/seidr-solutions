@@ -15,6 +15,14 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    function signature and assert statement to be added here
+    vector<int> a = factorize(3*2*3);
+    vector<int> b = {2, 3, 3};
+    
+    assert(a.size() == b.size());
+    
+    for(int i = 0; i < a.size(); i++){
+        assert(a[i] == b[i]);
+    }
+    
     return 0;
 }
