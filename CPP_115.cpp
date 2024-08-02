@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
@@ -5,10 +6,10 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (const auto& row : grid) {
         for (int water : row) {
             if (water == 1) {
-                total_water += water;
+                total_water++;
             }
         }
     }
 
-    return total_water / capacity + (total_water % capacity != 0);
+    return (total_water / capacity) + ((total_water % capacity) != 0);
 }
