@@ -1,17 +1,25 @@
 #include <string>
 #include <cassert>
+#include <stack>
 
 bool correct_bracketing(const std::string& brackets) {
-    int count = 0;
+    std::stack<char> stack;
+    
     for (char c : brackets) {
-        if (c == '<') {
-            count++;
-        } else if (c == '>') {
-            count--;
-        }
-        if (count < 0) {
-            return false;
+        if (c == '>' || c == ']') {
+            if (stack.empty()) {
+                return false;
+            }
+            char top = stack.top();
+            if ((top == '<' && c == '>') || (top == '[' && c == ']')) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        } else if (c == '<' || c == '[') {
+            stack.push(c);
         }
     }
-    return count == 0;
+    
+    return stack.empty();
 }
