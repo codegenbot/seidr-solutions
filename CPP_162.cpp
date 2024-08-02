@@ -1,11 +1,8 @@
+#include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#include <string>
-#include <vector>
 
-using namespace std;
-
-std::string string_to_md5(string text) {
+string string_to_md5(string text) {
     if (text.empty()) {
         return "";
     }
@@ -25,9 +22,4 @@ std::string string_to_md5(string text) {
     }
 
     return output;
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
 }
