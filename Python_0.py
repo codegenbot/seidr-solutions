@@ -1,1 +1,1 @@
-has_close_elements = check_adjacent_numbers([1, 3, 5, 7], 2)
+has_close_elements = check_adjacent_numbers(numbers, threshold)
