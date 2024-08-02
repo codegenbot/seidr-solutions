@@ -43,7 +43,7 @@ string string_to_md5(string text) {
     for(int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", hash[i]);
-        result.append(string(1, buffer[0]).append(string(1, buffer[1])));
+        result.append(string(buffer));
     }
 
     EVP_MD_CTX_cleanup(&mdctx);
