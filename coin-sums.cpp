@@ -1,26 +1,61 @@
-int main() {
-    int cents;
-    cin >> cents;
+int pennies, nickels, dimes, quarters;
 
-    int pennies = 0;
-    int nickels = 0;
-    int dimes = 0;
-    int quarters = 0;
-
-    if (cents >= 25) {
-        quarters = cents / 25;
-        cents %= 25;
+cin >> pennies;
+if(pennies <= 0) {
+    cout << "0" << endl << "0" << endl << "0" << endl << "0" << endl;
+} else if (pennies < 5) {
+    cout << pennies << endl << "1" << endl << "0" << endl << "0" << endl;
+} else if (pennies < 25) {
+    int numPenny = pennies / 1;
+    int remaining = pennies % 1;
+    cout << numPenny << endl;
+    if(remaining >= 5) {
+        int numNickel = remaining / 5;
+        remaining = remaining % 5;
+        cout << numNickel << endl;
+    } else {
+        cout << "0" << endl;
     }
-    if (cents >= 5) {
-        nickels = cents / 5;
-        cents %= 5;
+    cout << remaining << endl << "0" << endl << "0" << endl;
+} else if (pennies < 100) {
+    int numPenny = pennies / 25;
+    int numQuarter = numPenny;
+    int remaining = pennies % 25;
+    cout << numQuarter << endl;
+    if(remaining >= 5) {
+        int numNickel = remaining / 5;
+        remaining = remaining % 5;
+        cout << numNickel << endl;
+    } else {
+        cout << "0" << endl;
     }
-    pennies = cents;
-
-    cout << pennies << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
-
-    return 0;
+    cout << remaining << endl << "0" << endl;
+} else if (pennies < 250) {
+    int numPenny = pennies / 100;
+    int numQuarter = (pennies % 100) / 25;
+    int remaining = pennies % 25;
+    cout << numPenny << endl;
+    cout << numQuarter << endl;
+    if(remaining >= 5) {
+        int numNickel = remaining / 5;
+        remaining = remaining % 5;
+        cout << numNickel << endl;
+    } else {
+        cout << "0" << endl;
+    }
+    cout << remaining << endl;
+} else {
+    int numPenny = pennies / 250;
+    int numQuarter = (pennies % 250) / 25;
+    int remaining = pennies % 25;
+    cout << numPenny << endl;
+    cout << numQuarter << endl;
+    if(remaining >= 5) {
+        int numNickel = remaining / 5;
+        remaining = remaining % 5;
+        cout << numNickel << endl;
+    } else {
+        cout << "0" << endl;
+    }
+    cout << remaining << endl;
 }
