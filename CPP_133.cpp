@@ -1,15 +1,11 @@
 #include <vector>
 #include <cmath>
 
-int sum_squares(const vector<float>& lst) {
+int sum_squares(const std::vector<int>& lst) {
     int sum = 0;
-    for (float num : lst) {
-        float rounded_num = ceil(num);
+    for (int num : lst) {
+        int rounded_num = std::ceil(num);
         sum += rounded_num * rounded_num;
     }
     return sum;
-}
-
-int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
 }
