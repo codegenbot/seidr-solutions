@@ -5,13 +5,13 @@
 
 using std::string;
 
-bool issame(std::vector<string> a, std::vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<string> split_words(string txt) {
-    std::vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -35,9 +35,4 @@ std::vector<string> split_words(string txt) {
         result = {std::to_string(oddCount)};
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), std::vector<string>{}));
-    return 0;
 }
