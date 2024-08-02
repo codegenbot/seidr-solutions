@@ -1,5 +1,5 @@
 """
-Given a list of integers, the function should return the sum of all odd numbers that are at an even index position in the list.
+Write a function that takes a list of integers as input and returns the sum of all odd numbers in the list.
 """
 
 def solution(lst):
