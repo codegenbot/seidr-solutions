@@ -1,7 +1,7 @@
 def minPath(grid, k):
     if not grid or not all(len(row) == len(grid) for row in grid):
         return "Invalid input grid"
-
+    
     n = len(grid)
     start = min(min(row) for row in grid)
     path = [start]
