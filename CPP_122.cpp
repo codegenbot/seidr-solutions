@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -13,8 +12,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 12, 123};
-    int k = arr.size();
-    int result = add_elements(arr, k);
+    std::vector<int> arr = {1, 2, 3};
+    int k = 3;
+    std::cout << add_elements(arr, k);
     return 0;
 }
