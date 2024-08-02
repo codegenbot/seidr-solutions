@@ -15,9 +15,11 @@ std::vector<std::string> by_length_old(const std::vector<int>& arr) {
         {8, "Eight"}
     };
     std::vector<std::string> result;
+    
     for (int num : arr) {
         result.push_back(digit_map[num]);
     }
+    
     return result;
 }
 
