@@ -22,7 +22,7 @@ bool assertEquals(pair<int,int> a, pair<int,int> b) {
 }
 
 int main() {
-    assert(assertEquals(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), make_pair(-3, 1)));
+    assert (assertEquals(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), make_pair(-3, 1)));
     
     return 0;
 }
