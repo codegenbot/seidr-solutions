@@ -1,11 +1,8 @@
-bool move_one_ball(vector<int> arr){
-    int n = arr.size();
-    if(n == 0) return true;
-    
-    for(int i = 1; i < n; i++){
-        if(arr[i] <= arr[0]){
-            return false;
-        }
+bool move_one_ball(vector<int> arr) {
+    int one = 0; // count of elements that are equal to 1
+    for (int i : arr) {
+        if (i == 1)
+            one++;
     }
-    return true;
+    return one >= (arr.size() - one);
 }
