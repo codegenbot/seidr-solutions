@@ -12,8 +12,8 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     return result
 
 try:
-    numbers = list(map(float, input().split()))
-    result = find_closest_elements(numbers)
-    print(result)
+    numbers = [float(x) for x in input().split()]
+    output = find_closest_elements(numbers)
+    print(output)
 except ValueError:
     print("Please enter valid numbers separated by spaces.")
