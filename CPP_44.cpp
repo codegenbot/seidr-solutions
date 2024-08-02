@@ -1,8 +1,8 @@
-#include <string> // Add this line
+#include <string>
 
 int main(){
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x)); // Updated line
+    assert(change_base(x, x + 1) == std::to_string(x));
 
     return 0;
 }
