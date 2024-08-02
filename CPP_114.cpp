@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT64_MAX;
@@ -20,6 +18,7 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    cout << minSubArraySum({1, -1}) << endl;
+    vector<long long> nums = {1, -1};
+    cout << minSubArraySum(nums) << endl;
     return 0;
 }
