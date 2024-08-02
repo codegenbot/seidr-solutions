@@ -1,11 +1,12 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int getWhitePegs(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     for (char c : code) {
-        if (std::count(guess.begin(), guess.end(), c) > 0 && guess.find(c) != guess.npos) {
+        if (std::count(guess.begin(), guess.end(), c) > 0 && guess.find(c) != std::string::npos) {
             whitePegs++;
         }
     }
