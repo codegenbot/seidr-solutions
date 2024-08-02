@@ -1,20 +1,11 @@
-def cut_vector(vector):
-    n = len(vector)
+def cut_vector(lst):
     min_diff = float("inf")
-    cut_index = -1
+    split_index = 0
 
-    for i in range(1, n):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+    for i in range(1, len(lst)):
+        diff = abs(sum(lst[:i]) - sum(lst[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            split_index = i
 
-        if left_sum == right_sum:
-            return vector[:i], vector[i:]
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
-            cut_index = i
-
-    return vector[: cut_index + 1], vector[cut_index + 1 :]
-
-
-vector = list(map(int, input().split()))
-print(cut_vector(vector))
+    return lst[:split_index], lst[split_index:]
