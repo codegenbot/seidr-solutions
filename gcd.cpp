@@ -35,15 +35,14 @@ int main() {
     int a, b;
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
-    
+
     std::string text, target;
-    std::cin >> text;
     std::getline(std::cin, target);
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int index : result) {
         std::cout << index << " ";
     }
     std::cout << std::endl;
-    
+
     return 0;
 }
