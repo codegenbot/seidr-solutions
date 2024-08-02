@@ -1,17 +1,20 @@
-using namespace std;
+#include <string>
+#include <cctype>
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+}
 
 string solve(string s) {
-    string res = "";
-    bool has_letter = false;
-    
-    for (char c : s) {
-        if (isalpha(c)) {
-            has_letter = true;
-            res += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
-            res += c;
-        }
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i]))
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
+        } else
+            result += s[i];
     }
-    
-    return has_letter ? res : string(rbegin(s), rend(s));
+    return result;
 }
