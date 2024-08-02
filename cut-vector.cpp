@@ -28,8 +28,8 @@ int main() {
     }
     cout << endl;
     for(int num : result[1]){
-        cout << num << " ";
+        cout<<num<<" ";
     }
-    cout << endl;
+    cout<<endl;
     return 0;
 }
