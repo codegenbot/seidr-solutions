@@ -26,13 +26,10 @@ int main() {
         leftSum += nums[i];
     }
     
-    for (int i = 0; i <= cutIndex; ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << endl;
-    
-    for (int i = cutIndex + 1; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
+        if (i == cutIndex) {
+            cout << endl;
+        }
         cout << nums[i] << endl;
     }
     
