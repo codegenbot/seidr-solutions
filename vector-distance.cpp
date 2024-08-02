@@ -18,7 +18,7 @@ int main() {
     }
     
     cout.precision(15);
-    cout << sqrt(distance) << endl;
+    cout << fixed << sqrt(distance) << endl;
 
     return 0;
 }
