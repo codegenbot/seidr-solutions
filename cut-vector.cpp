@@ -1,49 +1,52 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    vector<int> left;
-    vector<int> right;
+void cutVector(vector<int> v) {
+    int leftSum = 0;
+    for (int i = 0; i < v.size() - 1; i++) {
+        leftSum += v[i];
+    }
 
-    for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size()) {
-            left = v.substr(0, i);
-            right = {v[i]};
-        } else {
-            left = v.substr(0, i);
-            right = v.substr(i);
-        }
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
 
-        int diff = abs(left.back() - right.front());
-        if (diff < min_diff) {
-            min_diff = diff;
-            break;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int rightSum = leftSum + v[i] - v[0];
+        int diff = abs(leftSum - rightSum);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
 
-    return {left, right};
+    vector<int> leftSubvec(v.begin(), v.begin() + cutIndex + 1);
+    vector<int> rightSubvec(v.begin() + cutIndex + 1, v.end());
+
+    cout << "[";
+    for (int i : leftSubvec) {
+        cout << i;
+    }
+    cout << "]" << endl;
+
+    cout << "[";
+    for (int i : rightSubvec) {
+        cout << i;
+    }
+    cout << "],0" << endl;
 }
 
 int main() {
-    vector<int> input;
-    // Read the input from user
     int n;
     cin >> n;
-    while(n--) {
-        int num;
-        cin >> num;
-        input.push_back(num);
+    
+    vector<int> v(n);
+    for(int i = 0; i < n; i++){
+        cin >> v[i];
     }
 
-    vector<vector<int>> result = cutVector(input);
-
-    for (auto vec : result) {
-        for (int i : vec) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
+    cutVector(v);
 
     return 0;
 }
