@@ -1,29 +1,35 @@
+#include <string>
+#include <map>
+#include <vector>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string temp = "";
-    for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                ++result[temp[0]];
-                temp.clear();
-            }
+    vector<string> words = split(test, ' ');
+    
+    for (const string& word : words) {
+        if (!result.count(word[0])) {
+            result[word[0]] = 1;
         } else {
-            temp += c;
+            result[word[0]]++;
         }
     }
-    if (!temp.empty()) {
-        ++result[temp[0]];
+
+    return result;
+}
+
+vector<string> split(const string& str, char delimiter) {
+    vector<string> tokens;
+    size_t pos = 0;
+    size_t prev = 0;
+
+    while ((pos = str.find(delimiter, prev)) != string::npos) {
+        tokens.push_back(str.substr(prev, pos - prev));
+        prev = pos + 1;
     }
-    map<char, int> maxCountMap;
-    int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
-            maxCountMap.clear();
-            maxCountMap[it->first] = it->second;
-        } else if (it->second == maxCount) {
-            maxCountMap[it->first] = it->second;
-        }
-    }
-    return maxCountMap;
+
+    tokens.push_back(str.substr(prev));
+
+    return tokens;
 }
