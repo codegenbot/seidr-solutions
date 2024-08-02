@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int score(string s) {
     int total = 0;
@@ -34,6 +33,7 @@ int score(string s) {
     }
     return total;
 }
+
 int main() {
     string s;
     cin >> s;
