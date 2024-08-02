@@ -21,7 +21,10 @@ def minPath(grid, k):
 
     return path
 
-# Example of calling the function with correct parameters
-grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-k = 5
-minPath(grid, k)
+
+n = int(input())
+grid = [list(map(int, input().split())) for _ in range(n)]
+k = int(input())
+
+result = minPath(grid, k)
+print(result)
