@@ -12,7 +12,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, -2.3, 3.7, -4.8};
+    std::vector<float> lst;
+    float num;
+    int count = 0;
+    
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    
     long long odd_sum = double_the_difference(lst);
+    std::cout << "The sum of the squares of all positive integers in the input is: " << odd_sum << std::endl;
+    
     return 0;
 }
