@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <algorithm>
 #include <numeric>
-#include <cmath>
+#include <climits>
 
 using namespace std;
 
@@ -14,26 +14,26 @@ int main() {
         cin >> nums[i];
     }
     
-    int leftSum = 0, totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int minDiff = INT_MAX, cutIndex = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 0; i < n; ++i) {
-        int diff = abs(2*leftSum - totalSum);
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
-        leftSum += nums[i];
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
-    }
+    vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex);
+    vector<int> secondSubvector(nums.begin() + cutIndex, nums.end());
     
+    for (int num : firstSubvector) {
+        cout << num << endl;
+    }
     cout << endl;
-    
-    for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int num : secondSubvector) {
+        cout << num << endl;
     }
     
     return 0;
