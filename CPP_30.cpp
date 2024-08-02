@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -17,5 +16,4 @@ std::vector<float> get_positive(std::vector<float> l) {
 
 int main() {
     assert(issame(get_positive({}), {}) && "Test failed");
-    // Rest of your code...
 }
