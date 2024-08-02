@@ -1,60 +1,29 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
-    vector<string> strings;
-    string substring;
-
-    cout << "Enter the number of strings: ";
-    int n;
-    cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        strings.push_back(s);
-    }
-
-    cout << "Enter the substring to filter by: ";
-    cin >> substring;
-
-    vector<string> result = filter_by_substring(strings, substring);
-
-    if(result.empty()) {
-        cout << "No strings contain the given substring." << endl;
-    } else {
-        vector<string> same_strings;
-        for(auto str : strings) {
-            if(issame(result, vector<string>(str.begin(), str.end()))){
-                same_strings.push_back(str);
-            }
-        }
-
-        if(same_strings.empty()) {
-            cout << "No strings contain the same substring as the given string." << endl;
-        } else {
-            cout << "Strings that contain the same substring are: ";
-            for(auto s : same_strings) {
-                cout << s << " ";
-            }
-            cout << endl;
-        }
-    }
-
-    return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(auto str : strings) {
-        if(str.find(substring) != string::npos) {
+        if(str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> a = {"apple", "banana", "cherry"};
+    std::vector<std::string> b = {"banana", "cherry", "date"};
+
+    if(issame(a, filter_by_substring(b, "ba"))) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
