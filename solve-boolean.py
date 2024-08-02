@@ -1,18 +1,17 @@
-def solve_boolean(expression):
-    def boolean_function(a, b, operator):
-        if operator == "&":
-            return a and b
-        elif operator == "|":
-            return a or b
-        else:
-            raise ValueError("Invalid operator")
-
-    stack = []
-    for char in expression:
-        if char.upper() in ["T", "F"]:
-            stack.append(char.upper() == "T")
-        elif char in ["&", "|"]:
-            b, a = stack.pop(), stack.pop()
-            stack.append(boolean_function(a, b, char))
-
-    return stack[0]
+def solveBoolean(expression):
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression:
+        terms = expression.split('&')
+        for term in terms:
+            if 'T' in term or any(char.isdigit() for char in term):
+                return False
+        return True
+    elif '|' in expression:
+        terms = expression.split('|')
+        for term in terms:
+            if 'F' in term or any(char.isdigit() for char in term):
+                return True
+        return False
