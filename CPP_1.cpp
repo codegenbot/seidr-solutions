@@ -1,10 +1,22 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<string> a, std::vector<string> b);
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+bool issame(std::vector<string> a, std::vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<string> separate_paren_groups(string paren_string) {
+    std::vector<string> result;
     string current_group;
     int open_braces = 0;
 
@@ -26,16 +38,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
