@@ -16,9 +16,6 @@ std::string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "Mini Roman: " << int_to_mini_roman(num) << std::endl;
+    assert(int_to_mini_roman(1000) == "M");
     return 0;
 }
