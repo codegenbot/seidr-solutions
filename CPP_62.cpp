@@ -3,9 +3,12 @@
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
-    vector<float> result;
-    for (int i = 1; i <= xs.size() - 1; i++) {
-        result.push_back(i * xs[i]);
+    vector<float> result(xs.size() - 1);
+    for (int i = 0; i < result.size(); i++) {
+        if (i == 0)
+            result[i] = xs[1];
+        else
+            result[i] = i * xs[i + 1];
     }
     return result;
 }
