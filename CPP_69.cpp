@@ -2,11 +2,22 @@
 using namespace std;
 
 int search(vector<int> lst) {
-    int max = 0;
-    for (int i : lst) {
-        if (i > 0 && i >= count(i, lst)) {
-            max = i;
+    map<int, int> freqMap;
+    for (int num : lst) {
+        if (!freqMap.count(num)) {
+            freqMap[num] = 1;
+        } else {
+            freqMap[num]++;
         }
     }
-    return max == 0 ? -1 : max;
+
+    int maxVal = -1;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            maxVal = pair.first;
+            break;
+        }
+    }
+
+    return maxVal;
 }
