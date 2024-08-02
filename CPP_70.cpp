@@ -1,10 +1,9 @@
+Here is the modified code:
+
 #include <algorithm>
 #include <vector>
 
-// Sort a list of integers in a strange way: 
-// First, remove all minimum values from the list.
-// Then, remove all maximum values from the remaining list.
-// Repeat this process until the list is empty.
+// Sort a list of integers in a strange way: alternate between adding the smallest and largest elements.
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
