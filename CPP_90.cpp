@@ -1,11 +1,11 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // None in Python
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    for (int i = 1; i < sorted_lst.size(); i++) {
-        if (sorted_lst[i] > sorted_lst[0]) {
-            return sorted_lst[i];
-        }
+Here is the solution:
+
+vector<int> v = lst;
+if(v.size() < 2) return NULL;
+sort(v.begin(), v.end());
+for(int i=1; i<v.size(); i++){
+    if(v[i] != v[0]){
+        return v[i];
     }
-    return -1; // None in Python
 }
+return NULL;
