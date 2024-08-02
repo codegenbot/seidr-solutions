@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int n = text.size();
@@ -7,7 +6,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        int start = i; 
+        int start = i; // Store the starting index of potential match
         for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
@@ -15,7 +14,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
             }
         }
         if (found) {
-            indices.push_back(start); 
+            indices.push_back(start); // Store starting index of the match
         }
     }
 
