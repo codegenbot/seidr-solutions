@@ -1,18 +1,17 @@
 ```
-def solve.Boolean(expression):
-    if expression == 'T':
+def solve_boolean(input_str):
+    if input_str == 't':
         return True
-    elif expression == 'F':
+    elif input_str == 'f':
         return False
-    elif '&' in expression:
-        parts = expression.split('&')
-        for part in parts:
-            if part.strip() != 'f' and part.strip() != '':
-                return False
-        return True
-    elif '|' in expression:
-        parts = expression.split('|')
-        for part in parts:
-            if part.strip() != 't' and part.strip() != '':
-                return True
-        return False
+    else:
+        if '&' in input_str and '|' in input_str:
+            raise ValueError("Invalid expression")
+        bool_values = {'T': True, 'F': False}
+        result = bool_values[input_str[0]]
+        for op, value in zip(['&', '|'], input_str[1:].split()):
+            if op == '&':
+                result = result and bool_values[value]
+            elif op == '|':
+                result = result or bool_values[value]
+        return result
