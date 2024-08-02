@@ -14,15 +14,20 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 
 int main() {
     std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
+    int n, num;
+    
+    std::cout << "Enter the total number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
         input.push_back(num);
     }
 
     if (pairs_sum_to_zero(input)) {
-        std::cout << "True\n";
+        std::cout << "There exist two numbers whose sum is zero.\n";
     } else {
-        std::cout << "False\n";
+        std::cout << "No two numbers sum up to zero.\n";
     }
 
     return 0;
