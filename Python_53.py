@@ -9,7 +9,7 @@ while True:
 
     if op == "+":
         print("Result:", add(num1, num2))
-    elif op in {"-", "*","/"}:
+    elif op in {"-", "*", "/"}:
         if op == "-":
             print("Result:", num1 - num2)
         elif op == "*":
