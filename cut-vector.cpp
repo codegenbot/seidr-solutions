@@ -18,7 +18,7 @@ int main() {
     int minDiff = INT_MAX, cutIndex = 0;
     
     for (int i = 0; i < n; ++i) {
-        int diff = abs(2 * leftSum - totalSum);
+        int diff = abs(2*leftSum - totalSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
