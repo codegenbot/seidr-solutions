@@ -1,12 +1,9 @@
-Here is the completed code:
-
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    for i in range(len(string)):
-        palindromic_suffix = string[i:]
-        if palindromic_suffix == palindromic_suffix[::-1]:
-            return string + palindromic_suffix[::-1]
+    string = string.lower()
+    if is_palindrome(string):
+        return string
+    else:
+        for i in range(len(string)):
+            postfix = string[i:]
+            if is_palindrome(postfix):
+                return string[:i] + postfix[::-1]
