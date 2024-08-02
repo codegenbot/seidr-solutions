@@ -1,10 +1,9 @@
-```cpp
 #include <sstream>
 
 int bowlingScore(string s) {
     int score = 0;
     int rolls = 0;
-
+    
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
             score += 30;
@@ -20,7 +19,18 @@ int bowlingScore(string s) {
             score += frameScore;
             rolls++;
         } else if (s[i] == '/') {
-            continue;
+            int nextRoll = 0;
+            i++;
+            while (i < s.length() && !isdigit(s[i])) {
+                if (s[i] == 'X') {
+                    nextRoll += 10;
+                    break;
+                }
+                int nextFrameScore = 10 - (s[i] - '0');
+                nextRoll += nextFrameScore;
+                i++;
+            }
+            score += frameScore + nextRoll;
         }
         
         if (rolls >= 10) break;
