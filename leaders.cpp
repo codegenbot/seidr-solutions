@@ -1,7 +1,30 @@
+#include <iostream>
 #include <vector>
 #include <climits>
-#include <algorithm>
-#include <iostream>
+
+std::vector<int> findLeaders(const std::vector<int>& nums);
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
+    std::vector<int> leaders = findLeaders(nums);
+
+    std::cout << "Leaders: ";
+    for (int leader : leaders) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -12,15 +35,6 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
             maxRight = nums[i];
         }
     }
-    std::reverse_copy(leaders.begin(), leaders.end(), std::back_inserter(leaders));
+    std::reverse_copy(leaders.rbegin(), leaders.rend(), std::back_inserter(leaders));
     return leaders;
-}
-
-int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
-    std::vector<int> result = findLeaders(nums);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
 }
