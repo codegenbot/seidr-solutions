@@ -1,4 +1,7 @@
-```c++
-int my_strlen(string str) {
+int str_len(string str){
     return str.length();
+}
+
+int main() {
+    assert(str_len("asdasnakj") == 13);
 }
