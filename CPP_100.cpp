@@ -8,8 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> make_a_pile(int size) {
     std::vector<int> pile;
 
-    for (int i = 0; i < size; i++) {
-        pile.push_back((2 * i) + 8);
+    for (int i = 1; i <= size; i++) {
+        pile.push_back(i * 2);
     }
 
     return pile;
