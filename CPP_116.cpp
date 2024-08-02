@@ -1,9 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-int countBits(int n) {
+int countOnes(int n) {
     int count = 0;
-    while (n > 0) {
+    while (n) {
         n &= n - 1;
         count++;
     }
@@ -18,13 +18,13 @@ vector<int> sort_array(vector<int> arr) {
     vector<int> result;
 
     for (int i = 0; i < arr.size(); i++) {
-        int ones = countBits(arr[i]);
-        if (i == 0 || ones != countBits(arr[i-1])) {
+        int ones = countOnes(arr[i]);
+        if (i == 0 || ones != countOnes(arr[i-1])) {
             result.push_back(arr[i]);
         } else {
             bool inserted = false;
             for (int j = 0; j < result.size(); j++) {
-                if (ones >= countBits(result[j])) {
+                if (ones >= countOnes(result[j])) {
                     result.insert(j, arr[i]);
                     inserted = true;
                     break;
