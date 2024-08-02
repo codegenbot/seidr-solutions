@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,7 +18,8 @@ string int_to_mini_roman(int number) {
         }
     }
 
-    assert (int_to_mini_roman(1000) == "M");
-    
     return roman;
+
 }
+
+assert (int_to_mini_roman(1000) == "M");
