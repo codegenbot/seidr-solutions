@@ -13,6 +13,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ""
     return result
 
-paren_string = input("Enter a string containing parentheses: ")
+paren_string = input("Enter a string with parentheses: ")
 output = separate_paren_groups(paren_string)
 print(output)
