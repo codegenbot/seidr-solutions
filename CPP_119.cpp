@@ -1,16 +1,15 @@
-int match_parens(vector<string> lst) {
-    int cnt = 0;
-    for (string s : lst) {
-        for (char c : s) {
-            if (c == '(') {
-                cnt++;
-            } else {
-                if (cnt == 0) {
-                    return "No";
-                }
-                cnt--;
+int balance = 0;
+for (string& str : lst) {
+    for (char c : str) {
+        if (c == '(') {
+            balance++;
+        } else {
+            if (balance == 0) {
+                return "No";
             }
+            balance--;
         }
     }
-    return cnt == 0 ? "Yes" : "No";
 }
+
+return (balance == 0) ? "Yes" : "No";
