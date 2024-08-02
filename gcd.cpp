@@ -31,18 +31,9 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 }
 
 int main() {
-    // Add your testing code here
-    std::vector<int> result1 = findIndicesOfSubstring("abracadabra", "abra");
-    for (int index : result1) {
-        cout << index << " ";
-    }
-    cout << endl;
-
-    std::vector<int> result2 = findIndicesOfSubstring("ababab", "aba");
-    for (int index : result2) {
-        cout << index << " ";
-    }
-    cout << endl;
+    // Test cases
+    std::vector<int> indices1 = findIndicesOfSubstring("ababab", "aba");  // Should return {0, 2}
+    std::vector<int> indices2 = findIndicesOfSubstring("AAAAA", "AA");    // Should return {0, 1, 2, 3}
 
     return 0;
 }
