@@ -1,18 +1,27 @@
-int count_nums(vector<int> nums) {
+Here is the completed code:
+
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : nums) {
-        bool hasPositiveSum = false;
-        long absNum = labs(num);
-        while (absNum > 0) {
-            int digit = absNum % 10;
-            if (digit != 0 || num < 0) {
-                hasPositiveSum = true;
-                break;
+    for (int num : v) {
+        if (num >= 0) {
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
             }
-            absNum /= 10;
-        }
-        if (hasPositiveSum) {
-            count++;
+            if (sum > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // Make the number positive to calculate signed digits
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
