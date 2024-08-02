@@ -1,6 +1,5 @@
 #include <vector>
 #include <climits>
-
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
     int maxRight = INT_MIN;
