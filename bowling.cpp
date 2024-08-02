@@ -18,29 +18,23 @@ int bowlingScore(string bowls) {
             }
             score += roll1 + roll2;
         } else {
-            if (bowls[i] == 'X') {
+            int x = 0;
+            while (i < 9 && bowls[i] == 'X') {
                 score += 10;
                 i++;
                 if (i < 9) {
                     if (isdigit(bowls[i])) {
-                        int x = bowls[i] - '0';
-                        score += x;
+                        x = bowls[i] - '0';
+                        break;
                     } else {
-                        score += 10;
+                        x = 10;
+                        i++;
                     }
                 } else {
-                    score += 10;
+                    x = 10;
                 }
-            } else {
-                string temp = "";
-                for (; i < 10; i++) {
-                    if (bowls[i] == '/') break;
-                    temp += bowls[i];
-                }
-                int x = std::stoi(temp) + roll1;
-                score += x;
             }
+            score += x;
         }
     }
     return score;
-}
