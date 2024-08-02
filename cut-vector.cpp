@@ -30,8 +30,8 @@ vector<vector<int>> cutVector(vector<int> v) {
     }
     
     vector<vector<int>> result(2);
-    result[0] = vector<int>(v.begin() + cut_index, v.end());
-    result[1] = vector<int>(v.begin(), v.begin() + cut_index);
+    result[0] = vector<int>(v.begin(), v.begin() + cut_index);
+    result[1] = vector<int>(v.begin() + cut_index, v.end());
     
     return result;
 }
