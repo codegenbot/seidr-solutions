@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 
@@ -9,14 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
 vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
     vector<vector<string>> result;
     for(auto str : strings) {
-        bool same = false;
-        for(auto s : str) {
-            if(s.find(substring) != string::npos) {
-                same = true;
-                break;
-            }
-        }
-        if(same) {
+        if(issame(str, {substring})) {
             result.push_back(str);
         }
     }
