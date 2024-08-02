@@ -1,4 +1,7 @@
 double median(const vector<int>& l) {
+    if (l.empty()) {
+        return 0.0;
+    }
     sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0) {
