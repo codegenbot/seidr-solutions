@@ -26,4 +26,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+int main(){
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    
+    return 0;
+}
