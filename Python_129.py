@@ -14,10 +14,9 @@ def minPath(grid, k):
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 if next_cell is None or grid[ni][nj] < grid[next_cell[0]][next_cell[1]]:
                     next_cell = (ni, nj)
-        if next_cell is None:
-            break
-        i, j = next_cell[0], next_cell[1]
-        path.append(grid[i][j])
-        visited.add(next_cell)
+        if next_cell is not None:
+            path.append(grid[next_cell[0]][next_cell[1]])
+            visited.add(next_cell)
+            i, j = next_cell[0], next_cell[1]
 
     return path
