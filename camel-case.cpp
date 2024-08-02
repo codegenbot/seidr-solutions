@@ -1,35 +1,29 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(std::string s) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : s) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+#include <iostream>
+using namespace std;
+
+string camelCase(string str) {
+    string result = "";
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            result += toupper(str[i + 1]);
+            i++;
+        } else if (result != "" && !isSpace(str[i])) {
+            result += tolower(str[i]);
         }
     }
-    
     return result;
 }
 
+bool isSpace(char ch) {
+    return ch == ' ';
+}
+
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string in kebab-case (or 'exit' to stop): ";
-        std::cin >> input;
-        
-        if (input == "exit")
-            break;
-        
-        std::cout << "camelCase: " << kebabToCamel(input) << '\n';
+    string str;
+    while (cin >> str) {
+        cout << camelCase(str) << endl;
     }
-    
     return 0;
 }
