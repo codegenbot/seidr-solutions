@@ -1,23 +1,24 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (str[i] == 'X') {
+    int currentRolls = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-        } else if (isdigit(str[i])) {
-            int count = 1;
-            while (i + 1 < 10 && isdigit(str[i+1])) {
-                i++;
-                count++;
-            }
-            score += count * (10 - i / 2);
+            currentRolls = 0;
+        } else if (c == '/') {
+            score += 10 + min(max(1, stoi(string(1, c))), 10);
+            currentRolls = 0;
         } else {
-            int first = str[i] - '0';
-            int second = str[i + 1] - '0';
-            if (str[i + 2] == '/') {
-                score += first + 10;
-                i++;
-            } else {
-                score += first + second;
+            int thisRoll = stoi(string(1, c));
+            score += thisRoll;
+            currentRolls++;
+            if (currentRolls == 2) {
+                if (thisRoll + min(max(thisRoll, 1), 10) >= 10) {
+                    score += 10;
+                } else {
+                    score += thisRoll + min(max(thisRoll, 1), 10);
+                }
+                currentRolls = 0;
             }
         }
     }
