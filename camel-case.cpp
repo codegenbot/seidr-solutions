@@ -1,30 +1,33 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    int start = 0;
-    
-    for(int i = 0; i <= s.length(); i++) {
-        if(i == s.length() || (s[i] == ' ' && i > start)) {
-            if(start < i) {
-                char c = toupper(s[start]);
-                result += c;
-                for(int j = start + 1; j < i; j++)
-                    result += tolower(s[j]);
+string kebabToCamel(const string& s) {
+    string result;
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == '-') {
+            ++i; // skip '-'
+            while (i < s.size() && s[i] == ' ') {
+                ++i; // skip spaces
             }
-            start = i + 1;
+            result += toupper(s[i]);
+            i++; // skip first char of the word
+        } else {
+            if (!result.empty()) {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+            }
+            i++;
         }
     }
-    
     return result;
 }
 
 int main() {
-    std::string s;
-    while(std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    string s;
+    while (cin >> s) {
+        cout << kebabToCamel(s) << endl;
     }
     return 0;
 }
