@@ -1,21 +1,12 @@
 #include <vector>
-#include <cassert>
 
-bool issame(const vector<int>& v1, const vector<int>& v2){
-    if(v1.size() != v2.size()){
-        return false;
-    }
-    for(int i=0; i<v1.size(); i++){
-        if(v1[i] != v2[i]){
-            return false;
-        }
-    }
-    return true;
+vector<int> rolling_max(const vector<int>& numbers);
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-vector<int> rolling_max(vector<int> numbers);
-
-vector<int> rolling_max(vector<int> numbers){
+vector<int> rolling_max(const vector<int>& numbers){
     vector<int> result;
     int max_num = numbers[0];
     for(int i=0; i<numbers.size(); i++){
@@ -25,16 +16,8 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-int main() {
-    vector<int> input = {1, 2, 3, 4, 5};
-    vector<int> expected = {1, 2, 3, 4, 5};
-
-    assert(issame(input, expected));
-
-    vector<int> result = rolling_max(input);
-    vector<int> output = {1, 2, 3, 4, 5};
-    
-    assert(issame(result, output));
+int main(){
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     
     return 0;
 }
