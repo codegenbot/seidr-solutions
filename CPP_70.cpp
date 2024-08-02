@@ -1,4 +1,8 @@
-```
+#include <algorithm>
+#include <vector>
+
+Given a list of integers, sort the list in such a way that it alternates between the smallest and largest elements.
+
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
