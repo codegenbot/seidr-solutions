@@ -15,15 +15,10 @@ std::string flip_case(const std::string& str){
     return result;
 }
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::string output = flip_case(input);
-
+int main(){
     assert(flip_case("Hello World") == "hELLO wORLD");
-
-    std::cout << output << std::endl;
+    assert(flip_case("abcXYZ456") == "ABCxyz456");
+    assert(flip_case("Testing 123") == "tESTING 123");
 
     return 0;
 }
