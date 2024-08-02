@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 int main() {
     int n;
     std::cin >> n; 
@@ -7,24 +10,27 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int diff = INT_MAX, cutIndex = 0;
+    int diff = INT_MAX;
+    int left = 0, right = 0;
 
     for (int i = 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
         if (newDiff < diff) {
             diff = newDiff;
-            cutIndex = i;
+            left = i - 1;
+            right = i;
         }
     }
 
     for (int i = 0; i < n; ++i) {
-        if (i < cutIndex) {
+        if (i == left) {
+            std::cout << std::endl;
+        } else if (i != right) {
             std::cout << nums[i] << " ";
-        } else if (i > cutIndex) {
-            std::cout << nums[i] << " ";
+        } else {
+            std::cout << nums[i] << std::endl;
         }
     }
-    std::cout << std::endl;
 
     return 0;
 }
