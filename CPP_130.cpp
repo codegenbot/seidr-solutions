@@ -1,33 +1,17 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 using namespace std;
 
 vector<int> tri(int n) {
-    vector<int> result(1);
+    vector<int> result(n + 1);
     if (n == 0) return result;
-    result.push_back(3);
-    if (n <= 2) return result;
-    
-    for (int i = 2; i < n; i++) {
-        int val = 0;
+    result[0] = 3;
+    if (n >= 1) result[1] = 1;
+    for (int i = 2; i <= n; i++) {
         if (i % 2 == 0)
-            val = 1 + i / 2;
+            result[i] = 1 + i / 2;
         else
-            val = result[i - 1] + result[i - 2] + result[i - 3];
-        result.push_back(val);
+            result[i] = result[i - 1] + result[i - 2] + (i > 2 ? result[i - 3] : 3);
     }
-    
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> res = tri(n);
-    for (int i : res) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
 }
