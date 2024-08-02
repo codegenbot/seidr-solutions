@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-// Define issame function here
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
