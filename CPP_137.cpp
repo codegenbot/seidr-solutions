@@ -41,6 +41,6 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    assert (boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(int(1))) == 0);
+    assert(boost::any_cast<string>(compare_one(boost::any(string("1")), boost::any(int(1)))) == 0);
     return 0;
 }
