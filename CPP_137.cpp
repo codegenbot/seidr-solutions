@@ -3,8 +3,6 @@
 #include <cassert>
 #include <string>
 
-std::string;
-
 std::any compare_one(const std::any& a, const std::any& b);
 
 std::any compare_one(const std::any& a, const std::any& b) {
