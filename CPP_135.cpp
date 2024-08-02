@@ -10,10 +10,7 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    std::vector<int> v = {3,4,5};
-    int result = can_arrange(v);
-    if(result == -1) 
-        cout << "The array is already sorted." << endl; 
-    else
-        cout << "The array can be arranged in increasing order by reversing the " << result << "th element." << endl;
+    std::vector<int> array = {1, 2, 3, 4};
+    int result = can_arrange(array);
+    // Your function call code
 }
