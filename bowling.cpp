@@ -21,8 +21,9 @@ int bowlingScore(string s) {
         } else if (s[i] == '/') {
             continue;
         }
-
+        
         if (rolls >= 10) break;
     }
-
+    
     return score;
+}
