@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <assert.h>
 
 int sum_squares(std::vector<int> lst) {
     int total = 0;
