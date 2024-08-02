@@ -16,7 +16,6 @@ double diceGame(int n, int m) {
     return count / total;
 
 }
-
 int main() {
     // leave it empty or comment out
     return 0;
