@@ -1,12 +1,12 @@
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+vector<int> even_odd_count(int num) {
+    vector<int> counts(2, 0);
+    string numStr = to_string(abs(num));
     for (char c : numStr) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
@@ -18,11 +18,15 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> expected = {2, 1};
-    std::vector<int> result = even_odd_count(1234);
-    if (issame(expected, result)) {
-        return 0;
+    int num = 12345;
+    vector<int> result = even_odd_count(num);
+    vector<int> expected = {3, 2};
+
+    if (issame(result, expected)) {
+        // Code to handle when the result is as expected
     } else {
-        return 1;
+        // Code to handle when the result is not as expected
     }
+
+    return 0;
 }
