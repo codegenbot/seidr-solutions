@@ -35,4 +35,3 @@ bool solveBoolean(string booleanExp) {
     }
     
     return result;
-}
