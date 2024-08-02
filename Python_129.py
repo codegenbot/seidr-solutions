@@ -1,8 +1,6 @@
 def minPath(grid, k):
     N = len(grid)
-    values = [
-        [(i * N + j, val) for j, val in enumerate(row)] for i, row in enumerate(grid)
-    ]
+    values = [[(i * N + j, val) for j, val in enumerate(row)] for i, row in enumerate(grid)]
     visited = set()
     queue = [(0, 0, [grid[0][0]])]
     while queue:
@@ -19,4 +17,4 @@ def minPath(grid, k):
                     queue.append((nx, ny, new_path))
         if len(path) == k:
             return sorted(path)
-    return sorted([p for p in set([tuple(p) for p in queue])])
+    return
