@@ -1,21 +1,24 @@
-Here is the solution:
-
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for(int i=n-1; i>=0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
-            for(int j=i-1; j>=0; j--) {
-                if(!isVowel(word[j])) {
-                    return string(1, word[i]);
-                }
+    int left = 0;
+    for (int right = word.size() - 1; right >= 0; --right) {
+        if (!isvowel(word[right])) {
+            while (left < right && !isconsonant(word[left])) {
+                ++left;
+            }
+            if (left < right) {
+                return string(1, tolower(word[right]));
             }
         }
     }
     return "";
 }
 
-bool isVowel(char ch) {
-    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
-           ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U');
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+bool isconsonant(char c) {
+    c = tolower(c);
+    return !isvowel(c) && (c >= 'b' && c <= 'z');
 }
