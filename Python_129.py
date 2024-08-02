@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```
 def minPath(grid, k):
     n = len(grid)
