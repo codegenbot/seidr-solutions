@@ -10,7 +10,7 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    std::vector<int> array = {1, 2, 3, 4};
-    int result = can_arrange(array);
+    std::vector<int> testArr = {5,3};
+    int result = can_arrange(testArr);
     // Your function call code
 }
