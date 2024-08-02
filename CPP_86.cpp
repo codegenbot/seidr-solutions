@@ -3,15 +3,17 @@ string anti_shuffle(string s){
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
             result += " ";
-            continue;
-        }
-        string word = "";
-        for(int j=i; j<s.length() && s[j] != ' '; j++){
-            word += s[j];
-        }
-        i = j - 1;
-        for(char c : word){
-            result += (char)min(c, 'z');
+        } else {
+            string word = "";
+            bool firstChar = true;
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                if(firstChar) firstChar = false;
+                else word += s[j];
+                i = j;
+            }
+            for(char c : word){
+                result += c;
+            }
         }
     }
     return result;
