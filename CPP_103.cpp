@@ -1,6 +1,6 @@
 #include <cassert>
 #include <cmath>
-#include <bitset>
+#include <string>
 
 std::string avg(int n, int m) {
     int sum = 0;
@@ -8,12 +8,12 @@ std::string avg(int n, int m) {
         sum += i;
     }
     
-    int average = round((double)sum / (m - n + 1));
+    int avg = round((double)sum / (m - n + 1));
     
-    return std::bitset<sizeof(int)*8>(average).to_string().substr(sizeof(int)*8-1-(int)log2(average), sizeof(int)*8-1);
+    return std::to_string(avg);
 }
 
-int main(){
+int main() {
     assert(avg(5, 5) == "101");
     return 0;
 }
