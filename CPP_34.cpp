@@ -1,6 +1,3 @@
-#include<vector>
-using namespace std;
-
 vector<int> unique(vector<int> l){
     vector<int> result = l;
     sort(result.begin(), result.end());
