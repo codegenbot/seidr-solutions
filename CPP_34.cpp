@@ -10,7 +10,7 @@ vector<int> unique(vector<int> l) {
 
 vector<int>::iterator unique_copy(vector<int>::iterator f, vector<int>::iterator l) {
     sort(f,l);
-    auto it = unique(f,l); 
+    auto it = unique(f,l); // Corrected this line as well
     for(;it!=l;++it)
         *f++ = *it;
     return ++f;
