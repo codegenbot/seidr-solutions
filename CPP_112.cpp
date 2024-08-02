@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::pair<std::string, bool> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string result = "";
@@ -16,7 +15,7 @@ std::pair<std::string, bool> issame(const std::vector<std::string>& a, const std
 }
 
 int main() {
-    assert(issame({"mamma"}, {"mia"}) == std::make_pair("", true));
-
+    assert (issame({"mamma"}, {"mia"}) == std::make_pair("", true));
+    
     return 0;
 }
