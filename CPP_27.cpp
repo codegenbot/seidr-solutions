@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <string>
 
 std::string flip_case(std::string str){
