@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 std::string int_to_mini_roman(int number){
     std::string roman = "";
@@ -21,8 +20,4 @@ std::string int_to_mini_roman(int number){
     return roman;
 }
 
-int main() {
-    assert(int_to_mini_roman(1000) == "m");
-    
-    return 0;
-}
+assert(int_to_mini_roman(1000) == "m");
