@@ -5,8 +5,6 @@
 #include <utility>
 #include <cassert>
 
-bool issame(float a, float b);
-
 bool issame(float a, float b) {
     return fabs(a - b) < std::numeric_limits<float>::epsilon();
 }
