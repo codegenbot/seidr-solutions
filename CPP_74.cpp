@@ -8,6 +8,8 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
 
+    int count1 = 0, count2 = 0;
+
     for (const string& s : lst1) {
         count1 += s.size();
     }
