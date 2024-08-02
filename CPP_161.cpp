@@ -1,7 +1,7 @@
 #include <string>
 
-string solve(string s){
-    string result = "";
+std::string solve(std::string s){
+    std::string result = "";
     bool foundLetter = false;
 
     for(int i = 0; i < s.length(); i++){
