@@ -28,7 +28,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "E";
+            letterGrade = "F";
         result.push_back(letterGrade);
     }
     return result;
