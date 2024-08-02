@@ -20,8 +20,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
-    std::vector<int> expected_arr = {2, 4, 8, 16, 32};
-    assert(issame(sorted_arr, expected_arr));
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
