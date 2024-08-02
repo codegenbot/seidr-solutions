@@ -10,12 +10,12 @@ int bowlingScore(std::string s) {
             score += 10;
             if (frame < 10) {
                 score += (s[bowl + 1] == 'X') ? 10 : (s[bowl + 1] - '0');
-                score += (s[bowl + 2] == 'X') ? 10 : (s[bowl + 2] == '/' ? 10 : (s[bowl + 2] - '0'));
+                score += (s[bowl + 2] == 'X') ? 10 : (s[bowl + 2] == '/' || bowl + 2 == s.size() ? 10 : (s[bowl + 2] - '0'));
             }
             frame++;
             bowl++;
         } else if (c == '/') {
-            score += 10 - (s[bowl - 1] == 'X' ? 10 : (s[bowl - 1] == '-' ? 0 : (s[bowl - 1] - '0')));
+            score += 10 - (s[bowl - 1] == 'X' ? 10 : (s[bowl - 1] - '0'));
             score += (s[bowl + 1] == 'X') ? 10 : (s[bowl + 1] - '0');
             frame++;
             bowl += 2;
