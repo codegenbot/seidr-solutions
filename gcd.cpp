@@ -37,9 +37,10 @@ int main() {
     int a, b;
     string text, target;
 
-    cin >> a >> b >> ws;  // Ensure input for a and b are separated by whitespace and newline char
-    getline(cin, text);
-    getline(cin, target);
+    std::cin >> a >> b;
+    std::cin.ignore();
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     cout << gcd(a, b) << endl;
     
