@@ -25,31 +25,15 @@ int eval(string s) {
     for (char c : s) {
         if (isdigit(c)) {
             num = num * 10 + (c - '0');
-        } else if (isalpha(c)) {
-            if (c == '+') {
-                result += sign * num;
-                num = 0;
-                sign = 1;
-            } else if (c == '-') {
-                result += sign * num;
-                num = 0;
-                sign = -1;
-            }
+        } else if (c == '+' || c == '-') {
+            result += sign * num;
+            num = 0;
+            sign = (c == '+') ? 1 : -1;
         }
     }
     return result + sign * num;
 }
 
 int main() {
-    vector<string> operator_;
-    vector<int> operand;
-    
-    // Read input from user
-    
-    // Call the function
-    int temp = do_algebra(operator_, operand);
-    
-    cout << "The result is: " << temp << endl;
-    
     return 0;
 }
