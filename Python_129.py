@@ -1,9 +1,5 @@
-grid = []
-n = int(input())
-for _ in range(n):
-    grid.append(list(map(int, input().split())))
-
-k = int(input())
+n, k = map(int, input().split())
+grid = [list(map(int, input().split())) for _ in range(n)]
 
 def minPath(grid, k):
     n = len(grid)
@@ -28,4 +24,4 @@ def minPath(grid, k):
 
     return path
 
-print(minPath(grid, k))
+minPath(grid, k)
