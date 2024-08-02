@@ -1,7 +1,7 @@
-```
 def triples_sum_to_zero(l: list):
-    for i in range(len(l)):
-        for j in range(i+1, len(l)):
-            if -l[i] - l[j] in l:
+    l = set(l)
+    for i in l:
+        for j in l:
+            if i + j in l and i != j and i + j != 0:
                 return True
     return False
