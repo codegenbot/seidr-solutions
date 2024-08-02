@@ -24,12 +24,6 @@ int main() {
         std::cin >> grid[i][0] >> grid[i][1];
     }
 
-    std::vector<int> expected;
-    for(int i = 0; i < k; i++){
-        expected.push_back(grid[i % n][0]);
-        expected.push_back(grid[i % n][1]);
-    }
-
     assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
