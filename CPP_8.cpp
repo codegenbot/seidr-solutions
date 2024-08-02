@@ -9,5 +9,5 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
     
-    return std::make_pair(sum, product);
+    return {sum, product};
 }
