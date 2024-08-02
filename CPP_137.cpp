@@ -1,27 +1,26 @@
-#include <boost/any.hpp>
-#include <boost/convert.hpp>  
 #include <string>
-#include <iostream>
+#include <algorithm>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        float fa = boost::convert<boost::int64_t>::convert(boost::any_cast<std::string>(a)).to_value();
-        return (fa > boost::any_cast<float>(b)) ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float fb = boost::convert<boost::int64_t>::convert(boost::any_cast<std::string>(b)).to_value();
-        return (boost::any_cast<float>(a) > fb) ? a : b;
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string sa = boost::any_cast<std::string>(a);
-        std::string sb = boost::any_cast<std::string>(b);
-        return (boost::lexical_cast<float>(sa) > boost::lexical_cast<float>(sb)) ? a : b;
-    }
-    return boost::any("None");
+using namespace std;
+
+string compare_one(string a, string b) {
+    if (a > b)
+        return a;
+    else if (a < b)
+        return b;
+    else
+        return "None";
+}
+
+int main() {
+    // Read input from user
+    cout << "Enter two strings: ";
+    string s1, s2;
+    cin >> s1 >> s2;
+
+    // Call the function and print the output
+    string result = compare_one(s1, s2);
+    cout << "Result: " << result << endl;
+
+    return 0;
 }
