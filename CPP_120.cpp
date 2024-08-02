@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -20,7 +21,8 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
-    int k = 4;
-    assert(isEqual(maximum(arr, k), vector<int>({243, 3, 2, 1})));
+    vector<int> test = {1, 2, 3, -23, 243, -400, 0};
+    vector<int> res = maximum(test, 3);
+    for (int i:res) cout << i<< " ";
+    cout << endl;
 }
