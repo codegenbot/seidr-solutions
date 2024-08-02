@@ -1,13 +1,4 @@
-if(n > m) {
-        return "-1";
-    }
-    
-    int sum = 0;
-    for(int i = n; i <= m; i++) {
-        sum += i;
-    }
-    
-    int avg = round((double)sum / (m - n + 1));
-    
-    return bitset<sizeof(int)*8>(avg).to_string().substr(sizeof(int)*8-1-(int)log2(avg), sizeof(int)*8-1);
+#include <string>
+std::string rounded_avg(int n, int m) {
+    // Your code here
 }
