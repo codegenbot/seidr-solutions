@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -15,8 +14,4 @@ bool will_it_fly(const std::vector<int>& q, int w) {
         str += std::to_string(i);
     }
     return is_palindrome(str) && std::accumulate(q.begin(), q.end(), 0) <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);  
 }
