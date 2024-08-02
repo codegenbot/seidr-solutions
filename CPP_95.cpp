@@ -22,15 +22,15 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 
 int main() {
     std::map<std::string, std::string> dict;
+    
+    // Add key-value pairs to the dictionary
+    dict["hello"] = "world";
+    dict["HELLO"] = "WORLD";
 
-    dict["a"] = "hello";
-    dict["b"] = "HELLO";
-
-    if (check_dict_case(dict)) {
-        std::cout << "The dictionary has at least one key that is all uppercase or all lowercase." << std::endl;
-    } else {
-        std::cout << "The dictionary does not have any keys that are all uppercase or all lowercase." << std::endl;
-    }
+    if (check_dict_case(dict))
+        std::cout << "The dictionary has at least one key that is either all uppercase or all lowercase." << std::endl;
+    else
+        std::cout << "The dictionary does not have any keys that are either all uppercase or all lowercase." << std::endl;
 
     return 0;
 }
