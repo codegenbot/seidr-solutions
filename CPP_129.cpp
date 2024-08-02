@@ -15,7 +15,7 @@ std::vector<int> minPath(std::vector<std::pair<int, int>> grid, int k) {
     return path;
 }
 
-int main {
+int main() {
     int n, k;
     std::cin >> n >> k;
 
@@ -25,6 +25,6 @@ int main {
     }
 
     assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-
+    
     return 0;
 }
