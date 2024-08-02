@@ -1,9 +1,7 @@
-Here is the modified code:
-
 #include <algorithm>
 #include <vector>
 
-// Sort a list of integers in a strange way: alternate between adding the smallest and largest elements.
+Given a list of integers, sort it in an unusual way where the smallest number comes first, followed by the largest number, then the next smallest, and so on.
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;

@@ -15,7 +15,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         result = {{*it, distance(arr.begin(), it)}};
     } else {
         auto first_even_it = find_if(arr.begin(), arr.end(), [](int x){return x % 2 == 0;});
-        result.push_back({*first_even_it, distance(arr.begin(), first_even_it)});
+        result = {{*first_even_it, distance(arr.begin(), first_even_it)}};
     }
     
     return result;
