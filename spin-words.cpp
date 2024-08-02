@@ -1,33 +1,24 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string result = "";
-    std::size_t pos = 0;
-    
-    while ((pos = input.find(" ")) != std::string::npos) {
-        std::string word = input.substr(0, pos);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        
-        result += word + " ";
-        
-        input.erase(0, pos + 1);
+std::string spinWords(std::string input) {
+    std::string output;
+    std::stringstream ss(input);
+    std::string word;
+
+    while (ss >> word) {
+        if(word.length() >= 5)
+            word = std::string(word.rbegin(), word.rend());
+        output += word + " ";
     }
-    
-    result += input;
-    
-    return result;
+
+    return output.substr(0, output.length()-1);
 }
 
 int main() {
-    std::string input;
-    while (std::cout << "Enter a string (or 'q' to quit): ") {
-        if ((input = "") || input == "q") break;
-        std::cout << spinWords(input) << std::endl;
-    }
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
     return 0;
 }
