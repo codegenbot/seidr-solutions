@@ -11,12 +11,12 @@ int sumOfDigits(int num) {
 }
 
 int largestPrime(vector<int> lst) {
-    int maxPrime = 2;
+    int maxPrime = 0;
     for (int i : lst) {
         if (i > maxPrime)
             maxPrime = i;
     }
-    for (int i = maxPrime; ; i++) {
+    for (int i = maxPrime; i >= 2; i--) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; j++) {
             if (i % j == 0) {
@@ -27,6 +27,7 @@ int largestPrime(vector<int> lst) {
         if (isPrime)
             return sumOfDigits(i);
     }
+    return 0;
 }
 
 int main() {
