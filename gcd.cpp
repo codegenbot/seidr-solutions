@@ -11,6 +11,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
         }
+    }
+
+    return result;
 }
 
 long long gcd(long long a, long long b) {
