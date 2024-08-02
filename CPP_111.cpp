@@ -1,33 +1,52 @@
-Here is the completed code:
+map<char,int> histogram(string test){
+    map<char,int> result;
+    int maxCount = 0;
+    for (string word : split(test, ' ')) {
+        if (result.find(word[0]) == result.end()) {
+            result[word[0]] = 1;
+        } else {
+            result[word[0]]++;
+        }
+        maxCount = max(maxCount, result[word[0]]);
+    }
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second == maxCount) {
+            cout << "{" << it->first << ", " << it->second << "}";
+            if (next(it) != result.end()) {
+                cout << ", ";
+            }
+        }
+    }
+    return result;
+}
 
-```cpp
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
+string split(string str, char delimiter) {
+    string token;
+    vector<string> result;
 
-    size_t start = 0;
-    for (size_t i = 0; i < test.size(); ++i) {
-        if (test[i] == ' ') {
-            string sub = test.substr(start, i - start);
-            ++result[sub[0]];
-            start = i + 1;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == delimiter) {
+            result.push_back(token);
+            token = "";
+        } else {
+            token += str[i];
         }
     }
 
-    if (start < test.size()) {
-        string sub = test.substr(start);
-        ++result[sub[0]];
+    if (!token.empty()) {
+        result.push_back(token);
     }
 
-    int maxCount = 0;
-    for (auto& p : result) {
-        if (p.second > maxCount) maxCount = p.second;
-    }
+    return join(result, ' ');
+}
 
-    map<char, int> maxMap;
-    for (auto& p : result) {
-        if (p.second == maxCount) maxMap[p.first] = p.second;
+string join(vector<string> str, char delimiter) {
+    string result;
+    for (int i = 0; i < str.size(); i++) {
+        result += str[i];
+        if (i < str.size() - 1) {
+            result += delimiter;
+        }
     }
-
-    return maxMap;
+    return result;
 }
