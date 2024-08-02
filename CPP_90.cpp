@@ -11,4 +11,3 @@ int next_smallest(vector<int> lst) {
             return v[i+1];
     }
     return -1; // Return None
-}
