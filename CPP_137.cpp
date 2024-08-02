@@ -1,5 +1,7 @@
 #include <any>
+#include <cassert>
 #include <string>
+#include <algorithm>
 
 std::any compare_one(const std::any& a, const std::any& b);
 
@@ -21,12 +23,12 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return std::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        std::string str_a = std::any_cast<std::string>(a); 
-        std::string str_b = std::any_cast<std::string>(b); 
+        std::string str_a = std::any_cast<std::string>(a);
+        std::string str_b = std::any_cast<std::string>(b);
         str_a.replace(str_a.find(','), 1, ".");
         str_b.replace(str_b.find(','), 1, ".");
-        float num1 = stof(str_a);
-        float num2 = stof(str_b);
+        float num1 = std::stof(str_a);
+        float num2 = std::stof(str_b);
         if(num1 > num2)
             return a;
         else if(num1 < num2)
