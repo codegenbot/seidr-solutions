@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -13,4 +15,23 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
+}
+
+int main() {
+    int n, k;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+    std::cout << "Enter k: ";
+    std::cin >> k;
+    
+    std::vector<int> res = maximum(arr, k);
+    for (int x : res) {
+        std::cout << x << " ";
+    }
+    return 0;
 }
