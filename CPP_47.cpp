@@ -1,9 +1,10 @@
+
 #include <algorithm>
 #include <vector>
 #include <cassert>
 
-double median(std::vector<int>& l) {
-    std::sort(l.begin(), l.end());
+double median(std::vector<int> &l) {
+    sort(l.begin(), l.end());
     int n = l.size();
     assert(n > 0);
     if (n % 2 == 0) {
