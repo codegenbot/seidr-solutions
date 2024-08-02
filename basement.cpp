@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int basement(std::vector<int> nums) {
@@ -12,6 +13,17 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    // Test the basement function here
+    int n, num;
+    std::cin >> n;
+    std::vector<int> nums;
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> num;
+        nums.push_back(num);
+    }
+    
+    int result = basement(nums);
+    std::cout << result << std::endl;
+    
     return 0;
 }
