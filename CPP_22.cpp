@@ -1,16 +1,15 @@
-```cpp
 #include <vector>
 #include <list>
 #include <any>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(std::list<std::any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (std::any_cast<int>(value).has_value()) {
+        if (std::any_cast<int>(value).good()) {
             result.push_back(std::any_cast<int>(value).get());
         }
     }
