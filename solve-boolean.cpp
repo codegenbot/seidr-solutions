@@ -1,55 +1,29 @@
 #include <string>
 using namespace std;
 
-bool evaluateBoolean(string expression) {
-    stack<char> opStack;
-    stack<string> valStack;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!opStack.empty() && opStack.top() == '|') {
-                opStack.pop();
-                string op2 = valStack.top();
-                valStack.pop();
-                string op1 = valStack.top();
-                valStack.pop();
-                valStack.push((op1[0] == 'T' && op2[0] == 'T') ? "T" : "F");
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            opStack.push('&');
-        } else if (expression[i] == '|') {
-            while (!opStack.empty()) {
-                opStack.pop();
-                string op2 = valStack.top();
-                valStack.pop();
-                string op1 = valStack.top();
-                valStack.pop();
-                valStack.push((op1[0] == 'T' || op2[0] == 'T') ? "T" : "F");
+            if (st.empty()) return false;
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            opStack.push('|');
+            if (st.empty()) return true;
         } else {
-            string val;
-            while (i > 0 && expression[i-1] != '&' && expression[i-1] != '|') {
-                i--;
-            }
-            for (; i >= 0 && expression[i] != '&' && expression[i] != '|'; i--) {
-                val = expression[i] + val;
-            }
-            valStack.push(val);
+            st.push(s[i]);
         }
     }
-
-    return (valStack.top()[0] == 'T');
+    return !st.empty();
 }
 
 int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBoolean(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
