@@ -24,6 +24,6 @@ std::vector<int> generate_integers(int start, int end) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), std::vector<int>{}));
+    assert(issame(generate_integers(17, 89), evenNumbers(18, 88)));
     return 0;
 }
