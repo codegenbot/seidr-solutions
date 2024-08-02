@@ -7,11 +7,12 @@
 
 using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr){
+vector<string> by_length(vector<int> arr);
+vector<string> by_length(vector<int> arr){
     vector<int> sorted_arr;
     vector<string> result;
     map<int, string> num_to_string = {
@@ -26,6 +27,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
+
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for(int num : sorted_arr){
