@@ -8,13 +8,12 @@ int bowlingScore(string s) {
         } else if (s[i] == '/') {
             score += 10 + (stoi(s.substr(i+1, 2)) - 5);
         } else {
-            int currentFrameScore = s[i] - '0';
+            int currentFrameScore = stoi(s.substr(i, 1));
             if (currentFrameScore < 10) {
                 score += currentFrameScore;
             } else {
-                score += 10 + (s[i+1] - '0');
+                score += 10 + (stoi(s.substr(i+1, 1)) - 0);
             }
         }
     }
     return score;
-}
