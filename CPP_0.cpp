@@ -5,7 +5,7 @@
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     sort(numbers.begin(), numbers.end());
     for (int i = 1; i < numbers.size(); ++i) {
-        if (std::abs(numbers[i] - numbers[i - 1]) < threshold) {
+        if (abs(numbers[i] - numbers[i - 1]) < threshold) {
             return true;
         }
     }
