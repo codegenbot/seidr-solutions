@@ -1,34 +1,24 @@
-Here is the C++ code for the problem:
+Here is the C++ solution:
 
-#include <iostream>
 #include <string>
 using namespace std;
 
-int main() {
-    string input;
-    cout << "Enter a string in kebab-case: ";
-    getline(cin, input);
-
-    int i = 0;
-    while (i < input.size()) {
-        if (input[i] == '-') {
+string camelCase(string str) {
+    string result = "";
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == '-') {
             ++i;
-            for (; i < input.size() && input[i] != '-'; ++i) {
-                input[i - 1] += topper(input[i]);
+            while (i < str.size() && str[i] == '-') {
+                ++i;
             }
-            input.erase(i, 1);
+            if (i < str.size()) {
+                result += toupper(str[i]);
+            }
+        } else if (result != "") {
+            result += tolower(str[i]);
+        } else {
+            result += toupper(str[i]);
         }
     }
-
-    cout << "camel-case: " << input << endl;
-
-    return 0;
-}
-
-// Define the function to convert a lower case character to upper case
-char topper(char c) {
-    if (c >= 'a' && c <= 'z') {
-        return c - ('a' - 'A');
-    }
-    return c;
+    return result;
 }
