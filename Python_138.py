@@ -1,11 +1,9 @@
 ```
 def is_equal_to_sum_even(n):
-    for i in range(2, n+1, 2):
-        even_sum = 0
-        count = 0
-        while i > even_sum and count < 4:
-            even_sum += i
-            count += 1
-        if i == even_sum:
-            return True
+    for a in range(2, n+1, 2):
+        for b in range(2, (n-a)//2 + 1, 2):
+            for c in range(2, (n-a-b)//2 + 1, 2):
+                for d in range(2, (n-a-b-c)//2 + 1, 2):
+                    if a + b + c + d == n:
+                        return True
     return False
