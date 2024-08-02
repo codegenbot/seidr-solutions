@@ -37,9 +37,11 @@ int main() {
     int a, b, textLength, targetLength;
     string text, target;
 
-    cin >> a >> b >> ws;
+    cin >> a >> b;
+    cout << endl;
 
-    cin >> textLength >> targetLength >> ws;
+    cin >> textLength >> targetLength;
+
     getline(cin, text);
     getline(cin, target);
 
