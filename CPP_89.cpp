@@ -16,9 +16,8 @@ std::string encrypt(std::string s) {
 
 int main() {
     assert(encrypt("a") == "e");
-    std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
-    return 0;
+    std::getline(std::cin, input);
+    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
 }
