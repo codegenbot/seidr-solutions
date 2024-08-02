@@ -1,6 +1,15 @@
 #include <vector>
 using namespace std;
 
+int main() {
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersResult = leaders(arr);
+    for(int i: leadersResult) {
+        cout << i << " ";
+    }
+    return 0;
+}
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int rightmost = arr.back();
@@ -11,10 +20,4 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {16,17,4,3,5,2};
-    leaders(arr);
-    return 0;
 }
