@@ -26,9 +26,9 @@ int main() {
     dict["world"] = "WORLD";
 
     if (check_dict_case(dict)) {
-        std::cout << "The dictionary has at least one key that is either all uppercase or all lowercase." << std::endl;
+        std::cout << "The dictionary has at least one case that is all lower or all upper." << std::endl;
     } else {
-        std::cout << "The dictionary does not have any keys that are either all uppercase or all lowercase." << std::endl;
+        std::cout << "The dictionary does not have any cases that are all lower or all upper." << std::endl;
     }
 
     return 0;
