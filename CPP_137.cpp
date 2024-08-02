@@ -1,12 +1,12 @@
 #include <any>
 #include <string>
-#include <boost/any.hpp> // Add this header
-#include <iostream> 
+#include <typeinfo>
+#include <cassert>
 
 template <typename T>
 std::any compare_one(T a, T b) {
     if (a == b) {
-        return "None";
+        return std::string("None");
     } else {
         return (a > b) ? std::any(a) : std::any(b);
     }
@@ -22,10 +22,10 @@ std::any compare(std::any a, std::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return "None";
+    return std::string("None");
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(compare_one("1", "1")) == "None");
     return 0;
 }
