@@ -8,6 +8,7 @@ bool issame(vector<float>, vector<float>);
 int main() {
     vector<float> numbers;
     // your code here
+    
     return 0;
 }
 
