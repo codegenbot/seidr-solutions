@@ -1,34 +1,35 @@
 #include <algorithm>
-#include <vector>
 #include <numeric>
+#include <vector>
 #include <limits>
 
-bool issame(vector<float>, vector<float>);
+using namespace std;
 
-int main() {
-    vector<float> numbers;
-    // input your data here
-    for (float num : {1.0, 2.0, 3.0, 4.0, 5.0}) {
-        numbers.push_back(num);
-    }
-    
-    vector<float> result = find_closest_elements(numbers);
-    return 0;
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
-vector<float> find_closest_elements(vector<float> numbers) {
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+    pair<float, float> closest;
     float min_diff = numeric_limits<float>::max();
-    pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = numbers[j] - numbers[i];
             if (abs(diff) < min_diff) {
                 min_diff = abs(diff);
-                closest_pair = {numbers[i], numbers[j]};
+                closest = make_pair(numbers[i], numbers[j]);
             }
         }
     }
 
-    return vector<float>(closest_pair.begin(), closest_pair.end());
+    vector<pair<float, float>> result;
+    result.push_back(closest);
+
+    return result;
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
+    return 0;
 }
