@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -19,5 +18,5 @@ int main() {
         lst.push_back(num);
     }
     long long odd_sum = double_the_difference(lst);
-    return 0;
+    assert(odd_sum == odd_sum );
 }
