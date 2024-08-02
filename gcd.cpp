@@ -37,9 +37,8 @@ int main() {
     int a, b;
     string text, target;
 
-    cin >> a;
-    cin >> b;
-    cin.ignore();
+    cin >> a >> b >> ws; // Modified input handling
+    
     getline(cin, text);
     getline(cin, target);
 
