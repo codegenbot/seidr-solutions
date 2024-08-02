@@ -1,9 +1,3 @@
-try:
-    n = int(input("Enter the number of prime Fibonacci numbers to find: "))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
-    exit()
-
 def is_prime(num):
     if num < 2:
         return False
@@ -19,6 +13,8 @@ def prime_fib(n: int):
         else:
             return fibonacci(n-1) + fibonacci(n-2)
 
+    n = int(n)
+    
     count = 0
     i = 0
     while count < n:
@@ -26,5 +22,3 @@ def prime_fib(n: int):
             count += 1
         i += 1
     return fibonacci(i-1)
-
-print(prime_fib(n))
