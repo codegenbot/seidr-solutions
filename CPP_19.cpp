@@ -1,32 +1,25 @@
-#include <algorithm>
-
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
-    vector<string> numVec;
+    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, 
+                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, 
+                                   {"eight", 8}, {"nine", 9}};
+    vector<string> num_list;
     string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
+        while (i + 1 <= numbers.length() && !isalpha(numbers[i])) {
+            i++;
         }
-        for (int j = i + 1; j <= numbers.length(); j++) {
-            if (numbers[j] == ' ') {
-                temp = numbers.substr(i, j - i);
-                break;
-            }
+        if (!number_map.count(temp = string(i - i + 1))) {
+            break;
         }
-        numVec.push_back(temp);
-        i = j;
+        num_list.push_back(temp);
+        i--;
     }
 
-    sort(numVec.begin(), numVec.end(), [&numMap](const string& a, const string& b) {
-        return to_string(numMap[a]) < to_string(numMap[b]);
-    });
+    sort(num_list.begin(), num_list.end());
 
     string result = "";
-    for (string s : numVec) {
+    for (string s : num_list) {
         result += s + " ";
     }
     return result;
