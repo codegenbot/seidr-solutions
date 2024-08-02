@@ -1,9 +1,11 @@
 #include <vector>
 
+using namespace std;
+
 vector<float> derivative(vector<float> xs) {
-    vector<float> result(xs.size() - 1);
+    vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
-        result[i-1] = i * xs[i];
+        result.push_back(i * xs[i]);
     }
     return result;
 }
