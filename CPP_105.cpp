@@ -20,3 +20,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
     return result;
 }
+
+assert(issame(by_length({9, 4, 8}), std::vector<std::string>{"Nine", "Four", "Eight"}));
+return 0;
