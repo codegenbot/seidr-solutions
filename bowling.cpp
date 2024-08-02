@@ -1,41 +1,24 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '/') {
-            int firstRoll = (s[i-1] - '0') + (s[i-2] - '0');
-            int secondRoll = (s[i+1] - '0') + (s[i+2] - '0');
-            if (currentFrame < 10) {
-                if (firstRoll + secondRoll == 10) {
-                    score += 10;
-                    currentFrame++;
-                } else {
-                    score += firstRoll;
-                    currentFrame++;
-                }
-            } else {
-                score += firstRoll;
-            }
-        } else if (s[i] >= 'X' && s[i] <= '9') {
-            int roll = (s[i] - '0');
-            if (currentFrame < 10) {
-                if (roll == 10) {
-                    score += roll + 10;
-                    currentFrame++;
-                } else {
-                    score += roll;
-                    currentFrame++;
-                }
-            } else {
-                score += roll;
-            }
+    int currentRolls = 0;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            currentRolls = 0;
+        } else if (c == '/') {
+            score += 10 + min(max(1, stoi(string(1, c))), 10);
+            currentRolls = 0;
         } else {
-            int roll = (s[i] - '0');
-            if (currentFrame < 10) {
-                score += roll;
-                currentFrame++;
-            } else {
-                score += roll;
+            int thisRoll = stoi(string(1, c));
+            score += thisRoll;
+            currentRolls++;
+            if (currentRolls == 2) {
+                if (thisRoll + min(max(thisRoll, 1), 10) >= 10) {
+                    score += 10;
+                } else {
+                    score += thisRoll + min(max(thisRoll, 1), 10);
+                }
+                currentRolls = 0;
             }
         }
     }
