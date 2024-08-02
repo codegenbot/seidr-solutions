@@ -1,24 +1,19 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
-std::string fix_spaces(std::string text) {
-    for (size_t i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-            int count = 1;
-            for (size_t j = i + 1; j < text.size() && text[j] == ' '; ++j) {
-                text[j] = '-';
-                ++count;
-            }
-            if (count > 2) {
-                for (size_t k = i + 1; k < text.size() && text[k] == '-'; ++k) {
-                    text[k] = '-';
-                }
+std::string fix_spaces(const std::string& text) {
+    std::string result = text;
+    for (int i = 0; i < result.length(); ++i) {
+        if (result[i] == ' ') {
+            if (i > 0 && result[i - 1] == ' ') {
+                result.replace(i - 1, 2, "-");
+                i--;
+            } else {
+                result[i] = '_';
             }
         }
     }
-    return text;
+    return result;
 }
 
 int main() {
