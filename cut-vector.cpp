@@ -19,7 +19,7 @@ int main() {
     
     for (int i = 0; i < n; ++i) {
         int diff = abs(2*leftSum - totalSum);
-        if (diff < minDiff && i != cutIndex) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
@@ -32,7 +32,7 @@ int main() {
     
     cout << endl;
     
-    for (int i = cutIndex; i < n; ++i) {
+    for (int i = cutIndex + 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
     
