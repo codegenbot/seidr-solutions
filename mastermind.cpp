@@ -1,34 +1,34 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i])
-            count++;
+#include <iostream>
+#include <string>
+
+int countWhitePegs(const std::string& code, const std::string& guess) {
+    int whitePegs = 0;
+    for (char c : code) {
+        for (char gc : guess) {
+            if (c == gc && code.find(gc) != code.rfind(gc)) {
+                whitePegs++;
+                break;
+            }
+        }
     }
-    return count;
+    return whitePegs;
 }
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char,int> codeCount;
-    for(int i=0; i<4; i++)
-        codeCount[code[i]]++;
-
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i])
-            codeCount[code[i]]--;
-        else
-            codeCount[guess[i]]--;
+int countBlackPegs(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    for (char gc : guess) {
+        if (std::count(code.begin(), code.end(), gc) == 1) {
+            blackPegs++;
+        }
     }
-
-    for(auto it = codeCount.begin(); it != codeCount.end(); it++)
-        count += min(it->second, 1);
-    return count;
+    return blackPegs;
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
-    cout << whitePegs(code, guess) << endl;
+    std::string code, guess;
+    std::cin >> code >> guess;
+    int white = countWhitePegs(code, guess);
+    int black = countBlackPegs(code, guess);
+    std::cout << white << "\n" << black << std::endl;
     return 0;
 }
