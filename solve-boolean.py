@@ -1,9 +1,18 @@
-def solve_boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif len(input_str) > 1 and input_str[0] in ['f', 't'] and input_str[1] in ['&', '|']:
-        return solve_boolean(input_str[0]) and input_str[1] == '&' or solve_boolean(input_str[0]) or solve_boolean(input_str[1:])
-    else:
-        return all(input_str.split('&')) or any(input_str.split('|'))
+def solve_boolean(expression):
+    def boolean_function(a, b, operator):
+        if operator == "&":
+            return a and b
+        elif operator == "|":
+            return a or b
+        else:
+            raise ValueError("Invalid operator")
+
+    stack = []
+    for char in expression:
+        if char.upper() in ["T", "F"]:
+            stack.append(char.upper() == "T")
+        elif char in ["&", "|"]:
+            b, a = stack.pop(), stack.pop()
+            stack.append(boolean_function(a, b, char))
+
+    return stack[0]
