@@ -21,8 +21,3 @@ string match_parens(const vector<string>& lst) {
     }
     return (cnt == 0) ? "Yes" : "No";
 }
-
-int main() {
-    cout << match_parens({")", "("}) << endl;
-    return 0;
-}
