@@ -1,5 +1,5 @@
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    std::vector<float> sortedNumbers = numbers; 
+    std::vector<float> sortedNumbers = numbers; // Make a copy to avoid modifying the original vector.
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
   
     for (int i = 0; i < sortedNumbers.size() - 1; ++i) {
