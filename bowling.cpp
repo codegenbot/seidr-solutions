@@ -18,23 +18,15 @@ int bowlingScore(std::string bowls) {
             }
             score += roll1 + roll2;
         } else {
-            int x = 0;
-            while (i < 9 && bowls[i] == 'X') {
-                score += 10;
-                i++;
-                if (i < 9) {
-                    if (isdigit(bowls[i])) {
-                        x = bowls[i] - '0';
-                        break;
-                    } else {
-                        x = 10;
-                        i++;
-                    }
+            score += 10;
+            if (i < 9) {
+                if (isdigit(bowls[i + 1])) {
+                    score += bowls[i + 1] - '0';
+                    i++;
                 } else {
-                    x = 10;
+                    score += 10;
                 }
             }
-            score += x;
         }
     }
     return score;
