@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -11,6 +10,8 @@ int specialFilter(vector<int> nums){
     return count;
 }
 
-int main(){
+int main() {
     assert(specialFilter({}) == 0);
+    cout << specialFilter({12, 15, 30}) << endl; 
+    return 0;
 }
