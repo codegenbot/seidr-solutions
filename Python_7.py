@@ -1,15 +1,13 @@
-```
+```Python
 from typing import List
 
 
 def filter_by_substring():
-    user_strings = input("Enter a list of strings (separated by spaces): ")
-    user_substring = input("Enter the substring: ")
+    user_strings = input("Enter comma-separated strings: ").split(",")
+    substring = input("Enter a substring to search: ")
 
-    user_strings_list = [s.strip() for s in user_strings.split()]
-
-    filtered_strings = [s for s in user_strings_list if user_substring in s]
-
+    filtered_strings = [s.strip() for s in user_strings if substring.lower() in s.lower()]
+    
     return filtered_strings
 
 print(filter_by_substring())
