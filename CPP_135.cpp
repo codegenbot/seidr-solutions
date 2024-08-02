@@ -2,10 +2,8 @@
 #include <vector>
 
 int can_arrange(std::vector<int> arr) {
-    int prev = INT_MAX;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] <= prev) return i;
-        prev = arr[i];
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] <= arr[i - 1]) return i;
     }
     return -1;
 }
