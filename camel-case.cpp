@@ -1,42 +1,30 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string kebabToCamel(const std::string& str) {
+    std::string result;
+    bool nextWordIsUpper = false;
 
-string kebabToCamel(string str) {
-    string result = "";
-    int count = 0;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            count++;
-            continue;
-        }
-        
-        if (count > 0) {
-            result[0] = toupper(str[i]);
-            result += str.substr(i + 1);
-            break;
-        }
-        
-        if (str[i] != ' ') {
-            if (result.length() == 0)
-                result += tolower(str[i]);
-            else
-                result += str[i];
+    for (char c : str) {
+        if (c == '-') {
+            nextWordIsUpper = true;
+        } else if (nextWordIsUpper) {
+            result += toupper(c);
+            nextWordIsUpper = false;
+        } else {
+            result += tolower(c);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string input;
-    cout << "Enter the kebab-case string: ";
-    cin >> input;
-    cout << "The camelCase string is: " << kebabToCamel(input) << endl;
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "CamelCase conversion: " << kebabToCamel(input) << std::endl;
+
     return 0;
 }
