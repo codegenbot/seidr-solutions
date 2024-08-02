@@ -1,14 +1,12 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-min_diff = float("inf")
-cut_index = -1
+v = [int(input()) for _ in range(n)]
+diff = float("inf")
+idx = 0
 
 for i in range(1, n):
-    diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+    current_diff = abs(sum(v[:i]) - sum(v[i:]))
+    if current_diff < diff:
+        diff = current_diff
+        idx = i
 
-print(*arr[:cut_index])
-print(*arr[cut_index:])
+print(sum(v[:idx]), sum(v[idx:]))
