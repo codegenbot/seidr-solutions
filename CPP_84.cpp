@@ -1,16 +1,21 @@
 string solve(int N){
     int sum = 0;
-    while(N > 0){
-        int remainder = N % 2;
-        if(remainder == 1) sum++;
-        N /= 2;
+    while(N > 0) {
+        sum += N & 1;
+        N >>= 1;
     }
-    string result;
-    for(int i = 0; i < sum; i++){
-        result += '1';
+    return to_binary(sum);
+}
+
+string to_binary(int n) {
+    string res = "";
+    while(n > 0) {
+        if(n % 2 == 0)
+            res.push_back('0');
+        else
+            res.push_back('1');
+        n /= 2;
     }
-    for(int i = 0; i < 4 - sum; i++){
-        result += '0';
-    }
-    return result;
+    reverse(res.begin(), res.end());
+    return res;
 }
