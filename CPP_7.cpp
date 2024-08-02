@@ -1,16 +1,16 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(auto str : strings) {
-        if(str.find(substring) != string::npos) {
+        if(str.find(substring) != std::string::npos) {
             result.push_back(str);
         }
     }
@@ -19,9 +19,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 int main() {
     vector<string> vec1 = {"apple", "banana", "cherry"};
-    vector<string> vec2 = {"banana", "orange", "grape"};
+    vector<string> vec2 = {"banana", "cherry", "date"};
 
-    if(issame(filter_by_substring(vec1, "ba"), filter_by_substring(vec2, "or"))) {
+    if(issame(vec1, filter_by_substring(vec2, "ba"))) {
         cout << "The vectors are the same" << endl;
     } else {
         cout << "The vectors are not the same" << endl;
