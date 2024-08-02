@@ -1,10 +1,12 @@
-vector<int> incr_list(vector<int> l) {
-    for (int &num : l) {
+#include <vector>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> incr_list(std::vector<int> l) {
+    for (int& num : l) {
         num++;
     }
     return l;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
 }
