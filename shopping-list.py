@@ -1,6 +1,5 @@
 n = int(input())
 prices = list(map(float, input().split()))
-discounts = list(map(float, input().split()))
-
-total = sum([(price - price * discount / 100) for price, discount in zip(prices, discounts)])
-print(total)
+disc = list(map(float, input().split()))
+total_price = sum([(1 - d / 100) * p for p, d in zip(prices, disc)])
+print(total_price)
