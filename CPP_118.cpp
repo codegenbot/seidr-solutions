@@ -1,24 +1,22 @@
+Here is the solution:
+
+```cpp
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int right = word.size() - 1; right >= 0; --right) {
-        if (!isvowel(word[right])) {
-            while (left < right && !isconsonant(word[left])) {
-                ++left;
-            }
-            if (left < right) {
-                return string(1, tolower(word[right]));
+    for(int i = word.size() - 1; i > 0; --i) {
+        if(vowels.find(word[i]) != string::npos) {
+            for(int j = i - 1; j >= 0; --j) {
+                if(!vowels.find(word[j])) {
+                    return string(1, word[i]);
+                }
             }
         }
     }
     return "";
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(char c) {
-    c = tolower(c);
-    return !isvowel(c) && (c >= 'b' && c <= 'z');
-}
+const string vowels("aeiouAEIOU");
