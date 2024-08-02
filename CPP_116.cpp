@@ -1,13 +1,12 @@
 #include <vector>
-#include <algorithm>
 
 int countOnes(int n) {
-    int count = 0;
+    int ones = 0;
     while (n) {
-        n &= n - 1;
-        count++;
+        ones += n & 1;
+        n >>= 1;
     }
-    return count;
+    return ones;
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -16,7 +15,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> sort_array(vector<int> arr) {
     vector<int> result;
-    
+
     for (int i = 0; i < arr.size(); i++) {
         int ones = countOnes(arr[i]);
         if (i == 0 || ones != countOnes(arr[i-1])) {
@@ -35,6 +34,6 @@ vector<int> sort_array(vector<int> arr) {
             }
         }
     }
-    
+
     return result;
 }
