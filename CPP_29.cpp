@@ -3,28 +3,21 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
     return true;
 }
 
 int main(){
-    int n;
-    std::cin >> n;
-    vector<string> strings(n);
-    for(int i = 0; i < n; i++) std::cin >> strings[i];
-    
-    string prefix;
-    std::cin >> prefix;
-    
+    vector<string> strings = {"apple", "banana", "apricot", "avocado"};
+    string prefix = "a";
     vector<string> result = filter_by_prefix(strings, prefix);
-    
-    if(issame({prefix}, {result[0]}))
-        cout << "Same\n";
+    if(issame(result, {"apple", "apricot"}))
+        std::cout << "The filtered list is as expected.\n";
     else
-        cout << "Different\n";
-    
+        std::cout << "The filtered list does not match the expected.\n";
     return 0;
 }
