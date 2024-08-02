@@ -3,7 +3,7 @@
 #include <algorithm>
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    std::vector<std::string> words = {"abc", "def", "ghi"};
     std::cout << find_max(words) << std::endl;
 }
 
