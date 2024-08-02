@@ -3,5 +3,5 @@ def parse_music(music_string: str) -> List[int]:
     notes = {"o": 4, "o|": 2, ".|": 1}
     return [notes[note] for note in music_string.split()]
 
-input_string = input()
-print(parse_music(input_string))
+music_input = input()
+print(parse_music(music_input))
