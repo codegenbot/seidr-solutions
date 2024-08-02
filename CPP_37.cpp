@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
@@ -24,11 +25,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     return l;
 }
 
-int main() {
-    std::vector<float> result = sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    for (const auto& elem : result) {
-        std::cout << elem << " ";
-    }
-    std::cout << std::endl;
+int main(int argc, char** argv) {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
