@@ -9,8 +9,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
             result.push_back(2);
         } else {
             int diff = abs(game[i] - guess[i]);
-            if (game[i] == to_string(guess[i])[0] - '0' && 
-                (diff == 1 || (diff >= 5))) {
+            if (diff == game[i]) {
                 result.push_back(1);
             } else {
                 result.push_back(diff);
