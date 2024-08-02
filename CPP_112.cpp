@@ -3,21 +3,28 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::vector<std::string> result_vec;
-    for (const auto& str : a) {
-        if (std::find(b.begin(), b.end(), str) == b.end()) {
-            result_vec.push_back(str);
+bool issame(const std::string& a, const std::string& b) {
+    std::string result = "";
+    for (char ch : a) {
+        if (b.find(ch) == std::string::npos) {
+            result += ch;
         }
     }
-    
-    std::vector<std::string> result_reverse = result_vec;
+    std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
+    return result == result_reverse;
+}
 
-    return result_vec == result_reverse;
+std::vector<std::string> reverse_delete(const std::string& a, const std::string& b) {
+    if (issame(a, b)) {
+        return {"True"};
+    } else {
+        return {""};
+    }
 }
 
 int main() {
-    assert(issame({"mamma"}, {"mia"}) == true);
+    assert(issame("mamma", "mia") == false);
+    assert(reverse_delete("mamma", "mia") == std::vector<std::string>{"", "True"});
     return 0;
 }
