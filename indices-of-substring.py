@@ -5,6 +5,7 @@ def indices_of_substring(text, target):
             indices.append(i)
     return indices
 
+
 # Read input
 text = input().strip()
 target = input().strip()
