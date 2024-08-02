@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <openssl/evp.h>
 
-std::string string_to_md5(std::string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) return "";
 
     unsigned char result[MD5_DIGEST_LENGTH];
@@ -24,9 +25,9 @@ std::string string_to_md5(std::string text) {
 }
 
 int main() {
-    std::string text;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, text);
-    std::cout << "MD5 hash of the input string is: " << string_to_md5(text) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "MD5 of the string is: " << string_to_md5(input) << std::endl;
     return 0;
 }
