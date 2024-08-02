@@ -1,4 +1,3 @@
-```
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     vector<int> well(n);
@@ -23,4 +22,3 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     }
     
     return bucket_count;
-}
