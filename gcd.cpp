@@ -36,12 +36,11 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
     
-    std::string inputText;
-    std::cin.ignore();
-    std::getline(std::cin, inputText);
-    std::string text = inputText.substr(0, inputText.find(' '));
-    std::string target = inputText.substr(inputText.find(' ') + 1);
-    
+    std::string text, target;
+    std::cin >> std::ws;
+    std::cin >> std::ws;
+    std::cin >> text;
+    std::cin >> target;
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int index : result) {
         std::cout << index << " ";
