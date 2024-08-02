@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,9 +24,9 @@ int main() {
     int result = can_arrange(arr);
 
     if (result == -1) {
-        std::cout << "The array can be arranged.\n";
+        std::cout << "The array can be arranged in increasing order." << std::endl;
     } else {
-        std::cout << "The array cannot be arranged at position " << result << ".\n";
+        std::cout << "The array cannot be arranged in increasing order. The first element that is out of order is at index " << result << "." << std::endl;
     }
 
     return 0;
