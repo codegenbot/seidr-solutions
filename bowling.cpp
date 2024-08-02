@@ -1,28 +1,30 @@
-```cpp
 #include <sstream>
 
 int bowlingScore(std::string s) {
     int score = 0;
     int rolls = 0;
 
-    std::istringstream iss(s);
-    std::string frame;
+    std::stringstream ss(s);
 
-    while (std::getline(iss, frame, ' ')) {
+    for (std::string frame; getline(ss, frame, '\n'); ) {
         if (frame == "X") {
             score += 30;
             rolls++;
-        } else if (frame.size() > 1 && frame[1] == '/') {
-            int spare = 10 - (frame[0] - '0');
-            score += spare + 10;
-            rolls+=2;
+        } else if (frame.length() > 1 && frame[1] == '/') {
+            int firstRoll = 10 - (frame[0] - '0');
+            int secondRoll = 10 - firstRoll;
+            score += firstRoll + secondRoll;
+            rolls += 2;
         } else {
-            int roll = std::stoi(frame);
-            score += roll;
-            rolls++;
-            if (roll < 10) {
-                score += std::stoi(iss.str().substr(0, iss.str().find(' ')).erase(0, iss.str().find_first_of("0123456789") + 1));
-                rolls++;
+            int firstRoll = frame[0] - '0';
+            int secondRoll = 10 - firstRoll;
+
+            if (frame.length() > 1 && frame[1] == '/') {
+                score += firstRoll + secondRoll / 2;
+                rolls += 2;
+            } else {
+                score += firstRoll + secondRoll;
+                rolls += 2;
             }
         }
 
