@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -9,7 +10,7 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            result &= true;
+            result &= false;
         } else if (s[i] == '|') {
             result |= true;
         }
