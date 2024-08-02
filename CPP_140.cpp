@@ -1,5 +1,7 @@
-string fix_spaces(string text){
-    string result = "";
+#include <string>
+
+std::string fix_spaces(std::string text){
+    std::string result = "";
     bool skipSpace = false;
 
     for(int i=0; i<text.length(); i++){
