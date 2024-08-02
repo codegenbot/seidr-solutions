@@ -1,10 +1,8 @@
 #include <iostream>
-#include <cctype>
-using namespace std;
+#include <string>
 
-// Function to encrypt the string
-string encrypt(string s) {
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
@@ -16,8 +14,9 @@ string encrypt(string s) {
 }
 
 int main() {
-    // Test the function
-    assert(encrypt("a") == "e");
-    cout << "Encryption test passed.\n";
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
 }
