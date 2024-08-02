@@ -6,11 +6,14 @@ double truncate_number(double number) {
     return number - floor(number);
 }
 
-int main() {
+void solve_problem() {
     double num;
     std::cin >> num;
-    
-    std::cout << truncate_number(num) << std::endl;
 
+    std::cout << truncate_number(num) << std::endl;
+}
+
+int main() {
+    solve_problem();
     return 0;
 }
