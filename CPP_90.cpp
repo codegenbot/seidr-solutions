@@ -8,13 +8,8 @@ std::vector<int> next_smallest(std::vector<int> lst) {
     sort(v.begin(), v.end());
     for (int i = 1; i < v.size(); i++) {
         if (v[i] != v[0]) {
-            return {v[i]};
+            return v[i];
         }
     }
-    return {v[0]};; // If all elements are equal, return the first one
-}
-
-int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == {-35});
-    return 0;
+    return v[0]; 
 }
