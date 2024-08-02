@@ -1,12 +1,10 @@
 #include <vector>
 
 int can_arrange(vector<int> arr){
-    int prev = arr[0];
     for(int i = 1; i < arr.size(); i++){
-        if(arr[i] <= prev){
+        if(arr[i] <= arr[i-1]){
             return i;
         }
-        prev = arr[i];
     }
     return -1;
 }
