@@ -1,9 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-int largest_smallest_integers(std::vector<int> v) {
-    std::sort(v.begin(), v.end());
-    return v.back() - v.front();
+int largest_smallest_integers(std::vector<int> vec){
+    std::sort(vec.begin(), vec.end());
+    return vec.front() + vec.back();
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
