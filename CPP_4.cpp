@@ -1,15 +1,15 @@
-float mean_absolute_deviation(std::vector<float> numbers) {
-    float sum = 0;
-    float mean = 0;
-    for (float num : numbers) {
+#include <cmath>
+
+double mean_absolute_deviation(const vector<double>& numbers) {
+    double sum = 0;
+    for (double num : numbers) {
         sum += num;
     }
-    mean = sum / numbers.size();
-
-    float deviation_sum = 0;
-    for (float num : numbers) {
-        deviation_sum += std::abs(num - mean);
+    double mean = sum / numbers.size();
+    
+    double deviation_sum = 0;
+    for (double num : numbers) {
+        deviation_sum += abs(num - mean);
     }
-
     return deviation_sum / numbers.size();
 }
