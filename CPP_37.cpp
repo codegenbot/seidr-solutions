@@ -8,7 +8,7 @@ using namespace std;
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), [](float x, float y) {
-        return std::abs(x - y) < 0.0001f; 
+        return std::abs(x - y) < 0.0001f; // Adjust epsilon value as needed
     });
 }
 
