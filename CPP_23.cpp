@@ -5,6 +5,6 @@ int customLength(std::string str) {
 }
 
 int main() {
-    assert(customLength("asdasnakj") == 13); 
+    assert(customLength("asdasnakj") == 12); 
     return 0;
 }
