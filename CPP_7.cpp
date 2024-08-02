@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,34 +8,40 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     int n;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
-    std::vector<std::string> strings(n);
-    for(int i = 0; i < n; ++i){
-        std::cin >> strings[i];
+    std::vector<std::string> str1(n);
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter string " << i+1 << ": ";
+        std::cin >> str1[i];
     }
 
-    std::string substring;
-    std::cin >> substring;
+    int m;
+    std::cout << "Enter the number of substrings: ";
+    std::cin >> m;
 
-    vector<string> result = filter_by_substring(strings, substring);
+    std::vector<std::string> sub(m);
+    for(int i = 0; i < m; ++i) {
+        std::cout << "Enter substring " << i+1 << ": ";
+        std::cin >> sub[i];
+    }
 
-    if(issame({substring}, {result[0]})) {
-        for(string s : result) {
-            cout << s << endl;
+    vector<string> result = filter_by_substring(str1, sub[0]);
+    bool same = false;
+    
+    for(int i = 0; i < m-1; ++i) {
+        if(issame(result, filter_by_substring(str1, sub[i+1]))) {
+            same = true;
+            break;
         }
-    } else {
-        cout << "No matching strings found." << endl;
     }
+
+    std::cout << "Are all strings the same? ";
+    if(same)
+        std::cout << "Yes" << std::endl;
+    else
+        std::cout << "No" << std::endl;
 
     return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
 }
