@@ -3,12 +3,11 @@
 #include <typeinfo>
 #include <cassert>
 
-template <typename T>
-std::any compare_one(T a, T b) {
-    if (a == b) {
+std::any compare_one(std::any a, std::any b) {
+    if (std::any_cast<std::string>(a) == std::any_cast<std::string>(b)) {
         return "None";
     } else {
-        return (a > b) ? std::any(a) : std::any(b);
+        return (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) ? a : b;
     }
 }
 
