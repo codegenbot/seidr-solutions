@@ -1,8 +1,3 @@
-#include <algorithm>
-#include <vector>
-
-The problem is to sort a given list of integers in a specific manner. The task description is not provided.
-
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
