@@ -1,5 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+using namespace std;
 
 bool is_sorted(const vector<int>& lst) {
     for (int i = 0; i < lst.size() - 1; i++) {
