@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <string>
-
 using namespace std;
 
 string int_to_mini_roman(int number) {
@@ -16,5 +12,5 @@ string int_to_mini_roman(int number) {
             result += p.second;
         }
     }
-    return to_string(number == 0 ? result : tolower(result));
+    return to_string(number == 0 ? result : result);
 }
