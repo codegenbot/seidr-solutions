@@ -3,17 +3,14 @@
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& str) {
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((const unsigned char*)str.c_str(), str.size(), result);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)str.c_str(), str.length(), digest);
 
-    std::string hash;
-    char buffer[3];
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(buffer, "%02x", result[i]);
-        hash += buffer;
-    }
+    char mdString[33];
+    for(int i = 0; i < 16; i++)
+         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
 
-    return hash;
+    return std::string(mdString);
 }
 
 int test_main() {
