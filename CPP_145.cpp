@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> order_by_points(std::vector<int> nums){
-    std::sort(nums.begin(), nums.end(), [](int a, int b) -> bool {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = std::abs(a), temp_b = std::abs(b);
 
