@@ -1,19 +1,21 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
     vector<float> l;
-    cout << "Enter numbers (enter -1 to finish): ";
     float x;
-    while ((cin >> x) && (x != -1)) {
+    cout << "Enter numbers (enter 'q' to quit):" << endl;
+    while (cin >> x) {
+        if (x == 'q') break;
         l.push_back(x);
     }
     vector<float> result = get_positive(l);
     for (float x : result) {
         cout << x << " ";
     }
+    cout << endl;
     return 0;
 }
 
