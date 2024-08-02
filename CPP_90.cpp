@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 
-namespace std {
 int next_smallest(std::vector<int> lst){
     std::vector<int> v = lst;
     std::sort(v.begin(), v.end());
