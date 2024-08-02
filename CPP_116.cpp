@@ -34,8 +34,8 @@ vector<int> sort_array(vector<int> arr) {
 int main() {
     vector<int> arr = {2,4,8,16,32};
     arr = sort_array(arr);
-    for (int n : arr) {
-        cout << n << " ";
+    for (int i : arr) {
+        cout << i << " ";
     }
     return 0;
 }
