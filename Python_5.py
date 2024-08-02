@@ -1,7 +1,11 @@
-def join_with_delimeter(numbers, delimeter):
-    result = []
-    for i in range(len(numbers)):
-        result.append(numbers[i])
-        if i < len(numbers) - 1:
-            result.append(delimeter)
-    return result
+def manipulate_numbers(numbers):
+    return (
+        [item for sublist in [[num, delimeter] for num in numbers[:-1]] for item in sublist]
+        + [numbers[-1]]
+        if numbers
+        else []
+    )
+
+numbers = [1, 2, 3, 4, 5]
+result = manipulate_numbers(numbers)
+print(result)
