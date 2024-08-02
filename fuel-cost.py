@@ -1,2 +1,2 @@
-def fuel_cost(fuel_costs):
-    return sum((i // 3) - 2 for i in map(int, fuel_costs.split()))
+def fuel_cost(n):
+    return sum((i // 3) - 2 for i in map(int, input().split()))
