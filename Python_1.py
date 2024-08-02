@@ -1,23 +1,23 @@
-```
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
     stack = []
     groups = []
-    group = ''
-    
+
     for char in paren_string:
-        if char == ' ':
+        if char == " ":
             continue
-        if char == '(':
+        if char == "(":
             stack.append(char)
-            group += char
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                group += stack.pop()
+        elif char == ")":
+            while stack and stack[-1] != "(":
+                groups.append(stack.pop())
             if stack:
-                stack.pop()  # matched the opening parenthesis
-            groups.append(group + ')')
-            group = ''
-    
-    return groups
+                group = "".join(groups + [""])
+                result.append(group)
+                groups.clear()
+                stack.pop()
+
+    return result
