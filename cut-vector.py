@@ -1,4 +1,4 @@
-n = int(input())
+n = 0
 v = list(map(int, input().split()))
 
 total_sum = sum(v)
@@ -7,7 +7,7 @@ right_sum = total_sum
 min_diff = float("inf")
 cut_index = -1
 
-for i in range(n):
+for i in range(len(v)):
     left_sum += v[i]
     right_sum -= v[i]
     diff = abs(left_sum - right_sum)
