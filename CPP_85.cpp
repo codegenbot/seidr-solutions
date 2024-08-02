@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -12,23 +13,19 @@ int add(std::vector<int> lst){
 
 int main() {
     std::vector<int> numbers;
-    int n;
-    
-    // Input the number of elements
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    int num;
 
-    // Input the elements
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
+    // Get input from user
+    while(std::cin >> num) {
         numbers.push_back(num);
     }
 
-    // Print the sum of even indexed elements
-    int result = add(numbers);
-    std::cout << "Sum: " << result << std::endl;
+    // Check if the input was valid (i.e., at least one number)
+    if(numbers.size() > 1) {
+        std::cout << "The sum of the even-indexed numbers is: " << add(numbers) << std::endl;
+    } else {
+        std::cout << "Invalid input. Please enter more than one number." << std::endl;
+    }
 
     return 0;
 }
