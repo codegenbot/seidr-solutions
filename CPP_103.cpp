@@ -8,9 +8,9 @@ string rounded_avg(int n,int m){
     avg = floor(avg + 0.5);
     string bin = "";
     while(avg > 0){
-        if(floor(avg) & 1) bin.push_back('1');
+        if(avg & 1) bin.push_back('1');
         else bin.push_back('0');
-        avg = floor(avg/2);
+        avg >>= 1;
     }
     reverse(bin.begin(), bin.end());
     return bin;
