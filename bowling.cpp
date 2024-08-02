@@ -15,6 +15,7 @@ int score(string s) {
         } else if (c == '/') {
             scores[ball - 1] = 10 - scores[ball - 2];
             frame++;
+            if (frame > 10) frame = 10;
         } else if (c == '-') {
             scores[ball++] = 0;
         } else {
