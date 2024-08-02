@@ -8,6 +8,6 @@ try:
 
     result = add(x, y)
 
-    print("The result of adding {} and {} is: {}".format(x, y, result))
+    print("The result of adding " + str(x) + " and " + str(y) + " is:", result)
 except ValueError:
     print("Please enter valid integers for input.")
