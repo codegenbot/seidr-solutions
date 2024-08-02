@@ -11,8 +11,9 @@ def rolling_max(numbers: List[int]) -> List[int]:
 numbers = []
 while True:
     try:
-        numbers.append(int(input().strip()))
-    except EOFError:
+        num = int(input())
+        numbers.append(num)
+    except:
         break
-        
+
 print(rolling_max(numbers))
