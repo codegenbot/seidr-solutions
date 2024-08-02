@@ -36,7 +36,15 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (countSetBits(a[i]) != countSetBits(b[i])) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
