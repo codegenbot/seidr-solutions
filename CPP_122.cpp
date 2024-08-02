@@ -17,13 +17,11 @@ int main() {
     int n, k;
     cout << "Enter the number of elements: ";
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> arr[i];
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> k;
+        arr.push_back(k);
     }
-    cout << "Enter value of K: ";
-    cin >> k;
-    int result = add_elements(arr, k);
-    cout << "Sum of elements is: " << result << endl;
+    cout << "Sum of all numbers with less than or equal to 3 digits is: " << add_elements(arr, n) << endl;
     return 0;
 }
