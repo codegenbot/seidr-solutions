@@ -1,6 +1,8 @@
+```cpp
 int main() {
     cout << minSubArraySum({1, -1}) << endl;
     return 0;
+}
 
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT64_MAX;
