@@ -1,11 +1,30 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int basement(vector<int>& nums) {
+#include <vector>
+
+int firstNegativeIndex(const std::vector<int>& numbers) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        if (sum < 0) return i;
+    int index = -1;
+
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
+        if (sum < 0) {
+            index = i;
+            break;
+        }
     }
-    return -1;
+
+    return index;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> numbers[i];
+    }
+    int result = firstNegativeIndex(numbers);
+    std::cout << result << std::endl;
+    return 0;
 }
