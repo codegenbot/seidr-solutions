@@ -12,6 +12,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame({-6, -4, -4, -3, -100, 1}, {-6, -4, -4, -3, -100, 1}));
+    assert(issame({-6, -4, -4, -3, -100, 1}, {-3, 1}));
     return 0;
 }
