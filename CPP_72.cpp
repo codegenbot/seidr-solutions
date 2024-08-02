@@ -20,9 +20,9 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    // Additional test cases
-    assert(will_it_fly({1, 2, 3, 2, 1}, 7) == true);
-    assert(will_it_fly({4, 5, 6, 7}, 10) == false);
+    assert(will_it_fly({1, 2, 3, 2, 1}, 10) == true);
+    assert(will_it_fly({1, 2, 3, 4, 5}, 15) == false);
+    assert(will_it_fly({1, 2, 3, 4, 3, 2, 1}, 15) == false);
 
     return 0;
 }
