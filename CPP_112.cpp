@@ -12,11 +12,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
             }
         }
     }
-    
-    std::string result_reversed = result;
-    std::reverse(result_reversed.begin(), result_reversed.end());
-    
-    return result == result_reversed;
+
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+
+    return result == result_reverse;
 }
 
 int main() {
