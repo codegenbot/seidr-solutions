@@ -1,9 +1,10 @@
-Here is the solution:
-
-int solve(vector<int> numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        sum += ((num / 3) - 2);
+int getFuelCost(vector<int> vec) {
+    int total = 0;
+    for (int i : vec) {
+        if (i % 3 == 0)
+            total += ((i / 3) - 2);
+        else
+            total += ((i / 3) - 1);
     }
-    return sum;
+    return total;
 }
