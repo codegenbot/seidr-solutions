@@ -1,6 +1,4 @@
 import math
-
-
 def find_zero(xs: list):
     n = len(xs) - 1
     a = xs[0]
@@ -11,7 +9,7 @@ def find_zero(xs: list):
     if n == 2:
         return -b / (2 * a)
 
-    D = c**2 - 4 * b * a
+    D = c ** 2 - 4 * b * a
     x1 = (-c + math.sqrt(D)) / (2 * b)
     x2 = (-c - math.sqrt(D)) / (2 * b)
 
