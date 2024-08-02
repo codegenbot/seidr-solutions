@@ -1,6 +1,11 @@
-def calculate_sum_of_digits(n):
-    sum = 0
-    while n:
-        sum += n % 10
-        n //= 10
-    return sum
+def get_valid_dates():
+    dates = []
+    while True:
+        user_date = input("Enter a date (MM-DD-YYYY) or 'q' to quit: ")
+        if user_date.lower() == "q":
+            break
+        if valid_date(user_date):
+            dates.append(user_date)
+        else:
+            print(f"Invalid date. Please enter a valid date in MM-DD-YYYY format.")
+    return dates
