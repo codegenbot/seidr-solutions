@@ -8,10 +8,18 @@ def gcd(a, b):
 def indices_of_substring(text, target):
     result = []
     start = 0
-    while True:
+    while start < len(text):
         pos = text.find(target, start)
         if pos == -1:
             break
         result.append(pos + 1)
         start = pos + 1
     return result
+
+# Testing the functions
+print(gcd(1, 1))
+print(indices_of_substring("Hello World", "World"))
+
+# Testing the functions with given examples
+print(gcd(4, 400000))
+print(indices_of_substring("bananaana", "ana"))
