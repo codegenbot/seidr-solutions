@@ -19,7 +19,7 @@ int main() {
     
     for (int i = 0; i < n; ++i) {
         int diff = abs(2*leftSum - totalSum);
-        if (diff < minDiff) {
+        if (diff < minDiff && i != cutIndex) {
             minDiff = diff;
             cutIndex = i;
         }
