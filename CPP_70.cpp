@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-Given a list of integers, sort the list in such a way that it alternates between the smallest and largest elements.
+The problem is to sort a given list of integers in a specific manner. The task description is not provided.
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
@@ -16,3 +16,4 @@ vector<int> strange_sort_list(vector<int> lst) {
         }
     }
     return result;
+}
