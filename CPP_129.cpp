@@ -24,7 +24,7 @@ int main() {
         std::cin >> grid[i].first >> grid[i].second;
     }
 
-    assert(isSame(minPath(grid, k), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-    
+    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+
     return 0;
 }
