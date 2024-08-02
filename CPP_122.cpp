@@ -12,8 +12,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3};
-    int k = 3;
-    std::cout << add_elements(arr, k);
+    std::vector<int> arr = {1, 10, 20};
+    int k = arr.size();
+    int result = add_elements(arr, k);
     return 0;
 }
