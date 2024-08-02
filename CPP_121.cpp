@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -13,5 +14,5 @@ int solution(vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 16);
-    return solution({1, 2, 3, 4});
+    return 0;
 }
