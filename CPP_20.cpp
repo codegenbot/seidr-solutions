@@ -1,14 +1,11 @@
-Here is the modified code:
-
-```cpp
 #include <algorithm>
 #include <vector>
-#include <numeric>
 #include <limits>
 
 bool issame(vector<float>, vector<float>);
 
 int main() {
+    vector<float> numbers;
     // your code here
 }
 
