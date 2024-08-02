@@ -14,4 +14,3 @@ int bowlingScore(std::string s) {
     }
     if (currentRoll > 0) score += currentRoll;
     return score;
-}
