@@ -1,31 +1,12 @@
-#include <iostream>
-#include <vector>
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+int minDiff = INT_MAX;
+int cutIndex = 0;
+for (int i = 1; i < n; ++i) {
+    int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+    if (diff < minDiff) {
+        minDiff = diff;
+        cutIndex = i;
     }
-
-    int cutIndex = 0;
-    int minDiff = abs(nums[0] - nums[n - 1]);
-    for (int i = 1; i < n - 1; ++i) {
-        int diff = abs(nums[i] - nums[n - i - 1]);
-        if (diff < minDiff) {
-            cutIndex = i;
-            minDiff = diff;
-        }
-    }
-
-    for (int i = 0; i <= cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
-    }
-    std::cout << std::endl;
-    for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
-    }
-
-    return 0;
 }
+
+vector<int> subvector1(nums.begin(), nums.begin() + cutIndex);
+vector<int> subvector2(nums.begin() + cutIndex, nums.end());
