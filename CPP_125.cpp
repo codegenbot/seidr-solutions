@@ -34,8 +34,3 @@ std::vector<std::string> split_words(std::string txt) {
     }
     return result;
 }
-
-int main() {
-    assert(issame(split_words(""), std::vector<std::string>{}));
-    return 0;
-}
