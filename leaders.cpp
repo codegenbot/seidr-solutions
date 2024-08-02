@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <climits>
-#include <iostream>
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
