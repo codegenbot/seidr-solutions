@@ -1,6 +1,2 @@
 def digits(n):
-    result = 1
-    for d in str(n):
-        if int(d) % 2 != 0:
-            result *= int(d)
-    return result
+    return sum(int(d) for d in str(n) if int(d) % 2 != 0)
