@@ -1,6 +1,6 @@
 def dfs(x, y, path, k, minPath):
     if len(path) > k:
-        return None  # Return None if path length exceeds k
+        return None
 
     visited[x][y] = True
     neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
