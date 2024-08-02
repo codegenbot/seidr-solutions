@@ -2,13 +2,13 @@
 #include <vector>
 #include <cassert>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+std::vector<int> minPath(const std::vector<std::vector<int>>& grid, int k) {
     std::vector<int> path;
-    for(int i = 0; i < k; i++){
+    for (int i = 0; i < k; i++) {
         path.push_back(grid[i % grid.size()][0]);
         path.push_back(grid[i % grid.size()][1]);
     }
@@ -25,12 +25,12 @@ int main() {
     }
 
     std::vector<int> expected;
-    for(int i = 0; i < k; i++){
+    for (int i = 0; i < k; i++) {
         expected.push_back(grid[i % n][0]);
         expected.push_back(grid[i % n][1]);
     }
 
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(isSame(minPath(grid, k), expected));
     
     return 0;
 }
