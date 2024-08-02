@@ -1,4 +1,4 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -9,6 +9,8 @@ double diceGame(int n, int m) {
         for(int j = 1; j <= m; j++) {
             if(i > j) {
                 count++;
+            } else if(i < j) {
+                count += (double)(j - i + 1);
             }
         }
     }
