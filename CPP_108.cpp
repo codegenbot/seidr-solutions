@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -8,7 +9,7 @@ int count_nums(std::vector<int> nums) {
             int sum = 0;
             bool negative = false;
             while (num != 0) {
-                int digit = std::abs(num) % 10;
+                int digit = abs(num) % 10;
                 if (digit != 0 || !negative) {
                     sum += digit;
                 }
