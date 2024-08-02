@@ -24,5 +24,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         string sb = boost::any_cast<string>(b);
         return (stof(sa) > stof(sb)) ? a : b;
     }
-    return boost::any("None");
+    return boost::any((boost::any_cast<int>(a) + boost::any_cast<int>(b)));
 }
