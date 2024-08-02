@@ -1,8 +1,10 @@
-def luhn(card):
-    card = list(map(int, card.split()))
-    result = sum(
-        sum(digit * 2 if i % 2 else digit for digit in card[i : i + 2]) - 9
-        for i in range(len(card))
-        if (i % 2 and digit > 4) or not i % 2
-    )
-    return str(result)
+def luhn_check(cc_number):
+    cc_number = list(map(int, cc_number))
+    sum = 0
+    for i in range(len(cc_number)):
+        if (i % 2) == 1:
+            cc_number[i] *= 2
+            if cc_number[i] > 9:
+                cc_number[i] -= 9
+        sum += cc_number[i]
+    return sum
