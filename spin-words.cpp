@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 std::string spinWords(std::string input) {
     std::string output;
     std::size_t pos = 0;
@@ -8,15 +11,24 @@ std::string spinWords(std::string input) {
             std::string word = input.substr(pos + 1, length);
             for (int i = word.length() - 1; i >= 0; --i)
                 output += word[i];
-            output += ' '; // fix: use += instead of append
+            output += ' ';
         } else {
-            output += input.substr(0, pos + 1);
+            output.append(input.substr(0, pos + 1));
         }
         input.erase(0, pos + 1);
     }
 
     if (!input.empty())
-        output += input;
+        output.append(input);
 
     return output;
+}
+
+int main() {
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+
+    return 0;
 }
