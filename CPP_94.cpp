@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 
 int sumOfDigits(int num) {
