@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cctype>
 #include <string>
 
 std::string encrypt(std::string s) {
@@ -17,7 +16,7 @@ std::string encrypt(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s;
     std::cout << "Encrypted string: " << encrypt(s) << std::endl;
     return 0;
 }
