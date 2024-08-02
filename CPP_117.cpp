@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> select_words(string s, int n);
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string current_word;
