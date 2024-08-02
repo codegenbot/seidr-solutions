@@ -1,15 +1,15 @@
-int luhn(vector<int> cardNum) {
+int luhn(const vector<int>& card) {
     int sum = 0;
-    bool alternate = false;
+    bool doubleNext = false;
 
-    for (int i = cardNum.size() - 1; i >= 0; i--) {
-        if (!alternate) {
-            sum += cardNum[i];
+    for (int i : card) {
+        if (!doubleNext) {
+            sum += i;
         } else {
-            int doubleVal = cardNum[i] * 2;
-            sum += (doubleVal > 9 ? doubleVal - 9 : doubleVal);
+            int doubled = i * 2;
+            sum += (doubled > 9) ? doubled - 9 : doubled;
         }
-        alternate = !alternate;
+        doubleNext = !doubleNext;
     }
 
     return sum;
