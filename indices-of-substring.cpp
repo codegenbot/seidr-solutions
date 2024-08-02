@@ -6,14 +6,9 @@ using namespace std;
 int main() {
     string text, target;
     getline(cin, text);
-
-    char c;
-    while (cin >> c && c != '}') {
-        target += c;
-    }
-
+    getline(cin >> ws, target);
     vector<int> indices;
-    for (size_t i = 0; i < text.length() - target.length() + 1; ++i) {
+    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
