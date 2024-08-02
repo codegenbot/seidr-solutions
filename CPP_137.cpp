@@ -15,31 +15,25 @@ boost::any compare_one(boost::any a, boost::any b) {
         return boost::any(max(get<double>(b), get<double>(a)));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int aInt = get<int>(a);
-        int bInt = get<int>(b);
-        if (aInt > bInt)
+        if (get<int>(a) > get<int>(b))
             return a;
-        else if (aInt < bInt)
+        else if (get<int>(a) < get<int>(b))
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double aDouble = get<double>(a);
-        double bDouble = get<double>(b);
-        if (aDouble > bDouble)
+        if (get<double>(a) > get<double>(b))
             return a;
-        else if (aDouble < bDouble)
+        else if (get<double>(a) < get<double>(b))
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string aString = get<string>(a);
-        string bString = get<string>(b);
-        if (aString > bString)
+        if (get<string>(a) > get<string>(b))
             return a;
-        else if (aString < bString)
+        else if (get<string>(a) < get<string>(b))
             return b;
         else
             return boost::any("None");
