@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int can_arrange(std::vector<int> arr){
     int idx = -1;
@@ -10,7 +11,7 @@ int can_arrange(std::vector<int> arr){
     return idx;
 }
 
-int main_task(){
+int main() {
     assert(can_arrange({}) == -1);
     return 0;
 }
