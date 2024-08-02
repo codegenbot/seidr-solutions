@@ -1,9 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cctype>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
@@ -32,20 +28,15 @@ long long eval(const string& s) {
     long long res = 0;
     long long num = 0;
     char sign = '+';
-    for (char c : s + "+") {
-        if (isdigit(c)) {
-            num = num * 10 + (c - '0');
+    for (char c = s.begin(); c != s.end() && c != '+'; ++c) {
+        if (isdigit(*c)) {
+            num = num * 10 + (*c - '0');
         } else {
             if (sign == '+')res += num;
             else res -= num;
-            sign = c;
+            sign = *c;
             num = 0;
         }
     }
     return res;
-}
-
-int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
 }
