@@ -11,12 +11,8 @@ int main() {
         if (c == '-' || c == ' ') {
             capitalize = true;
         } else {
-            if (capitalize) {
-                c = std::tolower(c);
-                capitalize = false;
-            } else if (std::isalpha(c)) {
-                c = std::tolower(c);
-            }
+            c = (capitalize) ? std::toupper(c) : std::tolower(c);
+            capitalize = false;
         }
     }
     
