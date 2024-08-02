@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b);
