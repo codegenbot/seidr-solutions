@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -15,6 +15,7 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    cout << string_sequence(n);
+    string s = string_sequence(n);
+    cout << "Sequence: " << s << endl;
     return 0;
 }
