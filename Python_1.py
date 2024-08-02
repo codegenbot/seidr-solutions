@@ -1,21 +1,19 @@
-```
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
+def calculate_expression_value(expression: str) -> int:
+    result = 0
+    sign = 1
     stack = []
-    groups = ""
-    
-    for char in paren_string:
-        if char == " ":
-            continue
-        if char == "(":
-            stack.append(char)
-            groups += char
-        elif char == ")":
-            stack.pop()
-            if not stack:
-                result.append(groups + "``" + char + "``")
-                groups = ""
-    
-    return result
+
+    for char in expression:
+        if char.isdigit():
+            result += sign * int(char)
+        elif char == "+":
+            sign = 1
+            stack.append(result)
+            result = 0
+        elif char == "-":
+            sign = -1
+            stack.append(result)
+            result = 0
+
+    stack.append(result)
+    return sum(stack)
