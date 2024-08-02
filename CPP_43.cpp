@@ -1,13 +1,17 @@
 #include <vector>
-#include <unordered_set>
+#include <cassert>
 
 bool pairs_sum_to_zero(std::vector<int> l) {
-    std::unordered_set<int> seen;
-    for (int i : l) {
-        if (seen.count(-i) > 0) {
-            return true;
+    for (int i = 0; i < l.size(); i++) {
+        for (int j = i + 1; j < l.size(); j++) {
+            if (l[i] + l[j] == 0) {
+                return true;
+            }
         }
-        seen.insert(i);
     }
     return false;
+}
+
+int main() {
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
 }
