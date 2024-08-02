@@ -1,22 +1,52 @@
-int smallest_change(vector<int> arr) {
+#include <iostream>
+#include <vector>
+
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    std::vector<std::vector<bool>> dp(n, std::vector<bool>(n, false));
     
     for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
+        dp[i][i] = true;
     }
     
-    for (int len = 2; len <= n; len++) {
-        for (int i = 0; i <= n - len; i++) {
-            int j = i + len - 1;
-            
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] == arr[i + 1]) {
+            dp[i][i + 1] = true;
+        } else {
+            break;
+        }
+    }
+    
+    for (int length = 3; length <= n; length++) {
+        for (int i = 0; i < n - length + 1; i++) {
+            int j = i + length - 1;
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i + 1][j - 1];
             } else {
-                dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j - 1]);
+                dp[i][j] = false;
+                for (int k = i; k <= j; k++) {
+                    if (!dp[i][k - 1] || !dp[k + 1][j]) {
+                        dp[i][j] = true;
+                        break;
+                    }
+                }
             }
         }
     }
     
-    return dp[0][n - 1];
+    int res = n;
+    for (int i = 0; i < n; i++) {
+        if (!dp[0][i]) {
+            res = i + 1;
+            break;
+        }
+    }
+    
+    return res;
+}
+
+int main() {
+    std::vector<int> arr = {0, 1};
+    assert(smallest_change(arr) == 1);
+    return 0;
 }
