@@ -1,5 +1,7 @@
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <boost/convert.hpp> // for boost::any->int, float conversion
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,28 +11,33 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return max(a.convert_to<float>(), b.convert_to<float>());
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = a.convert_to<string>();
-        string s2 = b.convert_to<string>();
-        if (s1 > s2)
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+
+        if(str1 > str2)
             return a;
-        else
+        else if(str1 < str2)
             return b;
+        else
+            return "None";
     } else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
                (b.type() == typeid(string))) {
-        int n1 = a.convert_to<int>();
-        float f = stod(b.convert_to<string>());
-        if (n1 > f)
-            return a;
+        int num = a.convert_to<int>();
+        string str = b.convert_to<string>();
+
+        if(stod(str) > num)
+            return boost::any(b);
         else
-            return b;
+            return "None";
     } else if ((a.type() == typeid(string)) && (b.type() == typeid(int) ||
                                                   b.type() == typeid(float))) {
-        string s = a.convert_to<string>();
-        float f = b.convert_to<float>();
-        if (stod(s) > f)
+        string str = a.convert_to<string>();
+        int num = b.convert_to<int>();
+
+        if(stod(str) > num)
             return a;
         else
-            return b;
+            return "None";
     }
-    return boost::any(); // default value
+    return "None";
 }
