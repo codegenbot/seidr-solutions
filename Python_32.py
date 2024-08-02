@@ -8,8 +8,5 @@ def find_zero(xs: list):
     x2 = (-b - sqrt_discriminant) / (2 * a)
     return x1 if x1 == x2 else (x1, x2)
 
-# Read input from the user
-user_input = list(map(int, input().split()))
-
-# Test cases
+user_input = list(map(int, input("Enter a list of 3 integers separated by space: ").split()))
 print(find_zero(user_input))
