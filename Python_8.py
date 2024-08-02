@@ -1,1 +1,2 @@
+```
 print(sum_product([1, 2, 3]))
