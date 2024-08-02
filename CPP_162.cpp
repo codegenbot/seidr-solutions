@@ -3,9 +3,6 @@
 #include <cassert>
 #include <openssl/md5.h>
 #include <openssl/evp.h>
-#include <openssl/err.h>
-
-std::string string_to_md5(const std::string& text);
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -18,7 +15,7 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, NULL);
     EVP_MD_CTX_free(mdctx);
-    
+
     char mdString[33];
     for (int i = 0; i < 16; i++) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
