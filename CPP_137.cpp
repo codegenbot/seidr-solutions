@@ -4,7 +4,7 @@
 #include <cassert>
 
 boost::any compare_one(std::string s1, std::string s2) {
-    return std::string("None");
+    return "None";
 }
 
 int main() {
