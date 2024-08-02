@@ -41,11 +41,10 @@ int eval(std::string s) {
 }
 
 int main() {
-    // test your code here
-    std::vector<std::string> operator_;
-    std::vector<int> operand;
-
-    // add your test cases here
-
+    // test the function
+    std::vector<std::string> operators = {"+", "+"};
+    std::vector<int> operands = {2, 3, 4};
+    int output = do_algebra(operators, operands);
+    std::cout << "Output: " << output << std::endl;
     return 0;
 }
