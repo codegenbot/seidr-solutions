@@ -6,9 +6,6 @@ bool issame(vector<string> a,vector<string> b){
 }
 
 int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> result = filter_by_substring(strings, substring);
-    assert (issame(result ,{{"grunt"}}));
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") , vector<string>({"grunt","prune"})));
     return 0;
 }
