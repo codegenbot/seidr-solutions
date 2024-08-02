@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string result = "";
     for (const std::string& str : a) {
