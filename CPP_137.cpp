@@ -1,10 +1,11 @@
+#include <boost/any.hpp>
 #include <any>
 #include <string>
 #include <typeinfo>
-#include <cassert>  
+#include <cassert>
 
-template <typename T>
-std::any compare_one(T a, T b) {
+template <typename T1, typename T2>
+std::any compare_one(T1 a, T2 b) {
     if (a == b) {
         return std::any("None");
     } else {
@@ -22,10 +23,10 @@ std::any compare(std::any a, std::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return std::any("None");  
+    return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
