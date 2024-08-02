@@ -3,7 +3,7 @@
 #include <algorithm>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     float num1 = numbers[0], num2 = numbers[1];
     for (int i = 1; i < numbers.size() - 1; ++i) {
@@ -22,6 +22,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
-  
+
     return 0;
 }
