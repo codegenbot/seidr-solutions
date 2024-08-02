@@ -1,48 +1,83 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i < v.size(); i++) {
-        int diff = abs(v[i] - v[i-1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 0; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += vec[j];
+        }
+        for (int j = i; j < n; j++) {
+            rightSum += vec[j];
+        }
+        
+        if (leftSum == rightSum) {
+            res.first = vector<int>(vec.begin(), vec.begin() + i);
+            res.second = vector<int>(vec.begin() + i, vec.end());
+            return res;
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0].resize(cut_index);
-    result[1].resize(v.size() - cut_index);
-    
-    for (int i = 0; i < cut_index; i++) {
-        result[0][i] = v[i];
+    int minDiff = INT_MAX, cutIndex = 0;
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += vec[j];
+        }
+        for (int j = i; j < n; j++) {
+            rightSum += vec[j];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
     }
     
-    for (int i = cut_index, j = 0; i < v.size(); i++, j++) {
-        result[1][j] = v[i];
-    }
-    
-    return result;
+    res.first = vector<int>(vec.begin(), vec.begin() + cutIndex);
+    res.second = vector<int>(vec.begin() + cutIndex, vec.end());
+    return res;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    // Write your test cases here
+    vector<int> vec1 = {1};
+    pair<vector<int>, vector<int>> res1 = cutVector(vec1);
+    cout << "Input: ";
+    for (int i : vec1) {
+        cout << i << " ";
     }
-    
-    vector<vector<int>> res = cutVector(v);
-    for (auto &vec : res) {
-        for (int num : vec) {
-            cout << num << " ";
-        }
-        cout << endl;
+    cout << endl;
+    cout << "Output: ";
+    for (int i : res1.first) {
+        cout << i << " ";
     }
-    
+    cout << endl;
+    for (int i : res1.second) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    vector<int> vec2 = {1, 10};
+    pair<vector<int>, vector<int>> res2 = cutVector(vec2);
+    cout << "Input: ";
+    for (int i : vec2) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "Output: ";
+    for (int i : res1.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+    for (int i : res2.second) {
+        cout << i << " ";
+    }
+    cout << endl;
+
     return 0;
 }
