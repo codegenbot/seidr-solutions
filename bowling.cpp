@@ -1,26 +1,27 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int roll = 0;
-    bool spare = false;
+    int rolls = 0;
+    vector<int> frames;
 
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                score += 10 - roll;
-            }
-            roll = 0;
-            spare = true;
-        } else if (c == 'X') {
-            score += 10;
-            roll = 0;
-            spare = false;
+    for (char c : input) {
+        if (c == 'X') {
+            score += 30;
+            frames.push_back(10);
+            rolls++;
+        } else if (c == '/') {
+            frames.push_back(10 - (11 - rolls));
+            rolls++;
         } else {
-            int val = c - '0';
-            roll += val;
-            if (roll >= 2) {
-                score += roll;
-                roll = 0;
-                spare = false;
+            int strike = 0;
+            for (; c != '/' && c != 'X'; c = input[rolls++]) {
+                strike += (c - '0');
+            }
+            if (c == 'X') {
+                score += 10 + strike;
+                frames.push_back(10);
+            } else {
+                score += strike;
+                frames.push_back(strike);
             }
         }
     }
