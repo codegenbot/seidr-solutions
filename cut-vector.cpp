@@ -14,26 +14,26 @@ int main() {
         cin >> nums[i];
     }
     
-    int minDiff = INT_MAX;
+    int totalSum = accumulate(nums.begin(), nums.end(), 0);
     int cutIndex = 0;
+    int leftSum = 0;
     
-    for (int i = 1; i < n; ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < minDiff) {
-            minDiff = diff;
+    for (int i = 0; i < n; ++i) {
+        int rightSum = totalSum - leftSum;
+        int diff = abs(leftSum - rightSum);
+        if (diff <= totalSum/2) {
             cutIndex = i;
+            break;
         }
+        leftSum += nums[i];
     }
     
-    vector<int> firstSubvector(nums.begin(), nums.begin() + cutIndex);
-    vector<int> secondSubvector(nums.begin() + cutIndex, nums.end());
-    
-    for (int num : firstSubvector) {
-        cout << num << endl;
+    for (int i = 0; i < cutIndex; ++i) {
+        cout << nums[i] << endl;
     }
     cout << endl;
-    for (int num : secondSubvector) {
-        cout << num << endl;
+    for (int i = cutIndex; i < n; ++i) {
+        cout << nums[i] << endl;
     }
     
     return 0;
