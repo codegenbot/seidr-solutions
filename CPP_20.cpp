@@ -4,9 +4,11 @@
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i) {
-        if(abs(a[i] - b[i]) > 1e-9) return false;
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i] - b[i]) > 1e-9)
+            return false;
     }
     return true;
 }
@@ -24,17 +26,22 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    // Declaration of functions
-    bool issame(vector<float> a, vector<float> b);
-    
     vector<float> numbers;
-    cin >> noskipws;
-    while(cin >> numbers.back()) {}
-    cout << "Closest pair: ";
-    for(auto p : find_closest_elements(numbers)) {
-        cout << "(" << p.first << ", " << p.second << ") ";
+    // Read input from user
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        float num;
+        cin >> num;
+        numbers.push_back(num);
     }
-    cout << endl;
+
+    if(numbers.size() > 1) {
+        vector<pair<float, float>> result = find_closest_elements(numbers);
+        cout << "Closest pair: (" << setprecision(6) << result[0].first << ", " << result[0].second << ")" << endl;
+    } else {
+        cout << "Please enter at least 2 numbers." << endl;
+    }
     
     return 0;
 }
