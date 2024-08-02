@@ -1,6 +1,7 @@
-// FindSumOfDigitsInLargestPrimeNumber
+```cpp
+// Find sum of digits in max prime number
 
-int skjkasdkd(vector<int> lst){
+int skjasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
