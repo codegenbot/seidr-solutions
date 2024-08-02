@@ -11,7 +11,7 @@ int prime_fib(int n) {
         fib = a + b;
         int temp = a;
         a = b;
-        b = temp + b;
+        b = temp + fib;
         if (!isPrime(fib)) {
             continue;
         }
