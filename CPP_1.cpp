@@ -5,29 +5,31 @@
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    int open = 0;
-    string current_group;
-
+    vector<string> groups;
+    int count = 0;
+    string temp = "";
     for (char c : paren_string) {
         if (c == '(') {
-            open++;
-            if (open > 1) {
-                current_group += c;
-            }
+            if (count > 0) temp += c;
+            count++;
         } else if (c == ')') {
-            open--;
-            if (open > 0) {
-                current_group += c;
-            }
-            if (open == 0 && !current_group.empty()) {
-                result.push_back(current_group);
-                current_group.clear();
+            count--;
+            if (count > 0) temp += c;
+            if (count == 0 && !temp.empty()) {
+                groups.push_back(temp);
+                temp = "";
             }
         }
     }
+    return groups;
+}
 
-    return result;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
