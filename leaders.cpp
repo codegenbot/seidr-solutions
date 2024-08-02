@@ -21,7 +21,7 @@ int main() {
     std::vector<int> nums;
     int num;
     int inputSize;
-
+  
     std::cout << "Enter the number of integers: ";
     std::cin >> inputSize;
 
@@ -39,7 +39,7 @@ int main() {
             std::cout << " "; // Add space after each output element
         }
     }
-
+  
     std::cout << std::endl;
 
     return 0;
