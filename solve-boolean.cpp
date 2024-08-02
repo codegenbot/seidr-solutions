@@ -1,11 +1,14 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string input;
-    cin >> input;
+    std::string expression;
+    std::cin >> expression;
     
-    if (input == "t") {
-        cout << "True";
+    if (expression == "t") {
+        std::cout << "True";
     } else {
-        cout << "False";
+        std::cout << "False";
     }
     
     return 0;
