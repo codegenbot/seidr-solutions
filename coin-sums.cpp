@@ -11,7 +11,7 @@ int main() {
     int dimes = (remainingCents - (quarters * 25)) / 10;
     remainingCents %= 10;
 
-    int nickles = (remainingCents - (dimes * 10)) / 5;
+    int nickles = remainingCents / 5;
     remainingCents %= 5;
 
     int pennies = remainingCents;
