@@ -1,9 +1,12 @@
-```
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+
 def make_palindrome(string: str) -> str:
     s = string.lower()
-    for i in range(len(s), 0, -1):
-        if not is_palindrome(s[:i]):
-            break
-    suffix = s[i-1::-1]
-    prefix = s[1:i][::-1] + s[0]
-    return prefix + s + suffix
+    if not is_palindrome(s):
+        new_s = s + s[::-1]
+        new_s = new_s[:len(new_s)//2] + ''.join(reversed(new_s[len(new_s)//2+1:]))
+    else:
+        new_s = s
+    return new_s
