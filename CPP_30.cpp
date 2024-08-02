@@ -7,7 +7,12 @@ bool same(vector<float> a, vector<float> b) {
     }
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return a == b;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
