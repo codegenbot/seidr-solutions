@@ -1,45 +1,27 @@
-#include <openssl/evp.h>
+#include <algorithm>
+#include <iomanip>
+#include <sstream>
+#include <string>
+#include <openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
-
-    unsigned char md[16];
-    unsigned char* p = NULL;
-    EVP_MD_CTX ctx;
-    EVP_MD *mdav;
-    const EVP_MD *md;
-
-    // Create the context
-    EVP_MD_CTX_init(&ctx);
-
-    // Set the digest algorithm to MD5
-    mdav = EVP_md5();
-    if (!EVP_DigestInit_ex(&ctx, mdav, NULL)) {
-        return "Error";
+    if (text.empty()) {
+        return "";
     }
 
-    // Convert string to bytes
-    const char* textBytes = text.c_str();
-    size_t textSize = text.size();
+    unsigned char mdBuffer[16];
+    MD5_CTX mdContext;
+    MD5_Init(&mdContext);
+    const char* ptr = text.c_str();
+    size_t len = text.length();
+    MD5_Update(&mdContext, ptr, len);
+    MD5_Final(mdBuffer, &mdContext);
 
-    // Update the context with the input
-    if (!EVP_DigestUpdate(&ctx, textBytes, textSize)) {
-        return "Error";
-    }
-
-    // Finalize the digest
-    if (!EVP_DigestFinal_ex(&ctx, md, &p)) {
-        return "Error";
-    }
-
-    EVP_MD_CTX_cleanup(&ctx);
-
-    // Convert bytes to hexadecimal string
     stringstream ss;
-    for (int i = 0; i < 16; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", md[i]);
-        ss << buff;
+    for (int i = 0; i < 16; ++i) {
+        ss << setfill('0') << setw(2) << hex << (int)mdBuffer[i];
     }
 
     return ss.str();
