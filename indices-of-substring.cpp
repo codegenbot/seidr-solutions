@@ -19,24 +19,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        size_t pos = 0;
-        while (found && pos < target.size()) {
-            if (text[i + pos] != target[pos]) {
-                found = false;
-            }
-            pos++;
-        }
-        if (found) {
-            result.push_back(i);
-        }
-    }
-    return result;
-}
-
 int main() {
     string text, target;
     cin >> text >> target;
