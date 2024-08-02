@@ -1,10 +1,8 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+#include <cassert>
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
@@ -16,7 +14,19 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
+bool compare_vectors(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    assert(std::issame(filter_integers({1, 2, 3}), std::vector<int>{1, 2, 3}));
+    assert(std::equal(filter_integers({3, std::any('c'), 3, 3, std::any('a'), std::any('b')}), {1, 2, 3}));
     return 0;
 }
