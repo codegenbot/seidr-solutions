@@ -21,4 +21,3 @@ int bowlingScore(string& s) {
         }
     }
     return score;
-}
