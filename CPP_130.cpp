@@ -1,12 +1,12 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
 }
 
 std::vector<int> tri(int n) {
     std::vector<int> result;
-
+    
     if (n >= 0) {
         for (int i = 0; i <= n; ++i) {
             if (i == 0) {
