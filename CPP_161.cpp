@@ -14,5 +14,9 @@ string solve(const string &s) {
 int main() {
     // Add necessary #include statements here
     
+    // Test the solve function with input
+    string input = "AbC123Def";
+    cout << solve(input) << endl;
+    
     return 0;
 }
