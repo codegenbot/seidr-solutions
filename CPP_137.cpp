@@ -1,34 +1,34 @@
 #include <any>
-#include <cassert>
+#include <iostream>
+#include <string>
 
-std::any compare_one(const std::any& a, const std::any& b);
+using namespace std;
 
-std::any compare_one(const std::any& a, const std::any& b) {
+any compare_one(any a, any b){
     if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(std::any_cast<int>(a) > std::any_cast<int>(b))
+        if(any_cast<int>(a) > any_cast<int>(b))
             return a;
-        else if(std::any_cast<int>(a) < std::any_cast<int>(b))
+        else if(any_cast<int>(a) < any_cast<int>(b))
             return b;
-        else
-            return std::any();
     }
     else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(std::any_cast<float>(a) > std::any_cast<float>(b))
+        if(any_cast<float>(a) > any_cast<float>(b))
             return a;
-        else if(std::any_cast<float>(a) < std::any_cast<float>(b))
+        else if(any_cast<float>(a) < any_cast<float>(b))
             return b;
-        else
-            return std::any();
     }
-    else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        float num1 = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float num2 = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+    else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        float num1 = stof(any_cast<string>(a).replace(any_cast<string>(a).find(','), 1, "."));
+        float num2 = stof(any_cast<string>(b).replace(any_cast<string>(b).find(','), 1, "."));
         if(num1 > num2)
             return a;
         else if(num1 < num2)
             return b;
-        else
-            return std::any();
     }
-    return std::any();
+    assert(false);
+}
+
+int main() {
+    // Your main code here
+    return 0;
 }
