@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,6 @@ std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     
     if(arr.empty()) {
-        result.push_back(-1);
         result.push_back(-1);
         return result;
     }
@@ -27,13 +27,13 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> numbers = {7, 9, 7, 1};
-    std::vector<int> output = pluck(numbers);
+    std::vector<int> input = {7, 9, 7, 1};
+    std::vector<int> output = pluck(input);
     
     if(output[0] == -1) {
-        std::cout << "Input array is empty." << std::endl;
+        std::cout << "Array is empty." << std::endl;
     } else {
-        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1] << std::endl;
+        std::cout << "Minimum even element: " << output[0] << ", Index: " << output[1] << std::endl;
     }
     
     return 0;
