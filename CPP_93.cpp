@@ -1,15 +1,16 @@
+#include<string>
+#include<cctype>
+
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = toupper(c);
-            int offset = (c - base) % 26;
-            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                result += static_cast<char>(base + (offset + 2) % 26);
-            } else {
-                result += static_cast<char>(base + offset + 2);
-            }
+            c = (c == base + 0 || c == base + 1) ? base + 2 : base;
+            c = tolower(c);
+            result += c;
         } else {
             result += c;
         }
