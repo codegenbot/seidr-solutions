@@ -3,14 +3,12 @@
 
 int main() {
     std::vector<int> l;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        l.push_back(x);
+    // Read input from user and store in 'l'
+    for(int i=0; i<3; i++) {
+        int temp;
+        std::cin >> temp;
+        l.push_back(temp);
     }
-    std::vector<float> v(l.begin(), l.end());
-    return *std::max_element(v.begin(), v.end());
+    std::vector<float> v = l; 
+    return *std::max_element(v.begin(), v.end()); 
+}
