@@ -4,14 +4,12 @@ string rounded_avg(int n,int m){
     for(int i=n; i<=m; i++) {
         sum += i;
     }
-    double avg = (double)sum / (m - n + 1);
-    avg = floor(avg);
+    double avg = (double)sum / ((m-n)+1);
+    avg = floor(avg + 0.5); // round to the nearest integer
     string res = "";
     while(avg > 0) {
-        if(avg & 1) res += "1";
-        else res += "0";
+        res = (avg & 1)? "1" + res : "0" + res;
         avg >>= 1;
     }
-    reverse(res.begin(), res.end());
     return res;
 }
