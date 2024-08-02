@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -29,7 +30,9 @@ bool isPrime(int n) {
     }
     return true;
 
+}
 int main() {
     int result = skjkasdkd({127, 97, 8192});
+    // assert or use the returned value
     return 0;
 }
