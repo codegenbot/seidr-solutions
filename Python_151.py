@@ -1,2 +1,2 @@
 ```
-print(double_the_difference([1, -2, 3, 4]))
+print(double_the_difference([1, 4, -3, 2]))
