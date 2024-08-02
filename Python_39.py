@@ -4,7 +4,7 @@ def prime_fib(n: int):
             return n
         else:
             return fibonacci(n - 1) + fibonacci(n - 2)
-
+    
     count = 1
     num = 1
     while count < n:
