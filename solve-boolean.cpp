@@ -1,38 +1,43 @@
-```
+#include <vector>
+#include <iostream>
 #include <string>
+#include <stack>
+
 using namespace std;
 
-bool solveBoolean(string s) {
-    bool result = true;
-    int operation = 0; // 0 for T/F, 1 for &, 2 for |
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') {
-            return 1;
-        } else if (s[i] == 'F') {
-            return 0;
-        } else if (s[i] == '&') {
-            operation = 1;
-        } else if (s[i] == '|') {
-            operation = 2;
-        } else if (operation > 0) {
-            if (s[i] == 'T') {
-                result = (operation == 1);
-            } else if (s[i] == 'F') {
-                result = !((operation == 1));
-            }
+stack<char> operatorStack;
+
+bool evaluateBoolean(string expression) {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|')
+                operatorStack.pop();
+            if (!operatorStack.empty() && operatorStack.top() == '&')
+                return false;
+        } else if (expression[i] == '|') {
+            while (!operatorStack.empty())
+                operatorStack.pop();
+            operatorStack.push(expression[i]);
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            if ((expression[i] == 'T' && !operatorStack.empty() && operatorStack.top() != '|') ||
+                (expression[i] == 'F' && !operatorStack.empty() && operatorStack.top() != '&'))
+                return false;
         }
     }
-    return result;
+    while (!operatorStack.empty()) {
+        if (operatorStack.top() == '|')
+            return true;
+        else
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    cout << solveBoolean("T") << endl; // Expected: 1
-    cout << solveBoolean("F") << endl; // Expected: 0
-    cout << solveBoolean("T&T") << endl; // Expected: 1
-    cout << solveBoolean("F&F") << endl; // Expected: 0
-    cout << solveBoolean("T|T") << endl; // Expected: 1
-    cout << solveBoolean("F|F") << endl; // Expected: 0
-    cout << solveBoolean("T&T|T") << endl; // Expected: 1
-    cout << solveBoolean("F&F|T") << endl; // Expected: 0
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBoolean(expression);
+    cout << "Result: " << (result ? "True" : "False") << endl;
     return 0;
 }
