@@ -9,8 +9,3 @@ bool will_it_fly(const std::vector<int>& q, int w) {
     }
     return (q == std::vector<int>(q.rbegin(), q.rend())) && (sum <= w);
 }
-
-int main() {
-    assert(will_it_fly({5}, 5));
-    return 0;
-}
