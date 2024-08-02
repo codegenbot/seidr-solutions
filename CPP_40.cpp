@@ -3,10 +3,9 @@
 #include <cassert>
 
 bool triples_sum_to_zero(const std::vector<int>& l) {
-    int n = l.size();
-    for (int i = 0; i < n - 2; ++i) {
-        for (int j = i + 1; j < n - 1; ++j) {
-            for (int k = j + 1; k < n; ++k) {
+    for (size_t i = 0; i < l.size() - 2; ++i) {
+        for (size_t j = i + 1; j < l.size() - 1; ++j) {
+            for (size_t k = j + 1; k < l.size(); ++k) {
                 if (l[i] + l[j] + l[k] == 0) {
                     return true;
                 }
