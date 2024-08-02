@@ -6,6 +6,9 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    user_input = input("Enter a series of space-separated strings: ")
-    user_strings = user_input.split()
-    print(concatenate(user_strings))
+    num_strings = int(input("Enter number of strings to concatenate (1-10): "))
+    if 1 <= num_strings <= 10:
+        strings = [input(f"Enter string {i+1}: ") for i in range(num_strings)]
+        print(concatenate(strings))
+    else:
+        print("Invalid input. Please enter a number between 1 and 10.")
