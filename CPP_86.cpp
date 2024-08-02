@@ -4,12 +4,10 @@ string anti_shuffle(string s){
         if(s[i] == ' '){
             result += ' ';
         } else {
-            char c = s[i];
-            while(c != ' ' && i < s.length()){
-                c = min(c, s[i]);
-                i++;
-            }
-            result += c;
+            string temp = s.substr(i, 1);
+            sort(temp.begin(), temp.end());
+            result += temp;
+            i++;
         }
     }
     return result;
