@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    cin.ignore(); // ignore the newline character
+    cin.ignore();
 
     vector<double> vec1(n);
     vector<double> vec2(n);
