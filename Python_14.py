@@ -1,4 +1,2 @@
-def all_prefixes(string: str) -> List[str]:
-    if not string:
-        return []
+def all_prefixes(string):
     return [string[: i + 1] for i in range(len(string))]
