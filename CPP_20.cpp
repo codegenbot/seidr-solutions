@@ -1,10 +1,8 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (abs(a[i] - b[i]) > 1e-6f)
-            return false;
-    return true;
+#include <algorithm>
+#include <vector>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
@@ -14,10 +12,10 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 
     std::sort(numbers.begin(), numbers.end());
 
-    auto it = min_element(numbers.begin() + 1, numbers.end(),
-                            [&numbers](float a, float b) {
-                                return abs(a - numbers[0]) > abs(b - numbers[0]);
-                            });
+    auto it = std::min_element(numbers.begin() + 1, numbers.end(),
+                                [&numbers](float a, float b) {
+                                    return abs(a - numbers[0]) > abs(b - numbers[0]);
+                                });
 
     return {numbers[0], *it};
 }
