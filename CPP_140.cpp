@@ -1,28 +1,22 @@
 #include <string>
-#include <cassert>
 
-std::string fix_spaces(const std::string& text) {
+std::string fix_spaces(std::string text) {
     std::string result = "";
-    int count = 0;
+    int consecutive_spaces = 0;
     for (char c : text) {
         if (c == ' ') {
-            count++;
-            if (count > 2) {
+            consecutive_spaces++;
+            if (consecutive_spaces > 2) {
                 result.pop_back();
                 result.pop_back();
-                result += "-";
+                result.push_back('-');
             } else {
-                result += '_';
+                result.push_back('_');
             }
         } else {
-            result += c;
-            count = 0;
+            result.push_back(c);
+            consecutive_spaces = 0;
         }
     }
     return result;
-}
-
-int main() {
-    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    return 0;
 }
