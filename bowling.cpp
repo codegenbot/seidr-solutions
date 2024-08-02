@@ -1,41 +1,36 @@
 int bowlingScore(string s) {
     int score = 0;
-    bool isLastRoll = false;
     int currentFrame = 1;
-    int rollsInFrame = 0;
-
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (isLastRoll ? 10 : 20);
-            isLastRoll = true;
-            rollsInFrame = 2;
-        } else if (c == '/') {
-            int thisRoll = 10 - (currentFrame <= 9 ? s.find('/') : 0);
-            if (currentFrame == 10) {
-                score += thisRoll + (isLastRoll ? thisRoll : 20);
-            } else {
-                score += thisRoll;
-            }
-            isLastRoll = false;
-            rollsInFrame = 2;
-        } else {
-            int thisRoll = c - '0';
-            if (rollsInFrame == 1) {
-                if (thisRoll + 10 <= s.length() && s.substr(s.find(c), 3).find('/') != string::npos) {
-                    score += 20;
-                } else {
-                    score += thisRoll + 10;
-                }
-            } else {
-                score += thisRoll;
-            }
-            rollsInFrame--;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == 'X' || (s[i] == '/' && i > 17)) {
+            score += 10 + bonusForPreviousTwoFrames(s, i);
+            currentFrame++;
         }
-
-        if (currentFrame < 10) {
+        else if(s[i] == '/') {
+            score += calculateScoreForCurrentFrame(s, i);
             currentFrame++;
         }
     }
-
     return score;
+}
+
+int bonusForPreviousTwoFrames(string s, int i) {
+    int prevPrev = 0;
+    int prev = getNumber(s, i-1);
+    if(i > 2)
+        prevPrev = getNumber(s, i-2);
+    return (prev + prevPrev <= 10) ? prev + prevPrev : 10;
+}
+
+int getNumber(string s, int i) {
+    return s[i] - '0';
+}
+
+int calculateScoreForCurrentFrame(string s, int i) {
+    int a = getNumber(s, i-1);
+    int b = getNumber(s, i);
+    if(a+b > 10)
+        return 10;
+    else
+        return a + b;
 }
