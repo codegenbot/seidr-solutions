@@ -5,7 +5,7 @@ def minPath(grid):
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
     def dfs(i, j, path):
-        if i == 0 and j == m - 1:
+        if i == n - 1 and j == m - 1:
             return path
         visited[i][j] = True
         for direction in directions:
@@ -24,4 +24,4 @@ def minPath(grid):
             if path and (not min_path or path < min_path):
                 min_path = path
 
-    return "".join(map(str, min_path))
+    return min_path
