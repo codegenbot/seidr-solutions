@@ -18,7 +18,7 @@ int main() {
     
     for(int i = 0; i < n; i++) {
         int val;
-        cout << "Enter element " << i+1 << ": ";
+        cout << "Enter element " << (i+1) << ": ";
         cin >> val;
         input.push_back(val);
     }
