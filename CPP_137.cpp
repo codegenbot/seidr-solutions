@@ -1,12 +1,8 @@
-#include <iostream>
+#include <any>
 #include <string>
-#include <boost/any.hpp>
 #include <cassert>
+#include <boost/any.hpp>
 
-boost::any compare_one(std::string s1, std::string s2) {
-    return "None";
-}
+using namespace std;
 
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
-}
+assert (boost::any_cast<string>(compare_one(string("1"), string("1"))).c_str() == nullptr);
