@@ -1,39 +1,45 @@
+#include <algorithm>
 #include <vector>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; ++i)
-        dp[i][0] = grid[i][0];
-    for (int j = 0; j < n; ++j)
-        dp[0][j] = grid[0][j];
-    
-    for (int i = 1; i < n; ++i) {
-        for (int j = 1; j < n; ++j) {
-            if (k == 1) {
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]);
-            } else {
-                int minVal = INT_MAX;
-                if (i > 0)
-                    minVal = min(minVal, dp[i-1][j]);
-                if (j > 0)
-                    minVal = min(minVal, dp[i][j-1]);
-                dp[i][j] = grid[i][j] + minVal;
+    vector<int> res;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            bool found = false;
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    if (x == 0 && y == 0) continue;
+                    int nx = i + x, ny = j + y;
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
+                        for (int l = 0; l < k; l++) {
+                            grid[nx][ny]--;
+                            bool valid = true;
+                            for (int i1 = 0; i1 < n; i1++) {
+                                for (int j1 = 0; j1 < n; j1++) {
+                                    if (grid[i1][j1] < 1) {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if (!valid) break;
+                            }
+                            if (valid) {
+                                found = true;
+                                res.push_back(grid[nx][ny]);
+                                break;
+                            }
+                            grid[nx][ny]++;
+                        }
+                        if (found) break;
+                    }
+                }
+                if (found) break;
             }
+            if (found) break;
         }
     }
-    
-    vector<int> res;
-    int i = n - 1, j = n - 1;
-    for (int t = 0; t < k; ++t) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && dp[i-1][j] <= dp[i][j-1])
-            --i;
-        else
-            --j;
-    }
-    
     return res;
 }
