@@ -20,8 +20,10 @@ vector<int> even_odd_count(int num) {
 
 int main() {
     assert(even_odd_count(0) == vector<int>{1, 0});
-    assert(even_odd_count(123456789) == vector<int>{4, 5});
-    assert(even_odd_count(-987654321) == vector<int>{5, 4});
+    assert(even_odd_count(12345) == vector<int>{3, 2});
+    assert(even_odd_count(246810) == vector<int>{3, 3});
+    assert(even_odd_count(-987) == vector<int>{1, 2});
+    assert(even_odd_count(1111111) == vector<int>{7, 0});
 
     return 0;
 }
