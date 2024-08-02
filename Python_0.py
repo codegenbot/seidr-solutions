@@ -4,3 +4,6 @@ def check_threshold(numbers, threshold):
             if abs(numbers[i] - numbers[j]) < threshold:
                 return True
     return False
+
+# Call the function with appropriate arguments to check the condition
+check_threshold([1, 3, 5, 7, 9], 2)
