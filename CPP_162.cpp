@@ -1,6 +1,6 @@
 #include <cassert>
 #include <string>
-#include <openssl/md5>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& str) {
     MD5_CTX ctx;
