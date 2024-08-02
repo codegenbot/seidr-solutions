@@ -38,7 +38,9 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin >> text >> target;
+    cin.ignore(); // Ignore the newline after reading integer input
+    getline(cin, text);
+    getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
     for (int index : result) {
         cout << index << " ";
