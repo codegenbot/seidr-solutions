@@ -2,14 +2,14 @@
 #include <algorithm>
 
 int main() {
-    std::vector<int> l; 
-    int max;
-    std::cout << "Enter numbers (separated by space): ";
-    for(int i = 0; i < 5; i++) {
-        int num;
-        std::cin >> num;
-        l.push_back(num);
+    std::vector<int> l;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        int temp;
+        cin >> temp;
+        l.push_back(temp);
     }
-    max = *std::max_element(l.begin(), l.end());
-    return max;
+    vector<float> v(l.begin(), l.end());
+    return *max_element(v.begin(), v.end());
 }
