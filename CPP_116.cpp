@@ -1,17 +1,13 @@
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(borrowed(a), '1') != count(borrowed(b), '1')) {
-            return count(borrowed(a), '1') < count(borrowed(b), '1');
-        }
-        return a < b;
-    });
-    return arr;
-}
+#include <vector>
+#include <algorithm>
 
-string borrowed(int n) {
-    string s = to_string(n);
-    while (s.size() % 4 != 0) {
-        s = "0" + s;
+using namespace std;
+
+vector<int> sort_vector(vector<int> arr) {
+    vector<pair<int, int>> vec;
+    for (int i : arr) {
+        vec.push_back({__builtin_popcount(i), i});
     }
-    return s;
+    sort(vec.begin(), vec.end());
+    return vector<int>(vec.begin(), vec.end());
 }
