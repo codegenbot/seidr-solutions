@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int>& v1, vector<int>& v2) {
+using namespace std;
+
+bool issame(const vector<int>& v1, const vector<int>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -15,7 +17,7 @@ bool issame(vector<int>& v1, vector<int>& v2) {
     return true;
 }
 
-vector<int> rolling_max(vector<int> numbers) {
+vector<int> rolling_max(const vector<int>& numbers) { 
     vector<int> result;
     int max_num = numbers[0];
     for (int i = 0; i < numbers.size(); i++) {
