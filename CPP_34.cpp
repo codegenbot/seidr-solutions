@@ -3,13 +3,19 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<int> unique(std::vector<int> v) {
+    std::sort(v.begin(), v.end());
+    v.erase(std::unique(v.begin(), v.end()), v.end());
+    return v;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
 }
 
-int solve() {
+int main() {
     std::vector<int> a = {1, 2, 3, 4};
     std::vector<int> b = {4, 2, 3, 1};
 
@@ -20,16 +26,7 @@ int solve() {
         std::cout << "Vectors are different after sorting." << std::endl;
     }
 
-    // Corrected assert statement without using unique function
-    std::vector<int> c = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    std::vector<int> d = {0, 2, 3, 5, 9, 123};
-    std::sort(c.begin(), c.end());
-    std::sort(d.begin(), d.end());
-    assert(c == d);
+    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
 
     return 0;
-}
-
-int main() {
-    return solve();
 }
