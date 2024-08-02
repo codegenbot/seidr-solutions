@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    // Compare vectors element-wise
     return a == b;
 }
 
@@ -18,6 +19,7 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
+    // Fix assert statement comparing the results of sum_product function
     assert(issame(sum_product({10}), {10, 10}));
     
     return 0;
