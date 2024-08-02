@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -28,8 +29,9 @@ int count_nums(vector<int> n) {
 }
 
 int main() {
-    vector<int> numbers = {1, -2, 3};
+    vector<int> numbers = {1, 2, 3};
     int result = count_nums(numbers);
     cout << "The result is: " << result << endl;
+    
     return 0;
 }
