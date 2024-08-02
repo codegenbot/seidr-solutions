@@ -5,10 +5,10 @@ int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 0) {
-            bool negative = false;
             int sum = 0;
+            bool negative = false;
             while (num != 0) {
-                int digit = abs(num) % 10;
+                int digit = std::abs(num) % 10;
                 if (digit != 0 || !negative) {
                     sum += digit;
                 }
@@ -28,6 +28,6 @@ int count_nums(std::vector<int> nums) {
 int main() {
     std::vector<int> nums = {1, -2, 3, -4};
     int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
+    std::cout << "The number of positive numbers is: " << result << std::endl;
     return 0;
 }
