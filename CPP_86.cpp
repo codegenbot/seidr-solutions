@@ -1,23 +1,21 @@
 #include <algorithm>
 #include <sstream>
 
+using namespace std;
+
 string anti_shuffle(string s) {
-    stringstream ss(s);
+    istringstream iss(s);
     string word;
-    string result;
-
-    while (ss >> word) {
+    ostringstream oss;
+    
+    while (iss >> word) {
+        string newWord;
         for (char c : word) {
-            result += c;
+            newWord += to_string(c) + " ";
         }
-        for (char c : word) {
-            if (c > 0) {
-                c--;
-                result += c;
-            }
-        }
-        result += " ";
+        newWord.pop_back(); // Remove the extra space
+        oss << newWord << " ";
     }
-
-    return result.substr(0, result.size() - 1);
+    
+    return oss.str();
 }
