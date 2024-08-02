@@ -1,18 +1,19 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
-#include <iostream> // Include this for using assert function
 
-std::string int_to_mini_roman(int number){
+std::string int_to_mini_roman(int number) {
     std::string roman = "";
     std::vector<std::pair<int, std::string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+        {100, "c"}, {90, "xc"}, {50, "l"},
+        {40, "xl"}, {10, "x"}, {9, "ix"},
+        {5, "v"}, {4, "iv"}, {1, "i"}
     };
-    
-    for(const auto& pair : roman_map){
-        while(number >= pair.first){
+
+    for (const auto &pair : roman_map) {
+        while (number >= pair.first) {
             roman += pair.second;
             number -= pair.first;
         }
@@ -22,6 +23,6 @@ std::string int_to_mini_roman(int number){
 }
 
 int main() {
-    assert(int_to_mini_roman(1000) == "m"); // Fix typo here
+    assert(int_to_mini_roman(1000) == "m");
     return 0;
 }
