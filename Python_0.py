@@ -5,7 +5,7 @@ def check_adjacent_numbers(numbers, threshold):
             return True
     return False
 
-numbers = [3, 6, 1, 9, 2]
-threshold = 5
+numbers = [3, 8, 5, 11, 6]
+threshold = 4
 result = check_adjacent_numbers(numbers, threshold)
 print(result)
