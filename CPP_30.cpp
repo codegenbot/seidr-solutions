@@ -1,26 +1,11 @@
 #include <vector>
 #include <assert.h>
 
-namespace MyNamespace {
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-}
-
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for(float num : l) {
-        if(num > 0)
-            result.push_back(num);
-    }
-    return result;
-
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(MyNamespace::issame(get_positive({}), {}));  
+    assert (std::equal(get_positive({}), {}));
+    return 0;
 }
