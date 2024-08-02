@@ -17,7 +17,7 @@ bool issame(const vector<int>& v1, const vector<int>& v2) {
     return true;
 }
 
-vector<int> rolling_max(const vector<int>& numbers) { 
+vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
     int max_num = numbers[0];
     for (int i = 0; i < numbers.size(); i++) {
