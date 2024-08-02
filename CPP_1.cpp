@@ -1,16 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-vector<string> separate_paren_groups(string paren_string);
+vector<string> separate_paren_groups(string paren_string) {
+    // Implement the function to separate parenthetical groups
+}
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+bool issame(vector<string> a, vector<string> b) {
+    // Implement the function to compare two vectors of strings
 }
 
 int main() {
-    // Add main function code here if needed
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    
     return 0;
 }
