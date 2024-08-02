@@ -33,7 +33,6 @@ std::string string_to_md5(const std::string& text) {
 }
 
 extern int main();
-
 int main() {
     std::string input_text;
     std::cout << "Enter a text to convert to MD5: ";
