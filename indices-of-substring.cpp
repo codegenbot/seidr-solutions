@@ -7,6 +7,7 @@ int main() {
     string text, target;
     getline(cin, text);
 
+    // Read the target string character by character until reaching '}'
     char c;
     while (cin >> c && c != '}') {
         target += c;
