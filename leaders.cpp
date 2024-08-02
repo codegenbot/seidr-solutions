@@ -2,18 +2,27 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> res;
     int n = arr.size();
+    vector<int> result;
     
-    // The last element of array will always be a leader.
-    res.push_back(arr[n-1]);
-    
-    for(int i=n-2; i>=0; i--) {
-        if(arr[i] >= arr[i+1])
-            res.push_back(arr[i]);
+    // rightmost element is always a leader
+    if(n > 0) {
+        result.push_back(arr[n-1]);
     }
     
-    reverse(res.begin(), res.end());
+    for(int i = n - 2; i >= 0; --i) {
+        bool leaderFound = false;
+        for(int j = i+1; j < n; ++j) {
+            if(arr[j] >= arr[i]) {
+                leaderFound = true;
+                break;
+            }
+        }
+        
+        if(leaderFound) {
+            result.push_back(arr[i]);
+        }
+    }
     
-    return res;
+    return result;
 }
