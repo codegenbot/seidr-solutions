@@ -34,7 +34,3 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     }
     return result;
 }
-
-int main() {
-    assert(std::equal(numerical_letter_grade({0, 0.7}), numerical_letter_grade({0, 0.7}), std::vector<std::string>()));
-}
