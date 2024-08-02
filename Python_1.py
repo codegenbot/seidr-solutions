@@ -3,18 +3,17 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    in_parentheses = False
+    is_within_parentheses = False
+    
     for char in paren_string:
-        if char == "(":
-            in_parentheses = True
+        if is_within_parentheses:
             temp += char
-        elif char == ")":
-            in_parentheses = False
-            temp += char
-            result.append(temp)
-            temp = ""
-        elif in_parentheses:
-            temp += char
+            if char == ")":
+                result.append(temp)
+                temp = ""
+                is_within_parentheses = False
         else:
-            result.append(char)
+            if char == "(":
+                temp += char
+                is_within_parentheses = True
     return result
