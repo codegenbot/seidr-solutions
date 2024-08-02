@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a,vector<string> b){
     for(string s : a){
         if(std::find(b.begin(),b.end(),s) == b.end())
