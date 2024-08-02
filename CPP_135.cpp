@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int can_arrange(std::vector<int> arr) {
+int can_arrange(std::vector<int> arr){
     for(int i=1; i<arr.size(); i++){
         if(arr[i] <= arr[i-1])
             return i;
@@ -9,9 +9,23 @@ int can_arrange(std::vector<int> arr) {
     return -1;
 }
 
-int main() {
-    std::vector<int> arr = {2, 3, 5, 4};
-    int result = can_arrange(arr);
-    std::cout << "The first index at which the array cannot be arranged in ascending order is: " << result << std::endl;
+int main(){
+    int n, k;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> arr(n);
+    for(int i=0; i<n; i++){
+        std::cout << "Element " << i+1 << ": ";
+        std::cin >> arr[i];
+    }
+    
+    k = can_arrange(arr);
+    
+    if(k == -1)
+        std::cout << "The array can be arranged.\n";
+    else
+        std::cout << "The first element that cannot be arranged is at index " << k << ".\n";
+    
     return 0;
 }
