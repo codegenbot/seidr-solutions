@@ -1,10 +1,3 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<int> sortedArr;
     for (int i : arr) {
