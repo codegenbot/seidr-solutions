@@ -22,10 +22,12 @@ string file_name_check(string file_name) {
         if (file_name[i] == '.') {
             dotCount++;
         }
-        if (!isalpha((unsigned char)file_name[i])) {
+        else if (!isalpha((unsigned char)file_name[i])) {
             return "No";
         }
-        validStart = true;
+        else {
+            validStart = true;
+        }
     }
 
     if (!validStart || dotCount > 1) {
