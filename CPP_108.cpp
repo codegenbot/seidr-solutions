@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-using namespace std;
 
 int count_nums(vector<int> n) {
     int count = 0;
@@ -26,16 +24,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> numbers;
-    int num;
-    cout << "Enter the numbers (enter -1 to stop): ";
-    while ((cin >> num) && (num != -1)) {
-        numbers.push_back(num);
-    }
-    int result = count_nums(numbers);
-    cout << "The result is: " << result << endl;
-    return 0;
 }
