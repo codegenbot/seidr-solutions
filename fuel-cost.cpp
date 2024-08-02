@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
 int fuelCost(vector<int> nums) {
@@ -13,7 +14,6 @@ int fuelCost(vector<int> nums) {
         sum += result;
     }
     return sum;
-
 }
 
 int main() {
