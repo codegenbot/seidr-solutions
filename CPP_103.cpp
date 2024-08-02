@@ -1,7 +1,7 @@
-# include <cassert>
-# include <cmath>
-# include <bitset>
-# include <string>
+#include <cassert>
+#include <cmath>
+#include <bitset>
+#include <string>
 
 std::string avg(int n, int m) {
     int sum = 0;
