@@ -8,17 +8,16 @@ int main() {
         cin >> digits[i];
     }
 
+
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
         int num = digits[i];
-
-        if (i % 2 == 1) {
+        if (i % 2 == 1) {  // Double every other digit starting from the second digit
             num *= 2;
             if (num > 9) {
                 num -= 9;
             }
         }
-
         sum += num;
     }
 
