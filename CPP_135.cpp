@@ -2,7 +2,7 @@
 
 int can_arrange(vector<int> arr){
     for(int i=1; i<arr.size(); i++){
-        if(arr[i-1] > arr[i]) return -1;
+        if(arr[i-1] > arr[i]) return i;
     }
-    return 0;
+    return -1;
 }
