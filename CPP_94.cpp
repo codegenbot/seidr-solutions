@@ -1,15 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
-    std::cout << "The sum of the digits is: " << result << std::endl;
-    return 0;
-}
-
-int skjkasdkd(std::vector<int> lst){
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -23,7 +15,7 @@ int skjkasdkd(std::vector<int> lst){
     return sumOfDigits;
 }
 
-bool isPrime(int n){
+bool isPrime(int n) {
     if(n <= 1)
         return false;
     for(int i = 2; i * i <= n; i++){
@@ -31,4 +23,10 @@ bool isPrime(int n){
             return false;
     }
     return true;
+
+int main() {
+    std::vector<int> lst = {127, 97, 8192};
+    int result = skjkasdkd(lst);
+    std::cout << "The sum of digits is: " << result << std::endl;
+    return 0;
 }
