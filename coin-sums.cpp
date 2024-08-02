@@ -11,9 +11,9 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
     
-    int pennies = cents / 1; 
+    int pennies = cents / 1; // always 1 cent per penny!
     cents %= 1;
-    
+
     int nickles = cents / 5;
     
     cout << quarters << endl;
