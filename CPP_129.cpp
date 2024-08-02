@@ -3,16 +3,23 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> minPath(const vector<vector<int>>& grid, int k) {
-    return {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int m = grid.size();
+    int n = grid[0].size();
+    vector<int> path;
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (k > 0) {
+                path.push_back(grid[i][j]);
+                k--;
+            }
+        }
+    }
+    return path;
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(minPath({{1, 3}, {3, 2}}, 10) == vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
 
     return 0;
 }
