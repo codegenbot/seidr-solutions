@@ -1,19 +1,17 @@
-Here is the solution:
-
-string anti_shuffle(string s) {
+string anti_shuffle(string s){
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
             result += " ";
-        } else {
-            string word;
-            while (i < s.length() && s[i] != ' ') {
+        }else{
+            string word = "";
+            while(i < s.length() && s[i] != ' '){
                 word += s[i];
                 i++;
             }
             sort(word.begin(), word.end());
-            for (char c : word) {
-                result += c;
+            for(int j=0; j<word.length(); j++){
+                result += word[j];
             }
         }
     }
