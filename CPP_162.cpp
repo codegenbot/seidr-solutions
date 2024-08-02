@@ -24,5 +24,6 @@ string string_to_md5(string text) {
     string result = oss.str();
     ss.str(""); // clear internal state
     oss.str(""); // clear internal state
+
     return result;
 }
