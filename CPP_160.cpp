@@ -39,12 +39,3 @@ int eval(std::string s) {
     }
     return result + sign * num;
 }
-
-int main() {
-    // test the function
-    std::vector<std::string> operators = {"+", "+"};
-    std::vector<int> operands = {2, 3, 4};
-    int output = do_algebra(operators, operands);
-    std::cout << "Output: " << output << std::endl;
-    return 0;
-}
