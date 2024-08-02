@@ -1,14 +1,12 @@
 #include <algorithm>
-#include <numeric>
 #include <vector>
+#include <numeric>
 #include <limits>
 
 bool issame(vector<float>, vector<float>);
 
 int main() {
-    vector<float> numbers;
     // your code here
-    return 0;
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
