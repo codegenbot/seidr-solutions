@@ -1,7 +1,9 @@
-int basementIndex(const vector<int>& arr) {
+int findFirstNegativeIndex(vector<int> vec) {
     int sum = 0;
-    for (int i = 0; ; i++) {
-        sum += arr[i];
-        if (sum < 0) return i;
+    for (int i = 0; i < vec.size(); i++) {
+        sum += vec[i];
+        if (sum < 0)
+            return i;
     }
+    return -1; // or any other default value you want
 }
