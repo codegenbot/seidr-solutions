@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10,7 +11,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1}; 
+    return {-1, -1};
 }
 
 int main() {
@@ -28,9 +29,9 @@ int main() {
     pair<int, int> result = findPair(nums, target);
 
     if (result.first == -1) {
-        std::cout << "No such pair exists" << std::endl;
+        cout << "No such pair exists" << endl;
     } else {
-        std::cout << result.first << "\n" << result.second << std::endl;
+        cout << result.first << "\n" << result.second << endl;
     }
 
     return 0;
