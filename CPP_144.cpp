@@ -1,33 +1,50 @@
-#include <string>
-#include <vector>
-
-using namespace std;
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 bool simplify(string x, string n) {
-    int numerator1 = stoi(split(x)[0]);
-    int denominator1 = stoi(split(x)[2]);
+    int a = 0, b = 1, c = 0, d = 1;
+    int num = 0, denom = 0;
 
-    int numerator2 = stoi(split(n)[0]);
-    int denominator2 = stoi(split(n)[2]);
+    // Convert fractions to integers
+    int i = 0;
+    while (i < x.length()) {
+        if (x[i] == '/') break;
+        if (isdigit(x[i])) a = a * 10 + (x[i] - '0');
+        i++;
+    }
+    i = 0;
+    while (i < x.length() && x[i] != '/') i++;
+    i++;
+    while (i < x.length()) {
+        if (isdigit(x[i])) b = b * 10 + (x[i] - '0');
+        i++;
+    }
 
-    int commonDivisor = gcd(abs(numerator1 * denominator2), abs(denominator1 * numerator2));
+    i = 0;
+    while (i < n.length()) {
+        if (n[i] == '/') break;
+        if (isdigit(n[i])) c = c * 10 + (n[i] - '0');
+        i++;
+    }
+    i = 0;
+    while (i < n.length() && n[i] != '/') i++;
+    i++;
+    while (i < n.length()) {
+        if (isdigit(n[i])) d = d * 10 + (n[i] - '0');
+        i++;
+    }
 
-    return (numerator1 / commonDivisor) == (denominator1 / commonDivisor);
+    // Calculate the greatest common divisor
+    int g = gcd(abs(a*d), abs(b*c));
+
+    // Check if the result is a whole number
+    return ((a/d) == (c/g));
+
 }
 
-string split(string s) {
-    string result[3];
-    size_t pos = 0, prev = 0;
-    while ((pos = s.find('/', prev)) != string::npos) {
-        result[0] = s.substr(prev, pos - prev);
-        result[1] = s.substr(pos + 1);
-        return result[0] + "/" + result[1];
+// Function to calculate the greatest common divisor
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
 }
