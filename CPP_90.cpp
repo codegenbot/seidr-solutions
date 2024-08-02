@@ -1,13 +1,21 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-int min_element(std::vector<int> lst) {
-    if(lst.size() == 0) return 0;
-    std::vector<int>::iterator it = std::min_element(lst.begin(), lst.end());
-    if (it != lst.end() && std::next(it) != lst.end()) {
-        return *std::next(it);
-    } else if (lst.size() < 2) {
-        return *it;
+int next_smallest(std::vector<int> lst) {
+    if(lst.size() < 2) return -1; 
+    std::vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for(int i=1; i<v.size(); i++){
+        if(v[i] != v[0]){
+            return v[i];
+        }
     }
-    return 0; 
+    return -1; 
+}
+
+int main() {
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    std::cout << "Code executed successfully." << std::endl;
+    return 0;
 }
