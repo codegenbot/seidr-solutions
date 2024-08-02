@@ -1,11 +1,10 @@
-string flip_case(string str){
-    string result = "";
+std::string flip_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
-        if(islower(str[i])){
+        if(islower(str[i]))
             result += toupper(str[i]);
-        } else {
+        else
             result += tolower(str[i]);
-        }
     }
     return result;
 }
