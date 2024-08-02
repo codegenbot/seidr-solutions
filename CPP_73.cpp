@@ -1,9 +1,9 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int n = arr.size();
-    std::vector<std::vector<bool>> dp(n, std::vector<bool>(n, false));
+    vector<vector<bool>> dp(n, vector<bool>(n, false));
     
     for (int i = 0; i < n; i++) {
         dp[i][i] = true;
@@ -46,7 +46,6 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {0, 1};
-    assert(smallest_change(arr) == 1);
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
