@@ -2,6 +2,7 @@
 #include <cctype>
 using namespace std;
 
+// Function to encrypt the string
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
@@ -12,7 +13,6 @@ string encrypt(string s) {
         result += c;
     }
     return result;
-
 }
 
 int main() {
