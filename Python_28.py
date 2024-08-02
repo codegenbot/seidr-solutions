@@ -2,4 +2,4 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+    return "".join([s for s in strings if len(s) > 0])
