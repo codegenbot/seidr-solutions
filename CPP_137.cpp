@@ -1,7 +1,7 @@
+#include <string>
 #include <iostream>
 #include <any>
 #include <cassert>
-#include <string>
 
 std::any compare_one(const std::any& a, const std::any& b);
 
@@ -40,6 +40,6 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).has_value() == false);
+    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::any(1))).has_value() == false);
     return 0;
 }
