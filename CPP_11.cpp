@@ -1,8 +1,4 @@
-#include <string>
-using namespace std;
-
-string string_xor(const string& a, const string& b) {
-    string result = "";
+string result = "";
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             result += "1";
