@@ -5,6 +5,5 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-numbers = list(map(int, input().split()))
-threshold = int(input())
-print(check_threshold(numbers, threshold))
+has_close_elements = check_threshold([1, 2, 3, 4, 5], 2)
+print(has_close_elements)
