@@ -1,3 +1,5 @@
+```
+text = "Hello World   "
 def fix_spaces(text):
     result = ""
     for char in text:
@@ -8,3 +10,4 @@ def fix_spaces(text):
         else:
             result += char
     return result
+print(fix_spaces(text))
