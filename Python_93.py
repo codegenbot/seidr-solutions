@@ -1,10 +1,11 @@
-def caesarEncryption(message):
-    encrypted_message = ""
+def encode(message):
+    result = ''
     for char in message:
         if char.isalpha():
-            ascii_offset = 65 if char.isupper() else 97
-            encrypted_char = chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-            encrypted_message += encrypted_char
+            if char.isupper():
+                result += chr((ord(char) - 65 + 2) % 26 + 65)
+            else:
+                result += chr((ord(char) - 97 + 2) % 26 + 97)
         else:
-            encrypted_message += char
-    return encrypted_message
+            result += char
+    return result
