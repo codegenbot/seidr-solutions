@@ -48,3 +48,21 @@ vector<string> by_length(vector<int> arr) {
     }
     return result;
 }
+
+int main() {
+    vector<int> arr = {1,2,3};
+    vector<string> res = by_length(arr);
+    for (string s : res) {
+        cout << s << endl;
+    }
+    
+    vector<string> vec1 = {"One", "Two"};
+    vector<string> vec2 = {"One", "Two"};
+    if (issame(vec1, vec2)) {
+        cout << "Vectors are same" << endl;
+    } else {
+        cout << "Vectors are not same" << endl;
+    }
+    
+    return 0;
+}
