@@ -1,18 +1,17 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5, 6};
+    vector<int> numbers = {1,2,3,4,5};
     vector<int> result = remove_duplicates(numbers);
-    for (int num : result) {
-        if (!issame({num}, vector<int>(result.begin(), find(result.begin(), result.end(), num) + 1))) {
-            cout << "Duplicated number: " << num << endl;
-        }
+    for(int num : result) {
+        std::cout << num << " ";
     }
     return 0;
 }
