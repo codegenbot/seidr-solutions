@@ -15,11 +15,6 @@ int main() {
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
         std::cin >> discounts[i];
-        if (i == n - 1) {
-            std::string discountStr;
-            std::cin >> discountStr;
-            discounts[i] = std::stof(discountStr);
-        }
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
