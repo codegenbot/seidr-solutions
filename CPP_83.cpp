@@ -1,21 +1,16 @@
-#include <iostream>
-
-using namespace std;
-
 int starts_one_ends(int n) {
     int count = 0;
-    for (long long i = 1; i <= n; i++) {
-        string s = to_string(i);
-        if ((s.size() == n && s[0] == '1') || (s.size() == n && s.back() == '1')) {
+    for (int i = 1; i <= 9; i++) {
+        if (i == 1 || i % 10 == 1) {
             count++;
+            for (int j = 1; j < n - 1; j++) {
+                printf("%d", i);
+                for (int k = 0; k < n - 2; k++) {
+                    printf("0");
+                }
+                printf("\n");
+            }
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << starts_one_ends(n) << endl;
-    return 0;
 }
