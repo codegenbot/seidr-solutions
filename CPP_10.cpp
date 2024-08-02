@@ -1,10 +1,21 @@
-string make_palindrome(string str){
-    if(str.empty()) return str;
-    int n = str.size();
-    for(int i=n-1; i>=0; --i){
-        if(is_palindrome(str.substr(i))){
-            return str + string(str.rbegin(), str.rbegin() + n-i);
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string make_palindrome(std::string str);
+
+std::string make_palindrome(std::string str) {
+    std::string rev_str(str.rbegin(), str.rend());
+    for (int i = 0; i < str.size(); ++i) {
+        if (str.substr(0, str.size() - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
-    return str + string(str.rbegin() + 1, str.rend());
+    return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    
+    return 0;
 }
