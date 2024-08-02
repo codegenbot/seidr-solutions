@@ -1,25 +1,14 @@
-#include <vector>
-using namespace std;
-
-int basement(const vector<int>& v) {
+int basement(std::vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < v.size(); ++i) {
-        sum += v[i];
-        if (sum < 0)
-            return i;
-    }
-    return -1; // not found
-}
+    int result = -1;
 
-int main() {
-    vector<int> v;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        v.push_back(x);
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
+            result = i;
+            break;
+        }
     }
-    cout << basement(v) << endl;
-    return 0;
+
+    return result;
 }
