@@ -1,4 +1,7 @@
-Here is the completed code:
+```
+from typing import List
+import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -7,8 +10,12 @@ def factorize(n: int) -> List[int]:
         if n % i:
             i += 1
         else:
-            n //= i
-            factors.append(i)
+            count = 0
+            while n % (i ** (count + 1)) == 0:
+                count += 1
+            for _ in range(count):
+                factors.append(i)
+            n //= (i ** count)
     if n > 1:
-        factors.append(n)
-    return [factor ** (n // factor) for factor in set(factors)]
+        factors.extend([n] * 1)
+    return factors
