@@ -1,14 +1,11 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <cmath> // Include cmath for abs function
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
+    if (b == 0) return a;
+    if (a != b) return abs(a - b);
     return gcd(b, a % b);
-    if (a != b)
-        return abs(a - b);
 }
 
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
