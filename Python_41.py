@@ -1,4 +1,3 @@
-```
 def car_race_collision():
     num_cars = int(input("Enter the number of cars: "))
     speed1 = float(input("Enter the speed of the first car (km/h): "))
