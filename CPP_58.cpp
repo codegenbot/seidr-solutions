@@ -3,10 +3,10 @@
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
     for(int i=0; i<a.size(); i++){
-        if(find(b.begin(),b.end(),a[i]) == b.end()){
-            return false;
-        }
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -14,8 +14,6 @@ bool issame(vector<int> a,vector<int>b){
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
-
-    if(!issame(s1,s2)) return {};
 
     set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
