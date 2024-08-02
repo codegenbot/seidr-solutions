@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int maxRight = INT_MIN;
