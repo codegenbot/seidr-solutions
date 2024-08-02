@@ -1,28 +1,23 @@
-Here is the solution:
+```
+std::string spinWords(std::string input) {
+    std::string output;
+    std::size_t pos = 0;
 
-string spinWords(string s) {
-    string result = "";
-    string word;
-    int len;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] != ' ') {
-            word += s[i];
+    while ((pos = input.find(' ')) != std::string::npos) {
+        std::size_t length = input.length() - pos - 1;
+        if (length >= 5) {
+            std::string word = input.substr(pos + 1, length);
+            for (int i = word.length() - 1; i >= 0; --i)
+                output += word[i];
+            output += ' ';
         } else {
-            if (word.length() >= 5)
-                for (int j = word.length() - 1; j >= 0; j--)
-                    result += word[j];
-            else
-                result += word;
-            word = "";
+            output += input.substr(0, pos + 1);
         }
+        input.erase(0, pos + 1);
     }
 
-    if (word.length() >= 5)
-        for (int j = word.length() - 1; j >= 0; j--)
-            result += word[j];
-    else
-        result += word;
+    if (!input.empty())
+        output += input;
 
-    return result;
+    return output;
 }
