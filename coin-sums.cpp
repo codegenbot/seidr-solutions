@@ -1,26 +1,27 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
 
-    vector<int> coinValues = {1, 5, 10, 25}; // values of pennies, nickles, dimes, quarters in cents
-    vector<int> coins; // number of each type of coin
+    vector<int> coins = {25, 10, 5, 1}; // values of quarters, dimes, nickles, pennies in cents
+
+    vector<int> result(4, 0); // initialize the result array with all zeros
 
     for (int i = 3; i >= 0; --i) {
-        while (cents >= coinValues[i]) {
-            cents -= coinValues[i];
-            coins.push_back(1);
+        while (cents >= coins[i]) {
+            cents -= coins[i];
+            result[i]++;
         }
-        if (coins.back() == 0)
-            coins.pop_back();
     }
 
-    cout << coins[3] << endl;
-    cout << coins[2] << endl;
-    cout << coins[1] << endl;
-    cout << coins[0] << endl;
+    cout << result[3] << endl;
+    cout << result[2] << endl;
+    cout << result[1] << endl;
+    cout << result[0] << endl;
 
     return 0;
 }
