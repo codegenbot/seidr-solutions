@@ -1,11 +1,21 @@
+```cpp
+#include <iostream>
 #include <vector>
+
 using namespace std;
 
-int fuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int newPrice = floor(price / 3) - 2;
-        total += newPrice;
+int solve() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    return total;
+    long long sum = 0;
+    for (int x : v) {
+        int y = floor((double)x / 3) - 2;
+        if (y < 0) y = 0;
+        sum += y;
+    }
+    return static_cast<int>(sum);
 }
