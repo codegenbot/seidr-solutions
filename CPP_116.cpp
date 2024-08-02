@@ -4,9 +4,8 @@
 #include <cassert>
 
 std::vector<int> sort_array(const std::vector<int>& arr) {
-    std::vector<int> arr_copy = arr;
-    
-    std::sort(arr_copy.begin(), arr_copy.end(), [](int a, int b) {
+    std::vector<int> sorted_arr = arr;
+    std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
         if (count_a == count_b) {
@@ -15,7 +14,7 @@ std::vector<int> sort_array(const std::vector<int>& arr) {
         return count_a < count_b;
     });
 
-    return arr_copy;
+    return sorted_arr;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
