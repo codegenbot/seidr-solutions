@@ -1,4 +1,6 @@
-int count_digits(const string& str) {
+#include <string>
+
+int countDigits(string str) {
     int count = 0;
     for (char c : str) {
         if (isdigit(c)) {
@@ -9,29 +11,32 @@ int count_digits(const string& str) {
 }
 
 string file_name_check(string file_name) {
-    int dot_count = 0;
-    bool found_dot = false;
+    int digitCount = countDigits(file_name);
+    int dotCount = 0;
+    bool validStart = false;
 
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-            found_dot = true;
-        } else if (!found_dot && !isalpha(c)) {
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] == '.') {
+            dotCount++;
+            break;
+        }
+        if (!isalpha((unsigned char)file_name[i])) {
             return "No";
         }
+        validStart = true;
     }
 
-    if (dot_count != 1 || count_digits(file_name) > 3) {
+    if (!validStart || dotCount > 1) {
         return "No";
     }
 
-    size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos + 1);
-
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), ext) == valid_extensions.end()) {
+    string extension = file_name.substr(file_name.find('.') + 1);
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if (find(validExtensions.begin(), validExtensions.end(), extension) == validExtensions.end()) {
         return "No";
     }
 
+    if (digitCount > 3) {
+        return "No";
+    }
     return "Yes";
-}

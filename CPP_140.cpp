@@ -1,16 +1,27 @@
-string fix_spaces(string text){
-    string new_text = "";
-    bool was_space = false;
+#include <string>
 
-    for(char c : text){
-        if(c == ' ' && !was_space){
-            new_text += '_';
-            was_space = true;
-        }else if(c != ' ' || (!was_space && was_space)){
-            new_text += c;
-            was_space = (c == ' ');
+string fix_spaces(string text){
+    string result = "";
+    bool skipSpace = false;
+
+    for(int i=0; i<text.length(); i++){
+        if(skipSpace){
+            if(text[i] == ' ')
+                continue;
+            else{
+                result += '-';
+                skipSpace = false;
+            }
+        }else{
+            if(text[i] == ' '){
+                if(result.length() > 0 && result.back() != ' ')
+                    result += '_';
+                else
+                    continue;
+            }else
+                result += text[i];
         }
     }
 
-    return new_text;
+    return result;
 }
