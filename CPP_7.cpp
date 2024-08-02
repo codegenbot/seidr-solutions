@@ -1,20 +1,15 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
-bool issame(std::vector<string> a, std::vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-std::vector<string> filter_by_substring(std::vector<string> strings, std::string substring){
-    std::vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(const auto& str : strings){
         if(str.find(substring) != std::string::npos){
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main(){
-    // Your main function code here
-    return 0;
 }
