@@ -1,9 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    // Function implementation
-}
-
 vector<int> intersperse(vector<int> numbers, int delimiter) {
     vector<int> result;
     if(numbers.size() <= 1){
@@ -15,4 +11,8 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
     }
     result.push_back(numbers[numbers.size() - 1]);
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    // Function implementation
 }
