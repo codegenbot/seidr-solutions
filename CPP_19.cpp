@@ -15,12 +15,13 @@ string sort_numbers(string numbers) {
         }
     }
     numVec.push_back(temp);
-    
+
     sort(numVec.begin(), numVec.end());
-    string result = "";
-    for (int i = 0; i < numVec.size(); i++) {
-        result += numVec[i] + " ";
+    
+    string result;
+    for (string str : numVec) {
+        result += str + " ";
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
 }
