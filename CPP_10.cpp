@@ -6,19 +6,10 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str) {
-    if (is_palindrome(str)) {
-        return str;
-    }
-    
-    int i = 0;
-    while (i < str.length() && !is_palindrome(str.substr(i))) {
-        i++;
-    }
-    
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(i);
-    reverse(suffix.begin(), suffix.end());
-    
-    return prefix + suffix;
+string make_palindrome(string str){
+    if(is_palindrome(str)) return str;
+    for(int i=str.size()-1; i>=0; --i)
+        if(!is_palindrome(str.substr(0, i+1)))
+            break;
+    return str + string(str.rbegin(), str.rend());
 }
