@@ -7,15 +7,7 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
+    return a == b;
 }
 
 vector<string> filter_by_substring(vector<string> words, string substr) {
@@ -26,4 +18,9 @@ vector<string> filter_by_substring(vector<string> words, string substr) {
         }
     }
     return filtered_words;
+}
+
+int main() {
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    return 0;
 }
