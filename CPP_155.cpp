@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cmath>
 #include <string>
-#include <algorithm>
+using namespace std;
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> counts(2, 0);
@@ -21,7 +21,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
-    return 0;
-}
+assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
