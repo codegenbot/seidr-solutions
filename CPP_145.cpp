@@ -3,21 +3,18 @@
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        pairs.push_back({getSumOfDigits(nums[i]), i});
+        int digitSum = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            digitSum += num % 10;
+            num /= 10;
+        }
+        pairs.emplace_back(digitSum, nums[i]);
     }
     sort(pairs.begin(), pairs.end());
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(pair.second);
     }
     return result;
-}
-
-int getSumOfDigits(int n) {
-    int sum = 0;
-    while (n != 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
 }
