@@ -1,5 +1,7 @@
 #include <string>
-#include <vector>
+#include <cctype>
+
+using namespace std;
 
 int countDigits(string str) {
     int count = 0;
@@ -41,3 +43,4 @@ string file_name_check(string file_name) {
         return "No";
     }
     return "Yes";
+}
