@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total_sum = 0
     if len(lst) == 0:
