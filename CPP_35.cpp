@@ -1,13 +1,12 @@
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
-int main() {
-    std::vector<int> l; 
-    std::cin >> l[0];
-    for(int i = 1; i < 3; ++i) {
-        int temp;
-        std::cin >> temp;
-        l.push_back(temp);
+float max_element(std::vector<float> l){
+    if(l.empty()) return 0; // or some default value
+    float max = l[0];
+    for(int i=1; i<l.size(); i++){
+        if(l[i] > max)
+            max = l[i];
     }
-    return *std::max_element(l.begin(), l.end());
+    return max;
 }
