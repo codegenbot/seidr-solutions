@@ -1,8 +1,7 @@
-def check():
-    numbers = input("Enter a list of numbers: ").split()
-    result = double_the_difference([int(num) for num in numbers])
-    print(f"The sum of the squares of positive integers is {result}.")
-
-
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+```
+def check(num1, num2, num3):
+    result = double_the_difference([num1, num2, num3])
+    if result % (2 * min(num1, num2, num3)) == 0:
+        return True
+    else:
+        return False
