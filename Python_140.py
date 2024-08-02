@@ -1,8 +1,8 @@
 def fix_spaces(text):
-    return (
-        text.replace(" ", "_")
-        .replace("  ", "-_")
-        .replace("   ", "-_")
-        .replace("    ", "-_")
-        .replace("     ", "-_")
-    )
+    new_text = " "
+    for char in text + " ":
+        if char == " " and (new_text[-1] == " " or not new_text[1:]):
+            new_text += "-"
+        elif char != " ":
+            new_text += char
+    return new_text.strip()
