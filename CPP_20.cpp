@@ -1,17 +1,11 @@
+#include <iostream>
+#include <algorithm>
+
 bool issame(float a, float b) {
-    return (fabs(a - b) < 0.0001);
+    return std::abs(a - b) < 1e-6;
 }
 
-pair<float, float> find_closest_elements(const vector<float>& numbers);
-
-int main() {
-    vector<float> input = {1.2, 3.4, 5.6, 7.8, 9.0};
-    pair<float, float> result = find_closest_elements(input);
-    assert(result.first == 5.6 && result.second == 7.8);
-    return 0;
-}
-
-pair<float, float> find_closest_elements(const vector<float>& numbers) {
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     float num1 = numbers[0], num2 = numbers[1];
@@ -20,11 +14,6 @@ pair<float, float> find_closest_elements(const vector<float>& numbers) {
             min_diff = numbers[i + 1] - numbers[i];
             num1 = numbers[i];
             num2 = numbers[i + 1];
-        } else if (issame(numbers[i + 1] - numbers[i], min_diff)) {
-            if (numbers[i] < num1) {
-                num1 = numbers[i];
-                num2 = numbers[i + 1];
-            }
         }
     }
     return {num1, num2};
