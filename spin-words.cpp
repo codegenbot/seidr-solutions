@@ -19,8 +19,9 @@ string spinWords(string str) {
                     result += word;
                 }
                 word.clear();
-            } else {
-                result += ' ';
+            } 
+            else{
+                word.clear();
             }
         } else {
             word += str[i];
@@ -35,6 +36,7 @@ string spinWords(string str) {
         } else {
             result += word;
         }
+        word.clear();
     }
     
     return result;
