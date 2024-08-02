@@ -9,7 +9,8 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
 
 int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    assert(check_if_last_char_is_a_letter("orange pi e") == true);
+    assert(check_if_last_char_is_a_letter("banana ") == true);
+    assert(check_if_last_char_is_a_letter("orange   c") == false);
 
     return 0;
 }
