@@ -1,39 +1,15 @@
-int bowlingScore(string s) {
+int bowlingScore(string bowls) {
     int score = 0;
-    bool inFrame = false;
-    int currentFrame = 1;
-    int spareOrStrike = 0;
-
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '/') {
-            if(inFrame) {
-                score += 10 - (s[i-1] - '0');
-                inFrame = false;
-            }
-            else{
-                spareOrStrike++;
-            }
-        }
-        else if(s[i] == 'X') {
-            score += 10;
-            inFrame = false;
-            currentFrame++;
-        }
-        else {
-            int pins = s[i] - '0';
-            if(inFrame) {
-                score += pins;
-                if(pins < 10) {
-                    spareOrStrike++;
-                }
-                inFrame = false;
-                currentFrame++;
-            }
-            else{
-                score += pins;
+    for (int i = 0; i < 10; i++) {
+        if (isdigit(bowls[i])) {
+            score += stol(to_string(i+1) + bowls[i]) - 48;
+        } else {
+            if (i < 8 && (bowls[i-1] == '/' || i > 3)) {
+                score += 10 + stol(to_string(i+1)+bowsls[i]) - 48;
+            } else {
+                score += stol(to_string(i+1) + bows[i]);
             }
         }
     }
-
     return score;
 }
