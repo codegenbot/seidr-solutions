@@ -1,7 +1,7 @@
-def process_numbers(numbers, delimiter):
+def intersperse(numbers, delimiter):
     result = []
     for i in range(len(numbers)):
-        result.append(str(numbers[i]))
+        result.append(numbers[i])
         if i < len(numbers) - 1:
             result.append(delimiter)
     return result
@@ -9,5 +9,5 @@ def process_numbers(numbers, delimiter):
 # Example usage:
 numbers = [1, 2, 3, 4, 5]
 delimiter = ","
-output = process_numbers(numbers, delimiter)
+output = intersperse(numbers, delimiter)
 print(output)
