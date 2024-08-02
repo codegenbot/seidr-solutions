@@ -1,23 +1,23 @@
+```
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
+int sign(int num) {
+    return num / abs(num);
+}
+
 int prod_signs(vector<int> arr) {
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
-
+    int product = 1;
+    int sum = 0;
+    
     for (int num : arr) {
-        if (num == 0) {
-            return 0;
+        if (num != 0) {
+            product *= sign(num);
+            sum += std::abs(num);
         }
-        int sign = (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sign_product *= sign;
-        sum_of_magnitudes += abs(num);
     }
-
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    return sign_product * sum_of_magnitudes;
+    
+    return product * sum > 0 ? sum : -32768;
 }
