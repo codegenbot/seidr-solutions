@@ -1,10 +1,7 @@
 ```cpp
-vector<int> unique(vector<int> l){
-    vector<int> result = l;
-    sort(result.begin(), result.end());
-    result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
-}
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a,vector<int>b){
     if (a.size() != b.size())
         return false;
@@ -12,4 +9,11 @@ bool issame(vector<int> a,vector<int>b){
         if (a[i] != b[i])
             return false;
     return true;
+}
+
+vector<int> unique(vector<int> l){
+    vector<int> result = l;
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
+    return result;
 }
