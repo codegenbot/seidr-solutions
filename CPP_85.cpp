@@ -12,21 +12,20 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int> input;
     int n;
-    
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    for(int i = 0; i < n; i++) {
+    for(int i = 1; i <= n; i++) {
         int num;
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << i << ": ";
         std::cin >> num;
-        numbers.push_back(num);
+        input.push_back(num);
     }
     
-    int result = add(numbers);
-    std::cout << "Sum of even elements: " << result << std::endl;
+    int result = add(input);
+    std::cout << "The sum of the even elements is: " << result << std::endl;
     
     return 0;
 }
