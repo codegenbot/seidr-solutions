@@ -7,11 +7,9 @@ int main() {
 
     bool capitalize = true;
     for (char c : input) {
-        if (c == '-' || c == ' ') {
+        if (c == '-') {
             capitalize = true;
-            if (c == '-') {
-                std::cout << " ";
-            }
+            std::cout << " ";
         } else if (c != ' ') {
             std::cout << (capitalize ? (char)toupper(c) : tolower(c));
             capitalize = false;
