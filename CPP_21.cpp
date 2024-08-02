@@ -10,6 +10,5 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     for (float num : numbers) {
         result.push_back((num - minVal) / (maxVal - minVal));
     }
-
     return result;
 }
