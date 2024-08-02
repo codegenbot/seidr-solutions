@@ -1,37 +1,34 @@
-Here is the completed code:
+Here is the C++ code for the problem:
 
+#include <iostream>
 #include <string>
 using namespace std;
-
-string camelCase(string s) {
-    string result = "";
-    for (char c : s) {
-        if (c == '-') {
-            c = ' ';
-        }
-    }
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == ' ') {
-            result += toupper(s[++i]);
-        } else {
-            result += tolower(s[i]);
-        }
-        while (i + 1 < s.length() && s[i+1] != ' ') {
-            i++;
-        }
-        if (i + 1 < s.length()) {
-            result += s[i+1];
-            i++;
-        }
-    }
-    return result;
-}
 
 int main() {
     string input;
     cout << "Enter a string in kebab-case: ";
-    cin >> input;
-    cout << "The camelCase conversion is: " << camelCase(input) << endl;
+    getline(cin, input);
+
+    int i = 0;
+    while (i < input.size()) {
+        if (input[i] == '-') {
+            ++i;
+            for (; i < input.size() && input[i] != '-'; ++i) {
+                input[i - 1] += topper(input[i]);
+            }
+            input.erase(i, 1);
+        }
+    }
+
+    cout << "camel-case: " << input << endl;
+
     return 0;
+}
+
+// Define the function to convert a lower case character to upper case
+char topper(char c) {
+    if (c >= 'a' && c <= 'z') {
+        return c - ('a' - 'A');
+    }
+    return c;
 }
