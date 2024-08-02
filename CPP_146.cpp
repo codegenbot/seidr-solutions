@@ -13,12 +13,8 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    int num;
-    std::vector<int> nums;
-    std::cout << "Enter numbers separated by space: ";
-    while(std::cin >> num) {
-        nums.push_back(num);
-    }
-    std::cout << "The count of special numbers is: " << specialFilter(nums) << std::endl;
+    std::vector<int> nums = {111, 120, 121, 130, 131};
+    int result = specialFilter(nums);
+    std::cout << "The number of integers in the vector that meet the conditions is: " << result << std::endl;
     return 0;
 }
