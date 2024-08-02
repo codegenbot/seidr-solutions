@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 int gcd(int a, int b) {
     if (b == 0) {
@@ -33,11 +33,15 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
 int main() {
     int a, b;
-    scanf("%d %d", &a, &b);
+    std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
     
-    std::string text, target;
-    std::cin >> text >> target;
+    std::string inputText;
+    std::cin.ignore();
+    std::getline(std::cin, inputText);
+    std::string text = inputText.substr(0, inputText.find(' '));
+    std::string target = inputText.substr(inputText.find(' ') + 1);
+    
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int index : result) {
         std::cout << index << " ";
