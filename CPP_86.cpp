@@ -3,39 +3,21 @@ using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    for (const auto& word : split(s, " ")) {
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == ' ') {
+            result += " ";
+            continue;
+        }
+        string word = "";
+        for (int j = i; j < s.size() && s[j] != ' '; ++j) {
+            word += s[j];
+        }
         string newWord = "";
         for (char c : word) {
-            newWord += c;
+            newWord += (c <= 'z' ? static_cast<char>(c + 1 - 'a') : c);
         }
-        sort(newWord.begin(), newWord.end());
-        result += newWord + " ";
-    }
-    return result;
-}
-
-string split(const string& str, const string& delimiters) {
-    size_t start = 0;
-    size_t end = str.find(delimiters);
-    vector<string> tokens;
-
-    while (end != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-        start = end + delimiters.size();
-        end = str.find(delimiters, start);
-    }
-
-    tokens.push_back(str.substr(start));
-    return join(tokens, " ");
-}
-
-string join(const vector<string>& vec, const string& delimiter) {
-    string result;
-    for (const auto& s : vec) {
-        if (!result.empty()) {
-            result += delimiter;
-        }
-        result += s;
+        result += newWord;
+        i += word.size() - 1;
     }
     return result;
 }
