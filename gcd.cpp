@@ -37,8 +37,7 @@ int main() {
     int a, b;
     string text, target;
 
-    cin >> a >> b >> ws; // Modified input handling
-    
+    cin >> a >> b >> ws;  // Ensure input for a and b are separated by whitespace and newline char
     getline(cin, text);
     getline(cin, target);
 
