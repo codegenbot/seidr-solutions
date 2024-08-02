@@ -2,21 +2,17 @@
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
-    for (int i = 2; i <= n; ++i) {
+    for (int num = 2; num <= n; ++num) {
         bool is_prime = true;
-        for (int j = 2; j*j <= i; ++j) {
-            if (i % j == 0) {
+        for (int i = 2; i * i <= num; ++i) {
+            if (num % i == 0) {
                 is_prime = false;
                 break;
             }
         }
         if (is_prime) {
-            result.push_back(i);
+            result.push_back(num);
         }
     }
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
