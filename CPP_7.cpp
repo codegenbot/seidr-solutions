@@ -1,16 +1,16 @@
 ```cpp
 #include <vector>
-#include <string>
 #include <algorithm>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(auto str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        if(str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
@@ -18,12 +18,33 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> a = {"apple", "banana", "cherry"};
-    std::vector<std::string> b = {"banana", "cherry", "date"};
+    vector<string> strings1 = {"apple", "banana", "cherry"};
+    vector<string> strings2 = {"banana", "cherry", "date"};
 
-    if(issame(a, filter_by_substring(b, "ba"))) {
-        return 0;
+    vector<string> same_strings = filter_by_substring(strings1, "ba");
+    if(same_strings.size() > 0) {
+        cout << "Same strings in both vectors: ";
+        for(auto str : same_strings) {
+            cout << str << " ";
+        }
+        cout << endl;
     } else {
-        return 1;
+        cout << "No common strings found." << endl;
     }
+
+    vector<string> intersection = vector<string>(std::set_intersection(same_strings.begin(), same_strings.end(),
+                                                                      filter_by_substring(strings2, "ba").begin(),
+                                                                      filter_by_substring(strings2, "ba").end(),
+                                                                      same_strings.begin()));
+    if(intersection.size() > 0) {
+        cout << "Common strings in both vectors: ";
+        for(auto str : intersection) {
+            cout << str << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No common strings found." << endl;
+    }
+
+    return 0;
 }
