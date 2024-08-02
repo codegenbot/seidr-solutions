@@ -5,27 +5,29 @@ using namespace std;
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
-    map<string, int> planetOrder = {{"Mercury", 0}, {"Venus", 1}, {"Earth", 2}, {"Mars", 3},
-                                    {"Jupiter", 4}, {"Saturn", 5}, {"Uranus", 6}, {"Neptune", 7}};
-    
-    if (planetOrder.find(planet1) == planetOrder.end() || planetOrder.find(planet2) == planetOrder.end()) {
-        return result;
-    }
-    
-    int index1 = planetOrder[planet1];
-    int index2 = planetOrder[planet2];
-    
+    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+
+    int index1 = -1, index2 = -1;
+
     for (int i = 0; i < 8; i++) {
-        if (i >= index1 && i <= index2) {
-            continue;
-        } else if (i < index1) {
-            result.push_back(planetOrder.begin()->first);
-        } else if (i > index2) {
-            result.push_back("Neptune");
-        } else if (index1 < i && i < index2) {
-            result.push_back(planetOrder.find(planet1)->second == 7 ? "Neptune" : planetOrder.find(planet1)->first);
+        if (planets[i] == planet1) {
+            index1 = i;
+        }
+        else if (planets[i] == planet2) {
+            index2 = i;
         }
     }
-    
+
+    if (index1 == -1 || index2 == -1)
+        return result;
+
+    for (int i = 0; i < 8; i++) {
+        if ((i >= index1 && i <= index2) || (i >= index2 && i <= index1)) {
+            result.push_back(planets[i]);
+        }
+    }
+
+    sort(result.begin(), result.end());
+
     return result;
 }
