@@ -1,7 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
-
+```
 using namespace std;
 
 string int_to_mini_roman(int number) {
