@@ -2,8 +2,7 @@
 #include <algorithm>
 
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None or -1 as per your requirement
-    
+    if (lst.size() < 2) return -1; 
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     
@@ -13,5 +12,5 @@ int next_smallest(vector<int> lst) {
         }
     }
     
-    return -1; // Return None or -1 as per your requirement
+    return -1; 
 }
