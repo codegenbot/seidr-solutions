@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <set>
@@ -20,10 +19,10 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    vector<int> l1 = {1, 4, 3, 34, 653, 2, 5};
-    vector<int> l2 = {5, 7, 1, 5, 9, 653, 121};
+    vector<int> list1 = {1, 4, 3, 34, 653, 2, 5};
+    vector<int> list2 = {5, 7, 1, 5, 9, 653, 121};
 
-    vector<int> result = common(l1, l2);
+    vector<int> result = common(list1, list2);
     for (int i : result) {
         cout << i << " ";
     }
