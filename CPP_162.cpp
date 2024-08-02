@@ -1,51 +1,32 @@
-#include <openssl/evp.h>
+```
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-
+    if (text.empty()) return "None";
+    
+    stringstream ss;
+    MD5_CTX md5ctx;
+    unsigned char result[16];
     unsigned char buffer[1024];
-    string result;
-    EVP_MD_CTX mdctx;
-    EVP_MD *md = NULL;
-    const EVP_MD* digest = NULL;
-    unsigned char hash[16];
 
-    // Initialize the context
-    EVP_MD_CTX_init(&mdctx);
+    MD5_Init(&md5ctx);
 
-    // Set the algorithm to MD5
-    if ((digest = EVP_get_digestbyname("MD5")) == NULL) {
-        return "";
+    for(int i = 0; i < text.size(); i += 1024) {
+        int len = min(text.size() - i, 1024);
+        memcpy(buffer, &text[i], len);
+        buffer[len] = '\0';
+        MD5_Update(&md5ctx, buffer, len);
     }
 
-    // Set the message digest initialization function for this type of message.
-    if (1 != EVP_DigestInit_ex(&mdctx, digest, NULL)) {
-        return "";
-    }
+    MD5_Final(result, &md5ctx);
 
-    // Update the message digest context with the data
-    const char *p = text.c_str();
-    size_t len = text.length();
-    if ((len > sizeof(buffer) - 1) || (1 != EVP_DigestUpdate(&mdctx, p, len))) {
-        return "";
-    }
+    ss << setfill('0') << setw(32) << hex;
+    for(int i = 0; i < 16; ++i)
+        ss << std::setw(2) << (int)result[i];
 
-    // Finalize the message digest
-    if (1 != EVP_DigestFinal_ex(&mdctx, hash, NULL)) {
-        return "";
-    }
-
-    // Convert the binary hash to hexadecimal
-    for(int i = 0; i < 16; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", hash[i]);
-        result.append(buffer);
-    }
-
-    EVP_MD_CTX_cleanup(&mdctx);
-
-    return result;
+    return ss.str();
 }
