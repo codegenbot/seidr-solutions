@@ -12,16 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float data;
-    
-    while (std::cin >> data) {
-        lst.push_back(data);
-    }
-
-    long long result = double_the_difference(lst);
-
-    std::cout << "The result is: " << result << std::endl;
-
+    std::vector<float> lst = {1.5, 2.0, 3.5};
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
