@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -11,5 +10,6 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    // Your function call code
+    int result = can_arrange({3, 2, 5, 4});
+    std::cout << "The first pair of numbers that cannot be arranged in ascending order is at index: " << result << std::endl;
 }
