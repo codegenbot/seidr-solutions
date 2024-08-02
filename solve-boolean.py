@@ -1,20 +1,18 @@
-Here is the Python solution for the problem:
-
-def solveBoolean(expression):
+```
+def solve.Boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return not (solveBoolean(a) and solveBoolean(b))
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solveBoolean(a) or solveBoolean(b)
-
-# Example usage:
-print(solveBoolean('t'))  # True
-print(solveBoolean('f'))  # False
-print(solveBoolean('f&f'))  # False
-print(solveBoolean('f&t'))  # False
-print(solveBoolean('t&f'))  # False
+    elif '&' in expression and '|' in expression:
+        raise ValueError('Invalid expression')
+    else:
+        result = True
+        for char in expression:
+            if char == '&':
+                result &= (expression[:expression.index('&')] == 'T')
+            elif char == '|':
+                result |= (expression[:expression.index('|')] == 'T')
+            else:
+                break
+        return result
