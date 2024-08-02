@@ -9,15 +9,13 @@ def is_prime(num):
 def prime_fib(n: int):
     def fibonacci():
         a, b = 0, 1
-        for _ in range(n):
+        while True:
             yield a
             a, b = b, a + b
 
-    prime_count = 0
+    count = 0
     for num in fibonacci():
-        if num > 1 and is_prime(num):
-            prime_count += 1
-            if prime_count == n:
+        if is_prime(num):
+            count += 1
+            if count == n:
                 return num
-
-print(prime_fib(10))
