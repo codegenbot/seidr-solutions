@@ -17,5 +17,5 @@ vector<int> leaders(vector<int>& arr) {
         if(leader) result.push_back(arr[i]);
     }
     
-    return result;
+    return vector<int>(result.rbegin(), result.rend());
 }
