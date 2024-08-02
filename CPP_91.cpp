@@ -1,15 +1,15 @@
-int is_bored(string S) {
-    int count = 0;
-    string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.length() > 2 && sentence.substr(0, 2) == "I ") {
-                count++;
+int is_bored(string S){
+    int boredom_count = 0;
+    string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(i > 0 && S.substr(0, i).find("I") == 0){
+                boredom_count++;
             }
-            sentence.clear();
-        } else {
-            sentence += c;
+            word = "";
+        }else{
+            word += S[i];
         }
     }
-    return count;
+    return boredom_count;
 }
