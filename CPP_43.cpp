@@ -3,18 +3,11 @@
 
 bool pairs_sum_to_zero(std::vector<int> l) {
     std::unordered_set<int> seen;
-    int zeroCount = 0;
-    
     for (int i : l) {
-        if (i == 0) {
-            zeroCount++;
-            if (zeroCount >= 2) {
-                return true;
-            }
-        } else if (seen.count(-i)) {
+        if (seen.count(-i) || (i == 0 && seen.count(0))) {
             return true;
         }
-        seen.insert(i);
+        seen.insert(-i);
     }
     return false;
 }
