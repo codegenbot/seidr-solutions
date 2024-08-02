@@ -1,43 +1,27 @@
-int i = 0;
-bool valid = true;
+string file_name_check(string file_name){
+    int dot_count = 0, digit_count = 0;
+    bool valid = true;
 
-while (i < file_name.length()) {
-    if (isdigit(file_name[i])) {
-        i++;
-        continue;
-    }
-
-    if (!valid) break;
-
-    if (file_name[i] == '.') {
-        i++;
-        bool found = false;
-        while (i < file_name.length()) {
-            if (file_name[i] == ' ') {
-                valid = false;
-                break;
-            }
-            i++;
+    for(char c : file_name){
+        if(c == '.'){
+            dot_count++;
+            if(dot_count > 1) return "No";
         }
-        break;
+        else if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }
+        else if(!isalpha(c)) {
+            valid = false;
+            break;
+        }
     }
 
-    if (!isalpha(file_name[i])) {
-        valid = false;
-        break;
+    int pos = file_name.find('.');
+    if(pos != string::npos){
+        string ext = file_name.substr(pos+1);
+        if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
     }
 
-    i++;
-}
-
-if (valid) {
-    int j = file_name.find('.');
-    string extension = file_name.substr(j + 1);
-    if (extension == "txt" || extension == "exe" || extension == "dll") {
-        return "Yes";
-    } else {
-        return "No";
-    }
-} else {
-    return "No";
+    return valid ? "Yes" : "No";
 }
