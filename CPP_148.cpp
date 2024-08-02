@@ -1,4 +1,10 @@
 ```
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
@@ -10,8 +16,8 @@ vector<string> bf(string planet1, string planet2) {
                                      std::find(planets.begin(), planets.end(), planet2));
             }
         }
-    } else if ((std::find(planets.begin(), planets.end(), planet1) == planets.end()) || 
-               (std::find(planets.begin(), planets.end(), planet2) == planets.end())) {
+    } else if ((find(planets.begin(), planets.end(), planet1) == planets.end()) || 
+               (find(planets.begin(), planets.end(), planet2) == planets.end())) {
         return {};
     }
 
