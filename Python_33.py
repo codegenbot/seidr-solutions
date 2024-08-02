@@ -1,5 +1,4 @@
 def sort_third(l: list):
-    return [sorted(l[i : i + 3]) if i % 3 == 0 else l[i] for i in range(0, len(l), 3)]
-
-
-print(sort_third([5, 6, 3, 4, 8, 9, 2, 1]))
+    return [
+        sorted(l[i : i + 1])[0] if (i + 1) % 3 == 0 else l[i] for i in range(len(l))
+    ]
