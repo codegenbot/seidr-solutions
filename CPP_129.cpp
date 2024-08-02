@@ -11,13 +11,12 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int m = grid[0].size();
     int i = 0, j = 0;
     
-    while(k > 0){
+    while(k > 0 && (i < n || j < m)){
         path.push_back(grid[i][j]);
         k--;
         
-        if(j < m-1) j++;
-        else if(i < n-1) i++;
-        else break;
+        if(j < m-1 && (i == n-1 || grid[i][j+1] <= grid[i+1][j])) j++;
+        else i++;
     }
     
     return path;
