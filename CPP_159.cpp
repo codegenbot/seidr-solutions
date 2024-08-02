@@ -7,6 +7,6 @@ std::pair<int, int> eat(int number, int need, int remaining){
     return {total, left};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
