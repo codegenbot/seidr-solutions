@@ -12,5 +12,3 @@ def encode(message):
             encoded_message += char
     
     return encoded_message
-
-encode("I DoNt KnOw WhAt tO WrItE") == "K FqPv MqQy YjCt Vq YtKvG"
