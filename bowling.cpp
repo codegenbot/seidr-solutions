@@ -6,30 +6,31 @@ int score(string s) {
     int total = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> points(22, 0);
+    vector<int> scores(22, 0);
     for (char c : s) {
         if (c == 'X') {
-            points[ball++] = 10;
-            if (frame < 10) {
-                points[ball++] = 0;
-            }
+            scores[ball++] = 10;
+            scores[ball++] = 0;
+            frame++;
         } else if (c == '/') {
-            points[ball - 1] = 10 - points[ball - 2];
+            scores[ball - 1] = 10 - scores[ball - 2];
+            frame++;
         } else if (c == '-') {
-            points[ball++] = 0;
+            scores[ball++] = 0;
         } else {
-            points[ball++] = c - '0';
+            scores[ball++] = c - '0';
         }
     }
-    for (int i = 0; frame < 11; ++frame) {
-        total += points[i] + points[i + 1];
-        if (points[i] == 10 || points[i] + points[i + 1] == 10) {
-            total += points[i + 2];
-        }
-        if (points[i] == 10) {
-            i++;
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10) {
+            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
+            if (scores[i * 2 + 2] == 10) {
+                total += scores[i * 2 + 4];
+            }
+        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
+            total += 10 + scores[i * 2 + 2];
         } else {
-            i += 2;
+            total += scores[i * 2] + scores[i * 2 + 1];
         }
     }
     return total;
@@ -37,7 +38,7 @@ int score(string s) {
 
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << score(s) << std::endl;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
