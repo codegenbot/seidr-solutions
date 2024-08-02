@@ -1,10 +1,10 @@
 #include <vector>
 
-int below_threshold(vector<int> l, int t) {
+bool below_threshold(std::vector<int> l, int t) {
     for (int i : l) {
         if (i >= t) {
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
