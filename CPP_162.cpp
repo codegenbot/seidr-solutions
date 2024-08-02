@@ -1,3 +1,4 @@
+```cpp
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <string>
@@ -43,7 +44,7 @@ string string_to_md5(string text) {
     for(int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", hash[i]);
-        result.append(string(buffer));
+        result.append(buffer);
     }
 
     EVP_MD_CTX_cleanup(&mdctx);
