@@ -1,13 +1,12 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-int min_element(std::vector<int> lst) {
-    if(lst.size() == 0) return 0;
-    std::vector<int>::iterator it = std::min_element(lst.begin(), lst.end());
-    if (it != lst.end() && std::next(it) != lst.end()) {
+int findSecondMinElement(std::vector<int> lst) {
+    vector<int>::iterator it = min_element(lst.begin(), lst.end());
+    if (std::next(it) != lst.end()) {
         return *std::next(it);
     } else if (lst.size() < 2) {
-        return *it;
+        return 0;
     }
-    return 0; 
+    return 0;
 }
