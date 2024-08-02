@@ -1,20 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> words, std::string sub) {
-    std::vector<std::string> filtered;
-    for (const std::string& word : words) {
-        if (word.find(sub) != std::string::npos) {
-            filtered.push_back(word);
+vector<string> filter_by_substring(vector<string> words, string substring) {
+    vector<string> filtered_words;
+    for (const auto& word : words) {
+        if (word.find(substring) != string::npos) {
+            filtered_words.push_back(word);
         }
     }
-    return filtered;
+    return filtered_words;
 }
 
 int main() {
