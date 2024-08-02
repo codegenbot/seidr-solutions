@@ -1,16 +1,35 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
+vector<int> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
-    int splitIndex = -1;
-    
+    int cutIndex = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
-        if (abs(nums[i] - nums[i+1]) <= minDiff) {
-            minDiff = abs(nums[i] - nums[i+1]);
-            splitIndex = i + 1;
+        int diff = abs(nums[i] - nums[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    return {vector<int>(nums.begin(), nums.begin() + splitIndex), vector<int>(nums.begin() + splitIndex, nums.end())};
+    return {vector<int>(nums.begin(), nums.begin() + cutIndex),
+            vector<int>(nums.begin() + cutIndex, nums.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    vector<int> result = cutVector(nums);
+    for (auto it = std::vector<int>(result[0]).begin(), e = std::vector<int>(result[0]).end(); it != e; ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    for (auto it = std::vector<int>(result[1]).begin(), e = std::vector<int>(result[1]).end(); it != e; ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    return 0;
 }
