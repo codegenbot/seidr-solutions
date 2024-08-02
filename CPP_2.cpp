@@ -6,6 +6,10 @@ double truncate_number(double number) {
     return number - floor(number);
 }
 
-void main() {
-    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
+int main() {
+    double num;
+    std::cin >> num;
+    std::cout << truncate_number(num) << std::endl;
+
+    return 0;
 }
