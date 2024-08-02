@@ -13,3 +13,4 @@ int main() {
     cin >> initialSnow >> rateOfSnowFall >> proportionOfMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfMeltingPerHour) << endl;
     return 0;
+}
