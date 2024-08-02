@@ -9,13 +9,8 @@ using namespace std;
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            try {
-                int num = boost::any_cast<int>(value);
-                result.push_back(num);
-            } catch (boost::bad_any_cast&) {
-                // ignore non-integers
-            }
+        if (value.type() == boost::any::typeclass<int>()) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
