@@ -3,20 +3,16 @@ int main() {
     getline(cin, input);
     
     bool capitalize = true;
-    for (char& c : input) {
-        if (c == '-' || c == ' ') {
+    for (char &c : input) {
+        if (c == '-') {
             capitalize = true;
+        } else if (capitalize) {
+            cout << (char)toupper(c);
+            capitalize = false;
         } else {
-            if (capitalize && islower(c)) {
-                c = toupper(c);
-                capitalize = false;
-            } else if (!capitalize && isupper(c)) {
-                c = tolower(c);
-            }
+            cout << c;
         }
     }
-    
-    cout << input << endl;
     
     return 0;
 }
