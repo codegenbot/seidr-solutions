@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,6 +15,6 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     int odd_sum = 0; 
-    // Add code here to populate the vector and calculate odd_sum
+    // Rest of your code...
     assert(double_the_difference(lst) == odd_sum); 
 }
