@@ -14,7 +14,6 @@ bool monotonic(std::vector<float> l){
 }
 
 int main() {
-    std::vector<float> input = {1.5f, 2.3f, 2.5f, 3.1f, 5.6f};
-    bool result = monotonic(input);
-    return 0;
+    std::vector<float> numbers = {1.2, 2.3, 3.4, 4.5};
+    monotonic(numbers);
 }
