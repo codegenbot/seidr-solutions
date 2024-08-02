@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 
 std::string decimal_to_binary(int decimal){
     std::string binary = "";
@@ -14,9 +13,6 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    int decimal;
-    std::cout << "Enter a decimal number: ";
-    std::cin >> decimal;
-    std::cout << "Binary representation: " << decimal_to_binary(decimal) << std::endl;
+    assert (decimal_to_binary(15) == "db1111db");
     return 0;
 }
