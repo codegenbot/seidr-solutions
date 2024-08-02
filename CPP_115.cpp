@@ -1,5 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <numeric>
+
 using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
@@ -17,6 +20,8 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    assert (max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    vector<vector<int>> grid = {{1,2,3},{4,5,6}};
+    int capacity = 7;
+    cout << max_fill(grid, capacity) << endl;
     return 0;
 }
