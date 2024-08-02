@@ -15,7 +15,7 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> depths;
     int depth = 0;
     int max_depth = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             depth++;
@@ -24,8 +24,11 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
             depth--;
         }
     }
-    
+
     return {max_depth};
 }
 
-assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
+}
