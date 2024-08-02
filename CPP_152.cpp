@@ -13,19 +13,20 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
-    int correct = 0;
-    int partiallyCorrect = 0;
-
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            correct++;
-        } else if (find(game.begin(), game.end(), guess[i]) != game.end()) {
-            partiallyCorrect++;
+    if (!issame(game, guess))
+        result.push_back(-1);
+    else {
+        int black = 0, white = 0;
+        for (int i = 0; i < game.size(); i++) {
+            if (game[i] == guess[i])
+                white++;
+            else
+                black++;
         }
+        vector<int> output(2);
+        output[0] = black;
+        output[1] = white;
+        return output;
     }
-
-    result.push_back(correct);
-    result.push_back(partiallyCorrect);
-
     return result;
 }
