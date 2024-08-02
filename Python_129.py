@@ -21,6 +21,7 @@ def minPath(grid, k):
 
     return path
 
+
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 k = int(input())
