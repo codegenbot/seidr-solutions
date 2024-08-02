@@ -11,12 +11,8 @@ int main() {
         if(c == '-') {
             capitalize = true;
         } else if(c != ' ') {
-            if(capitalize) {
-                std::cout << (capitalize ? (char)toupper(c) : c);
-                capitalize = false;
-            } else {
-                std::cout << c;
-            }
+            std::cout << (capitalize ? (char)toupper(c) : c);
+            capitalize = false;
         }
         if(c == ' ') {
             capitalize = true;
