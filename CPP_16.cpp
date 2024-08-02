@@ -1,3 +1,7 @@
+#define ONLINE_JUDGE
+
+#ifndef ONLINE_JUDGE
+
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -12,9 +16,9 @@ int count_distinct_characters(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    std::getline(std::cin, str);
-    std::cout << count_distinct_characters(str) << std::endl;
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
     
     return 0;
 }
+
+#endif

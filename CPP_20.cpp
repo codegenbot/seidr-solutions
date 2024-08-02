@@ -1,12 +1,22 @@
-sort(numbers.begin(), numbers.end());
+bool issame(float a, float b) {
+    return (fabs(a - b) < 0.0001);
+}
+
+pair<float, float> find_closest_elements(const vector<float>& numbers) {
+    sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    pair<float, float> closest_elements = {numbers[0], numbers[1]};
+    float num1 = numbers[0], num2 = numbers[1];
     for (int i = 1; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {numbers[i], numbers[i + 1]};
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
+            num1 = numbers[i];
+            num2 = numbers[i + 1];
+        } else if (issame(numbers[i + 1] - numbers[i], min_diff)) {
+            if (numbers[i] < num1) {
+                num1 = numbers[i];
+                num2 = numbers[i + 1];
+            }
         }
     }
-    return {closest_elements.first, closest_elements.second};
+    return {num1, num2};
 }
