@@ -27,7 +27,15 @@ int main() {
     }
 
     int main() {
-        vector<int> lst = {1, 2, 3, 4};
-        cout << skjkasdkd(lst) << endl;
-        return 0;
+        vector<int> lst;
+        // input your list here
+        cout << "Enter a number of integers: ";
+        int n;
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            int x;
+            cin >> x;
+            lst.push_back(x);
+        }
+        cout << "Sum of digits in the max prime number is: " << skjkasdkd(lst) << endl;
     }
