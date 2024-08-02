@@ -9,5 +9,4 @@ vector<vector<string>> issame(vector<string> a, string substring){
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {{"grunt"}, {"prune"}}));
-    // ...
 }
