@@ -1,3 +1,5 @@
+#include <vector>
+
 bool below_zero(const vector<int>& operations) {
     int balance = 0;
     for (int op : operations) {
@@ -8,3 +10,7 @@ bool below_zero(const vector<int>& operations) {
     }
     return false;
 }
+
+vector<int> operations{1, -3, 2, -5, 7};
+
+bool result = below_zero(operations);
