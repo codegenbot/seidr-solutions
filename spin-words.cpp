@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -19,8 +18,6 @@ string spinWords(string str) {
                     result += word;
                 }
                 word.clear();
-            } else {
-                word.clear();
             }
         } else {
             word += str[i];
@@ -29,12 +26,13 @@ string spinWords(string str) {
     
     if (!word.empty()) {
         if (word.length() >= 5) {
-            for (int i = word.length()-1; i >= 0; i--) {
-                result += word[i];
+            for (int j = word.length()-1; j >= 0; j--) {
+                result += word[j];
             }
         } else {
             result += word;
         }
+        word.clear();
     }
     
     return result;
