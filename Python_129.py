@@ -25,7 +25,7 @@ def minPath(grid, k):
                 visited[nr][nc] = True
                 queue.append((nr, nc, path + [grid[nr][nc]]))
 
-        if len(path) > k:
+        if len(path) >= k:
             break
 
     return []
