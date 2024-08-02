@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -10,9 +11,11 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-    return count == 0;
+    return count < 0;
 }
 
 int main() {
     assert(is_nested("]]]]]]]]") == false);
+    // Add more test cases if needed
+    return 0;
 }
