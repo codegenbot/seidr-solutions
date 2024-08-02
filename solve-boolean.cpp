@@ -3,26 +3,18 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
             return true;
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            i++; // Skip &
-            if (s[i] == 'F') {
-                return false; // If & operator is followed by F, result is F
-            }
+            result &= true;
         } else if (s[i] == '|') {
-            i++; // Skip |
-            if (s[i] == 'F') {
-                return false; // If | operator is followed by F, result is F
-            }
-        } 
-        i++;
+            result |= true;
+        }
     }
-    return true;
+    return result;
 }
 
 int main() {
