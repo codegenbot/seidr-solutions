@@ -8,7 +8,7 @@ std::string spinWords(std::string input) {
             std::string word = input.substr(pos + 1, length);
             for (int i = word.length() - 1; i >= 0; --i)
                 output += word[i];
-            output += ' '; // fixed here
+            output += ' '; // Modified
         } else {
             output.append(input.substr(0, pos + 1));
         }
