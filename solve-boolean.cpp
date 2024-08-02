@@ -8,13 +8,13 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = (j < s.length()) ? s.substr(0, j) : s; 
-    
+
     j++;
     while(j<s.length()) {
         if(s[j] == '&') break;
         j++;
     }
-    string right = (s.length() > j) ? s.substr(j) : "";
+    string right = (s.length() > j) ? s.substr(j) : ""; 
 
     return solveBoolean(left) || solveBoolean(right);
 }
