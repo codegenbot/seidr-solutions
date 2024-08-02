@@ -1,27 +1,25 @@
+Here is the completed code:
+
 string words_in_sentence(string sentence){
     string result = "";
-    for(int i=0; i<sentence.size(); i++){
-        int length = 0;
-        while(i < sentence.size() && isalpha(sentence[i])){
-            length++;
-            i++;
+    int i = 0;
+    while(i < sentence.size()){
+        int len = 0;
+        for(int j = i; j < sentence.size(); j++){
+            len++;
+            if(!isalpha(sentence[j])){
+                break;
+            }
         }
-        if(isPrime(length)){
-            result += sentence.substr(0, length) + " ";
-            i--;
-        } else {
-            i--;
+        bool isPrime = true;
+        for(int j = 2; j * j <= len; j++){
+            if(len % j == 0){
+                isPrime = false;
+                break;
+            }
         }
+        if(isPrime) result += sentence.substr(i, len) + " ";
+        i += len;
     }
-    return result.substr(0, result.size()-1);
-}
-
-bool isPrime(int n){
-    if(n <= 1)
-        return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0)
-            return false;
-    }
-    return true;
+    return result;
 }
