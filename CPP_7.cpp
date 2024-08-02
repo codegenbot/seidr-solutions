@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -16,5 +17,15 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    // your code here
+    vector<string> str = {"apple", "banana", "cherry"};
+    string sub = "an";
+    
+    vector<string> filtered_str = filter_by_substring(str, sub);
+    
+    if(issame(filtered_str, str))
+        std::cout << "The strings are the same." << std::endl;
+    else
+        std::cout << "The strings are not the same." << std::endl;
+
+    return 0;
 }
