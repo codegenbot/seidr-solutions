@@ -1,6 +1,6 @@
 #include <string>
 
-int bowlingScore(std::string bowls) {
+int bowlingScore(string bowls) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
         if (isdigit(bowls[i])) {
@@ -18,20 +18,20 @@ int bowlingScore(std::string bowls) {
             }
             score += roll1 + roll2;
         } else {
-            int x = 0;
+            int x = 10;
             while (i < 9 && bowls[i] == 'X') {
                 score += 10;
                 i++;
                 if (i < 9) {
                     if (isdigit(bowls[i])) {
-                        x = bowls[i] - '0';
+                        x = 10 + bowls[i] - '0';
                         break;
                     } else {
-                        x = 10;
+                        x = 20;
                         i++;
                     }
                 } else {
-                    x = 10;
+                    x = 20;
                 }
             }
             score += x;
