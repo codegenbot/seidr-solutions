@@ -2,20 +2,8 @@ bool is_happy(string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = 0; j < s.length(); j++) {
-                if (s[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        if (!unique)
+        set<char> unique_chars(s.substr(i, 3));
+        if (unique_chars.size() != 3)
             return false;
     }
     return true;
