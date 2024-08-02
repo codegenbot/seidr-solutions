@@ -1,5 +1,5 @@
+```
 from typing import List
-
 
 def filter_by_substring():
     user_strings = input("Enter a list of strings (separated by spaces): ")
@@ -10,6 +10,5 @@ def filter_by_substring():
     filtered_strings = [s for s in user_strings_list if user_substring in s]
 
     return filtered_strings
-
 
 print(filter_by_substring())
