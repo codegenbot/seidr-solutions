@@ -1,5 +1,5 @@
-Here is the modified code:
-
-grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-k = 3
+```
+grid = [['0', '1', '0'], ['1', '1', '0'], ['0', '0', '0']]
+k = 2
 res = minPath(grid, k)
+print(res)
