@@ -1,3 +1,5 @@
-grid = [[1,2,3],[4,5,6],[7,8,9]]
+Here is the modified code:
+
+grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 k = 3
 res = minPath(grid, k)
