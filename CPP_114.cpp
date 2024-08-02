@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+#include <vector>
+
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT64_MAX;
     long long current_sum = 0;
