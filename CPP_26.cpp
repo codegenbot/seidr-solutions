@@ -4,17 +4,18 @@
 
 using namespace std;
 
-bool issame_vv(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
+vector<int> remove_duplicates(const vector<int>& numbers) {
+    vector<int> temp = numbers;
+    sort(temp.begin(), temp.end());
+    temp.erase(unique(temp.begin(), temp.end()), temp.end());
+    return temp;
 }
 
 int main() {
-    assert(issame_vv(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>{1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
