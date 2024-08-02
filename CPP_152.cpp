@@ -1,6 +1,6 @@
 ```
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(int a, int b) {
     if (a == b)
@@ -12,10 +12,11 @@ bool issame(int a, int b) {
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame(game[i], guess[i]))
+        if (issame(game[i], guess[i])) {
             result.push_back(0);
-        else
+        } else {
             result.push_back(abs(game[i] - guess[i]));
+        }
     }
     return result;
 }
