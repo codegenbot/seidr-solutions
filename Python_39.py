@@ -15,7 +15,7 @@ def is_prime(num):
 
 def prime_fib():
     n = int(input())
-
+    
     def fibonacci(n):
         if n <= 0:
             return 0
