@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 int bowlingScore(string& s) {
@@ -22,4 +21,3 @@ int bowlingScore(string& s) {
         }
     }
     return score;
-}
