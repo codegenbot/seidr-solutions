@@ -1,4 +1,4 @@
-def complete_code(numbers, delimiter):
+def format_numbers(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
         result.extend([num, delimiter])
