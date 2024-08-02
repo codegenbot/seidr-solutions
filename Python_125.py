@@ -1,10 +1,3 @@
 ```
 def split_words(txt):
-    words = txt.split()
-    if len(words) > 0:
-        return words
-    else:
-        try:
-            return txt.replace(",", " ").split()
-        except ValueError:
-            return sum(ord(c) - ord('a') for c in txt.lower() if 'bcdfghjklmnpqrstvwxyz'.index(c)) // 2 % 3 + 1
+    return txt.split() if ' ' in txt else (txt.split(',') if ',' in txt else sum(1 for i in range(ord('a'), ord('z')+1) if txt[i%26].islower()))
