@@ -9,4 +9,4 @@ odd_sum = int(input())
 
 # Call the function with the correct arguments
 result = double_the_difference(lst, odd_sum)
-print(result)
+print(result) 
