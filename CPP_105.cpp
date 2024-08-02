@@ -1,8 +1,9 @@
 ```c++
 #include <vector>
+#include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a == b)
         return true;
     else
@@ -10,64 +11,61 @@ bool issame(vector<string> a, vector<string>b) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-
-    vector<string> by_length(vector<int> arr) {
-        vector<int> temp;
-        for (int i : arr) {
-            if (i >= 1 && i <= 9)
-                temp.push_back(i);
-        }
-        sort(temp.begin(), temp.end());
-        reverse(temp.begin(), temp.end());
-        vector<string> result;
-        for (int i : temp) {
-            switch (i) {
-                case 1:
-                    result.push_back("One");
-                    break;
-                case 2:
-                    result.push_back("Two");
-                    break;
-                case 3:
-                    result.push_back("Three");
-                    break;
-                case 4:
-                    result.push_back("Four");
-                    break;
-                case 5:
-                    result.push_back("Five");
-                    break;
-                case 6:
-                    result.push_back("Six");
-                    break;
-                case 7:
-                    result.push_back("Seven");
-                    break;
-                case 8:
-                    result.push_back("Eight");
-                    break;
-                case 9:
-                    result.push_back("Nine");
-                    break;
-            }
-        }
-        return result;
-    }
-
-    vector<string> output = by_length(arr);
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<string> result = by_length(arr);
     
-    if (issame(output, {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"})) {
-        cout << "The numbers are in the correct order." << endl;
-    } else {
-        cout << "The numbers are not in the correct order." << endl;
+    for (string s : result) {
+        cout << s << endl;
     }
-
+    
+    if (issame(result, {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"})) {
+        cout << "The vectors are same." << endl;
+    } else {
+        cout << "The vectors are not same." << endl;
+    }
+    
     return 0;
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            temp.push_back(i);
+    }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    vector<string> result;
+    for (int i : temp) {
+        switch (i) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
+    return result;
 }
