@@ -1,27 +1,36 @@
 Here is the completed code:
 
 ```cpp
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_index = string::npos;
+bool hasDigit = false;
+int dotCount = 0;
 
 for (char c : file_name) {
     if (isdigit(c)) {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-        dot_index = file_name.find(c);
+        if (!hasDigit) {
+            hasDigit = true;
+        } else {
+            return "No";
+        }
+    }
+
+    if (c == '.') {
+        dotCount++;
     }
 }
 
-if (!has_dot || dot_index == 0 || dot_index == string::npos) {
+if (dotCount > 1 || !hasDigit || file_name[0] < 'a' && file_name[0] > 'z' && file_name[0] < 'A' && file_name[0] > 'Z') {
     return "No";
 }
 
-string before_dot = file_name.substr(0, dot_index);
-string after_dot = file_name.substr(dot_index + 1);
+string extension = "";
+for (int i = file_name.find('.') + 1; i < file_name.length(); i++) {
+    if (file_name[i] == '.') {
+        break;
+    }
+    extension += file_name[i];
+}
 
-if (digit_count > 3 || !isalpha(before_dot[0]) || after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+if (extension != "txt" && extension != "exe" && extension != "dll") {
     return "No";
 }
 
