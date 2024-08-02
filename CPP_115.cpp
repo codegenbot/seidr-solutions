@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int max_fill(const std::vector<std::vector<int>>& grid, int capacity) {
     int rows = grid.size();
@@ -11,12 +10,12 @@ int max_fill(const std::vector<std::vector<int>>& grid, int capacity) {
             total_water += grid[i][j];
         }
     }
-
+    
     int buckets_needed = total_water / capacity;
     if (total_water % capacity != 0) {
         buckets_needed++;
     }
-
+    
     return buckets_needed;
 }
 
