@@ -1,7 +1,7 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
 
-std::string filp_case(std::string str) {
+std::string filp_case(const std::string& str) {
     for(int i = 0; i < str.length(); i++) {
         if(str[i] >= 'a' && str[i] <= 'z') {
             str[i] -= ('a' - 'A');
@@ -13,7 +13,6 @@ std::string filp_case(std::string str) {
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
+    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
