@@ -34,7 +34,7 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-int main() {
+int main_solution_cpp148() {
     assert(bf("Jupiter", "Makemake") == vector<string>{});
 
     return 0;
