@@ -13,7 +13,7 @@ int main() {
     for (int i = 0; i < n; ++i) cin >> vec2[i];
 
     long double sum = 0;
-    for (int i = 0; i < n; ++i) sum += pow(vec1[i] - vec2[i], 2.0L);
+    for (int i = 0; i < n; ++i) sum += pow(vec1[i] - vec2[i], 2.0);
 
     long double distance = sqrt(sum);
     cout << distance << endl;
