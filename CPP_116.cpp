@@ -1,15 +1,13 @@
 #include <vector>
 #include <algorithm>
 
-int count_ones(int n) {
-    int ones = 0;
+int countBits(int n) {
+    int count = 0;
     while (n > 0) {
-        if ((n & 1) == 1) {
-            ones++;
-        }
-        n >>= 1;
+        n &= n - 1;
+        count++;
     }
-    return ones;
+    return count;
 }
 
 bool issame(vector<int> a, vector<int> b) {
@@ -20,13 +18,13 @@ vector<int> sort_array(vector<int> arr) {
     vector<int> result;
 
     for (int i = 0; i < arr.size(); i++) {
-        int ones = count_ones(arr[i]);
-        if (i == 0 || ones != count_ones(arr[i-1])) {
+        int ones = countBits(arr[i]);
+        if (i == 0 || ones != countBits(arr[i-1])) {
             result.push_back(arr[i]);
         } else {
             bool inserted = false;
             for (int j = 0; j < result.size(); j++) {
-                if (ones >= count_ones(result[j])) {
+                if (ones >= countBits(result[j])) {
                     result.insert(j, arr[i]);
                     inserted = true;
                     break;
