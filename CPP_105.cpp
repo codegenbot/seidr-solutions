@@ -11,23 +11,13 @@ bool issame(vector<string> a, vector<string>b) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
-
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     vector<string> result = by_length(arr);
-
-    if (issame(result, {"One", "Four", "Seven", "Nine"})) {
-        std::cout << "The output is same as expected." << std::endl;
-    } else {
-        std::cout << "The output is different from expected." << std::endl;
-    }
+    
+    if (issame(result, {"Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two", "One"}))
+        cout << "The output is correct." << endl;
+    else
+        cout << "The output is incorrect." << endl;
 
     return 0;
 }
