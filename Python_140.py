@@ -1,4 +1,3 @@
-```
 text = "Hello World   "
 def fix_spaces(text):
     result = ""
