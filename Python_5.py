@@ -1,7 +1,6 @@
-def process_numbers(numbers, delimiter):
+def insert_delimiter(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
-    if result:
-        result.pop()
+    result.pop()  # Remove the last delimiter
     return result
