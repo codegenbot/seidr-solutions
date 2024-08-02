@@ -4,9 +4,3 @@ def check_threshold(numbers, threshold):
             if abs(numbers[i] - numbers[j]) < threshold:
                 return True
     return False
-
-# Call the function with appropriate parameters
-numbers = [1, 4, 8, 12]
-threshold = 3
-result = check_threshold(numbers, threshold)
-print(result)
