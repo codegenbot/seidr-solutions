@@ -2,17 +2,19 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::vector<float> l;
-    float x;
-    while (std::cin >> x) {
-        if (x > 0) {
-            l.push_back(x);
-        }
+    vector<float> l;
+    cout << "Enter numbers (enter 'stop' to finish): ";
+    string s;
+    while(getline(cin, s)) {
+        if(s == "stop") break;
+        l.push_back(stof(s));
     }
-    std::vector<float> result = get_positive(l);
-    for (float i : result) {
-        std::cout << i << " ";
+    vector<float> result = get_positive(l);
+    for(float x : result) {
+        cout << x << " ";
     }
     return 0;
 }
