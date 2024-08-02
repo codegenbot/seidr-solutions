@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool has_close_elements(std::initializer_list<float> numbers, float threshold) {
+bool has_close_elements(initializer_list<float> numbers, float threshold) {
     vector<float> numList(numbers);
     sort(numList.begin(), numList.end());
     for (int i = 0; i < numList.size() - 1; ++i) {
@@ -17,5 +17,7 @@ bool has_close_elements(std::initializer_list<float> numbers, float threshold) {
     return false;
 }
 
-assert(!has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5);
-return 0;
+int main() {
+    assert(!has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5));
+    return 0;
+}
