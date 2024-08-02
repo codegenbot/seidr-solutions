@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 #include <vector>
 #include <cctype>
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions){
     int strongest = -1;
     string strongest_extension;
     for(auto &extension : extensions){
@@ -20,4 +21,11 @@ int Strongest_Extension(string class_name,vector<string> extensions){
         }
     }
     return class_name + "." + strongest_extension;
+}
+
+int main(){
+    string class_name = "My";
+    vector<string> extensions = {"Java", "Python", "C++", "Kotlin"};
+    cout << Strongest_Extension(class_name, extensions) << endl;
+    return 0;
 }
