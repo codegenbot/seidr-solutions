@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     if len(lst) < 4:
         lst += [0] * (4 - len(lst))  
