@@ -1,29 +1,22 @@
-#include <vector>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string temp;
+    istringstream iss(numbers);
+    string num;
+    vector<string> nums;
 
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
-        }
-        temp += numbers[i];
-        if ((i + 1) % 4 == 0 || i == numbers.length() - 1) {
-            numVec.push_back(temp);
-            temp = "";
-        }
+    while (getline(iss, num, ' ')) {
+        nums.push_back(num);
     }
 
-    sort(numVec.begin(), numVec.end());
+    sort(nums.begin(), nums.end());
 
     string result = "";
-    for (const auto& str : numVec) {
-        result += str + " ";
+    for (const auto& n : nums) {
+        result += n + " ";
     }
-
-    return result;
+    return result.substr(0, result.size() - 1);
 }
