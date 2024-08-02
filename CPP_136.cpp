@@ -1,15 +1,5 @@
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -19,10 +9,10 @@ vector<int> largest_smallest_integers(vector<int> lst){
         if (num < 0 && num > largest_negative) {
             largest_negative = num;
         }
-        if (num > 0 && (num < smallest_positive || smallest_positive == INT_MAX)) {
+        if (num > 0 && num < smallest_positive) {
             smallest_positive = num;
         }
     }
     
-    return {largest_negative, smallest_positive};
+    return {largest_negative == INT_MIN ? 0 : largest_negative, smallest_positive == INT_MAX ? 0 : smallest_positive};
 }
