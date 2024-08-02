@@ -8,6 +8,7 @@ def find_zero(xs: list):
     x2 = (-b - sqrt_discriminant) / (2 * a)
     return x1 if x1 == x2 else (x1, x2)
 
+# Test cases
 if __name__ == "__main__":
     print(find_zero([1, -3, 2]))  # Output: (2.0, 1.0)
     print(find_zero([1, 2, 1]))  # Output: -1.0
