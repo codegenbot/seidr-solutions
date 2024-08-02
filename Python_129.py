@@ -1,4 +1,5 @@
 grid = [list(map(int, input().split())) for _ in range(n)]
+
 def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
