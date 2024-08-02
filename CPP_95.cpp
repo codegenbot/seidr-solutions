@@ -1,30 +1,27 @@
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty())
-        return false;
+    if (dict.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        string key = it->first;
+        if (!islower(key[0])) {
             allLower = false;
-            allUpper = false;
             break;
-        } else if (!allLower && !allUpper)
-            continue;
-        else if (!allLower) {
-            for (int i = 1; i < pair.first.length(); ++i) {
-                if (!islower(pair.first[i]))
-                    allLower = false;
-                else
-                    allUpper = false;
+        }
+        for (char c : key) {
+            if (!islower(c)) {
+                allLower = false;
+                break;
             }
-        } else {
-            for (int i = 1; i < pair.first.length(); ++i) {
-                if (!isupper(pair.first[i]))
+        }
+        if (allUpper) {
+            for (char c : key) {
+                if (isupper(c)) {
                     allUpper = false;
-                else
-                    allLower = false;
+                    break;
+                }
             }
         }
     }
