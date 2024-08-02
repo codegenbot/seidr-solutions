@@ -1,12 +1,15 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
-    std::vector<int> l;
-    std::cin >> l[0];
-    for(int i=1;i<124;++i){
-        std::cin >> l[i];
+    std::vector<int> l; 
+    int max;
+    std::cout << "Enter numbers (separated by space): ";
+    for(int i = 0; i < 5; i++) {
+        int num;
+        std::cin >> num;
+        l.push_back(num);
     }
-    return *std::max_element(l.begin(), l.end());
+    max = *std::max_element(l.begin(), l.end());
+    return max;
 }
