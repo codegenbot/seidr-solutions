@@ -13,5 +13,17 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    // Add your code here
+    vector<float> input = {1.5f, -2.3f, 4.7f, -8.9f};
+    vector<float> positive_numbers = get_positive(input);
+
+    if (issame(positive_numbers, vector<float>{})) {
+        cout << "No positive numbers found." << endl;
+    } else {
+        for(float i : positive_numbers) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
