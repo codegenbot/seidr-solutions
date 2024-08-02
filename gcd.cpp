@@ -10,6 +10,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; ++i) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            for(int j=i+1;j+i<=n-m && j<m;j++){
+                if(text.substr(j+i,m)!=target)
+                    break;
+                result.push_back(j+i);
+            }
         }
     }
 
