@@ -5,11 +5,10 @@ using namespace std;
 
 int main() {
     string text, target;
-    getline(cin, text);
-    getline(cin, target);
+    cin >> text >> target;
     vector<int> indices;
-    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
-        if (text.substr(i, target.length()) == target) {
+    for (size_t i = 0; i < text.length(); ++i) {
+        if (i + target.length() <= text.length() && text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
     }
