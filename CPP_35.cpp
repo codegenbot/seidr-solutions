@@ -1,14 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
     std::vector<int> l;
-    // Read input from user and store in 'l'
-    for(int i=0; i<3; i++) {
-        int temp;
-        std::cin >> temp;
-        l.push_back(temp);
+    std::cin >> l[0];
+    for(int i=1;i<124;++i){
+        std::cin >> l[i];
     }
-    std::vector<float> v = l; 
-    return *std::max_element(v.begin(), v.end()); 
+    return *std::max_element(l.begin(), l.end());
 }
