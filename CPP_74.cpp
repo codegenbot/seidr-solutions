@@ -1,21 +1,11 @@
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int total_chars(const vector<string>& lst) {
-    int total = 0;
-    for (const string& str : lst) {
-        total += str.size();
+    if (a.size() != b.size()) {
+        return false;
     }
-    return total;
-}
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if (total_chars(lst1) < total_chars(lst2)) {
-        return lst1;
-    } else if (total_chars(lst1) == total_chars(lst2)) {
-        return lst1;
-    } else {
-        return lst2;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
+    return true;
 }
