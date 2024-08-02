@@ -1,3 +1,10 @@
+grid = []
+n = int(input())
+for _ in range(n):
+    grid.append(list(map(int, input().split())))
+
+k = int(input())
+
 def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
@@ -17,6 +24,8 @@ def minPath(grid, k):
         if next_cell is not None:
             path.append(grid[next_cell[0]][next_cell[1]])
             visited.add(next_cell)
-            i, j = next_cell[0], next_cell[1]
+            i, j = next_cell
 
     return path
+
+print(minPath(grid, k))
