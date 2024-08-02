@@ -1,3 +1,4 @@
+```Python
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -8,7 +9,7 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == k:
             nonlocal res
-            res.append(sorted_grid[:])
+            res.append(sorted(path))
             return True
         if (i, j) in visited or m[i][j] not in grid[0]:
             return False
@@ -28,7 +29,7 @@ def minPath(grid, k):
             visited = set()
             res = []
             if dfs(i, j, []):
-                return sorted([item for sublist in res for item in sublist])
+                return sorted([item for sublist in [sorted(r) for r in res] for item in sublist])
     return []
 
 print(minPath([[1, 3], [3, 2]], 10))
