@@ -1,8 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 int digitSum(string s){
     int sum = 0;
-    for(int i=0; i<s.length(); i++){
-        if(isupper(s[i])){
-            sum += toupper(s[i]);
+    for(char c : s){
+        if(isupper(c)){
+            sum += (int)c - 55; // subtracting ASCII value of 'A' - 1
         }
     }
     return sum;
