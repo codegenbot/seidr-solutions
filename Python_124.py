@@ -1,12 +1,21 @@
 ```
 def valid_date(date):
-    mm_dd_yyyy = date.replace('-', '')
-    if len(mm_dd_yyyy) != 8:
+    day, month, year = date.split('-')
+    if len(month) < 1 or len(year) < 4:
         return False
-    month, day, year = map(int, (mm_dd_yyyy[:2], mm_dd_yyyy[2:4], mm_dd_yyyy[4:]))
-    if not (1 <= month <= 12):
+    try:
+        int_month = int(month)
+        int_day = int(day)
+    except ValueError:
         return False
-    days_in_month = [31,28,29,30,31,30,31,31,30,31,30,31]
-    if not (1 <= day <= days_in_month[month-1]):
+    if not (1 <= int_month <= 12):
+        return False
+    if int_month in [1,3,5,7,8,10,12]:
+        max_days = 31
+    elif int_month == 2:
+        max_days = 29 if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) else 28
+    else:
+        max_days = 30
+    if not (1 <= int_day <= max_days):
         return False
     return True
