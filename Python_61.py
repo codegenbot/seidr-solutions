@@ -5,7 +5,7 @@ def correct_bracketing(brackets: str):
         if bracket == "(":
             stack.append(bracket)
         elif bracket == ")":
-            if not stack:
+            if len(stack) == 0:
                 return False
             stack.pop()
-    return not stack
+    return len(stack) == 0
