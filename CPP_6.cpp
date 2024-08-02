@@ -4,6 +4,8 @@
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
+std::vector<int> parse_nested_parens(std::string paren_string);
+
 std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> depths;
     int depth = 0;
