@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <sstream>
 
@@ -10,10 +11,9 @@ string string_to_md5(string text) {
     unsigned char md5digest[16];
     MD5_Init(&md5ctx);
     stringstream ss(text);
-    string str;
-    while (getline(ss, str)) {
-        const char *cstr = str.c_str();
-        MD5_Update(&md5ctx, cstr, strlen(cstr));
+    char buffer[256];
+    while (getline(ss, buffer, '\0')) { 
+        MD5_Update(&md5ctx, buffer, strlen(buffer));
     }
     MD5_Final(md5digest, &md5ctx);
 
@@ -21,7 +21,6 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         oss << setfill('0') << setw(2) << hex << (int)md5digest[i];
     }
-    string result = oss.str();
-    oss.str(); // clear internal state
-    return result;
+
+    return oss.str();
 }
