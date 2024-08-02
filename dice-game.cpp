@@ -1,12 +1,4 @@
-#include <iostream>
-
 double probability(int n, int m) {
-    return static_cast<double>(min(n, m)) / (n * m);
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << fixed << setprecision(2) << 1 - probability(m, n) << '\n';
-    return 0;
+    double total = 1.0 * (n + m - 1);
+    return 1.0 / total * min(n, m);
 }
