@@ -13,21 +13,19 @@ int main(){
     std::vector<int> arr;
     int n, k;
 
-    std::cout << "Enter number of elements: ";
+    // Input
+    std::cout << "Enter the number of elements in the array: ";
     std::cin >> n;
-
-    arr.resize(n);
-
     for(int i=0; i<n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> arr[i];
     }
-
-    std::cout << "Enter value of k: ";
+    std::cout << "Enter k: ";
     std::cin >> k;
 
+    // Call the function and print output
     int result = add_elements(arr, k);
-    std::cout << "Sum: " << result << std::endl;
-
+    std::cout << "Sum of elements that satisfy the condition is: " << result << std::endl;
+    
     return 0;
 }
