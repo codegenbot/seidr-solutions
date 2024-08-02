@@ -27,6 +27,5 @@ bool isPrime(int n) {
 
 int main() {
     assert (skjkasdkd({127, 97, 8192}) == 10);
-    // You can add more test cases or code here
     return 0;
 }
