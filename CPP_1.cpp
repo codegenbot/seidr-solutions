@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
@@ -31,4 +32,8 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-assert(issame(separate_paren_groups("( ) (( )) (( )( ))").size(), 3);
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))").size(), 3));
+    
+    return 0;
+}
