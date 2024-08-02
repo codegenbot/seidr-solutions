@@ -1,7 +1,6 @@
 #include <vector>
-using namespace std;
 
-int max_fill(vector<vector<int>>& grid, int capacity) {
+int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
