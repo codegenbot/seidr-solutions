@@ -1,32 +1,31 @@
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > (int)a ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (float)b ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) > boost::any_cast<string>(a) ? b : a;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int a_int = boost::lexical_cast<int>(boost::any_cast<string>(a));
-        string b_str = boost::any_cast<string>(b);
-        return a_int > boost::lexical_cast<int>(b_str) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int a_int = boost::any_cast<int>(a);
-        string b_str = boost::any_cast<string>(b);
-        return boost::lexical_cast<int>(b_str) > a_int ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float a_float = boost::lexical_cast<float>(boost::any_cast<string>(a));
-        string b_str = boost::any_cast<string>(b);
-        return a_float > boost::lexical_cast<float>(b_str) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float a_float = boost::lexical_cast<float>(boost::any_cast<string>(a));
-        return a_float > boost::lexical_cast<float>(boost::any_cast<string>(b)) ? a : b;
+    if (is_same<any_type, int>(a.type()) && is_same<any_type, double>(b.type())) {
+        return b;
+    } else if (is_same<any_type, double>(a.type()) && is_same<any_type, int>(b.type())) {
+        return a;
+    } else if (is_same<any_type, string>(a.type()) && is_same<any_type, string>(b.type())) {
+        return (a.convert<string>() > b.convert<string>()) ? a : ((a.convert<string>() < b.convert<string>()) ? b : boost::any("None")));
+    } else if (is_same<any_type, int>(a.type()) && is_same<any_type, string>(b.type())) {
+        try {
+            double da = lexical_cast<double>(lexical_cast<int>(a));
+            double db = lexical_cast<double>(boost::lexical_cast<int>(b));
+            return (da > db) ? a : ((da < db) ? b : boost::any("None")));
+        } catch (...) {
+            return boost::any("None");
+        }
+    } else if (is_same<any_type, string>(a.type()) && is_same<any_type, int>(b.type())) {
+        try {
+            double da = lexical_cast<double>(boost::lexical_cast<int>(a));
+            double db = lexical_cast<double>(b);
+            return (da > db) ? a : ((da < db) ? b : boost::any("None")));
+        } catch (...) {
+            return boost::any("None");
+        }
     }
 
     return boost::any("None");
