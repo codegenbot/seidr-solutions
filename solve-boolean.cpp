@@ -1,5 +1,7 @@
+#include <stack>
+#include <string>
+
 bool solveBoolean(string booleanExp) {
-    #include <string>
     stack<char> s;
     for (int i = 0; i < booleanExp.length(); i++) {
         if (booleanExp[i] == '&') {
