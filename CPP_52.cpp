@@ -1,8 +1,10 @@
-bool below_threshold(vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
-            return false;
+#include <vector>
+
+int below_threshold(vector<int> l, int t) {
+    for (int i : l) {
+        if (i >= t) {
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
