@@ -1,6 +1,8 @@
-Here is the solution:
+#include<stdio.h>
+#include<math.h>
+using namespace std;
 
-bool is_simple_power(int x, int n){
-    double y = pow(n, 1.0);
+bool is_simple_power(int x,int n){
+    double y = pow(n, ceil(log(x)/log(n)));
     return (y == x);
 }
