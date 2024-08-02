@@ -1,10 +1,6 @@
-```cpp
-#include <iostream>
-#include <vector>
-
+```
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    
     if(arr.empty()) {
         result.push_back(-1);
         result.push_back(-1);
@@ -25,15 +21,4 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(index);
 
     return result;
-}
-
-int main() {
-    std::vector<int> input = {7, 9, 7, 1};
-    std::vector<int> output = pluck(input);
-
-    for(int i=0; i<output.size(); i++) {
-        std::cout << output[i] << " ";
-    }
-    
-    return 0;
 }
