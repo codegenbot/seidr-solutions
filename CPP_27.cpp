@@ -1,13 +1,14 @@
-```cpp
-string flip_case(string s){
-    string result = "";
-    for(char c : s){
+#include <string>
+#include <cctype>
+
+std::string flip_case(std::string str){
+    std::string result = "";
+    for(char c : str){
         if(c >= 'a' && c <= 'z')
-            result += toupper(c);
+            result += std::toupper(c);
         else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
+            result += std::tolower(c);
         else
             result += c;
     }
     return result;
-}
