@@ -6,6 +6,6 @@ def manipulate_numbers(numbers):
         else []
     )
 
-numbers = [1, 2, 3, 4, 5]  # example input
+numbers = [1, 2, 3, 4, 5]
 result = manipulate_numbers(numbers)
 print(result)
