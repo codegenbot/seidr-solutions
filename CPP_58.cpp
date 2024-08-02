@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 
@@ -8,9 +7,9 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> intersection;
     
     std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        std::inserter(intersection, intersection.begin()));
+        inserter(intersection, intersection.begin()));
     
     std::vector<int> result(intersection.begin(), intersection.end());
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
