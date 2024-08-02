@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -29,4 +30,9 @@ vector<int> parse_nested_parens(string paren_string) {
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
+}
+
+int main() {
+    // Add your test cases here (if needed)
+    return 0;
 }
