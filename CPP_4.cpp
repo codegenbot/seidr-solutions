@@ -1,5 +1,5 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 double mean_absolute_deviation(const vector<double>& numbers) {
     double sum = 0;
@@ -13,10 +13,4 @@ double mean_absolute_deviation(const vector<double>& numbers) {
         deviation_sum += abs(num - mean);
     }
     return deviation_sum / numbers.size();
-}
-
-int main() {
-    vector<double> numbers = {1.2, 2.6, 3.5, 5.1, 6.3};
-    double result = mean_absolute_deviation(numbers);
-    return 0;
 }
