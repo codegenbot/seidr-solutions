@@ -1,4 +1,4 @@
-#include<string>
+#include <string>
 
 string solve(string s) {
     string result = "";
@@ -11,4 +11,3 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
