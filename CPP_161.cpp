@@ -1,11 +1,18 @@
+#include <string>
+#include <algorithm>
+
 string solve(string s) {
-    string result = "";
+    string res = "";
+    bool has_letter = false;
+    
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            has_letter = true;
+            res += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            result += c;
+            res += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    
+    return has_letter ? res : string(rbegin(s), rend(s));
 }
