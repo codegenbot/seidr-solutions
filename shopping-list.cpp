@@ -11,14 +11,14 @@ int main() {
         cin >> prices[i];
     }
 
-    vector<int> discounts(n); 
+    vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
 
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (1 - (float) discounts[i] / 100.0);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
 
     cout << fixed << setprecision(2) << total << endl;
