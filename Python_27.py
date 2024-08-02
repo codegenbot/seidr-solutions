@@ -1,1 +1,6 @@
-return "".join([char.lower() if char.isupper() else char.upper() for char in string])
+def flip_case(string):
+    return "".join([char.lower() if char.isupper() else char.upper() for char in string])
+
+result = flip_case('YourProvidedStringHere')
+
+result
