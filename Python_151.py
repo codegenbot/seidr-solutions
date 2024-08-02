@@ -1,2 +1,2 @@
 def check(func):
-    print(func([1, 2, 3]))
+    check(double_the_difference([1, 2, 3]))
