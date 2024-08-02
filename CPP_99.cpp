@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 int closest_integer(const std::string& value);
 
