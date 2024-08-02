@@ -13,22 +13,16 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
-
     int result = can_arrange(arr);
-
-    if (result == -1) {
-        std::cout << "The array can be arranged.\n";
+    if (result != -1) {
+        std::cout << "Array cannot be arranged in increasing order" << std::endl;
     } else {
-        std::cout << "The array cannot be arranged at position " << result << ".\n";
+        std::cout << "Array can be arranged in increasing order" << std::endl;
     }
-
     return 0;
 }
