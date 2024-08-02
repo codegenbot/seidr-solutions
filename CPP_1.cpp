@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <vector>
 
 using std::vector;
-using std::string;
-
-vector<string> separate_paren_groups(string paren_string);
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
