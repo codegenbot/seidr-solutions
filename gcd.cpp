@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -39,9 +39,7 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin.ignore();
-    getline(cin, text);
-    cin >> target;
+    cin >> text >> target;
     vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         cout << i << " ";
