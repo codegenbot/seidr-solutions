@@ -9,7 +9,7 @@ bool issame(float a, float b) {
     return std::abs(a - b) < std::numeric_limits<float>::epsilon();
 }
 
-std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+std::pair<float, float> find_closest_elements(const std::vector<float> &numbers) {
     std::vector<float> sorted_numbers = numbers;
     std::sort(sorted_numbers.begin(), sorted_numbers.end());
     float min_diff = sorted_numbers[1] - sorted_numbers[0];
