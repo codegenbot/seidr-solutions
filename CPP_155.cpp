@@ -21,5 +21,5 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 1}));
+    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
 }
