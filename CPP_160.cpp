@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-
 using namespace std;
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
