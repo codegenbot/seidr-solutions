@@ -1,6 +1,9 @@
-int match_parens(vector<string> lst) {
+#include <vector>
+#include <string>
+
+std::string match_parens(std::vector<std::string> lst) {
     int cnt = 0;
-    for (string s : lst) {
+    for (std::string s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
