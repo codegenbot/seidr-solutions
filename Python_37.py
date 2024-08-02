@@ -1,7 +1,3 @@
 def sort_even(l: list):
-    return [
-        x if i % 2 != 0 else y
-        for _, (x, y) in zip(
-            range(len(l)), sorted((y for i, y in enumerate(l) if i % 2 == 0))
-        )
-    ]
+    even_list = sorted([x for i, x in enumerate(l) if i % 2 == 0])
+    return [x if i % 2 != 0 else y for i, x in enumerate(l)]
