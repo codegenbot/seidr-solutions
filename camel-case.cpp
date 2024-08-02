@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -6,19 +5,29 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+    if (str[0] != '-') { // handle the first character
+        result += toupper(str[0]);
+        for (int i = 1; i < str.length(); ++i) {
+            if (str[i] == '-') {
+                capitalizeNext = true;
+            } else if (capitalizeNext) {
+                result += toupper(str[i]);
+                capitalizeNext = false;
+            } else {
+                result += tolower(str[i]);
+            }
         }
-    }
-    // Capitalize the first character
-    if (!str.empty()) {
-        result[0] = toupper(result[0]);
+    } else {
+        for (char c : str) {
+            if (c == '-') {
+                capitalizeNext = true;
+            } else if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += tolower(c);
+            }
+        }
     }
 
     return result;
