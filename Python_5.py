@@ -1,12 +1,13 @@
-def process_numbers(numbers, delimeter):
-    return (
-        [item for sublist in [[num, delimeter] for num in numbers[:-1]] for item in sublist]
-        + [numbers[-1]]
-        if numbers
-        else []
-   )
+def process_numbers(numbers, delimiter):
+    result = []
+    for i in range(len(numbers)):
+        result.append(numbers[i])
+        if i < len(numbers) - 1:
+            result.append(delimiter)
+    return result
 
-input_numbers = [1, 2, 3, 4]
-input_delimeter = ","
-output = process_numbers(input_numbers, input_delimeter)
+# Example usage:
+numbers = [1, 2, 3, 4, 5]
+delimiter = ","
+output = process_numbers(numbers, delimiter)
 print(output)
