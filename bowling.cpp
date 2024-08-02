@@ -21,10 +21,10 @@ int score(string s) {
             scores[ball++] = c - '0';
         }
     }
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 20; i++) {
         if (scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
-            if (scores[i * 2 + 2] == 10 || scores[i * 2 + 2] + scores[i * 2 + 3] == 10) {
+            if (scores[i * 2 + 2] == 10) {
                 total += scores[i * 2 + 4];
             }
         } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
