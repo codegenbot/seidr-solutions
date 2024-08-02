@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,6 +21,6 @@ int main() {
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The number of integers satisfying the condition is: " << result << std::endl;
+    std::cout << "The number of integers in the vector that meet the conditions is: " << result << std::endl;
     return 0;
 }
