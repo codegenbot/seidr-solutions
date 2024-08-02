@@ -18,18 +18,16 @@ int main() {
     // Read input from user
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
+    
+    arr.resize(k);
+    
     for (int i = 0; i < k; i++) {
-        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        arr.push_back(num);
+        std::cin >> arr[i];
     }
     
-    // Call the function
     int result = add_elements(arr, k);
-    
     // Print the result
-    std::cout << "The sum of elements with length <= 2 is: " << result << std::endl;
-    
+    std::cout << "Sum of elements: " << result << std::endl;
     return 0;
 }
