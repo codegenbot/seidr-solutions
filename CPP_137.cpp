@@ -1,15 +1,15 @@
-#include <iostream>
+#include <boost/any.hpp>
 #include <string>
+#include <iostream>
 #include <cassert>
-#include <any>
 
-std::any compare_one(const std::string& str, int num) {
-    // Implementation of compare_one function
-    return std::any();
+boost::any compare_one(const std::string& s, int i) {
+    // Implement your compare_one function here
+    return boost::any();
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
 
     return 0;
 }
