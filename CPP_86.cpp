@@ -3,21 +3,17 @@ using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == ' ') {
-            result += " ";
-            continue;
+    size_t start = 0;
+    while (start < s.length()) {
+        size_t end = start;
+        while (end < s.length() && s[end] <= s[start]) {
+            end++;
         }
-        string word = "";
-        for (int j = i; j < s.size() && s[j] != ' '; ++j) {
-            word += s[j];
+        for (size_t i = start; i <= end; i++) {
+            result += s[i];
         }
-        string newWord = "";
-        for (char c : word) {
-            newWord += (c <= 'z' ? static_cast<char>(c + 1 - 'a') : c);
-        }
-        result += newWord;
-        i += word.size() - 1;
+        result += ' ';
+        start = end + 1;
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
