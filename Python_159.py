@@ -1,4 +1,5 @@
-Here is the completed code:
-
 def eat(number, need, remaining):
-    return [number + need - remaining if remaining >= need else number + remaining, min(need - (number + remaining), 1000)]
+    return [
+        number + need - remaining if remaining >= need else number + remaining,
+        remaining - max(0, need - (number + remaining)),
+    ]
