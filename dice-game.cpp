@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <cmath>
 
 double diceGame(int n, int m) {
     double p_high = (n - m + 1) / static_cast<double>(n);
