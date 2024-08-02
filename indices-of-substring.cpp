@@ -6,6 +6,7 @@ using namespace std;
 int main() {
     string text, target;
     getline(cin, text);
+    // Read the target string without the curly braces
     getline(cin >> ws, target);
     vector<int> indices;
     for (size_t i = 0; i < text.length() - target.length() + 1; ++i) {
