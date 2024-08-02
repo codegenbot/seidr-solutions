@@ -1,26 +1,38 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<vector>
+#include<algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a,std::vector<int> b){
+    return a==b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
+std::vector<int> remove_duplicates(std::vector<int> numbers){
+    std::vector<int> result;
+    for(int num : numbers) {
+        bool found = false;
+        for(int i : result) {
+            if(i == num) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
             result.push_back(num);
         }
     }
     return result;
 }
 
-int main() {
-    vector<int> numbers = {1, 2, 3, 4, 5, 1, 2, 3};
-    vector<int> same = remove_duplicates(numbers);
-    for (int num : same) {
+int main(){
+    std::vector<int> numbers = {1,2,3,4,5,6};
+    std::cout << "Original: ";
+    for(int num : numbers){
+        std::cout << num << " ";
+    } 
+    std::cout << "\n";
+    std::vector<int> result = remove_duplicates(numbers);
+    std::cout << "After removing duplicates: ";
+    for(int num : result) {
         std::cout << num << " ";
     }
     return 0;
