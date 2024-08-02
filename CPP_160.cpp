@@ -11,7 +11,7 @@ int do_algebra(vector<string> operations, vector<int> operands) {
         } else if (operations[i] == "*") {
             result *= operands[i + 1];
         } else if (operations[i] == "//") {
-            result = result / static_cast<int>(operands[i + 1]);
+            result = result / operands[i + 1];
         } else if (operations[i] == "**") {
             result = pow(result, operands[i + 1]);
         }
