@@ -1,9 +1,15 @@
-bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> s(l.begin(), l.end());
-    for (int num : s) {
-        int complement = -num;
-        if (s.find(complement) != s.end() && num != complement) {
-            return true;
+#include <vector>
+#include <algorithm>
+
+bool pairs_sum_to_zero(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() - 1; i++) {
+        int j = 0;
+        while (j <= i && j < l.size()) {
+            if ((l[i] + l[j]) == 0) {
+                return true;
+            }
+            j++;
         }
     }
     return false;
