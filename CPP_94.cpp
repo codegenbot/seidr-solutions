@@ -26,14 +26,8 @@ int main() {
         return true;
     }
 
-    vector<int> lst;
-    int num;
-    cout << "Enter numbers (negative to stop): ";
-    while (true) {
-        cin >> num;
-        if (num < 0) break;
-        lst.push_back(num);
+    int main() {
+        vector<int> lst = {1, 2, 3, 4, 5};
+        cout << skjkasdkd(lst);
+        return 0;
     }
-    cout << "Sum of digits in largest prime: " << skjkasdkd(lst) << endl;
-    return 0;
-}
