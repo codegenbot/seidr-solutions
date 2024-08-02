@@ -1,39 +1,23 @@
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <bitset>
 
-int countOnes(int n) {
-    int count = 0;
-    while (n > 0) {
-        n &= n - 1;
-        count++;
-    }
-    return count;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result;
-
-    for (int i = 0; i < arr.size(); i++) {
-        int ones = countOnes(arr[i]);
-        if (i == 0 || ones != countOnes(arr[i-1])) {
-            result.push_back(arr[i]);
-        } else {
-            bool inserted = false;
-            for (int j = 0; j < result.size(); j++) {
-                if (ones >= countOnes(result[j])) {
-                    result.insert(j, arr[i]);
-                    inserted = true;
-                    break;
-                }
-            }
-            if (!inserted) {
-                result.push_back(arr[i]);
-            }
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count(borrowed(a), '1') != count(borrowed(b), '1')) {
+            return count(borrowed(a), '1') < count(borrowed(b), '1');
         }
-    }
+        return a < b;
+    });
+    return arr;
 
-    return result;
+}
+
+std::string borrowed(int n) {
+    std::string s = std::to_string(n);
+    while (s.size() % 4 != 0) {
+        s = "0" + s;
+    }
+    return s;
 }
