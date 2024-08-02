@@ -15,7 +15,9 @@ string string_to_md5(string text) {
     unsigned char hash[16];
 
     // Initialize the context
-    EVP_MD_CTX_init(&mdctx);
+    if (1 != EVP_MD_CTX_init(&mdctx)) {
+        return "";
+    }
 
     // Set the algorithm to MD5
     if ((digest = EVP_get_digestbyname("MD5")) == NULL) {
