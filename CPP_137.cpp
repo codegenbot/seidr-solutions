@@ -1,6 +1,5 @@
-```
 #include <boost/any.hpp>
-#include <string>
+#include <boost/lexical_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -11,7 +10,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return typeid(int);
+            return boost::any("None");
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float x = boost::any_cast<float>(a);
         float y = boost::any_cast<float>(b);
@@ -20,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return typeid(float);
+            return boost::any("None");
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string x = boost::any_cast<std::string>(a);
         std::string y = boost::any_cast<std::string>(b);
@@ -29,7 +28,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return typeid(std::string);
+            return boost::any("None");
     } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int x = boost::any_cast<int>(a);
         float y = boost::any_cast<float>(b);
@@ -38,7 +37,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (y > x)
             return b;
         else
-            return typeid(int);
+            return boost::any("None");
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int x = boost::any_cast<int>(a);
         std::string y = boost::any_cast<std::string>(b);
@@ -51,10 +50,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         int y = boost::any_cast<int>(b);
         if (x > y)
             return a;
-        else if (y > x)
-            return b;
         else
-            return typeid(float);
+            return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float x = boost::any_cast<float>(a);
         std::string y = boost::any_cast<std::string>(b);
@@ -77,5 +74,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return b;
     }
-    return typeid(int);
+    return boost::any("None");
 }
