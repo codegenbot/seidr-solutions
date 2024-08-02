@@ -16,10 +16,10 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> n;
     for(int i = 0; i < n; i++) {
-        int val;
+        int x;
         cout << "Enter element " << i+1 << ": ";
-        cin >> val;
-        input.push_back(val);
+        cin >> x;
+        input.push_back(x);
     }
     int output = can_arrange(input);
     cout << "Output: " << output << endl;
