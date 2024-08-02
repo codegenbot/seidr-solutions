@@ -1,11 +1,13 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <cassert>
-#include <vector>
 
-bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    sort(numbers.begin(), numbers.end());
-    for (int i = 1; i < numbers.size(); ++i) {
-        if (abs(numbers[i] - numbers[i - 1]) < threshold) {
+template <typename T>
+bool has_close_elements(const std::vector<T>& numbers, const T& threshold) {
+    std::sort(numbers.begin(), numbers.end());
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        if (std::abs(numbers[i] - numbers[i + 1]) < threshold) {
             return true;
         }
     }
@@ -13,6 +15,13 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
+    std::vector<int> numbers = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+    int threshold = 2;
+
+    std::cout << "Type of numbers: " << typeid(numbers).name() << std::endl;
+    std::cout << "Type of threshold: " << typeid(threshold).name() << std::endl;
+
+    std::cout << "Result: " << has_close_elements(numbers, threshold) << std::endl;
+
     return 0;
 }
