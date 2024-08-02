@@ -31,8 +31,8 @@ int main() {
     vector<int> numbers;
     int num;
     
-    cout << "Enter the numbers: ";
-    while ((cin >> num) && (num != -1)) {
+    cout << "Enter the numbers (0 to stop):" << endl;
+    while ((cin >> num) && (num != 0)) {
         numbers.push_back(num);
     }
     
