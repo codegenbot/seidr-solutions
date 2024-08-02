@@ -1,24 +1,15 @@
-```c++
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
         if(s.find(substring) != string::npos) {
-            result.push_back(s);
+            bool issame = true;
+            for(auto t : strings) {
+                if(t != s && !t.find(substring)) {
+                    issame = false; break;
+                }
+            }
+            if(issame) result.push_back(s);
         }
     }
     return result;
-}
-
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(auto s : a) {
-        bool found = false;
-        for(auto t : b) {
-            if(s == t) {
-                found = true; break;
-            }
-        }
-        if(!found) return false;
-    }
-    return true;
 }
