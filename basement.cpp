@@ -1,15 +1,26 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
-int findNegativeIndex(vector<int>& nums) {
-    int index = 0;
+int basement(vector<int>& v) {
     int sum = 0;
-    
-    for (const auto& num : nums) {
-        sum += num;
-        if (sum < 0) return index;
-        index++;
+    for (int i = 0; i < v.size(); ++i) {
+        sum += v[i];
+        if (sum < 0)
+            return i;
     }
-    
-    return -1; // Return -1 if no such index is found
+    return -1;
+}
+
+int main() {
+    vector<int> v;
+    int n;
+    cin >> n;
+    while (n--) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    cout << basement(v) << endl;
+    return 0;
 }
