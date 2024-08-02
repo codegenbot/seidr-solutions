@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -18,8 +19,9 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    cout << solveBoolean("T&F") << endl; // Expected output: 0
-    cout << solveBoolean("T|F") << endl; // Expected output: 1
-    cout << solveBoolean("|&T") << endl; // Expected output: 1
+    cout << boolalpha << solveBoolean("T") << endl;  // expected output: true
+    cout << boolalpha << solveBoolean("F") << endl;  // expected output: false
+    cout << boolalpha << solveBoolean("|T&F|") << endl;  // expected output: true
+    cout << boolalpha << solveBoolean("&T|F&") << endl;  // expected output: true
     return 0;
 }
