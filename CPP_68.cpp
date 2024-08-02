@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr){
+vector<int> pluck(vector<int> arr){
 
     int smallestEven = -1;
     int smallestEvenIndex = -1;
