@@ -1,8 +1,15 @@
-def process_numbers(numbers, delimiter):
-    return [item for sublist in [[num, delimiter] for num in numbers[:-1]] + [numbers[-1]] for item in sublist] 
+def check():
+    def process_numbers(numbers, delimiter):
+        result = []
+        for i in range(len(numbers)):
+            result.append(numbers[i])
+            if i < len(numbers) - 1:
+                result.append(delimiter)
+        return result
 
-# Example usage:
-numbers = [1, 2, 3, 4, 5]
-delimiter = ","
-output = process_numbers(numbers, delimiter)
-print(output)  
+    numbers = [1, 2, 3, 4, 5]
+    delimiter = ","
+    output = process_numbers(numbers, delimiter)
+    print(output)
+
+check()
