@@ -5,6 +5,5 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-# Example function call
-result = check_threshold([1, 5, 9, 15], 3)
-print(result)
+# Call the function
+check_threshold([1, 3, 5, 7, 9], 2)
