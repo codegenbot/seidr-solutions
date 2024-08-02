@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -6,20 +5,14 @@ using namespace std;
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int maxSoFar = numbers[0];
-    for (int num : numbers) {
-        if (num > maxSoFar) {
-            maxSoFar = num;
+    result.push_back(maxSoFar);
+    
+    for (int i = 1; i < numbers.size(); i++) {
+        if (numbers[i] > maxSoFar) {
+            maxSoFar = numbers[i];
         }
         result.push_back(maxSoFar);
     }
+    
     return result;
-}
-
-int main() {
-    vector<int> numbers = {1, 2, 3, 2, 3, 4, 2};
-    vector<int> output = rolling_max(numbers);
-    for (int num : output) {
-        cout << num << " ";
-    }
-    return 0;
 }
