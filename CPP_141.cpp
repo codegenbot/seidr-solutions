@@ -1,25 +1,30 @@
-int digitCount = 0;
-    int dotCount = 0;
-    int dotIndex = -1;
-    
-    for (int i = 0; i < file_name.length(); i++) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
+#include <string>
+#include <cassert>
+
+std::string file_name_check(const std::string& file_name) {
+    int digitCount = 0;
+    for (char c : file_name) {
+        if (c >= '0' && c <= '9') {
             digitCount++;
-        }
-        else if (file_name[i] == '.') {
-            dotCount++;
-            dotIndex = i;
         }
     }
     
-    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
+    size_t dotPos = file_name.find('.');
+    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
         return "No";
     }
     
-    string extension = file_name.substr(dotIndex + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+    std::string beforeDot = file_name.substr(0, dotPos);
+    std::string afterDot = file_name.substr(dotPos + 1);
+    
+    if (digitCount > 3 || !isalpha(beforeDot[0]) || (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")) {
         return "No";
     }
     
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
 }
