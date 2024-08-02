@@ -40,6 +40,8 @@ bool is_multiply_prime(int a) {
     return false;
 }
 
+int main();
+
 int main() {
     int num;
     cin >> num;
