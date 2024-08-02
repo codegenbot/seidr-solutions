@@ -1,7 +1,6 @@
 ```
-#include <boost/any.hpp>
 #include <string>
-#include <algorithm>
+#include <boost/any.hpp>
 
 using namespace std;
 
@@ -67,5 +66,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return boost::any("None");
     }
-    return a; // default to the first value
+    return a; 
 }
