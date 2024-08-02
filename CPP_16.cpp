@@ -1,18 +1,21 @@
-int count_distinct_characters(string str) { 
-    vector<char> characters;
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int count_distinct_characters(string str) {
+    vector<char> charSet;
     for (char c : str) {
-        if (tolower(c) >= 'a' && tolower(c) <= 'z') {
-            bool found = false;
-            for (char ch : characters) {
-                if (ch == tolower(c)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                characters.push_back(tolower(c));
+        bool found = false;
+        for (char ch : charSet) {
+            if (tolower(c) == tolower(ch)) {
+                found = true;
+                break;
             }
         }
+        if (!found)
+            charSet.push_back(c);
     }
-    return characters.size();
+    return charSet.size();
 }
