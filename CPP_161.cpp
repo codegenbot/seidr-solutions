@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cctype>
 #include <cassert>
+#include <cctype>
 
 std::string solve(const std::string &s) {
     for (char &c : s) {
@@ -11,14 +11,15 @@ std::string solve(const std::string &s) {
         }
     }
     
-    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(s.begin(), s.end());
+    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+        reverse(s.begin(), s.end());
     }
     
     return s;
 }
 
 int main() {
+    // Testing the functionality of solve function
     std::string input = "test123";
     std::string result = solve(input);
     assert(result == "tEST123");
