@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -41,8 +41,9 @@ int main() {
     string text, target;
     cin >> text >> target;
     vector<int> result = findIndicesOfSubstring(text, target);
-    for (int i : result) {
-        cout << i << " ";
+
+    for (int idx : result) {
+        cout << idx << " ";
     }
     cout << endl;
 
