@@ -10,7 +10,11 @@ def minPath(grid, k):
         neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
         neighbors.sort(
             key=lambda pos: (
-                grid[pos[0]][pos[1]] if 0 <= pos[0] < n and 0 <= pos[1] < n else float("inf"),
+                (
+                    grid[pos[0]][pos[1]]
+                    if 0 <= pos[0] < n and 0 <= pos[1] < n
+                    else float("inf")
+                ),
                 pos,
             )
         )
