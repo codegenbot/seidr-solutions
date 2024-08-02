@@ -1,41 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-string borrowed(int n) {
-    string s = to_string(n);
-    while (s.size() % 4 != 0) {
-        s = "0" + s;
-    }
-    return s;
-}
+using namespace std;
 
-int count_borrowed(int n) {
-    string s = borrowed(n);
-    int count = 0;
-    for (char c : s) {
-        if (c == '1') {
-            count++;
-        }
-    }
-    return count;
-}
-
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count_borrowed(a) != count_borrowed(b)) {
-            return count_borrowed(a) < count_borrowed(b);
-        }
-        return a < b;
-    });
-    return arr;
-}
-
-int main() {
-    vector<int> arr = {2,4,8,16,32};
-    arr = sort_array(arr);
+vector<int> sort_vector(vector<int> arr) {
+    vector<pair<int, int>> vec;
     for (int i : arr) {
-        cout << i << " ";
+        vec.push_back({__builtin_popcount(i), i});
     }
-    return 0;
+    sort(vec.begin(), vec.end());
+    return vector<int>(transform(vec.begin(), vec.end(), [](auto p){ return p.second; }), transform(vec.begin(), vec.end(), [](auto p){ return p.second; }));
 }
