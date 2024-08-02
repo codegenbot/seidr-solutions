@@ -3,9 +3,9 @@ def minPath(grid, k):
     visited = [[False] * n for _ in range(n)]
 
     def dfs(x, y, path):
-        if len(path) >= k:
-            return None
-        
+        if len(path) > k:
+            return []
+
         visited[x][y] = True
         neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
         neighbors.sort(
