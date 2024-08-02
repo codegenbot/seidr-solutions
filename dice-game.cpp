@@ -1,5 +1,12 @@
-Here is the completed code:
+Here is the solution:
 
-double probability(int n, int m) {
-    return (double)(m-1)/n;
+double calculateProbability(int n, int m) {
+    return (double)min(n - 1, m) / (n * m);
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << calculateProbability(n, m) << endl;
+    return 0;
 }
