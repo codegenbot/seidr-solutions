@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -8,7 +9,6 @@ int specialFilter(vector<int> nums){
             count++;
     }
     return count;
-
 }
 
 int main(){
