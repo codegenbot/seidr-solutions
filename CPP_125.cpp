@@ -3,15 +3,15 @@
 #include <string>
 #include <cassert>
 
-using std::string;
+using myString = std::string;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<myString> a, std::vector<myString> b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    string word = "";
+std::vector<myString> split_words(myString txt) {
+    std::vector<myString> result;
+    myString word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -35,4 +35,9 @@ std::vector<std::string> split_words(std::string txt) {
         result = {std::to_string(oddCount)};
     }
     return result;
+}
+
+int main() {
+    assert(issame(split_words(""), std::vector<myString>{}));
+    return 0;
 }
