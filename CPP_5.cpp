@@ -13,7 +13,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
         }
     }
     return true;
-} 
+}
 
 vector<int> intersperse(const vector<int>& numbers, int delimiter) {
     vector<int> result;
