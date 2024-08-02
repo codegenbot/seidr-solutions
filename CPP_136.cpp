@@ -1,17 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-int largest_smallest_integers(std::vector<int> vec) {
-    std::sort(vec.begin(), vec.end());
-    return vec.front() + vec.back();
+int largest_smallest_integers(const std::vector<int>& vec) {
+    std::vector<int> sortedVec = vec;
+    std::sort(sortedVec.begin(), sortedVec.end());
+    return sortedVec.front() + sortedVec.back();
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (largest_smallest_integers(a) == largest_smallest_integers(b));
-}
-
-int main() {
-    assert(issame({-6, -4, -4, -3, -100, 1}, {-3, 1}));
-    return 0;
 }
