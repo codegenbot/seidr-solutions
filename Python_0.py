@@ -5,5 +5,8 @@ def check_adjacent_numbers(numbers, threshold):
             return True
     return False
 
-has_close_elements = check_adjacent_numbers([1, 3, 5, 7], 2)
-print(has_close_elements)
+numbers = [4, 7, 1, 3, 9]
+threshold = 2
+result = check_adjacent_numbers(numbers, threshold)
+
+print(result)
