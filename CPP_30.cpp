@@ -1,21 +1,19 @@
-#include <iostream>
+```
 #include <vector>
-
-using namespace std;
+#include <iostream>
 
 int main() {
-    vector<float> l;
+    std::vector<float> l;
     float x;
-    cout << "Enter numbers (enter 'q' to quit):" << endl;
-    while (cin >> x) {
-        if (x == 'q') break;
-        l.push_back(x);
+    while (std::cin >> x) {
+        if (x > 0) {
+            l.push_back(x);
+        }
     }
-    vector<float> result = get_positive(l);
-    for (float x : result) {
-        cout << x << " ";
+    std::vector<float> result = get_positive(l);
+    for (float i : result) {
+        std::cout << i << " ";
     }
-    cout << endl;
     return 0;
 }
 
