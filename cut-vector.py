@@ -1,13 +1,16 @@
-n = int(input())
-numbers = [int(input()) for _ in range(n)]
-
-total_sum = sum(numbers)
+v = list(map(int, input().split()))
+total_sum = sum(v)
 half_sum = total_sum // 2
-running_sum = 0
-for i, num in enumerate(numbers):
-    running_sum += num
-    if running_sum >= half_sum:
-        if running_sum == half_sum or running_sum - half_sum < total_sum - running_sum:
-            print(numbers[: i + 1])
-            print(numbers[i + 1 :])
-            break
+prefix_sum = 0
+for i, num in enumerate(v):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or abs(total_sum - 2 * prefix_sum) < abs(
+            total_sum - 2 * (prefix_sum - num)
+        ):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+        else:
+            print(*v[:i])
+            print(*v[i:])
+        break
