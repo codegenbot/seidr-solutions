@@ -3,37 +3,24 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+    int i = 0;
+    while(i < str.length()) {
+        if(str[i] == ' ') {
+            result += str.substr(i,1);
+        } else if (str.length() - i <= 5 || isSpace(str[i+1])) {
+            result += str.substr(i);
+        } else {
+            string word = str.substr(i);
+            reverse(word.begin(),word.end());
             result += word + " ";
-            word.clear();
-        } else {
-            word += str[i];
+            i += word.length();
         }
     }
-    result += word;
-    
-    int j = 0;
-    while (j < result.length()) {
-        if (result[j] == ' ' || j == result.length() - 1) {
-            for (int k = j + 1; k <= j; k++) {
-                if (k >= j && (j > 4)) {
-                    char temp = result[k];
-                    int pos = k;
-                    while(pos < result.length() && pos > j) {
-                        result[pos] = result[pos-1];
-                        pos--;
-                    }
-                    result[j] = temp;
-                }
-            }
-            j++;
-        } else {
-            j++;
-        }
-    }
-    
     return result;
+}
+
+bool isSpace(char c) {
+    if(c == ' ')
+        return true;
+    return false;
 }
