@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cctype> // for tolower()
+#include <cctype> 
 
 using namespace std;
 
