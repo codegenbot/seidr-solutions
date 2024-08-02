@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -14,13 +15,10 @@ int main() {
     std::cout << "Enter elements for vector a (space-separated): ";
     while (std::cin >> x) {
         a.push_back(x);
-        if (std::cin.get() == '\n') break;
     }
-    std::cin.clear();
     std::cout << "Enter elements for vector b (space-separated): ";
     while (std::cin >> x) {
         b.push_back(x);
-        if (std::cin.get() == '\n') break;
     }
 
     bool result = issame(a, b);
