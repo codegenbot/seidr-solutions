@@ -1,7 +1,5 @@
 #include <string>
 
-#include <openssl/ssl.h>
-
 string string_to_md5(string text) {
     if (text.empty()) return "";
     
