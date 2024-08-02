@@ -21,7 +21,5 @@ def minPath(grid, k):
 
     return path
 
-grid = [[10, 12, 15], [13, 14, 16], [19, 20, 21]]
-k = 5
-result = minPath(grid, k)
-print(result)
+# Call the minPath function with grid and k parameters correctly
+# Example: minPath([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5)
