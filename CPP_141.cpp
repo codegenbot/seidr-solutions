@@ -1,34 +1,26 @@
-int count_digits(const string &file_name) {
-    int count = 0;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int dot_count = 0;
+    int digit_count = 0;
+    bool valid_start = false;
+
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        } else if(isdigit(file_name[i])){
+            digit_count++;
+        } else if(isalpha(file_name[i])) {
+            valid_start = true;
         }
     }
-    return count;
-}
 
-bool check_extension(const string &file_name) {
-    size_t pos = file_name.find('.');
-    if (pos == string::npos) {
-        return false;
+    if(dot_count > 1 || digit_count > 3 || !valid_start){
+        return "No";
     }
-    string extension = file_name.substr(pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    return find(valid_extensions.begin(), valid_extensions.end(), extension) != valid_extensions.end();
-}
 
-string file_name_check(string file_name) {
-    if (count_digits(file_name) > 3) {
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
-    size_t pos = file_name.find('.');
-    if (pos == string::npos || file_name.substr(0, pos).empty() ||
-        !isalpha(file_name[0])) {
-        return "No";
-    }
-    if (!check_extension(file_name)) {
-        return "No";
-    }
+
     return "Yes";
 }
