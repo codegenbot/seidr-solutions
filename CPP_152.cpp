@@ -14,10 +14,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game = {1, 2, 3, 5};
-    vector<int> guess = {-1, 2, 3, 4};
-    
-    assert(compare(game, guess) == vector<int>{2, 0, 0, 1});
-    
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>{2, 0, 0, 1});
     return 0;
 }
