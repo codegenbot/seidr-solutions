@@ -1,35 +1,47 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 
-string words_in_sentence(string sentence) {
-    vector<int> lengths;
-    string result = "";
-    
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
-            lengths.push_back(word.length());
-            result += word + " ";
-        }
-    }
-    
-    return result.substr(0, result.size() - 1);
-}
+using namespace std;
 
-vector<string> split(const string& str, char c) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
-bool is_prime(int n) {
+bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
     }
     return true;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words;
+    int len = 0;
+    string word;
+
+    // split the sentence into words
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (len > 0) {
+                words.push_back(word);
+                word.clear();
+                len = 0;
+            }
+        } else {
+            word += sentence[i];
+            len++;
+        }
+    }
+
+    // add the last word
+    if (len > 0) {
+        words.push_back(word);
+    }
+
+    string result = "";
+    for (int i = 0; i < words.size(); i++) {
+        int len_word = words[i].length();
+        if (isPrime(len_word)) {
+            result += words[i] + " ";
+        }
+    }
+
+    return result.substr(0, result.length() - 1);
 }
