@@ -6,7 +6,7 @@
 template <typename T>
 std::any compare_one(T a, T b) {
     if (a == b) {
-        return std::string("None");
+        return "None";
     } else {
         return (a > b) ? std::any(a) : std::any(b);
     }
@@ -22,10 +22,10 @@ std::any compare(std::any a, std::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return std::string("None");
+    return "None";
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one("1", "1")) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
     return 0;
 }
