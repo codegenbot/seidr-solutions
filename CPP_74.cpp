@@ -12,18 +12,11 @@ bool issame(const vector<string>& lst1, const vector<string>& lst2) {
         total_chars2 += str.size();
     }
     
-    if (total_chars1 < total_chars2) {
-        return true;
-    } else {
-        return false;
-    }
+    return total_chars1 == total_chars2;
 }
 
 int main() {
-    bool issame(const vector<string>& lst1, const vector<string>& lst2);
-
     int total_match = 0;
-
-    // other main function code...
+    // Other main function code
     return 0;
-} 
+}
