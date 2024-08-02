@@ -3,21 +3,23 @@
 #include <iomanip>
 
 int main() {
-    int n;
+    size_t n;
     std::cin >> n;
+    
     std::vector<float> prices(n);
-    for (int i = 0; i < n; ++i) {
+    std::vector<float> discounts(n);
+    
+    for (size_t i = 0; i < n; ++i) {
         std::cin >> prices[i];
     }
-
-    std::vector<float> discounts(n);
-    for (int i = 0; i < n; ++i) {
+    
+    for (size_t i = 0; i < n; ++i) {
         std::cin >> discounts[i];
     }
 
     float total = 0.0;
-    for (int i = 0; i < n; ++i) {
-        total += prices[i] * (1 - discounts[i] / 100);
+    for (size_t i = 0; i < n; ++i) {
+        total += prices[i] * (1 - discounts[i] * 0.01);
     }
 
     std::cout << std::fixed << std::setprecision(2) << total << std::endl;
