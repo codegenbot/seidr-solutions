@@ -5,7 +5,7 @@ def minPath(grid, k):
     visited = {(start[0], start[1])}
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-    next_cell = (0, 0)  
+    next_cell = (0, 0)
     while len(path) < k:
         min_val = float("inf")
         for dx, dy in directions:
@@ -14,7 +14,7 @@ def minPath(grid, k):
                 if grid[x][y] < min_val:
                     min_val = grid[x][y]
                     next_cell = (x, y)
-        if next_cell is None:  
+        if next_cell is None:
             break
         start = next_cell
         path.append(grid[start[0]][start[1]])
