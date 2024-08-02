@@ -1,13 +1,8 @@
 string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (!isalpha(c)) {
+    for(char c : text){
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U'){
             result += c;
-        } else {
-            char lower = tolower(c);
-            if (lower != 'a' && lower != 'e' && lower != 'i' && lower != 'o' && lower != 'u') {
-                result += c;
-            }
         }
     }
     return result;
