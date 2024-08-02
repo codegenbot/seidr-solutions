@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    if(a.size() != b.size()){
+bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB) {
+    if (vecA.size() != vecB.size()) {
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < vecA.size(); ++i) {
+        if (vecA[i] != vecB[i]) {
             return false;
         }
     }
