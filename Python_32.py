@@ -10,5 +10,7 @@ def find_zero(xs: list):
 
 # Test cases
 if __name__ == "__main__":
-    print(find_zero([1, -3, 2]))  # Output: (2.0, 1.0)
-    print(find_zero([1, 2, 1]))  # Output: -1.0
+    a = float(input("Enter value for a: "))
+    b = float(input("Enter value for b: "))
+    c = float(input("Enter value for c: "))
+    print(find_zero([a, b, c]))
