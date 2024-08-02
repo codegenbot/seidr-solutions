@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for(int i = 1; i < xs.size(); i++){
@@ -7,5 +6,3 @@ vector<float> derivative(vector<float> xs){
     }
     return result;
 }
-
-bool issame(vector<float> a, vector<float> b){
