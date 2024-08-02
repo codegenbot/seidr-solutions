@@ -1,2 +1,2 @@
-def game(n, m):
-    return (n - m) / (n + m - 1)
+def solve(n, m):
+    return (m - 1) / n if n > m else (n - 1) / m
