@@ -1,32 +1,53 @@
-vector<string> separate_paren_groups(const string& paren_string) {
-    vector<string> groups;
-    string current_group;
-    int open_count = 0;
+#include <vector>
+#include <cassert>
+using namespace std;
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_count > 0) {
-                current_group += c;
-            }
-            open_count++;
-        } else if (c == ')') {
-            open_count--;
-            if (open_count > 0) {
-                current_group += c;
-            } else if (open_count == 0) {
-                groups.push_back(current_group);
-                current_group = "";
-            }
+vector<string> separate_paren_groups(string paren_string);
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
 
-    return groups;
+    return true;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+vector<string> separate_paren_groups(string paren_string) {
+   vector<string> result;
+   string current_group;
+   size_t open_count = 0;
+
+   for (char c : paren_string) {
+       if (c == '(') {
+           if (open_count > 0) {
+               current_group += c;
+           }
+           open_count++;
+       } else if (c == ')') {
+           open_count--;
+           if (open_count == 0) {
+               result.push_back(current_group);
+               current_group.clear();
+           } else {
+               current_group += c;
+           }
+       }
+   }
+
+   return result;
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+  vector<string> a = separate_paren_groups("((a)(b)(c))");
+  vector<string> b = {"(a)", "(b)", "(c)"};
+  
+  assert(issame(a, b));
+
+  return 0;
 }
