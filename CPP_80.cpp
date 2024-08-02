@@ -1,24 +1,23 @@
 bool is_happy(string s) {
-    if (s.length() < 3)
+    if(s.length() < 3)
         return false;
 
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string temp = s.substr(i, 3);
+    for(int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        for (char c : temp) {
+        string sub = s.substr(i, 3);
+        for(char c : sub) {
             int count = 0;
-            for (int j = 0; j < temp.length(); j++) {
-                if (temp[j] == c)
+            for(int j = i; j < i + 3; j++) {
+                if(s[j] == c)
                     count++;
             }
-            if (count > 1) {
+            if(count > 1) {
                 unique = false;
                 break;
             }
         }
-        if (!unique)
-            return false;
+        if(unique)
+            return true;
     }
-
-    return true;
+    return false;
 }
