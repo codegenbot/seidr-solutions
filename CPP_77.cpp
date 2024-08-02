@@ -1,6 +1,9 @@
-Here is the completed code:
-
-bool iscuber(int a){
-    int c = (int)cbrt(a);
-    return c*c*c == a;
+bool iscubeer(int a){
+    int i = 0;
+    while (pow(i+1,3) <= a){
+        if(pow(i+1,3) == a)
+            return true;
+        i++;
+    }
+    return false;
 }
