@@ -1,18 +1,12 @@
-#include <vector>
+int prod_signs(vector<int> arr){
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
 
-using namespace std;
-
-int prod_signs(vector<int> arr) {
-    if (arr.empty()) return -32768;
-    
-    int signProd = 1;
-    long long sumMag = 0;
-    
-    for (int num : arr) {
-        if (num == 0) continue;
-        signProd *= (num > 0 ? 1 : -1);
-        sumMag += abs(num);
+    for(int num : arr){
+        if(num == 0) continue;
+        sum_of_magnitudes += abs(num);
+        sign_product *= (num > 0) ? 1 : ((num < 0) ? -1 : 0);
     }
-    
-    return signProd * sumMag;
+
+    return sign_product * sum_of_magnitudes > INT_MAX ? -32768 : int(sign_product * sum_of_magnitudes);
 }
