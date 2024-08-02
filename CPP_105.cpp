@@ -1,11 +1,10 @@
-
 #include <map>
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a){
-    return a == std::vector<std::string>{"Nine", "Four", "Eight"};
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -22,6 +21,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8})));
+    assert(issame(by_length({9, 4, 8}), std::vector<std::string>{"Nine", "Four", "Eight"}));
     return 0;
 }
