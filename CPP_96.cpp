@@ -1,18 +1,8 @@
 #include <vector>
-
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
-    for (int num = 2; num <= n; ++num) {
-        bool is_prime = true;
-        for (int i = 2; i * i <= num; ++i) {
-            if (num % i == 0) {
-                is_prime = false;
-                break;
-            }
-        }
-        if (is_prime) {
-            result.push_back(num);
-        }
+    for (int i = 1; i <= n; ++i) {
+        result.push_back(i);
     }
     return result;
 }
