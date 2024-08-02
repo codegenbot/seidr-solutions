@@ -1,8 +1,8 @@
 ```
 def middle_character(s):
-    s = str(s)  # Convert to string if necessary
     length = len(s)
-    if length % 2 == 0:  
-        return s[length//2 - 1:length//2 + 1]
+    mid = length // 2
+    if length % 2 == 0:
+        return s[mid-1:mid+1]
     else:
-        return s[length // 2]
+        return s[mid]
