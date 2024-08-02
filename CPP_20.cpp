@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <vector>
 #include <numeric>
+#include <vector>
 #include <limits>
 
 bool issame(vector<float>, vector<float>);
@@ -8,7 +8,6 @@ bool issame(vector<float>, vector<float>);
 int main() {
     vector<float> numbers;
     // your code here
-    
     return 0;
 }
 
