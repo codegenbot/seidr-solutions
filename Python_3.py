@@ -1,8 +1,8 @@
-def below_zero() -> bool:
-    n = int(input())
+from typing import List
+
+def below_zero(operations: List[int]) -> bool:
     balance = 0
-    for _ in range(n):
-        operation = int(input())
+    for operation in operations:
         balance += operation
         if balance < 0:
             return True
