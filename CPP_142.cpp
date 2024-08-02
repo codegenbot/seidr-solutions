@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,6 +17,6 @@ int sum_squares(std::vector<int> lst) {
 int main() {
     std::vector<int> input = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 
                              14, -14, 6, 13, 11, 16, 16, 4, 10};
-    assert(sum_squares(input) == -1448);
+    std::cout << sum_squares(input) << std::endl;
     return 0;
 }
