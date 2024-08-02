@@ -1,14 +1,14 @@
-int luhn(const vector<int>& input) {
+int luhn(const vector<int>& digits) {
     int sum = 0;
-    for (int i = 0; i < input.size(); ++i) {
-        int num = input[i];
+    for (int i = 0; i < digits.size(); ++i) {
+        int digit = digits[i];
         if (i % 2 != 0) {
-            num *= 2;
-            if (num > 9) {
-                num -= 9;
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
         }
-        sum += num;
+        sum += digit;
     }
     return sum;
 }
