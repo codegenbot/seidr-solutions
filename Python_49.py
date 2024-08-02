@@ -1,13 +1,14 @@
 ```
 def modp(n: int, p: int):
-    def extended_gcd(a, b):
-        if a == 0:
-            return b, 0, 1
-        else:
-            g, y, x = extended_gcd(b % a, a)
-            return g, x - (b // a) * y, y
+    if gcd(n, p) != 1:
+        return None
+    a = pow(n, (p-1)//2, p)
+    b = pow(p, (p-1)//2, p)
+    return pow(a*b % p, -1, p)
 
-    gcd, x, _ = extended_gcd(n, p)
-    if gcd != 1 or p <= 1:
-        return 0
-    return pow(n, p - 2, p) * n % p
+def gcd(a: int, b: int):
+    while b:
+        a, b = b, a%b
+    return a
+
+print(modp(31, 5))  # Should print 3
