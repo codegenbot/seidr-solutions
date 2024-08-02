@@ -15,11 +15,13 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         times++;
     
     return times;
-}
 
 int main() {
-    std::vector<std::vector<int>> grid = {{1,2,3},{4,5,6}};
-    int capacity = 7;
-    std::cout << "Maximum times to fill: " << max_fill(grid, capacity) << std::endl;
+    // Example usage
+    std::vector<std::vector<int>> grid = {{1, 2}, {3, 4}};
+    int capacity = 5;
+    int max_times = max_fill(grid, capacity);
+    std::cout << "The maximum number of times the tank can be filled is: " << max_times << std::endl;
+    
     return 0;
 }
