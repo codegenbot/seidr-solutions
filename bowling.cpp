@@ -5,46 +5,29 @@ int bowlingScore(std::string s) {
     int score = 0;
     int rolls = 0;
 
-    std::stringstream ss(s);
+    std::istringstream iss(s);
+    std::string frame;
 
-    char c;
-    int frameScore = 0;
-
-    while (ss >> c) {
-        if (c == 'X') {
+    while (std::getline(iss, frame, ' ')) {
+        if (frame == "X") {
             score += 30;
             rolls++;
-        } else if (isdigit(c)) {
-            int strike = c - '0';
-            if (ss.peek() == '/') {
-                frameScore = 10 - strike / 2;
-                ss.ignore();
+        } else if (frame.length() > 1 && frame[1] == '/') {
+            int spare = 10 - (frame[0] - '0');
+            score += spare + 10;
+            rolls += 2;
+        } else if (isdigit(frame[0])) {
+            int ball1, ball2;
+            if (frame.length() > 1 && frame[1] == '/') {
+                ball1 = 10 - (frame[0] - '0');
+                ball2 = 10 - (frame[0] - '0') / 2;
             } else {
-                frameScore = strike;
+                ball1 = frame[0] - '0';
+                if (frame.length() > 1) ball2 = frame[1] - '0';
+                else ball2 = 0;
             }
-            if (frameScore == 10) {
-                score += 10;
-                rolls++;
-                continue;
-            }
-            score += frameScore;
-            rolls++;
-
-            if (ss.peek() != '/') {
-                int nextRoll = c - '0';
-                if (ss.peek() == '/') {
-                    frameScore += 10 - nextRoll / 2;
-                    ss.ignore();
-                } else {
-                    frameScore += nextRoll;
-                }
-                score += frameScore;
-                rolls++;
-            }
-        } else if (c == '/') {
-            score += 10 - frameScore;
-            rolls++;
-            frameScore = 0;
+            score += ball1 + ball2;
+            rolls += 2;
         }
     }
 
