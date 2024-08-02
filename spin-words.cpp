@@ -1,41 +1,39 @@
-Here is the solution:
-
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while (i < str.length()) {
+    string word;
+    
+    for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            result += " ";
-            i++;
-        } else if (i + 4 >= str.length() || str[i+5] == ' ') {
-            for (int j = i; j < str.length(); j++) {
-                if (j != i && j - i >= 5) break;
-                if (j >= i + 5 && str[j] == ' ') break;
-                result += str[j];
-            }
+            result += word + " ";
+            word.clear();
         } else {
-            int length = 0;
-            for (int j = i; j < str.length(); j++) {
-                if (str[j] == ' ') break;
-                length++;
-            }
-            for (int j = length - 1; j >= 0; j--) {
-                result += str[i + j];
-            }
-            i += length;
+            word += str[i];
         }
     }
+    result += word;
+    
+    int j = 0;
+    while (j < result.length()) {
+        if (result[j] == ' ' || j == result.length() - 1) {
+            for (int k = j + 1; k <= j; k++) {
+                if (k >= j && (j > 4)) {
+                    char temp = result[k];
+                    int pos = k;
+                    while(pos < result.length() && pos > j) {
+                        result[pos] = result[pos-1];
+                        pos--;
+                    }
+                    result[j] = temp;
+                }
+            }
+            j++;
+        } else {
+            j++;
+        }
+    }
+    
     return result;
-}
-
-int main() {
-    // Input string here...
-    cout << spinWords("this is another test") << endl;
-    return 0;
 }
