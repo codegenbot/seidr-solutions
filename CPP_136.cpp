@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> largest_smallest_integer(std::vector<int> lst){
+vector<int> largest_smallest_integer(vector<int> lst){
     int max_neg = 0, min_pos = 0;
     for (int num : lst) {
         if (num < 0 && num < max_neg) {
