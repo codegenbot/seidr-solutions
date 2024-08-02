@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -21,4 +20,3 @@ bool is_palindrome(std::string s) {
     std::string t = s;
     std::reverse(t.begin(), t.end());
     return s == t;
-}
