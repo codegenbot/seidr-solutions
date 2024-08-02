@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int can_arrange(std::vector<int> arr) {
+int can_arrange(vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
         if (arr[i] <= arr[i - 1]) {
             return i - 1;
@@ -12,17 +11,6 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for(int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-    int result = can_arrange(arr);
-    if(result == -1) {
-        std::cout << "The array is already in order." << std::endl;
-    } else {
-        std::cout << "The first out of order element is at index " << result << "." << std::endl;
-    }
+    assert(can_arrange({}) == -1);
     return 0;
 }
