@@ -1,36 +1,15 @@
-#include <iostream>
+#include <any>
 #include <string>
 #include <vector>
 
 using namespace std;
 
 any compare_one(any a, any b) {
-    if (any_cast<double>(a) > any_cast<double>(b)) {
-        return a;
-    } else if (any_cast<double>(a) == any_cast<double>(b)) {
-        return any("None");
+    if (any_cast<double>(a) && any_cast<double>(b)) {
+        return (any_cast<double>(a) > any_cast<double>(b)) ? a : ((any_cast<double>(a) == any_cast<double>(b))) ? any("None") : b;
+    } else if (any_cast<string>(a) && any_cast<string>(b)) {
+        return (stod(any_cast<string>(a).c_str()) > stod(any_cast<string>(b).c_str())) ? a : ((stod(any_cast<string>(a).c_str()) == stod(any_cast<string>(b).c_str()))) ? any("None") : b;
     } else {
-        return b;
+        return "Invalid input type";
     }
-}
-
-int main() {
-    double num1, num2;
-    cout << "Enter the first number: ";
-    cin >> num1;
-    cout << "Enter the second number: ";
-    cin >> num2;
-
-    any a = any(num1);
-    any b = any(num2);
-
-    any result = compare_one(a, b);
-
-    if (any_cast<string>(result) == "None") {
-        cout << "The numbers are equal." << endl;
-    } else {
-        cout << "The greater number is: " << any_cast<double>(result) << endl;
-    }
-
-    return 0;
 }
