@@ -33,7 +33,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
+    scanf("%d %d", &a, &b);
     std::cout << gcd(a, b) << std::endl;
     
     std::string text, target;
