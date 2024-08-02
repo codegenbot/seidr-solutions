@@ -8,23 +8,16 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
+        } else if (guess[i] > game[i]) {
+            result.push_back(1);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            result.push_back(-1);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> game = {1, 2, 3, 5};
-    vector<int> guess = {-1, 2, 3, 4};
-    vector<int> expected = {2, 0, 0, 1};
-    
-    if (compare(game, guess) != expected) {
-        cout << "Test failed";
-    } else {
-        cout << "Test passed";
-    }
-    
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
