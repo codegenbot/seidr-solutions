@@ -7,7 +7,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float>& l) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
