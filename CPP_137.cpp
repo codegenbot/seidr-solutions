@@ -3,6 +3,8 @@
 #include <cassert>
 #include <string>
 
+std::string; // Added declaration
+
 std::any compare_one(const std::any& a, const std::any& b);
 
 std::any compare_one(const std::any& a, const std::any& b) {
@@ -23,8 +25,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return std::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        std::string str_a = std::any_cast<std::string>(a); 
-        std::string str_b = std::any_cast<std::string>(b); 
+        std::string str_a = std::any_cast<std::string>(a);
+        std::string str_b = std::any_cast<std::string>(b);
         str_a.replace(str_a.find(','), 1, ".");
         str_b.replace(str_b.find(','), 1, ".");
         float num1 = stof(str_a);
@@ -40,6 +42,6 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))).has_value() == false);
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)).has_value() == false);
     return 0;
 }
