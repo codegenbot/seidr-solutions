@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int isPrime(int n) {
     if (n <= 1) return 0;
     for (int i = 2; i * i <= n; i++) {
@@ -6,17 +10,24 @@ int isPrime(int n) {
     return 1;
 }
 
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start1 = interval1[0], end1 = interval1[1];
-    int start2 = interval2[0], end2 = interval2[1];
+std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
+    int start1 = interval1[0];
+    int end1 = interval1[1];
+    int start2 = interval2[0];
+    int end2 = interval2[1];
 
-    int start = max(start1, start2);
-    int end = min(end1, end2);
+    int intersectionStart = std::max(start1, start2);
+    int intersectionEnd = std::min(end1, end2);
 
-    if (start > end) return "NO";
+    if (intersectionStart > intersectionEnd) {
+        return "NO";
+    }
 
-    int length = end - start;
+    int intersectionLength = intersectionEnd - intersectionStart;
 
-    if (isPrime(length)) return "YES";
-    else return "NO";
+    if (isPrime(intersectionLength)) {
+        return "YES";
+    } else {
+        return "NO";
+    }
 }
