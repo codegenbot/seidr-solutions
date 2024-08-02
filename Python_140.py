@@ -3,8 +3,10 @@ def fix_spaces(text):
     new_text = ""
     for i in range(len(text)):
         if text[i] == " ":
-            if i > 0 and new_text[-1] == " ":
+            if len(new_text) > 0 and new_text[-1] != " ":
                 new_text += "_"
+            elif i < len(text) - 1 and text[i + 1] == " ":
+                new_text += text[i]
             else:
                 new_text += "_"
         else:
