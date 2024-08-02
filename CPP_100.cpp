@@ -1,16 +1,9 @@
+Here is the solution:
+
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    int stones = n;
-
-    while (stones > 0) {
-        if (n % 2 == 1) {
-            result.push_back(stones);
-        } else {
-            result.push_back(stones + 1);
-        }
-        stones = (stones + 1) / 2;
-        n--;
+    vector<int> pile;
+    for (int i = 1; i <= n; ++i) {
+        pile.push_back((i % 2 == 0) ? i + 1 : i);
     }
-
-    return result;
+    return pile;
 }
