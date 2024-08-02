@@ -13,6 +13,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; 
-    // Your code to calculate odd_sum and test double_the_difference()
+    std::vector<float> lst; // Declare the list
+    float num;
+    int count = 0;
+
+    while(count < 5) { 
+        cin >> num;
+        lst.push_back(num);
+        count++;
+    }
+
+    cout << "The double difference is: " << double_the_difference(lst) << endl;
+    
 }
