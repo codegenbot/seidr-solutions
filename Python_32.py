@@ -8,6 +8,6 @@ def find_zero(xs: list):
     x = (a * d - b * c) / (b * b - a * c)
     return x
 
-input_list = list(map(float, input("Enter a list of floating-point numbers separated by space: ").split()))
-result = find_zero(input_list)
-print(result)
+user_input = input("Enter a list of floating-point numbers separated by spaces: ")
+user_list = [float(x) for x in user_input.split()]
+print(find_zero(user_list))
