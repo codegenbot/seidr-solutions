@@ -3,17 +3,19 @@
 #include <algorithm>
 #include <cassert>
 
-std::pair<std::string, bool> checkPalindrome(std::vector<std::string> a, std::vector<std::string> b) {
+std::pair<bool, std::string> reverse_delete(const std::string& a, const std::string& b) {
     std::string result = "";
-    for (auto ch : a[0]) {
-        if (b[0].find(ch) == std::string::npos) {
+    for(char ch : a){
+        if(b.find(ch) == std::string::npos){
             result += ch;
         }
     }
-    return {result, result == std::string(result.rbegin(), result.rend())};
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+    return {result == result_reverse, result};
 }
 
 int main() {
-    assert(checkPalindrome({"mamma"}, {"mia"}) == std::make_pair("", true));
+    assert(reverse_delete("mamma", "mia") == std::make_pair(true, ""));
     return 0;
 }
