@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <cmath>
 
 double probability(int n, int m) {
     double total = (n + m - 1);
