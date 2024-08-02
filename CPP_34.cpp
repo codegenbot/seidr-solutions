@@ -2,19 +2,15 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique(l.begin(), l.end()).end());
+    vector<int> result(l.begin(), unique_element(l.begin(), l.end()));
     return result;
 }
 
-vector<int>::iterator unique(vector<int>::iterator start, vector<int>::iterator end) {
-    sort(start, end);
-    auto it = start;
-    while (it != end) {
-        auto nextIt = it + 1;
-        while (nextIt != end && *it == *nextIt) {
-            ++nextIt;
-        }
-        it = nextIt;
+int main() {
+    vector<int> numbers = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> result = unique(numbers);
+    for (auto i : result) {
+        printf("%d ", i);
     }
-    return it;
+    return 0;
 }
