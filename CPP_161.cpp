@@ -1,15 +1,11 @@
-Here is the solution:
-
-```cpp
-string solve(string s){
-    string res = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-        }else{
-            res += s[i];
+string solve(string s) {
+    string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+        } else {
+            result += c;
         }
     }
-    if(res.empty()) reverse(res.begin(),res.end());
-    return res;
+    return result.empty() ? string(s.rbegin(), s.rend()) : result;
 }
