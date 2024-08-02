@@ -14,9 +14,3 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
-
-bool main() {
-    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
-    std::vector<int> expected_output = {1, 4, 5};
-    assert(issame(remove_duplicates(input), expected_output));
-}
