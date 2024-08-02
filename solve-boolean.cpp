@@ -1,33 +1,27 @@
-```cpp
-#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
             return true;
         } else if (s[i] == 'F') {
             return false;
-        } else if (s[i] == '|') {
-            result = !result;
         } else if (s[i] == '&') {
-            if (!result) {
-                return false;
-            }
-            result = false;
+            result &= true;
+        } else if (s[i] == '|') {
+            result |= true;
         }
-        i++;
     }
     return result;
 }
 
 int main() {
-    cout << boolalpha << solveBoolean("T") << endl; // Expected output: true
-    cout << boolalpha << solveBoolean("F") << endl; // Expected output: false
-    cout << boolalpha << solveBoolean("|T") << endl; // Expected output: true
-    cout << boolalpha << solveBoolean("&F") << endl; // Expected output: false
-    cout << boolalpha << solveBoolean("|&F") << endl; // Expected output: false
+    cout << boolalpha;
+    cout << solveBoolean("T") << endl;  // Expected: TRUE
+    cout << solveBoolean("F") << endl;  // Expected: FALSE
+    cout << solveBoolean("|T&F|") << endl;  // Expected: TRUE
+    cout << solveBoolean("T&F") << endl;   // Expected: FALSE
     return 0;
 }
