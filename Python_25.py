@@ -1,8 +1,10 @@
 from typing import List
 import math
 
-print("Enter a number to factorize: ")
-n = int(input())
+
+result = input("Enter a number: ")
+n = int(result)
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -16,9 +18,10 @@ def factorize(n: int) -> List[int]:
                 count += 1
             for _ in range(count):
                 factors.append(i)
-            n //= (i ** count)
+            n //= i**count
     if n > 1:
         factors.extend([n] * 1)
     return factors
+
 
 print(factorize(n))
