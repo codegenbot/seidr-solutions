@@ -4,11 +4,19 @@ int mastermind(string code, string guess) {
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+            ++black;
         }
     }
 
-    return black + white - 2;
+    for (char c : guess) {
+        int count = 0;
+        for (int i = 0; i < 4; ++i) {
+            if (c == code[i] && c != guess[i]) {
+                ++count;
+            }
+        }
+        white += count;
+    }
+
+    return black + white;
 }
