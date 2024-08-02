@@ -16,7 +16,7 @@ double mean_absolute_deviation(const vector<double>& numbers) {
 }
 
 int main() {
-    vector<double> numbers = {1.2, 2.4, 3.6, 4.8, 5.0}; // example input
+    vector<double> numbers = {1.2, 2.6, 3.5, 5.1, 6.3};
     double result = mean_absolute_deviation(numbers);
     return 0;
 }
