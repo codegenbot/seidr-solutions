@@ -18,7 +18,7 @@ double mean_absolute_deviation(const std::vector<double>& numbers) {
 }
 
 int main() {
-    std::vector<double> numbers = {1.0, 2.0, 3.0, 4.0, 5.0}; // corrected input
-    assert(std::abs(mean_absolute_deviation(numbers) - 6.0/5.0) < 1e-4);
+    std::vector<double> numbers = {1.0, 2.0, 3.0, 4.0, 5.0}; // updated input
+    assert(std::abs(mean_absolute_deviation(numbers) - 6.0 / 5.0) < 1e-4);
     return 0;
 }
