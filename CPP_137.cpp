@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 #include <typeinfo>
-#include <cassert>  
+#include <cassert>  // Added to include assert
 
 template <typename T>
 boost::any compare_one(T a, T b) {
@@ -12,17 +12,17 @@ boost::any compare_one(T a, T b) {
     }
 }
 
-boost::any compare(boost::any a, boost::any b) {
+std::any compare(boost::any a, boost::any b) {
     if (a.type() == b.type()) {
-        if (a.type() == typeid(int) && boost::any_cast<int>(a) != boost::any_cast<int>(b)) {
-            return (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
-        } else if (a.type() == typeid(float) && boost::any_cast<float>(a) != boost::any_cast<float>(b)) {
-            return (boost::any_cast<float>(a) > boost::any_cast<float>(b)) ? a : b;
-        } else if (a.type() == typeid(std::string) && boost::any_cast<std::string>(a) != boost::any_cast<std::string>(b)) {
-            return (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) ? a : b;
+        if (a.type() == typeid(int) && std::any_cast<int>(a) != std::any_cast<int>(b)) {
+            return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
+        } else if (a.type() == typeid(float) && std::any_cast<float>(a) != std::any_cast<float>(b)) {
+            return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
+        } else if (a.type() == typeid(std::string) && std::any_cast<std::string>(a) != std::any_cast<std::string>(b)) {
+            return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return boost::any("None");  
+    return boost::any("None");
 }
 
 int main() {
