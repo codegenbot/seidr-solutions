@@ -1,22 +1,14 @@
-# Read input
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-# Find cut spot
-total_sum = sum(nums)
-left_sum = 0
-min_diff = total_sum
-cut_index = 0
+min_diff = float("inf")
+cut_index = -1
 
-for i in range(n):
-    left_sum += nums[i]
-    right_sum = total_sum - left_sum
-    current_diff = abs(left_sum - right_sum)
-
-    if current_diff < min_diff:
-        min_diff = current_diff
+for i in range(1, n):
+    diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    if diff < min_diff:
+        min_diff = diff
         cut_index = i
 
-# Output subvectors
-print(*nums[: cut_index + 1])
-print(*nums[cut_index + 1 :])
+print(*arr[:cut_index])
+print(*arr[cut_index:])
