@@ -18,10 +18,15 @@ std::string spinWords(std::string input) {
     output += word;
 
     for (int i = 0; i <= output.length(); i++) {
-        if (output[i] == ' ' && (i+1 < output.length()) && output.substr(i + 1).length() >= 5) {
-            std::string temp = output.substr(i + 1);
+        if (output[i] == ' ' && i + 1 < output.length() && output.substr(i + 1).length() >= 5) {
+            int start = i + 1;
+            while (i < output.length() && output[i] != ' ') {
+                i++;
+            }
+            std::string temp = output.substr(start, i - start);
             std::reverse(temp.rbegin(), temp.rend());
-            output.replace(i+1, temp.length(), temp);
+            output.replace(start, i - start, temp);
+            i--;
         }
     }
 
