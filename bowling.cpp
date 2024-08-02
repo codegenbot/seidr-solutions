@@ -28,8 +28,8 @@ int score(string s) {
         total += scores[19] + scores[20];
     }
     
-    for (int i = 0; i < 9; i++) {
-        if (scores[i * 2] == 10) {
+    for (int i = 0; i < 10; i++) {
+        if (scores[i * 2] == 10 || (scores[i * 2] + scores[i * 2 + 1] == 10)) {
             total += 10 + scores[i * 2 + 1] + scores[i * 2 + 2];
             if (scores[i * 2 + 1] == 10 && scores[i * 2 + 2] != 0 && i < 9) {
                 total += scores[i * 2 + 3];
