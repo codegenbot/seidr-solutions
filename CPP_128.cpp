@@ -1,18 +1,23 @@
+```
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int sign(int num) {
+    return num / abs(num);
+}
+
 int prod_signs(vector<int> arr) {
-    int sign_product = 1;
-    long long total = 0;
-
+    int product = 1;
+    int sum = 0;
+    
     for (int num : arr) {
-        if (num == 0) {
-            return 0;
+        if (num != 0) {
+            product *= sign(num);
+            sum += std::abs(num);
         }
-        total += abs(num);
-        sign_product *= (num >= 0 ? 1 : -1);
     }
-
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    return sign_product * total;
+    
+    return product * sum > 0 ? sum : -32768;
 }
