@@ -1,13 +1,15 @@
-Here is the solution:
+Here is the completed code:
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) { // even level
-            pile.push_back(i * 2);
-        } else { // odd level
-            pile.push_back(2 * i + 1);
+    int stones = 1;
+    for (int i = 0; i < n; i++) {
+        if ((stones & 1)) {
+            pile.push_back(stones);
+        } else {
+            pile.push_back(stones + 1);
         }
+        stones += 2;
     }
     return pile;
 }
