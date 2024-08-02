@@ -1,10 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cmath>
+
+using namespace std;
+
+float max_element(vector<float> l){
+    float max = l[0];
+    for (int i=1; i<l.size(); i++) {
+        if (l[i] > max) {
+            max = l[i];
+        }
+    }
+    return max;
+}
 
 int main() {
-    std::vector<float> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    float maxVal = *std::max_element(l.begin(), l.end());
-    return static_cast<int>(abs(maxVal-12.4)<1e-4);
+    assert(abs(max_element({5.0f, 3.0f, -5.0f, 2.0f, -3.0f, 3.0f, 9.0f, 0.0f, 124.0f, 1.0f, -10.0f})- 124)<1e-4);
+    return 0;
 }
