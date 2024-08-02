@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+// C++
 string middleCharacter(string s) {
     int n = s.length();
     if(n%2 == 0) {
@@ -8,12 +6,4 @@ string middleCharacter(string s) {
     } else {
         return s.substr(n/2, 1);
     }
-}
-
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Middle character(s): " << middleCharacter(s) << endl;
-    return 0;
 }
