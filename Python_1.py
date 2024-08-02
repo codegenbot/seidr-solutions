@@ -1,19 +1,6 @@
-def calculate_expression_value(expression: str) -> int:
-    result = 0
-    sign = 1
-    stack = []
-
-    for char in expression:
-        if char.isdigit():
-            result += sign * int(char)
-        elif char == "+":
-            sign = 1
-            stack.append(result)
-            result = 0
-        elif char == "-":
-            sign = -1
-            stack.append(result)
-            result = 0
-
-    stack.append(result)
-    return sum(stack)
+def find_max_consecutive_sum(arr: List[int]) -> int:
+    max_sum = current_sum = arr[0]
+    for num in arr[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+    return max_sum
