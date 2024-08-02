@@ -13,4 +13,8 @@ bool monotonic(std::vector<float> l){
     return increasing || decreasing;
 }
 
-```
+int main() {
+    std::vector<float> input = {1.5f, 2.3f, 2.5f, 3.1f, 5.6f};
+    bool result = monotonic(input);
+    return 0;
+}
