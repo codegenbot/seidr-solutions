@@ -18,10 +18,6 @@ while True:
             if num2 != 0:
                 print("Result:", num1 / num2)
             else:
-                print("Error: Division by zero!")
+                print("Error! Division by zero is not allowed.")
     else:
         print("Invalid operator!")
-
-    cont = input("Do you want to continue? (yes/no): ")
-    if cont.lower() != "yes":
-        break
