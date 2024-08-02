@@ -3,21 +3,17 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    std::string result = "";
-    for (const std::string& str : a) {
-        for (char ch : str) {
-            if (b[0].find(ch) == std::string::npos) {
-                result += ch;
-            }
+std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    std::vector<std::string> result;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] == b[i]) {
+            result.push_back(a[i]);
         }
     }
-    std::string result_reverse = result;
-    std::reverse(result_reverse.begin(), result_reverse.end());
-    return result == result_reverse;
+    return result;
 }
 
 int main() {
-    assert(issame({"mamma"}, {"mia"}) == true);
+    assert(issame({"mamma", "hello"}, {"mia", "world"}) == std::vector<std::string>{"hello"});
     return 0;
 }
