@@ -31,7 +31,7 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
-    assert(issame(tri(1), std::vector<int>({1, 3}));
+    assert(issame(tri(1), std::vector<int>({1, 3})); // Replace with the correct implementation of tri(1)
     
     return 0;
 }
