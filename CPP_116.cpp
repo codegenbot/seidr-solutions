@@ -15,7 +15,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-bool issame(const std::vector<int>& arr1, const std::vector<int>& arr2) {
+bool issame(const std::vector<int> &arr1, const std::vector<int> &arr2) {
     return arr1 == arr2;
 }
 
