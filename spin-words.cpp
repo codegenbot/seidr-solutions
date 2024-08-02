@@ -2,46 +2,24 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string input) {
-    string output = "";
-    int length = 0;
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    std::size_t prev = 0;
     
-    for (int i = input.size() - 1; i >= 0; i--) {
-        if (input[i] == ' ') {
-            length = 0;
-        } else {
-            length++;
+    for (std::size_t nextPos = 0; nextPos <= sentence.size(); ) {
+        size_t spacePos = sentence.find(' ', prev);
+        
+        if(spacePos == std::string::npos)
+            spacePos = sentence.size();
             
-            if (length > 4) {
-                for (int j = i; j >= i - length; j--) {
-                    output += input[j];
-                }
+        std::string word = sentence.substr(prev, spacePos - prev);
+
+        if(word.length() >= 5) 
+            std::reverse(word.begin(), word.end());
                 
-                output += ' ';
-            } else {
-                output += input[i];
-            }
-        }
-    }
-
-    return output;
-}
-
-int main() {
-    string input;
-    
-    while (true) {
-        cout << "Enter a string of one or more words, or enter 'quit' to exit: ";
-        cin >> input;
-        
-        if (input == "quit") {
-            break;
-        }
-        
-        cout << spinWords(input) << endl;
+        result += word + (spacePos < sentence.size() ? " " : "");
+        prev = spacePos + 1;
     }
     
-    return 0;
+    return result;
 }
