@@ -1,15 +1,20 @@
+```cpp
 #include <vector>
 using namespace std;
 
-int findFirstNegativeIndex(vector<int> v) {
+int basement(vector<int>& v) {
     int sum = 0;
-    int index = -1;
     for (int i = 0; i < v.size(); i++) {
         sum += v[i];
-        if (sum < 0) {
-            index = i;
-            break;
-        }
+        if (sum < 0)
+            return i;
     }
-    return index;
+    return -1;
+}
+
+int main() {
+    vector<int> v = {-2, 3, 1, -5, 4};
+    int result = basement(v);
+    cout << "The first index where the sum is negative is: " << result << endl;
+    return 0;
 }
