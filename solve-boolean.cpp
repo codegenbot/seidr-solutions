@@ -3,28 +3,28 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
             return true;
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            i++; // Skip '&' character
-            bool a = i < s.length() && s[i] == 'T';
-            bool b = i < s.length() && s[i] == 'F';
-            result &= (a || b);
+            result &= true;
         } else if (s[i] == '|') {
-            i++; // Skip '|' character
-            bool a = i < s.length() && s[i] == 'T';
-            bool b = i < s.length() && s[i] == 'F';
-            result |= (a || b);
+            result |= true;
         }
-        i++;
     }
     return result;
 }
 
 int main() {
+    cout << boolalpha << solveBoolean("T") << endl;  // Expected output: true
+    cout << boolalpha << solveBoolean("F") << endl;  // Expected output: false
+    cout << boolalpha << solveBoolean("|T") << endl;  // Expected output: true
+    cout << boolalpha << solveBoolean("|F") << endl;  // Expected output: true
+    cout << boolalpha << solveBoolean("&T") << endl;  // Expected output: true
+    cout << boolalpha << solveBoolean("&F") << endl;  // Expected output: false
+    cout << boolalpha << solveBoolean("|&T") << endl;  // Expected output: true
+    cout << boolalpha << solveBoolean("|&F") << endl;  // Expected output: true
     return 0;
 }
