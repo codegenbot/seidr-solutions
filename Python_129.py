@@ -7,7 +7,7 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == 2 * k:
             nonlocal min_path
-            if not min_path or len(path) < len(min_path):
+            if not min_path or path < min_path or (path == min_path and path < min_path[::-1]):
                 min_path = path[:]
             return
 
