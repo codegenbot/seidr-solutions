@@ -4,7 +4,7 @@
 int main() {
     std::vector<int> digits(16);
     int sum = 0;
-    
+
     for (int i = 0; i < 16; ++i) {
         std::cin >> digits[i];
         int num = digits[i];
@@ -18,6 +18,6 @@ int main() {
     }
 
     std::cout << sum << std::endl;
-    
+
     return 0;
 }
