@@ -4,19 +4,23 @@ using namespace std;
 
 int main() {
     string input;
-    getline(cin, input);
+    getline(std::cin, input);
     
     bool capitalize = true;
     for(char c : input) {
-        if(c == '-' || c == ' ') {
+        if(c == '-') {
             capitalize = true;
-        } else {
+        } else if(c != ' ') {
             if(capitalize) {
-                cout << (char)toupper(c);
+                std::cout << (capitalize ? (char)tolower(c) : c);
                 capitalize = false;
             } else {
-                cout << (char)tolower(c);
+                std::cout << c;
             }
+        }
+        if(c == ' ') {
+            capitalize = true;
+            std::cout << " ";
         }
     }
     
