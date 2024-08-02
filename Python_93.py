@@ -3,10 +3,9 @@ def encode(message):
 
     for char in message:
         if char.isalpha():
-            encoded_char = chr(ord(char) + 2)
-            if encoded_char > 'Z':
-                encoded_char = chr(ord(encoded_char) - 26)  # Wrap around for letters beyond 'Z'
-            encoded_message += encoded_char.upper()
+            base = ord('A') if char.isupper() else ord('a')
+            encoded_char = chr((ord(char) - base + 2) % 26 + base)
+            encoded_message += encoded_char
         else:
             encoded_message += char
 
