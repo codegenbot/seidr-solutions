@@ -3,7 +3,6 @@
 #include <cassert>
 
 int sum_of_extremes(std::vector<int> vec) {
-    std::sort(vec.begin(), vec.end());
     return vec.front() + vec.back();
 }
 
