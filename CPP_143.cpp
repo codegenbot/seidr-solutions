@@ -1,25 +1,47 @@
-Here is the completed code:
+#include <vector>
+#include <string>
 
-string words_in_sentence(string sentence){
-    string result = "";
-    int i = 0;
-    while(i < sentence.size()){
-        int len = 0;
-        for(int j = i; j < sentence.size(); j++){
-            len++;
-            if(!isalpha(sentence[j])){
-                break;
-            }
-        }
-        bool isPrime = true;
-        for(int j = 2; j * j <= len; j++){
-            if(len % j == 0){
-                isPrime = false;
-                break;
-            }
-        }
-        if(isPrime) result += sentence.substr(i, len) + " ";
-        i += len;
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
-    return result;
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words;
+    int len = 0;
+    string word;
+
+    // split the sentence into words
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (len > 0) {
+                words.push_back(word);
+                word.clear();
+                len = 0;
+            }
+        } else {
+            word += sentence[i];
+            len++;
+        }
+    }
+
+    // add the last word
+    if (len > 0) {
+        words.push_back(word);
+    }
+
+    string result = "";
+    for (int i = 0; i < words.size(); i++) {
+        int len_word = words[i].length();
+        if (isPrime(len_word)) {
+            result += words[i] + " ";
+        }
+    }
+
+    return result.substr(0, result.length() - 1);
 }
