@@ -24,10 +24,10 @@ int sum_digits(int n) {
         n /= 10;
     }
     return sum;
-
 }
+
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << "The output is: " << skjkasdkd(lst) << endl;
+    cout << skjkasdkd(lst) << endl;
     return 0;
 }
