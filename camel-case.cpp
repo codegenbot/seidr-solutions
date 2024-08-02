@@ -1,25 +1,37 @@
-Here is the solution:
+#include <iostream>
+#include <string>
+#include <vector>
 
-void toCamelCase(string s) {
-    string result;
-    for (auto it = s.begin(); it != s.end(); ) {
-        if (*it == '-') {
-            it++; // skip '-'
-            while (it != s.end() && *it == '-') {
-                it++;
-            }
-            continue;
-        }
-        result.push_back toupper(*it);
-        while (it + 1 != s.end() && *it != ' ') {
-            result.push_back tolower(*++it);
+std::string camelCase(const std::string& s) {
+    std::vector<std::string> words;
+    unsigned int start = 0;
+    for (unsigned int i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == ' ') {
+            words.push_back(s.substr(start, i - start));
+            start = i + 1;
         }
     }
-    cout << result;
+
+    std::string result;
+    for (unsigned int i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result += char(std::toupper(words[i][0]));
+            result.erase(0, 1);
+        } else {
+            result += words[i];
+        }
+        if (i < words.size() - 1) {
+            result += " ";
+        }
+    }
+
+    return result;
 }
+
 int main() {
-    string str;
-    cin >> str;
-    toCamelCase(str);
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << '\n';
+    }
     return 0;
 }
