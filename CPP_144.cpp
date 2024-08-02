@@ -2,25 +2,15 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
-
-    if (a*d == b*c)
-        return true;
-    else
-        return false;
-}
-
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(0, pos);
-    return temp;
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(pos+1);
-    return temp;
+    int a = 0, b = 0, c = 0, d = 0;
+    
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
+    
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
+    
+    return (a * d) == (b * c);
 }
