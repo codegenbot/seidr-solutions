@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
 
-int count_upper(std::string s){
+using namespace std;
+
+int count_upper(string s){
     int count = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(std::isupper(s[i]) && (std::toupper(s[i]) == 'A' || std::toupper(s[i]) == 'E' || std::toupper(s[i]) == 'I' || std::toupper(s[i]) == 'O' || std::toupper(s[i]) == 'U')){
+    for(char c : s){
+        if(c >= 'A' && c <= 'Z' && (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')){
             count++;
         }
     }
