@@ -18,8 +18,9 @@ std::string validateTweet(std::string tweet) {
 int main() {
     int numTests;
     std::cin >> numTests;
+
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    
+
     for(int i = 0; i < numTests; ++i) {
         std::string tweet;
         std::getline(std::cin, tweet);
