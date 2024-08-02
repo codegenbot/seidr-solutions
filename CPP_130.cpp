@@ -1,14 +1,14 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::std::vector<int> tri(int n) {
-    std::std::vector<int> result;
+std::vector<int> tri(int n) {
+    std::vector<int> result;
     
     if (n >= 0) {
         for (int i = 0; i <= n; ++i) {
