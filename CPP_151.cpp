@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -12,7 +13,6 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 3.7f, 4.5f};
-    long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of the squares is: " << odd_sum << std::endl;
+    std::vector<float> lst; 
+    // Your code to calculate odd_sum and test double_the_difference()
 }
