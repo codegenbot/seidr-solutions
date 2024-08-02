@@ -1,6 +1,4 @@
 #include <string>
-#include <vector>
-#include <algorithm>
 
 int countDigits(string str) {
     int count = 0;
