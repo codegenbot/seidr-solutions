@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <list>
@@ -12,7 +10,7 @@ bool compare_vectors(std::vector<int> a, std::vector<int> b) {
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (std::any_cast<int>(value).type() == typeid(int)) {
+        if (value.type() == typeid(int)) {
             result.push_back(std::any_cast<int>(value));
         }
     }
