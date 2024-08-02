@@ -1,12 +1,15 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
     std::vector<int> l;
-    std::cin >> l[0];
-    for(int i=1;i<124;++i){
-        std::cin >> l[i];
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        int temp;
+        cin >> temp;
+        l.push_back(temp);
     }
-    return *std::max_element(l.begin(), l.end());
+    vector<float> v(l.begin(), l.end());
+    return *max_element(v.begin(), v.end());
 }
