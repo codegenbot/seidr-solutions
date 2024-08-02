@@ -1,16 +1,23 @@
-#include <string>
+#include <iostream>
+#include <cctype>
+using namespace std;
 
-string encrypt(string s){
+// Function to encrypt the string
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm'){
-            result += (char)(c + 4);
-        } else if(c >= 'n' && c <= 'z'){
-            result += (char)(c - 22);
-        } else {
-            result += c;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c - base + 2 * 26) % 26 + base;
         }
+        result += c;
     }
     return result;
+}
+
+int main() {
+    // Test the function
+    assert(encrypt("a") == "e");
+    cout << "Encryption test passed.\n";
+    return 0;
 }
