@@ -8,10 +8,6 @@ std::pair<int, int> eat(int number, int need, int remaining){
     return {total, left};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame({eat(4, 5, 1).first}, {5, 0}));
+bool issame(std::pair<int, int> a, std::pair<int, int> b){
+    return a.first == b.first && a.second == b.second;
 }
