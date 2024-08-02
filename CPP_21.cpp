@@ -14,5 +14,5 @@ std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
         float rescaled = (num - min_num) / (max_num - min_num);
         result.push_back(rescaled);
     }
-    return result == b;
+    return result;
 }
