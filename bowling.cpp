@@ -21,8 +21,8 @@ int score(string s) {
             scores[ball++] = c - '0';
         }
     }
-    for (int i = 0; i < 11; i++) {
-        if (scores[i * 2] == 10) {
+    for (int i = 0; i < 10; i++) {
+        if (i != 9 && scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
             if (scores[i * 2 + 2] == 10) {
                 total += scores[i * 2 + 4];
