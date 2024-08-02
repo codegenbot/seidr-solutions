@@ -2,16 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-#ifdef TEST_CASE
+#ifdef UNIT_TESTING
 int main() {
-    std::vector<int> a = {1, 2, 3, 4};
-    std::vector<int> b = {4, 2, 3, 1};
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {3, 2, 1};
 
     bool result = issame(a, b);
     if (result) {
@@ -23,3 +19,9 @@ int main() {
     return 0;
 }
 #endif
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
