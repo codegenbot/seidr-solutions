@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     n = len(arr)
     left, right = 0, n - 1
@@ -17,6 +16,3 @@ def smallest_change(arr):
             right -= 1
     
     return changes
-
-coins = list(map(int, input("Enter the array of coins: ").split()))
-print(smallest_change(coins))
