@@ -13,10 +13,12 @@ def int_to_mini_roman(number):
         "X", "IX", "V", "IV",
         "I"
     ]
+
     i = len(val) - 1
     while number > 0:
         for _ in range(number // val[i]):
             roman += syb[i]
             number -= val[i]
         i -= 1
+
     return roman.lower()
