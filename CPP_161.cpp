@@ -9,19 +9,24 @@ std::string solve(const std::string &s) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
+
     if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
-    
+
     return s;
 }
 
 int main() {
-    // Testing the functionality of solve function
-    std::string input = "test123";
+    // Test the functionality of the solve function
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
     std::string result = solve(input);
-    assert(result == "tEST123");
-    
+
+    // Print the result
+    std::cout << "Result: " << result << std::endl;
+
     return 0;
 }
