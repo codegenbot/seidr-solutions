@@ -1,10 +1,11 @@
-int cnt = 0;
+bool is_nested(const string& str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
-            cnt++;
-        } else if (c == ']' && cnt > 0) {
-            cnt--;
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
         }
     }
-    return cnt < 0;
+    return count == 0;
 }
