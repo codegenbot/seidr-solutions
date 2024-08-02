@@ -8,7 +8,6 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char hash[16];
-    unsigned int hash_len = 0;
     MD5((const unsigned char*)text.c_str(), text.size(), hash);
 
     stringstream ss;
