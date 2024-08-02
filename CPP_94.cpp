@@ -28,6 +28,6 @@ int sum_digits(int n) {
 }
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst);
+    cout << skjkasdkd(lst) << endl;
     return 0;
 }
