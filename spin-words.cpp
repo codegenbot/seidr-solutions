@@ -38,9 +38,9 @@ int main() {
     string str;
     cout << "Enter a sentence: ";
     getline(cin, str);
-    str.erase(0, str.find_first_of(' ')); // remove leading spaces
+    str.erase(0, str.find_first_of(' ')); 
     while (str.length() > 0 && str[0] == ' ') { 
-        str = str.substr(1); // remove trailing spaces
+        str = str.substr(1); 
     }
     cout << spinWords(str) << endl;
     return 0;
