@@ -6,15 +6,8 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
-        bool distinct = true;
-        vector<char> seen;
-        for (char c : sub) {
-            if (find(seen.begin(), seen.end(), c) != seen.end())
-                distinct = false;
-            else
-                seen.push_back(c);
-        }
-        if (!distinct)
+        set<char> unique(sub.begin(), sub.end());
+        if (unique.size() != 3)
             return false;
     }
     return true;
