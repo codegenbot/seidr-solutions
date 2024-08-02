@@ -10,22 +10,20 @@ std::string solve(const std::string &s) {
         }
     }
 
-    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        reverse(s.begin(), s.end());
+    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+        std::reverse(s.begin(), s.end());
     }
 
     return s;
 }
 
 int main() {
-    // Test the functionality of the solve function
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
 
     std::string result = solve(input);
 
-    // Print the result
     std::cout << "Result: " << result << std::endl;
 
     return 0;
