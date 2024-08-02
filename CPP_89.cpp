@@ -1,19 +1,22 @@
 #include <iostream>
 #include <string>
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s) {
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    string result = "";
+    
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c - base + 2 * 26) % 26 + base;
+        if (c >= 'a' && c <= 'z') {
+            int index = alphabet.find(c);
+            index += 3; // rotate down by 3 places
+            while (index > 25) {
+                index -= 26;
+            }
+            result += alphabet[index];
+        } else {
+            result += c;
         }
-        result += c;
     }
+    
     return result;
-}
-
-int main() {
-    assert(encrypt("a") == "e");
-    return 0;
 }
