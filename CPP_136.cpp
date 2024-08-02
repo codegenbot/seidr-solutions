@@ -1,17 +1,6 @@
-#include <vector>
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> vec_a = largestSmallestIntegers(a);
+    std::vector<int> vec_b = largestSmallestIntegers(b);
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
-    for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
-            largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
-            smallest_positive = num;
-        }
-    }
-    return {largest_negative, smallest_positive};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return largest_smallest_integers(a) == largest_smallest_integers(b);
+    return vec_a == vec_b;
 }
