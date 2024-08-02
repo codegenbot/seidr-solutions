@@ -16,7 +16,11 @@ int bowlingScore(string bowls) {
             } else {
                 roll2 = 10 - roll1;
             }
-            score += roll1 + roll2;
+            if (roll1 + roll2 == 10) {
+                score += 10;
+            } else {
+                score += roll1 + roll2;
+            }
         } else {
             int x = 0;
             while (i < 9 && bowls[i] == 'X') {
