@@ -1,22 +1,22 @@
 #include <string>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalizeNext = true;
+    bool capitalizeNextLetter = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++; // skip the "-"
             while (i < s.length() && s[i] == ' ') {
                 i++; // skip the spaces
             }
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(s[i]); 
-            capitalizeNext = false; 
+            capitalizeNextLetter = true;
+        } else if (capitalizeNextLetter) {
+            result += toupper(s[i]); // capitalize the first letter of each word
+            capitalizeNextLetter = false;
         } else {
-            result += tolower(s[i]);
+            result += tolower(s[i]); // convert all letters to lowercase
         }
     }
     return result;
@@ -25,7 +25,7 @@ string camelCase(string s) {
 int main() {
     string s;
     while (cin >> s) {
-        cout << camelCase(s) << endl;
+        cout << camelCase(s) << endl; // Use cout from included iostream
     }
     return 0;
 }
