@@ -2,18 +2,11 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    // Your comparison logic here
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     // Your code implementation for finding the minimum path
-    vector<int> result;
-    // Implementation logic here
-    return result;
 }
 
 int main(){
