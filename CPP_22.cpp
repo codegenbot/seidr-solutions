@@ -1,24 +1,14 @@
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
+#include <cassert>
 
-using namespace std;
-namespace boost { namespace detail {
-template<typename T> bool is_same(const boost::any& a) const {
-    return a.type() == typeid(T);
-}
-} }
-
-bool issame(boost::any value, int) {
-    return boost::any_cast<int>(value).good();
+bool boost_any_issame(const boost::any& a, const boost::any& b) {
+    return &boost::any_cast<const boost::any&>(a) == &boost::any_cast<const boost::any&>(b);
 }
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
-        }
-    }
-    return result;
+int main() {
+    assert(boost_any_issame(boost::any(1), boost::any(1)));
+    assert(!boost_any_issame(boost::any(1), boost::any("2")));
+    return 0;
 }
