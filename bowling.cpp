@@ -19,9 +19,7 @@ int bowlingScore(string s) {
             score += frameScore;
             rolls++;
         } else if (s[i] == '/') {
-            int nonStrikeValue = 10 - (s[i-1] - '0');
-            score += nonStrikeValue;
-            rolls++;
+            continue;
         }
 
         if (rolls >= 10) break;
