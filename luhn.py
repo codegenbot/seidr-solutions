@@ -1,6 +1,9 @@
 def luhn(card):
-    card = list(map(int, card.split()))
+    card = [int(x) for x in str(card)]
     result = sum(
-        sum(divmod(d * 2, 10)) + d for i, d in enumerate(card) if i % 2 == 0
-    ) + sum(divmod(d, 10) for d in card[1:] if i % 2 != 0)
+        [
+            x if i % 2 == 0 else 2 * x if x * 10 < 100 else 2 * x - 9
+            for i, x in enumerate(card)
+        ]
+    )
     return result
