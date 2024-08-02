@@ -1,3 +1,4 @@
+```cpp
 vector<vector<string>> issame(vector<string> a, string substring){
     vector<vector<string>> result;
     for (const auto& s : a) {
@@ -9,5 +10,4 @@ vector<vector<string>> issame(vector<string> a, string substring){
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {{"grunt"}, {"prune"}}));
-    // ...
 }
