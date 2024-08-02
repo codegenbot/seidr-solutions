@@ -1,10 +1,21 @@
+Here is the solution:
+
 string get_closest_vowel(string word) {
-    for (int i = word.length() - 1; i > 0; --i) {
-        if ("aeiouAEIOU".find(word[i]) != string::npos) {
-            int j = i;
-            while (j > 0 && "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".find(word[j-1]) == string::npos) --j;
-            if (i - j < j - i + 1) return word.substr(j, 1);
+    int n = word.size();
+    for(int i=n-1; i>=0; i--) {
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
+           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
+            for(int j=i-1; j>=0; j--) {
+                if(!isVowel(word[j])) {
+                    return string(1, word[i]);
+                }
+            }
         }
     }
     return "";
+}
+
+bool isVowel(char ch) {
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+           ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U');
 }
