@@ -1,21 +1,11 @@
-bool issame(string s1, string s2) {
-    if (s1.length() != s2.length()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < s1.length(); ++i) {
-        if (s1[i] != s2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(), b.end(), a[i]) == b.end()) {
             return false;
         }
     }
     return true;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (issame(str, substring)) {
-            result.push_back(str);
-        }
-    }
-    return result;
 }
