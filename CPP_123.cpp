@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 
+// Function signature fixed and implementing std:: namespace for vector
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,8 +16,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
+// Declaration of get_odd_collatz to resolve compilation error
 std::vector<int> get_odd_collatz(int n); // Function declaration
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), {1})); // Example usage with assert
 }
