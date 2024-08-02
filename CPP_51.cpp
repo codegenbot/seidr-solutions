@@ -9,6 +9,5 @@ std::string remove_vowels(std::string text){
             result += c;
         }
     }
-    int result = text.length();
     return result;
 }
