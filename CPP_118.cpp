@@ -23,6 +23,4 @@ int main() {
     assert(get_closest_vowel("Example") == "e");
     assert(get_closest_vowel("Hello") == "o");
     assert(get_closest_vowel("Algorithm") == "o");
-
-    return 0;
 }
