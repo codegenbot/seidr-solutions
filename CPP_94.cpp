@@ -1,3 +1,4 @@
+```cpp
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int i : lst){
@@ -23,6 +24,7 @@ int sum_digits(int n) {
         n /= 10;
     }
     return sum;
+}
 
 int main() {
     vector<int> lst = {127, 97, 8192};
