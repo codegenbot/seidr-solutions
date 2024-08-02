@@ -1,49 +1,23 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operand.size(); j++) {
-                temp += operand[j];
-                if (j != operand.size() - 1) {
-                    if (operator_[j + 1] == "*") {
-                        temp *= operand[++j];
-                    } else if (operator_[j + 1] == "/") {
-                        temp /= operand[++j];
-                    }
-                }
-            }
-            result = temp;
-        } else if (operator_[i] == "//") {
-            int temp = 0;
-            for (int j = i; j < operand.size(); j++) {
-                temp += operand[j];
-                if (j != operand.size() - 1) {
-                    if (operator_[j + 1] == "*") {
-                        temp *= operand[++j];
-                    } else if (operator_[j + 1] == "//") {
-                        temp /= operand[++j];
-                    }
-                }
-            }
-            result = temp;
-        } else if (operator_[i] == "**") {
-            int temp = 0;
-            for (int j = i; j < operand.size(); j++) {
-                temp += operand[j];
-                if (j != operand.size() - 1) {
-                    if (operator_[j + 1] == "*") {
-                        temp *= pow(operand[++j], 2);
-                    } else if (operator_[j + 1] == "**") {
-                        temp = pow(operand[++j], temp);
-                    }
-                }
-            }
-            result = temp;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
+
+int do_algebra(vector<string> operato, vector<int> operand){
+    int result = operand[0];
+    for(int i = 0; i < operato.size(); i++){
+        if(operato[i] == "+"){
+            result += operand[i+1];
+        }else if(operato[i] == "-"){
+            result -= operand[i+1];
+        }else if(operato[i] == "*"){
+            result *= operand[i+1];
+        }else if(operato[i] == "//" || operato[i] == "pow"){
+            if(operato[i] == "pow") operato[i] = "**";
+            result /= (int)round(pow(operand[i+1], 1.0/1));
         }
     }
     return result;
