@@ -1,16 +1,13 @@
-string encode(string message){
+#include<string>
+#include<algorithm>
+using namespace std;
+
+string encode(string message) {
     string result = "";
-    for(int i=0; i<message.size(); i++){
-        char c = message[i];
-        if(isalpha(c)){
-            if(isupper(c)){
-                c = 'a' + (c - 'A');
-            } else {
-                c = 'A' + (c - 'a');
-            }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = (char)(c + 2);
-            }
+    for (char c : message) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c >= base && c <= base + 25 - 1) ? (char)(base + 13) : (char)(base + 6);
         }
         result += c;
     }
