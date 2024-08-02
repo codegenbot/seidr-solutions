@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -35,7 +35,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame(result, {243, 3, 2}));
+    assert(std::issame(result, {243, 3, 2}));
 
     return 0;
 }
