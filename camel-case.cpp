@@ -5,17 +5,13 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
 
-    bool capitalize = true;
+    bool capitalize = false;
     for (char c : input) {
-        if (c == '-' || c == ' ') {
+        if (c == ' ' || c == '-') {
             capitalize = true;
-        } else if (c != ' ') {
-            std::cout << (capitalize ? (char)tolower(c) : c);
+        } else {
+            std::cout << (capitalize ? (char)toupper(c) : tolower(c));
             capitalize = false;
-        }
-        if (c == ' ') {
-            capitalize = true;
-            std::cout << " ";
         }
     }
 
