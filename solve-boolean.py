@@ -5,9 +5,16 @@ def solve_boolean(expression):
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return not (bool(a) and bool(b))
-    elif "|" in expression:
-        a, b = expression.split("|")
-        return bool(a) or bool(b)
+    else:
+        stack = []
+        for char in expression[::-1]:
+            if char in ["&", "|"]:
+                right = stack.pop()
+                left = stack.pop()
+                if char == "&":
+                    stack.append(left and right)
+                elif char == "|":
+                    stack.append(left or right)
+            else:
+                stack.append(char != "F")
+        return stack[0]
