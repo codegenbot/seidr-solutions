@@ -1,4 +1,3 @@
-```cpp
 #include <cstdlib>
 
 int add(int x,int y){
@@ -8,5 +7,5 @@ int add(int x,int y){
 int main(){
     srand(time(0));
     int x=rand()%1000;
-    
+    // rest of your code...
 }
