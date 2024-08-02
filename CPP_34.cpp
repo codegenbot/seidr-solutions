@@ -5,7 +5,9 @@
 bool isSame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    return a == b;
+    auto last_a = std::unique(a.begin(), a.end());
+    auto last_b = std::unique(b.begin(), b.end());
+    return a == b && (std::distance(a.begin(), last_a) == std::distance(b.begin(), last_b));
 }
 
 int main() {
