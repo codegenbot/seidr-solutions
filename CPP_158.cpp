@@ -2,15 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
-    vector<string> words = {"apple", "banana", "cherry"};
-    string result = find_max(words);
-    cout << "The maximum word is: " << result << endl;
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    std::cout << find_max(words) << std::endl;
 }
 
-string find_max(vector<string> words){
+std::string find_max(std::vector<std::string> words){
     string result = *min_element(words.begin(), words.end(),
         [](const string &a, const string &b) {
             if (a.length() == b.length()) {
