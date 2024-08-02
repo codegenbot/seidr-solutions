@@ -11,7 +11,7 @@ string validateTweet(string tweet) {
 }
 
 int main() {
-    setlocale(LC_ALL, "");
+    setlocale(LC_CTYPE, "");
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
