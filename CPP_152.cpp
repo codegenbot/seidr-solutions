@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,10 +9,12 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
-        } else if (guess[i] > game[i]) {
-            result.push_back(1);
         } else {
-            result.push_back(-1);
+            int diff = abs(guess[i] - game[i]);
+            if (guess[i] > game[i]) {
+                diff++;
+            }
+            result.push_back(diff);
         }
     }
     return result;
