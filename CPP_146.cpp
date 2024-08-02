@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int specialFilter(vector<int> nums) {
@@ -9,4 +8,3 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
