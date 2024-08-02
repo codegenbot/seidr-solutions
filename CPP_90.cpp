@@ -1,4 +1,3 @@
-```cpp
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; // None
     vector<int> copy = lst;
@@ -9,4 +8,3 @@ int next_smallest(vector<int> lst) {
         }
     }
     return -1; // None
-}
