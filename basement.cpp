@@ -1,19 +1,26 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
-int basement(vector<int>& nums) {
+int findFirstNegativeIndex(vector<int> numbers) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        if (sum < 0) {
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
+        if (sum < 0)
             return i;
-        }
     }
     return -1;
 }
 
 int main() {
-    vector<int> nums = {5,6,-3,9,-11};
-    cout << basement(nums) << endl;
+    int n;
+    cin >> n;
+    
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++)
+        cin >> numbers[i];
+
+    cout << findFirstNegativeIndex(numbers) << endl;
+
     return 0;
 }
