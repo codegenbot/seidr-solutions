@@ -1,15 +1,14 @@
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-pair<int, int> eat(int number, int need, int remaining) {
+std::pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
-    return make_pair(eaten, left);
+    return std::make_pair(eaten, left);
 }
 
 int main() {
