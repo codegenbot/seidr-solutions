@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::sort(arr.rbegin(), arr.rend());
     return std::vector<int>(arr.begin(), arr.begin() + k);
@@ -12,6 +16,7 @@ int main() {
     std::vector<int> arr;
     int k;
 
+    std::cout << "Enter elements of the array: ";
     int num;
     while (std::cin >> num) {
         arr.push_back(num);
@@ -20,6 +25,7 @@ int main() {
         }
     }
 
+    std::cout << "Enter value of k: ";
     std::cin >> k;
 
     std::vector<int> result = maximum(arr, k);
@@ -28,6 +34,8 @@ int main() {
         std::cout << elem << " ";
     }
     std::cout << std::endl;
+
+    assert(issame(result, {243, 3, 2}));
 
     return 0;
 }
