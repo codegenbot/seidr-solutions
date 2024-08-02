@@ -1,11 +1,13 @@
-Here is the solution:
+def leaders(input_list):
+    if len(input_list) == 0:
+        return []
 
-def leaders(arr):
-    n = len(arr)
-    leaders_list = [arr[n-1]]
-    
-    for i in range(n-2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            leaders_list.insert(0, arr[i])
-            
-    return leaders_list
+    max_right = input_list[-1]
+    leaders = [max_right]
+
+    for i in range(len(input_list) - 2, -1, -1):
+        if input_list[i] >= max_right:
+            max_right = input_list[i]
+            leaders.insert(0, max_right)
+
+    return leaders
