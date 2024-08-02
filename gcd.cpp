@@ -3,8 +3,8 @@
 #include <iostream>
 
 int gcd(int a, int b) {
-    if (b == 0) return a;
-    if (a != b) return abs(a - b);
+    if (b == 0)
+        return a;
     return gcd(b, a % b);
 }
 
@@ -23,6 +23,7 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
         }
         if (found) {
             indices.push_back(i);
+            i += m - 1; // Increment i by m - 1 to account for overlapping substrings
         }
     }
 
@@ -30,17 +31,9 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 }
 
 int main() {
-    std::vector<int> result1 = findIndicesOfSubstring("abracadabra", "abra");
-    for (int index : result1) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
-
-    std::vector<int> result2 = findIndicesOfSubstring("ababab", "aba");
-    for (int index : result2) {
-        std::cout << index << " ";
-    }
-    std::cout << std::endl;
+    int a = 545559;
+    int b = 90516;
+    std::cout << gcd(a, b) << std::endl;
 
     return 0;
 }
