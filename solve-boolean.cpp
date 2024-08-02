@@ -21,12 +21,11 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    // test cases
-    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
-    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
-    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+    cout << (solveBoolean("t") ? "True" : "False") << endl; 
+    cout << (solveBoolean("f") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f&f") ? "True" : "False") << endl; 
+    cout << (solveBoolean("f&t") ? "True" : "False") << endl; 
+    cout << (solveBoolean("t&f") ? "True" : "False") << endl; 
 
     if(s.find('&') == string::npos && s.find('|') == string::npos) {
         return solveBoolean(s);
