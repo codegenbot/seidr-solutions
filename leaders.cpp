@@ -35,12 +35,12 @@ int main() {
 
     for (int i = 0; i < output.size(); i++) {
         std::cout << output[i];
-        if (i < output.size() - 1) {
+        if (i < output.size()) {
             std::cout << " ";
-        } else {
-            std::cout << std::endl;
         }
     }
+
+    std::cout << std::endl;
 
     return 0;
 }
