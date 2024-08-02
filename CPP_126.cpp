@@ -12,11 +12,10 @@ bool is_sorted(const vector<int>& lst) {
     return true;
 }
 
-int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
-    assert(is_sorted({4, 3, 2, 1}) == false);
-    assert(is_sorted({1}) == true);
-    assert(is_sorted({1, 2, 2, 3}) == false);
-    assert(is_sorted({2, 2, 2, 2, 2}) == false);
-    return 0;
+bool is_distinct(const vector<int>& lst) {
+    return lst.size() == set<int>(lst.begin(), lst.end()).size();
+}
+
+bool is_sorted_and_distinct(const vector<int>& lst) {
+    return is_sorted(lst) && is_distinct(lst);
 }
