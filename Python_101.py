@@ -1,3 +1,4 @@
 ```
+import re
 def words_string(s):
-    return [word.strip() for word in s.split(", | ")]
+    return re.split(',\s*|', s)
