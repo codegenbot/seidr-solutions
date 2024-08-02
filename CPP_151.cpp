@@ -16,13 +16,13 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<float> lst(n);
-  
+    
     for (int i = 0; i < n; i++) {
         std::cin >> lst[i];
     }
     
-    long long odd_sum = double_the_difference(lst);  
-    assert (odd_sum == EXPECTED_OUTPUT_VALUE);  // Replace EXPECTED_OUTPUT_VALUE with the correct expected output
+    long long odd_sum = double_the_difference(lst);  // Calculate the result
+    assert (odd_sum == 1234);  // Replace 1234 with the correct expected output
     
     return 0;
 }
