@@ -40,3 +40,6 @@ int main() {
     for (const auto &x : res.first) cout << x << " ";
     cout << "] [" << endl;
     for (const auto &x : res.second) cout << x << " ";
+    
+    return 0;
+}
