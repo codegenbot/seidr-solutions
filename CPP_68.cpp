@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool issame(vector<int> a,vector<int> b){
@@ -23,6 +24,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), vector<pair<int,int>>()));
+    assert(issame(pluck({7, 9, 7, 1}), vector<pair<int, int>>()));
     return 0;
 }
