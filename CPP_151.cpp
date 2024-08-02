@@ -5,7 +5,7 @@
 long long double_the_difference(std::vector<float> numbers) {
     long long sum = 0;
     for (float num : numbers) {
-        if (num > 0 && floor(num) == num) {
+        if (num > 0 && std::floor(num) == num) {
             sum += pow(num, 2);
         }
     }
@@ -13,20 +13,23 @@ long long double_the_difference(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        float num;
+
+    std::vector<float> numbers(n);
+    for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+        std::cin >> numbers[i];
     }
-    
+
     long long result = double_the_difference(numbers);
-    std::cout << "The sum of the squares of positive integers is: " << result << std::endl;
-    
+
+    if (!numbers.empty()) {
+        std::cout << "The sum of the squares of positive integers: " << result << std::endl;
+    } else {
+        std::cout << "No positive integers were entered." << std::endl;
+    }
+
     return 0;
 }
