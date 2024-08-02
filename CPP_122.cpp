@@ -13,22 +13,16 @@ int add_elements(std::vector<int> arr,int k){
 
 int main() {
     std::vector<int> vec;
-    int num;
-    
-    // Input elements from user
-    cout << "Enter the number of elements: ";
-    cin >> num;
-    vec.resize(num);
-    
-    for(int i = 0; i < num; i++){
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> vec[i];
+    int k;
+    std::cout << "Enter the size of the vector: ";
+    std::cin >> k;
+    for(int i = 0; i < k; i++){
+        int temp;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> temp;
+        vec.push_back(temp);
     }
-    
-    int result = add_elements(vec, num);
-    
-    // Print the sum
-    cout << "Sum: " << result << endl;
-    
+    int result = add_elements(vec, k);
+    std::cout << "Sum of elements: " << result << std::endl;
     return 0;
 }
