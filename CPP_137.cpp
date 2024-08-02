@@ -22,7 +22,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
         else
             return std::any();
     }
-    else if( a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+    else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
         std::string str_a = std::any_cast<std::string>(a); 
         std::string str_b = std::any_cast<std::string>(b); 
         str_a.replace(str_a.find(','), 1, ".");
