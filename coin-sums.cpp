@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -8,7 +9,7 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
 
-    int remainingCents = cents; 
+    int remainingCents = cents; // Store the remaining cents
     int nickels = remainingCents / 5;
     remainingCents %= 5;
 
