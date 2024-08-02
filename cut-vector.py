@@ -1,20 +1,15 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-total_sum = sum(arr)
-half_sum = total_sum // 2
-prefix_sum = 0
-for i, num in enumerate(arr):
-    prefix_sum += num
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
-            prefix_sum - num - half_sum
-        ):
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-        else:
-            print(*arr[:i])
-            print(*arr[i:])
-        break
-    elif i == n - 1:
-        print(*arr)
-        print(0)
+v = [int(input()) for _ in range(n)]
+diff = float("inf")
+cut_index = -1
+
+for i in range(1, n):
+    left_sum = sum(v[:i])
+    right_sum = sum(v[i:])
+    current_diff = abs(left_sum - right_sum)
+    if current_diff < diff:
+        diff = current_diff
+        cut_index = i
+
+print(*v[:cut_index])
+print(*v[cut_index:])
