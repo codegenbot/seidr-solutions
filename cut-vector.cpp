@@ -2,39 +2,63 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int pos = 0;
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
     for (int i = 1; i <= vec.size(); i++) {
-        if (i == vec.size() || vec[i-1] != vec[i]) {
-            int diff = abs((vec[0] + vec[i-1]) - (vec[i] + (vec.size()-i)));
-            if (diff < minDiff) {
-                minDiff = diff;
-                pos = i;
+        int left_sum = 0, right_sum = 0;
+        
+        if (i < vec.size()) {
+            for (int j = 0; j < i; j++) {
+                left_sum += vec[j];
             }
+            for (int j = i; j < vec.size(); j++) {
+                right_sum += vec[j];
+            }
+        } else {
+            left_sum = accumulate(vec.begin(), vec.end(), 0);
+            right_sum = 0;
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    vector<int> left(vec.begin(), vec.begin() + pos);
-    vector<int> right(vec.begin() + pos, vec.end());
+    vector<int> left_vec(cut_index), right_vec(vec.size() - cut_index);
     
-    return {left, right};
+    for (int i = 0; i < cut_index; i++) {
+        left_vec.push_back(vec[i]);
+    }
+    for (int i = cut_index; i < vec.size(); i++) {
+        right_vec.push_back(vec[i]);
+    }
+    
+    return {left_vec, right_vec};
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
-    for (auto &x : vec) cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
     
     pair<vector<int>, vector<int>> result = cutVector(vec);
     
-    cout << "Left: ";
-    for (auto x : result.first) cout << x << " ";
+    cout << "1 ";
+    for (int num : result.first) {
+        cout << num << " ";
+    }
     cout << endl;
     
-    cout << "Right: ";
-    for (auto x : result.second) cout << x << " ";
+    cout << "0 ";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
     cout << endl;
     
     return 0;
