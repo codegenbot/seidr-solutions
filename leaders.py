@@ -1,4 +1,4 @@
-Here is the Python solution:
+Here is the Python code for the problem:
 
-def leaders(arr):
-    return [i for i in arr if all(i >= j for j in arr[arr.index(i)+1:])]
+def leaders(a):
+    return [a[i] for i in range(len(a)-1,-1,-1) if a[i] >= max(a[i+1:])]
