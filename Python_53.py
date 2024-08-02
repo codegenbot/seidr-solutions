@@ -8,6 +8,6 @@ while True:
         break
     except ValueError:
         print("Please enter valid integers.")
-        
+
 result = add(x, y)
 print(f"The result of adding {x} and {y} is: {result}")
