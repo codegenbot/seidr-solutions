@@ -1,17 +1,15 @@
-bool issame(const vector<string>& first, const vector<string>& second) {
-    return first.size() == second.size();
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a.size() == b.size();
 }
 
 vector<string> sorted_list_sum(vector<string>& lst);
 
 int main() {
-    vector<string> input = {"abc", "def", "ghi", "jklmn", "opqrs"};
+    vector<string> input = {"apple", "banana", "kiwi", "orange", "pear"};
     vector<string> result = sorted_list_sum(input);
-
     for (const string& s : result) {
         cout << s << " ";
     }
-
     return 0;
 }
 
