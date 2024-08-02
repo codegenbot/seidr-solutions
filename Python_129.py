@@ -6,8 +6,9 @@ def minPath(grid, k):
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
     while len(path) < k:
-        i, j = path[-1]
+        current = path[-1]
         next_cell = None
+        i, j = path[-1]
         for di, dj in directions:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
