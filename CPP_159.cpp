@@ -5,7 +5,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-// Define eat function if not already defined
 std::array<int, 2> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? remaining : total;
