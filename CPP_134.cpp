@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <cctype>
 
-bool check_if_last_char_is_a_letter(const std::string &txt) {
-    return isalpha(txt.back()) && txt.size() > 0 && !isalpha(txt[txt.size() - 2]);
+bool check_if_last_char_is_a_letter(const std::string& txt) {
+    if (txt.empty()) return false;
+    char lastChar = txt.back();
+    return isalpha(lastChar) && txt.find_last_of(" ") == txt.size() - 1;
 }
 
 int main() {
