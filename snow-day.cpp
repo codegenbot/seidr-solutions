@@ -3,7 +3,7 @@
 using namespace std;
 
 double snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
-    double totalSnow = 0;
+    double totalSnow = groundSnow;
     for (int i = 0; i < hours; i++) {
         totalSnow += rateFall;
         totalSnow -= meltRate * totalSnow;
@@ -18,7 +18,7 @@ int main() {
     cin >> groundSnow >> rateFall >> meltRate;
     
     double result = snowDay(hours, groundSnow, rateFall, meltRate);
-    cout << fixed << setprecision(10) << result << endl;
+    cout << setprecision(2) << fixed << result << endl;
 
     return 0;
 }
