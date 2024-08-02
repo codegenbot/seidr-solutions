@@ -4,8 +4,8 @@
 
 std::string camelCase(const std::string& s) {
     std::vector<std::string> words;
-    unsigned int start = 0;
-    for (unsigned int i = 0; i <= s.size(); ++i) {
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
         if (i == s.size() || s[i] == ' ') {
             words.push_back(s.substr(start, i - start));
             start = i + 1;
@@ -13,7 +13,7 @@ std::string camelCase(const std::string& s) {
     }
 
     std::string result;
-    for (unsigned int i = 0; i < words.size(); ++i) {
+    for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
             result += char(std::toupper(words[i][0]));
             result.erase(0, 1);
