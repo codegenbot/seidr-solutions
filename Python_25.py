@@ -1,10 +1,6 @@
-```
 from typing import List
 import math
 
-
-result = input("Enter a number to factorize: ")
-n = int(result)
 
 factors = []
 i = 2
@@ -17,7 +13,7 @@ while i * i <= n:
             count += 1
         for _ in range(count):
             factors.append(i)
-        n //= (i ** count)
+        n //= i**count
 if n > 1:
     factors.extend([n] * 1)
-print(factors)
+return factors
