@@ -11,11 +11,7 @@ def parse_music(music_string: str) -> List[int]:
         else:
             note = music_string[i:i+2]
             i += 2
-            if note in beats_per_note:
-                result.append(beats_per_note[note])
-            else:
-                if music_string[i-1] in beats_per_note:
-                    result.append(beats_per_note[music_string[i-1:i+1]])
-                else:
-                    result.append(4)
+            for key in beats_per_note:
+                if key in note:
+                    result.append(beats_per_note[key])
     return result
