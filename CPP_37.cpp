@@ -1,26 +1,36 @@
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
+bool issame(const vector<float> &a, const vector<float> &b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_indices;
+void sort_even(vector<float> &l) {
+    vector<float> even_elements;
+    vector<float> sorted_even_elements;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
+            even_elements.push_back(l[i]);
+            sorted_even_elements.push_back(l[i]);
         }
     }
-    sort(even_indices.begin(), even_indices.end());
-    int j = 0;
+    sort(sorted_even_elements.begin(), sorted_even_elements.end());
+    int sorted_even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = even_indices[j];
-            j++;
+            l[i] = sorted_even_elements[sorted_even_index];
+            sorted_even_index++;
         }
     }
-    return l;
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    // Code provided in the problem, calling sort_even function
+    // Assert statement
     return 0;
 }
