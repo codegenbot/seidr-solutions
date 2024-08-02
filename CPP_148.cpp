@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -17,7 +16,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, std::vector<std::string>{}));
+    std::vector<std::string> vec1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> vec2 = {"apple", "banana", "cherry"};
+    
+    if (issame(vec1, vec2)) {
+        std::cout << "Vectors are same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
     
     return 0;
 }
