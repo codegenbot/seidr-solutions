@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -11,9 +12,6 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
     }
     return total;
 }
-
-#include <iostream>
-#include <iomanip>
 
 int main() {
     int n;
