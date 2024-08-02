@@ -3,12 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> unique(std::vector<int> v) {
-    std::sort(v.begin(), v.end());
-    v.erase(std::unique(v.begin(), v.end()), v.end());
-    return v;
-}
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
