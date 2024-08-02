@@ -1,29 +1,33 @@
+Here is the completed code:
+
+```cpp
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string temp = "";
-    for (char c : test) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                ++result[temp[0]];
-                temp.clear();
-            }
-        } else {
-            temp += c;
+    if (test.empty()) return result;
+
+    size_t start = 0;
+    for (size_t i = 0; i < test.size(); ++i) {
+        if (test[i] == ' ') {
+            string sub = test.substr(start, i - start);
+            ++result[sub[0]];
+            start = i + 1;
         }
     }
-    if (!temp.empty()) {
-        ++result[temp[0]];
+
+    if (start < test.size()) {
+        string sub = test.substr(start);
+        ++result[sub[0]];
     }
-    map<char, int> maxCountMap;
+
     int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
-            maxCountMap.clear();
-            maxCountMap[it->first] = it->second;
-        } else if (it->second == maxCount) {
-            maxCountMap[it->first] = it->second;
-        }
+    for (auto& p : result) {
+        if (p.second > maxCount) maxCount = p.second;
     }
-    return maxCountMap;
+
+    map<char, int> maxMap;
+    for (auto& p : result) {
+        if (p.second == maxCount) maxMap[p.first] = p.second;
+    }
+
+    return maxMap;
 }
