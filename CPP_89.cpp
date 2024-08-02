@@ -16,9 +16,10 @@ std::string encrypt(std::string s){
 }
 
 int main() {
-    std::cout << "Enter a string: ";
+    std::cout << "Hello, World!" << std::endl;
     std::string input;
-    std::cin >> input;
-    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Encrypted String: " << encrypt(input) << std::endl;
     return 0;
 }
