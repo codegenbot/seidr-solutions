@@ -9,7 +9,7 @@ int bowlingScore(string s) {
                 score += min(10, currentRoll);
                 currentRoll = 0;
             } else {
-                score += sumOfLastTwo(currentRoll);
+                score += min(10, sumOfLastTwo(currentRoll));
                 currentRoll = 0;
             }
         } else if (isdigit(c)) {
