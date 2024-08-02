@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,7 +6,7 @@ using namespace std;
 
 vector<int> unique(vector<int> l) {
     vector<int> result(l.begin(), l.end());
-    sort(result.begin(), unique.erase(unique.begin(), end()));
+    sort(result.begin(), unique.erase(unique.begin(), unique.end()));
     return result;
 }
 
