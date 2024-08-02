@@ -1,13 +1,20 @@
-#include <vector>
+#include <cassert>
 
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(const vector<vector<int>>& grid, int capacity) {
     int count = 0;
-    for (int j = 0; j < grid[0].size(); ++j) {
+    for (int j = 0; j < grid[0].size(); j++) {
         int sum = 0;
-        for (int i = 0; i < grid.size(); ++i) {
+        for (int i = 0; i < grid.size(); i++) {
             sum += grid[i][j];
         }
-        count += (sum + capacity - 1) / capacity;
+        while (sum > 0) {
+            sum -= capacity;
+            count++;
+        }
     }
     return count;
+}
+
+int main() {
+    assert(max_fill({{1, 1, 1, 1}, {1, 1, 1, 1}}, 9) == 2);
 }
