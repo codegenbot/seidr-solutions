@@ -1,4 +1,5 @@
-#include <string>
+#include<stdio.h>
+#include<string>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -7,9 +8,8 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    string prefix = str;
-    while (!is_palindrome(prefix)) {
-        prefix += (prefix[0]);
-    }
-    return prefix + string(str.rbegin(),str.rend());
+    string prefix = "";
+    for(int i=str.length()-1; i>=0 && !is_palindrome(prefix+str.substr(i)); i--);
+    if(is_palindrome(prefix+str))return prefix+str;
+    return prefix+str+string(str.rbegin(),str.rend());
 }
