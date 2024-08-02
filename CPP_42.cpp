@@ -1,15 +1,13 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-    using ::vector;
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> incr_list(std::vector<int> l) {
+vector<int> incr_list(vector<int> l) {
     for (int& num : l) {
         num++;
     }
