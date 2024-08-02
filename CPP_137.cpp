@@ -13,11 +13,11 @@ boost::any compare_one(boost::any a, boost::any b) {
             a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        float fa = std::stof(boost::any_cast<std::string>(a));
+        float fa = boost::convert<double>(boost::any_cast<std::string>(a)).get_value();
         return (fa > boost::any_cast<float>(b)) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float fb = std::stof(boost::any_cast<std::string>(b));
+        float fb = boost::convert<double>(boost::any_cast<std::string>(b)).get_value();
         return (boost::any_cast<float>(a) > fb) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
