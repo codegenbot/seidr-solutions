@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -12,16 +13,13 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float data;
-    
-    while (std::cin >> data) {
-        lst.push_back(data);
+    std::vector<float> lst = {1.5, 2.0, 3.25, -4.5, 5.0};
+    long long odd_sum = double_the_difference(lst);
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0.0) {
+            printf("%f ", num);
+        }
     }
-
-    long long result = double_the_difference(lst);
-
-    std::cout << "The result is: " << result << std::endl;
-
+    printf("\nSum: %lld\n", odd_sum);
     return 0;
 }
