@@ -22,5 +22,3 @@ int prime_fib(int n) {
     }
     return c;
 }
-
-assert(prime_fib(10) == 233);
