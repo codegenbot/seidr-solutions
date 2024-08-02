@@ -17,6 +17,5 @@ bool move_one_ball(std::vector<int>& arr) {
 int main() {
     std::vector<int> balls;
     assert(move_one_ball(balls) == true);
-    // Additional test cases can be added here
     return 0;
 }
