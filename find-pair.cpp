@@ -1,36 +1,31 @@
+Here is the solution in C++:
+
+```cpp
 #include <vector>
 using namespace std;
 
-pair<int, int> findPair(const vector<int>& vec, int target) {
-    unordered_map<int, int> mp;
-    for (int i = 0; i < vec.size(); i++) {
-        int complement = target - vec[i];
-        if (mp.find(complement) != mp.end()) {
-            return {complement, vec[i]};
+pair<int, int> findPair(vector<int>& nums, int target) {
+    unordered_map<int, int> numMap;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (numMap.count(complement)) {
+            return make_pair(complement, nums[i]);
         }
-        mp[vec[i]] = i;
+        numMap[nums[i]] = i;
     }
-    return {{-1, -1}};  // or throw an exception
+    return make_pair(0, 0);
 }
 
 int main() {
-    int numCases;
-    cin >> numCases;
-    for (int i = 0; i < numCases; i++) {
-        int n;
-        cin >> n;
-        vector<int> vec(n);
-        for (auto& x : vec) {
-            cin >> x;
-        }
-        int target;
-        cin >> target;
-        pair<int, int> p = findPair(vec, target);
-        if(p.first == -1 && p.second == -1){
-            cout << "NULL" << endl;
-        }else{
-            cout << p.first << "\n" << p.second << endl;
-        }
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int& x : nums) {
+        cin >> x;
     }
+    int target;
+    cin >> target;
+    pair<int, int> result = findPair(nums, target);
+    cout << result.first << " " << result.second << endl;
     return 0;
 }
