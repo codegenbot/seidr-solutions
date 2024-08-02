@@ -1,16 +1,13 @@
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> result;
-    
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
-            result.push_back(arr[i]);
+std::vector<int> leaders(const std::vector<int>& nums) {
+    int rightmost = nums.back();
+    std::vector<int> leaders;
+    for (int i = nums.size() - 1; i >= 0; --i) {
+        if (nums[i] >= rightmost) {
+            leaders.push_back(nums[i]);
+            rightmost = nums[i];
         }
     }
-    
-    reverse(result.begin(), result.end());
-    return result;
+    return leaders;
 }
