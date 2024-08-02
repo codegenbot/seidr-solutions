@@ -18,7 +18,6 @@ bool solveBoolean(string s) {
     if(s[j] != '|') return solveBoolean(left);
 
     j++;
-
     while(j<s.length()) {
         if(s[j] == '&') break;
         j++;
