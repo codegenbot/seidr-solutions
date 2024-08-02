@@ -11,8 +11,7 @@ def find_zero():
 
 # Test cases
 if __name__ == "__main__":
-    test_input_1 = input()  # Input for the 1st test case
+    inputs = input("Enter three integers separated by spaces: ")
     print(find_zero())
-
-    test_input_2 = input()  # Input for the 2nd test case
+    inputs = input("Enter three integers separated by spaces: ")
     print(find_zero())
