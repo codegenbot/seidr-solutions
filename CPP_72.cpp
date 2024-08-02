@@ -1,6 +1,7 @@
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -14,5 +15,6 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    // Your code here
+    // code here
+    return 0;
 }
