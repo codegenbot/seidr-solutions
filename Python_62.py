@@ -1,4 +1,2 @@
-result = []
-for i in range(1, len(xs)):
-    result.append(xs[i] * i)
-return result
+def derivative(xs: list):
+    return [xs[i] * i for i in range(1, len(xs))]
