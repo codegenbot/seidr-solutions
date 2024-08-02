@@ -1,3 +1,3 @@
-Here is the solution:
-
-return (a * h) / 2.0;
+float triangle_area(float a, float h){
+    return (a * h) / 2.0f;
+}
