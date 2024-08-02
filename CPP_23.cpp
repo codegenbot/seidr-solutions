@@ -1,9 +1,5 @@
-#include <cassert>
-#include <cstring>
-
-int main() {
-    const char* str = "asdasnakj";
-    assert(std::strlen(str) == 9);
+const char* str = "asdasnakj";
+    int len = strlen(str);
+    assert(len == 9);
     
-    return 0;
-}
+    // Add your additional code here
