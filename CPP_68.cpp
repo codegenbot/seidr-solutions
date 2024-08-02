@@ -1,19 +1,29 @@
 #include <vector>
-using namespace std;
+#include <utility>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-    
-    int smallestEvenValue = INT_MAX;
-    int smallestIndex = 0;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            smallestIndex = i;
+        if (arr[i] % 2 == 0) {
+            evenNodes.push_back({arr[i], i});
         }
     }
     
-    result.push_back({smallestEvenValue, smallestIndex});
-    return result;
+    if (evenNodes.empty()) {
+        return {};
+    }
+    
+    int minEvenValue = evenNodes[0].first;
+    int minIndex = evenNodes[0].second;
+    
+    for (int i = 1; i < evenNodes.size(); i++) {
+        if (evenNodes[i].first < minEvenValue) {
+            minEvenValue = evenNodes[i].first;
+            minIndex = evenNodes[i].second;
+        } else if (evenNodes[i].first == minEvenValue) {
+            minIndex = std::min(evenNodes[i].second, minIndex);
+        }
+    }
+    
+    return {{minEvenValue, minIndex}};
 }
