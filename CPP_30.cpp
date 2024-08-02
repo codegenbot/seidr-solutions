@@ -1,8 +1,8 @@
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), [](float x, float y){return std::abs(x) == std::abs(y);});
+    return std::equal(a.begin(), a.end(), b.begin(), [](float x, float y){return abs(x-y)<1e-9;});
 }
 
 int main() {
