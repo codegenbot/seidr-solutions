@@ -3,12 +3,12 @@
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
-bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB) {
-    if (vecA.size() != vecB.size()) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < vecA.size(); ++i) {
-        if (vecA[i] != vecB[i]) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -16,6 +16,6 @@ bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6}));
+    assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6})); 
     return 0;
 }
