@@ -1,19 +1,14 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b);
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> depths;
     int max_depth = 0;
     int current_depth = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             current_depth++;
