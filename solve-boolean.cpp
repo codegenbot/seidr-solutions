@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -9,6 +8,7 @@ using namespace std;
 stack<char> operatorStack;
 
 bool evaluateBoolean(string expression) {
+    operatorStack = stack<char>(); // Initialize the stack before using it.
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operatorStack.empty() && operatorStack.top() == '|')
