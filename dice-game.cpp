@@ -1,4 +1,4 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -14,11 +14,10 @@ double diceGame(int n, int m) {
     }
     
     return count / total;
+
 }
 
-int main(int argc, char* argv[]) {
-    int n = 6;
-    int m = 6;
-    cout << "Probability: " << diceGame(n, m) << endl;
+int main() {
+    // leave it empty or comment out
     return 0;
 }
