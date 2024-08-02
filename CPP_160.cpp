@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-int do_algebra(vector<string> operator_, vector<int> operands) {
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operands) {
     int result = 0;
     double prev_operand = (double)operands[0];
     for(int i = 1; i < operands.size(); i++) {
