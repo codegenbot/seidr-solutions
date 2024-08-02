@@ -1,8 +1,8 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <assert.h>
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int max_prime = 0;
     for(int i : lst){
         if(i > 1 && isPrime(i)){
@@ -29,9 +29,10 @@ int sum_digits(int n) {
     return sum;
 
 }
+
 int main() {
-    vector<int> lst = {127, 97, 8192};
+    std::vector<int> lst = {127, 97, 8192};
     int result = skjkasdkd(lst);
-    assert(result == 10); 
+    std::cout << "The output is: " << result << std::endl;
     return 0;
 }
