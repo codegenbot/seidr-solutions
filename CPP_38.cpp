@@ -18,13 +18,16 @@ string encode_cyclic(string s){
 
 string decode_cyclic(string s){ 
     int l=s.length();
-    string output;
-    for(int i=0; i*l.length();i++){
-        string temp;
-        if(i*3+l.length()>s.length())temp=s.substr(i*3);
-        else temp=s.substr(i*3,3);
-        if(temp.length()==2)temp=temp[1]+temp[0];
-        output+=temp;
+    int num=(l+2)/3;
+    string x,output;
+    int i;
+    for (i=0;i<num;i++)
+    {
+        if (s.length() > 1) x = s.substr(0, 2);
+        else x = s.substr(0, 1);
+        output += x;
+        if (i < num - 1) s = s.substr(1);
+        else s = "";
     }
     return output;
 }
