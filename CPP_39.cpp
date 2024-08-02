@@ -1,14 +1,24 @@
+#include <vector>
+using namespace std;
+
 int prime_fib(int n) {
-    int a = 0, b = 1, count = 0;
-    while (true) {
-        if ((b > n) || (count == n)) break;
-        for (int i = 2; i * i <= b; i++) {
-            if (b % i == 0) break;
-        }
-        if (i * i > b) return b;
-        a = b;
-        b = a + b;
-        count++;
+    vector<int> fib(1);
+    for (int i = 1; i <= n; ++i) {
+        if (i == 0 || i == 1)
+            fib.push_back(1);
+        else
+            fib.push_back(fib[i-1] + fib[i-2]);
     }
-    return -1; // or some other value to indicate that n is too large
+
+    for (int i = 0; i < fib.size(); ++i) {
+        bool isPrime = true;
+        for (int j = 2; j * j <= fib[i]; ++j) {
+            if (fib[i] % j == 0)
+                isPrime = false;
+        }
+        if (isPrime)
+            return fib[i];
+    }
+
+    return -1; // or any other default value
 }
