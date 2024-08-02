@@ -1,12 +1,21 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-int findSecondMinElement(std::vector<int> lst) {
-    std::vector<int>::iterator it = std::min_element(lst.begin(), lst.end());
-    if (std::next(it) != lst.end()) {
-        return *std::next(it);
-    } else if (lst.size() < 2) {
-        return 0;
+int next_smallest(std::vector<int> lst) {
+    if(lst.size() < 2) return -1; // Return None in Python
+    std::vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for(int i=1; i<v.size(); i++){
+        if(v[i] != v[0]){
+            return v[i];
+        }
     }
+    return -1; // Return None in Python
+}
+
+int main() {
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    std::cout << "Code executed successfully." << std::endl;
     return 0;
 }
