@@ -1,3 +1,12 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> largest_smallest_integers(vector<int> lst); // Forward declaration
+
+bool issame(vector<int> a, vector<int> b); // Fix function signature spacing
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0, smallest_positive = 0;
     
