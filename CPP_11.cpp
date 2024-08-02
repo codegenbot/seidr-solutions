@@ -20,7 +20,9 @@ int main() {
     std::cout << "Enter the second binary string: ";
     std::cin >> str2;
     
-    std::cout << "XOR of two strings is: " << string_xor(str1, str2) << std::endl;
-
+    std::string output = string_xor(str1, str2);
+    
+    std::cout << "The XOR of two strings is: " << output << std::endl;
+    
     return 0;
 }
