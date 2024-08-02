@@ -22,5 +22,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
+int main() {
+    vector<string> input = {"apple", "orange", "banana", "grape", "kiwi"};
+    vector<string> result = sorted_list_sum(input);
+    for (const string& item : result) {
+        cout << item << " ";
+    }
 
-assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+
+    return 0;
+}
