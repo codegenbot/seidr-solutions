@@ -1,8 +1,6 @@
-Here is the completed Python solution:
-
-def leaders(nums):
-    result = []
-    for i in range(len(nums)):
-        if i == len(nums) - 1 or nums[i] >= max(nums[i+1:]):
-            result.append(nums[i])
-    return result
+def leaders(input_vector):
+    return [
+        x
+        for i, x in enumerate(reversed(input_vector))
+        if all(y <= x for y in input_vector[i + 1 :])
+    ]
