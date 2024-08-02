@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -27,10 +26,4 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
             temp.push_back(*start);
     }
     return temp.begin();
-}
-
-int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    unique(v);
-    return 0;
 }
