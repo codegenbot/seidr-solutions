@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
