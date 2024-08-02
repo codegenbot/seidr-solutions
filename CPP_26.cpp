@@ -1,25 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include<stdio.h>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
-vector<int> remove_duplicates(vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers){
+    unordered_map<int, bool> seen;
     vector<int> result;
+
     for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
+        if (!seen.count(num) || !seen[num]) {
+            seen[num] = true;
             result.push_back(num);
         }
     }
-    return result;
-}
 
-int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4};
-    vector<int> result = remove_duplicates(numbers);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
+    return result;
 }
