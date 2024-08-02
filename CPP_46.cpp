@@ -9,7 +9,7 @@ int fib4(int n) {
     else if (n == 3)
         return 0;
     int a = 0, b = 0, c = 2, d = 0;
-    for (int i = 4; i <= n; ++i) {
+    for (int i = 4; i <= n; i++) {
         int temp = a + b + c + d;
         a = b;
         b = c;
@@ -21,8 +21,8 @@ int fib4(int n) {
 
 int main() {
     int n;
-    printf("Enter the number: ");
+    printf("Enter the position of the element in the fib4 sequence: ");
     scanf("%d", &n);
-    printf("The %d-th element of the fib4 sequence is: %d\n", n, fib4(n));
+    printf("The %d-th element is: %d\n", n, fib4(n));
     return 0;
 }
