@@ -1,4 +1,8 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
-
-double_the_difference([1, 2, 3])
+def check():
+    n = int(input("Enter the number of elements in the list: "))
+    lst = []
+    for i in range(n):
+        num = int(input(f"Enter element {i+1}: "))
+        lst.append(num)
+    result = double_the_difference(lst)
+    print(f"The sum of squares of even numbers is: {result}")
