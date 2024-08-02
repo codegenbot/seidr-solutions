@@ -1,14 +1,18 @@
+#include <vector>
+#include <string>
+#include <iostream>
+
 int gcd(int a, int b) {
     if (b == 0)
         return a;
     return gcd(b, a % b);
 }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     int n = text.size();
     int m = target.size();
-    
+
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -18,11 +22,18 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            for (int k = i; k < i + m; ++k) {
-                indices.push_back(k);
-            }
+            indices.push_back(i);
+            i += m - 1; // Increment i by m - 1 to account for overlapping substrings
         }
     }
-    
+
     return indices;
+}
+
+int main() {
+    int a = 545559;
+    int b = 90516;
+    std::cout << gcd(a, b) << std::endl;
+
+    return 0;
 }
