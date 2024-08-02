@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int main() {
     double starting_height, first_bounce_height, bounciness_index;
     int num_bounces;
