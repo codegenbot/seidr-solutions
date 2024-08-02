@@ -1,12 +1,11 @@
-def get_mastermind_code-master(code_guess):
-    white = 0
-    black = 0
-    code_list = [char for char in code_guess[0]]
-    guess_list = [char for char in code_guess[1]]
+def get_clue(code, guess):
+    black_pegs = 0
+    white_pegs = 0
 
     for i in range(4):
-        if code_list[i] == guess_list[i]:
-            black += 1
-        elif guess_list.count(code_list[i]) > 0:
-            white += 1
-    return str(black) + "\n" + str(white)
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif str(guess[i]) in str(code):
+            white_pegs += 1
+
+    return black_pegs, white_pegs
