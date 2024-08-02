@@ -1,5 +1,3 @@
-#include <string>
-
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
@@ -37,7 +35,6 @@ vector<string> by_length(vector<int> arr) {
                 break;
             case 9:
                 result.push_back("Nine");
-                break;
         }
     }
     return result;
