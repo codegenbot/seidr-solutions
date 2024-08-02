@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a, vector<int> b) {
     return (a.size() == 1 && b.size() == 1 && abs(a[0]) == max(abs(val), INT_MAX)) 
            || (a.size() == 2 && b.size() == 2 && (a[0] == 0 && a[1] == 0) && (b[0] == 0 && b[1] == 0));
