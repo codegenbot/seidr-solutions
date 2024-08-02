@@ -14,6 +14,9 @@ bool is_sorted(const vector<int>& lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
-    // Add more test cases as needed
+    assert(is_sorted({4, 3, 2, 1}) == false);
+    assert(is_sorted({1}) == true);
+    assert(is_sorted({1, 2, 2, 3}) == false);
+    assert(is_sorted({2, 2, 2, 2, 2}) == false);
     return 0;
 }
