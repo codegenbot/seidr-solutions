@@ -26,7 +26,7 @@ string string_to_md5(string text) {
     MD5_Final(result, &md5ctx);
 
     ss << setfill('0') << setw(32) << hex;
-    for(size_t i = 0; i < 16; ++i)
+    for(int i = 0; i < 16; ++i)
         ss << std::setw(2) << (int)result[i];
 
     return ss.str();
