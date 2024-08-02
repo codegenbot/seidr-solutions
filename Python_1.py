@@ -1,4 +1,4 @@
-def separate_paren_groups(paren_string: str) -> List[str]:
+`def separate_paren_groups(paren_string: str) -> List[str]: 
     groups = []
     temp_group = ''
     count = 0
@@ -12,4 +12,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if count == 0:
                 groups.append(temp_group)
                 temp_group = ''
-    return groups
+    return [group + ')' for group in groups]`
