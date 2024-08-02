@@ -1,12 +1,16 @@
-```cpp
-int can_arrange(vector<int> arr){
-    for(int i=1; i<arr.size(); i++){
-        if(arr[i] <= arr[i-1])
-            return i;
+#include <iostream>
+#include <vector>
+
+int can_arrange(std::vector<int> arr) {
+    int prev = INT_MAX;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] <= prev) return i;
+        prev = arr[i];
     }
     return -1;
 }
 
-int main(){
+int main() {
     assert(can_arrange({}) == -1);
+    return 0;
 }

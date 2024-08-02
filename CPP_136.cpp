@@ -1,9 +1,16 @@
+#include <vector>
+#include <pair>
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
-    return (a.size() == 1 && b.size() == 1 && abs(a[0]) == max(abs(val), INT_MAX)) 
-           || (a.size() == 2 && b.size() == 2 && (a[0] == 0 && a[1] == 0) && (b[0] == 0 && b[1] == 0));
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> largest_smallest_integers(vector<int> lst) {
+pair<int,int> largest_smallest_integers(vector<int> lst) {
     int maxNegative = 0, minPositive = INT_MAX;
     for (int num : lst) {
         if (num < 0 && num > maxNegative) {
@@ -13,4 +20,8 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
     return {(maxNegative > 0) ? maxNegative : 0, (minPositive < 1) ? minPositive : 0};
+}
+
+int main() {
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
 }
