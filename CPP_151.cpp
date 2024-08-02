@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,16 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; // Declare the list
-    float num;
-    int count = 0;
-
-    while(count < 5) { 
-        cin >> num;
-        lst.push_back(num);
-        count++;
-    }
-
-    cout << "The double difference is: " << double_the_difference(lst) << endl;
-    
+    std::vector<float> lst = {1.5f, 2.0f, 3.75f, -4.25f};
+    long long result = double_the_difference(lst);
+    std::cout << "The total of the squares is: " << result << std::endl;
 }
