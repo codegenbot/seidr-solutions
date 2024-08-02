@@ -13,8 +13,3 @@ std::string avg(int n, int m) {
     
     return std::bitset<sizeof(int)*8>(avg).to_string().substr(sizeof(int)*8-1-(int)std::log2(avg), sizeof(int)*8-1);
 }
-
-int main() {
-    assert(avg(5, 5) == "101");
-    return 0;
-}
