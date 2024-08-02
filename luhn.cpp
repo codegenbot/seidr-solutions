@@ -1,26 +1,24 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-int main() {
-    vector<int> digits(16);
-    for (int i = 0; i < 16; ++i) {
-        cin >> digits[i];
-    }
-
+int luhnAlgorithm(const std::vector<int>& digits) {
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
-        int num = digits[i];
-        if ((i + 1) % 2 == 0) {
-            num *= 2;
-            if (num > 9) {
-                num -= 9;
+    for (int i = 0; i < digits.size(); i++) {
+        int digit = digits[i];
+        if ((digits.size() - i) % 2 == 0) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
         }
-        sum += num;
+        sum += digit;
     }
+    return sum;
+}
 
-    cout << sum << endl;
-
+int main() {
+    std::vector<int> creditCardNumber = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7};
+    int result = luhnAlgorithm(creditCardNumber);
+    std::cout << "Sum of new digits: " << result << std::endl;
     return 0;
 }
