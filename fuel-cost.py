@@ -1,2 +1,8 @@
-def calculate_fuel_cost(fuel_costs):
-    return sum((cost // 3 - 2) for cost in fuel_costs)
+```
+def fuel_cost():
+    n = int(input())
+    total = 0
+    for _ in range(n):
+        num = int(input())
+        total += (num // 3 - 2) if num > 3 else 0
+    return total
