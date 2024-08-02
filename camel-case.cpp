@@ -11,10 +11,10 @@ std::string camelCase(const std::string& str) {
         } else if (capitalize || c != '-') {
             if (capitalize) {
                 result += toupper(c);
-                capitalize = false;
             } else {
                 result += tolower(c);
             }
+            capitalize = false;
         }
     }
 
