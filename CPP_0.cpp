@@ -3,9 +3,9 @@
 #include <vector>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     for (int i = 1; i < numbers.size(); ++i) {
-        if (abs(numbers[i] - numbers[i - 1]) < threshold) {
+        if (std::abs(numbers[i] - numbers[i - 1]) < threshold) {
             return true;
         }
     }
