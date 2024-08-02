@@ -1,14 +1,16 @@
 #include <string>
 #include <cassert>
 
-int main() {
-    int digitSum(string s){
-        int sum = 0;
-        for (char c : s) {
-            if (isupper(c)) {
-                sum += c;
-            }
+int digitSum(std::string s){
+    int sum = 0;
+    for (char c : s) {
+        if (isupper(c)) {
+            sum += c;
         }
-        return sum;
     }
+    return sum;
+}
+
+int main() {
+    // existing code
 }
