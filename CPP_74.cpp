@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> compareVector(const vector<string>& lst1, const vector<string>& lst2) {
+const vector<string>& istotalsame(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
