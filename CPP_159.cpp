@@ -1,5 +1,6 @@
-#include <utility>
 #include <algorithm>
+#include <utility>
+#include <cassert>
 
 std::pair<int, int> eat(int number, int need, int remaining){
     int total = number + std::min(need, remaining);
