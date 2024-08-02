@@ -1,29 +1,34 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::string result;
-    bool nextCapital = true;
-
-    for (char c : input) {
+std::string camelCase(std::string str) {
+    std::string result = "";
+    
+    for (char c : str) {
         if (c == '-') {
-            nextCapital = true;
-        } else if (nextCapital) {
-            result += toupper(c);
-            nextCapital = false;
-        } else {
+            if (!result.empty()) {
+                result += toupper(str[str.find(c) + 1]);
+            }
+        } else if (!result.empty() && capitalizeNext) {
             result += tolower(c);
+        } else {
+            if (capitalizeNext) {
+                result += toupper(c);
+                capitalizeNext = false;
+            } else {
+                result += tolower(c);
+                capitalizeNext = true;
+            }
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-    std::cout << "Resulting camelCase string: " << camelCase(input) << std::endl;
-
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
     return 0;
 }
