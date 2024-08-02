@@ -9,10 +9,11 @@ int add_elements(std::vector<int> arr, int k) {
         }
     }
     return sum;
-
 }
 
 int main() {
-    // Your code here
-    assert(add_elements({1}, 1) == 1);
+    std::vector<int> arr = {1, 10, 11};
+    int k = arr.size();
+    int result = add_elements(arr, k);
+    return 0;
 }
