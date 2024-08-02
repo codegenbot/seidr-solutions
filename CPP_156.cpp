@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cassert>
 
+std::string int_to_mini_roman(int number);
+
 std::string int_to_mini_roman(int number){
     std::string roman = "";
     std::vector<std::pair<int, std::string>> roman_map = {
