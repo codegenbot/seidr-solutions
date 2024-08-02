@@ -1,6 +1,5 @@
+```cpp
 #include <string>
-#include <vector>
-using namespace std;
 
 string int_to_mini_roman(int number) {
     vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
