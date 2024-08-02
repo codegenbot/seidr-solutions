@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <openssl/md5.h>
 #include <openssl/evp.h>
 
@@ -22,4 +21,11 @@ std::string string_to_md5(const std::string& text) {
     }
 
     return std::string(mdString);
+}
+
+int main() {
+    std::string input_text;
+    std::cin >> input_text;
+    std::cout << string_to_md5(input_text) << std::endl;
+    return 0;
 }
