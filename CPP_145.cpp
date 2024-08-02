@@ -1,10 +1,9 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#include <cassert>
+#include <algorithm>
+using namespace std;
 
-// Define the order_by_points function
-std::vector<int> order_by_points(std::vector<int> nums) {
+vector<int> order_by_points(vector<int> nums){
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a *= -1;
@@ -25,13 +24,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
-// Define the issame function
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6});
-    
+int main(){
+    assert((order_by_points({0,6,6,-76,-21,23,4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
