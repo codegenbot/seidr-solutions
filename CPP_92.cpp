@@ -1,7 +1,11 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (round(a) == round(b) + round(c) || round(a) + round(b) == round(c) || round(a) + round(c) == round(b)) {
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+
+    if ((ai == bi + ci) || (bi == ai + ci) || (ci == ai + bi)) {
         return true;
     }
     return false;
