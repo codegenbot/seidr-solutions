@@ -10,19 +10,17 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 
-vector<vector<int>> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), min(arr.begin() + k, arr.end()));
+vector<int> maximum(vector<vector<int>> arr, int k) {
+    vector<int> result(arr[0].begin(), arr[0].begin() + k);
     sort(result.begin(), result.end());
-    return {result};
+    return result;
 }
 
 int main(){
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {{0, -23, 1, 2, 3, 243, -400}});
-
-    vector<int> maxElements = maximum({1, 2, 3, -23, 243, -400, 0}, 7)[0];
+    assert(issame(maximum({{1, 2, 3, -23, 243, -400, 0},{4,5,6,7,8,9,10}}, 7) , {0, -23, 1, 2, 3, 243, -400}));
     cout << "Maximum elements: ";
-    for(int i = 0; i < maxElements.size(); i++){
-        cout << maxElements[i] << " ";
+    for(int i = 0; i < maximum({{1, 2, 3, -23, 243, -400, 0},{4,5,6,7,8,9,10}}, 7).size(); i++){
+        cout << maximum({{1, 2, 3, -23, 243, -400, 0},{4,5,6,7,8,9,10}}, 7)[i] << " ";
     }
     return 0;
 }
