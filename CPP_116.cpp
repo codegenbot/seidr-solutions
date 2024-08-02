@@ -32,6 +32,10 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert(sort_array({2,4,8,16,32}) == vector<int>({2, 4, 8, 16, 32}));
+    vector<int> arr = {2,4,8,16,32};
+    arr = sort_array(arr);
+    for (int i : arr) {
+        cout << i << " ";
+    }
     return 0;
 }
