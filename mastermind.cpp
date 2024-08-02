@@ -29,5 +29,5 @@ int main() {
     std::cin >> code >> guess;
     int whitePegs = getWhitePegs(code, guess);
     int blackPegs = getBlackPegs(code, guess);
-    std::cout << whitePegs << "\n" << blackPeggs << "\n";
+    std::cout << whitePegs << "\n" << blackPegs << "\n";
     return 0;
