@@ -1,4 +1,6 @@
-def find_zero(a, b, c):
+def find_zero():
+    xs = [int(x) for x in input().split()]
+    a, b, c = xs
     discriminant = (b**2) - (4*a*c)
     if discriminant < 0:
         return None
@@ -7,7 +9,10 @@ def find_zero(a, b, c):
     x2 = (-b - sqrt_discriminant) / (2 * a)
     return x1 if x1 == x2 else (x1, x2)
 
+# Test cases
 if __name__ == "__main__":
-    a, b, c = map(int, input().split())
-    print(find_zero(a, b, c))  # Input: 1 -3 2, Output: (2.0, 1.0)
-    print(find_zero(a, b, c))  # Input: 1 2 1, Output: -1.0
+    test_input_1 = input()  # Input for the 1st test case
+    print(find_zero())
+
+    test_input_2 = input()  # Input for the 2nd test case
+    print(find_zero())
