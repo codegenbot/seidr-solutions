@@ -30,34 +30,7 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        input.push_back(x);
-    }
-    
-    vector<int> output = unique(input);
-    
-    if(output.size() == 1) {
-        cout << "The set is a singleton." << endl;
-    } else {
-        cout << "Unique elements: ";
-        for(int i = 0; i < output.size(); i++) {
-            cout << output[i] << " ";
-        }
-        cout << endl;
-        
-        if(issame(input, vector<int>(output.begin(), output.end()))) {
-            cout << "The original set is the same as the unique set." << endl;
-        } else {
-            cout << "The original set and the unique set are different." << endl;
-        }
-    }
-    
+    vector<int> v = {1, 2, 3, 4, 5};
+    unique(v);
     return 0;
 }
