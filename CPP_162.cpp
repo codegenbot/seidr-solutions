@@ -1,6 +1,6 @@
+#include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#include <string>
 
 string string_to_md5(string text) {
     if (text.empty()) {
