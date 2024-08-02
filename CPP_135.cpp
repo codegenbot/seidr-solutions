@@ -26,7 +26,7 @@ int main() {
     if (result == -1) {
         std::cout << "The array can be arranged in increasing order." << std::endl;
     } else {
-        std::cout << "The array cannot be arranged in increasing order. The first element that is out of order is at index " << result << "." << std::endl;
+        std::cout << "The array cannot be arranged in increasing order at index " << result << "." << std::endl;
     }
 
     return 0;
