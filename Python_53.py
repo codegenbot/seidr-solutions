@@ -1,8 +1,8 @@
-def add(x: int, y: int):
+def add(x: int, y: int) -> int:
     return x + y
 
-inputs = input("Enter two integers separated by a space: ").split()
+inputs = input().split()
 x, y = map(int, inputs)
 
 result = add(x, y)
-print("Sum of the two integers:", result)
+print(result)
