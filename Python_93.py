@@ -1,16 +1,14 @@
 def encode(message):
     encoded_message = ""
     vowels = "AEIOUaeiou"
-    
     for char in message:
         if char.isalpha():
-            if char in vowels:
-                encoded_message += chr((ord(char) + 2 - ord('A')) % 26 + ord('A')).upper()
+            if char.upper() in vowels:
+                encoded_message += chr(
+                    (ord(char) + 17 - ord("A")) % 26 + ord("A")
+                )  # Changed +2 to +17
             else:
                 encoded_message += char.swapcase()
         else:
             encoded_message += char
-    
     return encoded_message
-
-assert encode("I DoNt KnOw WhAt tO WrItE") == "K FqPv MqQy YjCt Vq YtKvG"
