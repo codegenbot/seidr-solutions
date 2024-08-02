@@ -1,8 +1,15 @@
 bool issame(float a, float b) {
-    return fabs(a - b) < numeric_limits<float>::epsilon();
+    return abs(a - b) < 1e-9;
 }
 
 pair<float, float> find_closest_elements(vector<float>& numbers);
+
+int main() {
+    vector<float> numbers = {12.5, 3.7, 5.2, 8.9, 6.4, 21.1};
+    pair<float, float> closest_numbers = find_closest_elements(numbers);
+    cout << "Closest elements are: " << closest_numbers.first << " and " << closest_numbers.second;
+    return 0;
+}
 
 pair<float, float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
