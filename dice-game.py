@@ -1,2 +1,2 @@
-def probability(p, c):
-    return (p - c) / (p + c)
+def roll_higher(n, m):
+    return (m - 1) / (n * m)
