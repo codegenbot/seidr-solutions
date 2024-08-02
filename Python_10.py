@@ -1,12 +1,9 @@
+```
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        for i in range(len(string)):
-            lowercase_postfix = postfix = string[i:]
-            if is_palindrome(postfix):
-                return string + "#" * (len(string) - len(postfix)) + postfix[::-1]
-    else:
-        for i in range(len(string)):
-            postfix = string[i:].lower()
-            if is_palindrome(postfix):
-                prefix_chars = [char.upper() if char.isalpha() and char.isupper() else char for char in string[:i]]
-                return "".join(prefix_chars) + "#" * (len(string) - len(postfix)) + lowercase_postfix[::-1].capitalize()
+    s = string.lower()
+    for i in range(len(s), 0, -1):
+        if not is_palindrome(s[:i]):
+            break
+    suffix = s[i-1::-1]
+    prefix = s[1:i][::-1] + s[0]
+    return prefix + s + suffix
