@@ -1,10 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 std::vector<int> sort_array(const std::vector<int>& arr) {
-    std::vector<int> sorted_arr = arr; // Copy the input vector to avoid modifying the original
+    std::vector<int> sorted_arr = arr;
     std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
