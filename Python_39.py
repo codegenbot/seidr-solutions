@@ -1,4 +1,8 @@
-n = 5
+try:
+    n = int(input("Enter the number of prime Fibonacci numbers to find: "))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+    exit()
 
 def is_prime(num):
     if num < 2:
