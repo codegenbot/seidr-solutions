@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
     std::vector<std::string> result;
     std::string current_group;
@@ -26,19 +28,11 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     return result;
 }
 
-bool are_strings_equal(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
 }
 
-int main() {
-    assert(are_strings_equal(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
