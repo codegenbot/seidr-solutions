@@ -4,5 +4,5 @@ def sum_squares(lst):
         if i % 3 == 0:
             total_sum += lst[i] ** 2
         elif i % 4 == 0 and i % 3 != 0:
-            total_sum += lst[i] ** (i % 2 + 1) 
+            total_sum += lst[i] ** (i % 2 + 1)
     return total_sum
