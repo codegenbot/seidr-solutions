@@ -18,7 +18,7 @@ int main() {
     int minDiff = INT_MAX, cutIndex = 0;
     
     for (int i = 0; i < n; ++i) {
-        int diff = abs(2*leftSum - totalSum);
+        int diff = abs(2 * leftSum - totalSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
@@ -27,14 +27,18 @@ int main() {
     }
     
     for (int i = 0; i < n; ++i) {
-        if (i == cutIndex) {
-            cout << endl;
-        } else if (i < cutIndex) {
+        if (i < cutIndex) {
             cout << nums[i] << " ";
+        } else if (i == cutIndex) {
+            cout << endl;
         } else {
             cout << nums[i] << " ";
         }
     }
-    
+
+    if (cutIndex == n - 1) {
+        cout << endl;
+    }
+
     return 0;
 }
