@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     bool same = true;
     for (const auto& s : a) {
@@ -7,6 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return same;
+
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
