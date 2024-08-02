@@ -1,25 +1,17 @@
-#include <vector>
-#include <algorithm>
-#include <bitset>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+```cpp
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> sort_vector(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (std::count(std::bitset<32>(a).to_string().find('1'), 0, -1) <
-            std::count(std::bitset<32>(b).to_string().find('1'), 0, -1))
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count(bitset<32>(a).begin(), bitset<32>(a).end(), 1) <
+            count(bitset<32>(b).begin(), bitset<32>(b).end(), 1))
             return true;
-        else if (std::count(std::bitset<32>(a).to_string().find('1'), 0, -1) ==
-                 std::count(std::bitset<32>(b).to_string().find('1'), 0, -1))
+        else if (count(bitset<32>(a).begin(), bitset<32>(a).end(), 1) ==
+                 count(bitset<32>(b).begin(), bitset<32>(b).end(), 1))
             return a < b;
         return false;
     });
     return arr;
-}
-
-int main() {
-    assert(issame(sort_vector({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
-    return 0;
 }
