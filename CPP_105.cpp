@@ -8,7 +8,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::map<int, std::string> digit_map = {
         {4, "Four"},
         {9, "Nine"},
