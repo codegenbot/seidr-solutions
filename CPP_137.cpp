@@ -1,17 +1,16 @@
-#include <any>
+#include <boost/any.hpp>
+#include <cassert>
 #include <string>
 #include <typeinfo>
-#include <cassert> // Include this for using assert
+#include <cstdlib>
+#include <string_view>
 
-std::any compare_one(const std::any& a, const std::any& b);
-
-if (a.type() == b.type()) {
-    if (a.type() == typeid(int) && std::any_cast<int>(a) != std::any_cast<int>(b)) {
-        return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
-    } else if (a.type() == typeid(float) && std::any_cast<float>(a) != std::any_cast<float>(b)) {
-        return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
-    } else if (a.type() == typeid(std::string) && std::any_cast<std::string>(a) != std::any_cast<std::string>(b)) {
-        return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
+template <typename T>
+boost::any compare_one(const boost::any& a, const boost::any& b) {
+    if (a.type() == b.type()) {
+        if (a.type() == typeid(T) && boost::any_cast<T>(a) != boost::any_cast<T>(b)) {
+            return (boost::any_cast<T>(a) > boost::any_cast<T>(b)) ? a : b;
+        }
     }
+    return boost::any();
 }
-return "None";
