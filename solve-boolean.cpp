@@ -1,31 +1,38 @@
-```cpp
+```
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int lastOpWasAnd = true; // initialize as if last operation was AND
-    
+    int operation = 0; // 0 for T/F, 1 for &, 2 for |
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
-            return !lastOpWasAnd; // negate if not the last AND operation
+            return 1;
         } else if (s[i] == 'F') {
-            return !lastOpWasAnd; // negate if not the last AND operation
+            return 0;
         } else if (s[i] == '&') {
-            lastOpWasAnd = true;
+            operation = 1;
         } else if (s[i] == '|') {
-            lastOpWasAnd = false;
+            operation = 2;
+        } else if (operation > 0) {
+            if (s[i] == 'T') {
+                result = (operation == 1);
+            } else if (s[i] == 'F') {
+                result = !((operation == 1));
+            }
         }
     }
     return result;
 }
 
 int main() {
-    cout << solveBoolean("T") << endl; // True
-    cout << solveBoolean("F") << endl; // False
-    cout << solveBoolean("T&F") << endl; // False
-    cout << solveBoolean("T|F") << endl; // True
-    cout << solveBoolean("F&T") << endl; // False
-    cout << solveBoolean("F|T") << endl; // True
+    cout << solveBoolean("T") << endl; // Expected: 1
+    cout << solveBoolean("F") << endl; // Expected: 0
+    cout << solveBoolean("T&T") << endl; // Expected: 1
+    cout << solveBoolean("F&F") << endl; // Expected: 0
+    cout << solveBoolean("T|T") << endl; // Expected: 1
+    cout << solveBoolean("F|F") << endl; // Expected: 0
+    cout << solveBoolean("T&T|T") << endl; // Expected: 1
+    cout << solveBoolean("F&F|T") << endl; // Expected: 0
     return 0;
 }
