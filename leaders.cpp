@@ -1,5 +1,41 @@
 #include <climits>
+#include <iostream>
+#include <vector>
+#include <limits>
 
-int maxRight = std::numeric_limits<int>::min();
+std::vector<int> findLeaders(const std::vector<int>& nums);
 
-std::copy(leaders.rbegin(), leaders.rend(), std::back_inserter(leaders));
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
+    std::vector<int> leaders = findLeaders(nums);
+
+    std::cout << "Leaders: ";
+    for (int leader : leaders) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+std::vector<int> findLeaders(const std::vector<int>& nums) {
+    std::vector<int> leaders;
+    int maxRight = std::numeric_limits<int>::min();
+    for (int i = nums.size() - 1; i >= 0; --i) {
+        if (nums[i] >= maxRight) {
+            leaders.push_back(nums[i]);
+            maxRight = nums[i];
+        }
+    }
+    std::reverse_copy(leaders.begin(), leaders.end(), std::back_inserter(leaders));
+    return leaders;
+}
