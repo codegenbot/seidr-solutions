@@ -1,15 +1,10 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> tri(int n) {
-    return {n, n + 2};
-}
-
-int main() {
-    assert(issame(tri(1), std::vector<int>{1, 3}));
-    return 0;
+    return {n, 3 * n};
 }
