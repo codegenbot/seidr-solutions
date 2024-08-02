@@ -1,15 +1,22 @@
-#include <iostream>
 #include <cmath>
 
-int closest_integer(std::string value){
-    double num = stod(value);
-    int rounded = round(num);
-    if (num - rounded == 0.5 || num - rounded == -0.5) {
-        return (num > 0) ? ceil(num) : floor(num);
-    }
-    return rounded;
-}
+#include <iostream>
+#include <string>
+#include <cassert>
 
 int main() {
-    // Add test cases for the function
+    assert(closest_integer("0") == 0);
+    return 0;
+}
+
+#include <string>
+#include <cmath>
+
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    int closestInt = std::round(num);
+    if (std::fabs(num - closestInt) == 0.5) {
+        closestInt = (num - closestInt) > 0 ? std::ceil(num) : std::floor(num);
+    }
+    return closestInt;
 }
