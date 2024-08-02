@@ -1,6 +1,5 @@
 def find_zero(xs: list):
-    n = len(xs)
-    if n < 4 or n % 2 != 0:
+    if len(xs) < 4:
         return None
     a = xs[0]
     b = xs[1]
@@ -9,7 +8,6 @@ def find_zero(xs: list):
     x = (a * d - b * c) / (b * b - a * c)
     return x
 
-input_list = input("Enter a list of floating-point numbers: ")
-input_list = list(map(float, input_list.split()))
+input_list = list(map(float, input("Enter a list of floating-point numbers separated by space: ").split()))
 result = find_zero(input_list)
 print(result)
