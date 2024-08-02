@@ -15,18 +15,13 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     int cows = 0;
     int bulls = 0;
-    
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             bulls++;
             result.push_back(0);
-        } else if (find(game.begin(), game.end(), guess[i]) != game.end()) {
-            cows++;
-            result.push_back(abs(game[i] - guess[i]));
         } else {
             result.push_back(abs(game[i] - guess[i]));
         }
     }
-    
     return result;
 }
