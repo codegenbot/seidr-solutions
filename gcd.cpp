@@ -15,13 +15,14 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
     
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (int j = 0; j < m && found; ++j) {
+        for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
+                break;
             }
         }
         if (found) {
-            for (int k = i; k < i + m; ++k) {
+            for (int k = i; k < i + m - 1; ++k) {
                 indices.push_back(k);
             }
         }
