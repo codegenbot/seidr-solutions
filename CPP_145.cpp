@@ -9,6 +9,8 @@ vector<int> order_by_points(vector<int> nums) {
     return nums;
 }
 
+vector<int> order_by_points(vector<int> nums);
+
 int main() {
     vector<int> nums = {123, 456, 789, 321, 654};
     vector<int> ordered_nums = order_by_points(nums);
