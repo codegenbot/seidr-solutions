@@ -15,12 +15,14 @@ int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
+    
     for(int i = 0; i < n; i++) {
-        int num;
+        int val;
         cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        input.push_back(num);
+        cin >> val;
+        input.push_back(val);
     }
+    
     int output = can_arrange(input);
     cout << "Output: " << output << endl;
     return 0;
