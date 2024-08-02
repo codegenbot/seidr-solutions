@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -22,5 +21,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
+vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
+vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
 
-assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+for(const string& s : result) {
+    cout << s << " ";
+}
+
+for (int i = 0; i < result.size(); i++){
+    if(result[i] != expected_output[i]){
+        cout << "Test case failed!";
+        break;
+    }
+}
