@@ -1,19 +1,14 @@
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (find(a[i].begin(), a[i].end(), ' ') == a[i].end() || 
-            find(b[i].begin(), b[i].end(), ' ') == b[i].end()) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (!a[i].compare(0, a[i].size(), b[i], 0, b[i].size())) {
-            return true;
-        }
-    }
-    return false;
+    return true;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
