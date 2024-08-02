@@ -1,6 +1,14 @@
 Here is the solution:
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    return 1.0 - ((n - 1) / (double)n) * (m / (double)total);
+    double total = (n + m);
+    double peterWins = 0;
+    
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j < i; j++) {
+            peterWins += 1.0 / total;
+        }
+    }
+    
+    return peterWins;
 }
