@@ -19,7 +19,13 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
-std::vector<int> expected_arr = {2, 4, 8, 16, 32};
-assert(issame(sorted_arr, expected_arr));
-return 0;
+bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<int> sorted_arr = sort_array({2, 4, 8, 16, 32});
+    std::vector<int> expected_arr = {2, 4, 8, 16, 32};
+    assert(issame(sorted_arr, expected_arr));
+    return 0;
+}
