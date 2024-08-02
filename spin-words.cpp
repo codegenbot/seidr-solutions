@@ -17,14 +17,11 @@ std::string spinWords(std::string input) {
 
     output += word;
 
-    for (int i = 0; i < output.length(); i++) {
+    for (int i = 0; i <= output.length() - 1; i++) {
         if (output[i] == ' ' && i + 1 < output.length() && output.substr(i + 1).length() >= 5) {
-            std::string temp = output.substr(i + 1);
-            std::string reversed;
-            for(int j=temp.size()-1; j>=0; j--) {
-                reversed += temp[j];
-            }
-            output.replace(i + 1, temp.length(), reversed);
+            std::string temp = output.substr(i + 1, output.find(' ', i + 1) - i - 1);
+            std::reverse(temp.begin(), temp.end());
+            output.replace(i + 1, temp.length(), temp);
         }
     }
 
