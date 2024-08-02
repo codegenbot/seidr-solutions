@@ -1,28 +1,47 @@
-#include <vector>
-#include <iostream>
+#include <string>
 using namespace std;
 
-bool evaluateBoolean(string s) {
-    if(s.length() == 1) {
-        return (s == "T");
-    }
-    int i;
-    bool res = false;
-    char op = s[1];
-    for(i=0; i<s.length()-2; i++) {
-        if(op == '&') {
-            res = res && (s[i] == 'T');
-        } else if(op == '|') {
-            res = res || (s[i] == 'T');
+bool evaluateBoolean(string expression) {
+    stack<char> opStack;
+    char op;
+    int x, y;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '(') {
+            opStack.push(expression[i]);
+        }
+        else if (expression[i] == ')') {
+            while (!opStack.empty() && opStack.top() != '(')
+                op = opStack.top(), opStack.pop();
+            if (!opStack.empty()) opStack.pop();
+        } 
+        else if ((expression[i] >= 'A' && expression[i] <= 'Z') || (expression[i] >= 'a' && expression[i] <= 'z')) {
+            if (i < expression.length() - 1) {
+                if (expression[i+1] == '|') return true;
+                if (expression[i+1] == '&') return false;
+            }
+        } 
+        else if (expression[i] == '|' || expression[i] == '&') {
+            op = expression[i];
+            while (!opStack.empty() && opStack.top() != '(')
+                op = opStack.top(), opStack.pop();
+            if (op == '(') opStack.pop();
         }
     }
-    return res;
+
+    return false;
 }
 
-int main() {
-    string s;
+int main()
+{
+    string input;
     cout << "Enter Boolean expression: ";
-    cin >> s;
-    cout << "Result: " << (evaluateBoolean(s) ? "True" : "False") << endl;
+    getline(cin, input);
+    bool result = evaluateBoolean(input);
+    if(result)
+        cout << "True";
+    else
+        cout << "False";
+
     return 0;
 }
