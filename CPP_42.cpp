@@ -1,14 +1,11 @@
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> incr_list(std::vector<int> l) {
-    for (int& num : l) {
-        num++;
-    }
+    std::for_each(l.begin(), l.end(), [](int& num) { num++; });
     return l;
 }
-//In the main function:
-assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
