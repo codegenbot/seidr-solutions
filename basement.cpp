@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <string>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
@@ -15,18 +16,13 @@ int basement(std::vector<int> nums) {
 
 int main() {
     int n, num;
-    std::cin >> n;
-    std::vector<int> nums;
     std::string line;
+    std::vector<int> nums;
     
-    for (int i = 0; i < n; ++i) {
-        if (std::cin >> num) {
-            nums.push_back(num);
-        } else {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            --i;
-        }
+    std::getline(std::cin, line);
+    std::stringstream ss(line);
+    while (ss >> num) {
+        nums.push_back(num);
     }
     
     int result = basement(nums);
