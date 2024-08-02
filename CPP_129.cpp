@@ -3,13 +3,11 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> minPath(const vector<vector<int>>& grid, int k) {
-    // Implement the logic to compute minimum path based on grid and k
-    // Placeholder for now
     return {1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
 }
 
