@@ -1,30 +1,30 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 
-bool is_palindrome(const std::string& str) {
-    return str == std::string(str.rbegin(), str.rend());
+using namespace std;
+
+bool is_palindrome(string str){
+    int left = 0;
+    int right = str.size() - 1;
+    while(left < right){
+        if(str[left] != str[right]){
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
 }
 
-std::string make_palindrome(const std::string& str) {
-    if (str.empty()) return str;
+string make_palindrome(string str){
+    if(str.empty()) return str;
     int n = str.size();
-    for (int i = n - 1; i >= 0; i--) {
-        if (is_palindrome(str.substr(i))) {
-            std::string prefix = str.substr(0, i);
-            std::reverse(prefix.begin(), prefix.end());
+    for(int i=n-1;i>=0;i--){
+        if(is_palindrome(str.substr(i))){
+            string prefix = str.substr(0, i);
+            reverse(prefix.begin(), prefix.end());
             return str + prefix;
         }
     }
     return str;
-}
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-    
-    std::cout << "Result: " << make_palindrome(input) << std::endl;
-    
-    return 0;
 }
