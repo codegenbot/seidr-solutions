@@ -6,9 +6,7 @@ bool correct_bracketing(const std::string& brackets) {
     std::stack<char> stack;
     
     for (char c : brackets) {
-        if (c == '<' || c == '[') {
-            stack.push(c);
-        } else if (c == '>' || c == ']') {
+        if (c == '>' || c == ']') {
             if (stack.empty()) {
                 return false;
             }
@@ -18,6 +16,8 @@ bool correct_bracketing(const std::string& brackets) {
             } else {
                 return false;
             }
+        } else if (c == '<' || c == '[') {
+            stack.push(c);
         }
     }
     
