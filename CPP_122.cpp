@@ -7,4 +7,3 @@ int add_elements(vector<int> arr,int k){
             sum += arr[i];
     }
     return sum;
-}
