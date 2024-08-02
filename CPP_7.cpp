@@ -2,15 +2,8 @@
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
-bool is_same(vector<int> v1 , vector<int> v2);
-bool is_same(vector<int> v1 , vector<int> v2){
-    assert(v1.size() == v2.size());
-    for(size_t i = 0; i < v1.size(); ++i){
-        if(v1[i] != v2[i]){
-            return false;
-        }
-    }
-    return true;
+bool is_same(int x, int y){
+    return x == y;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
@@ -23,7 +16,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main() {
-    // Your main function logic here
+int main(){
+    // Test the functions here
     return 0;
 }
