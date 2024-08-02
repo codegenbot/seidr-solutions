@@ -3,8 +3,6 @@ def decode_shift(s: str):
 
 input_str = input("Enter the string to decode: ")
 while not input_str.isalpha():
-    print("Please enter a string with only alphabets.")
-    input_str = input("Enter the string to decode: ")
-
+    input_str = input("Please enter a valid string without special characters or numbers: ")
 decoded_str = decode_shift(input_str)
 print(decoded_str)
