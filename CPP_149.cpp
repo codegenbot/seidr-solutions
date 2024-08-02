@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,6 +8,8 @@ using namespace std;
 bool areEqual(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
+
+vector<string> sorted_list_sum(vector<string> lst);
 
 vector<string> sorted_list_sum(vector<string> lst) {
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
