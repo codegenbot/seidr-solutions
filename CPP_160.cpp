@@ -1,19 +1,38 @@
-int do_algebra(vector<string> operator_, vector<int> operands) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
-    double prev_operand = (double)operands[0];
-    for(int i = 1; i < operands.size(); i++) {
-        if(operator_[i-1] == "+") {
-            result += prev_operand;
-        } else if(operator_[i-1] == "-") {
-            result -= prev_operand;
-        } else if(operator_[i-1] == "*") {
-            result *= prev_operand;
-        } else if(operator_[i-1] == "//") {
-            result = (int)(result / prev_operand);
-        } else if(operator_[i-1] == "**") {
-            result = pow(result, prev_operand);
+    string expression;
+
+    for (int i = 0; i < operator_.size(); i++) {
+        if (i == 0) {
+            for (int j = 0; j < operand.size() - 1; j++)
+                expression += to_string(operand[j]);
+            expression += " ";
         }
-        prev_operand = (double)operands[i];
+        expression += operator_[i];
     }
-    return result;
+
+    for (int i = operand.size() - 1; i >= 1; i--) {
+        if (expression.back() == ' ')
+            expression.pop_back();
+    }
+
+    int temp = eval(expression);
+    return temp;
+}
+
+long long eval(const string& s) {
+    long long res = 0;
+    long long num = 0;
+    char sign = '+';
+    for (char c : s + "+") {
+        if (isdigit(c)) {
+            num = num * 10 + (c - '0');
+        } else {
+            if (sign == '+')res += num;
+            else res -= num;
+            sign = c;
+            num = 0;
+        }
+    }
+    return res;
 }
