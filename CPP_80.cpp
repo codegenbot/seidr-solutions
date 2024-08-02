@@ -1,33 +1,16 @@
-#include <iostream>
 #include <string>
-using namespace std;
+#include <algorithm>
 
-bool is_happy(string s){
-    if(s.length() < 3)
+bool is_happy(const std::string& s) {
+    if (s.length() < 3)
         return false;
-    for(int i = 0; i <= s.length()-3; i++){
-        string sub = s.substr(i,3);
-        bool unique = true;
-        for(char c : sub) {
-            int count = 0;
-            for(int j = 0; j < s.length(); j++) {
-                if(s[j] == c)
-                    count++;
-            }
-            if(count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        if(!unique)
+    for (int i = 0; i <= s.length() - 3; i++) {
+        string sub = s.substr(i, 3);
+        bool distinct = true;
+        auto unique_chars = sub.begin(), end(sub.end());
+        std::unique(unique_chars, end);
+        if (end - unique_chars < 3)
             return false;
     }
     return true;
-
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (is_happy(s) ? "true" : "false") << endl;
 }
