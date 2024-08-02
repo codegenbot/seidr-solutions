@@ -17,8 +17,9 @@ int main() {
     int k;
     
     // Read input from user
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the size of array: ";
     std::cin >> k;
+    
     for (int i = 0; i < k; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
@@ -26,9 +27,11 @@ int main() {
         arr.push_back(num);
     }
     
-    // Print the result
+    // Add elements to the array
     int result = add_elements(arr, k);
-    std::cout << "Sum of elements with length less than or equal to 2: " << result << std::endl;
+    
+    // Print the result
+    std::cout << "Sum of all numbers in the array: " << result << std::endl;
     
     return 0;
 }
