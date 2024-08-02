@@ -5,9 +5,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (!is_palindrome(str)) {
-        return false;
-    }
+    if (str != stringify(str)) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -15,8 +13,8 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-bool is_palindrome(string s) {
-    string t = s;
-    reverse(t.begin(), t.end());
-    return s == t;
+string stringify(string s) {
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    return s == rev ? "" : "not ";
 }
