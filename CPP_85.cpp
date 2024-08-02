@@ -13,16 +13,19 @@ int add(std::vector<int> lst){
 
 int main() {
     std::vector<int> input;
-    int num;
-
-    // Read numbers from user
-    while(std::cin >> num) {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 1; i <= n; i++) {
+        int num;
+        std::cout << "Enter element " << i << ": ";
+        std::cin >> num;
         input.push_back(num);
     }
-
+    
     int result = add(input);
-
-    std::cout << "The sum of the even-indexed elements is: " << result << std::endl;
-
+    std::cout << "The sum of the even elements is: " << result << std::endl;
+    
     return 0;
 }
