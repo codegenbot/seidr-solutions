@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -31,9 +32,16 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 }
 
 int main() {
-    // Test cases
-    std::vector<int> indices1 = findIndicesOfSubstring("ababab", "aba");  // Should return {0, 2}
-    std::vector<int> indices2 = findIndicesOfSubstring("AAAAA", "AA");    // Should return {0, 1, 2, 3}
+    int a, b;
+    std::string text, target;
+    
+    std::cin >> a >> b >> text >> target;
 
+    std::cout << gcd(a, b) << std::endl;
+    std::vector<int> result = findIndicesOfSubstring(text, target);
+    for (int i = 0; i < result.size(); ++i) {
+        std::cout << result[i] << " ";
+    }
+    
     return 0;
 }
