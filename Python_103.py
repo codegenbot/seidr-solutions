@@ -1,5 +1,5 @@
 def rounded_avg(n, m):
     if n > m:
-        return -1
+        return "Invalid input"
     avg = (n + m) / 2
     return str(int(round(avg)))
