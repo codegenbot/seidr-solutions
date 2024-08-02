@@ -6,3 +6,4 @@ string remove_vowels(string text) {
             str += text[i];
     }
     return str;
+}
