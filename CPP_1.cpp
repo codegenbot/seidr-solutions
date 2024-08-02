@@ -1,9 +1,8 @@
 #include <vector>
 #include <string>
 #include <cassert>
-using namespace std;
 
-vector<string> separate_paren_groups(string paren_string);
+using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -28,11 +27,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-int main() {
-    assert(separate_paren_groups("((a)(b)(c))") == vector<string>{"(a)", "(b)", "(c)"});
-    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
-
-    return 0;
 }
