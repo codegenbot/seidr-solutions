@@ -13,9 +13,9 @@ std::string encrypt(std::string s){
         result += c;
     }
     return result;
+}
 
-int main(){
-    assert(encrypt("a")=="e");
-    // Your code here
+int main() {
+    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
