@@ -21,7 +21,7 @@ std::string camelCase(const std::string& input) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    std::getline(std::cin, input); 
 
     std::cout << camelCase(input) << std::endl;
 
