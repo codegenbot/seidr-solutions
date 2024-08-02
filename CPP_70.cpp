@@ -1,3 +1,10 @@
+#include <algorithm>
+#include <vector>
+
+// Sort a list of integers in an unusual way: 
+// First, sort all the smallest and largest numbers together, 
+// then repeat this process until the entire list is sorted.
+
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
