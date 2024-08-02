@@ -1,9 +1,22 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int pairedDigits(string s) {
-    int res = 0;
-    for(int i=0; i<s.size()-1; i++) {
-        if(s[i] == s[i+1]) {
-            res += s[i] - '0';
+    int sum = 0;
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s[i] == s[i + 1]) {
+            sum += s[i] - '0';
         }
     }
-    return res;
+    return sum;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string of digits: ";
+    cin >> input;
+    int result = pairedDigits(input);
+    cout << "Sum of the digits whose following digit is the same: " << result << endl;
+    return 0;
 }
