@@ -17,8 +17,8 @@ double diceGame(int n, int m) {
 }
 
 int main(int argc, char* argv[]) {
-    int n = 6; 
-    int m = 6; 
+    int n = 6;
+    int m = 6;
     cout << "Probability: " << diceGame(n, m) << endl;
     return 0;
 }
