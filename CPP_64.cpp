@@ -4,11 +4,10 @@
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s;
     int count = vowels_count(s);
     std::cout << "Number of vowels: " << count << std::endl;
     return 0;
-
 }
 
 int vowels_count(std::string s) {
