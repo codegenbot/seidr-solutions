@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issameVector(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,7 +28,7 @@ vector<int> minPath(const vector<vector<int>>& grid, int k) {
 }
 
 int main() {
-    assert(issameVector(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 
     return 0;
 }
