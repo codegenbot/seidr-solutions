@@ -1,13 +1,11 @@
-
-#include <iostream>
-#include <vector>
 #include <cassert>
+#include <vector>
 
-std::vector<int> intersperse(const std::vector<int>& input, int value) {
+std::vector<int> intersperse(const std::vector<int>& a, int num) {
     std::vector<int> result;
-    for (size_t i = 0; i < input.size(); ++i) {
-        result.push_back(input[i]);
-        result.push_back(value);
+    for (int i : a) {
+        result.push_back(i);
+        result.push_back(num);
     }
     return result;
 }
@@ -25,6 +23,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert (issame(intersperse({2, 2, 2}, 2), std::vector<int>{2, 2, 2, 2, 2}));
+    assert(issame(intersperse({2, 2, 2}, 2), std::vector<int>{2, 2, 2, 2, 2}));
     return 0;
 }
