@@ -1,4 +1,5 @@
-string remove_vowels(string text) {
+```cpp
+string removeVowels(string text) {
     string str = "";
     for(int i=0; i<text.length();i++){
         if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u' &&
