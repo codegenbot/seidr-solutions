@@ -1,12 +1,23 @@
 #include <vector>
-#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> f(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
+vector<int> f(int n) {
+    vector<int> result;
     int sum = 0;
     int factorial = 1;
     for (int i = 1; i <= n; ++i) {
@@ -23,5 +34,6 @@ std::vector<int> f(int n) {
 
 int main() {
     assert(issame(f(3), {1, 2, 6}));
+    
     return 0;
 }
