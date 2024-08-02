@@ -16,9 +16,5 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
             n //= i**count
     if n > 1:
-        factors.extend([n] * 1)
+        factors.append(n)
     return factors
-
-
-num = int(input("Enter a number: "))
-print("Prime factors are:", factorize(num))
