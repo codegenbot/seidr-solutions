@@ -9,11 +9,9 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            bool temp = result;
-            result = false;
+            result &= true;
         } else if (s[i] == '|') {
-            result = temp | result;
-            temp = false;
+            result |= true;
         }
     }
     return result;
