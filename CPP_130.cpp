@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <string>
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -7,5 +7,5 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> tri(int n) {
-    return std::vector<int>{n, 3 * n};
+    return {n, 3 * n};
 }
