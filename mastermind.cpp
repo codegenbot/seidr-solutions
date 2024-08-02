@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <algorithm>
-
 int getWhitePegs(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     for (char c : code) {
@@ -18,8 +13,6 @@ int getBlackPegs(const std::string& code, const std::string& guess) {
     for (char c : code) {
         if (c == guess[0]) {
             blackPegs++;
-        }
-        else if(std::count(guess.begin(), guess.end(), c) > 0) {
             break;
         }
     }
@@ -33,4 +26,3 @@ int main() {
     int blackPegs = getBlackPegs(code, guess);
     std::cout << whitePegs << "\n" << blackPegs << "\n";
     return 0;
-}
