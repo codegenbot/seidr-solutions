@@ -1,14 +1,19 @@
 string solve(string s){
     string result = "";
-    for(int i=0; i<s.size(); i++){
+    bool foundLetter = false;
+
+    for(int i = 0; i < s.length(); i++){
         if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
-        }
-        else
+            foundLetter = true;
+            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+        } else {
             result += s[i];
+        }
     }
-    return (result.empty()) ? string(1, s.back()).append(result) : result;
+
+    if(!foundLetter) {
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
