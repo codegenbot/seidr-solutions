@@ -1,5 +1,7 @@
+```cpp
 #include <string>
 #include <vector>
+
 using namespace std;
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
@@ -39,3 +41,4 @@ long long eval(const string& s) {
         }
     }
     return res;
+}
