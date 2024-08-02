@@ -1,7 +1,8 @@
-int solve(vector<int>& vec) {
+int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int i : vec) {
-        sum += (i / 3 - 2);
+    for (int number : numbers) {
+        int result = ((number / 3) - 2);
+        sum += result;
     }
     return sum;
 }
