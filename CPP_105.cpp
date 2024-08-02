@@ -4,12 +4,12 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    return {"Nine", "Eight", "Four"}; // Replace with actual implementation
+    // Implement the by_length function here
 }
 
 int main() {
