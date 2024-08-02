@@ -10,3 +10,7 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+# Input format correction
+numbers = list(map(float, input().split()))
+print(find_closest_elements(numbers))
