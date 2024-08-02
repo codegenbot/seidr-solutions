@@ -1,19 +1,17 @@
-int do_algebra(vector<string> operator_, vector<int> operands) {
-    int result = 0;
-    double prev_operand = (double)operands[0];
-    for(int i = 1; i < operands.size(); i++) {
-        if(operator_[i-1] == "+") {
-            result += prev_operand;
-        } else if(operator_[i-1] == "-") {
-            result -= prev_operand;
-        } else if(operator_[i-1] == "*") {
-            result *= prev_operand;
-        } else if(operator_[i-1] == "//") {
-            result = (int)(result / prev_operand);
-        } else if(operator_[i-1] == "**") {
-            result = pow(result, prev_operand);
+long long do_algebra(vector<string> operator_, vector<int> operand) {
+    long long result = (long long)operand[0];
+    for(int i = 0; i < operator_.size(); i++) {
+        if(operator_[i] == "+") {
+            result += (long long)operand[i+1];
+        } else if(operator_[i] == "-") {
+            result -= (long long)operand[i+1];
+        } else if(operator_[i] == "*") {
+            result *= (long long)operand[i+1];
+        } else if(operator_[i] == "//") {
+            result = result / (long long)operand[i+1];
+        } else if(operator_[i] == "**") {
+            result = pow(result, (long double)operand[i+1]);
         }
-        prev_operand = (double)operands[i];
     }
     return result;
 }
