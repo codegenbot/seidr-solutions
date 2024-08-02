@@ -1,11 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,7 +13,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
-    std::vector<int> expected_output = {1, 4, 5};
-    assert(issame(remove_duplicates(input), expected_output));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    return 0;
 }
