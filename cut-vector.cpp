@@ -1,45 +1,43 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    if (n == 1) return {{nums[0]} , {} };
+std::vector<int> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int pos = -1;
     
-    pair<vector<int>, vector<int>> res;
-    for (int i = 0; i < n; i++) {
-        vector<int> left(nums.begin(), nums.begin() + i);
-        vector<int> right(nums.begin() + i, nums.end());
-        
-        bool equal = true;
-        int diff = 0;
-        for (int j = 0; j < min(left.size(), right.size()); j++) {
-            if (left[j] != right[j]) {
-                equal = false;
-                break;
+    for(int i = 0; i < vec.size(); ++i){
+        if(i == vec.size() - 1 || vec[i] == vec[i+1]){
+            int diff = (vec[i] - vec[0]) + (vec.back() - vec[i]);
+            if(diff < minDiff){
+                minDiff = diff;
+                pos = i;
             }
-            diff += abs(left[j] - right[j]);
         }
-        
-        if (!equal) continue;
-        
-        res.first = move(left);
-        res.second = move(right);
-        return res;
     }
     
-    vector<int> left(nums.begin(), nums.end());
-    res.first = move(left);
-    res.second = {};
-    return res;
+    std::vector<int> leftVec(vec.begin(), vec.begin()+pos+1);
+    std::vector<int> rightVec(vec.begin()+pos, vec.end());
+    
+    return {leftVec, rightVec};
 }
 
 int main() {
-    vector<int> nums = {1, 0};
-    pair<vector<int>, vector<int>> res = cutVector(nums);
-    for (auto num : res.first) cout << num << " ";
-    cout << "\n";
-    for (auto num : res.second) cout << num << " ";
-    cout << endl;
+    int n;
+    std::cin >> n;
+    std::vector<int> vec(n);
+    for(int i = 0; i < n; ++i){
+        std::cin >> vec[i];
+    }
+    
+    auto result = cutVector(vec);
+    std::cout << "Left Vector: ";
+    for(auto x : result[0]){
+        std::cout << x << " ";
+    } std::cout << std::endl;
+    std::cout << "Right Vector: ";
+    for(auto x : result[1]){
+        std::cout << x << " ";
+    } std::cout << std::endl;
     
     return 0;
 }
