@@ -1,3 +1,5 @@
+Here is the completed code:
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
@@ -20,11 +22,9 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (grade > 1.3)
             result.push_back("C-");
         else if (grade > 1.0)
-            result.push_back("D+ ");
+            result.push_back("D+");
         else if (grade > 0.7)
             result.push_back("D");
-        else if (grade > 0.0)
-            result.push_back("D-");
         else
             result.push_back("E");
     }
