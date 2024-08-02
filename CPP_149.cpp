@@ -8,11 +8,3 @@ vector<string> sorted_list_sum(vector<string> lst) {
     });
     return lst;
 }
-int main() {
-    vector<string> input = {"apple", "orange", "banana", "grape", "kiwi"};
-    vector<string> result = sorted_list_sum(input);
-    for (const string& item : result) {
-        cout << item << " ";
-    }
-    return 0;
-}
