@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -9,7 +8,7 @@ bool will_it_fly(vector<int> q, int w) {
     }
     
     bool balanced = true;
-    if (str != reverse(str).s) {
+    if (str != string(str.rbegin(), str.rend()).s) {
         return false;
     }
     
