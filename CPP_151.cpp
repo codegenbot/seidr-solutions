@@ -16,8 +16,9 @@ int main() {
     float odd_sum = 0.0;
 
     // fill lst with input values...
+    // ...
 
     assert(double_the_difference(lst) == odd_sum);
-
+    
     return 0;
 }
