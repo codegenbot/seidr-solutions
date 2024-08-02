@@ -1,28 +1,23 @@
-#include <iostream>
 #include <vector>
-#include <utility>
+#include <climits>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-pair<int, int> largest_smallest_integers(vector<int> lst) {
-    int largest_neg = 0, smallest_pos = 0;
-    for (int num : lst) {
-        if (num < 0 && num < largest_neg) {
+bool issame(vector<int> a, vector<int> b){
+    return a[0] == b[0] && a[1] == b[1];
+}
+
+vector<int> largest_smallest_integers(vector<int> lst){
+    int largest_neg = INT_MIN, smallest_pos = INT_MAX;
+    for(int num : lst){
+        if(num < 0 && num > largest_neg){
             largest_neg = num;
         }
-        if (num > 0 && (num < smallest_pos || smallest_pos == 0)) {
+        if(num > 0 && num < smallest_pos){
             smallest_pos = num;
         }
     }
     return {largest_neg, smallest_pos};
 }
 
-bool assertEquals(pair<int,int> a, pair<int,int> b) {
-    return a.first == b.first && a.second == b.second;
-}
-
-int main() {
-    assert (assertEquals(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), make_pair(-3, 1)));
-    
-    return 0;
-}
+assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1});
