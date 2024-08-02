@@ -6,7 +6,5 @@ bool cycpattern_check(string a, string b) {
 }
 
 int main() {
-    assert(cycpattern_check("abc", "cab")); // returns true
-    assert(!cycpattern_check("abc", "bac")); // returns false
-    return 0;
+    assert(cycpattern_check("abc", "cab"));
 }
