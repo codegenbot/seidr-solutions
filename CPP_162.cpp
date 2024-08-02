@@ -28,6 +28,5 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    // Remove the assertion to prevent redefinition error
     return 0;
 }
