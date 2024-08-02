@@ -6,7 +6,12 @@ def check():
         print("Invalid input. Please enter integers only.")
         return
     result = double_the_difference(numbers)
-    if result == 0:
-        print("No such number exists.")
+    if result > 0:
+        print(f"The difference is {result}.")
     else:
-        print(f"The doubled difference is {result}.")
+        print("No even number found.")
+
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+
+check()
