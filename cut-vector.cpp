@@ -10,22 +10,20 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int diff = abs(nums[cutIndex - 1] - nums[cutIndex]);
-    int left = cutIndex - 1, right = cutIndex;
-
-    for (int i = cutIndex + 1; i < n; ++i) {
-        int newDiff = abs(nums[i] - nums[i - 1]);
-        if (newDiff < diff) {
-            diff = newDiff;
-            left = i - 1;
-            right = i;
+    int diff = INT_MAX;
+    int cutPosition = -1;
+    for (int i = 1; i < n; ++i) {
+        int diffTemp = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        if (diffTemp < diff) {
+            diff = diffTemp;
+            cutPosition = i;
         }
     }
 
     for (int i = 0; i < n; ++i) {
-        if (i == left) {
+        if (i == cutPosition) {
             std::cout << std::endl;
-        } else if (i != right) {
+        } else if (i != cutPosition - 1) {
             std::cout << nums[i] << " ";
         } else {
             std::cout << nums[i] << std::endl;
