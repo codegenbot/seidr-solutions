@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,7 +23,7 @@ std::string kebabToCamel(const std::string& str) {
         } else {
             result += word.substr(0, 1);
         }
-        result += tolower(word.substr(pos).substr(1));
+        result += word.substr(pos).substr(1);
     }
 
     return result;
