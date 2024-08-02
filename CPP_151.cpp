@@ -6,7 +6,7 @@ long long double_the_difference(const std::vector<int>& lst) {
     long long sum = 0;
     for (int num : lst) {
         if (num > 0) {
-            sum += pow(num, 2);
+            sum += static_cast<long long>(num) * num;
         }
     }
     return sum;
@@ -18,14 +18,14 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst(n);
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> lst[i];
     }
 
     long long result = double_the_difference(lst);
 
-    std::cout << "Sum of squares: " << result << std::endl;
+    std::cout << "The sum of squares is: " << result << std::endl;
 
     return 0;
 }
