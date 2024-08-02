@@ -1,13 +1,13 @@
 import hashlib
 
 def string_to_md5(text):
-    if text:
-        return hashlib.md5(text.encode()).hexdigest()
-    else:
+    if text == "":
         return None
+    else:
+        return hashlib.md5(text.encode()).hexdigest()
 
-# Read input from user
-input_text = input("Enter a string: ")
-
-# Call function with input and print output
-print(string_to_md5(input_text))
+if __name__ == "__main__":
+    text = input("Enter a string: ")
+    result = string_to_md5(text)
+    
+    print("MD5 Hash:", result)
