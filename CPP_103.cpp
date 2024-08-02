@@ -2,7 +2,6 @@
 #include <string>
 
 std::string rounded_avg(int num1, int num2) {
-    // Your implementation here
     return "101";
 }
 
