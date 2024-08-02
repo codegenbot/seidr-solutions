@@ -1,22 +1,25 @@
+#include <iostream>
 #include <vector>
+
 using namespace std;
 
-int fuelCost(vector<int> nums) {
-    int sum = 0;
-    for (int num : nums) {
-        int result = static_cast<int>(floor((double)num / 3));
-        if (result < 1) {
-            result = 0;
-        } else {
-            result--;
-        }
-        sum += result;
+int fuelCost(vector<int> vec) {
+    int total = 0;
+    for (int i : vec) {
+        int temp = i / 3;
+        temp = temp > 0 ? temp - 2 : 0;
+        total += temp;
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    vector<int> nums = {10,20,30};
-    cout << "Fuel cost: " << fuelCost(nums) << endl;
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int &i : vec) {
+        cin >> i;
+    }
+    cout << std::fixed << setprecision(0) << fuelCost(vec) << endl;
     return 0;
 }
