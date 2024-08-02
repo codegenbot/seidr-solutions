@@ -13,8 +13,9 @@ def factorize(n: int) -> List[int]:
             count = 0
             while n % (i ** (count + 1)) == 0:
                 count += 1
-            factors.extend([i] * count)
+            for _ in range(count):
+                factors.append(i)
             n //= (i ** count)
     if n > 1:
-        factors.append(n)
+        factors.extend([n] * 1)
     return factors
