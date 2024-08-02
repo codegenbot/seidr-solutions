@@ -3,16 +3,16 @@ using namespace std;
 bool solveBoolean(string booleanExp) {
     stack<char> s;
     for (int i = 0; i < booleanExp.length(); i++) {
-        if (booleanExp[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (booleanExp[i] == '|') {
-            while (!s.empty()) {
+        if (booleanExp[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
                 s.pop();
             }
             s.push('|');
+        } else if (booleanExp[i] == '&') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('&');
         } else {
             s.push(booleanExp[i]);
         }
