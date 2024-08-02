@@ -1,4 +1,4 @@
-vector<string> separate_paren_groups(const std::string& paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     string current_group;
     int open_count = 0;
