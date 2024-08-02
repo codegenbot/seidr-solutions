@@ -1,18 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-double median(std::vector<int> l) {
-    std::sort(l.begin(), l.end());
-    int n = l.size();
+double median(const std::vector<int>& l) {
+    std::vector<int> sorted_list = l;
+    std::sort(sorted_list.begin(), sorted_list.end());
+    int n = sorted_list.size();
     if (n % 2 == 0) {
-        return (l[n/2 - 1] + l[n/2]) / 2.0;
+        return (sorted_list[n/2 - 1] + sorted_list[n/2]) / 2.0;
     } else {
-        return l[n/2];
+        return sorted_list[n/2];
     }
-}
-
-int main() {
-    assert (std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4 );
-    return 0;
 }
