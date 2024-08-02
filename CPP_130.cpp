@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -10,5 +10,5 @@ int main(){
 
     assert(issame(result, {1, 3}));  // Check if result vector matches the expected vector
 
-    return 0; 
+    return 0;
 }
