@@ -1,6 +1,6 @@
-#include <vector>
 #include <algorithm>
-#include <limits>
+#include <vector>
+#include <numeric>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     float min_diff = std::numeric_limits<float>::max();
