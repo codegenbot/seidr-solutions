@@ -1,15 +1,16 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-vector<float> rescale_to_unit(vector<float> numbers){
-    float minVal = *min_element(numbers.begin(), numbers.end());
-    float maxVal = *max_element(numbers.begin(), numbers.end());
-
+vector<float> rescale_to_unit(vector<float> numbers) {
     vector<float> result;
+    auto minVal = *min_element(numbers.begin(), numbers.end());
+    auto maxVal = *max_element(numbers.begin(), numbers.end());
+
     for (float num : numbers) {
-        result.push_back((num - minVal) / (maxVal - minVal));
+        float scaledNum = (num - minVal) / (maxVal - minVal);
+        result.push_back(scaledNum);
     }
     
     return result;
