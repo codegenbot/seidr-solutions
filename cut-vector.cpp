@@ -1,54 +1,45 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-
-    for (int i = 0; i < n; ++i) {
-        int sum_left = 0, sum_right = 0;
-        for (int j = 0; j < i; ++j) {
-            sum_left += v[j];
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    if (n == 1) return {{nums[0]} , {} };
+    
+    pair<vector<int>, vector<int>> res;
+    for (int i = 0; i < n; i++) {
+        vector<int> left(nums.begin(), nums.begin() + i);
+        vector<int> right(nums.begin() + i, nums.end());
+        
+        bool equal = true;
+        int diff = 0;
+        for (int j = 0; j < min(left.size(), right.size()); j++) {
+            if (left[j] != right[j]) {
+                equal = false;
+                break;
+            }
+            diff += abs(left[j] - right[j]);
         }
-        for (int j = i; j < n; ++j) {
-            sum_right += v[j];
-        }
-
-        if (sum_left == sum_right) {
-            return {{}, {v.begin(), v.end()}};
-        } else if (abs(sum_left - sum_right) < min_diff) {
-            min_diff = abs(sum_left - sum_right);
-            cut_index = i;
-        }
+        
+        if (!equal) continue;
+        
+        res.first = move(left);
+        res.second = move(right);
+        return res;
     }
-
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    return {left, right};
+    
+    vector<int> left(nums.begin(), nums.end());
+    res.first = move(left);
+    res.second = {};
+    return res;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
-    }
-    
-    auto res = cutVector(v);
-
-    cout << "{";
-    for (auto x : res.first) {
-        cout << x << " ";
-    }
-    cout << "}" << endl;
-
-    cout << "{";
-    for (auto x : res.second) {
-        cout << x << " ";
-    }
-    cout << "0" << endl;
+    vector<int> nums = {1, 0};
+    pair<vector<int>, vector<int>> res = cutVector(nums);
+    for (auto num : res.first) cout << num << " ";
+    cout << "\n";
+    for (auto num : res.second) cout << num << " ";
+    cout << endl;
     
     return 0;
 }
