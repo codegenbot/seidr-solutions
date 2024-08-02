@@ -21,5 +21,7 @@ def prime_fib(n: int):
         i += 1
     return fibonacci(i-1)
 
+# Input the number of prime Fibonacci numbers to find
+n = int(input())
 result = prime_fib(n)
 print(result)
