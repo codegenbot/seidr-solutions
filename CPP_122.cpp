@@ -9,7 +9,3 @@ int add_elements(const vector<int>& arr, int k) {
     }
     return sum;
 }
-
-int main() {
-    // Your main function code here
-}
