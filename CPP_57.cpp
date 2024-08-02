@@ -1,6 +1,7 @@
+#include <iostream>
 #include <vector>
 
-bool monotonic(std::vector<float> l) {
+bool monotonic(std::vector<float> l){
     bool increasing = true, decreasing = true;
     for (int i = 1; i < l.size(); i++) {
         if (l[i] < l[i - 1]) {
@@ -15,7 +16,6 @@ bool monotonic(std::vector<float> l) {
 
 int main() {
     std::vector<float> numbers = {1.2, 2.3, 3.4, 4.5};
-    monotonic(numbers);
-    
+    std::cout << std::boolalpha << monotonic(numbers);
     return 0;
 }
