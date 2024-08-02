@@ -8,5 +8,4 @@ def rescale_to_unit():
     return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
 
 
-rescaled_numbers = rescale_to_unit()
-print(rescaled_numbers)
+print(rescale_to_unit())
