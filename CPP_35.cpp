@@ -4,6 +4,15 @@
 #include <cmath>
 
 int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    std::vector<int> l;
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        l.push_back(x);
+    }
+    
     return *std::max_element(l.begin(), l.end());
 }
