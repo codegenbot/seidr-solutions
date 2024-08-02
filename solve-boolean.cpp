@@ -1,33 +1,26 @@
-```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int op = -1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
-            result = true;
+            return true;
         } else if (s[i] == 'F') {
-            result = false;
-        } else if ((s[i] == '&' || s[i] == '|')) {
-            op = s[i];
-        } else if (op != -1) {
-            if (s[i] == 'T' && op == '&') {
-                result &= true;
-            } else if (s[i] == 'F' && op == '&') {
-                return false;
-            } else if (s[i] == 'T' && op == '|') {
-                result |= true;
-            } else if (s[i] == 'F' && op == '|') {
-                result = false;
-            }
-            op = -1;
+            return false;
+        } else if (s[i] == '&') {
+            result &= true;
+        } else if (s[i] == '|') {
+            result |= true;
         }
     }
     return result;
 }
 
 int main() {
+    cout << solveBoolean("T|F") << endl;  // Expected output: 1
+    cout << solveBoolean("F&F") << endl;  // Expected output: 0
+    cout << solveBoolean("T&T") << endl;  // Expected output: 1
+    cout << solveBoolean("T|T") << endl;   // Expected output: 1
     return 0;
 }
