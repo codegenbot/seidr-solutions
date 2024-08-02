@@ -1,12 +1,12 @@
-Here is the solution:
-
+```
 def mastermind(code, guess):
-    code_count = [0] * 6
-    for char in code:
-        code_count[ord(char) - ord('A')] += 1
-    
-    white_pegs = sum(min(count, guess.count(char)) for count, char in zip(code_count, 'ABCDEF'))
-    
-    black_pegs = sum(c == g and 1 or 0 for c, g in zip(code, guess))
-    
-    return str(white_pegs) + '\n' + str(black_pegs)
+    correct_place = sum(c1 == c2 for c1, c2 in zip(code, guess))
+    correct_color = sum(c in code for c in guess)
+    return str(correct_place), str(4 - (correct_place + (6 - len(set(guess)))))
+
+# Test cases
+print(mastermind('RRRR', 'RRRR'))
+print(mastermind('BOYG', 'GYOB'))
+print(mastermind('WYYW', 'BBOG'))
+print(mastermind('GGGB', 'BGGG'))
+print(mastermind('BBBB', 'OOOO'))
