@@ -1,10 +1,11 @@
 ```
 def move_one_ball(arr):
-    if not arr:
+    if len(arr) == 0:
         return True
-    max_idx = len(arr) - 1
-    for i in range(len(arr) // 2):
-        j = len(arr) - 1 - i
-        if arr[i] > arr[j]:
+    
+    max_index = arr.index(max(arr))
+    
+    for i in range(1, len(arr)):
+        if arr[i-1] > arr[i]:
             return False
     return True
