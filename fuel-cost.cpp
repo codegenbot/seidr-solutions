@@ -1,10 +1,24 @@
+```c++
 #include <vector>
+using namespace std;
 
-int calculateFuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int newPrice = static_cast<int>(floor(double(price)/3)) - 2;
-        total += newPrice;
+int fuelCost(vector<int> nums) {
+    int sum = 0;
+    for (int num : nums) {
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result--;
+        }
+        sum += result;
     }
-    return total;
+    return sum;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3}; 
+    int result = fuelCost(nums);
+    cout << "Result: " << result << endl;
+    return 0;
 }
