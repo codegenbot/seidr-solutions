@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -20,11 +16,4 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     return odd_result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> odd_collatz = get_odd_collatz(n);
-    return 0;
 }
