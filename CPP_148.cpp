@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,8 +15,8 @@ vector<string> bf(string planet1, string planet2) {
                                      std::find(planets.begin(), planets.end(), planet2) - 1);
             }
         }
-    } else if ((std::find(planets.begin(), planets.end(), planet1) == planets.end()) || 
-               (std::find(planets.begin(), planets.end(), planet2) == planets.end())) {
+    } else if ((find(planets.begin(), planets.end(), planet1) == planets.end()) || 
+               (find(planets.begin(), planets.end(), planet2) == planets.end())) {
         return {};
     }
 
