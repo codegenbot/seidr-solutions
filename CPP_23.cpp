@@ -1,3 +1,3 @@
-int str_len(string str){
+int customLength(std::string str) {
     return str.length();
 }
