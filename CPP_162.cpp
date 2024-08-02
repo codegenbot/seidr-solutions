@@ -1,4 +1,5 @@
 #include <openssl/md5.h>
+#include <string>
 #include <sstream>
 
 using std::stringstream;
