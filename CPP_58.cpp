@@ -10,4 +10,3 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     sort(result.begin(), result.end());
     
     return result;
-}
