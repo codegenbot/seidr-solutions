@@ -5,25 +5,23 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ?
-            b : a;
+        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ?
-            a : b;
+        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        float fa = boost::convert<double>(boost::any_cast<std::string>(a)).get_value();
+        float fa = boost::convert<boost::any, float>::from(a).get();
         return (fa > boost::any_cast<float>(b)) ? a : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float fb = boost::convert<double>(boost::any_cast<std::string>(b)).get_value();
+        float fb = boost::convert<boost::any, float>::from(b).get();
         return (boost::any_cast<float>(a) > fb) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string sa = boost::any_cast<std::string>(a);
         std::string sb = boost::any_cast<std::string>(b);
-        return (std::stof(sa) > std::stof(sb)) ? a : b;
+        return (stof(sa) > stof(sb)) ? a : b;
     }
     return boost::any("None");
 }
