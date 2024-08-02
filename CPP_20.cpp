@@ -1,8 +1,9 @@
-#include <algorithm>
 #include <vector>
-#include <numeric>
+#include <algorithm>
+#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
+    std::float_round_tolerance;
     float min_diff = std::numeric_limits<float>::max();
     float closest_pair[2];
     
