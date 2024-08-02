@@ -12,6 +12,7 @@ int specialFilter(vector<int> nums){
 
 int main() {
     assert(specialFilter({}) == 0);
+    // Call the function with actual input
     cout << specialFilter({12, 15, 30}) << endl; 
     return 0;
 }
