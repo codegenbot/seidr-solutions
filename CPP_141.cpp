@@ -1,37 +1,30 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-```cpp
-bool hasDigit = false;
-int dotCount = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!hasDigit) {
-            hasDigit = true;
-        } else {
-            return "No";
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c >= '0' && c <= '9'){
+            digit_count++;
+        }
+        else if(c == '.'){
+            has_dot = true;
+        }
+        else{
+            if(i > 0 && !has_dot){
+                return "No";
+            }
         }
     }
-
-    if (c == '.') {
-        dotCount++;
+    if(digit_count > 3 || !has_dot){
+        return "No";
     }
-}
-
-if (dotCount > 1 || !hasDigit || file_name[0] < 'a' && file_name[0] > 'z' && file_name[0] < 'A' && file_name[0] > 'Z') {
-    return "No";
-}
-
-string extension = "";
-for (int i = file_name.find('.') + 1; i < file_name.length(); i++) {
-    if (file_name[i] == '.') {
-        break;
+    size_t pos = file_name.find('.');
+    string extension = file_name.substr(pos+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
+        return "No";
     }
-    extension += file_name[i];
+    return "Yes";
 }
-
-if (extension != "txt" && extension != "exe" && extension != "dll") {
-    return "No";
-}
-
-return "Yes";
