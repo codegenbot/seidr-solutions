@@ -1,25 +1,24 @@
+#include <stdio.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    int consonantCount = 0;
-
     for (char c : s) {
         if (c == ' ') {
-            if (consonantCount == n)
+            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
                 result.push_back(word);
-            word = "";
-            consonantCount = 0;
-        } else if (isalpha(c)) {
-            char lowerC = tolower(c);
-            if (lowerC != 'a' && lowerC != 'e' && lowerC != 'i' && lowerC != 'o' && lowerC != 'u') {
-                consonantCount++;
             }
+            word = "";
+        } else {
             word += c;
         }
     }
-
-    if (consonantCount == n)
+    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
         result.push_back(word);
-
+    }
     return result;
 }
