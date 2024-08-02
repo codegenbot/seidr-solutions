@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Include <cassert> for the assert macro
 
 using namespace std;
 
@@ -22,7 +22,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
-int main() {
-    assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
-}
+// Change assert to static_assert
+static_assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
