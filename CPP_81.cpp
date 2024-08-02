@@ -1,22 +1,44 @@
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) return false;
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
+    for (float grade : grades) {
+        if (grade >= 4.0)
+            letter_grades.push_back("A+");
+        else if (grade > 3.7)
+            letter_grades.push_back("A");
+        else if (grade > 3.3)
+            letter_grades.push_back("A-");
+        else if (grade > 3.0)
+            letter_grades.push_back("B+");
+        else if (grade > 2.7)
+            letter_grades.push_back("B");
+        else if (grade > 2.3)
+            letter_grades.push_back("B-");
+        else if (grade > 2.0)
+            letter_grades.push_back("C+");
+        else if (grade > 1.7)
+            letter_grades.push_back("C");
+        else if (grade > 1.3)
+            letter_grades.push_back("C-");
+        else if (grade > 1.0)
+            letter_grades.push_back("D+");
+        else if (grade > 0.7)
+            letter_grades.push_back("D");
+        else
+            letter_grades.push_back("E");
     }
-    return true;
+    return letter_grades;
 }
 
 int main() {
-    vector<float> grades = {3.8, 4.2, 3.5, 2.9};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    
-    // Example usage of the issame function
-    vector<string> expected_grades = {"A", "A+", "A-", "C+"};
-    if (issame(letter_grades, expected_grades)) {
-        cout << "The grades are as expected." << endl;
-    } else {
-        cout << "The grades are not as expected." << endl;
-    }
-    
+    assert(numerical_letter_grade({0, 0.7}) == {"E", "D-"});
+
     return 0;
 }
