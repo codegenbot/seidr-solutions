@@ -1,22 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
-}
-
-int main() {
-    // Your code here
-    return 0;
+bool issame(vector<string> a,vector<string>b){
+    return a.size() == b.size() && all_of(a.begin(),a.end(),[&](auto x) {return find_all(b,x)!=b.end(); });
 }
