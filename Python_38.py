@@ -3,5 +3,5 @@ def rearrange_groups(groups):
     return "".join(groups)
 
 
-groups = input().split()
+groups = input().split()  # Read input from user
 rearranged_string = rearrange_groups(groups)
