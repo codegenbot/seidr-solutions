@@ -1,26 +1,22 @@
-#include <vector>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string token;
-    
-    // Tokenize the input string
     istringstream iss(numbers);
-    while (getline(iss, token, ' ')) {
-        numVec.push_back(token);
+    string num;
+    vector<string> nums;
+
+    while (getline(iss, num, ' ')) {
+        nums.push_back(num);
     }
-    
-    // Sort the vector of strings
-    sort(numVec.begin(), numVec.end());
-    
-    // Join the sorted strings back into a single string
-    string result;
-    for (const auto& s : numVec) {
-        result += s + " ";
+
+    sort(nums.begin(), nums.end());
+
+    string result = "";
+    for (const auto& n : nums) {
+        result += n + " ";
     }
-    
-    return result;
+    return result.substr(0, result.size() - 1);
 }
