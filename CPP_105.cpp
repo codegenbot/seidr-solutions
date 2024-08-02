@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
