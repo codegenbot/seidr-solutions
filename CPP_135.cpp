@@ -1,9 +1,8 @@
-Here is the completed code:
-
-int can_arrange(vector<int> arr){
-    int i = 0;
-    while(i < arr.size() - 1 && (arr[i] <= arr[i + 1])){
-        i++;
+int can_arrange(vector<int> arr) {
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] <= arr[i-1]) {
+            return i - 1;
+        }
     }
-    return i == 0 ? -1 : i - 1;
+    return -1;
 }
