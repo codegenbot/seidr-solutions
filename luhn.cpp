@@ -1,15 +1,15 @@
-int luhn(vector<int> digits) {
+int luhn(const vector<int>& nums) {
     int sum = 0;
-    bool alternate = false;
-
-    for (int i = 0; i < digits.size(); ++i) {
-        int digit = digits[i] * (alternate ? 2 : 1);
-        if (digit > 9) {
-            digit -= 9;
+    for(int i = 0; i < nums.size(); i++) {
+        if(i % 2 == 1) {
+            int num = nums[i] * 2;
+            if(num > 9) {
+                num -= 9;
+            }
+            sum += num;
+        } else {
+            sum += nums[i];
         }
-        sum += digit;
-        alternate = !alternate;
     }
-
     return sum;
 }
