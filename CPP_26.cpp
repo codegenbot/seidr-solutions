@@ -10,12 +10,9 @@ bool issame(vector<int> a,vector<int>b){
 int main() {
     vector<int> numbers = {1,2,3,4,5,2,3};
     vector<int> result = remove_duplicates(numbers);
-    
     for(int num : result) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
-    std::cout << std::endl;
-    
     return 0;
 }
 
