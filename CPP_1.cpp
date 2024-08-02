@@ -1,18 +1,17 @@
 #include <vector>
-#include <assert.h>
+#include <cassert>
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string);
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    int min_size = min(a.size(), b.size());
-    for (int i = 0; i < min_size; i++) {
+    int minSize = min(a.size(), b.size());
+    for (int i = 0; i < minSize; i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
-    return a.size() == b.size();
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -42,5 +41,4 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
