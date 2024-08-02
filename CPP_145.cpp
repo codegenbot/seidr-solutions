@@ -1,8 +1,9 @@
+```
 #include <algorithm>
 #include <vector>
 #include <utility>
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
