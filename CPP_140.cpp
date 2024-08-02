@@ -1,12 +1,16 @@
-for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == ' ') {
-            if (i > 0 && text[i - 1] == ' ') {
-                text.replace(i - 1, 2, "-");
-                i--;
-            } else {
-                text[i] = '_';
+for (int i = 0; i < text.size(); ++i) {
+    if (text[i] == ' ') {
+        text[i] = '_';
+        int count = 1;
+        for (int j = i + 1; j < text.size() && text[j] == ' '; ++j) {
+            text[j] = '-';
+            ++count;
+        }
+        if (count > 2) {
+            for (int k = i + 1; k < text.size() && text[k] == '-'; ++k) {
+                text[k] = '-';
             }
         }
     }
-    return text;
 }
+return text;
