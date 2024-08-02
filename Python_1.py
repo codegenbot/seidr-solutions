@@ -1,6 +1,17 @@
-def find_characters(s: str, char: str) -> List[int]:
+def separate_paren_groups(s: str) -> List[str]:
     result = []
-    for i in range(len(s)):
-        if s[i] == char:
-            result.append(i)
+    group = ""
+
+    for char in s:
+        if char == "(":
+            group += char
+        elif char == ")":
+            if group:
+                result.append(group + " (" + char)
+                group = ""
+            else:
+                result.append(")" + char)
+        elif group:
+            group += char
+
     return result
