@@ -1,27 +1,34 @@
-#include <iostream>
-#include <string>
-using namespace std;
+Here is the solution:
 
 string spinWords(string str) {
     string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            start = i + 1;
+    int length = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            length = 0;
+            result += str.substr(i - length, i - length + 1);
+        } else {
+            length++;
         }
     }
-    return result;
-}
+    result += str.substr(str.length() - length, length);
 
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+    for (int i = 0; i < result.length(); i++) {
+        if (result[i] == ' ') {
+            int start = i;
+            while (i < result.length() && result[i] == ' ')
+                i++;
+            int end = i;
+            string temp = result.substr(start, end - start);
+            if (temp.length() >= 5)
+                for (int j = temp.length() - 1; j >= 0; j--)
+                    cout << temp[j];
+            else
+                cout << temp;
+        } else {
+            cout << result[i];
+        }
+    }
+
+    return result;
 }
