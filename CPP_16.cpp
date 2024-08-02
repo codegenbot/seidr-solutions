@@ -1,6 +1,3 @@
-#define ONLINE_JUDGE
-
-#ifndef ONLINE_JUDGE
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -19,4 +16,3 @@ int main() {
     
     return 0;
 }
-#endif
