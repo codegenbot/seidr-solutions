@@ -1,8 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
-
-using namespace std;
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -40,4 +38,18 @@ int eval(string s) {
         }
     }
     return result + sign * num;
+}
+
+int main() {
+    vector<string> operator_;
+    vector<int> operand;
+    
+    // Read input from user
+    
+    // Call the function
+    int temp = do_algebra(operator_, operand);
+    
+    cout << "The result is: " << temp << endl;
+    
+    return 0;
 }
