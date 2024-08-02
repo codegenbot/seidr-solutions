@@ -1,9 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
-using namespace std;
 
-string concatenate(vector<string> strings){
+string concatenate(vector<string> strings) {
     string result = "";
     for(auto s : strings) {
         result += s;
@@ -12,6 +10,6 @@ string concatenate(vector<string> strings){
 }
 
 int main() {
-    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
 }
