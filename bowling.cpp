@@ -1,7 +1,8 @@
+```
 #include <string>
 #include <algorithm>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
     for (char c : s) {
