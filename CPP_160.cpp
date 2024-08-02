@@ -1,41 +1,27 @@
-#include <iostream>
 #include <vector>
-#include <string>
+#include <cmath>
 
-int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
-    int result = 0;
-    std::string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        if (i > 0) {
-            expression += " ";
+int do_algebra(vector<string> operations, vector<int> operands) {
+    int result = operands[0];
+    for (int i = 0; i < operations.size(); i++) {
+        if (operations[i] == "+") {
+            result += operands[i + 1];
+        } else if (operations[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operations[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operations[i] == "//") {
+            result = result / static_cast<int>(operands[i + 1]);
+        } else if (operations[i] == "**") {
+            result = pow(result, operands[i + 1]);
         }
-        expression += std::to_string(operand[i]);
-        expression += operator_[i];
     }
-    expression += std::to_string(operand.back());
-    
-    int temp = eval(expression);
-    return temp;
+    return result;
 }
 
-int eval(std::string s) {
-    int result = 0;
-    int sign = 1;
-    int num = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            num = num * 10 + (c - '0');
-        } else if (isalpha(c)) {
-            if (c == '+') {
-                result += sign * num;
-                num = 0;
-                sign = 1;
-            } else if (c == '-') {
-                result += sign * num;
-                num = 0;
-                sign = -1;
-            }
-        }
-    }
-    return result + sign * num;
+int main() {
+    vector<string> operations = {"//", "*"};
+    vector<int> operands = {7, 3, 4};
+    int result = do_algebra(operations, operands);
+    return 0;
 }
