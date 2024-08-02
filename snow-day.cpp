@@ -1,7 +1,5 @@
-```cpp
-#include <iostream>
-#include <iomanip>
 using namespace std;
+#include <iomanip>
 
 float calculateSnow(float hours, float initialSnow, float snowFallRate, float meltingRate) {
     return initialSnow + (snowFallRate * hours - meltingRate * hours);
