@@ -7,7 +7,8 @@ while True:
         y = int(input("Enter the second number: "))
         break
     except ValueError:
-        print("Please enter integers only. Try again.")
+        print("Please enter integers only.")
 
 result = add(x, y)
+
 print("The result of adding", x, "and", y, "is:", result)
