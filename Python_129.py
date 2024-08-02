@@ -5,17 +5,13 @@ def minPath(grid, k):
 
     while queue:
         row, col, path = queue.pop(0)
-        if len(path) == k:
-            return path
+        if len(path) == k and "A" not in path:
+            return []
 
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = row + dr, col + dc
             if 0 <= nr < N and 0 <= nc < N and not visited[nr][nc]:
-                if grid[nr][nc] == "A":
-                    queue.append((nr, nc, path + ["A"]))
-                    visited[nr][nc] = True
-                else:
-                    queue.append((nr, nc, path + [grid[nr][nc]]))
-                    visited[nr][nc] = True
+                queue.append((nr, nc, path + [grid[nr][nc]]))
+                visited[nr][nc] = True
 
     return []
