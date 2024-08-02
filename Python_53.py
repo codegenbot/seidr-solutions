@@ -21,3 +21,7 @@ while True:
                 print("Error! Division by zero is not allowed.")
     else:
         print("Invalid operator!")
+
+    cont = input("Do you want to continue? (yes/no): ")
+    if cont.lower() != "yes":
+        break
