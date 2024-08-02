@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -27,23 +26,4 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
             temp.push_back(*start);
     }
     return temp.begin();
-}
-
-int main() {
-    vector<int> input;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        input.push_back(num);
-    }
-
-    if(issame(input, unique(input))) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
-
-    return 0;
 }
