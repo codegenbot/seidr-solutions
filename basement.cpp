@@ -1,4 +1,4 @@
-using namespace std;
+#include <vector>
 
 int basement(vector<int> nums) {
     int sum = 0;
