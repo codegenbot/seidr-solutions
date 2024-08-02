@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -16,5 +13,9 @@ std::string encrypt(std::string s) {
 
 int main() {
     assert(encrypt("a") == "e");
-    // your code here
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Encrypted string: " << encrypt(s) << std::endl;
+    return 0;
 }
