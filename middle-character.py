@@ -1,9 +1,9 @@
-Here is the Python code to solve the problem:
+Here's the Python solution for the problem:
 
-def middle_character(s):
-    s = s.strip()
+```python
+def middle_char(s):
     length = len(s)
     if length % 2 == 0:
-        return s[length//2 - 1:length//2 + 1]
+        return s[length//2-1:length//2+1]
     else:
         return s[length//2]
