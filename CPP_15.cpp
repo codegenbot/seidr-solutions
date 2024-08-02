@@ -1,9 +1,10 @@
-```
+```cpp
 #include <iostream>
 #include <sstream>
+using namespace std;
 
-std::string string_sequence(int n) {
-    std::ostringstream oss;
+string string_sequence(int n) {
+    ostringstream oss;
     for (int i = 0; i <= n; ++i) {
         oss << i << " ";
     }
@@ -12,8 +13,8 @@ std::string string_sequence(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << string_sequence(n) << std::endl;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << string_sequence(n) << endl;
     return 0;
 }
