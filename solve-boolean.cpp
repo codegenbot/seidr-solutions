@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,23 +15,23 @@ bool solveBoolean(string s) {
         j++;
     }
     string left = (j < s.length()) ? s.substr(0, j) : s; 
-    
+
     j++;
     while(j<s.length()) {
         if(s[j] == '&') break;
         j++;
     }
-    string right = (s.length() > j) ? s.substr(j) : "";
+    string right = (s.length() > j) ? s.substr(j) : ""; 
 
     return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
     // test cases
-    cout << (solveBoolean("t") ? "True" : "False") << endl;  // True
-    cout << (solveBoolean("f") ? "True" : "False") << endl;  // False
-    cout << (solveBoolean("f&f") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("f&t") ? "True" : "False") << endl; // False
-    cout << (solveBoolean("t&f") ? "True" : "False") << endl; // False
+    cout << (solveBoolean("t") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f") ? "True" : "False") << endl;  
+    cout << (solveBoolean("f&f") ? "True" : "False") << endl; 
+    cout << (solveBoolean("f&t") ? "True" : "False") << endl; 
+    cout << (solveBoolean("t&f") ? "True" : "False") << endl; 
     return 0;
 }
