@@ -8,6 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 int main(){
     std::vector<int> result = {1, 3};
+
     assert(issame(result, {1, 3}));
 
     return 0;
