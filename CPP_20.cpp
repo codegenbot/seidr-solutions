@@ -19,11 +19,9 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
             min_diff = sorted_numbers[i + 1] - sorted_numbers[i];
             num1 = sorted_numbers[i];
             num2 = sorted_numbers[i + 1];
-        } else if (issame(sorted_numbers[i + 1] - sorted_numbers[i], min_diff)) {
-            if (sorted_numbers[i] < num1) {
-                num1 = sorted_numbers[i];
-                num2 = sorted_numbers[i + 1];
-            }
+        } else if (issame(sorted_numbers[i + 1], sorted_numbers[i]) && sorted_numbers[i] < num1) {
+            num1 = sorted_numbers[i];
+            num2 = sorted_numbers[i + 1];
         }
     }
     return {num1, num2};
