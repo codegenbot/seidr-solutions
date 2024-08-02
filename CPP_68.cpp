@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <utility>
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
