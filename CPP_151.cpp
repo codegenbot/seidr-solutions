@@ -12,13 +12,12 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst; 
-    float odd_sum = 0.0; 
+    vector<float> lst;
+    float odd_sum = 0.0;
 
     // fill lst with input values...
     // ...
 
-    assert(double_the_difference(lst) == odd_sum); 
-
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
