@@ -1,13 +1,26 @@
 #include <vector>
 #include <cassert>
 
-// Function signature fixed and implementing std:: namespace for vector
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> get_odd_collatz(int x) {
+    std::vector<int> sequence;
+    while(x != 1) {
+        sequence.push_back(x);
+        if (x % 2 == 0) {
+            x = x / 2;
+        } else {
+            x = 3 * x + 1;
+        }
+    }
+    sequence.push_back(1);
+    return sequence;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
     
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,9 +29,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-// Declaration of get_odd_collatz to resolve compilation error
-std::vector<int> get_odd_collatz(int n); // Function declaration
-
 int main() {
-    assert(issame(get_odd_collatz(1), {1})); // Example usage with assert
+    // Sample usage of get_odd_collatz
+    std::vector<int> sequence = get_odd_collatz(7);
+    for (int num : sequence) {
+        std::cout << num << " ";
+    }
+    
+    return 0;
 }
