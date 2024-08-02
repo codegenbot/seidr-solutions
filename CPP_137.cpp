@@ -8,24 +8,24 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return (float)a > b.convert_to<float>() ? a : boost::any("None");
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return b.convert_to<string>() > a.convert_to<string>() ? b : (b.convert_to<string>() == a.convert_to<string>() ? boost::any("") : b);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return b.convert_to<std::string>() > a.convert_to<std::string>() ? b : (b.convert_to<std::string>() == a.convert_to<std::string>() ? boost::any("None") : b);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         float fa = (float)a.convert_to<int>();
-        return fa > std::stof(b.convert_to<string>()) ? &fa : a;
+        return fa > std::stof(b.convert_to<std::string>()) ? &fa : a;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        float fb = std::stof(a.convert_to<string>());
-        return fb > b.convert_to<int>() ? boost::any(a) : boost::any("");
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        float fb = std::stof(a.convert_to<std::string>());
+        return fb > b.convert_to<int>() ? boost::any(a) : boost::any("None");
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         float fa = a.convert_to<float>();
-        return fa > std::stof(b.convert_to<string>()) ? a : boost::any("");
+        return fa > std::stof(b.convert_to<std::string>()) ? a : boost::any("None");
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float fb = std::stof(a.convert_to<string>());
-        return fb > a.convert_to<float>() ? a : boost::any("");
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        float fb = std::stof(a.convert_to<std::string>());
+        return fb > a.convert_to<float>() ? a : boost::any("None");
     }
-    return boost::any("");
+    return boost::any("None");
 }
