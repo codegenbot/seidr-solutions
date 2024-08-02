@@ -7,7 +7,7 @@ using std::hex;
 using std::setfill;
 using std::setw;
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
     MD5_CTX md5ctx;
