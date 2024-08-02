@@ -2,12 +2,10 @@
 #include <cmath>
 #include <cassert>
 
-using namespace std;
-
-int sum_squares(const vector<int>& lst) {
+int sum_squares(const std::vector<int>& lst) {
     int sum = 0;
     for (int num : lst) {
-        sum += pow(num, 2);
+        sum += std::round(num) * std::round(num);
     }
     return sum;
 }
