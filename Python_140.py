@@ -1,13 +1,23 @@
+```
 def fix_spaces(text):
-    result = ""
-    prev_char = None
-    for char in text:
-        if char != ' ' or prev_char == ' ' and prev_char != '\n':
-            if prev_char == ' ' and result.endswith(' '):
-                result += '-'
+    text += ' '
+    new_text = ''
+    count = 1
+    for i in range(len(text)):
+        if i > 0 and text[i] == ' ' and text[i-1] == ' ':
+            if count < 2:
+                new_text += '-'
+                count = 1
             else:
-                result += char.replace(' ', '_')
+                new_text += '-'
+        elif text[i] != ' ':
+            new_text += text[i]
+            count = 1
         else:
-            prev_char = char
-        prev_char = char
-    return result
+            if count < 2:
+                new_text += '_'
+                count = 1
+            else:
+                new_text += '-'
+        count += (text[i] == ' ')
+    return new_text.strip()
