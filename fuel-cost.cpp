@@ -12,7 +12,7 @@ int solve() {
     }
     long long sum = 0;
     for (int x : v) {
-        int y = floor(double(x) / 3.0) - 2;
+        int y = std::floor(double(x) / 3.0) - 2;
         if (y < 0) y = 0;
         sum += y;
     }
