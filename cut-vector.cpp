@@ -1,8 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <climits>
-#include <cmath>
-
 using namespace std;
 
 int main() {
@@ -12,12 +8,12 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
+    
     int leftSum = 0, rightSum = 0;
     for (int i = 0; i < n; ++i) {
         rightSum += nums[i];
     }
-
+    
     int minDiff = INT_MAX;
     int cutIdx = -1;
     for (int i = 0; i < n; ++i) {
@@ -29,7 +25,7 @@ int main() {
             cutIdx = i;
         }
     }
-
+    
     for (int i = 0; i <= cutIdx; ++i) {
         cout << nums[i] << endl;
     }
@@ -37,6 +33,6 @@ int main() {
     for (int i = cutIdx + 1; i < n; ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
