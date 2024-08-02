@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+std::vector<int> tri(int n);
+
 bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
