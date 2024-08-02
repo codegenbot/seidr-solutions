@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -26,4 +28,32 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
             temp.push_back(*start);
     }
     return temp.begin();
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        input.push_back(x);
+    }
+    
+    vector<int> output = unique(input);
+    
+    if(issame(input, output)) {
+        cout << "Unique elements: ";
+        for(int i = 0; i < output.size(); i++) {
+            cout << output[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "The list is not unique." << endl;
+    }
+    
+    return 0;
 }
