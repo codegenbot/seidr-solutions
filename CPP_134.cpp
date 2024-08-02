@@ -4,7 +4,7 @@
 #include <cctype>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
-    return !txt.empty() && isalpha(txt.back()) && std::isspace(txt[txt.size() - 2]);
+    return !txt.empty() && isalpha(txt.back());
 }
 
 int main() {
