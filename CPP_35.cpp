@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 float max_element(std::vector<float> l) {
     float max_val = l[0];
