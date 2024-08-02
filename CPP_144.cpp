@@ -1,26 +1,14 @@
-#include<string>
+#include <string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
-
-    if (a*d == b*c)
-        return true;
-    else
+    int a = 1, b = 1, c = 1, d = 1;
+    istringstream iss(x);
+    iss >> a >> ch >> b;
+    istringstream iss2(n);
+    iss2 >> c >> ch >> d;
+    if (a*d != b*c)
         return false;
-}
-
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(0, pos);
-    return temp;
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(pos+1);
-    return temp;
+    int g = __gcd(a, c);
+    return (int)1.0 * a / g == (int)1.0 * c / g;
 }
