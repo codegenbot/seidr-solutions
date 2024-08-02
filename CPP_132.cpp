@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int is_nested(const std::string& str) {
     int count_open = 0, count_close = 0;
 
