@@ -4,34 +4,25 @@
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
+    if (text.empty()) return "";
+
+    MD5_CTX md5ctx;
+    unsigned char md5digest[16];
+    MD5_Init(&md5ctx);
+    stringstream ss(text);
+    string str;
+    while (getline(ss, str)) {
+        const char *cstr = str.c_str();
+        MD5_Update(&md5ctx, cstr, strlen(cstr));
     }
+    MD5_Final(md5digest, &md5ctx);
 
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char* ptr = text.c_str();
-    size_t len = text.size();
-    unsigned char buffer[1024];
-    size_t read;
-
-    while (len > 0) {
-        if (len >= sizeof(buffer)) {
-            read = sizeof(buffer);
-        } else {
-            read = len;
-        }
-        MD5_Update(&md5, ptr, read);
-        ptr += read;
-        len -= read;
-    }
-
-    unsigned char result[16];
-    MD5_Final(result, &md5);
-
-    stringstream ss;
+    ostringstream oss;
     for (int i = 0; i < 16; ++i) {
-        ss << hex << setfill('0') << setw(2) << static_cast<int>(result[i]);
+        oss << setfill('0') << setw(2) << hex << (int)md5digest[i];
     }
-    return ss.str();
+    string result = oss.str();
+    ss.str(""); // clear internal state
+    oss.str(""); // clear internal state
+    return result;
 }
