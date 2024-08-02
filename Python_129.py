@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
@@ -5,8 +6,8 @@ def minPath(grid, k):
 
     while queue:
         row, col, path = queue.pop(0)
-        if len(path) == k and "A" not in path:
-            return []
+        if len(path) == k:
+            return path
 
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = row + dr, col + dc
@@ -14,4 +15,7 @@ def minPath(grid, k):
                 queue.append((nr, nc, path + [grid[nr][nc]]))
                 visited[nr][nc] = True
 
-    return []
+    for i in range(N):
+        for j in range(N):
+            if grid[i][j] == 'A':
+                return [(i, j)]
