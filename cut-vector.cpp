@@ -1,40 +1,47 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-
+#include <cmath>
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> nums;
+    int num;
+    
+    while (cin.good()) {
+        cin >> num;
+        nums.push_back(num);
     }
     
-    int leftSum = 0, rightSum = 0;
-    for (int i = 0; i < n; ++i) {
-        rightSum += nums[i];
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
     
-    int minDiff = INT_MAX;
-    int cutIdx = -1;
-    for (int i = 0; i < n; ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIdx = i;
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_index = -1;
+    
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_index = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cutIdx; ++i) {
-        cout << nums[i] << endl;
-    }
-    cout << endl;
-    for (int i = cutIdx + 1; i < n; ++i) {
-        cout << nums[i] << endl;
+    if (std::abs(prefix_sum - (sum - prefix_sum)) < std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
+        cout << "1" << endl;
+        for (int i = 0; i <= cut_index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << "0" << endl;
+    } else {
+        cout << "1" << endl;
+        for (int i = 0; i < cut_index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << nums[cut_index] << endl;
     }
     
     return 0;
