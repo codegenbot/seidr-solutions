@@ -15,14 +15,14 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
     int result = can_arrange(arr);
-    if (result != -1) {
-        std::cout << "Array cannot be arranged in increasing order" << std::endl;
+    if(result == -1) {
+        std::cout << "The array is already in order." << std::endl;
     } else {
-        std::cout << "Array can be arranged in increasing order" << std::endl;
+        std::cout << "The first out of order element is at index " << result << "." << std::endl;
     }
     return 0;
 }
