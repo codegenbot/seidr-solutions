@@ -1,39 +1,43 @@
-int bowlingScore(string s) {
+int bowling(string str) {
     int score = 0;
-    bool isLastRoll = false;
-    int currentFrame = 1;
-    int rollsInFrame = 0;
+    int currentTurn = 0;
+    vector<int> frames;
 
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (isLastRoll ? 10 : 20);
-            isLastRoll = true;
-            rollsInFrame = 2;
-        } else if (c == '/') {
-            int thisRoll = 10 - (currentFrame <= 9 ? s.find('/') : 0);
-            if (currentFrame == 10) {
-                score += thisRoll + (isLastRoll ? thisRoll : 20);
-            } else {
-                score += thisRoll;
+    for (char c : str) {
+        if (c == '/') {
+            currentTurn++;
+            if (currentTurn < 10) {
+                frames.push_back(currentTurn);
             }
-            isLastRoll = false;
-            rollsInFrame = 2;
+        } else if (c == 'X') {
+            score += 30;
+            currentTurn++;
+            if (currentTurn < 10) {
+                frames.push_back(10);
+            }
         } else {
-            int thisRoll = c - '0';
-            if (rollsInFrame == 1) {
-                if (thisRoll + 10 <= s.length() && s.substr(s.find(c), 3).find('/') != string::npos) {
-                    score += 20;
+            int points = c - '0';
+            score += points;
+            currentTurn++;
+            if (currentTurn < 10) {
+                if (c == '5') {
+                    currentTurn++;
                 } else {
-                    score += thisRoll + 10;
+                    frames.push_back(points);
                 }
-            } else {
-                score += thisRoll;
             }
-            rollsInFrame--;
         }
+    }
 
-        if (currentFrame < 10) {
-            currentFrame++;
+    for (int i = 0; i < frames.size(); i++) {
+        int strikeBonus = 20;
+        int spareBonus = 10 - frames[i];
+        if (i < frames.size() - 1) {
+            if (frames[i] == 10) {
+                score += strikeBonus + frames[i+1];
+            } else {
+                score += spareBonus + frames[i+1];
+            }
         }
     }
 
