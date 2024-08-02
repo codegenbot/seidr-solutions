@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>  // Add this include directive
+#include <cassert>
 
 int get_matrix_triples(int n) {
     int count = 0;
@@ -23,5 +23,5 @@ int get_matrix_triples(int n) {
 
 int main() {
     assert(get_matrix_triples(100) == 53361);
-    return 0;  // Add this return statement
+    return 0;
 }
