@@ -21,8 +21,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return std::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        float num1 = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float num2 = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        float num1 = stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float num2 = stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
         if(num1 > num2)
             return a;
         else if(num1 < num2)
