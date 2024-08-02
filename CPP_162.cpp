@@ -15,9 +15,7 @@ string string_to_md5(string text) {
     unsigned char hash[16];
 
     // Initialize the context
-    if (1 != EVP_MD_CTX_init(&mdctx)) {
-        return "";
-    }
+    EVP_MD_CTX_init(&mdctx);
 
     // Set the algorithm to MD5
     if ((digest = EVP_get_digestbyname("MD5")) == NULL) {
@@ -45,7 +43,7 @@ string string_to_md5(string text) {
     for(int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", hash[i]);
-        result.append(string(buffer));
+        result.append(buffer);
     }
 
     EVP_MD_CTX_cleanup(&mdctx);
