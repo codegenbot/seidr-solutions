@@ -1,30 +1,43 @@
-```cpp
-bool hasDigit = false;
-int dotCount = 0;
+int i = 0;
+bool valid = true;
 
-for (char c : file_name) {
-    if (c == '.') {
-        dotCount++;
-    } else if (isdigit(c)) {
-        hasDigit = true;
+while (i < file_name.length()) {
+    if (isdigit(file_name[i])) {
+        i++;
+        continue;
     }
+
+    if (!valid) break;
+
+    if (file_name[i] == '.') {
+        i++;
+        bool found = false;
+        while (i < file_name.length()) {
+            if (file_name[i] == ' ') {
+                valid = false;
+                break;
+            }
+            i++;
+        }
+        break;
+    }
+
+    if (!isalpha(file_name[i])) {
+        valid = false;
+        break;
+    }
+
+    i++;
 }
 
-if (dotCount != 1 || hasDigit > 3) {
+if (valid) {
+    int j = file_name.find('.');
+    string extension = file_name.substr(j + 1);
+    if (extension == "txt" || extension == "exe" || extension == "dll") {
+        return "Yes";
+    } else {
+        return "No";
+    }
+} else {
     return "No";
 }
-
-size_t pos = file_name.find('.');
-string beforeDot = file_name.substr(0, pos);
-string afterDot = file_name.substr(pos + 1);
-
-if (!beforeDot.empty() && !isalpha(beforeDot[0])) {
-    return "No";
-}
-
-vector<string> validExtensions = {"txt", "exe", "dll"};
-if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
-    return "No";
-}
-
-return "Yes";
