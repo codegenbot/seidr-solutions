@@ -9,9 +9,13 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(!filter_by_substring(a, b[i]).size()) return false;
+    bool same = true;
+    if(a.size() != b.size()) same = false;
+    for(int i=0; i<a.size(); i++){
+        if(!filter_by_substring({a[i],b[i]}, " ").empty()){
+            same = false;
+            break;
+        }
     }
-    return true;
+    return same;
 }
