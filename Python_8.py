@@ -7,7 +7,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-# Take input from user and store numbers in a list
+# Take input from the user
 numbers = list(map(int, input().split()))
 
 # Call the function with the input numbers
