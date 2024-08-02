@@ -25,7 +25,7 @@ def minPath(grid, k):
                 0 <= nr < N
                 and 0 <= nc < N
                 and not visited[nr][nc]
-                and len(path) + 1 <= k
+                and len(path) + 1 > k
             ):
                 visited[nr][nc] = True
                 queue.append((nr, nc, path + [grid[nr][nc]]))
