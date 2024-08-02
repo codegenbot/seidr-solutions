@@ -5,7 +5,6 @@ def is_abs_difference_below_threshold(numbers, threshold):
             return True
     return False
 
-# Call the function with appropriate arguments
 numbers = [4, 2, 6, 8, 5]
 threshold = 2
 result = is_abs_difference_below_threshold(numbers, threshold)
