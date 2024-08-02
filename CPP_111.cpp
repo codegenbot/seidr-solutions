@@ -1,25 +1,35 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
-    if(test.empty()) return result;
+#include <string>
+#include <map>
+#include <vector>
 
-    size_t pos = 0;
-    char c;
-    int count = 1;
+using namespace std;
 
-    while((pos = test.find(' ')) != string::npos) {
-        c = test[0];
-        result[c] = count;
-        test.erase(0, pos+1);
-        if(!test.empty()) {
-            count = 1;
-            c = test[0];
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    vector<string> words = split(test, ' ');
+    
+    for (const string& word : words) {
+        if (!result.count(word[0])) {
+            result[word[0]] = 1;
+        } else {
+            result[word[0]]++;
         }
     }
 
-    if(!test.empty()) {
-        c = test[0];
-        result[c] = count;
+    return result;
+}
+
+vector<string> split(const string& str, char delimiter) {
+    vector<string> tokens;
+    size_t pos = 0;
+    size_t prev = 0;
+
+    while ((pos = str.find(delimiter, prev)) != string::npos) {
+        tokens.push_back(str.substr(prev, pos - prev));
+        prev = pos + 1;
     }
 
-    return result;
+    tokens.push_back(str.substr(prev));
+
+    return tokens;
 }
