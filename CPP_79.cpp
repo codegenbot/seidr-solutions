@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -14,6 +15,7 @@ int main() {
     int decimal;
     cout << "Enter a decimal number: ";
     cin >> decimal;
-    cout << "The binary representation is: " << decimal_to_binary(decimal) << endl;
+    string binary = decimal_to_binary(decimal);
+    cout << "Binary representation is: " << binary << endl;
     return 0;
 }
