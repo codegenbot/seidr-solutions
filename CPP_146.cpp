@@ -21,6 +21,6 @@ int main() {
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The number of integers in the vector that meet the conditions is: " << result << std::endl;
+    std::cout << "The number of special numbers is: " << result << std::endl;
     return 0;
 }
