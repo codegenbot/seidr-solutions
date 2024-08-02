@@ -12,20 +12,20 @@ int add(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 1; i <= n; i++) {
-        int num;
-        std::cout << "Enter element " << i << ": ";
-        std::cin >> num;
-        input.push_back(num);
+    std::vector<int> numbers;
+    int num;
+
+    // Get input from user
+    while(std::cin >> num) {
+        numbers.push_back(num);
     }
-    
-    int result = add(input);
-    std::cout << "The sum of the even elements is: " << result << std::endl;
-    
+
+    // Check if the input was valid (i.e., at least one number)
+    if(numbers.size() > 1) {
+        std::cout << "The sum of the even-indexed numbers is: " << add(numbers) << std::endl;
+    } else {
+        std::cout << "Invalid input. Please enter more than one number." << std::endl;
+    }
+
     return 0;
 }
