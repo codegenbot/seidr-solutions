@@ -1,4 +1,4 @@
-#include <iostream> // Add this line for cout and endl
+#include <iostream> 
 #include <vector>
 #include <string>
 
@@ -35,15 +35,15 @@ int main() {
     // Add your testing code here
     std::vector<int> result1 = findIndicesOfSubstring("abracadabra", "abra");
     for (int index : result1) {
-        std::cout << index << " "; // Change cout to std::cout
+        std::cout << index << " ";
     }
-    std::cout << std::endl; // Change endl to std::endl
-
+    std::cout << std::endl;
+    
     std::vector<int> result2 = findIndicesOfSubstring("ababab", "aba");
     for (int index : result2) {
-        std::cout << index << " "; // Change cout to std::cout
+        std::cout << index << " ";
     }
-    std::cout << std::endl; // Change endl to std::endl
+    std::cout << std::endl;
 
     return 0;
 }
