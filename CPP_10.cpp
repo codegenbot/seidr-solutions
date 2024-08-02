@@ -7,10 +7,9 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    for(int i=str.length()-1; i>=0; i--){
-        if(is_palindrome(str.substr(0, i+1))){
-            return str + string(str.substr(0, i)).reverse();
-        }
-    }
-    return str + str.reverse();
+    if(is_palindrome(str)) return str;
+    for(int i=str.size()-1; i>=0; --i)
+        if(!is_palindrome(str.substr(0, i+1)))
+            break;
+    return str + string(str.rbegin(), str.rend());
 }
