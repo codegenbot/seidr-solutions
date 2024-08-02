@@ -1,3 +1,4 @@
-```
 def double_the_difference(lst):
-    return sum(map(lambda x: x ** 2, filter(lambda x: isinstance(x, int) and x > 0, lst))) * 2
+    return sum(
+        i**2 for i in map(lambda x: x if isinstance(x, int) and x > 0 else None, lst)
+    ) * (len(list(filter(None, lst))) // 2)
