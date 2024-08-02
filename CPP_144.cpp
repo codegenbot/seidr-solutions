@@ -11,10 +11,3 @@ bool simplify(string x, string n) {
 
     return (num1 * num2) % (den1 * den2) == 0;
 }
-
-int main() {
-    string x, n;
-    cin >> x >> n;
-    cout << (simplify(x, n) ? "true" : "false") << endl;
-    return 0;
-}
