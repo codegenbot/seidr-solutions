@@ -27,7 +27,3 @@ def minPath(grid, k):
             path = dfs(i, j, [grid[i][j]])
             if path:
                 return path
-
-
-# Example usage
-print(minPath([[1, 3], [3, 2]], 10))  # Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
