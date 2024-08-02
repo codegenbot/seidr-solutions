@@ -4,4 +4,4 @@ def digits(n):
     for digit in str(n):
         if int(digit) % 2 != 0:
             product *= int(digit)
-    return 0 if product == 1 else product
+    return 0 if product == 1 else 1
