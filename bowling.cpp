@@ -13,7 +13,14 @@ int score(string s) {
             scores[ball++] = 0;
             frame++;
         } else if (c == '/') {
-            scores[ball - 1] = 10 - scores[ball - 2];
+            if (ball % 2 == 1) {
+                scores[ball - 1] = 10 - scores[ball - 2];
+            } else {
+                scores[ball - 1] = 10 - scores[ball - 2];
+                if (frame < 10) {
+                    scores[ball - 1] += scores[ball + 1];
+                }
+            }
             frame++;
         } else if (c == '-') {
             scores[ball++] = 0;
@@ -24,7 +31,7 @@ int score(string s) {
     for (int i = 0; i < 10; i++) {
         if (scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 1] + scores[i * 2 + 2];
-            if (scores[i * 2 + 1] == 10 && i < 9) {
+            if (scores[i * 2 + 1] == 10 && scores[i * 2 + 2] != 0 && i < 9) {
                 total += scores[i * 2 + 3];
             }
         } else if (scores[i * 2] + scores[i * 2 + 1] == 10 && scores[i * 2 + 1] != 0 && i < 9) {
