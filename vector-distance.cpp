@@ -10,15 +10,17 @@ int main() {
     vector<double> vec2(n);
 
     for (int i = 0; i < n; ++i) cin >> vec1[i];
-    for (int i = 0; i < n; ++i) cin >> vec2[i];
+    for (int i = 0; i < n; ++i) { 
+        cin >> vec2[i]; 
+    }
 
     double distance = 0;
     for (int i = 0; i < n; ++i) {
-        distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        distance += pow(vec1[i] - vec2[i], 2);
     }
-    
+
     cout.precision(15);
-    cout << sqrt(distance) << endl;
+    cout << fixed << sqrt(distance) << endl;
 
     return 0;
 }
