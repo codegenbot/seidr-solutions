@@ -1,86 +1,25 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-#include<string>
-using namespace std;
-#include<algorithm>
-#include<stdlib.h>
-
-int do_algebra(vector<string> operato, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operato.size(); i++) {
-        if (i > 0)
-            expression += " ";
-        expression += to_string(operand[i - 1]);
-        expression += operato[i];
-    }
-    expression += to_string(operand.back());
-    
-    int result = eval(expression.c_str());
-    
-    return result;
-}
-
-int eval(char* s) {
-    int n = strlen(s);
-    char* p = new char[n + 1];
-    strcpy(p, s);
-
-    int result = 0;
-
-    while (*p) {
-        if (isdigit(*p)) {
-            int i = 0;
-            while (isdigit(p[i])) i++;
-            int num = atoi(substr(p, 0, i));
-            p += i;
-            if (*p == '(' || *p == ')') {
-                result = eval(subexpr(p));
-                break;
+int do_algebra(vector<string> operator_, vector<int> operand) {
+    int result = operand[0];
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
+            result += operand[i + 1];
+        } else if (operator_[i] == "-") {
+            result -= operand[i + 1];
+        } else if (operator_[i] == "*") {
+            int temp = 0;
+            for (int j = 0; j <= i; j++) {
+                temp *= operand[j];
             }
-            if (*p == '+') {
-                result += num;
-                p++;
-            } else if (*p == '-') {
-                result -= num;
-                p++;
-            } else if (*p == '*') {
-                result *= num;
-                p++;
-            } else if (*p == '/') {
-                result /= num;
-                p++;
+            result = temp;
+        } else if (operator_[i] == "//") {
+            result /= operand[i + 1];
+        } else if (operator_[i] == "**") {
+            int temp = 1;
+            for (int j = 0; j <= i; j++) {
+                temp *= operand[j];
             }
-        } else {
-            p++;
+            result = pow(temp, operand[i + 1]);
         }
     }
-
-    delete[] p;
-
     return result;
-}
-
-char* substr(char* s, int start, int end) {
-    char* t = new char[end - start + 1];
-    strncpy(t, &s[start], end - start);
-    t[end - start] = '\0';
-    return t;
-}
-
-int subexpr(char* p) {
-    int i = 0;
-    while (p[i] && p[i] != '(') i++;
-    i++;
-    int j = 0;
-    while (p[i] && p[i] != ')') j++, i++;
-    i++;
-
-    char* t = new char[j + 1];
-    strncpy(t, &p[i], j);
-    t[j] = '\0';
-
-    delete[] p;
-
-    return eval(t);
 }
