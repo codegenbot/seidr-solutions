@@ -11,14 +11,10 @@ int count_distinct_characters(const std::string& str) {
     return sorted_str.size();
 }
 
-int solve_problem() {
+int main() {
     std::string str;
     std::getline(std::cin, str);
     std::cout << count_distinct_characters(str) << std::endl;
-
+    
     return 0;
-}
-
-int main() {
-    return solve_problem();
 }
