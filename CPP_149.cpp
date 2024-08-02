@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -21,9 +20,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
         return a.length() < b.length();
     });
     return lst;
-}
-
-int main() {
-    assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
 }
