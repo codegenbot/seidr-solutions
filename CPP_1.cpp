@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 
-namespace std {
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -38,6 +36,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
 
     return result;
-}
-
 }
