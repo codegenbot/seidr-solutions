@@ -1,16 +1,19 @@
 #include <cassert>
 #include <vector>
 #include <cmath>
+#include <iostream>
 
-int sum_squares(const std::vector<int>& lst) {
+using namespace std;
+
+int sum_squares(const vector<int>& lst) {
     int sum = 0;
     for (int num : lst) {
-        sum += std::ceil(num) * std::ceil(num);
+        sum += ceil(num) * ceil(num);
     }
     return sum;
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
+    assert(sum_squares(vector<int>{-1,1,0}) == 2);
     return 0;
 }
