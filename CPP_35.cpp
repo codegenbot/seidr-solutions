@@ -1,6 +1,8 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 
-int maxVal(std::vector<int> l) {
+int absoluteMax(int arr[], int n) {
+    std::vector<int> l(arr, arr+n);
     return *std::max_element(l.begin(), l.end());
 }
