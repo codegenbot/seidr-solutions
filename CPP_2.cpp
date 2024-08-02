@@ -3,7 +3,7 @@
 #include <cassert>
 
 double truncate_number(double number) {
-    return std::abs(number - floor(number));
+    return number - floor(number);
 }
 
 int main() {
