@@ -17,6 +17,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             temp += char
         else:
             result.append(char)
+    result.append(temp)
     return result
-
-print(separate_paren_groups("aab(bcd)e"))
