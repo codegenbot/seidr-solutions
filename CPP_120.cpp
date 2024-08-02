@@ -1,9 +1,32 @@
-```
-#include <vector>
 #include <algorithm>
+#include <vector>
+
+bool issameHelper(std::vector<int> a, std::vector<int>b){
+    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    if(n == 0) {
+        cout << "[]";
+    } else {
+        std::vector<int> maximumVector = maximum({1, 2, 3, -23, 243, -400, 0}, n);
+        for(int i : maximumVector) {
+            cout << i << " ";
+        }
+    }
+
+    return 0;
+}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result(arr.begin(), arr.begin() + k);
-    std::sort(result.begin(), result.end());
+    std::vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
     return result;
 }
