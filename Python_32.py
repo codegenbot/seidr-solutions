@@ -1,4 +1,6 @@
-Here is the completed code:
-
 def find_zero(xs: list):
-    return (-xs[1] / xs[0]) if len(xs) == 2 else (-xs[3] - math.sqrt((xs[3]**2)-4*xs[0]*(-xs[2]-xs[1]/(2*xs[0]))) / (2*xs[0]))
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    x = -xs[1] / xs[3]
+    return round(x, 2)
