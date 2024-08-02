@@ -10,6 +10,8 @@ float max_element(vector<float> l){
     return max;
 }
 
+using namespace std;
+
 float abs(float x) {
     return (x < 0 ? -x : x);
 }
