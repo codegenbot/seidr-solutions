@@ -1,5 +1,5 @@
 `def separate_paren_groups(paren_string: str) -> List[str]: 
-    groups = [] 
+    groups = []
     temp_group = '' 
     count = 0 
     for char in paren_string: 
@@ -12,4 +12,4 @@
             if count == 0: 
                 groups.append(temp_group) 
                 temp_group = '' 
-    return [group.replace('()','') for group in groups]`
+    return [group + ')' for group in groups]`
