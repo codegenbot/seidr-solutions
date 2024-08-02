@@ -1,29 +1,22 @@
-#include <vector>
 #include <algorithm>
-using namespace std;
+#include <vector>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
-}
+using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return result;
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 != 0) {
-            result.push_back({arr[i], i});
-        }
+    
+    if(arr.empty()) return result;
+    
+    auto it = min_element(arr.begin(), arr.end(), 
+        [](int a, int b){return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0);});
+    
+    if(*it % 2 == 0) {
+        result = {{*it, distance(arr.begin(), it)}};
+    } else {
+        auto first_even_it = find_if(arr.begin(), arr.end(), [](int x){return x % 2 == 0;});
+        result.push_back({*first_even_it, distance(arr.begin(), first_even_it)});
     }
-
+    
     return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), vector<pair<int, int>>()));
-    return 0;
 }
