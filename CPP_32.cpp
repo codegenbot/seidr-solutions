@@ -21,7 +21,7 @@ double find_zero(vector<double> xs){
 int main() {
     vector<double> coeffs = {1, -3, 2}; // example coefficients
     double solution;
-    
+
     solution = find_zero(coeffs);
     assert(abs(poly(coeffs, solution)) < 1e-3);
     
