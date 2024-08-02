@@ -1,8 +1,3 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    // Your comparison logic here
-}
-
 vector<string> by_length(vector<int> arr){
     vector<int> temp;
     for(int i: arr) {
