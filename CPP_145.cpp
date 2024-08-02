@@ -3,11 +3,21 @@ vector<int> order_by_points(vector<int> nums);
 bool issame(vector<int> a, vector<int> b) {
     int sum_a = 0, sum_b = 0;
     for (int num : a) {
-        sum_a += abs(num % 10);
+        int temp_a = abs(num);
+        while (temp_a > 0) {
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
     }
+    
     for (int num : b) {
-        sum_b += abs(num % 10);
+        int temp_b = abs(num);
+        while (temp_b > 0) {
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
     }
+    
     return sum_a == sum_b;
 }
 
@@ -28,16 +38,26 @@ vector<int> order_by_points(vector<int> nums) {
         }
         return sum_a < sum_b;
     });
-
+    
     return nums;
 }
 
 int main() {
-    vector<int> nums = {123, 456, 789, 321, 654};
-    vector<int> ordered_nums = order_by_points(nums);
-
-    for (int num : ordered_nums) {
+    vector<int> numbers = {123, 321, 456, 789};
+    
+    sort(numbers.begin(), numbers.end(), issame);
+    
+    for (int num : numbers) {
         cout << num << " ";
     }
+    
+    cout << endl;
+    
+    numbers = order_by_points(numbers);
+    
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    
     return 0;
 }
