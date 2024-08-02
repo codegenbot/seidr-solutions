@@ -1,11 +1,32 @@
-string string_xor(string a, string b) {
-    string result;
-    for (int i = 0; i < a.length(); i++) {
-        if ((a[i] - '0') ^ (b[i] - '0')) {
-            result += '1';
-        } else {
+```cpp
+#include <iostream>
+#include <string>
+
+std::string string_xor(std::string a, std::string b) {
+    std::string result = "";
+    for(int i=0; i<a.length(); i++) {
+        if(a[i] == '1' && b[i] == '1' || a[i] == '0' && b[i] == '0') 
             result += '0';
-        }
+        else
+            result += '1';
     }
     return result;
+}
+
+int main() {
+    std::string str1, str2;
+    std::cout << "Enter the first binary string: ";
+    std::cin >> str1;
+    std::cout << "Enter the second binary string: ";
+    std::cin >> str2;
+    
+    if(str1.length() != str2.length()) {
+        std::cout << "Error: Strings must be of same length." << std::endl;
+        return 0;
+    }
+    
+    std::string result = string_xor(str1, str2);
+    std::cout << "XOR operation result: " << result << std::endl;
+    
+    return 0;
 }
