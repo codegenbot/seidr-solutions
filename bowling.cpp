@@ -1,51 +1,21 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            string firstHalf = s.substr(0, i);
-            string secondHalf = s.substr(i + 1);
-            int firstHalfScore = 0;
-            int j = 0;
-            for (; j < firstHalf.length(); j++) {
-                if (firstHalf[j] != 'X') {
-                    firstHalfScore += (firstHalf[j] - '0');
-                } else {
-                    firstHalfScore += 10;
-                    break;
-                }
-            }
-            if (j == firstHalf.length()) {
-                firstHalfScore = 10;
-            }
-            int secondHalfScore = 0;
-            j = 0;
-            for (; j < secondHalf.length(); j++) {
-                if (secondHalf[j] != 'X') {
-                    secondHalfScore += (secondHalf[j] - '0');
-                } else {
-                    secondHalfScore += 10;
-                    break;
-                }
-            }
-            if (j == secondHalf.length()) {
-                secondHalfScore = 10;
-            }
-            score += firstHalfScore + secondHalfScore;
+    bool previousStrike = false;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
+            previousStrike = true;
+        } else if (c == '/') {
+            score += 10 + (previousStrike ? 10 : 0);
+            previousStrike = false;
         } else {
-            int frameScore = 0;
-            j = 0;
-            for (; j < i; j++) {
-                if (s[j] != 'X') {
-                    frameScore += (s[j] - '0');
-                } else {
-                    frameScore += 10;
-                    break;
-                }
+            int roll = c - '0';
+            if (previousStrike) {
+                score += roll * 2;
+            } else {
+                score += roll;
             }
-            if (j == i) {
-                frameScore = 10;
-            }
-            score += frameScore;
+            previousStrike = false;
         }
     }
     return score;
