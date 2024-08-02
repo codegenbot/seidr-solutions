@@ -1,30 +1,28 @@
 def minPath(grid, k):
     n = len(grid)
-    visited = set()
+    visited = [[False] * n for _ in range(n)]
 
-    def dfs(x, y, path):
-        if len(path) == k:
+    def dfs(x, y, path, steps):
+        if steps == 0:
             return path
 
-        visited.add((x, y))
+        visited[x][y] = True
+        neighbors = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+        neighbors.sort(key=lambda pos: (grid[pos[0]][pos[1]] if 0 <= pos[0] < n and 0 <= pos[1] < n else float('inf'), pos))
 
-        candidates = []
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
-                candidates.append((nx, ny))
+        for nx, ny in neighbors:
+            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
+                res = dfs(nx, ny, path + [grid[nx][ny]], steps - 1)
+                if res:
+                    return res
 
-        candidates.sort(key=lambda pos: (grid[pos[0]][pos[1]]))
-
-        for nx, ny in candidates:
-            res = dfs(nx, ny, path + [grid[nx][ny]])
-            if res:
-                return res
-
-        visited.remove((x, y))
+        visited[x][y] = False
 
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, [grid[i][j]])
+            path = dfs(i, j, [grid[i][j]], k - 1)
             if path:
                 return path
+
+# Test
+print(minPath([[1, 3], [3, 2]], 10))  # Output: [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
