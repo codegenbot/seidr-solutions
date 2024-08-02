@@ -12,8 +12,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 3.5f, -4.5f, 10.5f};
+    std::vector<float> lst = {1.5f, 3.0f, -4.0f, 5.0f};
     long long result = double_the_difference(lst);
-    std::cout << "Result: " << result << std::endl;
+
     return 0;
 }
