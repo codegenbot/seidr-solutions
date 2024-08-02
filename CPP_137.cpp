@@ -1,26 +1,69 @@
-#include <boost/any.hpp>
 #include <string>
-#include <vector>
+#include <boost/any.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of_type<double>(a) && is_any_of_type<double>(b)) {
-        return (dynamic_cast<any &>(a) > dynamic_cast<any &>(b)) ? a : ((dynamic_cast<any &>(a) == dynamic_cast<any &>(b))) ? any("None") : b;
-    } else if (is_any_of_type<std::string>(a) && is_any_of_type<std::string>(b)) {
-        return (std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) > std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str())) ? a : ((std::stoi(dynamic_cast<any &>(a).any_to<string>().c_str()) == std::stoi(dynamic_cast<any &>(b).any_to<string>().c_str()))) ? any("None") : b;
-    } else {
-        return "Invalid input type";
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        if ((string)a.convert_to<string>() > (string)b.convert_to<string>())
+            return a;
+        else if ((string)a.convert_to<string>() < (string)b.convert_to<string>())
+            return b;
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b.convert_to<string>();
+        float f = (float)a.convert_to<float>();
+        if (str > to_string(f))
+            return b;
+        else if (str < to_string(f))
+            return a;
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = (string)a.convert_to<string>();
+        int i = (int)b.convert_to<int>();
+        if (str > to_string(i))
+            return a;
+        else if (str < to_string(i))
+            return boost::any(b);
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = (string)a.convert_to<string>();
+        float f = (float)b.convert_to<float>();
+        if (str > to_string(f))
+            return a;
+        else if (str < to_string(f))
+            return boost::any(b);
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = (string)a.convert_to<string>(), str2 = (string)b.convert_to<string>();
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float f = (float)a.convert_to<float>(), i = (int)b.convert_to<int>();
+        if (f > i)
+            return a;
+        else if (f < i)
+            return boost::any(b);
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int i = (int)a.convert_to<int>(), f = (float)b.convert_to<float>();
+        if (i > f)
+            return a;
+        else if (i < f)
+            return boost::any(b);
+        else
+            return boost::any("None");
     }
-}
-
-bool is_any_of_type(T t, boost::any a) {
-    try {
-        if (a.type() == typeid(T)) {
-            return true;
-        }
-    } catch (...) {
-        // handle exception
-    }
-    return false;
+    return a; // default to the first value
 }
