@@ -1,7 +1,6 @@
 def make_palindrome(string: str) -> str:
     if string.islower():
         for i in range(len(string)):
-            postfix = string[i:]
             lowercase_postfix = postfix.lower()
             if is_palindrome(lowercase_postfix):
                 prefix_chars = [char.upper() if char.isalpha() and char.isupper() else char for char in string[:i]]
