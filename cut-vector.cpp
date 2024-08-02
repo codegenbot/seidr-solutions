@@ -1,16 +1,11 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-
-using namespace std;
 
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
     int minDiff = INT_MAX;
@@ -25,11 +20,11 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
