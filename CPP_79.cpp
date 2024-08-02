@@ -1,9 +1,8 @@
-```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-string decimal_to_binary(int decimal){
-    string binary = "";
+std::string decimal_to_binary(int decimal) {
+    std::string binary = "";
     while (decimal > 0) {
         binary = (decimal & 1) ? "1" + binary : "0" + binary;
         decimal >>= 1;
@@ -13,8 +12,8 @@ string decimal_to_binary(int decimal){
 
 int main() {
     int decimal;
-    cout << "Enter a decimal number: ";
-    cin >> decimal;
-    cout << "Binary representation: " << decimal_to_binary(decimal) << endl;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::cout << "Binary representation is: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
