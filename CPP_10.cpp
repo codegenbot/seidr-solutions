@@ -8,10 +8,8 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    for(int i=str.length()-1; i>=0; i--){
-        if(is_palindrome(str.substr(0, i+1))){
-            return str + string(str.begin(), str.begin()+i).reverse();
-        }
-    }
-    return str;
+    string prefix = "";
+    for(int i=str.length()-1; i>=0 && !is_palindrome(prefix+str.substr(i)); i--);
+    if(is_palindrome(prefix+str))return prefix+str;
+    return prefix+str+string(str.rbegin(),str.rend());
 }
