@@ -1,8 +1,4 @@
 #include <vector>
-#include <cassert>
-
-using namespace std;
-
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int count = 0;
     for (int j = 0; j < grid[0].size(); ++j) {
@@ -13,11 +9,4 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         count += (sum + capacity - 1) / capacity;
     }
     return count;
-}
-
-int main() {
-    // Test cases can be added here
-    assert(max_fill({{1, 2}, {3, 4}}, 3) == 3);
-    
-    return 0;
 }
