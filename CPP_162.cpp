@@ -1,7 +1,5 @@
-```
-#include <string>
-#include <sstream>
 #include <openssl/md5.h>
+#include <sstream>
 
 using std::stringstream;
 using std::hex;
