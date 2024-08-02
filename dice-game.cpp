@@ -1,4 +1,4 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
 double diceGame(int n, int m) {
