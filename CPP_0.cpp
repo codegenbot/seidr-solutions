@@ -1,5 +1,4 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -11,22 +10,4 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
         }
     }
     return false;
-}
-
-int main() {
-    std::vector<float> numbers;
-    float threshold;
-
-    // read input from user
-    // ...
-
-    bool result = has_close_elements(numbers, threshold);
-
-    if (result) {
-        std::cout << "The array contains close elements." << std::endl;
-    } else {
-        std::cout << "The array does not contain close elements." << std::endl;
-    }
-
-    return 0;
 }
