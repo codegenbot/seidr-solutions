@@ -6,7 +6,7 @@ std::string camelCase(const std::string& s) {
     std::vector<std::string> words;
     for (size_t i = 0; i <= s.size(); ++i) {
         if (i == s.size() || s[i] == ' ') {
-            words.push_back(s.substr(i - start, i - start));
+            words.push_back(s.substr(i - start, start));
             start = i + 1;
         }
     }
