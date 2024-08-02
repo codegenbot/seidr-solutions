@@ -1,22 +1,14 @@
-```cpp
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    vector<float> l;
-    cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    string s;
-    while (true) {
-        cin >> s;
-        if (s == "stop") break;
-        float x = stof(s);
-        l.push_back(x);
-    }
+    vector<float> l = {1.0f, -2.0f, 3.0f, -4.0f};
     vector<float> result = get_positive(l);
+    
     for (float x : result) {
-        cout << x << endl;
+        cout << x << " ";
     }
     return 0;
 }
