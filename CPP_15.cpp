@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
-#include <sstream>
 #include <string>
+#include <sstream>
 
 std::string string_sequence(int n) {
     std::ostringstream oss;
