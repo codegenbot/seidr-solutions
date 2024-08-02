@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,7 +12,7 @@ int solve() {
     }
     long long sum = 0;
     for (int x : v) {
-        int y = floor((double)x / 3) - 2;
+        int y = floor(double(x) / 3.0) - 2;
         if (y < 0) y = 0;
         sum += y;
     }
