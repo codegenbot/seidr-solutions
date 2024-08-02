@@ -12,6 +12,6 @@ bool is_sum_of_extremes_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(is_sum_of_extremes_same({-6, -4, -4, -3, 1}, {-3, 1}));
+    assert(is_sum_of_extremes_same({-6, -4, -4, -3, -100, 1}, {-100, 1}));
     return 0;
 }
