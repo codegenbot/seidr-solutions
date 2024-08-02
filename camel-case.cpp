@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 using namespace std;
 
 int main() {
     string input;
     getline(cin, input);
-    
+
     bool capitalize = true;
     for (char& c : input) {
         if (c == '-') {
@@ -20,6 +19,6 @@ int main() {
             }
         }
     }
-    
+
     return 0;
 }
