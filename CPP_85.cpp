@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,7 +8,6 @@ int add(std::vector<int> lst) {
             sum += lst[i];
     }
     return sum;
-
 }
 
 int main() {
