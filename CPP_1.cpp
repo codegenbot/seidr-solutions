@@ -10,7 +10,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     }
 
     for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a.at(i) != b.at(i)) {
             return false;
         }
     }
@@ -19,31 +19,38 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 vector<string> separate_paren_groups(string paren_string) {
-   vector<string> result;
-   string current_group;
-   size_t open_count = 0;
+    vector<string> result;
+    string current_group;
+    int open_count = 0;
 
-   for (char c : paren_string) {
-       if (c == '(') {
-           if (open_count > 0) {
-               current_group += c;
-           }
-           open_count++;
-       } else if (c == ')') {
-           open_count--;
-           if (open_count == 0) {
-               result.push_back(current_group);
-               current_group.clear();
-           } else {
-               current_group += c;
-           }
-       }
-   }
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (open_count > 0) {
+                current_group += c;
+            }
+            open_count++;
+        } else if (c == ')') {
+            open_count--;
+            if (open_count == 0) {
+                result.push_back(current_group);
+                current_group.clear();
+            } else {
+                current_group += c;
+            }
+        }
+    }
 
-   return result;
+    return result;
 }
 
 int main() {
+    vector<string> input = separate_paren_groups("(group 1)(group 2)(group 3)");
+    vector<string> expected_output = {"group 1", "group 2", "group 3"};
+    
+    assert(issame(input, expected_output));
+
+    // Add another test case
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+
     return 0;
 }
