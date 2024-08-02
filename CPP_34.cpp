@@ -5,17 +5,15 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
-    sort(result.begin(), result.end());
-    result.erase(unique(result.begin(), result.end()), result.end());
+    vector<int> result(l.begin(), l.end());
+    sort(result.begin(), unique.erase(unique.begin(), end()));
     return result;
 }
 
 int main() {
-    // Example usage:
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output = unique(input);
-    for (int i : output) {
+    vector<int> vec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> res = unique(vec);
+    for (int i : res) {
         cout << i << " ";
     }
     return 0;
