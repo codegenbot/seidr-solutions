@@ -22,4 +22,3 @@ int get_matrix_triples(int n) {
 }
 
 assert(get_matrix_triples(100) == 53361);
-
