@@ -1,4 +1,2 @@
-def filter_strings(strings, substring):
+def filter_by_substring(strings, substring):
     return [s for s in strings if substring in s]
-
-filtered_list = filter_strings(strings, substring)
