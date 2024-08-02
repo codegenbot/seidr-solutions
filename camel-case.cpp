@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,17 +11,16 @@ int main() {
     for(char c : input) {
         if(c == '-') {
             capitalize = true;
-        } else if(c != ' ') {
-            if(capitalize) {
-                std::cout << toupper(c);
-                capitalize = false;
-            } else {
-                std::cout << c;
-            }
-        }
-        if(c == ' ') {
+        } else if(c == ' ') {
             capitalize = true;
             std::cout << " ";
+        } else {
+            if(capitalize) {
+                std::cout << (char)toupper(c);
+                capitalize = false;
+            } else {
+                std::cout << (char)tolower(c);
+            }
         }
     }
     
