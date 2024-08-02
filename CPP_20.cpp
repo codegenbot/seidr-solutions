@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <vector>
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() < 2) {
         throw std::invalid_argument("Vector must have at least two elements");
