@@ -9,24 +9,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        while (a > 0) {
-            sum_a += a % 2;
-            a /= 2;
-        }
-        while (b > 0) {
-            sum_b += b % 2;
-            b /= 2;
-        }
-        if (sum_a == sum_b) {
+        int count_a = __builtin_popcount(a);
+        int count_b = __builtin_popcount(b);
+        if (count_a == count_b) {
             return a < b;
         }
-        return sum_a < sum_b;
+        return count_a < count_b;
     });
     return arr;
 }
 
 int main() {
-    assert(issame(sort_array({2, 4, 8, 16, 32}), {32, 2, 4, 8, 16}));
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
     return 0;
 }
