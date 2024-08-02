@@ -1,22 +1,21 @@
+```cpp
 #include <string>
-int bowlingScore(string s) {
+#include <algorithm>
+
+int bowlingScore(std::string s) {
     int score = 0;
-    int roll = 0;
     for (char c : s) {
         if (c == 'X') {
             score += 30;
-            roll++;
         } else if (c == '/') {
-            score += 10 + (roll > 0 ? roll : 1);
-            roll = 0;
+            score += 10 + std::max((s.find('/', 1) - 1), 1);
         } else {
             int points = c - '0';
             score += points;
-            roll++;
-            if (roll == 2) {
-                score += std::max(points * 2, 10);
-                roll = 0;
+            if (s.find('/') != std::string::npos && s.find('/') - 1 == s.size() - 2) {
+                score += points * 2;
             }
         }
     }
     return score;
+}
