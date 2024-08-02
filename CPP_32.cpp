@@ -1,10 +1,12 @@
 double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = 0;
-    for (int i=1; i<xs.size();i++){
-        if(i%2==0) {
-            b += xs[i]/(double)std::pow(i,1);
-        }
+    double left = 1e9;
+    double right = -1e9;
+    
+    for(int i = 0; i < xs.size(); i++){
+        if(i % 2 == 0) continue;
+        right = min(right, xs[i] / (double)i);
+        left = max(left, -xs[i] / (double)i);
     }
-    return -b/(double)a;
+    
+    return (left + right) / 2.0;
 }
