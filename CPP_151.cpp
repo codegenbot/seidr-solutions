@@ -1,24 +1,30 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
+using namespace std;
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0.0) {
-            sum += num * num;
+    for (float x : lst) {
+        if (x > 0 && floor(x) == x) { 
+            sum += pow(x, 2); 
         }
     }
     return sum;
 }
 
 int main() {
-    vector<float> lst; 
-    float odd_sum = 0.0; 
+    vector<float> input_vector; // declare the input vector
+    // read user input and store it in the vector
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++){
+        float num;
+        cin >> num;
+        input_vector.push_back(num);
+    }
 
-    // fill lst with input values...
-    // ...
-
-    assert(double_the_difference(lst) == odd_sum); 
+    long long result = double_the_difference(input_vector); 
+    cout << "The sum of squares is: " << result << endl;
 
     return 0;
 }
