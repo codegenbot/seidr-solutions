@@ -1,12 +1,6 @@
 #include <vector>
 #include <string>
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
 std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     int n = text.size();
@@ -32,12 +26,4 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
     }
     
     return indices;
-}
-
-int main() {
-    // Test cases
-    std::vector<int> indices1 = findIndicesOfSubstring("ababab", "aba");  
-    std::vector<int> indices2 = findIndicesOfSubstring("AAAAA", "AA");    
-
-    return 0;
 }
