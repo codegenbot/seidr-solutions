@@ -41,6 +41,8 @@ int main() {
     cout << endl;
 
     cin >> textLength >> targetLength;
+    // cin.ignore();  // Removed this line
+
     getline(cin, text);
     getline(cin, target);
 
