@@ -20,6 +20,6 @@ int main() {
     for (int &i : vec) {
         cin >> i;
     }
-    cout << std::fixed << setprecision(0) << fuelCost(vec) << endl;
+    cout << fuelCost(vec) << endl;
     return 0;
 }
