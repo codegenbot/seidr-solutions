@@ -5,7 +5,6 @@ def check_adjacent_numbers(numbers, threshold):
             return True
     return False
 
-# Call the check_adjacent_numbers function with appropriate arguments
 input_numbers = [5, 10, 15, 20]
 threshold_value = 3
 result = check_adjacent_numbers(input_numbers, threshold_value)
