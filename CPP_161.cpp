@@ -1,7 +1,8 @@
-#include <string>
+#include <iostream>
 #include <algorithm>
+#include <cassert>
 
-string solve(string s){
+std::string solve(std::string s) {
     for(auto &c : s){
         if(isalpha(c)){
             if(islower(c)){
@@ -15,4 +16,9 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
