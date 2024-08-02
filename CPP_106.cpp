@@ -13,7 +13,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-int main() { 
+int main() {
     assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6}));
     return 0;
 }
