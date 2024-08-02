@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<int>& arr, int k) {
     std::vector<int> result;
     for(int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
