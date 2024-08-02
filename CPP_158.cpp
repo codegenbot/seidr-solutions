@@ -1,10 +1,13 @@
 #include <vector>
+#include <string>
 #include <unordered_set>
 #include <cassert>
 
 string find_max(const vector<string>& words) {
-    string max_word = "";
-    int max_unique_chars = 0;
+    assert(!words.empty());
+    
+    string max_word = words[0];
+    int max_unique_chars = unordered_set<char>(max_word.begin(), max_word.end()).size();
     
     for (const string& word : words) {
         int unique_chars = unordered_set<char>(word.begin(), word.end()).size();
@@ -15,4 +18,4 @@ string find_max(const vector<string>& words) {
     }
     
     return max_word;
-}
+}  
