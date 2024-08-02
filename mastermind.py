@@ -1,6 +1,10 @@
 def mastermind(code, guess):
-    correct_position = sum(
-        c1 == c2 and p1 != p2 for c1, c2, p1, p2 in zip(code, guess, range(4), range(4))
+    code_set = set(code)
+    guess_set = set(guess)
+
+    white_pegs = len(code_set & guess_set) - sum(
+        c1 == c2 for c1, c2 in zip(code, guess)
     )
-    correct_color = sum(c1 == c2 for c1, c2 in zip(code, guess)) - correct_position
-    return correct_color, 4 - correct_position
+    black_pegs = sum(c1 == c2 for c1, c2 in zip(code, guess))
+
+    return str(black_pegs), str(white_pegs)
