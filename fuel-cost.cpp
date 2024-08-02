@@ -7,13 +7,13 @@ using namespace std;
 int main() {
     vector<int> numbers;
     int n;
-    while (cin >> n) {
+    while (cin >> n && !cin.eof()) {
         numbers.push_back(n);
     }
 
     int sum = 0;
     for (int num : numbers) {
-        sum += (num / 3) - 2;
+        sum += max(0, num / 3 - 2);
     }
 
     cout << sum << endl;
