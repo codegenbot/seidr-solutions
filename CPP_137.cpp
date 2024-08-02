@@ -1,15 +1,14 @@
-```cpp
 #include <boost/any.hpp>
+#include <boost/convert.hpp> 
 #include <string>
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ?
-            b : a;
+        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ?
-            a : b;
+        return (boost::any_cast<float>(a) > boost::any_cast<int>(b)) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         float fa = std::stof(boost::any_cast<std::string>(a));
@@ -24,5 +23,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string sb = boost::any_cast<std::string>(b);
         return (std::stof(sa) > std::stof(sb)) ? a : b;
     }
-    return boost::any((boost::any)"None");
+    return boost::any("None");
 }
