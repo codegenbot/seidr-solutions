@@ -17,5 +17,6 @@ bool issame(const std::string& a, const std::string& b) {
 
 int main() {
     assert(issame("mamma", "mia") == true);
+    // Add your test cases here
     return 0;
 }
