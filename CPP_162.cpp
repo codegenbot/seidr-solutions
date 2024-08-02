@@ -21,6 +21,6 @@ string string_to_md5(string text) {
     
     if (string_to_md5("password") != "5f4dcc3b5aa765d61d8327deb882cf99")
         cout << "Test failed!" << endl;
-
+    
     return result;
 }
