@@ -17,10 +17,10 @@ int main() {
     cin >> n;
     
     for(int i = 0; i < n; i++) {
-        int temp;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> temp;
-        input.push_back(temp);
+        int val;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> val;
+        input.push_back(val);
     }
     
     int output = can_arrange(input);
