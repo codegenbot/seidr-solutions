@@ -1,4 +1,9 @@
-int bowlingScore(string s) {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int bowlingScore(std::string s) {
     int score = 0;
     int frame = 1;
     int bowl = 0;
@@ -31,8 +36,9 @@ int bowlingScore(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << bowlingScore(input) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    int result = bowlingScore(bowls);
+    std::cout << result << std::endl;
     return 0;
 }
