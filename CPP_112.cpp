@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::string result = "";
     for (const std::string& str : a) {
@@ -12,14 +14,12 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
             }
         }
     }
-    
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
-    
     return result == result_reverse;
 }
 
 int main() {
-    assert(issame({"mamma"}, {"mia"}));
+    assert(issame({"mamma"}, {"mia"}) == true);
     return 0;
 }
