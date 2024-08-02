@@ -1,11 +1,15 @@
-string solve(int N) {
+string solve(int N){
     int sum = 0;
-    while (N > 0) {
-        int bit = N & 1;
-        if (bit == 1) {
+    string result = "";
+    while(N > 0) {
+        if(N % 2 == 1)
             sum++;
-        }
-        N >>= 1;
+        N /= 2;
     }
-    return to_string(sum);
+    for(int i = 0; i < sum; i++) {
+        result += "1";
+        for(int j = 1; j <= (10 - sum); j++)
+            result += "0";
+    }
+    return result;
 }
