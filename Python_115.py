@@ -1,5 +1,5 @@
 import math
 
 def max_fill(grid, capacity):
-    total_water = sum(row for row in map(sum, grid))
-    return math.ceil(total_water / capacity) if total_water > 0 else 0
+    total_water = sum(sum(row) for row in grid)
+    return math.ceil(total_water / capacity) if total_water > 0 and total_water <= (len(grid) * len(grid[0]) * capacity) else 0
