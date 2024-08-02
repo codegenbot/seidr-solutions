@@ -1,12 +1,12 @@
 #include <vector>
-#include <limits>
+#include <climits>
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
     
-    int minEven = numeric_limits<int>::max();
+    int minEven = std::numeric_limits<int>::max();
     int minIndex = -1;
     
     for (int i = 0; i < arr.size(); i++) {
@@ -23,4 +23,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     return result;
-}
