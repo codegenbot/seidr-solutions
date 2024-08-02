@@ -1,4 +1,8 @@
+```
+#include <openssl/ssl.h>
+#include <openssl/x509v3.h>
 #include <string>
+
 using namespace std;
 
 string string_to_md5(string text) {
@@ -17,10 +21,6 @@ string string_to_md5(string text) {
         char buff[3];
         sprintf(buff, "%02x", md5[i]);
         result += buff;
-    }
-    
-    if (string_to_md5("password") != "5f4dcc3b5aa765d61d8327deb882cf99") {
-        cout << "Test failed!" << endl;
     }
     
     return result;
