@@ -1,15 +1,23 @@
-int cnt = 0;
-for (const string& s : lst) {
-    for (char c : s) {
-        if (c == '(') {
-            cnt++;
-        } else {
-            if (cnt > 0) {
-                cnt--;
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string match_parens(const vector<string>& lst) {
+    int cnt = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                cnt++;
             } else {
-                return "No";
+                if (cnt > 0) {
+                    cnt--;
+                } else {
+                    return "No";
+                }
             }
         }
     }
+    return (cnt == 0) ? "Yes" : "No";
 }
-return (cnt == 0) ? "Yes" : "No";
