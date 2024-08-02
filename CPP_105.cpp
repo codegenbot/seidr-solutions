@@ -2,10 +2,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
-}
-
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sortedArr;
     for (int i : arr) {
@@ -50,7 +46,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
+}
+
 int main() {
     assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    // Other assertions or operations can be performed here.
 }
