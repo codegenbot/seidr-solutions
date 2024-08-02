@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 using namespace boost;
 
@@ -10,23 +9,23 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (float)a > b.convert_to<float>() ? a : boost::any("None");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return boost::any(b.convert_to<string>() > a.convert_to<string>() ? &b : a);
+        return b.convert_to<string>() > a.convert_to<string>() ? b : (b.convert_to<string>() == a.convert_to<string>() ? boost::any("") : b);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         float fa = (float)a.convert_to<int>();
-        return fa > std::stof(b.convert_to<string>()) ? boost::any(fa) : a;
+        return fa > std::stof(b.convert_to<string>()) ? &fa : a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         float fb = std::stof(a.convert_to<string>());
-        return fb > b.convert_to<int>() ? boost::any(a) : boost::any("None");
+        return fb > b.convert_to<int>() ? boost::any(a) : boost::any("");
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         float fa = a.convert_to<float>();
-        return fa > std::stof(b.convert_to<string>()) ? boost::any(a) : boost::any("None");
+        return fa > std::stof(b.convert_to<string>()) ? a : boost::any("");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         float fb = std::stof(a.convert_to<string>());
-        return fb > a.convert_to<float>() ? boost::any(a) : boost::any("None");
+        return fb > a.convert_to<float>() ? a : boost::any("");
     }
-    return boost::any("None");
+    return boost::any("");
 }
