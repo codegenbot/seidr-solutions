@@ -30,7 +30,8 @@ std::vector<int> findIndicesOfSubstring(const std::string& text, const std::stri
 }
 
 int main() {
-    std::vector<int> result1 = findIndicesOfSubstring("545559", "905");
+    // Add your testing code here
+    std::vector<int> result1 = findIndicesOfSubstring("545559", "90516");
     for (int index : result1) {
         std::cout << index << " ";
     }
