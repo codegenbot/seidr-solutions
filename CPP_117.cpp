@@ -1,30 +1,18 @@
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <cassert>
+#include <iostream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> select_words(std::string s, int n);
+vector<string> select_words(string s, int n);
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonant_count = 0;
-
+    
     for (char c : s) {
         if (c == ' ') {
             if (consonant_count == n) {
@@ -32,15 +20,35 @@ std::vector<std::string> select_words(std::string s, int n) {
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c) && std::find_if("aeiouAEIOU", "aeiouAEIOU"+10, [c](char v) { return c == v; }) == "aeiouAEIOU"+10) {
+        } else if (isalpha(c) && "aeiouAEIOU"_t.find_first_of(c) == string::npos) {
             consonant_count++;
         }
         word += c;
     }
-
+    
     if (!word.empty() && consonant_count == n) {
         result.push_back(word);
     }
-
+    
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    
+    return 0;
 }
