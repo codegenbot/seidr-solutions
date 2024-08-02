@@ -1,28 +1,27 @@
-```
 def minPath(grid, k):
-    n = len(grid)
-    m = len(grid[0])
-    visited = [[False]*m for _ in range(n)]
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    N = len(grid)
+    res = []
 
-    def dfs(i, j, path, k):
-        if k == 0:
-            return path
-        visited[i][j] = True
-        for direction in directions:
-            new_i, new_j = i + direction[0], j + direction[1]
-            if 0 <= new_i < n and 0 <= new_j < m and not visited[new_i][new_j]:
-                res = dfs(new_i, new_j, path + [grid[i][j]], k - 1)
-                if res:
-                    return res
-        visited[i][j] = False
-        return None
+    for i in range(N):
+        for j in range(N):
+            if grid[i][j] == 1:
+                path = [grid[i][j]]
+                dfs(grid, i, j, k - 1, path, res)
+                if not res or path < res:
+                    res = path
+    return res
 
-    min_path = []
-    for i in range(n):
-        for j in range(m):
-            path = dfs(i, j, [], k)
-            if path and (not min_path or path < min_path):
-                min_path = path
 
-    return min_path
+def dfs(grid, x, y, k, path, res):
+    N = len(grid)
+    if k == 0:
+        res[:] = path[:]
+        return
+
+    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        nx, ny = x + dx, y + dy
+        if 0 <= nx < N and 0 <= ny < N:
+            if grid[nx][ny] not in path:
+                path.append(grid[nx][ny])
+                dfs(grid, nx, ny, k - 1, path, res)
+                path.pop()
