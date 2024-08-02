@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <boost/any.hpp>
