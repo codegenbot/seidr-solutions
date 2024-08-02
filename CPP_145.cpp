@@ -1,25 +1,25 @@
+```c++
 #include <algorithm>
-#include <vector>
-#include <utility>
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<std::pair<int, int>> numPairs;
-    for (int i = 0; i < nums.size(); i++) {
-        int sumOfDigits = 0;
-        int n = nums[i];
-        while (n > 0) {
-            sumOfDigits += n % 10;
-            n /= 10;
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); ++i) {
+        int sum = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
         }
-        numPairs.push_back({sumOfDigits, i});
+        pairs.push_back({sum, i});
     }
-
-    std::sort(numPairs.begin(), numPairs.end());
-
-    std::vector<int> result;
-    for (const auto& pair : numPairs) {
+    sort(pairs.begin(), pairs.end());
+    vector<int> result;
+    for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
-
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return equal(a.begin(), a.end(), b.begin());
 }
