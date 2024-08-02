@@ -4,7 +4,7 @@
 bool pairs_sum_to_zero(std::vector<int> l) {
     std::unordered_set<int> seen;
     for (int i : l) {
-        if (seen.count(-i) > 0 || (i == 0 && seen.count(0) > 1)) {
+        if (seen.count(-i) > 0 || (i == 0 && seen.count(0) > 0)) {
             return true;
         }
         seen.insert(i);
