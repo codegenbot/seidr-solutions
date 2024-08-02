@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> get_matrix_triples(int n) {
+int get_matrix_triples(int n) {
     std::vector<int> a(n);
     int count = 0;
     for (int i = 0; i < n; ++i) {
@@ -20,12 +20,8 @@ std::vector<int> get_matrix_triples(int n) {
 }
 
 int main() {
-    // input n from user
     int n;
     std::cin >> n;
-
-    // call get_matrix_triples function and output the result
     std::cout << get_matrix_triples(n) << std::endl;
-
     return 0;
 }
