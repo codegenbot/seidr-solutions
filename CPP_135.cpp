@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -10,7 +11,7 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    std::vector<int> vec = {10, 20, 30};
-    int result = can_arrange(vec);
-    cout << "The output is: " << result << endl;
+    int result = can_arrange({4, 2, 3});
+    assert(result == 0);
+    std::cout << "The function returned: " << result << endl;
 }
