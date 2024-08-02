@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 
-// Function to compare two vectors of strings for equality
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -10,9 +9,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-// Function to convert numerical grades to letter grades
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<string> letter_grades;
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
             letter_grades.push_back("A+");
