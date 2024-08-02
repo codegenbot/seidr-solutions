@@ -9,26 +9,26 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return max(a.convert_to<float>(), b.convert_to<float>());
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = a.convert_to<string>();
-        string s2 = b.convert_to<string>();
-        if (s1 > s2)
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+
+        if(str1 > str2) 
             return a;
-        else
+        else if(str1 < str2)
             return b;
+        else
+            return a; // or b, depending on the desired behavior in case of equal strings
     } else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
                (b.type() == typeid(string))) {
-        int num = stod(b.convert_to<string>());
-        if (a.convert_to<int>() > num)
-            return a;
-        else
-            return b;
-    } else if ((a.type() == typeid(string)) && (b.type() == typeid(int) ||
-                                                  b.type() == typeid(float))) {
         int num = a.convert_to<int>();
-        if (num > stod(b.convert_to<string>()))
-            return a;
-        else
-            return b;
+        string str = b.convert_to<string>();
+
+        return max(num, stod(str));
+    } else if ((a.type() == typeid(string)) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string str = a.convert_to<string>();
+        int num = b.convert_to<int>();
+
+        return max(stod(str), num);
     }
-    return boost::any();
+    return "None";
 }
