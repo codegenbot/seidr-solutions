@@ -1,16 +1,13 @@
 ```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    nesting_level = 0
-    max_nesting_level = 0
+    stack = []
     for char in paren_string:
         if char == '(':
-            nesting_level += 1
-            if nesting_level > max_nesting_level:
-                max_nesting_level = nesting_level
+            stack.append(char)
         elif char == ')':
-            nesting_level -= 1
-            if nesting_level < 0:
-                raise ValueError("Unbalanced parentheses")
-    result.append(max_nesting_level)
-    return result
+            if stack:
+                stack.pop()
+            else:
+                result.append(1)
+    return [len(stack)] + result
