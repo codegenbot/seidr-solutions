@@ -4,26 +4,8 @@
 
 using namespace std;
 
-vector<string> words_string(string s) {
-    vector<string> words;
-    string word;
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return words;
-}
+vector<string> words_string(string s);
 
-int main() {
-    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
