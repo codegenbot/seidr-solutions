@@ -2,15 +2,17 @@
 #include <vector>
 #include <string>
 
-bool is_same(const std::string& txt);
+using namespace std;
 
-std::vector<std::string> split_words(const std::string& txt) {
-    std::vector<std::string> result;
-    std::string word;
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                result.push_back(word);
+                words.push_back(word);
                 word = "";
             }
         } else {
@@ -18,22 +20,16 @@ std::vector<std::string> split_words(const std::string& txt) {
         }
     }
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
-
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) {
-        int oddCount = 0;
-        for (char c : result[0]) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
+    if (words.empty()) {
+        int count = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
+                count++;
             }
         }
-        result[0] = std::to_string(oddCount);
+        words.push_back(to_string(count));
     }
-
-    return result;
-}
-
-bool is_same(const std::string& txt) {
-    // Code for is_same function
+    return words;
 }
