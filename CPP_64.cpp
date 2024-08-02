@@ -1,11 +1,13 @@
+```cpp
 #include <string>
 
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && s.length() > 1 && s[s.length() - 1] == 'y')) {
+            (c == 'y' && s.find("y") != string::npos)) {
             count++;
         }
     }
     return count;
+}
