@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int bowlingScore(string s) {
