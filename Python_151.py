@@ -1,3 +1,3 @@
 ```
 def double_the_difference(lst):
-    return sum(map(lambda x: x ** 2, filter(lambda x: isinstance(x, int) and x > 0, lst)))
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
