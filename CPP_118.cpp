@@ -18,8 +18,7 @@ string get_closest_vowel(string word) {
     return "";
 }
 
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    // Add more test cases here
-    return 0;
-}
+assert(get_closest_vowel("Above") == "o");
+assert(get_closest_vowel("Example") == "e");
+assert(get_closest_vowel("Hello") == "o");
+assert(get_closest_vowel("Algorithm") == "o");
