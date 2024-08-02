@@ -1,40 +1,36 @@
 #include <iostream>
-#include <numeric>
 #include <vector>
+#include <algorithm>
+#include <numeric>
 #include <climits>
 
 using namespace std;
 
 int main() {
-    vector<int> vec;
-    int num;
-    
-    while (cin >> num) {
-        vec.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
-    int n = vec.size();
-    int diff = INT_MAX;
-    int idx = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
     for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(vec.begin(), vec.begin() + i, 0);
-        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
-        
-        if (std::abs(left_sum - right_sum) < diff) {
-            diff = std::abs(left_sum - right_sum);
-            idx = i;
+        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << vec[i] << "\n";
+    for (int i = 0; i < cutIndex; ++i) {
+        cout << nums[i] << endl;
     }
-    
-    cout << "\n";
-    
-    for (int i = idx; i < n; ++i) {
-        cout << vec[i] << "\n";
+    cout << endl;
+    for (int i = cutIndex; i < n; ++i) {
+        cout << nums[i] << endl;
     }
     
     return 0;
