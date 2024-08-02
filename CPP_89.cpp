@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
 
-int encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s){
+    string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'm'){
@@ -13,10 +12,5 @@ int encrypt(std::string s) {
             result += c;
         }
     }
-    return 0; 
-}
-
-int main() {
-    assert(encrypt("a") == "e");
-    return 0;
+    return result;
 }
