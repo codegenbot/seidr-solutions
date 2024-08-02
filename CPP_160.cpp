@@ -2,8 +2,8 @@
 #include <vector>
 #include <cmath>
 
-double do_algebra(std::vector<std::string> operator_, std::vector<int> operands) {
-    int result = (int)operands[0];
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operands) {
+    int result = 0;
     double prev_operand = (double)operands[0];
     for(int i = 1; i < operands.size(); i++) {
         if(operator_[i-1] == "+") {
