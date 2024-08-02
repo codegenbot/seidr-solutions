@@ -1,19 +1,11 @@
-#include <algorithm>
 #include <vector>
 #include <limits>
 
-bool issame(vector<float> a,vector<float>b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(std::abs(a[i]-b[i])>1e-5) return false;
-    }
-    return true;
-}
-
-vector<float> find_closest_elements(vector<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
+    std::numeric_limits<float>::max();
     float min_diff = std::numeric_limits<float>::max();
     float closest_pair[2];
-    
+
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = std::abs(numbers[i] - numbers[j]);
@@ -24,11 +16,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
             }
         }
     }
-    
-    vector<float> result(2);
+
+    std::vector<float> result(2);
     for (int i = 0; i < 2; ++i) {
         result[i] = closest_pair[i];
     }
-    
+
     return result;
 }
