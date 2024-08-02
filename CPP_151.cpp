@@ -12,22 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float input;
-    int count = 0;
-
-    while (true) {
-        std::cout << "Enter a number (or -1 to stop): ";
-        std::cin >> input;
-        if (input == -1) {
-            break;
-        }
-        lst.push_back(input);
-    }
-
-    long long result = double_the_difference(lst);
-
-    std::cout << "The sum of squares is: " << result << std::endl;
-
+    std::vector<float> lst = {1.5, -2.3, 3.7, -4.8};
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
