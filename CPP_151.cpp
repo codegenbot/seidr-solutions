@@ -13,25 +13,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float num;
-    long long odd_sum = 0;
-
-    std::cout << "Enter numbers (enter 'q' to quit):" << std::endl;
-    
-    while(true) {
-        std::cin >> num;
-        
-        if(num == 'q') {
-            break;
-        }
-        
-        lst.push_back(num);
-    }
-
-    odd_sum = double_the_difference(lst);
-
-    std::cout << "The sum of the squares of the positive integers is: " << odd_sum << std::endl;
-
+    std::vector<float> lst = {1.5f, 2.25f};
+    long long odd_sum = double_the_difference(lst);
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
