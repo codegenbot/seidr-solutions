@@ -1,21 +1,14 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::string>& words) {
+    // Function logic as described in the given code
 }
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word;
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word;
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -30,14 +23,14 @@ vector<string> split_words(string txt) {
         result.push_back(word);
     }
 
-    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+    if (result.size() == 1 && result[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) {
         int oddCount = 0;
         for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 oddCount++;
             }
         }
-        result[0] = to_string(oddCount);
+        result[0] = std::to_string(oddCount);
     }
 
     return result;
