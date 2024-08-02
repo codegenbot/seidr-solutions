@@ -1,4 +1,7 @@
-// Complete the following code given the task description and function signature.
+#include <map>
+#include <string>
+using namespace std;
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
     bool allLower = true, allUpper = true;
@@ -13,4 +16,9 @@ bool check_dict_case(map<string, string> dict) {
         allUpper &= isupper(key[0]);
     }
     return allLower || allUpper;
+}
+
+int main() {
+    assert (check_dict_case({}) == false);
+    // test your function here
 }
