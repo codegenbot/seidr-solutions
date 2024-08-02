@@ -7,7 +7,7 @@ bool pairs_sum_to_zero(std::vector<int> l) {
         if (seen.count(-i) || (i == 0 && seen.count(0))) {
             return true;
         }
-        seen.insert(-i);
+        seen.insert(i); // Modify to insert i instead of -i
     }
     return false;
 }
