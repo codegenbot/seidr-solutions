@@ -19,8 +19,8 @@ int main() {
             }
         }
     }
-    
+
     std::cout << input << std::endl;
-    
+
     return 0;
 }
