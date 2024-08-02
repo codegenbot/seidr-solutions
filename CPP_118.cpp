@@ -19,10 +19,10 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    cout << get_closest_vowel("Above") << endl;
-    cout << get_closest_vowel("Example") << endl;
-    cout << get_closest_vowel("Hello") << endl;
-    cout << get_closest_vowel("Algorithm") << endl;
+    assert(get_closest_vowel("Above") == "o");
+    assert(get_closest_vowel("Example") == "e");
+    assert(get_closest_vowel("Hello") == "o");
+    assert(get_closest_vowel("Algorithm") == "o");
 
     return 0;
 }
