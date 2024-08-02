@@ -8,10 +8,13 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    for(int i=str.length()-1; i>=0; i--){
-        if(is_palindrome(str.substr(0, i+1))){
-            return str + string(str.begin(), str.begin()+i).reverse();
-        }
-    }
-    return str;
+    if(is_palindrome(str)) return str; // If input string is already a palindrome, just return it
+    int i = 0;
+    while(i < str.length() && str[i] == ' ') i++; // skip leading spaces
+    for(int j = str.length()-1; j > i && str[j] == ' '; j--); // find the last non-space character from right
+    string prefix = str.substr(0, j+1);
+    int rev_len = str.length() - (j + 1);
+    string postfix = str.substr(j+1);
+    reverse(postfix.begin(),postfix.end());
+    return prefix + postfix;
 }
