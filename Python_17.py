@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def parse_music(music_string: str) -> List[int]:
     beats = []
     i = 0
