@@ -3,34 +3,34 @@
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result;
-    int even = 0, odd = 0;
-    
+    vector<int> result(2);
+    int count_even = 0;
+    int count_odd = 0;
+
     for (int i = 1; i <= n; i++) {
-        if (isPalindrome(i)) {
-            if (i % 2 == 0) {
-                even++;
-            } else {
-                odd++;
+        string str = to_string(i);
+        bool is_palindrome = true;
+
+        for (int j = 0; j < str.length() / 2; j++) {
+            if (str[j] != str[str.length() - 1 - j]) {
+                is_palindrome = false;
+                break;
             }
         }
-    }
-    
-    result.push_back(even);
-    result.push_back(odd);
-    
-    return result;
-}
 
-bool isPalindrome(int n) {
-    int rev = 0;
-    int temp = n;
-    
-    while (temp != 0) {
-        int digit = temp % 10;
-        rev = rev * 10 + digit;
-        temp /= 10;
+        if (!is_palindrome) continue;
+
+        int num = stoi(str);
+
+        if (num % 2 == 0)
+            count_even++;
+        else
+            count_odd++;
+
     }
-    
-    return n == rev;
+
+    result[0] = count_even;
+    result[1] = count_odd;
+
+    return result;
 }
