@@ -1,12 +1,14 @@
+```cpp
 bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (pair.first.empty()) return false; // empty key
+        if (dict.empty()) return false; // empty map
         if (!allLower && !allUpper) break; // not both lower and upper
 
-        for (char& c : pair.first) {
+        string key = pair.first;
+        for (char& c : key) {
             if ((c >= 'a' && c <= 'z') != allLower) {
                 allLower = false;
                 allUpper = true;
