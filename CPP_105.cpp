@@ -3,8 +3,9 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <iostream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -19,4 +20,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(digit_map[num]);
     }
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), std::vector<std::string>{"Nine", "Four", "Eight"}));
+    return 0;
 }
