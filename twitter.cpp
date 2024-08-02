@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
+#include <clocale>
 
 using namespace std;
 
 string validateTweet(string tweet) {
+    setlocale(LC_CTYPE, "en_US.UTF-8");
     if(tweet.empty()) return "You didn't type anything";
-    if(tweet.length() > 140) return "Too many characters";
-    return "Your tweet has " + to_string(tweet.length()) + " characters";
+    if(mblen(tweet.c_str(), tweet.length()) > 140) return "Too many characters";
+    return "Your tweet has " + to_string(mblen(tweet.c_str(), tweet.length())) + " characters";
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cin.ignore(); 
     cout << validateTweet(tweet) << endl;
     return 0;
 }
