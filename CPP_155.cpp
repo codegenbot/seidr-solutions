@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
