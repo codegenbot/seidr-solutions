@@ -1,4 +1,4 @@
-```
+```cpp
 std::string int_to_mini_roman(int number) {
     std::vector<std::pair<int, std::string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                             {400, "CD"}, {100, "C"}, {90, "XC"},
@@ -9,7 +9,7 @@ std::string int_to_mini_roman(int number) {
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
-            result += pair.second[0];
+            result += to_string(pair.second[0]).toLowerCase();
         }
     }
 
