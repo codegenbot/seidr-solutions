@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 
 int solution(vector<int> lst) {
@@ -9,4 +9,9 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(solution({3, 13, 2, 9}) == 16);
+    return 0;
 }
