@@ -1,12 +1,9 @@
-Here is the solution:
-
 bool iscuber(int a){
     int i = 1;
-    while (true) {
-        if (pow(i, 3) == a)
+    while (pow(i,3) <= a){
+        if(pow(i,3) == a)
             return true;
-        else if (pow(i, 3) > a)
-            return false;
         i++;
     }
+    return false;
 }
