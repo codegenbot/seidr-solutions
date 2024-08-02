@@ -1,35 +1,51 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int>& v) {
-    int n = v.size();
-    vector<int> left(n);
-    for (int i = 0; i < n; i++) {
-        left[i] = v[i];
-    }
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int splitIndex = -1;
-    for (int i = 0; i < n; i++) {
-        int leftSum = 0;
-        int rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            rightSum += v[j];
-        }
-        int diff = abs(leftSum - rightSum);
+    int cutIndex = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
         if (diff < minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            cutIndex = i;
         }
     }
-    vector<vector<int>> result(2);
-    for (int i = 0; i <= splitIndex; i++) {
-        result[0].push_back(v[i]);
+
+    std::vector<int> leftVec, rightVec;
+
+    for (int i = 0; i <= cutIndex; i++) {
+        leftVec.push_back(vec[i]);
     }
-    for (int i = splitIndex + 1; i < n; i++) {
-        result[1].push_back(v[i]);
+
+    for (int i = cutIndex + 1; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
     }
-    return result;
+
+    return {leftVec, rightVec};
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (int& x : vec) {
+        std::cin >> x;
+    }
+
+    auto result = cutVector(vec);
+
+    for (const auto& num : result.first) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    for (const auto& num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
