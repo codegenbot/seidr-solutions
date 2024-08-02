@@ -1,10 +1,3 @@
+```
 def split_words(txt):
-    words = txt.split()
-    if any(char.isalnum() for char in words[0]):
-        return words
-    else:
-        return sum(
-            ord(c) - ord("a")
-            for c in txt.lower()
-            if "abcdefghijklmnopqrstuvwxyz".index(c) % 2 != 0
-        )
+    return txt.split() if ' ' in txt else (txt.split(',') if ',' in txt else sum(1 for i in range(ord('a'), ord('z')+1) if txt[i%26].islower()))
