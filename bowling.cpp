@@ -1,7 +1,6 @@
-```cpp
 #include <sstream>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int rolls = 0;
 
@@ -11,22 +10,20 @@ int bowlingScore(string s) {
             rolls++;
         } else if (isdigit(s[i])) {
             int frameScore = 10 - (s[i] - '0');
-            
+
             if (i + 1 < s.length() && s[i + 1] == '/') {
                 frameScore = 10 - (s[i] - '0') / 2;
                 i++;
             }
-            
+
             score += frameScore;
             rolls++;
         } else if (s[i] == '/') {
-            int spare = 10 - (s[i - 1] - '0');
-            score += spare;
-            rolls++;
+            continue;
         }
-        
+
         if (rolls >= 10) break;
     }
-    
+
     return score;
 }
