@@ -1,24 +1,19 @@
-```cpp
-int count_digits = 0;
-bool found_dot = false;
-
-for(int i=0; i<file_name.length(); i++){
-    if(file_name[i] >= '0' && file_name[i] <= '9'){
-        count_digits++;
+````
+string file_name_check(string file_name){
+    int dot_position = file_name.find(".");
+    if(dot_position == string::npos || dot_position > 0 && !isalpha(file_name[0])){
+        return "No";
     }
-    else if(file_name[i] == '.'){
-        found_dot = true;
+    string before_dot = file_name.substr(0, dot_position);
+    string after_dot = file_name.substr(dot_position + 1);
+    int digit_count = count(before_dot.begin(), before_dot.end(), '0') + count(before_dot.begin(), before_dot.end(), '1') +
+                       count(before_dot.begin(), before_dot.end(), '2') + count(before_dot.begin(), before_dot.end(), '3') +
+                       count(before_dot.begin(), before_dot.end(), '4') + count(before_dot.begin(), before_dot.end(), '5') +
+                       count(before_dot.begin(), before_dot.end(), '6') + count(before_dot.begin(), before_dot.end(), '7') +
+                       count(before_dot.begin(), before_dot.end(), '8') + count(before_dot.begin(), before_dot.end(), '9');
+    if(digit_count > 3 || after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
+        return "No";
     }
-    else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l')){
-        return "Yes";
-    }
+    return "Yes";
 }
-
-if(count_digits > 3 || !found_dot) {
-    return "No";
-}
-else if(file_name.length() < 2 || (file_name[0] < 'a' && file_name[0] > 'z') && (file_name[0] < 'A' && file_name[0] > 'Z')) {
-    return "No";
-}
-
-return "Yes";
+```
