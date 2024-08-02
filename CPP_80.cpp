@@ -6,8 +6,10 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         string sub = s.substr(i, 3);
-        set<char> unique(sub.begin(), sub.end());
-        if (unique.size() != 3)
+        bool distinct = true;
+        auto unique_chars = sub.begin(), end_unique_chars = sub.end();
+        std::unique(unique_chars, end_unique_chars);
+        if(distance(unique_chars, end_unique_chars) < 3)
             return false;
     }
     return true;
