@@ -1,14 +1,17 @@
-int is_bored(string S){
-    int boredom_count = 0;
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+int is_bored(string S) {
+    int count = 0;
     string sentence;
-    for(int i=0; i<S.size(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(sentence.size() > 2 && sentence.substr(0,3)=="I am")
-                boredom_count++;
+    for (char c : S) {
+        if (c == '.' || c == '?' || c == '!') {
+            if (sentence.find("I") != string::npos)
+                count++;
             sentence = "";
-        } else {
-            sentence += S[i];
-        }
+        } else
+            sentence += c;
     }
-    return boredom_count;
+    return count;
 }
