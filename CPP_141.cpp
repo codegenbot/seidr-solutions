@@ -1,26 +1,34 @@
-Here is the completed code:
-
-```cpp
-bool has_digits = false;
-int dot_count = 0;
-
-for(int i = 0; i < file_name.size(); i++) {
-    if(isdigit(file_name[i])) {
-        if(has_digits) return "No";
-        has_digits = true;
-    } else if(file_name[i] == '.') {
-        dot_count++;
+int count_digits(const string &file_name) {
+    int count = 0;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            count++;
+        }
     }
+    return count;
 }
 
-if(dot_count != 1 || !has_digits || (file_name[0] < 'a' && file_name[0] > 'z') && (file_name[0] < 'A' && file_name[0] > 'Z')) return "No";
-
-string extension = "";
-for(int i = file_name.find('.') + 1; i < file_name.size(); i++) {
-    if(file_name[i] == '.') break;
-    extension += file_name[i];
+bool check_extension(const string &file_name) {
+    size_t pos = file_name.find('.');
+    if (pos == string::npos) {
+        return false;
+    }
+    string extension = file_name.substr(pos + 1);
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    return find(valid_extensions.begin(), valid_extensions.end(), extension) != valid_extensions.end();
 }
 
-if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-
-return "Yes";
+string file_name_check(string file_name) {
+    if (count_digits(file_name) > 3) {
+        return "No";
+    }
+    size_t pos = file_name.find('.');
+    if (pos == string::npos || file_name.substr(0, pos).empty() ||
+        !isalpha(file_name[0])) {
+        return "No";
+    }
+    if (!check_extension(file_name)) {
+        return "No";
+    }
+    return "Yes";
+}
