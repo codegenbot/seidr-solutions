@@ -1,19 +1,12 @@
-Here is the solution:
+Here is the completed code:
 
 def decode_cyclic(s: str):
     result = ""
-    temp = ""
-    for char in s:
-        temp += char
-        if len(temp) == 3:
-            if len(result) > 0 and result[-1] == temp[0]:
-                result += temp[2]
-            else:
-                result += temp
-            temp = ""
-    if len(temp) > 0:
-        if len(result) > 0 and result[-1] == temp[0]:
-            result += temp[2]
+    i = 0
+    while i < len(s):
+        if (i + 3) <= len(s): # group of three exists
+            result += s[i:i+3][1] + s[i:i+3][0]
         else:
-            result += temp
+            result += s[i:]
+        i += 3
     return result
