@@ -1,30 +1,21 @@
 #include <iostream>
 using namespace std;
 
-void coinSums() {
-    int cents;
-    cin >> cents;
-    
-    vector<int> coins = {25, 10, 5, 1}; // quarters, dimes, nickles, pennies
-    vector<int> results(4);
-    
-    for (int i = 0; i < 4; ++i) {
-        while (cents >= coins[i]) {
-            cents -= coins[i];
-            results[i]++;
-        }
-    }
-    
-    cout << results[3] << endl;
-    if (results[2] > 0) cout << results[2] << endl;
-    else cout << "0" << endl;
-    if (results[1] > 0) cout << results[1] << endl;
-    else cout << "0" << endl;
-    if (results[0] > 0) cout << results[0] << endl;
-    else cout << "0" << endl;
+void findCoinSum(int cents) {
+    int pennies = cents / 1;
+    int nickles = cents / 5 - pennies;
+    int dimes = cents / 10 - nickles * 2;
+    int quarters = cents / 25 - dimes * 2 - nickles * 4;
+
+    cout << pennies << endl;
+    cout << nickles << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
 }
 
 int main() {
-    coinSums();
+    int cents;
+    cin >> cents;
+    findCoinSum(cents);
     return 0;
 }
