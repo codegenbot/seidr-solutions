@@ -1,4 +1,4 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -18,9 +18,9 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    cout << solveBoolean("T|F") << endl;  // Expected output: 1
-    cout << solveBoolean("F&F") << endl;  // Expected output: 0
-    cout << solveBoolean("T&T") << endl;  // Expected output: 1
-    cout << solveBoolean("T|T") << endl;   // Expected output: 1
+    string inputs[] = {"T&F|F", "F&F&F", "|T&T&F"};
+    for (string input : inputs) {
+        cout << input << ": " << solveBoolean(input) << endl;
+    }
     return 0;
 }
