@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
     vector<int> numbers;
-    int n;
-    while (cin >> n) {
+    int count;
+    cin >> count;
+
+    for (int i = 0; i < count; ++i) {
+        int n;
+        cin >> n;
         numbers.push_back(n);
     }
 
