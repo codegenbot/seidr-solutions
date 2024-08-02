@@ -1,15 +1,3 @@
-def check():
-    def process_numbers(numbers, delimiter):
-        result = []
-        for i in range(len(numbers)):
-            result.append(numbers[i])
-            if i < len(numbers) - 1:
-                result.append(delimiter)
-        return result
-
-    numbers = [1, 2, 3, 4, 5]
-    delimiter = ","
-    output = process_numbers(numbers, delimiter)
-    print(output)
-
-check()
+def check(nums, delim):
+    res = process_numbers(nums, delim)
+    return res
