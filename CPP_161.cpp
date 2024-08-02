@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <cassert>
-
-std::string solve(const std::string &s) {
+string solve(const string &s) {
     for (char &c : s) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
@@ -16,11 +11,8 @@ std::string solve(const std::string &s) {
     
     return s;
 }
-
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << solve(input) << std::endl;
+    // Add necessary #include statements here
     
     return 0;
 }
