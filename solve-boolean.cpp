@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -20,7 +21,7 @@ bool solveBoolean(string s) {
         if(s[j] == '&') break;
         j++;
     }
-    string right = (s.length() > j) ? s.substr(j) : "";
+    string right = (s.length() > j) ? s.substr(j) : ""; 
 
     return solveBoolean(left) || solveBoolean(right);
 }
