@@ -1,4 +1,4 @@
-\#include <iostream>
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -11,10 +11,10 @@ int main() {
         if (c == '-' || c == ' ') {
             capitalize = true;
         } else {
-            if (capitalize || std::islower(c)) {
+            if (capitalize) {
                 c = std::toupper(c);
                 capitalize = false;
-            } else if (!capitalize && std::isupper(c)) {
+            } else if (!capitalize && std::isalpha(c)) {
                 c = std::tolower(c);
             }
         }
