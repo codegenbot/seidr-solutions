@@ -2,14 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
-
-using namespace std;
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), [](float x, float y) {
-        return std::abs(x - y) < 0.0001f; // Adjust epsilon value as needed
-    });
+    return a == b;
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
@@ -31,6 +26,5 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}),
-                  std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
