@@ -1,4 +1,4 @@
-```python
+```
 def parse_music(music_string: str) -> List[int]:
     beats = []
     i = 0
