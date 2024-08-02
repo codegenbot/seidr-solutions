@@ -1,11 +1,16 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int main() {
     vector<int> digits(16);
     for (int i = 0; i < 16; ++i) {
         cin >> digits[i];
+        if (cin.fail()) {
+            cout << "Invalid input. Please enter integers only." << endl;
+            return 1;
+        }
     }
 
     int sum = 0;
