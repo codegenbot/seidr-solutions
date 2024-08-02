@@ -18,10 +18,10 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    cout << get_closest_vowel("Above") << endl;
-    cout << get_closest_vowel("Example") << endl;
-    cout << get_closest_vowel("Hello") << endl;
-    cout << get_closest_vowel("Algorithm") << endl;
-    
+    string words[] = {"Above", "Example", "Hello", "Algorithm"};
+    for (const string& word : words) {
+        cout << get_closest_vowel(word) << endl;
+    }
+
     return 0;
 }
