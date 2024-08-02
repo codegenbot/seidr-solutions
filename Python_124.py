@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     month, day, year = map(int, date.split('-'))
     if len(str(date)) != 10:
