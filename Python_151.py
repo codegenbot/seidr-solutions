@@ -1,6 +1,8 @@
 def check():
-    numbers = [int(input("Enter a number: ")) for _ in range(5)]
-    print(double_the_difference(numbers))
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    lst = [num1, num2]
+    print(double_the_difference(lst))
 
 
 def double_the_difference(lst):
