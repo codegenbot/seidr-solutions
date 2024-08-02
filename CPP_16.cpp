@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <cassert> //<-- Add this line for 'assert' definition
+#include <cassert>
 
 int count_distinct_characters(const std::string& str) {
     std::string sorted_str = str;
