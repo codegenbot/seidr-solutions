@@ -6,7 +6,9 @@ std::vector<int> intersperse(const std::vector<int>& input, int value) {
     std::vector<int> result;
     for (size_t i = 0; i < input.size(); ++i) {
         result.push_back(input[i]);
-        result.push_back(value);
+        if (i != input.size() - 1) {
+            result.push_back(value);
+        }
     }
     return result;
 }
