@@ -1,9 +1,31 @@
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+
 def make_palindrome(string: str) -> str:
-    string = string.lower()
-    if is_palindrome(string):
-        return string
+    if string.islower():
+        for i in range(len(string)):
+            lowercase_postfix = string[i:].lower()
+            if is_palindrome(lowercase_postfix):
+                prefix_chars = [
+                    char.upper() if char.isalpha() and char.isupper() else char
+                    for char in string[:i]
+                ]
+                return (
+                    "".join(prefix_chars)
+                    + "#" * (len(string) - len(lowercase_postfix))
+                    + lowercase_postfix[::-1].capitalize()
+                )
     else:
         for i in range(len(string)):
-            postfix = string[i:]
-            if is_palindrome(postfix):
-                return string[:i] + postfix[::-1]
+            lowercase_postfix = string[i:].lower()
+            if is_palindrome(lowercase_postfix):
+                prefix_chars = [
+                    char.upper() if char.isalpha() and char.isupper() else char
+                    for char in string[:i]
+                ]
+                return (
+                    "".join(prefix_chars)
+                    + "#" * (len(string) - len(lowercase_postfix))
+                    + lowercase_postfix[::-1].capitalize()
+                )
