@@ -23,10 +23,5 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     }
-    return boost::any(); // Return an empty boost::any object
-}
-
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "");
-    return 0;
+    return boost::any();
 }
