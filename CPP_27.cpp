@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 using namespace std;
 
 string flip_case(string str){
@@ -11,3 +12,8 @@ string flip_case(string str){
             result += str[i];
     }
     return result;
+}
+
+int main(){
+   assert (flip_case("These violent delights have violent ends") == "tHeSe ViOlEnT dElIgHts HaVe ViOlEnT eNdS");
+}
