@@ -12,6 +12,6 @@ bool issame(std::pair<int, int> a, std::pair<int, int> b){
 }
 
 int main(){
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), std::make_pair(5, 0)));
     return 0;
 }
