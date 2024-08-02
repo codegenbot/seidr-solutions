@@ -18,6 +18,7 @@ int main() {
         distance += diff * diff;
     }
     distance = sqrt(distance);
+
     cout << distance << endl;
 
     return 0;
