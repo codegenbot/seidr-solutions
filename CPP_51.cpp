@@ -6,8 +6,7 @@ std::string remove_vowels(std::string text) {
     for (char c : text) {
         if (!ispunct(c) && !isupper(c) && !islower(c))
             continue;
-        if (!ispunct(c) && !isspace(c) && 
-            (c != 'a' || c != 'e' || c != 'i' || c != 'o' || c != 'u'))
+        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'))
             result += c;
     }
     return result;
