@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
+#include <iomanip>
 
 std::string validateTweet(std::string tweet) {
     if (tweet.empty()) {
