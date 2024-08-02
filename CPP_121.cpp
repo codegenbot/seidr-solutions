@@ -1,19 +1,14 @@
 #include <vector>
-#include <iostream>
 
 int main() {
-    int sum = 0;
     std::vector<int> lst;
-    int n;
-    
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    int sum = 0;
 
-    for (int i = 1; i <= n; i++) {
-        int x;
-        std::cout << "Enter element " << i << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+    // Input the list of numbers
+    for (int i = 0; i < 5; i++) {
+        int num;
+        std::cin >> num;
+        lst.push_back(num);
     }
 
     for (int i = 1; i < lst.size(); i++) {
@@ -21,6 +16,6 @@ int main() {
             sum += lst[i];
         }
     }
-    
+
     return sum;
 }
