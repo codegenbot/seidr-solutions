@@ -1,31 +1,60 @@
-```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+int main() {
+    vector<string> strings;
+    string substring;
+
+    cout << "Enter the number of strings: ";
+    int n;
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        strings.push_back(s);
+    }
+
+    cout << "Enter the substring to filter by: ";
+    cin >> substring;
+
+    vector<string> result = filter_by_substring(strings, substring);
+
+    if(result.empty()) {
+        cout << "No strings contain the given substring." << endl;
+    } else {
+        vector<string> same_strings;
+        for(auto str : strings) {
+            if(issame(result, vector<string>(str.begin(), str.end()))){
+                same_strings.push_back(str);
+            }
+        }
+
+        if(same_strings.empty()) {
+            cout << "No strings contain the same substring as the given string." << endl;
+        } else {
+            cout << "Strings that contain the same substring are: ";
+            for(auto s : same_strings) {
+                cout << s << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(auto str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        if(str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main() {
-    vector<string> vec1 = {"apple", "banana", "cherry"};
-    vector<string> vec2 = {"banana", "cherry", "date"};
-
-    if (issame(filter_by_substring(vec1, "an"), filter_by_substring(vec2, "an"))) {
-        cout << "The vectors are the same." << endl;
-    } else {
-        cout << "The vectors are not the same." << endl;
-    }
-
-    return 0;
 }
