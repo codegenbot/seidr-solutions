@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame({"Jupiter"}, {"Makemake"}));
-
+    assert(issame({"Jupiter", "Makemake"}, {"Jupiter", "Makemake"}));
+    
     return 0;
 }
