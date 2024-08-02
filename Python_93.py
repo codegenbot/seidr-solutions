@@ -6,7 +6,7 @@ def encode(message):
             if char.upper() in vowels:
                 encoded_message += chr(ord(char) + 2)
             else:
-                encoded_message += chr(ord(char) + 1)  # Modify this line to encode non-vowel characters
+                encoded_message += chr(ord(char) - 1)
         else:
             encoded_message += char
     return encoded_message
