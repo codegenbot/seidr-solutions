@@ -1,20 +1,14 @@
-#include <vector>
-#include <iostream>
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= n && i < m; ++i) {
-        total += 1.0 / m;
-    }
-    for (int i = m + 1; i <= n; ++i) {
-        total += 1.0 / n;
-    }
-    return total;
-}
+double getProbability(int n, int m) {
+    double total = (double)n * m;
+    double count = 0;
 
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << diceGame(n, m) << std::endl;
-    return 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < m && j < i; j++) {
+            count++;
+        }
+    }
+
+    return count / total;
 }
