@@ -22,4 +22,4 @@ def minPath(grid, k):
         for j in range(n):
             dfs(i, j, [grid[i][j]])
 
-    return min_path 
+    return min_path
