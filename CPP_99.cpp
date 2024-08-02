@@ -1,6 +1,5 @@
 #include <cmath>
 #include <cassert>
-
 using namespace std;
 
 int closest_integer(const string& value) {
