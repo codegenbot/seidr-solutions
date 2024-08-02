@@ -26,5 +26,8 @@ std::string string_to_md5(const std::string& text) {
 
 int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert(string_to_md5("hello") == "5d41402abc4b2a76b9719d911017c592");
+    assert(string_to_md5("123456") == "e10adc3949ba59abbe56e057f20f883e");
+
     return 0;
 }
