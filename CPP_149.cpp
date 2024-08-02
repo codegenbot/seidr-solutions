@@ -10,15 +10,15 @@ bool issame(const string& a, const string& b){
 }
 
 vector<string> sorted_list_sum(const vector<string>& lst){
-    vector<string> temp_lst = lst;
-    temp_lst.erase(remove_if(temp_lst.begin(), temp_lst.end(), [](const string& s){return s.length() % 2 != 0;}), temp_lst.end());
-    sort(temp_lst.begin(), temp_lst.end(), [](const string& a, const string& b){
+    vector<string> tempList = lst;
+    tempList.erase(remove_if(tempList.begin(), tempList.end(), [](const string& s){return s.length() % 2 != 0;}), tempList.end());
+    sort(tempList.begin(), tempList.end(), [](const string& a, const string& b){
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return temp_lst;
+    return tempList;
 }
 
 int main() {
