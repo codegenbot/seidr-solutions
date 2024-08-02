@@ -1,12 +1,13 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
-std::vector<int> intersperse(const std::vector<int>& a, int num) {
+std::vector<int> intersperse(const std::vector<int>& vec, int value) {
     std::vector<int> result;
-    for (int i : a) {
-        result.push_back(i);
-        result.push_back(num);
+    for (const auto& elem : vec) {
+        result.push_back(elem);
+        result.push_back(value);
     }
+    result.pop_back();
     return result;
 }
 
