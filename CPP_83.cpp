@@ -8,4 +8,3 @@ int starts_one_ends(int n) {
         }
     }
     return count;
-}
