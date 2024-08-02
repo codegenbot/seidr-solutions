@@ -25,11 +25,7 @@ int main() {
 
     long long result = double_the_difference(numbers);
 
-    if (!numbers.empty()) {
-        std::cout << "The sum of the squares of positive integers: " << result << std::endl;
-    } else {
-        std::cout << "No positive integers were entered." << std::endl;
-    }
+    std::cout << "The sum of squares of positive integers is: " << result << std::endl;
 
     return 0;
 }
