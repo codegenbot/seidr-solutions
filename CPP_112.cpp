@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<std::string, bool> issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     std::string result = "";
     for(char ch : result){
         if(c.find(ch) == std::string::npos){
@@ -11,5 +11,5 @@ std::pair<std::string, bool> issame(std::vector<std::string> a, std::vector<std:
     }
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
-    return {result, result == result_reverse};
+    return std::make_pair(result, result == result_reverse);
 }
