@@ -16,5 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif in_parentheses:
             temp += char
         else:
-            temp += char
+            result.append(char)
     return result
