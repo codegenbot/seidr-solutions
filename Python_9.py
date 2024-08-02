@@ -8,9 +8,11 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_so_far)
     return result
 
-# Input: take a list of integers from the user
-numbers = list(map(int, input("Enter a list of integers separated by space: ").split())
+numbers = []
+while True:
+    try:
+        numbers.append(int(input().strip()))
+    except EOFError:
+        break
 
-# Call the function with the user input
-output = rolling_max(numbers)
-print(output)
+print(rolling_max(numbers))
