@@ -22,7 +22,7 @@ string file_name_check(string file_name) {
         if (file_name[i] == '.') {
             dotCount++;
         }
-        if (!isalpha((unsigned char)file_name[i])) {
+        if (!isalpha((unsigned char)file_name[i]) && !isdigit(file_name[i])) {
             return "No";
         }
         validStart = true;
