@@ -34,15 +34,15 @@ int main() {
     
     cout << "Left Vector: ";
     for (int num : result.first) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    
+    std::cout << std::endl;
+
     cout << "Right Vector: ";
     for (int num : result.second) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
-    
+    std::cout << std::endl;
+
     return 0;
 }
