@@ -1,5 +1,7 @@
-#include <boost/any.hpp>
+```
 #include <string>
+#include <boost/any.hpp>
+#include <boost/convert.hpp>
 
 using namespace std;
 
@@ -13,13 +15,22 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         else
             return boost::any("None");
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = (string)b.convert_to<string>();
+        int i = (int)a.convert_to<int>();
+        if (to_string(i) > str)
+            return a;
+        else if (to_string(i) < str)
+            return boost::any(b);
+        else
+            return boost::any("None");
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         string str = (string)b.convert_to<string>();
         float f = (float)a.convert_to<float>();
-        if (str > to_string(f))
-            return b;
-        else if (str < to_string(f))
+        if (to_string(f) > str)
             return a;
+        else if (to_string(f) < str)
+            return boost::any(b);
         else
             return boost::any("None");
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
