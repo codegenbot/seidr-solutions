@@ -2,7 +2,6 @@
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
-
 vector<int> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return {};
