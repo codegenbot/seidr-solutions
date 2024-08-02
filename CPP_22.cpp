@@ -1,24 +1,15 @@
-```cpp
-#include <vector>
-#include <list>
-#include <any>
-#include <cassert>
-
-bool compare_vectors(std::vector<int> a, std::vector<int> b) {
-    // Your comparison logic here
-}
-
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(std::any_cast<int>(value));
+        if (any_cast<int>(value).type() == typeid(int)) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
 }
 
-int main() {
-    assert(std::equal(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {1, 2, 3}));
-    return 0;
+bool compare_vectors(vector<int> a, vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
+
+assert(compare_vectors(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {1, 2, 3}));
