@@ -1,5 +1,5 @@
-```python
-def parse_music(music_string: str) -> List[int]:
+```
+def parse_music(music_string: str) -> list[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     beats = []
     note = ''
@@ -7,7 +7,7 @@ def parse_music(music_string: str) -> List[int]:
         if char in ['o', 'o|']:
             note = char
         elif char == '|':
-            beats.append(notes.get(note, 0))
+            beats.append(notes[note])
             note = ''
         elif char == '.':
             beats.append(notes['.|'])
