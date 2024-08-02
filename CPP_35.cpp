@@ -1,7 +1,14 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
-    std::vector<float> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}; 
+    std::vector<int> l; 
+    std::cin >> l[0];
+    for(int i = 1; i < 3; i++) {
+        int temp;
+        std::cin >> temp;
+        l.push_back(temp);
+    }
     return *std::max_element(l.begin(), l.end());
 }
