@@ -11,7 +11,7 @@ int main() {
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
         int num = digits[i];
-        if (i % 2 == 0) {
+        if ((i + 1) % 2 == 0) {
             int doubled = num * 2;
             if (doubled > 9) {
                 doubled -= 9;
