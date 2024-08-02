@@ -1,20 +1,14 @@
-Here is the solution:
+bool has_digit = false;
+int dot_count = 0;
 
-string file_name_check(string file_name){
-    int count = 0;
-    bool found_dot = false;
-    for(int i = 0; i < file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            count++;
-            if(count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && !isalpha(file_name[i])) return "No";
+for (char c : file_name) {
+    if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) break;
+    } else if (isdigit(c)) {
+        has_digit = true;
+        if (++count > 3) break;
     }
-    if(!found_dot) return "No";
-    string ext = file_name.substr(file_name.find('.') + 1);
-    if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
-    return "Yes";
 }
+
+return (has_digit || dot_count != 1) ? "No" : ((file_name.substr(0, file_name.find('.')).find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos || !({{"txt", "exe", "dll"}}.count(file_name.substr(file_name.find('.') + 1)))) ? "No" : "Yes";
