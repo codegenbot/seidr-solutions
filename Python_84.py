@@ -1,4 +1,3 @@
-```Python
 def solve(N):
     total_sum = 0
     for digit in str(N):
