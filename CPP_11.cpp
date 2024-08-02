@@ -9,4 +9,3 @@ string string_xor(string a, string b) {
             result += a[i];
     }
     return result;
-}
