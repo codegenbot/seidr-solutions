@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string file_name_check(const std::string& file_name) {
     int digitCount = 0;
@@ -31,4 +30,6 @@ std::string file_name_check(const std::string& file_name) {
 
 int main() {
     assert(file_name_check("s.") == "No");
+    
+    return 0;
 }
