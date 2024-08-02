@@ -14,8 +14,8 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, NULL);
     EVP_MD_CTX_free(mdctx);
-    
-    char mdString[EVP_MAX_MD_SIZE * 2 + 1]; 
+
+    char mdString[EVP_MAX_MD_SIZE * 2 + 1];
     for (int i = 0; i < EVP_MD_size(EVP_md5()); i++) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
     }
