@@ -1,10 +1,19 @@
 #include <boost/any.hpp>
-#include <iostream>
 #include <list>
 #include <vector>
 
-namespace boost {
-    template<typename T> bool is_same(const boost::any& a) { return a.type() == typeid(T); }
+bool issame(const boost::any& a) {
+    return true;
+}
+
+int main() {
+    std::list<boost::any> values = {{1}, {2}, {3}};
+    std::vector<int> result = filter_integers(values);
+    assert(std::all_of(result.begin(), result.end(), &issame));
+    for (const auto& value : result) {
+        std::cout << value << " ";
+    }
+    return 0;
 }
 
 std::vector<int> filter_integers(std::list<boost::any>& values) {
