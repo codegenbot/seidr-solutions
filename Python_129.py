@@ -1,8 +1,3 @@
-n = int(input())
-grid = [list(map(int, input().split())) for _ in range(n)]
-k = int(input())
-
-
 def minPath(grid, k):
     n = len(grid)
     start = min(min(row) for row in grid)
@@ -26,5 +21,7 @@ def minPath(grid, k):
 
     return path
 
-
-minPath(grid, k)
+grid = [[10, 12, 15], [13, 14, 16], [19, 20, 21]]
+k = 5
+result = minPath(grid, k)
+print(result)
