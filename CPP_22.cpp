@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
@@ -6,7 +7,7 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         int integer = boost::any_cast<int>(value);
-        if (!integer.empty()) { 
+        if (!integer.empty()) { // Check if the cast was successful
             result.push_back(integer);
         }
     }
