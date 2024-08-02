@@ -1,3 +1,7 @@
+bool issame(int a, int b) {
+    return (a == -1 && b == -1) || (a == 1 && b == 1);
+}
+
 vector<int> largest_smallest_integers(vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
@@ -11,9 +15,13 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {(maxNeg == 0 ? 0 : maxNeg), (minPos == INT_MAX ? 0 : minPos)};
-}
+    vector<int> result;
+    if (!issame(maxNeg, 0)) {
+        result.push_back(maxNeg);
+    }
+    if (!issame(minPos, INT_MAX)) {
+        result.push_back(minPos);
+    }
 
-bool issame(int a, int b) {
-    return (a >= 0 && b >= 0) || (a < 0 && b < 0);
+    return result;
 }
