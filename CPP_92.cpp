@@ -1,22 +1,21 @@
-```c++
 #include <iostream>
 using namespace std;
 
 bool any_int(float a, float b, float c) {
     int ai = a, bi = b, ci = c;
-    if(ai == bi + ci || bi == ai + ci || ci == ai + bi)
-        return true;
-    else
+    if (!(ai == bi + ci || bi == ai + ci || ci == ai + bi)) {
+        cout << "Error: No integer can be expressed as the sum of two other integers." << endl;
         return false;
+    }
+    return true;
 }
 
 int main() {
     float a, b, c;
-    cout << "Enter three numbers: ";
     cin >> a >> b >> c;
-    if(any_int(a, b, c))
-        cout << "At least one of the integers is equal to the sum of the other two." << endl;
+    if (any_int(a, b, c))
+        cout << "The numbers can be represented as the sum of two integers." << endl;
     else
-        cout << "No integer is equal to the sum of the other two." << endl;
+        cout << "The numbers cannot be represented as the sum of two integers." << endl;
     return 0;
 }
