@@ -39,4 +39,3 @@ long long eval(const string& s) {
         }
     }
     return res;
-}
