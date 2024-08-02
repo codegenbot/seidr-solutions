@@ -3,26 +3,13 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-
 def find_indices(text, target):
     indices = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos == -1:
+    index = 0
+    while index < len(text):
+        index = text.find(target, index)
+        if index == -1:
             break
-        indices.append(pos)
-        start = pos + 1
+        indices.append(index + 1)
+        index += 1
     return indices
-
-
-# Read input from user
-a = int(input())
-b = int(input())
-
-print(gcd(a, b))
-
-text = input()
-target = input()
-
-print(find_indices(text, target))
