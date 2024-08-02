@@ -15,11 +15,10 @@ def minPath(grid, k):
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 if next_cell is None or grid[ni][nj] < grid[next_cell[0]][next_cell[1]]:
                     next_cell = (ni, nj)
-        if next_cell is not None:
-            path.append(grid[next_cell[0]][next_cell[1]])
-            visited.add(next_cell)
-            i, j = next_cell  # Update i and j with the coordinates of the next cell
-        else:
-            break  # Exit the loop if there are no valid next cells
+        if next_cell is None:  # Add this condition to handle when next_cell is None
+            break
+        path.append(grid[next_cell[0]][next_cell[1]])
+        visited.add(next_cell)
+        i, j = next_cell  # Update i and j with the coordinates of the next cell
 
     return path
