@@ -1,20 +1,19 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-string flip_case(string str){
-    string result = "";
-    for(int i=0; i<str.length(); i++){
-        if(str[i] >= 'a' && str[i] <= 'z'){
-            result += toupper(str[i]);
-        } else {
-            result += tolower(str[i]);
+std::string filp_case(std::string str) {
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] >= 'a' && str[i] <= 'z') {
+            str[i] -= ('a' - 'A');
+        } else if(str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] += ('a' - 'A');
         }
     }
-    return result;
+    return str;
 }
 
 int main() {
-    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << flip_case("These violent delights have violent ends") << std::endl;
     return 0;
 }
