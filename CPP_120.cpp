@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& arr, int x, int y) {
-    return std::count(arr.begin(), arr.end(), x) == std::count(arr.begin(), arr.end(), y);
+bool issame(const vector<int>& arr1, const vector<int>& arr2) {
+    return arr1.size() == arr2.size() && equal(arr1.begin(), arr1.end(), arr2.begin());
 }
 
-std::vector<int> solve(std::vector<int>& arr, int k) {
-    std::sort(arr.begin(), arr.end(), std::greater<int>());
-    std::vector<int> result(arr.begin(), arr.begin() + k);
+vector<int> solve(vector<int>& arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
+    vector<int> result(arr.begin(), arr.begin() + k);
     return result;
 }
