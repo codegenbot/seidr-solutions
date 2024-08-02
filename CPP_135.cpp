@@ -16,20 +16,18 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    arr.resize(n);
     
     for (int i = 0; i < n; i++) {
-        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        arr.push_back(num);
+        std::cin >> arr[i];
     }
     
     int result = can_arrange(arr);
-    
-    if (result != -1) {
-        std::cout << "The first index that the array cannot be arranged in ascending order is: " << result << std::endl;
+    if (result == -1) {
+        std::cout << "The array can be arranged.\n";
     } else {
-        std::cout << "The array can be arranged in ascending order." << std::endl;
+        std::cout << "The array cannot be arranged at index " << result << ".\n";
     }
     
     return 0;
