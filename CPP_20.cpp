@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <algorithm>
 #include <vector>
 #include <numeric>
@@ -9,7 +6,9 @@ Here is the modified code:
 bool issame(vector<float>, vector<float>);
 
 int main() {
+    vector<float> numbers;
     // your code here
+    return 0;
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
