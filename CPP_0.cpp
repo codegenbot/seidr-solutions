@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+using namespace std;
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     for (size_t i = 0; i < numbers.size(); ++i) {
