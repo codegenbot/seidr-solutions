@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -28,7 +28,7 @@ vector<int> intersperse(const vector<int>& numbers, int delimiter) {
     return result;
 }
 
-int main2() {
+int cpp_main() {
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     
     return 0;
