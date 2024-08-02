@@ -1,7 +1,9 @@
 #include <string>
+#include <iostream>
 #include <algorithm>
-
 using namespace std;
+
+string solve(string s);
 
 string solve(string s){
     int n = s.length();
@@ -20,10 +22,4 @@ string solve(string s){
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add more test cases here
-    return 0;
 }
