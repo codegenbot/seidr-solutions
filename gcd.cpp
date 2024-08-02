@@ -1,5 +1,5 @@
 #include <vector>
-using namespace std;
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0) {
