@@ -1,5 +1,5 @@
-from typing import List
 from collections import deque
+from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
