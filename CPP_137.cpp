@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
 
@@ -44,7 +41,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int x = boost::any_cast<int>(a);
         std::string y = boost::any_cast<std::string>(b);
-        if (x > std::stoll(y))
+        if (x > std::stol(y))
             return a;
         else
             return b;
