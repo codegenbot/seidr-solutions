@@ -1,19 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<int> a,vector<int>b){
-    return a==b;
-}
-
-int main() {
-    vector<int> numbers = {1,2,3,4,5};
-    vector<int> result = remove_duplicates(numbers);
-    for(int num : result) {
-        std::cout << num << " ";
-    }
-    return 0;
+    return a == b;
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
@@ -24,4 +10,9 @@ vector<int> remove_duplicates(vector<int> numbers){
         }
     }
     return result;
+}
+
+int main() {
+    assert (issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    return 0;
 }
