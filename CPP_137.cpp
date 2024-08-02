@@ -13,7 +13,7 @@ std::any compare_one(T a, T b) {
     }
 }
 
-std::any compare(boost::any a, boost::any b) {
+std::any compare(std::any a, std::any b) {
     if (a.type() == b.type()) {
         if (a.type() == typeid(int) && std::any_cast<int>(a) != std::any_cast<int>(b)) {
             return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
@@ -29,4 +29,4 @@ std::any compare(boost::any a, boost::any b) {
 int main() {
     assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");  
     return 0;
-}  
+}
