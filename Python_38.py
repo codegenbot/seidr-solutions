@@ -5,7 +5,5 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-# Input prompt
-input_string = input("Enter the input string: ")
-result = decode_cyclic(input_string)
-print(result)
+input_str = input()
+print(decode_cyclic(input_str))
