@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <string.h>
+#include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -33,4 +33,9 @@ std::vector<std::string> split_words(std::string txt) {
         result = {std::to_string(oddCount)};
     }
     return result;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
