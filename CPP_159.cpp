@@ -1,6 +1,7 @@
 #include <vector>
 #include <cassert>
 #include <utility>
+#include <algorithm>
 
 std::pair<int, int> eat(int number, int need, int remaining){
     int total = number + std::min(need, remaining);
