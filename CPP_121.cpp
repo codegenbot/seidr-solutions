@@ -13,6 +13,5 @@ int solution(vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 16);
-    // Your other code
     return 0;
 }
