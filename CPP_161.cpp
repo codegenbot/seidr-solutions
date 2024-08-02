@@ -18,10 +18,9 @@ std::string solve(const std::string &s) {
 }
 
 int main() {
-    // Testing the functionality of solve function
-    std::string input = "test123";
-    std::string result = solve(input);
-    assert(result == "tEST123");
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << solve(input) << std::endl;
     
     return 0;
 }
