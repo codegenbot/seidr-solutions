@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,8 +13,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 3.8f, 4.9f};
-    int odd_sum = double_the_difference(lst);
-    std::cout << "The sum of squares of positive integers in the list is: " << odd_sum << std::endl;
+    std::vector<float> lst = {1, 2, 3};
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
