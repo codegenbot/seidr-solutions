@@ -1,17 +1,16 @@
-int is_bored(string S){
+#include <string>
+using namespace std;
+
+int is_bored(string S) {
     int boredom_count = 0;
     string sentence;
-    for(size_t i=0; i<S.size(); i++){
-        if((S[i] == '.' || S[i] == '?' || S[i] == '!') && S.substr(0, i).find("I") == 0){
-            boredom_count++;
-        } else if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            sentence = S.substr(0, i);
-            if(sentence.find("I") == 0){
+    for (char c : S) {
+        if (c == '.' || c == '?' || c == '!') {
+            if (!sentence.empty() && sentence[0] == 'I')
                 boredom_count++;
-            }
-            S.erase(0, i+1);
-            i=-1;
-        }
+            sentence.clear();
+        } else
+            sentence += c;
     }
     return boredom_count;
 }
