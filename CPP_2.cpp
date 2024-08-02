@@ -9,7 +9,7 @@ double truncate_number(double number) {
 void solve_problem() {
     double num;
     std::cin >> num;
-    
+
     std::cout << truncate_number(num) << std::endl;
 }
 
