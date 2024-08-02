@@ -13,6 +13,6 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
             if note in beats_per_note:
                 result.append(beats_per_note[note])
-            elif note[0] == "." and note[1] in beats_per_note:
-                result.append(beats_per_note[note[1]])
+            else:
+                i -= 1
     return result
