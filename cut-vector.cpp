@@ -5,33 +5,32 @@
 int main() {
     int n, cutIndex;
     std::cin >> n >> cutIndex;
-    
     std::vector<int> nums(n);
+    
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
 
-    int diff = INT_MAX;
-    int leftIndex = 0;
-    for (int i = 0; i < cutIndex; ++i) {
-        if (abs(nums[cutIndex] - nums[i]) < diff) {
-            diff = abs(nums[cutIndex] - nums[i]);
-            leftIndex = i;
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
+
+    for (int i = 0; i < n; ++i) {
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0)
+                          - std::accumulate(nums.begin() + i, nums.end(), 0));
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-    
-    std::vector<int> leftSubvector(nums.begin(), nums.begin() + leftIndex + 1);
-    std::vector<int> rightSubvector(nums.begin() + leftIndex + 1, nums.end());
-    
-    for (int i : leftSubvector) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    for (int i : rightSubvector) {
-        if (i == nums[cutIndex]) {
+
+    for (int i = 0; i < n; ++i) {
+        if (i == splitIndex) {
             std::cout << std::endl;
+        } else if (i != splitIndex - 1) {
+            std::cout << nums[i] << " ";
+        } else {
+            std::cout << nums[i] << std::endl;
         }
-        std::cout << i << " ";
     }
 
     return 0;
