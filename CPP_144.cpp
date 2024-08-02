@@ -1,26 +1,19 @@
-#include<string>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
+    int a = stoi(strtok(x.c_str(), "/")[0]);
+    int b = stoi(strtok(x.c_str(), "/")[1]);
+    int c = stoi(strtok(n.c_str(), "/")[0]);
+    int d = stoi(strtok(n.c_str(), "/")[1]);
 
-    if (a*d == b*c)
-        return true;
-    else
+    long lcm = (long) a * d;
+    long commonDivisor = __gcd(a * d, b);
+
+    if ((lcm / commonDivisor) != (c * d) / commonDivisor)
         return false;
-}
 
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(0, pos);
-    return temp;
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find('/');
-    string temp = s.substr(pos+1);
-    return temp;
+    return true;
 }
