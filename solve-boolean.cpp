@@ -3,21 +3,28 @@ using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    int lastWasOperator = false;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == 'T') {
-            result = true;
-            lastWasOperator = false;
+            return true;
         } else if (s[i] == 'F') {
-            result = false;
-            lastWasOperator = false;
+            return false;
         } else if (s[i] == '&') {
-            lastWasOperator = true;
+            if (s[i+1] == '&') {
+                i += 2;
+                continue;
+            }
+            result &= true;
+            i++;
         } else if (s[i] == '|') {
-            bool temp = result;
-            result = !result;
-            result = (lastWasOperator ? (!temp) : result);
-            lastWasOperator = true;
+            if (s[i+1] == '|') {
+                i += 2;
+                continue;
+            }
+            result |= true;
+            i++;
+        } else {
+            i++;
         }
     }
     return result;
