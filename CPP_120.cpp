@@ -1,17 +1,12 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), min(arr.end(), arr.begin() + k) - arr.begin());
-    sort(result.begin(), result.end());
-    return result;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-int main(){
-    cout << "Maximum elements: ";
-    for(int i = 0; i < maximum({1, 2, 3, -23, 243, -400, 0}, 7).size(); i++){
-        cout << maximum({1, 2, 3, -23, 243, -400, 0}, 7)[i] << " ";
-    }
-    return 0;
+vector<int> maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end());
+    vector<int> result(arr.begin(), arr.begin() + k);
+    return result;
 }
