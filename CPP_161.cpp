@@ -10,7 +10,7 @@ std::string solve(std::string s) {
         }
     }
     
-    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
         std::reverse(s.begin(), s.end());
     }
     
@@ -18,9 +18,10 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << solve(input) << std::endl;
+    // Testing the functionality of solve function
+    std::string input = "test123";
+    std::string result = solve(input);
+    assert(result == "tEST123");
     
     return 0;
 }
