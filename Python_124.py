@@ -1,16 +1,14 @@
 ```
 def valid_date(date):
-    month, day, year = date.split('-')
-    if len(month) == 1:
-        month = '0' + month
-    if len(day) == 1:
-        day = '0' + day
-    month = int(month)
-    day = int(day)
-    if month < 1 or month > 12:
+    day, month, year = date.split('-')
+    if not (day.isdigit() and month.isdigit() and year.isdigit()):
         return False
-    if (month in [4,6,9,11] and day > 30) or (month == 2 and day > 29):
+    day, month, year = int(day), int(month), int(year)
+    if not 1 <= int(month) <= 12:
         return False
-    if day < 1 or day > 31:
+    days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
+    if not 1 <= month <= 2 or (month == 2 and year % 4 != 0):
+        days_in_month[1] = 29
+    if not 1 <= int(day) <= days_in_month[int(month) - 1]:
         return False
     return True
