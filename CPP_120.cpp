@@ -1,13 +1,22 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
-
-std::vector<int> maximum(const std::vector<int>& arr, int k) {
-    // Your implementation of the maximum function goes here
-}
+std::vector<int> maximum(const std::vector<int>& arr, int k);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
+}
+
+std::vector<int> maximum(const std::vector<int>& arr, int k) {
+    if (k >= arr.size()) {
+        return arr;
+    }
+    
+    std::vector<int> result;
+    std::partial_sort_copy(arr.begin(), arr.end(), std::back_inserter(result), result.size() - k);
+    
+    return result;
 }
 
 int main() {
