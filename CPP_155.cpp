@@ -1,12 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> counts(2, 0);
     std::string numStr = std::to_string(std::abs(num));
     for (char c : numStr) {
-        if (c % 2 == 0) {
+        if ((c - '0') % 2 == 0) {
             counts[0]++;
         } else {
             counts[1]++;
@@ -15,12 +15,11 @@ std::vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(is_same(even_odd_count(0), {1, 0}));
-    
+    assert(issame(even_odd_count(0), {1, 0}));
     return 0;
 }
