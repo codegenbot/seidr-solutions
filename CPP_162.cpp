@@ -6,11 +6,11 @@ using namespace std;
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char result[MD5_DIGEST_LENGTH];
+    unsigned char result[16];
     MD5((const unsigned char*)text.c_str(), text.size(), result);
 
     string output;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    for (int i = 0; i < 16; i++) {
         stringstream ss;
         ss << hex << setfill('0') << setw(2) << static_cast<int>(result[i]);
         output += ss.str();
