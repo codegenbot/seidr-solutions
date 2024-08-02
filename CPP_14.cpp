@@ -1,11 +1,7 @@
 #include <vector>
 #include <string>
 
-vector<string> all_prefixes(string str);
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> result;
@@ -15,15 +11,4 @@ vector<string> all_prefixes(string str){
         result.push_back(prefix);
     }
     return result;
-}
-
-int main(){
-    // Sample code to test the functions
-    vector<string> prefixes = all_prefixes("coding");
-    for(string prefix : prefixes){
-        cout << prefix << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
