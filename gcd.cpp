@@ -1,6 +1,5 @@
-```c++
 #include <vector>
-#include <string>
+#include <string> // added this line
 
 using namespace std;
 
