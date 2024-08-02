@@ -1,6 +1,7 @@
+#include <boost/any.hpp>
 #include <string>
 #include <typeinfo>
-#include <cassert>  
+#include <cassert>
 
 template <typename T>
 std::any compare_one(T a, T b) {
@@ -18,7 +19,7 @@ std::any compare(std::any a, std::any b) {
         } else if (a.type() == typeid(float) && std::any_cast<float>(a) != std::any_cast<float>(b)) {
             return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
         } else if (a.type() == typeid(std::string) && std::any_cast<std::string>(a) != std::any_cast<std::string>(b)) {
-            return (std::stod(std::any_cast<std::string>(a)) > std::stod(std::any_cast<std::string>(b))) ? a : b;
+            return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
     return std::any("None");
