@@ -3,11 +3,7 @@
 #include <vector>
 #include <cassert>
 
-bool move_one_ball(const std::vector<int>& arr) {
-    if (arr.empty()) {
-        return true; // Handling case for empty input
-    }
-
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(arr.begin(), arr.end())) {
@@ -19,7 +15,8 @@ bool move_one_ball(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
+    std::vector<int> balls;
+    assert(move_one_ball(balls) == true);
     // Additional test cases can be added here
     return 0;
 }
