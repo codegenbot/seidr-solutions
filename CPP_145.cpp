@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 
 vector<int> order_by_points(vector<int> nums) {
@@ -17,7 +18,6 @@ vector<int> order_by_points(vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
-
 }
 
 bool issame(vector<int> a, vector<int> b) {
