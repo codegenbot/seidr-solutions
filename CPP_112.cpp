@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-std::pair<std::string, bool> isPalindrome(std::vector<std::string> a, std::vector<std::string> b) {
+std::pair<std::string, bool> checkPalindrome(std::vector<std::string> a, std::vector<std::string> b) {
     std::string result = "";
     for(auto ch : a[0]){
         if(b[0].find(ch) == std::string::npos){
@@ -16,6 +16,6 @@ std::pair<std::string, bool> isPalindrome(std::vector<std::string> a, std::vecto
 }
 
 int main() {
-    assert(isPalindrome({"mamma"}, {"mia"}) == std::make_pair("", true));
+    assert(checkPalindrome({"mamma"}, {"mia"}) == std::make_pair("", true));
     return 0;
 }
