@@ -7,7 +7,7 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
     vector<vector<string>> result;
-    for(auto& s : strings){
+    for(vector<string> s : strings){
         bool same = true;
         for(string str : s){
             if(!issame({str}, {substring})){
