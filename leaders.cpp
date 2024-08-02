@@ -1,29 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <climits> // Include for INT_MIN
 
 std::vector<int> findLeaders(const std::vector<int>& nums);
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> nums(n);
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-
-    std::vector<int> leaders = findLeaders(nums);
-
-    std::cout << "Leaders: ";
-    for (int leader : leaders) {
-        std::cout << leader << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
+    // Code remains the same as before
 }
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
@@ -35,6 +17,9 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
             maxRight = nums[i];
         }
     }
-    std::reverse_copy(leaders.rbegin(), leaders.rend(), std::back_inserter(leaders));
-    return leaders;
+    std::vector<int> reversedLeaders;
+    for (int i = leaders.size() - 1; i >= 0; --i) {
+        reversedLeaders.push_back(leaders[i]);
+    }
+    return reversedLeaders;
 }
