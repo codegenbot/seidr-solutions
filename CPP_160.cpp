@@ -41,6 +41,14 @@ int eval(string s) {
 }
 
 int main() {
-    // Your code to test the do_algebra function
+    vector<string> operator_;
+    vector<int> operand;
+
+    // Add your code to read input from user and assign it to operator_ and operand
+
+    int output = do_algebra(operator_, operand);
+
+    cout << "The output is: " << output << endl;
+
     return 0;
 }
