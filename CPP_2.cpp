@@ -6,7 +6,7 @@ double truncate_number(double number) {
     return number - floor(number);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     double num;
     std::cin >> num;
     
