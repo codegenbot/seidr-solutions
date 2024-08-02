@@ -1,10 +1,12 @@
 int main() {
     vector<int> lst;
-    cout << "Enter numbers (separated by space): ";
-    for(int i; cin >> i) {
-        lst.push_back(i);
+    cout << "Enter the numbers (space separated): ";
+    cin >> noskipws;
+    int n;
+    while (cin >> n) {
+        lst.push_back(n);
     }
     int result = skjkasdkd(lst); 
-    cout << "The sum of the digits of the maximum prime number is: " << result << endl;
+    cout << "The sum of the digits in the largest prime number is: " << result << endl;
     return 0;
 }
