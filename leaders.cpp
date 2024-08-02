@@ -11,11 +11,10 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-
 }
 
 int main() {
-    vector<int> arr = {16,17,4,3,5,2};
+    vector<int> arr = {1, 3, 4, 2, 8};
     leaders(arr);
     return 0;
 }
