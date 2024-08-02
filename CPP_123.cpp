@@ -6,6 +6,13 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
+vector<int> get_odd_collatz(int n);
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> get_odd_collatz(int n);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> get_odd_collatz(int n);
 
@@ -40,10 +47,13 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     vector<int> result = get_odd_collatz(n);
     for (int num : result) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
+
+    assert(issame(get_odd_collatz(1), vector<int>{1}));
+
     return 0;
 }
