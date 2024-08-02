@@ -1,8 +1,6 @@
-def count_vowels(input_string):
-    input_string = input_string.lower()
-    vowels = "aeiou"
-    count = 0
-    for char in input_string:
-        if char in vowels:
-            count += 1
-    return count
+def check_validity():
+    user_input = input("Enter a date (mm-dd-yyyy): ")
+    if valid_date(user_input):
+        print("The entered date is valid.")
+    else:
+        print("The entered date is not valid.")
