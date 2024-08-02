@@ -1,18 +1,18 @@
-#include <string>
-#include <cassert>
 #include <iostream>
+#include <cassert>
+#include <string>
 
-std::string change_base(int x, int base){
-    std::string result = "";
-    while(x > 0){
-        result = std::to_string(x % base) + result;
+std::string change_base(int x, int base) {
+    std::string res = "";
+    while (x > 0) {
+        res = std::to_string(x % base) + res;
         x /= base;
     }
-    return result;
+    return res;
 }
 
 int main() {
-    int x;
-    std::cin >> x;
+    int x = 42;
     assert(change_base(x, x + 1) == std::to_string(x));
+    return 0;
 }
