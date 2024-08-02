@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-int largest_smallest_integers(const std::vector<int>& vec) {
-    std::vector<int> sorted_vec = vec;
-    std::sort(sorted_vec.begin(), sorted_vec.end());
-    return sorted_vec.front() + sorted_vec.back();
+int sum_smallest_largest(const std::vector<int>& vec) {
+    std::vector<int> temp = vec;
+    std::sort(temp.begin(), temp.end());
+    return temp.front() + temp.back();
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (largest_smallest_integers(a) == largest_smallest_integers(b));
+    return (sum_smallest_largest(a) == sum_smallest_largest(b));
 }
 
 int main() {
