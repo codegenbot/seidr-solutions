@@ -7,12 +7,9 @@ def parse_music(music_string: str) -> List[int]:
         if char in ['o', 'o|']:
             note = char
         elif char == '|':
-            if note:
-                beats.append(notes.get(note, 0))
+            beats.append(notes.get(note, 0))
             note = ''
         elif char == '.':
             beats.append(notes['.|'])
             note = ''
-    if note:
-        beats.append(notes.get(note, 0))
     return beats
