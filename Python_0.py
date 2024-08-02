@@ -5,7 +5,7 @@ def check_adjacent_numbers(numbers, threshold):
             return True
     return False
 
-numbers = [20, 30, 40, 50, 60]
-threshold = 5
-result = check_adjacent_numbers(numbers, threshold)
-print(result)
+# Corrected function call
+numbers = [1, 3, 5, 7]
+threshold = 2
+print(check_adjacent_numbers(numbers, threshold))
