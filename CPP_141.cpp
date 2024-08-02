@@ -1,4 +1,11 @@
-int dot_pos = file_name.find(".");
+#include <string>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+string file_name_check(string file_name) {
+    int dot_pos = file_name.find(".");
     if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.length() - 1) {
         return "No";
     }
@@ -17,13 +24,11 @@ int dot_pos = file_name.find(".");
         return "No";
     }
 
-    if (before_dot[0] < 'a' || before_dot[0] > 'z') {
-        if (before_dot[0] < 'A' || before_dot[0] > 'Z') {
-            return "No";
-        }
+    if (!(before_dot[0] >= 'a' && before_dot[0] <= 'z') && !(before_dot[0] >= 'A' && before_dot[0] <= 'Z')) {
+        return "No";
     }
 
-    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+    if (!(after_dot == "txt" || after_dot == "exe" || after_dot == "dll")) {
         return "No";
     }
 
