@@ -3,9 +3,24 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return not (solve_boolean(left) and solve_boolean(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for char in expression:
+            if char == "&":
+                result &= bool(next_expression())
+            elif char == "|":
+                result |= bool(next_expression())
+            elif char in ["T", "F"]:
+                result = bool(char)
+        return result
+
+
+def next_expression():
+    exp = input()
+    while "&" in exp or "|" in exp:
+        if "&" not in exp and "|" not in exp:
+            break
+        exp = eval(exp)
+    return exp
