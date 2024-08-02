@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     def extended_gcd(a, b):
         if a == 0:
