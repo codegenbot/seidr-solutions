@@ -1,5 +1,5 @@
 ```cpp
-#include <algorithm>
+#include <vector>
 #include <numeric>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
