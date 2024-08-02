@@ -11,9 +11,9 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (any_cast<float>(a) < any_cast<float>(b)) {
         return b;
     }
-} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-    float val1 = std::stof(any_cast<std::string>(a));
-    float val2 = std::stof(any_cast<std::string>(b));
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    float val1 = stof(any_cast<string>(a));
+    float val2 = stof(any_cast<string>(b));
     if (val1 > val2) {
         return a;
     } else if (val1 < val2) {
