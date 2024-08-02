@@ -8,12 +8,9 @@ int main() {
     
     bool capitalize = true;
     for (char& c : input) {
-        if (c == '-' || c == ' ') {
-            capitalize = true;
-        } else {
-            c = (capitalize) ? std::toupper(c) : (c != '-' && c != ' ') ? std::tolower(c) : c;
-            capitalize = false;
-        }
+        capitalize = (c == '-' || c == ' ') ? true : capitalize;
+        c = (capitalize) ? std::toupper(c) : std::tolower(c);
+        capitalize = false;
     }
     
     std::cout << input << std::endl;
