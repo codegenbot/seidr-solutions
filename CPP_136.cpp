@@ -1,17 +1,11 @@
 #include <vector>
+#include <algorithm>
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
-    for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
-            largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
-            smallest_positive = num;
-        }
-    }
-    return {largest_negative, smallest_positive};
+int largest_smallest_integers(std::vector<int> vec) {
+    std::sort(vec.begin(), vec.end());
+    return vec.front() + vec.back();
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return (std::largest_smallest_integers(a) == std::largest_smallest_integers(b));
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (largest_smallest_integers(a) == largest_smallest_integers(b));
 }
