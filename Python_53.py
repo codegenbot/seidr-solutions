@@ -9,4 +9,4 @@ while True:
         print("The result of adding", x, "and", y, "is:", result)
         break
     except ValueError:
-        print("Please enter valid integers. Try again.")      
+        print("Please enter valid integers. Try again.")
