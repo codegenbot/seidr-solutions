@@ -26,4 +26,4 @@ def minPath(grid, k):
         (i, j) for i in range(N) for j in range(N) if grid[i][j] == min_value
     ][0]
 
-    return dfs(start_cell[0], start_cell[1], [grid[start_cell[0]][start_cell[1]]])  
+    return dfs(start_cell[0], start_cell[1], [grid[start_cell[0]][start_cell[1]]])
