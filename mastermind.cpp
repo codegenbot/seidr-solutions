@@ -1,7 +1,7 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int getWhitePegs(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
@@ -29,5 +29,5 @@ int main() {
     std::cin >> code >> guess;
     int whitePegs = getWhitePegs(code, guess);
     int blackPegs = getBlackPegs(code, guess);
-    std::cout << whitePegs << "\n" << blackPegs << "\n";
+    std::cout << whitePegs << "\n" << blackPeggs << "\n";
     return 0;
