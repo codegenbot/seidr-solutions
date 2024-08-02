@@ -1,14 +1,11 @@
-int how_many_times(string str, string substring) {
-    if (substring.empty()) {
-        return 0;
-    }
-    
+#include <cstddef>
+
+int countSubstrings(const string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != string::npos) {
+    while ((pos = str.find(substring, pos)) != std::string::npos) {
         count++;
-        pos++;
+        pos += 1;
     }
-    
     return count;
 }
