@@ -8,7 +8,7 @@ string encrypt(string s) {
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
             int index = alphabet.find(c);
-            index += 3; // rotate down by 3 places
+            index += 4; // rotate down by 4 places
             while (index > 25) {
                 index -= 26;
             }
