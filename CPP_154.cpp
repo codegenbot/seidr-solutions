@@ -1,15 +1,12 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
-bool cycpattern_check(const std::string& a, const std::string& b) {
-    if (a.length() != b.length()) return false;
-    std::string combined = a + a;
-    return combined.find(b) != std::string::npos;
+bool cycpattern_check(string a, string b) {
+    string temp = a + a;
+    return temp.find(b) != string::npos;
 }
 
 int main() {
-    assert(cycpattern_check("winemtt","tinem") == true);
-    
+    assert(cycpattern_check("abc", "cab")); // returns true
+    assert(!cycpattern_check("abc", "bac")); // returns false
     return 0;
 }
