@@ -11,8 +11,8 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
 
 int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    assert(check_if_last_char_is_a_letter("test1 test2 ") == true);
-    assert(check_if_last_char_is_a_letter("end with letter x ") == false);
+    assert(check_if_last_char_is_a_letter("Hello World!") == true);
+    assert(check_if_last_char_is_a_letter("1234567890") == false);
     
     return 0;
 }
