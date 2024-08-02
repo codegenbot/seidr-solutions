@@ -1,21 +1,33 @@
-Here is the solution:
+#include <cmath>
 
-bool is_multiply_prime(int a){
-    for(long long i=2; i*i<=a; i++){
-        long long j=i;
-        while(j*j<=a){
-            long long k=a/j/i;
-            if(k*k==j&&isPrime(k))return true;
-            j++;
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= sqrt(a); i++) {
+        int temp = a;
+        bool isPrime = true;
+        for (int j = 2; j <= sqrt(i); j++) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && temp % i == 0) {
+            int k = a / i;
+            bool isPrime1 = true, isPrime2 = true;
+            for (int j = 2; j <= sqrt(k); j++) {
+                if (k % j == 0) {
+                    isPrime1 = false;
+                    break;
+                }
+            }
+            temp /= i;
+            for (int j = 2; j <= sqrt(temp); j++) {
+                if (temp % j == 0) {
+                    isPrime2 = false;
+                    break;
+                }
+            }
+            if (isPrime1 && isPrime2) return true;
         }
     }
     return false;
-}
-
-bool isPrime(int n){
-    if(n<2)return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0)return false;
-    }
-    return true;
 }
