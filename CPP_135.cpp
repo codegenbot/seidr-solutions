@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
 public:
-    int can_arrange(vector<int> arr){
+    int can_arrange(vector<int> arr) {
         for(int i = arr.size() - 1; i >= 1; i--){
             if(arr[i] < arr[i-1]){
                 return i - 1;
@@ -14,6 +14,6 @@ public:
 };
 
 int main() {
-    // Test the can_arrange function here
+    // Test your code here
     return 0;
 }
