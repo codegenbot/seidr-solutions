@@ -25,4 +25,4 @@ int main() {
     cout << fixed << total << endl;
 
     return 0;
-}  
+}
