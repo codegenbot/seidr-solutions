@@ -5,7 +5,9 @@ namespace std {
         return a == b;
     }
 
-    std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> pluck(std::vector<int> arr);
+
+    std::vector<int> pluck(std::vector<int> arr){
         int smallestEven = -1;
         int smallestEvenIndex = -1;
 
