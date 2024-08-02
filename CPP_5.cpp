@@ -28,8 +28,4 @@ vector<int> intersperse(const vector<int>& numbers, int delimiter) {
     return result;
 }
 
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), vector<int>{2, 2, 2, 2, 2}));
-    
-    return 0;
-}
+assert(issame(intersperse({2, 2, 2}, 2), vector<int>{2, 2, 2, 2, 2}));
