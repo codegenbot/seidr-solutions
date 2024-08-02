@@ -1,18 +1,23 @@
+Here is the solution:
+
 string solveBoolean(string s) {
-    if(s.length() == 0 || (s.length() > 1 && (s[0] != 'T' && s[0] != 'F'))){
-        return "Invalid Input";
-    }
-
-    bool result = (s.length() > 0) ? (s[0] == 'T') : false;
-
-    for(int i = 1; i < s.length(); ++i){
-        if(s[i] == '|'){
-            result |= !result;
+    stack<char> st;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == '&'){
+            char t1 = st.top();st.pop();
+            char t2 = st.top();st.pop();
+            if(t1 == 'T' && t2 == 'T') st.push('T');
+            else if(t1 == 'F' || t2 == 'F') st.push('F');
         }
-        else{
-            result &= (s[i] == 'T');
+        else if(s[i] == '|'){
+            char t1 = st.top();st.pop();
+            char t2 = st.top();st.pop();
+            if(t1 == 'T' && t2 == 'T') st.push('T');
+            else st.push('F');
+        }
+        else {
+            st.push(s[i]);
         }
     }
-
-    return (result) ? "True" : "False";
+    return st.top() == 'T'? "True": "False";
 }
