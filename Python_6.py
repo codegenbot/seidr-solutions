@@ -15,4 +15,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         result.append(max_level)
     return result
 
-print(parse_nested_parens("(()()) (())"))
+paren_string = "(()()) (())"
+print(parse_nested_parens(paren_string))
