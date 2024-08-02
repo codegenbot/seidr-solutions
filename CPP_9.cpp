@@ -5,12 +5,12 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) {
             return false;
         }
     }
@@ -36,7 +36,7 @@ int main() {
     
     vector<int> expected_output2 = {3, 3, 3, 100, 100};
     vector<int> computed_output2 = rolling_max({3, 2, 3, 100, 3});
-    assert(issame(expected_output2, computed_output2));
+    assert(issame(expected_output2, computed_output2)); // Updated call to fix ambiguity
     
     return 0;
 }
