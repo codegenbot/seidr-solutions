@@ -3,6 +3,12 @@
 
 using namespace std;
 
+bool is_prime(int num);
+
+bool is_multiply_prime(int a);
+
+int main();
+
 bool is_prime(int num) {
     if (num < 2) {
         return false;
@@ -39,8 +45,6 @@ bool is_multiply_prime(int a) {
     }
     return false;
 }
-
-int main();
 
 int main() {
     int num;
