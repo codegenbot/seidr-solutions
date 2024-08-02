@@ -1,3 +1,8 @@
+#include <cmath>
+
+using namespace std;
+
 float truncate_number(float number) {
-    return modf(number, &number);
+    int integerPart = (int)number;
+    return number - static_cast<float>(integerPart);
 }
