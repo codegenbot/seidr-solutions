@@ -1,11 +1,10 @@
-#include <vector>
+Here is the solution:
 
-using namespace std;
-
+```cpp
 vector<float> derivative(vector<float> xs) {
-    vector<float> result;
-    for (int i = 1; i <= xs.size() - 1; i++) {
-        result.push_back(i * xs[i]);
+    vector<float> result(xs.size() - 1);
+    for (int i = 1; i < xs.size(); ++i) {
+        result[i-1] = xs[i] * i;
     }
     return result;
 }
