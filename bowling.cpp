@@ -18,7 +18,24 @@ int bowlingScore(string bowls) {
             }
             score += roll1 + roll2;
         } else {
-            score += 10;
+            int x = 10;
+            while (i < 9 && bowls[i] == 'X') {
+                score += 10;
+                i++;
+                if (i < 9) {
+                    if (isdigit(bowls[i])) {
+                        x = bowls[i] - '0';
+                        break;
+                    } else {
+                        x = 10;
+                        i++;
+                    }
+                } else {
+                    x = 10;
+                }
+            }
+            score += x;
         }
     }
     return score;
+}
