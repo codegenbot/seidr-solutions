@@ -1,11 +1,11 @@
-bool is_sorted(vector<int> lst){
+#include <vector>
+#include <algorithm>
+
+bool is_sorted(std::vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            if(count(lst.begin(), lst.end(), lst[i]) > 1)
-                return false;
-        }
-        else
+        if(lst[i-1] > lst[i]){
             return false;
+        }
     }
     return true;
 }
