@@ -1,28 +1,29 @@
-```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
+using namespace std;
 
-bool isEqual(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+vector< vector<int> > maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end());
+    vector< vector<int> > result(1);
+    for(int i = 0; i < k; i++){
+        result[0].push_back(arr[arr.size() - 1 - i]);
     }
     return result;
 }
 
-int main() {
-    vector<int> test = {1, 2, 3, -23, 243, -400, 0};
-    vector<int> res = maximum(test, 3);
-    for (int i:res) cout << i<< " ";
-    cout << endl;
+int main(){
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0, -23, 1, 2, 3, 243, -400}));
+    cout << "Maximum elements: ";
+    for(int i = 0; i < maximum({1, 2, 3, -23, 243, -400, 0}, 7)[0].size(); i++){
+        cout << maximum({1, 2, 3, -23, 243, -400, 0}, 7)[0][i] << " ";
+    }
+    return 0;
 }
