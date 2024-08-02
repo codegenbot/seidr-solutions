@@ -1,9 +1,18 @@
+Here is the completed code:
+
 int search(vector<int> lst) {
-    int max = 0;
+    map<int, int> freq;
     for (int i : lst) {
-        if (i > max && count(lst.begin(), lst.end(), i) >= i) {
-            max = i;
+        if (!freq.count(i)) {
+            freq[i] = 1;
+        } else {
+            freq[i]++;
         }
     }
-    return max > 0 ? max : -1;
+    for (auto p : freq) {
+        if (p.second >= p.first && p.first > 0) {
+            return p.first;
+        }
+    }
+    return -1;
 }
