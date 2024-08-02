@@ -12,7 +12,7 @@ int main() {
             capitalize = true;
         } else if(c != ' ') {
             if(capitalize) {
-                std::cout << (char)tolower(c);  // Modify this line
+                std::cout << (char)tolower(c);
                 capitalize = false;
             } else {
                 std::cout << c;
