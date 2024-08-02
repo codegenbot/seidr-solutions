@@ -1,22 +1,25 @@
 #include <algorithm>
+#include <vector>
 
-vector<float> find_closest_elements(vector<float> numbers) {
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(abs(a[i]-b[i]) > 1e-6) return false;
+    }
+    return true;
+}
+
+std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() < 2) {
-        throw runtime_error("Vector must have at least two elements");
+        throw std::runtime_error("Vector must have at least two elements");
     }
 
-    pair<vector<float>::iterator, vector<float>::iterator> closestPair = make_pair(numbers.begin(), numbers.begin());
-    float minDiff = numeric_limits<float>::max();
+    std::sort(numbers.begin(), numbers.end());
 
-    for (vector<float>::iterator i = numbers.begin(); i != numbers.end() - 1; ++i) {
-        for (vector<float>::iterator j = i + 1; j != numbers.end(); ++j) {
-            float diff = *j - *i;
-            if (abs(diff) < minDiff) {
-                minDiff = abs(diff);
-                closestPair = make_pair(i, j);
-            }
-        }
-    }
+    auto it = min_element(numbers.begin() + 1, numbers.end(),
+                            [&numbers](float a, float b) {
+                                return abs(a - numbers[0]) > abs(b - numbers[0]);
+                            });
 
-    return vector<float>(vector<float>::iterator(closestPair.first), vector<float>::iterator(closestPair.second + 1));
+    return {numbers[0], *it};
 }
