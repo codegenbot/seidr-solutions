@@ -7,13 +7,13 @@ vector<int> unique(vector<int> l) {
     return result;
 }
 
-vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+vector<int>::iterator unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
     sort(first, last);
-    auto it = first;
+    auto it = first;  
     while (it != last) {
         *first = *it;
         ++first;
         ++it;
     }
-    return ++first;
+    return ++it;
 }
