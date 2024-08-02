@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -8,8 +9,9 @@ using namespace std;
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (value.type() == boost::any::typeclass<int>()) {
+            int i = boost::any_cast<int>(value);
+            result.push_back(i);
         }
     }
     return result;
