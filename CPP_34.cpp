@@ -3,8 +3,8 @@
 
 std::vector<int> unique(std::vector<int> l){
     std::vector<int> result = l;
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
 
