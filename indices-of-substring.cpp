@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,7 +9,7 @@ int main() {
     getline(cin, text);
     getline(cin >> ws, target);
     vector<int> indices;
-    for (size_t i = 0; i < text.length() - target.length() + 1; ++i) {
+    for (size_t i = 0; i < text.length(); ++i) {
         if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
