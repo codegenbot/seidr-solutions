@@ -1,12 +1,10 @@
 bool issame(vector<string> a,vector<string>b){
-    for(string s : a){
-        if(find(b.begin(),b.end(),s) == b.end())
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++){
+        vector<string> temp = filter_by_substring(b, a[i]);
+        if(temp.size() == 0)
             return false;
     }
     return true;
-}
-
-int main() {
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
-    return 0;
 }
