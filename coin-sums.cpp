@@ -6,7 +6,7 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25;
-    int remainingCents = cents % 25; 
+    int remainingCents = cents % 25; // Store the remaining cents
 
     int dimes = remainingCents / 10;
     remainingCents %= 10;
@@ -17,8 +17,8 @@ int main() {
     int pennies = remainingCents;
 
     cout << quarters << endl;
-    cout << nickles << endl;
     cout << dimes << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
 
     return 0;
