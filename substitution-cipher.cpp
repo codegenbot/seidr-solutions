@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main() {
     std::string cipher1, cipher2, message;
     std::cin >> cipher1 >> cipher2 >> message;
