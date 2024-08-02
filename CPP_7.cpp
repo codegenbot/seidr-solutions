@@ -1,16 +1,13 @@
-#include <vector>
-#include <string>
-
+```cpp
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+    bool same = true;
+    for (const auto& s : a) {
+        if (std::find(b.begin(), b.end(), s) == b.end()) {
+            same = false;
+            break;
         }
     }
-    return true;
+    return same;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
