@@ -1,29 +1,25 @@
-std::string result;
-bool first = true;
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool first = true;
 
-for (char c : str) {
-    if (c == '-') {
-        if (!first) {
-            result += std::toupper(c);
+    for (char c : str) {
+        if (c == '-') {
+            if (!first) {
+                result += std::toupper(c);
+            } else {
+                first = false;
+            }
+        } else if (c == ' ') {
+            continue;
         } else {
-            first = false;
-        }
-    } else if (c == ' ') {
-        if (!first) {
-            result += char(std::toupper(str[++i]));
-            first = false;
-        } else {
-            first = false;
-            i++;
-        }
-    } else {
-        if (!first) {
-            result += std::toupper(c);
-        } else {
-            result += c;
-            first = false;
+            if (!first) {
+                result += std::toupper(c);
+            } else {
+                first = false;
+                result += c;
+            }
         }
     }
-}
 
-return result;
+    return result;
+}
