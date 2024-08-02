@@ -1,8 +1,11 @@
-bool issame(int x, int y) {
-    if (x == 0 && y == 0)
+bool issame(int a, int b) {
+    if (a == 0 && b == 0) {
         return true;
-    else
+    }
+    if ((a < 0 && b < 0) || (a > 0 && b > 0)) {
         return false;
+    }
+    return true;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst) {
@@ -19,10 +22,14 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     }
 
     vector<int> result;
-    if (!issame(maxNeg, 0)) {
+    if (issame(maxNeg, 0)) {
+        result.push_back(0);
+    } else {
         result.push_back(maxNeg);
     }
-    if (!issame(minPos, INT_MAX)) {
+    if (issame(minPos, INT_MAX)) {
+        result.push_back(INT_MIN);
+    } else {
         result.push_back(minPos);
     }
 
