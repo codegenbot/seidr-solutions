@@ -2,10 +2,11 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool are_equal(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -20,7 +21,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
+    assert(are_equal(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), vector<string>{"xxx", "xxxAAA", "xxx"}));
 
     return 0;
 }
