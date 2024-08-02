@@ -3,13 +3,11 @@
 #include <vector>
 #include <numeric>
 
-using namespace std;
-
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (const auto& row : grid) {
-        total_water += accumulate(row.begin(), row.end(), 0);
+        total_water += std::accumulate(row.begin(), row.end(), 0);
     }
     
     int times = total_water / capacity;
@@ -20,8 +18,11 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}};
+    // test the function
+    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}};
     int capacity = 7;
-    cout << "Maximum number of times to fill the bucket: " << max_fill(grid, capacity) << endl;
+    int result = max_fill(grid, capacity);
+    std::cout << "The maximum number of times you can fill a bucket with capacity " << capacity << " is: " << result << std::endl;
+    
     return 0;
 }
