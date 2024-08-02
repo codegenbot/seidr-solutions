@@ -8,3 +8,4 @@ bool iscuber(int a){
         i++;
     }
     return false;
+}
