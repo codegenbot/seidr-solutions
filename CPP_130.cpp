@@ -14,7 +14,6 @@ std::vector<int> tri(int n) {
     }
     if (n == 1) {
         result.push_back(3);
-        result.push_back(1);
         return result;
     }
     
@@ -32,7 +31,7 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
-    assert(issame(tri(1), std::vector<int>({3, 1}));
+    assert(issame(tri(1), std::vector<int>({1, 3}));
     
     return 0;
 }
