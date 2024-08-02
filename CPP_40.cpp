@@ -1,12 +1,14 @@
-bool triples_sum_to_zero(const vector<int>& l) {
-    unordered_set<int> nums;
-    for (int i = 0; i < l.size(); ++i) {
-        for (int j = i + 1; j < l.size(); ++j) {
-            int sum = l[i] + l[j];
-            if (nums.count(-sum)) {
-                return true;
+#include <vector>
+#include <algorithm>
+
+bool triples_sum_to_zero(const std::vector<int>& l) {
+    for (size_t i = 0; i < l.size(); ++i) {
+        for (size_t j = i + 1; j < l.size(); ++j) {
+            for (size_t k = j + 1; k < l.size(); ++k) {
+                if (l[i] + l[j] + l[k] == 0) {
+                    return true;
+                }
             }
-            nums.insert(l[j]);
         }
     }
     return false;
