@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -7,15 +6,14 @@ using namespace std;
 int main() {
     vector<float> l;
     cout << "Enter numbers (enter 'stop' to finish): ";
-    string s;
-    while(getline(cin, s)) {
-        if(s == "stop") break;
-        l.push_back(stof(s));
+    string x;
+    while (true) {
+        cin >> x;
+        if (x == "stop") break;
+        l.push_back(stof(x));
     }
     vector<float> result = get_positive(l);
-    for(float x : result) {
-        cout << x << " ";
-    }
+    for (float f : result) cout << f << " ";
     return 0;
 }
 
