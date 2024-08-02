@@ -4,5 +4,6 @@ def parse_music(music_string: str) -> List[int]:
     notes = {"o": 4, "o|": 2, ".|": 1}
     return [notes[note] for note in music_string.split()]
 
-music_input = '\n'.join([input() for _ in range(3)])
-print(parse_music(music_input))
+input_string = input("Enter the music string: ")
+result = parse_music(input_string)
+print(result)
