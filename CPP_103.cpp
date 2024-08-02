@@ -1,6 +1,4 @@
-#include <string>
 #include <cmath>
-
 using namespace std;
 
 string solve(int n, int m) {
