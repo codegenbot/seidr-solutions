@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-int add_elements(vector<int> arr, int k) {
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
         if (log10(arr[i]) + 1 <= 2) {
@@ -13,15 +13,28 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> arr;
+    std::vector<int> arr;
     int n, k;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
+    
+    // Read the number of elements
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // Read the elements
     for (int i = 0; i < n; i++) {
-        cin >> k;
-        arr.push_back(k);
+        std::cout << "Enter element " << i + 1 << ": ";
+        int num;
+        std::cin >> num;
+        arr.push_back(num);
     }
-    cout << "Sum of all numbers with less than or equal to 3 digits is: " << add_elements(arr, n) << endl;
+
+    // Read k
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
+
+    // Call the function and print the result
+    int sum = add_elements(arr, k);
+    std::cout << "Sum of elements is: " << sum << std::endl;
+    
     return 0;
 }
