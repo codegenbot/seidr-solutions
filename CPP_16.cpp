@@ -1,10 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
-int count_distinct_characters(const std::string &str)
-{
+int count_distinct_characters(const std::string& str) {
     std::string sorted_str = str;
     std::transform(sorted_str.begin(), sorted_str.end(), sorted_str.begin(), ::tolower);
     std::sort(sorted_str.begin(), sorted_str.end());
@@ -12,9 +10,13 @@ int count_distinct_characters(const std::string &str)
     return sorted_str.size();
 }
 
-int main()
-{
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+int main() {
+    std::string input_str;
+    std::getline(std::cin, input_str);
     
+    int result = count_distinct_characters(input_str);
+    
+    std::cout << result << std::endl;
+
     return 0;
 }
