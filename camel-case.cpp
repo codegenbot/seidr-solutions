@@ -1,24 +1,19 @@
 Here is the solution:
 
-string camelCase(string s) {
+#include <string>
+using namespace std;
+
+string camelCase(string str) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && isspace(s[i])) {
-                i++;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            for (int j = i + 1; j <= str.find(' ', i); j++) {
+                result += toupper(str[j]);
             }
-            if (!result.empty()) {
-                result.push_back(toupper(s[i]));
-            } else {
-                result += toupper(s[i]);
-            }
-        } else if (!isspace(s[i])) {
-            if (result.empty()) {
-                result += tolower(s[i]);
-            } else {
-                result.push_back(toupper(s[i]));
-            }
+            result += ' ';
+            i = str.find(' ', i);
+        } else if (str[i] != ' ') {
+            result += tolower(str[i]);
         }
     }
     return result;
