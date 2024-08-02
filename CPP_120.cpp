@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -15,14 +14,13 @@ vector<int> maximum(vector<int> arr, int k) {
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
-        arr.erase(it);
+        arr.erase(it - arr.begin());
     }
     return result;
 }
 
 int main() {
-    vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    int k = 3;
-    vector<int> output = maximum(input, k);
-    // Add your code to check the correctness of the output
+    vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
+    int k = 4;
+    assert(isEqual(maximum(arr, k), vector<int>({243, 3, 2, 1})));
 }
