@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
@@ -7,5 +7,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         if (num % 2 != 0)
             oddCount++;
     }
-    return (oddCount == 0) ? "YES" : "NO";
+    return to_string(oddCount) + " " + to_string(oddCount);
 }
