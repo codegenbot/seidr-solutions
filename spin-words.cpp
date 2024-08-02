@@ -11,15 +11,15 @@ std::string spinWords(std::string input) {
             std::string word = input.substr(pos + 1, length);
             for (int i = word.length() - 1; i >= 0; --i)
                 output += word[i];
-            output += ' ';
+            output += ' '; // Fix: Use += to concatenate the space
         } else {
-            output += input.substr(0, pos + 1);
+            output.append(input.substr(0, pos + 1));
         }
         input.erase(0, pos + 1);
     }
 
     if (!input.empty())
-        output += input;
+        output.append(input);
 
     return output;
 }
