@@ -1,13 +1,12 @@
-```cpp
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
     for (char c : s) {
         if (c == '/') {
             if (currentRoll < 2) {
-                score += std::min(10, currentRoll);
+                score += min(10, currentRoll);
                 currentRoll = 0;
             } else {
                 score += sumOfLastTwo(currentRoll);
@@ -19,7 +18,7 @@ int bowlingScore(std::string s) {
         }
     }
     if (currentRoll > 0) {
-        score += std::min(10, currentRoll);
+        score += min(10, currentRoll);
     } else if (currentRoll < 2) {
         score += sumOfLastTwo(currentRoll);
     }
