@@ -11,5 +11,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return std::make_pair(maxNeg, minPos);
+    return {std::make_pair(maxNeg, minPos)};
 }
