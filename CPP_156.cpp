@@ -1,9 +1,8 @@
 #include <string>
 #include <vector>
-#include <iostream>
 #include <cassert>
 
-std::string int_to_mini_roman(int number){
+std::string int_to_mini_roman(int number) {
     std::string roman = "";
     std::vector<std::pair<int, std::string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
@@ -11,8 +10,8 @@ std::string int_to_mini_roman(int number){
         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
     };
 
-    for(const auto& pair : roman_map){
-        while(number >= pair.first){
+    for (const auto &pair : roman_map) {
+        while (number >= pair.first) {
             roman += pair.second;
             number -= pair.first;
         }
@@ -21,8 +20,4 @@ std::string int_to_mini_roman(int number){
     return roman;
 }
 
-int main() {
-    assert(int_to_mini_roman(1000) == "m");
-    
-    return 0;
-}
+assert(int_to_mini_roman(1000) == "m");
