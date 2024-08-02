@@ -14,6 +14,7 @@ string string_to_md5(string text) {
     unsigned char buffer[1024];
 
     MD5_Init(&md5ctx);
+
     for(size_t i = 0; i < text.size(); i += 1024) {
         size_t len = min(text.size() - i, 1024);
         memcpy(buffer, &text[i], len);
@@ -23,7 +24,7 @@ string string_to_md5(string text) {
 
     MD5_Final(result, &md5ctx);
 
-    ostringstream ss;
+    stringstream ss;
     ss << setfill('0') << setw(32) << hex;
     for(size_t i = 0; i < 16; ++i)
         ss << std::setw(2) << (int)result[i];
