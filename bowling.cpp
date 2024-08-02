@@ -4,10 +4,11 @@ int bowlingScore(std::string s) {
     for (char c : s) {
         if (c == '/') {
             if (currentRoll > 0) {
-                if (currentRoll < 10) 
+                if (currentRoll < 10) {
                     score += currentRoll + 10;
-                else
-                    score += 10 + 10;
+                } else {
+                    score += 10 + currentRoll - 10;
+                }
                 currentRoll = 0;
             }
         } else if (isdigit(c)) {
