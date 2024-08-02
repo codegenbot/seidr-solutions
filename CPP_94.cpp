@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+
 using namespace std;
 
 int sumOfDigits(int num) {
