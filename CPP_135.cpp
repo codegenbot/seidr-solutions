@@ -25,9 +25,9 @@ int main() {
     int result = can_arrange(arr);
 
     if (result == -1) {
-        std::cout << "The array is already sorted." << std::endl;
+        std::cout << "The array is already in ascending order." << std::endl;
     } else {
-        std::cout << "The first element that's out of order is at index " << result << "." << std::endl;
+        std::cout << "The first out of order element is at index " << result << "." << std::endl;
     }
 
     return 0;
