@@ -1,3 +1,5 @@
+#include <string>
+
 std::string decimal_to_binary(int decimal);
 
 std::string decimal_to_binary(int decimal){
