@@ -1,22 +1,31 @@
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+namespace boost {
+    namespace detail {
+
+        template<typename T>
+        struct is_same : public std::false_type {};
+
+        template<typename T>
+        struct is_same<T, T> : public std::true_type {};
+    }
+
+    bool is_same(const any& a, const any& b) {
+        return detail::is_same<decltype(a.get()), decltype(b.get())>::value;
+    }
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
+using namespace boost;
+
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
+        if (boost::any_cast<int>(value).good() && is_same(value, boost::any(int(0)))) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
 }
