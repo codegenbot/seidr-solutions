@@ -1,46 +1,79 @@
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
-
-using namespace std;
+#include <lexical_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string a_str = boost::any_cast<string>(a);
-        int b_int = boost::any_cast<int>(b);
-        if (stoi(a_str) > b_int)
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y)
             return a;
-        else if (stoi(a_str) < b_int)
+        else if (y > x)
             return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float a_float = boost::any_cast<float>(a);
-        string b_str = boost::any_cast<string>(b);
-        if (stof(b_str) > a_float)
+        else
+            return boost::any(int(0));
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        if (x > y)
+            return a;
+        else if (y > x)
             return b;
-        else if (stof(b_str) < a_float)
+        else
+            return boost::any(int(0));
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string x = boost::any_cast<std::string>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        if (x > y)
             return a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string a_str = boost::any_cast<string>(a);
-        int b_int = boost::any_cast<int>(b);
-        if (stof(a_str) > b_int)
+        else if (y > x)
+            return b;
+        else
+            return boost::any(int(0));
+    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int x = boost::any_cast<int>(a);
+        float y = boost::any_cast<float>(b);
+        if (x > y)
             return a;
-        else if (stof(a_str) < b_int)
+        else if (y > x)
+            return b;
+        else
+            return boost::any(int(0));
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int x = boost::any_cast<int>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        if (x > lexical_cast<int>(y))
+            return a;
+        else
             return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float a_float = boost::any_cast<float>(a);
-        int b_int = boost::any_cast<int>(b);
-        if (a_float > b_int)
+        float x = boost::any_cast<float>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y)
             return a;
-        else if (a_float < b_int)
+        else
             return b;
-    } else {
-        float a_float = boost::any_cast<float>(a);
-        float b_float = boost::any_cast<float>(b);
-        if (a_float > b_float)
+    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        float x = boost::any_cast<float>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        if (x > lexical_cast<float>(y))
             return a;
-        else if (a_float < b_float)
+        else
+            return b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        std::string x = boost::any_cast<std::string>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > lexical_cast<std::string>(std::to_string(y)))
+            return a;
+        else
+            return b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string x = boost::any_cast<std::string>(a);
+        float y = boost::any_cast<float>(b);
+        if (x > lexical_cast<std::string>(std::to_string(y)))
+            return a;
+        else
             return b;
     }
+    return boost::any(int(0));
 }
