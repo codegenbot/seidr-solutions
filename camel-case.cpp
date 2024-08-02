@@ -1,33 +1,25 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(const std::string& input) {
-    std::string result;
-    bool capitalize = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
+void toCamelCase(string s) {
+    string result;
+    for (auto it = s.begin(); it != s.end(); ) {
+        if (*it == '-') {
+            it++; // skip '-'
+            while (it != s.end() && *it == '-') {
+                it++;
+            }
+            continue;
+        }
+        result.push_back toupper(*it);
+        while (it + 1 != s.end() && *it != ' ') {
+            result.push_back tolower(*++it);
         }
     }
-
-    return result;
+    cout << result;
 }
-
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "input: ";
-        std::cin >> input;
-        if (input == "nospaceordash" || input == "two-words" || input == "all separate words") {
-            break;
-        }
-        std::cout << "output: " << camelCase(input) << "\n";
-    }
+    string str;
+    cin >> str;
+    toCamelCase(str);
     return 0;
 }
