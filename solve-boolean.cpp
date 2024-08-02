@@ -15,18 +15,23 @@ bool solveBoolean(string s) {
     }
     string left = s.substr(0, j);
     
-    if(s[j] != '|') return solveBoolean(left);
-
-    j++;
-    while(j<s.length()) {
-        if(s[j] == '&') break;
+    if(s[j] == '|') {
         j++;
+        while(j<s.length()) {
+            if(s[j] == '&') break;
+            j++;
+        }
+        string right = s.substr(j);
+        return solveBoolean(left) || solveBoolean(right);
+    } else {
+        j++;
+        while(j<s.length()) {
+            if(s[j] == '&') break;
+            j++;
+        }
+        string right = s.substr(j);
+        return solveBoolean(left) && solveBoolean(right);
     }
-    string right = s.substr(j);
-
-    if(s[j] != '&') return solveBoolean(right);
-
-    return solveBoolean(left) || solveBoolean(right);
 }
 
 int main() {
