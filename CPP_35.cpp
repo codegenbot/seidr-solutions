@@ -3,11 +3,10 @@
 
 int main() {
     std::vector<int> l;
-    int max = 0;
-    for(int i; cin >> i; ) {
-        if(i > max) 
-            max = i;
-        l.push_back(i);
+    int n; // Read input from user
+    while (n != -1) {
+        cin >> n;
+        l.push_back(n);
     }
-    return *std::max_element(l.begin(), l.end());
-}
+    std::vector<float> v = l; 
+    return *std::max_element(v.begin(), v.end());
