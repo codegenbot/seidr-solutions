@@ -1,8 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int minDiff = INT_MAX;
