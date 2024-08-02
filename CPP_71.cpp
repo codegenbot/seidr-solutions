@@ -1,11 +1,10 @@
-#include <cmath>
-
+#include<stdio.h>
+#include<math.h>
 using namespace std;
 
-float triangle_area(float a, float b, float c) {
-    if (a + b <= c || a + c <= b || b + c <= a) {
+float triangle_area(float a,float b,float c){
+    if((a+b)>c && (a+c)>b && (b+c)>a)
+        return (sqrt(pow(a,2) + pow(b,2) - 2*a*b*cos(acos(sin(atan2(b-a, a)))*180/3.14159))*sin(acos(sin(atan2(b-a, a)))*180/3.14159));
+    else
         return -1;
-    }
-    float s = (a + b + c) / 2.0f;
-    return round( sqrt(pow(s-a, 2) + pow(s-b, 2) + pow(s-c, 2) - 4*s*(s-a)*(s-b)*(s-c)) * 1e-6, 2);
 }
