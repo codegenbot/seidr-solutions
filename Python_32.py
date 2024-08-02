@@ -1,6 +1,4 @@
-def find_zero():
-    xs = [int(x) for x in input().split()]
-    a, b, c = xs
+def find_zero(a, b, c):
     discriminant = (b**2) - (4*a*c)
     if discriminant < 0:
         return None
@@ -11,8 +9,5 @@ def find_zero():
 
 # Test cases
 if __name__ == "__main__":
-    values = input("Enter values for test case 1 (e.g., 1 -3 2): ")
-    print(find_zero())
-    
-    values = input("Enter values for test case 2 (e.g., 1 2 1): ")
-    print(find_zero())
+    print(find_zero(1, -3, 2))  # Expected Output: (2.0, 1.0)
+    print(find_zero(1, 2, 1))  # Expected Output: -1.0
