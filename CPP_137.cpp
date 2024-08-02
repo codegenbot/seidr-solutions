@@ -1,35 +1,36 @@
-#include <string>
-#include <boost/any.hpp>
+#include <any>
 #include <cassert>
+#include <string>
+#include <regex>
 
-boost::any compare_one(const boost::any& a, const boost::any& b);
+std::any compare_one(const std::any& a, const std::any& b);
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
+std::any compare_one(const std::any& a, const std::any& b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
+        if(std::any_cast<int>(a) > std::any_cast<int>(b))
             return a;
-        else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
+        else if(std::any_cast<int>(a) < std::any_cast<int>(b))
             return b;
         else
-            return boost::any();
+            return std::any();
     }
     else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b))
+        if(std::any_cast<float>(a) > std::any_cast<float>(b))
             return a;
-        else if(boost::any_cast<float>(a) < boost::any_cast<float>(b))
+        else if(std::any_cast<float>(a) < std::any_cast<float>(b))
             return b;
         else
-            return boost::any();
+            return std::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        float num1 = std::stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
-        float num2 = std::stof(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
+        float num1 = std::stof(std::regex_replace(std::any_cast<std::string&>(a), std::regex(","), "."));
+        float num2 = std::stof(std::regex_replace(std::any_cast<std::string&>(b), std::regex(","), "."));
         if(num1 > num2)
             return a;
         else if(num1 < num2)
             return b;
         else
-            return boost::any();
+            return std::any();
     }
-    return boost::any();
+    return std::any();
 }
