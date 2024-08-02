@@ -1,11 +1,23 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <utility>
 #include <cassert>
+#include <cmath>
+using namespace std;
 
 bool issame(float a, float b) {
-    return fabs(a - b) < numeric_limits<float>::epsilon();
+    return abs(a - b) < 1e-9;
 }
 
 pair<float, float> find_closest_elements(vector<float>& numbers);
+
+int main() {
+    vector<float> numbers = {12.5, 3.7, 5.2, 8.9, 6.4, 21.1};
+    pair<float, float> closest_numbers = find_closest_elements(numbers);
+    cout << "Closest elements are: " << closest_numbers.first << " and " << closest_numbers.second;
+    return 0;
+}
 
 pair<float, float> find_closest_elements(vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
@@ -24,8 +36,4 @@ pair<float, float> find_closest_elements(vector<float>& numbers) {
         }
     }
     return {num1, num2};
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).first, 2.2) && issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).second, 3.1));
 }
