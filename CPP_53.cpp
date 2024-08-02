@@ -1,22 +1,12 @@
 #include <iostream>
-#include <cstdlib>
-#include <cassert>
 
 int add(int x, int y) {
     return x + y;
 }
 
-void test() {
-    srand(time(0));
-
-    int x = rand() % 1000;
-    int y = rand() % 1000;
-
-    assert(add(x, y) == x + y);
-}
-
 int main() {
-    test();
-
+    int x, y;
+    std::cin >> x >> y;
+    std::cout << add(x, y) << std::endl;
     return 0;
 }
