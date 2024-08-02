@@ -1,5 +1,5 @@
-```
 #include <vector>
+
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -11,7 +11,7 @@ int count_nums(std::vector<int> nums) {
             sum_digits += num % 10;
             num /= 10;
         }
-        if (sum_digits > 1) {
+        if (sum_digits > 0) {
             count++;
         }
     }
