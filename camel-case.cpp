@@ -1,31 +1,43 @@
-Here is the solution:
+Here is the completed code:
 
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::string result;
-    bool capitalize = true;
+using namespace std;
 
-    for (char c : input) {
+string camelCase(string s) {
+    string result = "";
+    bool firstWord = true;
+    
+    for (char c : s) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
         } else {
-            result += tolower(c);
+            if (firstWord) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+            }
+            firstWord = false;
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::cout << camelCase(input) << std::endl;
-
+    string s;
+    while (cin >> s) {
+        cout << camelCase(s) << endl;
+    }
     return 0;
 }
