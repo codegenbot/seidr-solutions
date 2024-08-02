@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB);
+
 bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB) {
     if (vecA.size() != vecB.size()) {
         return false;
@@ -13,12 +15,9 @@ bool issame(const std::vector<int>& vecA, const std::vector<int>& vecB) {
     return true;
 }
 
-std::vector<int> f(int n){
+std::vector<int> f(int n) {
     return std::vector<int>(n, 2);
 }
 
-int main() {
-    assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6}));
-    assert(issame(f(3), std::vector<int>{1, 2, 6}));
-    return 0;
-}
+assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6}));
+assert(issame(f(3), std::vector<int>{2, 2, 2}));
