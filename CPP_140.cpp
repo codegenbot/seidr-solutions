@@ -1,11 +1,13 @@
 string fix_spaces(string text){
     string result = "";
     for(int i=0; i<text.length(); i++){
-        if(text[i] == ' ' && (result.empty() || result.back() != ' ')){
-            result += text[i];
-        }else if(text[i] == ' ' && result.back() == ' '){
-            result += '-';
-        }else{
+        if(text[i] == ' '){
+            if(i+1 < text.length() && text[i+1] == ' '){
+                if(result.length()>0 || i>0) result += '-';
+            } else {
+                if(result.length()>0) result += '_';
+            }
+        } else {
             result += text[i];
         }
     }
