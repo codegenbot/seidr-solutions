@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> 
+#include <iomanip> // Include <iomanip> header to use std::setprecision
 #include <vector>
 
 int main() {
