@@ -1,3 +1,7 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
