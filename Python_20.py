@@ -9,4 +9,4 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
                 min_diff = diff
                 closest_pair = (numbers[i], numbers[j])
 
-    return closest_pair
+    return sorted(closest_pair)
