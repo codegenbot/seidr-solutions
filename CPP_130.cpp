@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> tri(int n) {
