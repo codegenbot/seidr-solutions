@@ -10,7 +10,11 @@ def solve_boolean(expression):
         result = True
         for char in expression:
             if char == '&':
-                result &= (yield from solve_boolean(''.join(filter(str.isalpha, expression))))
+                result &= True
             elif char == '|':
-                result |= (yield from solve_boolean(''.join(filter(str.isalpha, expression))))
+                result |= True
+            elif char == 'T':
+                result &= True
+            elif char == 'F':
+                result &= False
         return result
