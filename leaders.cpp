@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums);
 
@@ -36,6 +35,5 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
             maxRight = nums[i];
         }
     }
-    std::copy(leaders.rbegin(), leaders.rend(), std::back_inserter(leaders));
     return leaders;
 }
