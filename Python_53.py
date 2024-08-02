@@ -1,8 +1,7 @@
 def add(x: int, y: int):
     return x + y
 
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
+x, y = map(int, input("Enter two numbers separated by space: ").split())
 
 result = add(x, y)
 
