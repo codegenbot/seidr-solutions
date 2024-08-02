@@ -41,11 +41,13 @@ int eval(string s) {
 }
 
 int main() {
-    // test cases
     vector<string> operator_;
     vector<int> operand;
 
-    // add your test cases here
+    // Add your code here to read input from the user and populate `operator_` and `operand`
+
+    int output = do_algebra(operator_, operand);
+    cout << "The output is: " << output << endl;
 
     return 0;
 }
