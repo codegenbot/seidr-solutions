@@ -1,7 +1,7 @@
 #include <string>
 #include <cctype>
 
-string remove_vowels(string text); 
+string remove_vowels(string text); // Declare the function before main
 
 int main() {
     assert (remove_vowels("ybcd") == "ybcd");
