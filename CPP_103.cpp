@@ -8,9 +8,9 @@ std::string avg(int n, int m) {
         sum += i;
     }
     
-    int rounded_avg = std::round((double)sum / (m - n + 1));
+    int average = std::round((double)sum / (m - n + 1));
     
-    return std::bitset<sizeof(int)*8>(rounded_avg).to_string().substr(sizeof(int)*8-1-(int)std::log2(rounded_avg), sizeof(int)*8-1);
+    return std::bitset<sizeof(int)*8>(average).to_string().substr(sizeof(int)*8-1-(int)std::log2(average), sizeof(int)*8-1);
 }
 
 int main() {
