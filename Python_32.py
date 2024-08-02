@@ -1,5 +1,5 @@
 def find_zero(a: int, b: int, c: int, d: int):
-    if b == 0:  
+    if b == 0:
         return None
     x = (a * d - b * c) / (b * b - a * c)
     return x
