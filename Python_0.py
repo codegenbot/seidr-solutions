@@ -1,14 +1,9 @@
-def check_numbers_within_threshold(numbers, threshold):
+def check_adjacent_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
         if abs(numbers[i] - numbers[i + 1]) < threshold:
             return True
     return False
 
-# Input from user
-numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
-threshold = int(input("Enter threshold: "))
-
-# Call the function with user input
-result = check_numbers_within_threshold(numbers, threshold)
-print(result)
+has_close_elements = check_adjacent_numbers([1, 3, 5, 7], 2)
+print(has_close_elements)
