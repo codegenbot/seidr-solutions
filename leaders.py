@@ -1,4 +1,6 @@
-Here is the Python solution:
-
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:])]
+def leaders(nums):
+    return [
+        num
+        for i, num in enumerate(reversed(nums))
+        if all(num >= x for x in nums[i + 1 :])
+    ]
