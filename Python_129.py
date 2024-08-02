@@ -17,4 +17,3 @@ def minPath(grid, k):
                     queue.append((nx, ny, new_path))
         if len(path) == k:
             return sorted(path)
-   
