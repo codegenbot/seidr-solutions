@@ -1,6 +1,4 @@
-def prime_fib():
-    n = int(input())
-
+def prime_fib(n):
     def is_prime(num):
         if num < 2:
             return False
@@ -22,3 +20,5 @@ def prime_fib():
             count += 1
         i += 1
     return fibonacci(i - 1)
+
+prime_fib(10)
