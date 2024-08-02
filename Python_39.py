@@ -1,14 +1,19 @@
+import math
+
 def is_prime(num):
-    if num < 2:
+    if num <= 1:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    max_divisor = math.isqrt(num) + 1
+    for i in range(3, max_divisor, 2):
         if num % i == 0:
             return False
     return True
 
 def prime_fib():
-    n = int(input("Enter the number of prime Fibonacci numbers you want to find: "))
-
     def fibonacci(n):
         if n <= 0:
             return 0
@@ -19,6 +24,7 @@ def prime_fib():
             a, b = b, a + b
         return b
 
+    n = int(input("Enter the number of prime Fibonacci numbers you want to find: "))
     count = 0
     num = 1
     while count < n:
