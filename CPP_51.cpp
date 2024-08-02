@@ -1,10 +1,9 @@
-string remove_vowels(string text) {
+string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (!ispunct(c) && !isupper(c) && !islower(c))
-            continue;
-        if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
-            !ispunct(c) && !isspace(c)) {
+    for(char c : text){
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' 
+           && toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I'
+           && toupper(c) != 'O' && toupper(c) != 'U'){
             result += c;
         }
     }
