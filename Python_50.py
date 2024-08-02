@@ -1,2 +1,7 @@
-def decode_shift(s: str):
-    return "".join([chr((ord(ch) - ord("a") - 5) % 26 + ord("a")) if ch.islower() else ch for ch in s])
+def decode_shift():
+    s = input("Enter the string to decode: ")
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+
+
+decoded_string = decode_shift()
+print(decoded_string)
