@@ -22,4 +22,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
+
 assert(areEqual(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
