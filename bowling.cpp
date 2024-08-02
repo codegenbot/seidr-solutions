@@ -5,8 +5,8 @@ int score(string s) {
     int total = 0;
     int frame = 1;
     int ball = 0;
-    int rolls[21]{};
-    
+    int rolls[21];
+
     for (char c : s) {
         if (c == 'X') {
             rolls[ball++] = 10;
