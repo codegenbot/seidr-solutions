@@ -10,28 +10,22 @@ int add_elements(std::vector<int> arr, int k){
 }
 
 int main(){
-    std::vector<int> input_vector;
-    int num_elements, k;
+    std::vector<int> arr;
+    int n, k;
 
-    // Read the number of elements
-    std::cout << "Enter the number of elements: ";
-    std::cin >> num_elements;
-
-    // Read the elements
-    for(int i=0; i<num_elements; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        int temp;
-        std::cin >> temp;
-        input_vector.push_back(temp);
+    // Input
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+    for(int i=0; i<n; i++){
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> arr[i];
     }
-
-    // Read k
-    std::cout << "Enter the value of k: ";
+    std::cout << "Enter k: ";
     std::cin >> k;
 
-    // Call the function and print the result
-    int sum = add_elements(input_vector, k);
-    std::cout << "The sum is: " << sum << std::endl;
-
+    // Call the function and print output
+    int result = add_elements(arr, k);
+    std::cout << "Sum of elements that satisfy the condition is: " << result << std::endl;
+    
     return 0;
 }
