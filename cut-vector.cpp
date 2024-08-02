@@ -1,43 +1,16 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::vector<int> cutVector(const std::vector<int>& vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
-    int pos = -1;
-    
-    for(int i = 0; i < vec.size(); ++i){
-        if(i == vec.size() - 1 || vec[i] == vec[i+1]){
-            int diff = (vec[i] - vec[0]) + (vec.back() - vec[i]);
-            if(diff < minDiff){
-                minDiff = diff;
-                pos = i;
-            }
+    pair<vector<int>, vector<int>> result;
+    for (int i = 1; i <= nums.size(); ++i) {
+        int diff = abs((long long)nums[0] - nums[i]);
+        if (diff < minDiff || (diff == minDiff && nums[0] > nums[i])) {
+            minDiff = diff;
+            result.first.assign(nums.begin(), nums.begin() + i);
+            result.second.assign(nums.begin() + i, nums.end());
         }
     }
-    
-    std::vector<int> leftVec(vec.begin(), vec.begin()+pos+1);
-    std::vector<int> rightVec(vec.begin()+pos, vec.end());
-    
-    return {leftVec, rightVec};
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> vec(n);
-    for(int i = 0; i < n; ++i){
-        std::cin >> vec[i];
-    }
-    
-    auto result = cutVector(vec);
-    std::cout << "Left Vector: ";
-    for(auto x : result[0]){
-        std::cout << x << " ";
-    } std::cout << std::endl;
-    std::cout << "Right Vector: ";
-    for(auto x : result[1]){
-        std::cout << x << " ";
-    } std::cout << std::endl;
-    
-    return 0;
+    return result;
 }
