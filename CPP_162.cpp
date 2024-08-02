@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
-#include <sstream>
 #include <iomanip>
 
 std::string string_to_md5(const std::string& input) {
