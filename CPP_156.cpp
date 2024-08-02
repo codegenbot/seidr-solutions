@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -13,9 +12,6 @@ std::string int_to_mini_roman(int number) {
             result += p.second;
             number -= p.first;
         }
-    }
-    if (number > 0) {
-        return "Input should be in the range 1 to 3999";
     }
     return result;
 }
