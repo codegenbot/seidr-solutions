@@ -1,10 +1,10 @@
 def decode_cyclic(s: str):
-    """
-    takes as input string encoded with encode_cyclic function. Returns decoded string.
-    """
-    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
-    groups = [
-        (group[1:] + group[0]) if len(group) == 3 else group
-        for group in reversed(groups)
-    ]
-    return "".join(groups)
+    result = ""
+    i = 0
+    while i < len(s):
+        if i + 2 < len(s) and s[i] == s[i + 2]:
+            result += s[i] * ((s[i + 1] - "0" + 3) % 3 + 1)
+        else:
+            result += s[i : i + 3]
+        i += 3
+    return result
