@@ -1,4 +1,4 @@
-#include <string>
+#include<string>
 
 string solve(string s) {
     string result = "";
