@@ -1,5 +1,4 @@
 #include <vector>
-
 std::vector<int> incr_list(std::vector<int> l);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
