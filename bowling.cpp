@@ -7,6 +7,7 @@ int score(string s) {
     int frame = 1;
     int ball = 0;
     vector<int> scores(22, 0);
+
     for (char c : s) {
         if (c == 'X') {
             scores[ball++] = 10;
@@ -21,6 +22,7 @@ int score(string s) {
             scores[ball++] = c - '0';
         }
     }
+
     for (int i = 0; i < 10; i++) {
         if (scores[i * 2] == 10) {
             total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
@@ -33,6 +35,7 @@ int score(string s) {
             total += scores[i * 2] + scores[i * 2 + 1];
         }
     }
+
     return total;
 }
 
