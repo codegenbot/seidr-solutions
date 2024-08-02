@@ -1,21 +1,36 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
+    vector<int> rolls(21); // stores the number of pins knocked down per roll
+    
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            if (roll > 0) {
-                score += roll;
-                roll = 0;
-            }
-        } else if (isdigit(s[i])) {
-            int temp = 0;
-            while (i < s.length() && isdigit(s[i])) {
-                temp = temp * 10 + (s[i] - '0');
-                i++;
-            }
-            roll += temp;
+            int strikeOrSpare = 10 - stoi(s.substr(i-1, 1)); 
+            score += 10 + strikesAndSpares(rolls, i);
+            rolls[i] = 10;
+        } else if (s[i] == 'X') {
+            score += 10;
+            rolls[i] = 10;
+        } else {
+            int roll = stoi(s.substr(i, 1));
+            score += roll;
+            rolls[i] = roll;
         }
     }
-    if (roll > 0) score += roll;
+
     return score;
+}
+
+int strikesAndSpares(vector<int> rolls, int i) {
+    int bonus = 0;
+    
+    for (int j = i+1; j <= i + 1 && j < 11; j++) {
+        if (rolls[j] == 10) {
+            bonus += 20 - rolls[i];
+            break;
+        } else {
+            bonus += rolls[i];
+        }
+    }
+
+    return bonus;
 }
