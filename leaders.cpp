@@ -23,13 +23,14 @@ int main() {
 
     while (std::cin >> num) {
         nums.push_back(num);
-        if (std::cin.eof()) break;
     }
 
-    std::vector<int> output = findLeaders(nums);
+    if (std::cin.eof()) {
+        std::vector<int> output = findLeaders(nums);
 
-    for (int leader : output) {
-        std::cout << leader << " ";
+        for (int leader : output) {
+            std::cout << leader << " ";
+        }
     }
 
     return 0;
