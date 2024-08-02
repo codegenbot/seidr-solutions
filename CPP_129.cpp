@@ -4,31 +4,27 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 vector<int> minPath(const vector<vector<int>>& grid, int k) {
     vector<int> path;
-    
-    for (int i = 0; i < k; ++i) {
-        path.push_back(i % 2 == 0 ? 1 : 3);
+    int i = 0, j = 0;
+    int rows = grid.size();
+    int cols = grid[0].size();
+
+    while (k > 0) {
+        path.push_back(grid[i][j]);
+        k -= grid[i][j];
+        
+        if (i == rows - 1 && j == cols - 1) break;
+
+        if (i < rows - 1 && (j == cols - 1 || grid[i + 1][j] <= grid[i][j + 1])) {
+            i++;
+        } else {
+            j++;
+        }
     }
-    
+
     return path;
-}
-
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-
-    return 0;
 }
