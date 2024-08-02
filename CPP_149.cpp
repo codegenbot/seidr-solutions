@@ -18,6 +18,6 @@ vector<string> sorted_list_sum(const vector<string>& a, const vector<string>& b)
 }
 
 int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == sorted_list_sum({"cc", "dd", "aaaa", "bbbb"}, {"aaaa", "bbbb", "dd", "cc"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == sorted_list_sum({"cc", "dd", "aaaa", "bbbb"},{"aaaa", "bbbb", "dd", "cc"}));
     return 0;
 }
