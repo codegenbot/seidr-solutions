@@ -6,7 +6,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::cin >> s;
     int count = vowels_count(s);
-    std::cout << "Number of vowels: " << count << std::endl;
+    std::cout << "Number of vowels in the string is: " << count << std::endl;
     return 0;
 }
 
