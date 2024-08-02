@@ -13,5 +13,7 @@ def parse_music(music_string: str) -> List[int]:
             note = music_string[i:i+2]
             if note in notes:
                 result.append(notes[note])
+            else:
+                result.append(0)
             i += 2
     return result
