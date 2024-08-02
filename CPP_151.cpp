@@ -18,6 +18,7 @@ int main() {
     // fill lst with input values...
     // ...
 
-    double_the_difference(lst); 
+    assert(double_the_difference(lst) == odd_sum); 
+
     return 0;
 }
