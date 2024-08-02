@@ -1,32 +1,37 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    if(s == "T" || s == "true") return true;
-    if(s == "F" || s == "false") return false;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) || solveBoolean(right);
-        }
-        else if(s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) && solveBoolean(right);
+bool evaluateBooleanExpression(const std::string &expression) {
+    bool result = true;
+    for (char c : expression) {
+        switch (c) {
+            case 'T':
+                return true;
+            case 'F':
+                return false;
+            case '|':
+                result = true;
+                break;
+            case '&':
+                result = true;
+                break;
+            default:
+                std::cerr << "Invalid input. Only T, F, |, and & are allowed." << std::endl;
+                return false;
         }
     }
-    
-    return false;
+    return result;
 }
 
 int main() {
-    // Test cases
-    cout << boolalpha << solveBoolean("t") << endl;  // True
-    cout << boolalpha << solveBoolean("f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&t") << endl;  // False
-    cout << boolalpha << solveBoolean("t&f") << endl;  // False
+    std::string expression;
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
+    std::cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
     return 0;
 }
