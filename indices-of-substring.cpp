@@ -8,13 +8,11 @@ int main() {
     getline(cin, text);
     getline(cin, target);
     vector<int> indices;
-
-    for (size_t i = 0; i < text.length(); ++i) {
-        if (text.substr(i).find(target) == 0) {
+    for (size_t i = 0; i <= text.length() - target.length() + 1; ++i) {
+        if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
     }
-
     for (int index : indices) {
         cout << index << " ";
     }
