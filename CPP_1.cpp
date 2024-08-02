@@ -1,8 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(char a, char b);
+
+bool issame(char a, char b) {
     return a == b;
 }
 
@@ -27,10 +29,6 @@ vector<string> separate_paren_groups(string paren_string) {
             }
         }
     }
-    return result;
-}
 
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
+    return result;
 }
