@@ -1,4 +1,5 @@
-def decode_cyclic(s: str):
+```
+def decode_cyclic(s):
     result = ""
     temp = ""
     for char in s:
