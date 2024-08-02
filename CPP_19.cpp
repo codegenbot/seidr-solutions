@@ -1,27 +1,26 @@
-map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                          {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                          {"eight", 8}, {"nine", 9}};
+#include <vector>
+#include <algorithm>
 
-vector<string> numVec;
-string temp;
+using namespace std;
 
-for (char c : numbers) {
-    if (c == ' ') {
-        continue;
+string sort_numbers(string numbers) {
+    vector<string> numVec;
+    string token;
+    
+    // Tokenize the input string
+    istringstream iss(numbers);
+    while (getline(iss, token, ' ')) {
+        numVec.push_back(token);
     }
-    for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-        if (it->first.find(std::to_string(c)) != string::npos) {
-            temp = it->first;
-            break;
-        }
+    
+    // Sort the vector of strings
+    sort(numVec.begin(), numVec.end());
+    
+    // Join the sorted strings back into a single string
+    string result;
+    for (const auto& s : numVec) {
+        result += s + " ";
     }
-    numVec.push_back(temp);
+    
+    return result;
 }
-
-sort(numVec.begin(), numVec.end());
-
-string result = "";
-for (auto str : numVec) {
-    result += str + " ";
-}
-return result.substr(0, result.size() - 1);
