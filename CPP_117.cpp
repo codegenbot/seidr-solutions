@@ -1,21 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
-vector<string> select_words(string s, int n) {
+vector<string> select_words(string s, int n){
     vector<string> result;
     string word = "";
     int consonant_count = 0;
@@ -40,17 +34,8 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {
-    // Example usage
-    vector<string> words = select_words("Hello world! This is a test.", 2);
-    for (string word : words) {
-        cout << word << endl;
-    }
-    
-    // Compare two vectors of strings
-    vector<string> a = {"apple", "banana", "orange"};
-    vector<string> b = {"apple", "grape", "orange"};
-    cout << issame(a, b) << endl;
-    
+int main(){
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+
     return 0;
 }
