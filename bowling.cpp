@@ -1,9 +1,9 @@
 #include <string>
 
+using namespace std;
+
 int bowlingScore(string s) {
-    int score = 0;
-    int frame = 1;
-    int bowl = 0;
+    int score = 0, frame = 1, bowl = 0;
     for (char c : s) {
         if (c == 'X') {
             score += 10;
@@ -18,9 +18,7 @@ int bowlingScore(string s) {
             score += (s[bowl + 1] == 'X') ? 10 : (s[bowl + 1] - '0');
             frame++;
             bowl += 2;
-        } else if (c == '-') {
-            // do nothing
-        } else {
+        } else if (c != '-') {
             score += c - '0';
             if (frame < 10 && s[bowl + 1] == '/') {
                 score += 10 - (c - '0');
