@@ -14,22 +14,24 @@ long long double_the_difference(vector<float> lst) {
 int main() {
     vector<float> lst;
     float num;
-
-    cout << "Enter numbers (enter 'stop' to finish):" << endl;
+    
+    cout << "Enter numbers (enter 'q' to quit): ";
     while (true) {
         cin >> num;
-        if (num == 'stop') break;
+        if (num == 'q') break;
         lst.push_back(num);
     }
-
-    long long odd_sum = 0;
-    for (float x : lst) {
-        if (x > 0 && modf(x, &x) == 0.0) {
-            odd_sum += x * x;
+    
+    long long odd_sum = 0; 
+    for (float n : lst) {
+        if (n > 0 && modf(n, &n) == 0.0) {
+            odd_sum += n * n;
+        } else {
+            odd_sum -= n * n;
         }
     }
-
-    cout << "Double the difference: " << double_the_difference(lst) - odd_sum << endl;
-
+    
+    cout << "double_the_difference: " << double_the_difference(lst) << endl;
+    cout << "odd_sum: " << odd_sum << endl;
     return 0;
 }
