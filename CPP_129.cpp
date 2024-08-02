@@ -1,31 +1,45 @@
-Here is the solution:
+#include <algorithm>
+#include <vector>
 
-```cpp
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<vector<vector<int>>> dp(grid.size(), vector<vector<int>>(grid[0].size(), vector<int>(k + 1)));
-    
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j][0] = grid[i][j];
-            } else if (i == 0) {
-                dp[i][j][0] = grid[i][j] + dp[i][j - 1][0];
-            } else if (j == 0) {
-                dp[i][j][0] = grid[i][j] + dp[i - 1][j][0];
-            } else {
-                dp[i][j][0] = grid[i][j] + min({dp[i - 1][j][0], dp[i][j - 1][0]});
-            }
-        }
-    }
-    
+    int n = grid.size();
     vector<int> res;
-    int val = dp[grid.size() - 1][grid[0].size() - 1][k];
-    for (int i = k; i >= 0; i--) {
-        if (val == dp[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()][i]) {
-            res.push_back(grid[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()]);
-            val -= grid[(grid.size() - 1) % grid.size()][(grid[0].size() - 1) % grid[0].size()];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            bool found = false;
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    if (x == 0 && y == 0) continue;
+                    int nx = i + x, ny = j + y;
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
+                        for (int l = 0; l < k; l++) {
+                            grid[nx][ny]--;
+                            bool valid = true;
+                            for (int i1 = 0; i1 < n; i1++) {
+                                for (int j1 = 0; j1 < n; j1++) {
+                                    if (grid[i1][j1] < 1) {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+                                if (!valid) break;
+                            }
+                            if (valid) {
+                                found = true;
+                                res.push_back(grid[nx][ny]);
+                                break;
+                            }
+                            grid[nx][ny]++;
+                        }
+                        if (found) break;
+                    }
+                }
+                if (found) break;
+            }
+            if (found) break;
         }
     }
-    
     return res;
 }
