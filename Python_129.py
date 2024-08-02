@@ -10,7 +10,7 @@ def minPath(grid, k):
         visited[x][y] = True
         min_val = float("inf")
         next_x, next_y = -1, -1
-        found = False
+        found = False 
 
         for dx, dy in directions:
             new_x, new_y = x + dx, y + dy
@@ -20,7 +20,7 @@ def minPath(grid, k):
                     next_x, next_y = new_x, new_y
                     found = True
 
-        if not found:
+        if not found:  # if no next step is found, return the current path
             return path
 
         return dfs(next_x, next_y, path + [grid[next_x][next_y]])
