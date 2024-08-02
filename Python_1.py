@@ -23,4 +23,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         else:
             current_group += char
     
-    return [group.strip() for group in current_group.split('()')]
+    return [group.strip() for group in current_group.split('()') if group]
