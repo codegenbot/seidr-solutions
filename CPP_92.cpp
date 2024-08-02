@@ -1,14 +1,21 @@
+```c++
 #include <iostream>
-#include <assert.h>
+using namespace std;
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-    return ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == bi + ci || ai == ci + bi || ai == bi - ci || ai == ci - bi;
+    int ai = a, bi = b, ci = c;
+    if (!(ai == bi + ci || bi == ai + ci || ci == ai + bi)) {
+        cout << "Error: No integer found." << endl;
+        return false;
+    } else {
+        return true;
+    }
 }
 
 int main() {
-    assert(any_int(3.01,4,7)==false);
+    float a, b, c;
+    cout << "Enter three floating point numbers: ";
+    cin >> a >> b >> c;
+    any_int(a, b, c);
     return 0;
 }
