@@ -9,9 +9,9 @@ def parse_music(music_string: str) -> List[int]:
     while i < len(music_string):
         if music_string[i] == '.':
             i += 3
-        elif music_string[i:i+2] in notes:
-            result.append(notes[music_string[i:i+2]])
-            i += 2
         else:
-            i += 1
+            note = music_string[i:i+2]
+            if note in notes:
+                result.append(notes[note])
+            i += 2
     return result
