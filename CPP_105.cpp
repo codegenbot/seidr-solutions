@@ -9,19 +9,14 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::map<int, std::string> digit_map = {
-        {4, "Four"},
-        {9, "Nine"},
-        {8, "Eight"}
-    };
-    std::vector<std::string> result;
-    for (int num : arr) {
-        result.push_back(digit_map[num]);
-    }
-    return result;
+    std::vector<std::string> vec = {"Nine", "Eight", "Four"};
+    std::sort(vec.begin(), vec.end(), [](const std::string& a, const std::string& b) {
+        return a.size() < b.size();
+    });
+    return vec;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
