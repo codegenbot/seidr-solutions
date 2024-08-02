@@ -1,9 +1,16 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return std::is_permutation(a.begin(), a.end(), b.begin(), b.end());
+bool issame(std::initializer_list<int> a, std::initializer_list<int> b) {
+    std::vector<int> vec_a(a);
+    std::vector<int> vec_b(b);
+    
+    std::sort(vec_a.begin(), vec_a.end());
+    std::sort(vec_b.begin(), vec_b.end());
+    
+    return vec_a == vec_b;
 }
 
 int main() {
