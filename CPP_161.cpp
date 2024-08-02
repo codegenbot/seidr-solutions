@@ -1,13 +1,17 @@
-for(auto &c : s){
-        if(isalpha(c)){
-            if(islower(c)){
-                c = toupper(c);
+string solve(string s){
+    int n = s.length();
+    bool hasLetters = false;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
+            hasLetters = true;
+            if(islower(s[i])){
+                s[i] = toupper(s[i]);
             } else {
-                c = tolower(c);
+                s[i] = tolower(s[i]);
             }
         }
     }
-    if(all_of(s.begin(), s.end(), [](char c){return !isalpha(c);})){
+    if(!hasLetters){
         reverse(s.begin(), s.end());
     }
     return s;
