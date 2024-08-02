@@ -2,9 +2,7 @@
 #include <utility>
 #include <cassert>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return a == b;
-}
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b);
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
@@ -16,6 +14,10 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     }
 
     return {sum, product};
+}
+
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    return a == b;
 }
 
 int main() {
