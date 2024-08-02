@@ -1,53 +1,19 @@
-#include <string>
+using namespace std;
 
-int bowlingScore(string bowls) {
+int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
-        if (isdigit(bowls[i])) {
-            int roll1 = bowls[i] - '0';
-            int roll2 = 0;
-            if (i < 9) {
-                if (isdigit(bowls[i + 1])) {
-                    roll2 = bowls[i + 1] - '0';
-                    i++;
-                } else {
-                    roll2 = 10 - roll1;
-                }
-            } else {
-                roll2 = 10 - roll1;
-            }
-            score += roll1 + roll2;
-        } else if (bowls[i] == 'X') {
-            score += 10;
-            if (i < 9) {
-                if (isdigit(bowls[i + 1])) {
-                    score += bowls[i + 1] - '0';
-                    i++;
-                } else {
-                    score += 10;
-                }
-            } else {
-                score += 10;
-            }
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (s[i] == '/') {
+            score += 10 + (stoi(s.substr(i+1, 2)) - 5);
         } else {
-            int x = 10;
-            while (i < 9 && bowls[i] == '/') {
-                score += 10;
-                i++;
-                if (i < 9) {
-                    if (isdigit(bowls[i])) {
-                        x = bowls[i] - '0';
-                        break;
-                    } else {
-                        x = 10;
-                        i++;
-                    }
-                } else {
-                    x = 10;
-                }
+            int currentFrameScore = stoi(s.substr(i, 1));
+            if (currentFrameScore < 10) {
+                score += currentFrameScore;
+            } else {
+                score += 10 + (stoi(s.substr(i+1, 1)) - 0);
             }
-            score += x;
         }
     }
     return score;
-}
