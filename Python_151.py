@@ -1,7 +1,7 @@
-```
-def check(num1, num2, num3):
-    result = double_the_difference([num1, num2, num3])
-    if result % (2 * min(num1, num2, num3)) == 0:
-        return True
-    else:
-        return False
+def check():
+    numbers = [int(input("Enter a number: ")) for _ in range(5)]
+    print(double_the_difference(numbers))
+
+
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
