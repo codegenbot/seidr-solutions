@@ -1,0 +1,2 @@
+def numerical_letter_grade(grades):
+    return ['E' if g == 0 else ('D-' if g < 1 else ('D+' if g < 1.0 else ('C-' if g < 1.3 else ('C' if g < 1.7 else ('C+' if g < 2.0 else ('B-' if g < 2.3 else ('B' if g < 2.7 else ('B+' if g < 3.0 else ('A-' if g < 3.3 else 'A'))))))))) for g in grades]
