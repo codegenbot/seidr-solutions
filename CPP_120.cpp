@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-std::vector<int> maximum(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr, int k) {
     vector<int> result(arr.begin(), min(arr.begin() + k, arr.end()));
     sort(result.begin(), result.end());
     return result;
