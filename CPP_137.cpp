@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -10,37 +9,31 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return boost::any(max(get<double>(a), get<string>(b)));
+        return max(a, b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        return boost::any(max(get<string>(a), get<double>(b)));
+        return max(b, a);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int aint = get<int>(a);
-        int bint = get<int>(b);
-        if (aint > bint)
+        if (get<int>(a) > get<int>(b))
             return a;
-        else if (aint < bint)
+        else if (get<int>(a) < get<int>(b))
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double adouble = get<double>(a);
-        double bdouble = get<double>(b);
-        if (adouble > bdouble)
+        if (get<double>(a) > get<double>(b))
             return a;
-        else if (adouble < bdouble)
+        else if (get<double>(a) < get<double>(b))
             return b;
         else
             return boost::any("None");
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string astr = get<string>(a);
-        string bstr = get<string>(b);
-        if (astr > bstr)
+        if (get<string>(a) > get<string>(b))
             return a;
-        else if (astr < bstr)
+        else if (get<string>(a) < get<string>(b))
             return b;
         else
             return boost::any("None");
