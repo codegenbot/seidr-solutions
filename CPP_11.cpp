@@ -1,9 +1,8 @@
-```cpp
-#include <iostream>
-#include <string>
+#include<iostream>
+using namespace std;
 
-std::string string_xor(std::string a, std::string b) {
-    std::string result = "";
+string string_xor(string a, string b) {
+    string result = "";
     for(int i=0; i<a.length(); i++) {
         if(a[i] == '1' && b[i] == '1' || a[i] == '0' && b[i] == '0') 
             result += '0';
@@ -14,14 +13,17 @@ std::string string_xor(std::string a, std::string b) {
 }
 
 int main() {
-    std::string str1, str2;
-    std::cout << "Enter the first binary string: ";
-    std::cin >> str1;
-    std::cout << "Enter the second binary string: ";
-    std::cin >> str2;
+    string a, b;
+    cout << "Enter the first binary string: ";
+    cin >> a;
+    cout << "Enter the second binary string: ";
+    cin >> b;
     
-    std::string result = string_xor(str1, str2);
-    std::cout << "The XOR of the two strings is: " << result << std::endl;
-    
+    if(a.length() != b.length()) {
+        cout << "Error: The two strings must be of equal length." << endl;
+    } else {
+        string xor_result = string_xor(a, b);
+        cout << "The XOR operation result is: " << xor_result << endl;
+    }
     return 0;
 }
