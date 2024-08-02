@@ -1,8 +1,9 @@
-#include <string>
-using namespace std;
+#include <iostream>
+#include <map>
+#include <cassert>
 
-string sort_numbers(string numbers) {
-    map<string, int> num_map = {
+std::string sort_numbers(const std::string& numbers) {
+    std::map<std::string, int> num_map = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -15,14 +16,19 @@ string sort_numbers(string numbers) {
         {"nine", 9}
     };
 
-    string result = "";
-    for (auto const& [key, value] : num_map) {
+    std::string result = "";
+    for (const auto& [key, value] : num_map) {
         size_t pos = 0;
-        while ((pos = numbers.find(key, pos)) != string::npos) {
+        while ((pos = numbers.find(key, pos)) != std::string::npos) {
             result += key + " ";
             pos += key.length();
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
