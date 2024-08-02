@@ -14,7 +14,7 @@ std::string camelCase(const std::string& s) {
     }
 
     std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
+    for (unsigned int i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
             result += char(std::toupper(words[i][0]));
             result.erase(0, 1);
