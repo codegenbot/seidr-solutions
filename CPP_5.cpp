@@ -4,11 +4,11 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -17,11 +17,11 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 vector<int> intersperse(const vector<int>& numbers, int delimiter) {
     vector<int> result;
-    if (numbers.empty()) {
+    if(numbers.empty()) {
         return result;
     }
     result.push_back(numbers[0]);
-    for (int i = 1; i < numbers.size(); ++i) {
+    for(int i = 1; i < numbers.size(); ++i) {
         result.push_back(delimiter);
         result.push_back(numbers[i]);
     }
