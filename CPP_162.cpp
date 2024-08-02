@@ -4,6 +4,7 @@
 std::string string_to_md5(const std::string& input) {
     // Implement the conversion to MD5 hash function
     // This part needs to be implemented by the developer
+    return "MD5_hash_result";
 }
 
 int main() {
@@ -13,5 +14,6 @@ int main() {
 
     std::string md5_result = string_to_md5(input_text);
     std::cout << "MD5 hash: " << md5_result << std::endl;
+
     return 0;
 }
