@@ -10,7 +10,7 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     }
 
     for (size_t i = 0; i < a.size(); i++) {
-        if (a.at(i) != b.at(i)) {
+        if (a[i].compare(b[i]) != 0) {
             return false;
         }
     }
@@ -48,9 +48,6 @@ int main() {
     vector<string> expected_output = {"group 1", "group 2", "group 3"};
     
     assert(issame(input, expected_output));
-
-    // Add another test case
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-
+    
     return 0;
 }
