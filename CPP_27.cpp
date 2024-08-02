@@ -1,22 +1,24 @@
-\#include <string>\
-\#include <cctype>\
-\
-std::string flip_case(std::string str) \{\
-    for (char& c : str) \{\
-        if (std::islower(c)) \{\
-            c = std::toupper(c);\
-        \} else if (std::isupper(c)) \{\
-            c = std::tolower(c);\
-        \}\
-    \}\
-    return str;\
-\}\
-\
-int main() \{\
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");\
-    \
-    // Additional test cases if needed\
-    // assert(flip_case("Hello World") == "hELLO wORLD");\
-    \
-    return 0;\
-\}
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string flip_case(const std::string& str){
+    std::string result = str;
+    for(char &c : result){
+        if(std::islower(c)){
+            c = std::toupper(c);
+        } else if(std::isupper(c)){
+            c = std::tolower(c);
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::string input_string;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input_string);
+    assert(flip_case(input_string) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
+}
