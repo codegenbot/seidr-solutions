@@ -1,13 +1,16 @@
+// Complete the following code given the task description and function signature.
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
-
-    bool allLower = true;
-    bool allUpper = true;
-
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (!islower(it->first[0])) allLower = false;
-        if (!isupper(it->first[0])) allUpper = false;
+    bool allLower = true, allUpper = true;
+    for (auto& pair : dict) {
+        auto key = pair.first;
+        if (!islower(key[0]) && !isupper(key[0])) {
+            allLower = false;
+            allUpper = false;
+            break;
+        }
+        allLower &= islower(key[0]);
+        allUpper &= isupper(key[0]);
     }
-
     return allLower || allUpper;
 }
