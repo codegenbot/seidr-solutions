@@ -1,9 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 bool solveBoolean(string s) {
     if (s == "t") return true;
     if (s == "f") return false;
