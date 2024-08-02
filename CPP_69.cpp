@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -9,4 +10,8 @@ int search(vector<int> lst) {
         }
     }
     return max == 0 ? -1 : max;
+}
+
+int count(int x, vector<int> v) {
+    return std::count(v.begin(), v.end(), x);
 }
