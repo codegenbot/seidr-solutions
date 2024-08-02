@@ -1,14 +1,22 @@
-string encrypt(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm'){
-            result += (char)(c + 4);
-        } else if(c >= 'n' && c <= 'z'){
-            result += (char)(c - 22);
+#include <iostream>
+#include <string>
+
+std::string encrypt(std::string s) {
+    std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    std::string result = "";
+    
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            int index = alphabet.find(c);
+            index += 2; // rotate down by 4 places
+            while (index > 25) {
+                index -= 26;
+            }
+            result += alphabet[index];
         } else {
             result += c;
         }
     }
+    
     return result;
 }
