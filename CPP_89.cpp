@@ -1,15 +1,16 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-```cpp
-string encrypt(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            result += ((c - base + 2 * 26) % 26) + base;
-        } else {
-            result += c;
+std::string encrypt(std::string s) {
+    std::string result = "";
+    for(int i=0; i<s.size(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 3) % 26 + 'a';
+        } else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 3) % 26 + 'A';
         }
+        result += c;
     }
     return result;
 }
