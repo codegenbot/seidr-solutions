@@ -1,37 +1,45 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> parse_nested_parens(std::string paren_string);
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(std::vector<int> a, std::vector<int> b);
+vector<int> parse_nested_parens(string paren_string);
 
-std::vector<int> parse_nested_parens(std::string paren_string) {
-    std::vector<int> depths;
-    int depth = 0;
-    for (char c : paren_string) {
-        if (c == '(') {
-            depth++;
-            depths.push_back(depth);
-        } else if (c == ')') {
-            depth--;
-        }
-    }
-    int max_depth = 0;
-    for (int d : depths) {
-        max_depth = std::max(max_depth, d);
-    }
-    return depths;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
+}
+
+vector<int> parse_nested_parens(string paren_string) {
+    vector<int> depths;
+    int max_depth = 0;
+    int current_depth = 0;
+    
+    for (char c : paren_string) {
+        if (c == '(') {
+            current_depth++;
+            max_depth = max(max_depth, current_depth);
+        } else if (c == ')') {
+            current_depth--;
+        } else if (c == ' ') {
+            depths.push_back(max_depth);
+            max_depth = 0;
+            current_depth = 0;
+        }
+    }
+    
+    depths.push_back(max_depth);
+    
+    return depths;
+}
+
+int main() {
+    // Write your test cases here
+    return 0;
 }
