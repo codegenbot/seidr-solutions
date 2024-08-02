@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(int a, int b) {
     if (a == b)
@@ -14,8 +14,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (issame(game[i], guess[i])) {
             result.push_back(0);
         } else {
-            int diff = abs(game[i] - guess[i]);
-            result.push_back(diff);
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
