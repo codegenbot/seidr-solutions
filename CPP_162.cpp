@@ -4,6 +4,8 @@ using namespace std;
 #include <openssl/x509v3.h>
 
 #include <string>
+#include <iostream>
+#include <iomanip>
 #include <openssl/md5.h>
 
 string string_to_md5(string text) {
@@ -25,3 +27,4 @@ string string_to_md5(string text) {
     }
     
     return result;
+}
