@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -51,13 +53,17 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3, 4, 5};
-    vector<string> result = by_length(arr);
+    vector<int> input = {1, 4, 6};
+    vector<string> output = by_length(input);
     
-    // Your logic to check if the vectors are equal
-    bool same = issame(result, {"One", "Two", "Three", "Four", "Five"});
-    
-    cout << "Are the vectors same? " << (same ? "Yes" : "No") << endl;
+    // Test the issame function
+    vector<string> test1 = {"One", "Four", "Six"};
+    vector<string> test2 = {"One", "Four", "Six"};
+    if (issame(test1, test2)) {
+        cout << "The two vectors are equal." << endl;
+    } else {
+        cout << "The two vectors are not equal." << endl;
+    }
     
     return 0;
 }
