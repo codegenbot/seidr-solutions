@@ -1,5 +1,5 @@
 def find_zero():
-    xs = [int(x) for x in input().split()]
+    xs = list(map(int, input().split()))
     a, b, c = xs
     discriminant = (b**2) - (4*a*c)
     if discriminant < 0:
