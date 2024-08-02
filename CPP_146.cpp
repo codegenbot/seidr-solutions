@@ -1,5 +1,6 @@
-```
+```cpp
 #include <vector>
+#include <cmath>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
