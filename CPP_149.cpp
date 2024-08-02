@@ -1,14 +1,13 @@
 #include <algorithm>
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
+
+vector<string> sorted_list_sum(vector<string>& lst);
 
 vector<string> sorted_list_sum(vector<string>& lst){
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){return s.length() % 2 != 0;}), lst.end());
