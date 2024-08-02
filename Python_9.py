@@ -1,4 +1,1 @@
-try:
-    numbers = list(map(int, input().split()))
-except:
-    numbers = []
+numbers = list(map(int, input().strip().split()))
