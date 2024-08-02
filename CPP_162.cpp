@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 #include <openssl/evp.h>
 #include <iomanip>
 #include <sstream>
