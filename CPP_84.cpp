@@ -1,17 +1,11 @@
-#include <stdio.h>
-#include <string>
-using namespace std;
-
 string solve(int N) {
-    string binary = "";
+    int sum = 0;
     while (N > 0) {
-        int remainder = N % 2;
-        if (remainder == 1)
-            binary.push_back('1');
-        else
-            binary.push_back('0');
-        N /= 2;
+        int bit = N & 1;
+        if (bit == 1) {
+            sum++;
+        }
+        N >>= 1;
     }
-    reverse(binary.begin(), binary.end());
-    return binary;
+    return to_string(sum);
 }
