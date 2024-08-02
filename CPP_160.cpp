@@ -10,7 +10,7 @@ long long do_algebra(vector<string> ops, vector<long long> operands) {
         } else if(ops[i] == "//") {
             result = result / operands[i+1];
         } else if(ops[i] == "**") {
-            result = pow(result, (long double)operands[i+1]);
+            result = pow(result, (double)operands[i+1]);
         }
     }
     return result;
