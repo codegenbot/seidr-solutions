@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums){
     int count = 0;
-    for (int num : nums) {
-        if (abs(num) > 10 && (num % 10) % 2 != 0 && (num / 10 % 10) % 2 != 0) {
+    for(int num : nums){
+        if(abs(num) > 10 && (num % 10) % 2 != 0 && (abs(num) / 10) % 2 != 0){
             count++;
         }
     }
@@ -12,13 +13,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    // Read input from user
-    for (int i = 0; i < 5; ++i) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
-    }
-    int result = specialFilter(nums);
+    vector<int> numbers = {1, 11, 12, 13, 14, 15};
+    cout << specialFilter(numbers);
     return 0;
 }
