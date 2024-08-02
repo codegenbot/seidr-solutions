@@ -20,7 +20,7 @@ bool bf(string planet1, string planet2) {
     }
 
     if (index1 == -1 || index2 == -1) {
-        return issame(result, result);
+        return issame(result, {});
     }
 
     int start = min(index1, index2);
@@ -30,7 +30,7 @@ bool bf(string planet1, string planet2) {
         result.push_back(planets[i]);
     }
 
-    return issame(result, result);
+    return issame(result, {});
 }
 
 int main() {
