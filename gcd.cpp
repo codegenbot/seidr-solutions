@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -10,8 +8,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     int n = text.size();
     int m = target.size();
     
@@ -34,18 +32,18 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndicesOfSubstring(text, target);
-
-    for (int idx : result) {
-        cout << idx << " ";
+    // Add your testing code here
+    std::vector<int> result1 = findIndicesOfSubstring("abracadabra", "abra");
+    for (int index : result1) {
+        std::cout << index << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
+
+    std::vector<int> result2 = findIndicesOfSubstring("ababab", "aba");
+    for (int index : result2) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
