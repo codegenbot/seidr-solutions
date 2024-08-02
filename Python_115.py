@@ -1,10 +1,9 @@
+```
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    return min(
-        (
-            total_water // capacity + 1
-            if total_water % capacity != 0
-            else total_water // capacity
-        ),
-        len(grid),
-    )
+    filled_containers = 0
+    while total_water > 0:
+        container_filled = min(capacity, total_water)
+        total_water -= container_filled
+        filled_containers += 1
+    return -(-filled_containers // 1)
