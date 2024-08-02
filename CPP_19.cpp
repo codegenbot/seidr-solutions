@@ -1,26 +1,28 @@
 string sort_numbers(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, 
-                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, 
-                                   {"eight", 8}, {"nine", 9}};
-    vector<string> num_list;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
+    vector<string> numVec;
     string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
-        while (i + 1 <= numbers.length() && !isalpha(numbers[i])) {
-            i++;
+        if (numbers[i] == ' ') {
+            continue;
         }
-        if (!number_map.count(temp = string(i - i + 1))) {
+        temp += numbers[i];
+        for (int j = i + 1; j <= numbers.length() && numbers[j] != ' '; j++) {
+            i = j - 1;
             break;
         }
-        num_list.push_back(temp);
-        i--;
+        numVec.push_back(temp);
+        temp.clear();
     }
 
-    sort(num_list.begin(), num_list.end());
+    sort(numVec.begin(), numVec.end());
 
-    string result = "";
-    for (string s : num_list) {
-        result += s + " ";
+    string result;
+    for (auto str : numVec) {
+        result += str + " ";
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
