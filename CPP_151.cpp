@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,6 +16,11 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     int odd_sum = 0; 
-    // Rest of your code...
+    float input;
+    while(std::cin >> input) {
+        if(input > 0 && floor(input) == input) {
+            odd_sum += pow(input, 2);
+        }
+    }
     assert(double_the_difference(lst) == odd_sum); 
 }
