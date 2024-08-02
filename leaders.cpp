@@ -19,15 +19,15 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int num, count;
+    int num;
 
-    std::cout << "Enter the number of integers: ";
-    std::cin >> count;
-
-    std::cout << "Enter the integers: ";
-    for (int i = 0; i < count; ++i) {
-        std::cin >> num;
+    while (std::cin >> num) {
         nums.push_back(num);
+    }
+
+    if (!std::cin.eof()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> output = findLeaders(nums);
