@@ -25,13 +25,3 @@ int main() {
         }
         return true;
     }
-
-    vector<int> lst;
-    int num;
-    cout << "Enter numbers separated by space: ";
-    while ((cin >> num)) {
-        lst.push_back(num);
-    }
-    cout << "Sum of last digits of prime numbers is: " << skjkasdkd(lst) << endl;
-    return 0;
-}
