@@ -1,11 +1,4 @@
 Here is the Python solution:
 
 def leaders(arr):
-    return [x for x in reversed(arr) if all(x >= y for y in arr[arr.index(x)+1:])]
-
-# Testing the function
-print(leaders([0])) # Output: [0]
-print(leaders([1, 0])) # Output: [1, 0]
-print(leaders([1, 451])) # Output: [1, 451]
-print(leaders([2, 1000, 0])) # Output: [2, 1000, 0]
-print(leaders([2, 0, 1000])) # Output: [1, 1000]
+    return [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:]) or i == len(arr)-1]
