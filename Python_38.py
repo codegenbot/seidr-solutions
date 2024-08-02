@@ -4,5 +4,5 @@ def encode_cyclic(s: str):
         if result == "":
             result += char
         else:
-            result = char + result[0] + result[1:]
-    return result
+            result = char + result
+    return result[1:] + result[0]
