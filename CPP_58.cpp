@@ -1,5 +1,14 @@
+```cpp
 #include <set>
 #include <algorithm>
+
+bool issame(vector<int> a,vector<int>b) {
+    // Define your logic here
+    if(a.size() == b.size())
+        return true;
+    else
+        return false;
+}
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
@@ -11,13 +20,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
-}
-
-bool issame(vector<int> a,vector<int>b) {
-    if(a.size() == b.size())
-        return true;
-    else
-        return false;
 }
 
 int main() {
