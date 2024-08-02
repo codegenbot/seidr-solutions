@@ -5,26 +5,48 @@ int bowlingScore(std::string s) {
     int score = 0;
     int rolls = 0;
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
+    std::stringstream ss(s);
+
+    char c;
+    int frameScore = 0;
+
+    while (ss >> c) {
+        if (c == 'X') {
             score += 30;
             rolls++;
-        } else if (isdigit(s[i])) {
-            int frameScore = 10 - (s[i] - '0');
-
-            if (i + 1 < s.length() && s[i + 1] == '/') {
-                frameScore = 10 - (s[i] - '0') / 2;
-                i++;
+        } else if (isdigit(c)) {
+            int strike = c - '0';
+            if (ss.peek() == '/') {
+                frameScore = 10 - strike / 2;
+                ss.ignore();
+            } else {
+                frameScore = strike;
             }
-
+            if (frameScore == 10) {
+                score += 10;
+                rolls++;
+                continue;
+            }
             score += frameScore;
             rolls++;
-        } else if (s[i] == '/') {
-            continue;
+
+            if (ss.peek() != '/') {
+                int nextRoll = c - '0';
+                if (ss.peek() == '/') {
+                    frameScore += 10 - nextRoll / 2;
+                    ss.ignore();
+                } else {
+                    frameScore += nextRoll;
+                }
+                score += frameScore;
+                rolls++;
+            }
+        } else if (c == '/') {
+            score += 10 - frameScore;
+            rolls++;
+            frameScore = 0;
         }
-        
-        if (rolls >= 10) break;
     }
-    
+
     return score;
 }
