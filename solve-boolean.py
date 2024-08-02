@@ -1,10 +1,13 @@
-```
-def solve_boolean(expression):
+Here is the Python code to solve the problem:
+
+def solve.Boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    result = eval(' '.join(map(lambda x: str(x) if x in ['T', 'F'] else x, expression)))
-    return result
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return bool(int(left)) and bool(int(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return bool(int(left)) or bool(int(right))
