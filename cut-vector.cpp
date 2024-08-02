@@ -1,51 +1,54 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int pos = 0;
+    
+    for(int i = 1; i <= n/2; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for(int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        
+        for(int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        if(abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            pos = i;
         }
     }
-
-    std::vector<int> leftVec, rightVec;
-
-    for (int i = 0; i <= cutIndex; i++) {
-        leftVec.push_back(vec[i]);
-    }
-
-    for (int i = cutIndex + 1; i < vec.size(); i++) {
-        rightVec.push_back(vec[i]);
-    }
-
-    return {leftVec, rightVec};
+    
+    vector<int> left = {v[i] for i in range(pos)};
+    vector<int> right = {v[i] for i in range(pos, n)};
+    
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (int& x : vec) {
-        std::cin >> x;
+    cin >> n;
+    vector<int> v(n+1);
+    for(int i = 0; i <= n; i++) {
+        cin >> v[i];
     }
-
-    auto result = cutVector(vec);
-
-    for (const auto& num : result.first) {
-        std::cout << num << " ";
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left: ";
+    for(auto x : result.first) {
+        cout << x << ' ';
     }
-    std::cout << "\n";
-
-    for (const auto& num : result.second) {
-        std::cout << num << " ";
+    cout << endl;
+    
+    cout << "Right: ";
+    for(auto x : result.second) {
+        cout << x << ' ';
     }
-    std::cout << "\n";
-
+    cout << endl;
+    
     return 0;
 }
