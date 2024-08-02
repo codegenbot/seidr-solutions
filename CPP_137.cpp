@@ -1,4 +1,4 @@
-#include <iostream>
+```
 #include <string>
 #include <boost/any.hpp>
 
@@ -67,11 +67,4 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     return a; // default to the first value
-}
-
-int main() {
-    boost::any a = 5; 
-    boost::any b = "hello";
-    cout << "The result is: " << compare_one(a, b) << endl;
-    return 0;
 }
