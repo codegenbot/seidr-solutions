@@ -5,9 +5,9 @@
 
 using namespace std;
 
-stack<char> operatorStack;
-
 bool evaluateBoolean(string expression) {
+    stack<char> operatorStack;
+    operatorStack; // Fix the issue by declaring `operatorStack` before the for loop
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operatorStack.empty() && operatorStack.top() == '|')
