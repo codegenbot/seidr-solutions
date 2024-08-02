@@ -1,15 +1,22 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string encrypt(string s){
-    string result = "";
-    for(int i = 0; i < s.length(); i++){
+int encrypt(std::string s) {
+    std::string result = "";
+    for(int i=0; i<s.length(); i++){
         char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2)%26+'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2)%26+'A';
+        if(c >= 'a' && c <= 'm'){
+            result += (char)(c + 4);
+        } else if(c >= 'n' && c <= 'z'){
+            result += (char)(c - 22);
+        } else {
+            result += c;
         }
-        result += c;
     }
-    return result;
+    return 0; 
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
