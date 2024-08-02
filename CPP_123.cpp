@@ -1,8 +1,7 @@
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
@@ -20,4 +19,3 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(odd_result.begin(), odd_result.end());
     return odd_result;
-}
