@@ -7,13 +7,11 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == '.':
+        if music_string[i:i+3] == '...':
+            result.append(0)
             i += 3
         else:
             note = music_string[i:i+2]
-            if note in notes:
-                result.append(notes[note])
-            else:
-                result.append(0)
+            result.append(notes[note])
             i += 2
     return result
