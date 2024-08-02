@@ -1,7 +1,8 @@
 #include <vector>
+using namespace std;
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    // Function implementation here
 }
 
 vector<int> pluck(vector<int> arr){
