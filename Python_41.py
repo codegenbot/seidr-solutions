@@ -1,3 +1,2 @@
-```
-def car_race_collision(n: int):
-    return sum(range(2, n+1))
+def car_race_collision(vehicles: int):
+    return vehicles * (vehicles - 1) // 2
