@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(int x, int y) {
-    return x == y;
+bool issame(int a, int b) {
+    return a == b;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
