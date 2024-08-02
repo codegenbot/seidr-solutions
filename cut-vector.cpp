@@ -28,7 +28,7 @@ int main() {
     
     vector<int> leftSubvector;
     vector<int> rightSubvector;
-    
+
     for (int i = 0; i < cutIndex; ++i) {
         leftSubvector.push_back(nums[i]);
     }
