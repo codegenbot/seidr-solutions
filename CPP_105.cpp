@@ -1,10 +1,10 @@
-#include <string> // Include the <string> header
+#include <string>
 
-bool issame(vector<string> a, vector<string> b){ // Fix function signature
-    return a == b; // Update function logic
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"})); // Correct the function call
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
