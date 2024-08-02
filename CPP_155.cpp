@@ -21,7 +21,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Update or remove this assertion based on the task requirements
     assert(issame(even_odd_count(0), std::vector<int>({1, 0})));
     return 0;
 }
