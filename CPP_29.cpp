@@ -6,31 +6,34 @@
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++){
+    for(int i = 0; i < a.size(); i++)
         if(a[i] != b[i])
             return false;
-    }
     return true;
 }
 
 int main(){
+    std::vector<std::string> strings;
+    std::cout << "Enter the number of strings: ";
     int n;
     std::cin >> n;
-    vector<string> strings(n);
-    for(string &s : strings){
-        cin >> s;
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter string " << i+1 << ": ";
+        std::string s;
+        std::cin >> s;
+        strings.push_back(s);
     }
-    string prefix;
-    cin >> prefix;
-    vector<string> result = filter_by_prefix(strings, prefix);
-    if(issame(result, strings))
-        cout << "No elements were removed.\n";
-    else
-        cout << "The following elements were removed:\n";
+    std::vector<std::string> result;
+    std::string prefix;
+    std::cout << "Enter the prefix: ";
+    std::cin >> prefix;
     for(string s : strings){
-        if(find(result.begin(), result.end(), s) == result.end())
-            cout << s << "\n";
+        if(s.find(prefix) == 0)
+            result.push_back(s);
     }
+    std::cout << "Strings with prefix '" << prefix << "' are: \n";
+    for(string s : filter_by_prefix(strings, prefix))
+        std::cout << s << "\n";
     return 0;
 }
 
