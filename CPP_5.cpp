@@ -32,7 +32,4 @@ vector<int> intersperse(const vector<int>& numbers, int delimiter) {
     return result;
 }
 
-int main_solution() {
-    assert(issame(intersperse(vector<int>({2, 2, 2}), 2), {2, 2, 2, 2, 2}));
-    return 0;
-}
+assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
