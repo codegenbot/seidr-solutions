@@ -3,23 +3,24 @@
 #include <algorithm>
 #include <cassert>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a == b;
+bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::pair<std::string, bool> reverse_delete(const std::string& a, const std::string& b) {
-    std::string result = "";
-    for (char ch : a) {
+std::pair<std::vector<std::string>, std::string> reverse_delete(const std::string& a, const std::string& b) {
+    std::vector<std::string> result;
+    for (char ch : a)
+    {
         if (b.find(ch) == std::string::npos) {
-            result += ch;
+            result.push_back(std::string(1, ch));
         }
     }
-    std::string result_reverse = result;
+    std::vector<std::string> result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
-    return { result, result == result_reverse };
+    return { result, compare(result, result_reverse) ? "True" : "False" };
 }
 
 int main() {
-    assert(isSame(reverse_delete("mamma", "mia"), {"", true}));
+    assert(compare(reverse_delete("mamma", "mia").first, {"", "True"}));
     return 0;
 }
