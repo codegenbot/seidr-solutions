@@ -14,7 +14,7 @@ int main() {
             if (capitalize) {
                 c = std::toupper(c);
                 capitalize = false;
-            } else if (!capitalize && std::isalpha(c) && std::islower(c)) {
+            } else if (std::isalpha(c)) {
                 c = std::tolower(c);
             }
         }
