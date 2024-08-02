@@ -1,4 +1,3 @@
-```c
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,6 +12,6 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst; 
+    vector<float> lst;
     // Call your function and compare with odd_sum
 }
