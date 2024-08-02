@@ -4,11 +4,14 @@
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size())
+    if(a.size() != b.size()) 
         return false;
-    for(int i=0; i<a.size(); i++)
-        if(abs(a[i]-b[i]) > 1e-9)
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i] - b[i]) > 1e-9)
             return false;
+    }
+    
     return true;
 }
 
@@ -25,6 +28,19 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    // Your code here
+    vector<float> num1 = {0.5, 2.3, 4.8, 6.9, 10.2};
+    vector<float> num2 = {0.50005, 2.30001, 4.80002, 6.90003, 10.20004};
+
+    if(issame(num1, num2)) {
+        cout << "The two arrays are the same." << endl;
+    } else {
+        cout << "The two arrays are not the same." << endl;
+    }
+
+    vector<pair<float, float>> result = find_closest_elements(num1);
+    for (const auto& pair : result) {
+        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    }
+    
     return 0;
 }
