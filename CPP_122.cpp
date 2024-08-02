@@ -1,10 +1,11 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <string>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
-        if (to_string(arr[i]).length() <= 2) {
+        if (std::to_string(arr[i]).length() <= 2) {
             sum += arr[i];
         }
     }
@@ -12,8 +13,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr = {1};
-    int result = add_elements(arr, 1);
-    // use the result here
+    std::vector<int> arr = {1, 12, 123};
+    int k = arr.size();
+    int result = add_elements(arr, k);
     return 0;
 }
