@@ -1,4 +1,5 @@
-using namespace std;
+#include <string>
+#include <algorithm>
 
 string solve(string s) {
     string res = "";
