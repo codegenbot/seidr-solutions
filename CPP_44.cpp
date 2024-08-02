@@ -4,6 +4,7 @@
 
 std::string change_base(int x, int base){
     std::string result = "";
+    if (base == 1) return std::string(x, '1');
     while(x > 0){
         result = std::to_string(x % base) + result;
         x /= base;
