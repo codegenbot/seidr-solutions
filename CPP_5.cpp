@@ -15,21 +15,19 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> intersperse(const vector<int>& numbers, int delimiter) {
+vector<int> intersperse(const vector<int>& numbers, int& delimiter) {
     vector<int> result;
-    if(numbers.empty()) {
-        return result;
-    }
-    result.push_back(numbers[0]);
-    for(int i = 1; i < numbers.size(); ++i) {
-        result.push_back(delimiter);
+    for(int i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
+        if(i != numbers.size() - 1) {
+            result.push_back(delimiter);
+        }
     }
     return result;
 }
 
 int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), std::vector<int>({2, 2, 2, 2, 2}));  // Explicitly specify vector type
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     
     return 0;
 }
