@@ -32,7 +32,7 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
   assert(issame(separate_paren_groups("((a)(b)(c))"), {"(a)", "(b)", "(c)"}));
-  assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+  assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
 
   return 0;
 }
