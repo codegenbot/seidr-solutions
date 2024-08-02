@@ -37,14 +37,11 @@ int main() {
     int a, b, textLength, targetLength;
     string text, target;
 
-    cin >> a >> b;
+    cin >> a >> b >> ws;
 
-    cin >> textLength;
-    cin >> targetLength;
-    cin.ignore();
-
-    getline(cin >> ws, text);
-    getline(cin >> ws, target);
+    cin >> textLength >> targetLength >> ws;
+    getline(cin, text);
+    getline(cin, target);
 
     cout << gcd(a, b) << endl;
 
