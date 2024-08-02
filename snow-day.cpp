@@ -5,12 +5,14 @@ int main() {
     double snow_on_ground, snow_fall_rate, snow_melt_rate;
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
     
+    double total_melted_snow = 0.0;
+    
     for (int i = 0; i < hours; ++i) {
         snow_on_ground += snow_fall_rate;
-        double initial_snow_on_ground = snow_on_ground;
-        double snow_melted = initial_snow_on_ground * snow_melt_rate;
-        snow_on_ground = std::max(0.0, initial_snow_on_ground - snow_melted);
+        total_melted_snow += snow_melt_rate * snow_on_ground;
     }
+    
+    snow_on_ground -= total_melted_snow;
     
     std::cout << snow_on_ground << std::endl;
     
