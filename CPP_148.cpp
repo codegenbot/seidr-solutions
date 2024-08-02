@@ -1,6 +1,9 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+vector<string> issame(vector<string> a, vector<string> b) {
     return a == b;
 }
