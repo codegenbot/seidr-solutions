@@ -4,23 +4,12 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
-}
-
-vector<string> words_string(string s);
-
-int main(){
-    assert(issame(words_string("ahmed , gamal"), {"ahmed", "gamal"}));
-    return 0;
-}
-
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> words;
     string word;
-    for(char c : s){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+    for (char c : s) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
@@ -28,8 +17,13 @@ vector<string> words_string(string s){
             word += c;
         }
     }
-    if(!word.empty()){
+    if (!word.empty()) {
         words.push_back(word);
     }
     return words;
+}
+
+int main() {
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    return 0;
 }
