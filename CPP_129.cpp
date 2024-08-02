@@ -3,22 +3,14 @@
 #include <cassert>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+std::vector<int> minPath(std::vector<std::pair<int, int>> grid, int k) {
     std::vector<int> path;
     for(int i = 0; i < k; i++){
-        path.push_back(grid[i % grid.size()][0]);
-        path.push_back(grid[i % grid.size()][1]);
+        path.push_back(grid[i % grid.size()].first);
+        path.push_back(grid[i % grid.size()].second);
     }
     return path;
 }
@@ -27,12 +19,12 @@ int main() {
     int n, k;
     std::cin >> n >> k;
 
-    std::vector<std::vector<int>> grid(n, std::vector<int>(2));
+    std::vector<std::pair<int, int>> grid(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> grid[i][0] >> grid[i][1];
+        std::cin >> grid[i].first >> grid[i].second;
     }
 
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
     
     return 0;
 }
