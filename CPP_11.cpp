@@ -1,3 +1,6 @@
+#ifndef MAIN_SECTION
+#define MAIN_SECTION
+
 #include <string>
 #include <cassert>
 
@@ -19,3 +22,5 @@ int main() {
     assert(string_xor("0101", "0000") == "0101");
     return 0;
 }
+
+#endif // MAIN_SECTION
