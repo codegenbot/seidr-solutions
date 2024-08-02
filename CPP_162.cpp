@@ -2,7 +2,8 @@
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
+    if (text.empty()) 
+        return "";
     
     unsigned char md5[16];
     MD5_CTX ctx;
@@ -19,9 +20,8 @@ string string_to_md5(string text) {
         result += buff;
     }
     
-    return result;
-}
+    if (string_to_md5("password") != "5f4dcc3b5aa765d61d8327deb882cf99")
+        cout << "Test failed!" << endl;
 
-if (string_to_md5("password") != "5f4dcc3b5aa765d61d8327deb882cf99") {
-    cout << "Test failed!" << endl;
+    return result;
 }
