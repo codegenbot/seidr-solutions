@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 bool issame(const vector<int>& v1, const vector<int>& v2){
     if(v1.size() != v2.size()){
         return false;
