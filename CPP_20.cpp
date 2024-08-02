@@ -1,14 +1,13 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i < a.size(); i++) 
-        if(abs(a[i] - b[i]) > 1e-9) 
-            return false;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i) {
+        if(abs(a[i] - b[i]) > 1e-9) return false;
+    }
     return true;
 }
 
@@ -22,4 +21,20 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
         }
     }
     return vector<pair<float, float>>{closest_pair};
+}
+
+int main() {
+    // Declaration of functions
+    bool issame(vector<float> a, vector<float> b);
+    
+    vector<float> numbers;
+    cin >> noskipws;
+    while(cin >> numbers.back()) {}
+    cout << "Closest pair: ";
+    for(auto p : find_closest_elements(numbers)) {
+        cout << "(" << p.first << ", " << p.second << ") ";
+    }
+    cout << endl;
+    
+    return 0;
 }
