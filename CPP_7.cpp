@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> filter_by_substring(vector<string> words, string substr) {
     vector<string> filtered_words;
     for (const auto& word : words) {
@@ -19,3 +15,7 @@ vector<string> filter_by_substring(vector<string> words, string substr) {
     }
     return filtered_words;
 }
+
+// Removed the second int main() definition to resolve redefinition error
+assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
+```
