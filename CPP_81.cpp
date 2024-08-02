@@ -1,14 +1,20 @@
 bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) return false;
+    if(v1.size() != v2.size())
+        return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i])
+            return false;
     }
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
+int main() {
     vector<string> letter_grades;
-    for (float grade : grades) {
+    float grade;
+    cout << "Enter grades (enter -1 to stop): ";
+    while(cin >> grade) {
+        if(grade < 0)
+            break;
         if (grade >= 4.0)
             letter_grades.push_back("A+");
         else if (grade > 3.7)
@@ -34,5 +40,10 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else
             letter_grades.push_back("E");
     }
-    return letter_grades;
+    vector<string> expected_letter_grades = {"A+", "A", "B+", "C"};
+    if(issame(letter_grades, expected_letter_grades))
+        cout << "Letter grades are as expected.\n";
+    else
+        cout << "Letter grades do not match the expected ones.\n";
+    return 0;
 }
