@@ -10,5 +10,5 @@ int main(){
 
     assert(issame(result, {1, 3}));  // Check if result vector matches the expected vector
 
-    return 0; 
+    return 0;
 }
