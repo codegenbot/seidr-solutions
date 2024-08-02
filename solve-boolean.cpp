@@ -6,7 +6,7 @@ using namespace std;
 
 bool evaluateBoolean(string expression) {
     stack<char> operatorStack;
-    stack<char> operatorStack;
+    stack<char> operatorStack; // Fix: Declare the stack before using it
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!operatorStack.empty() && operatorStack.top() == '|')
