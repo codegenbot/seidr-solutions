@@ -1,7 +1,6 @@
 ```
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    
     if(arr.empty()) {
         result.push_back(-1);
         result.push_back(-1);
