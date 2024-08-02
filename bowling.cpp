@@ -1,4 +1,11 @@
+#include <iostream>
+#include <string>
+
 using namespace std;
+
+int sumOfLastTwo(int x) {
+    return x + (10 - x);
+}
 
 int bowlingScore(string s) {
     int score = 0;
@@ -23,8 +30,4 @@ int bowlingScore(string s) {
         score += sumOfLastTwo(currentRoll);
     }
     return score;
-}
-
-int sumOfLastTwo(int x) {
-    return x + (10 - x);
 }
