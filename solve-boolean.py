@@ -4,12 +4,8 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
+        a, b = expression.split("&")
+        return bool(eval(a) and eval(b))
     elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
-
-
-expression = input()
-print(solve_boolean(expression))
+        a, b = expression.split("|")
+        return bool(eval(a) or eval(b))
