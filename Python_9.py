@@ -14,5 +14,5 @@ while True:
         numbers.append(int(input().strip()))
     except EOFError:
         break
-
+        
 print(rolling_max(numbers))
