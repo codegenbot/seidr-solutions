@@ -1,11 +1,7 @@
-Here is the problem description and solution:
-
 #include <algorithm>
 #include <vector>
 
-// Sort a list of integers in a strange way: 
-// remove all occurrences of the smallest number, then remove all occurrences of the largest number.
-// Continue this process until no more numbers can be removed.
+Given a list of integers, sort it in an unusual way where the smallest number comes first, followed by the largest number, then the next smallest, and so on.
 
 vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
