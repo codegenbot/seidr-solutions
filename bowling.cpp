@@ -22,7 +22,7 @@ int score(string s) {
         }
     }
     
-    if (scores[20] == 10 || scores[19] + scores[20] == 10) {
+    if (scores[20] == 10 || (scores[19] + scores[20] == 10)) {
         total += scores[19] + scores[20] + scores[21];
     } else {
         total += scores[19] + scores[20];
