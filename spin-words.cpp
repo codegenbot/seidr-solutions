@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -12,7 +11,7 @@ std::string spinWords(std::string input) {
             std::string word = input.substr(pos + 1, length);
             for (int i = word.length() - 1; i >= 0; --i)
                 output += word[i];
-            output += ' '; // fixed issue here
+            output += ' '; // fixed
         } else {
             output.append(input.substr(0, pos + 1));
         }
