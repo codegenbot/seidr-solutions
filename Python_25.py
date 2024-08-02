@@ -2,8 +2,10 @@
 from typing import List
 import math
 
+result = input("Enter a number: ")
+n = int(result)
 
-def get_prime_factors(n: int) -> List[int]:
+def factorize(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
@@ -19,3 +21,5 @@ def get_prime_factors(n: int) -> List[int]:
     if n > 1:
         factors.extend([n] * 1)
     return factors
+
+print(factorize(n))
