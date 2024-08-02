@@ -1,11 +1,9 @@
 string solve(int N) {
     int sum = 0;
-    string binStr = "";
-    while(N > 0) {
-        if(N % 2 == 1)
-            sum += 1;
-        binStr = (char)(N % 2 + '0') + binStr;
+    while (N > 0) {
+        int remainder = N % 2;
+        sum += remainder;
         N /= 2;
     }
-    return binStr;
+    return to_string(sum);
 }
