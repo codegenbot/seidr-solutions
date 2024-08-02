@@ -16,12 +16,3 @@ std::string solve(std::string s) {
     
     return s;
 }
-
-int main() {
-    // Testing the functionality of solve function
-    std::string input = "test123";
-    std::string result = solve(input);
-    assert(result == "tEST123");
-    
-    return 0;
-}
