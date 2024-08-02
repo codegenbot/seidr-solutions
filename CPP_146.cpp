@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,6 +20,6 @@ int main() {
         nums.push_back(num);
     }
     int result = specialFilter(nums);
-    std::cout << "The number of special numbers is: " << result << std::endl;
+    std::cout << "The number of filtered elements is: " << result << std::endl;
     return 0;
 }
