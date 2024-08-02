@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cmath>
 
 bool issame(vector<float> a, vector<float> b) {
@@ -7,7 +7,7 @@ bool issame(vector<float> a, vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon()) {
+        if (abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
