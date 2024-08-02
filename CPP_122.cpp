@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,6 +23,6 @@ int main() {
         std::cin >> arr[i];
     }
     int result = add_elements(arr, k);
-    std::cout << "Sum of elements is: " << result << std::endl;
+    std::cout << "Sum of elements with length <= 2: " << result << std::endl;
     return 0;
 }
