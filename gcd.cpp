@@ -1,3 +1,7 @@
+#include <string>
+#include <vector>
+#include <iostream>
+
 int gcd(int a, int b) {
     if (b == 0) {
         return a;
@@ -5,8 +9,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
+std::vector<int> findIndicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> indices;
     if (target.empty()) {
         return indices;
     }
@@ -25,4 +29,20 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
         }
     }
     return indices;
+}
+
+int main() {
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << std::endl;
+
+    std::string text, target;
+    std::getline(std::cin, target);
+    std::vector<int> result = findIndicesOfSubstring(text, target);
+    for (int index : result) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
