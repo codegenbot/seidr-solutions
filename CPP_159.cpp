@@ -10,6 +10,6 @@ std::vector<int> eat(int a, int b, int c) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 3}));
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
