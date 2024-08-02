@@ -1,8 +1,7 @@
-# Read input from the user
-input_str = input("Enter the string to decode: ")
+def decode_shift(s: str):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
 
-# Decode the input string using the decode_shift function
-result = decode_shift(input_str)
-
-# Print the decoded result
+# Read input from user
+input_string = input("Enter the encoded string: ")
+result = decode_shift(input_string)
 print(result)
