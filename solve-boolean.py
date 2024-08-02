@@ -5,9 +5,11 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all(c == 'T' for c in expression)
-    elif '|' in expression:
-        return any(c == 'T' for c in expression)
     else:
-        raise ValueError("Invalid expression")
+        result = True
+        for char in expression:
+            if char == '&':
+                result &= eval('True')
+            elif char == '|':
+                result |= eval('True')
+        return result
