@@ -19,4 +19,4 @@ int main() {
     assert(has_close_elements(numbers, 0.5) == false);
    
     return 0;
-}
+}  
