@@ -1,8 +1,9 @@
-
 #include <iostream>
 #include <string>
 #include <cctype>
 #include <cassert>
+
+std::string flip_case(const std::string& str);
 
 std::string flip_case(const std::string& str){
     std::string result = str;
