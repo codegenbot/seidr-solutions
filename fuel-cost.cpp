@@ -7,11 +7,9 @@ using namespace std;
 int main() {
     vector<int> numbers;
     int n;
-    while (cin >> n) {
+    while (!cin.eof()) {
+        cin >> n;
         numbers.push_back(n);
-        if (cin.eof()) {
-            break;
-        }
     }
 
     int sum = 0;
