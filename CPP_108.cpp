@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-int count_nums(vector<int> n) {
+int count_nums(const std::vector<int>& n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -10,7 +10,14 @@ int count_nums(vector<int> n) {
             sum += temp % 10;
             temp /= 10;
         }
-        count += (sum > 0) ? 1 : 0;
+        if (sum > 0) {
+            count++;
+        }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    return 0;
 }
