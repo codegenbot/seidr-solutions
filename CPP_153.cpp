@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <climits>
+#include <cassert>
 
 string Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = "";
