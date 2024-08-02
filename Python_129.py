@@ -1,13 +1,13 @@
 def minPath(grid, k):
     n = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)
     visited = set()
     min_path = []
 
     def dfs(i, j, path):
         if len(path) == k:
             nonlocal min_path
-            if not min_path or len(path) < len(min_path) or path < min_path:
+            if (not min_path or len(path) < len(min_path) or path < min_path):
                 min_path = path[:]
             return
 
