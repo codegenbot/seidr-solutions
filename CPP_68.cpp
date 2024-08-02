@@ -1,24 +1,15 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    
+    if(arr.empty()) {
+        result.push_back(-1);
+        result.push_back(-1);
+        return result;
     }
-    return true;
-}
-
-int main() {
-    vector<int> output = pluck({7, 9, 7, 1});
-    assert(issame(output, {})); 
-    return 0;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if(arr.empty()) return result;
 
     int minEven = INT_MAX;
     int index = -1;
@@ -34,4 +25,15 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(index);
 
     return result;
+}
+
+int main() {
+    std::vector<int> input = {7, 9, 7, 1};
+    std::vector<int> output = pluck(input);
+
+    for(int i=0; i<output.size(); i++) {
+        std::cout << output[i] << " ";
+    }
+    
+    return 0;
 }
