@@ -2,15 +2,22 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-bool sorted_list_sum(const vector<vector<string>>& input) {
-    vector<string> lst = input[0];
+vector<string> sorted_list_sum(const vector<string>& a, const vector<string>& b) {
+    vector<string> result = a;
     
-    // Sort and modify lst vector
+    result.insert(result.end(), b.begin(), b.end());
+    sort(result.begin(), result.end(), [](const string& x, const string& y){
+        return x.length() == y.length() ? x < y : x.length() < y.length();
+    });
     
-    // Compare lst with pre-defined sorted vector
-    vector<string> expected_result = {"cc", "dd", "aaaa", "bbbb"};
-    return lst == expected_result;
+    return result;
+}
+
+int main() {
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}) == sorted_list_sum({"cc", "dd", "aaaa", "bbbb"}, {"aaaa", "bbbb", "dd", "cc"}));
+    return 0;
 }
