@@ -1,6 +1,6 @@
 def minPath(grid, k):
     n = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
     visited = set()
     min_path = []
 
