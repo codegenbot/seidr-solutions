@@ -7,11 +7,6 @@ double truncate_number(double number) {
 }
 
 int main() {
-    double number;
-    std::cin >> number;
-    
-    double result = truncate_number(number);
-    std::cout << result << std::endl;
-
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
     return 0;
 }
