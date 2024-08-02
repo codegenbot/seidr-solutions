@@ -8,7 +8,17 @@ int encrypt(std::string s) {
         if(c >= 'a' && c <= 'm'){
             result += (char)(c + 4);
         } else if(c >= 'n' && c <= 'z'){
-            result += (char)(c - 22);
+            int asciiValue = (int)c - 22;
+            if(asciiValue < 97){
+                for(int j=26; j > 0; j--){
+                    if((j-1) % 26 == (asciiValue+97-122)%26){
+                        result += (char)(j + 96);
+                        break;
+                    }
+                }
+            } else {
+                result += (char)(c - 22);
+            }
         } else {
             result += c;
         }
