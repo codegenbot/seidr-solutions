@@ -1,4 +1,5 @@
-int left = 0;
+bool is_palindrome(const string& text) {
+    int left = 0;
     int right = text.length() - 1;
     while (left < right) {
         if (text[left] != text[right]) {
