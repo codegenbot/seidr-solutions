@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <algorithm>
 
 int bowlingScore(string s) {
     int score = 0;
@@ -8,16 +10,17 @@ int bowlingScore(string s) {
             score += 30;
             roll++;
         } else if (c == '/') {
-            score += 10 + max(roll, 1);
+            score += 10 + std::max(roll, 1);
             roll = 0;
         } else {
             int points = c - '0';
             score += points;
             roll++;
             if (roll == 2) {
-                score += max(points * 2, 10);
+                score += std::max(points * 2, 10);
                 roll = 0;
             }
         }
     }
     return score;
+}
