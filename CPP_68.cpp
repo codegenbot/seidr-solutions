@@ -6,7 +6,7 @@ using namespace std;
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     
-    if(arr.empty()) return result;
+    if(arr.empty()) return {{}}; 
     
     auto it = min_element(arr.begin(), arr.end(), 
         [](int a, int b){return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0);});
@@ -18,5 +18,5 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         result = {{*first_even_it, distance(arr.begin(), first_even_it)}};
     }
     
-    return result;
+    return {{}};
 }
