@@ -1,8 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
+#include <boost/algorithm/string/replace.hpp>
 #include <cstdlib>
-
-boost::any compare_one(const boost::any& a, const boost::any& b);
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
@@ -22,8 +21,8 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return boost::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        double num1 = stod(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
-        double num2 = stod(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
+        double num1 = std::stod(boost::replace_all_copy(boost::any_cast<std::string>(a), ",", "."));
+        double num2 = std::stod(boost::replace_all_copy(boost::any_cast<std::string>(b), ",", "."));
         if(num1 > num2)
             return a;
         else if(num1 < num2)
