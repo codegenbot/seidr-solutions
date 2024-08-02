@@ -15,7 +15,7 @@ int main() {
     long double sum = 0;
     for (int i = 0; i < n; ++i) sum += pow(vec1[i] - vec2[i], 2.0);
 
-    long double distance = sqrt(sum);
+    long double distance = sqrt((long double)sum);
     cout << distance << endl;
 
     return 0;
