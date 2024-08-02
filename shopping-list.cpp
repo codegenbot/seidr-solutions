@@ -18,7 +18,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
-    std::cout << std::fixed << std::setprecision(2) << total << std::endl;
+    std::cout << std::fixed << std::setprecision(4) << total << std::endl;
 
     return 0;
 }
