@@ -14,12 +14,8 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter bowling sequence: ";
-    cin >> input;
-    
-    int finalScore = bowlingScore(input);
-    cout << "Final score: " << finalScore << endl;
-    
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
