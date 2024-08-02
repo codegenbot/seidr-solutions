@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame_vv(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -14,7 +14,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
     return numbers;
 }
 
-// int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    // return 0;
-// }
+int main() {
+    assert(issame_vv(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>{1, 4, 5}));
+    return 0;
+}
