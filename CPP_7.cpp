@@ -8,7 +8,6 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return same;
-
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
