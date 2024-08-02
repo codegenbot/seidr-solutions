@@ -3,12 +3,8 @@ int vowels_count(string s) {
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
-        }
-    }
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'y' && i == s.size() - 1) {
+        } else if (c == 'y' && s.back() == 'y') {
             count++;
-            break;
         }
     }
     return count;
