@@ -1,35 +1,24 @@
+Here is the solution:
+
+```cpp
 #include <algorithm>
-#include <sstream>
+using namespace std;
 
 string anti_shuffle(string s) {
-    istringstream iss(s);
-    string word;
-    string result;
-
-    while (iss >> word) {
-        for (char c : word) {
-            result += c;
+    string result = "";
+    size_t pos = 0;
+    while ((pos = s.find(" ")) != string::npos) {
+        string word = s.substr(0, pos);
+        sort(word.begin(), word.end());
+        if (!result.empty()) {
+            result += " ";
         }
-        for (int i = 0; i < word.length(); ++i) {
-            char c = word[i];
-            bool found = false;
-            for (int j = i + 1; j < word.length(); ++j) {
-                if (c >= word[j]) {
-                    c = word[j];
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                result += c;
-            } else {
-                result += word[i];
-                for (int k = i + 1; k < word.length(); ++k) {
-                    result += word[k];
-                }
-            }
-        }
+        result += word;
+        s.erase(0, pos + 1);
     }
-
+    if (!s.empty()) {
+        sort(s.begin(), s.end());
+        result += s;
+    }
     return result;
 }
