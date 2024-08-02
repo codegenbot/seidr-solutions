@@ -5,8 +5,8 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
-# Call the function with appropriate inputs
-numbers = [1, 2, 3, 4, 5]
-threshold = 2
+# Call the function with appropriate parameters
+numbers = [1, 4, 8, 12]
+threshold = 3
 result = check_threshold(numbers, threshold)
 print(result)
