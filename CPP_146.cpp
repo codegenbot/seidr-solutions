@@ -13,8 +13,8 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    std::vector<int> numbers = {100, 101, 102, 103, 104};
+    std::vector<int> numbers = {1, 11, 12, 21, 22, 31, 32};
     int result = specialFilter(numbers);
-    std::cout << "Number of elements that satisfy the condition: " << result << std::endl;
+    std::cout << "Special numbers: " << result;
     return 0;
 }
