@@ -19,7 +19,10 @@ int bowlingScore(string s) {
             score += frameScore;
             rolls++;
         } else if (s[i] == '/') {
-            continue;
+            int nextDigit = s[i + 1] - '0';
+            score += nextDigit;
+            i++;
+            rolls++;
         }
         
         if (rolls >= 10) break;
