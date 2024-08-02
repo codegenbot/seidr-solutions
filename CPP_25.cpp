@@ -13,8 +13,3 @@ vector<int> factorize(int n){
     }
     return factors;
 }
-
-int main(){
-    function signature and assert statement to be added here
-    return 0;
-}
