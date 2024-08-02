@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -28,18 +28,9 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return result;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    
-    cout << "[";
-    for (const auto &x : res.first) cout << x << " ";
-    cout << "] [" << endl;
-    for (const auto &x : res.second) cout << x << " ";
-    
-    return 0;
-}
+pair<vector<int>, vector<int>> res = cutVector(v);
+
+cout << "[";
+for (const auto &x : res.first) cout << x << " ";
+cout << "] [" << endl;
+for (const auto &x : res.second) cout << x << " ";
