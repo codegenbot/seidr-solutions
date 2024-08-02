@@ -10,6 +10,7 @@ def bouncing_balls():
         total_distance += 2 * bounce_height
         bounce_height *= bounciness_index
 
-    print("{:.14f}".format(total_distance))
+    print(total_distance)
+
 
 bouncing_balls()
