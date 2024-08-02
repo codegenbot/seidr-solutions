@@ -1,13 +1,18 @@
-bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            for(int j = 0; j < i; j++) temp.push_back(lst[j]);
-            if(count(temp.begin(), temp.end(), lst[i]) > 1) return false;
-            for(int j = i; j < lst.size(); j++) temp.push_back(lst[j]);
-            sort(temp.begin(), temp.end());
-            return (temp == lst);
+Here's the completed code:
+
+bool is_sorted(vector<int> lst) {
+    if (lst.size() <= 1)
+        return true;
+
+    vector<int>::iterator it = lst.begin();
+    for (; it + 1 != lst.end(); ++it) {
+        if (*it > *(it + 1)) {
+            return false;
+        }
+        else if (count(it + 1, lst.end(), *it) > 1) {
+            return false;
         }
     }
+
     return true;
 }
