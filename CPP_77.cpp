@@ -1,5 +1,3 @@
-```cpp
-#include <cmath>
 bool iscuber(int a){
     int i = 1;
     while (true) {
@@ -10,6 +8,7 @@ bool iscuber(int a){
         i++;
     }
 }
+
 int main() {
     assert(iscuber(1729) == false);
     return 0;
