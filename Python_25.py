@@ -18,3 +18,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.extend([n] * 1)
     return factors
+
+
+num = int(input("Enter a number: "))
+print("Prime Factors:", factorize(num))
