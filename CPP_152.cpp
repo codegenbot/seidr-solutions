@@ -6,15 +6,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            result.push_back(2);
+            result.push_back(0);
         } else {
-            int diff = abs(game[i] - guess[i]);
-            if (diff == game[i]) {
-                result.push_back(1);
-            } else {
-                result.push_back(diff);
-            }
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
-}
