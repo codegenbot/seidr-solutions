@@ -1,6 +1,6 @@
 #include <vector>
 
-bool monotonic(std::vector<float> l){
+bool monotonic(std::vector<float> l) {
     bool increasing = true, decreasing = true;
     for (int i = 1; i < l.size(); i++) {
         if (l[i] < l[i - 1]) {
@@ -9,6 +9,9 @@ bool monotonic(std::vector<float> l){
         if (l[i] > l[i - 1]) {
             decreasing = false;
         }
+        if (!increasing && !decreasing) {
+            return false;
+        }
     }
-    return increasing || decreasing;
+    return true;
 }
