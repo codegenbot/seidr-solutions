@@ -1,5 +1,4 @@
+Here is the Python solution for the problem:
+
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    total_snow = initial_snow
-    for _ in range(hours):
-        total_snow += rate_of_snowfall - (total_snow * melting_rate)
-    return round(total_snow, 5)
+    return initial_snow + hours * rate_of_snowfall - hours * melting_rate
