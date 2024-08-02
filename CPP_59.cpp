@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cassert>
+#include <assert.h>
 
 int largest_prime_factor(int n) {
     int factor = 2;
