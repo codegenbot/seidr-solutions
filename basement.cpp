@@ -1,11 +1,11 @@
-#include <vector>
+Here is the solution:
 
-int basement(std::vector<int> &v) {
+int basement(const vector<int>& numbers) {
     int sum = 0;
-    for (size_t i = 0; i < v.size(); ++i) {
-        sum += v[i];
+    for (int i = 0; i < numbers.size(); i++) {
+        sum += numbers[i];
         if (sum < 0)
             return i;
     }
-    return -1; // or throw an exception, depending on the desired behavior
+    return -1;
 }
