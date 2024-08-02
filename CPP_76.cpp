@@ -1,4 +1,6 @@
+Here's the completed code:
+
 bool is_simple_power(int x, int n) {
-    double power = log(x) / log(n);
-    return floor(power + 0.5) == power;
+    double y = pow(n, round(log(x) / log(n)));
+    return y == x;
 }
