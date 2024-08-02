@@ -3,8 +3,7 @@
 #include <string>
 #include <cassert>
 
-using std::string;
-using std::vector;
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -33,7 +32,7 @@ vector<string> split_words(string txt) {
                 oddCount++;
             }
         }
-        result = {std::to_string(oddCount)};
+        result = {to_string(oddCount)};
     }
     return result;
 }
