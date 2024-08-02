@@ -18,7 +18,7 @@ def prime_fib():
             if num % i == 0:
                 return False
         return True
-
+    
     count = 0
     num = 1
     while count < n:
