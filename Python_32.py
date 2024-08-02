@@ -1,6 +1,4 @@
-def find_zero():
-    xs = list(map(int, input().split()))
-    a, b, c = xs
+def find_zero(a, b, c):
     discriminant = (b**2) - (4*a*c)
     if discriminant < 0:
         return None
@@ -10,5 +8,6 @@ def find_zero():
     return x1 if x1 == x2 else (x1, x2)
 
 if __name__ == "__main__":
-    print(find_zero())  # Input: 1 -3 2, Output: (2.0, 1.0)
-    print(find_zero())  # Input: 1 2 1, Output: -1.0
+    a, b, c = map(int, input().split())
+    print(find_zero(a, b, c))  # Input: 1 -3 2, Output: (2.0, 1.0)
+    print(find_zero(a, b, c))  # Input: 1 2 1, Output: -1.0
