@@ -3,7 +3,8 @@
 int calculateFuelCost(vector<int> prices) {
     int total = 0;
     for (int price : prices) {
-        int newPrice = (price / 3 - 2);
+        int newPrice = static_cast<int>(price / 3.0 - 2.5);
         total += newPrice;
     }
     return total;
+}
