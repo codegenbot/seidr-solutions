@@ -1,9 +1,11 @@
-def mastermind(code, guess):
-    black_pegs = 0
-    white_pegs = 0
+def get_clue(code, guess):
+    white = 0
+    black = 0
     for i in range(4):
-        if guess[i] == code[i]:
-            black_pegs += 1
-        elif code.count(guess[i]) > 0:
-            white_pegs += 1
-    return str(black_pegs) + "\n" + str(white_pegs)
+        c = code[i]
+        g = guess[i]
+        if c == g:
+            black += 1
+        elif c in g:
+            white += 1
+    return str(black) + "\n" + str(white)
