@@ -1,18 +1,13 @@
-```Python
-from typing import List
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     for group in paren_string.split():
-        max_level = 0
         level = 0
+        max_level = 0
         for char in group:
-            if char == '(':
+            if char == "(":
                 level += 1
-                max_level = max(max_level, level)
-            elif char == ')':
+            elif char == ")":
                 level -= 1
+            max_level = max(max_level, level)
         result.append(max_level)
-    return result
-
-print(parse_nested_parens("(()()) (())"))
+    return [i for i in result]
