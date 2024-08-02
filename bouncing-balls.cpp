@@ -14,6 +14,8 @@ int main() {
         total_distance += 2 * bounciness_index * total_distance;
     }
     
+    total_distance += starting_height;
+    
     cout << total_distance << endl;
     
     return 0;
