@@ -9,5 +9,7 @@ vector<int> filter_integers(list_any values) {
     return result;
 }
 bool issame(vector<int> a, vector<int> b) {
-    return equal(a.begin(), a.end(), b.begin());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
