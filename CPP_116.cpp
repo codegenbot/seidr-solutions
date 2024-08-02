@@ -1,23 +1,37 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <bitset>
 
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(borrowed(a), '1') != count(borrowed(b), '1')) {
-            return count(borrowed(a), '1') < count(borrowed(b), '1');
-        }
-        return a < b;
-    });
-    return arr;
-
-}
-
-std::string borrowed(int n) {
-    std::string s = std::to_string(n);
+string borrowed(int n) {
+    string s = to_string(n);
     while (s.size() % 4 != 0) {
         s = "0" + s;
     }
     return s;
+}
+
+int count_borrowed(int n) {
+    string s = borrowed(n);
+    int count = 0;
+    for (char c : s) {
+        if (c == '1') {
+            count++;
+        }
+    }
+    return count;
+}
+
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count_borrowed(a) != count_borrowed(b)) {
+            return count_borrowed(a) < count_borrowed(b);
+        }
+        return a < b;
+    });
+    return arr;
+}
+
+int main() {
+    assert(sort_array({2,4,8,16,32}) == vector<int>({2, 4, 8, 16, 32}));
+    return 0;
 }
