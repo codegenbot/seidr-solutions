@@ -1,14 +1,17 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_array(vector<int> array){
-    if(array.empty()) return array;
+using namespace std;
 
-    int sum = array[0] + array.back();
-    bool odd = (sum & 1);
-
-    vector<int> result = array;
-    if(odd) std::sort(result.begin(), result.end());
-    else std::sort(result.begin(), result.end(), std::greater<int>());
-
-    return result;
+vector<int> sort_array(vector<int> array) {
+    int sum = array[0] + array[array.size() - 1];
+    if (sum % 2 == 0) {
+        vector<int> result(array);
+        sort(result.begin(), result.end(), greater<int>());
+        return result;
+    } else {
+        vector<int> result(array);
+        sort(result.begin(), result.end());
+        return result;
+    }
 }
