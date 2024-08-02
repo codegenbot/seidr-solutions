@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int bowlingScore(std::string& s) {
