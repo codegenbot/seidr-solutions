@@ -23,7 +23,7 @@ std::string kebabToCamel(const std::string& str) {
         } else {
             result += word.substr(0, 1);
         }
-        result += word.substr(pos).substr(1);
+        result += toupper(word).substr(pos + 1);
     }
 
     return result;
