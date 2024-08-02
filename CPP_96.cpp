@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-using namespace std;
+#include <algorithm>
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
@@ -20,7 +20,7 @@ std::vector<int> count_up_to(int n) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
