@@ -2,8 +2,8 @@ def minPath(grid, k):
     n = len(grid)
     visited = [[False] * n for _ in range(n)]
 
-    def dfs(x, y, path, steps):
-        if steps == 0:
+    def dfs(x, y, path):
+        if len(path) == k:
             return path
 
         visited[x][y] = True
@@ -12,15 +12,16 @@ def minPath(grid, k):
 
         for nx, ny in neighbors:
             if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                res = dfs(nx, ny, path + [grid[nx][ny]], steps - 1)
+                res = dfs(nx, ny, path + [grid[nx][ny]])
                 if res:
                     return res
-
+        
         visited[x][y] = False
+        return None
 
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, [grid[i][j]], k - 1)
+            path = dfs(i, j, [grid[i][j]])
             if path:
                 return path
 
