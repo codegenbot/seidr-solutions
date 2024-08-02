@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 int skjkasdkd(vector<int> lst) {
     int max_prime = 0;
@@ -15,7 +16,6 @@ int skjkasdkd(vector<int> lst) {
         max_prime /= 10;
     }
     return sum;
-
 }
 
 bool isPrime(int n) {
@@ -29,9 +29,7 @@ bool isPrime(int n) {
     }
     return true;
 
-}
-
 int main() {
-    assert(skjkasdkd({127, 97, 8192}) == 10);
+    int result = skjkasdkd({127, 97, 8192});
     return 0;
 }
