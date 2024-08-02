@@ -4,9 +4,7 @@
 #include <iomanip>
 #include <openssl/evp.h>
 
-using namespace std;
-
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char result[MD5_DIGEST_LENGTH];
@@ -19,18 +17,18 @@ string string_to_md5(string text) {
     }
     MD5_Final(result, &mdContext);
 
-    ostringstream oss;
+    std::ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        oss << setfill('0') << setw(2) << hex << (int)result[i];
+        oss << std::setfill('0') << std::setw(2) << std::hex << (int)result[i];
     }
 
     return oss.str();
 }
 
 int main() {
-    string text;
-    cout << "Enter a string: ";
-    getline(cin, text);
-    cout << "MD5 hash of the input string is: " << string_to_md5(text) << endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
     return 0;
 }
