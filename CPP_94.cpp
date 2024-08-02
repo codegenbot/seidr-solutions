@@ -1,7 +1,7 @@
 ```cpp
 // Complete code:
 
-int skjkasdkd(vector<int> lst){
+int findSumOfDigits(vector<int> lst){
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
@@ -31,6 +31,6 @@ bool isPrime(int n) {
 }
 
 int main() {
-    assert(skkasdkd({127, 97, 8192}) == 10);
+    assert(findSumOfDigits({127, 97, 8192}) == 10);
     return 0;
 }
