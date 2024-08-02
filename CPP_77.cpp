@@ -1,3 +1,6 @@
+#include <cmath>
+#include <assert.h>
+
 bool iscuber(int a){
     int i = 1;
     while (true) {
