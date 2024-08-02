@@ -9,7 +9,7 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == k:
             nonlocal res
-            res.append(sorted(path))
+            res.append(sorted_grid[:])
             return True
         if (i, j) in visited or m[i][j] not in grid[0]:
             return False
