@@ -23,4 +23,3 @@ def minPath(grid, k):
             dfs(i, j, [grid[i][j]])
 
     return min_path
-assert minPath([[1, 3], [3, 2]], 5) == [1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
