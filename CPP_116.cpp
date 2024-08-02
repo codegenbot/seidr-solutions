@@ -20,4 +20,3 @@ std::string borrowed(int n) {
         s = "0" + s;
     }
     return s;
-}
