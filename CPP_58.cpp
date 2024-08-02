@@ -1,18 +1,6 @@
 #include <set>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
@@ -23,4 +11,16 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+bool issame(vector<int> a,vector<int>b) {
+    if(a.size() == b.size())
+        return true;
+    else
+        return false;
+}
+
+int main() {
+    assert(common({4, 3, 2, 8}, {}) == {});
+    return 0;
 }
