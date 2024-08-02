@@ -1,6 +1,6 @@
-text = input().strip()
-
 import hashlib
+
+text = input().strip()
 
 def string_to_md5(text):
     if not text: return None
