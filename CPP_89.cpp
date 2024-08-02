@@ -1,11 +1,15 @@
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c - base + 2 * 26) % 26 + base;
+        if (c >= 'a' && c <= 'z') {
+            int pos = (int)c - 'a';
+            result += ((pos + 2 * 26) % 26) + 'a';
+        } else if (c >= 'A' && c <= 'Z') {
+            int pos = (int)c - 'A';
+            result += ((pos + 2 * 26) % 26) + 'A';
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
