@@ -1,25 +1,26 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string current_word;
-    int consonant_count = 0;
+    string word = "";
+    int consonantCount = 0;
 
     for (char c : s) {
         if (c == ' ') {
-            if (consonant_count == n) {
-                result.push_back(current_word);
+            if (consonantCount == n) {
+                result.push_back(word);
             }
-            current_word = "";
-            consonant_count = 0;
+            word = "";
+            consonantCount = 0;
         } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                consonant_count++;
+            char lc = tolower(c);
+            if (lc != 'a' && lc != 'e' && lc != 'i' && lc != 'o' && lc != 'u') {
+                consonantCount++;
             }
-            current_word += c;
+            word += c;
         }
     }
 
-    if (consonant_count == n) {
-        result.push_back(current_word);
+    if (!word.empty() && consonantCount == n) {
+        result.push_back(word);
     }
 
     return result;
