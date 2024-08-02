@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-using namespace std; // Add this line
+using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst); // Forward declaration
 
