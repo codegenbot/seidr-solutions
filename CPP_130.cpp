@@ -1,13 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-int main() {
+std::vector<int> generateSequence(int n){
     std::vector<int> result;
-    int n = 1; // Assuming n is defined
     if (n >= 0) {
         if (n == 0) {
             result.push_back(0);
@@ -29,8 +28,12 @@ int main() {
             }
         }
     }
+    return result;
+}
 
-    assert(issame(result, {1, 3}));
+int main(){
+    std::vector<int> result = generateSequence(5);
+    assert(issame(result, {1, 3, 2, 4, 7}));
 
     return 0;
 }
