@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -21,19 +22,13 @@ vector<string> sorted_list_sum(vector<string>& lst){
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> lst(n);
+    assert (issame("aaaa", "bbbb") == true);
+    assert (issame("hello", "world") == false);
+    assert (issame("cat", "dog") == true);
     
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
-    }
-    
-    vector<string> result = sorted_list_sum(lst);
-    
-    for (const auto& s : result) {
-        cout << s << endl;
-    }
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
+    assert(sorted_list_sum(input) == expected_output);
     
     return 0;
 }
