@@ -7,7 +7,6 @@ def minPath(grid, k):
 
     while len(path) < k:
         i, j = path[-1]
-        current = path[-1]
         next_cell = None
         for di, dj in directions:
             ni, nj = i + di, j + dj
