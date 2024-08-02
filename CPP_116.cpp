@@ -1,15 +1,45 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+int countSetBits(int n) {
+    int count = 0;
+    while (n) {
+        n &= n - 1;
+        count++;
+    }
+    return count;
+}
 
-vector<int> sort_vector(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(binary(a).begin(), binary(a).end(), '1') != count(binary(b).begin(), binary(b).end(), '1')) {
-            return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::vector<int> result;
+
+    for (int i = 0; i < arr.size(); i++) {
+        int ones = countSetBits(arr[i]);
+        if (i == 0 || ones != countSetBits(arr[i-1])) {
+            result.push_back(arr[i]);
         } else {
-            return a < b;
+            bool inserted = false;
+            for (int j = 0; j < result.size(); j++) {
+                if (ones >= countSetBits(result[j])) {
+                    result.insert(j, arr[i]);
+                    inserted = true;
+                    break;
+                }
+            }
+            if (!inserted) {
+                result.push_back(arr[i]);
+            }
         }
-    });
-    return arr;
+    }
+
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
