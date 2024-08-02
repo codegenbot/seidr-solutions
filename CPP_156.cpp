@@ -14,3 +14,11 @@ std::string int_to_mini_roman(int number) {
     }
     return roman;
 }
+
+int main() {
+    int num;
+    cout << "Enter an integer: ";
+    cin >> num;
+    cout << int_to_mini_roman(num) << endl;
+    return 0;
+}
