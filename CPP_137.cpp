@@ -64,14 +64,14 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string x = boost::any_cast<std::string>(a);
         int y = boost::any_cast<int>(b);
-        if (x > std::to_string(y))
+        if (x > boost::lexical_cast<std::string>(std::to_string(y)))
             return a;
         else
             return b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string x = boost::any_cast<std::string>(a);
         float y = boost::any_cast<float>(b);
-        if (x > std::to_string(y))
+        if (x > boost::lexical_cast<std::string>(std::to_string(y)))
             return a;
         else
             return b;
