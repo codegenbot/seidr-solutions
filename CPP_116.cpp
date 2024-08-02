@@ -1,19 +1,15 @@
-vector<int> sort_array(vector<int> arr) {
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+vector<int> sort_vector(vector<int> arr) {
     sort(arr.begin(), arr.end(), [](int a, int b) {
-        if (count(bite(a)) == count(bite(b)))
+        if (count(binary(a).begin(), binary(a).end(), '1') != count(binary(b).begin(), binary(b).end(), '1')) {
+            return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
+        } else {
             return a < b;
-        else
-            return count(bite(a)) < count(bite(b));
+        }
     });
     return arr;
-}
-
-int bite(int n) {
-    int res = 0;
-    while (n > 0) {
-        if (n & 1)
-            res++;
-        n >>= 1;
-    }
-    return res;
 }
