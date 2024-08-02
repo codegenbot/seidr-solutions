@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
+#include <iomanip> // for setprecision
 using namespace std;
 
 int main() {
-    int n;
+    double n;
     cin >> n;
     vector<double> vec1(n);
     vector<double> vec2(n);
