@@ -1,6 +1,5 @@
 n = int(input())
 
-
 def is_prime(num):
     if num < 2:
         return False
@@ -9,19 +8,17 @@ def is_prime(num):
             return False
     return True
 
-
 def prime_fib(n: int):
     def fibonacci(n):
         if n <= 1:
             return n
         return fibonacci(n - 1) + fibonacci(n - 2)
-
+    
     count, i = 0, 0
     while count < n:
         if is_prime(fibonacci(i)):
             count += 1
         i += 1
     return fibonacci(i - 1)
-
 
 print(prime_fib(n))
