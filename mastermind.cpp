@@ -18,6 +18,8 @@ int getBlackPegs(const std::string& code, const std::string& guess) {
     for (char c : code) {
         if (c == guess[0]) {
             blackPegs++;
+        }
+        else if(std::count(guess.begin(), guess.end(), c) > 0) {
             break;
         }
     }
