@@ -8,8 +8,9 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 int main() {
-    vector<int> numbers = {1,2,3,4,5};
+    vector<int> numbers = {1,2,3,4,5,5,6};
     vector<int> result = remove_duplicates(numbers);
+    
     for(int num : result) {
         std::cout << num << " ";
     }
