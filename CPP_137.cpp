@@ -1,18 +1,19 @@
 #include <boost/any.hpp>
 #include <string>
 #include <typeinfo>
-#include <cassert>  // Added to include assert
+#include <cassert>  
+#include <iostream>
 
 template <typename T>
-boost::any compare_one(T a, T b) {
+std::any compare_one(T a, T b) {
     if (a == b) {
-        return boost::any("None");
+        return std::any("None");  
     } else {
-        return (a > b) ? boost::any(a) : boost::any(b);
+        return (a > b) ? std::any(a) : std::any(b);
     }
 }
 
-std::any compare(boost::any a, boost::any b) {
+std::any compare(std::any a, std::any b) {
     if (a.type() == b.type()) {
         if (a.type() == typeid(int) && std::any_cast<int>(a) != std::any_cast<int>(b)) {
             return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
@@ -22,10 +23,10 @@ std::any compare(boost::any a, boost::any b) {
             return (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) ? a : b;
         }
     }
-    return boost::any("None");
+    return std::any("None");  
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(compare(std::string("1"), std::string("1"))) == "None");  
     return 0;
 }
