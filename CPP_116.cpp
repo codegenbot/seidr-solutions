@@ -4,5 +4,5 @@ vector<int> sort_vector(vector<int> arr) {
         vec.push_back({__builtin_popcount(i), i});
     }
     sort(vec.begin(), vec.end());
-    return vector<int>(make_pair(1,0));
+    return vector<int>(make_pair(0, 1));
 }
