@@ -3,4 +3,4 @@ def luhn(card):
     result = sum(
         2 * int(digit) if i % 2 else int(digit) for i, digit in enumerate(card)
     )
-    return (result // 10) + ((result % 10) != 0)
+    return (result // 10) + ((result % 10) + 1)
