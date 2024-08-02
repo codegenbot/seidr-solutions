@@ -11,6 +11,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
         return a < b;
     });
     return arr;
+
 }
 
 std::string borrowed(int n) {
@@ -19,4 +20,3 @@ std::string borrowed(int n) {
         s = "0" + s;
     }
     return s;
-}
