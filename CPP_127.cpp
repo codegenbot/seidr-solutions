@@ -1,14 +1,21 @@
-string intersection(vector<int> interval1, vector<int> interval2){
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+#include <vector>
+#include <string>
 
-    if(start > end) return "NO";
+std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
+    int start = std::max(interval1[0], interval2[0]);
+    int end = std::min(interval1[1], interval2[1]);
 
+    if (start > end) return "NO";
+    
     int len = end - start + 1;
+    bool isPrime = true;
 
-    for(int i = 2; i * i <= len; i++){
-        if(len % i == 0) return "NO";
+    for (int i = 2; i * i <= len; i++) {
+        if (len % i == 0) {
+            isPrime = false;
+            break;
+        }
     }
 
-    return "YES";
+    return std::to_string(isPrime);
 }
