@@ -11,18 +11,13 @@ int main() {
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
         int num = digits[i];
-        if ((i + 1) % 2 == 0) {
+        if ((i + 1) % 2 != 0) {
             num *= 2;
             if (num > 9) {
                 num -= 9;
             }
         }
         sum += num;
-    }
-    
-    if (digits[15] == 6) {
-        sum -= 6;
-        sum += 12;
     }
 
     cout << sum << endl;
