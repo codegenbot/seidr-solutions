@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> sort_vector(vector<int> arr) {
     vector<pair<int, int>> vec;
     for (int i : arr) {
