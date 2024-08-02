@@ -9,19 +9,13 @@ for (char c : str) {
             first = false;
         }
     } else if (c == ' ') {
-        if (!first) {
-            result += std::toupper(c);
-        } else {
-            result += c;
-            first = false;
-        }
+        continue;
     } else {
         if (!first) {
             result += std::toupper(c);
         } else {
-            result += c;
             first = false;
+            result += c;
         }
     }
 }
-return result;
