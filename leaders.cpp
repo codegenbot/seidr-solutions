@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -11,6 +12,7 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
+
 }
 
 int main() { return 0; }
