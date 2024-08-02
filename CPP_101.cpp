@@ -1,12 +1,15 @@
+#include <string>
+#include <vector>
 #include <sstream>
+
 using namespace std;
 
 vector<string> words_string(string s) {
     vector<string> result;
-    istringstream iss(s);
+    istringstream ss(s);
     string word;
     
-    while (iss >> word) {
+    while (getline(ss, word, ' ')) {
         result.push_back(word);
     }
     
