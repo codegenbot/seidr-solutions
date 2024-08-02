@@ -2,12 +2,12 @@
 #include <cassert>
 #include <utility>
 
-std::pair<int, int> eat(int number, int need, int remaining){
+std::pair<int, int> eat(int number, int need, int remaining, const std::vector<int>& vec) {
     int total = number + std::min(need, remaining);
     int left = std::max(0, remaining - need);
     return {total, left};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b){
+bool issame(std::pair<int, int> a, std::pair<int, int> b, const std::vector<int>& vec) {
     return a.first == b.first && a.second == b.second;
 }
