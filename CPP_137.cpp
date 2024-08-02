@@ -1,6 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
+
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
