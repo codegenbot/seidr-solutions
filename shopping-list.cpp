@@ -15,7 +15,8 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         std::cin >> discounts[i];
-        total += prices[i] * (1.0 - discounts[i] / 100.0);
+        
+        total += prices[i] * (1 - discounts[i] / 100);
     }
 
     std::cout << std::fixed << std::setprecision(2) << total << std::endl;
