@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def get_max_triples(n):
     a = [i * i - i + 1 for i in range(1, n+1)]
