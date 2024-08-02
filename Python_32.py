@@ -9,7 +9,7 @@ def find_zero(xs: list):
     return x1 if x1 == x2 else (x1, x2)
 
 # Read input from the user
-user_input = list(map(int, input().split())
+user_input = list(map(int, input().split()))
 
 # Test cases
 print(find_zero(user_input))
