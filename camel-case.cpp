@@ -1,14 +1,19 @@
+```
 #include <iostream>
 #include <string>
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    
-    for (char c : str) {
+    bool capitalizeNext = true;
+
+    if (capitalizeNext) {
+        result += toupper(str[0]);
+        capitalizeNext = false;
+    }
+
+    for (char c : str.substr(1)) {
         if (c == '-') {
-            result += toupper(str[++str.find(c)]);
-            result += c;
-            capitalizeNext = false;
+            capitalizeNext = true;
         } else if (capitalizeNext) {
             result += toupper(c);
             capitalizeNext = false;
