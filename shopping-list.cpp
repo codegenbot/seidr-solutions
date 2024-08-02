@@ -11,7 +11,7 @@ int main() {
         cin >> prices[i];
     }
 
-    vector<int> discounts(n);
+    vector<int> discounts(n); 
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
