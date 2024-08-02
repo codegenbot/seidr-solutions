@@ -1,4 +1,7 @@
-vector<int> result;
+#include <vector>
+
+vector<int> issame(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
@@ -16,3 +19,4 @@ vector<int> result;
     }
     sort(odd_result.begin(), odd_result.end());
     return odd_result;
+}
