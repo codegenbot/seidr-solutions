@@ -12,7 +12,6 @@ int basement(std::vector<int> nums) {
             return i;
         }
     }
-    
     return -1;
 }
 
@@ -24,7 +23,8 @@ int main() {
         nums.push_back(num);
     }
     
-    std::cout << basement(nums) << std::endl;
+    int result = basement(nums);
+    std::cout << result << std::endl;
     
     return 0;
 }
