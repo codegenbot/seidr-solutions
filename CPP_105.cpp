@@ -1,4 +1,4 @@
-```c
+```c++
 #include <vector>
 #include <string>
 
@@ -10,38 +10,30 @@ bool issame(vector<string> a, vector<string>b) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter integer " << (i+1) << ": ";
-        std::cin >> arr[i];
-    }
-
+    vector<int> arr = {3, 5, 1, 9, 2};
     vector<string> result = by_length(arr);
-
-    if(issame(result, {"One", "Four", "Nine"})) {
-        std::cout << "The numbers are in the order of One, Four, Nine." << std::endl;
-    } else {
-        std::cout << "The numbers are not in the order of One, Four, Nine." << std::endl;
+    for (string s : result) {
+        cout << s << endl;
     }
-
+    if (issame(result, {"Nine", "Five", "Three", "One", "Two"})) {
+        cout << "The strings are the same." << endl;
+    } else {
+        cout << "The strings are not the same." << endl;
+    }
     return 0;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+    vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            temp.push_back(i);
+            temp.push_back(to_string(i));
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
     vector<string> result;
-    for (int i : temp) {
-        switch (i) {
+    for (string s : temp) {
+        switch (stoi(s)) {
             case 1:
                 result.push_back("One");
                 break;
