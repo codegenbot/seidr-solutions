@@ -4,19 +4,19 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalizeNextLetter = true;
+    bool capitalizeNext = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++; // skip the "-"
             while (i < s.length() && s[i] == ' ') {
                 i++; // skip the spaces
             }
-            capitalizeNextLetter = true;
-        } else if (capitalizeNextLetter) {
-            result += toupper(s[i]); // capitalize the first letter of each word
-            capitalizeNextLetter = false; // set to false until next dash is found
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(s[i]); 
+            capitalizeNext = false; 
         } else {
-            result += tolower(s[i]); // convert all letters to lowercase
+            result += tolower(s[i]);
         }
     }
     return result;
