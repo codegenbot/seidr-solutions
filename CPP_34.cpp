@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +13,12 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> unique(vector<int> l){
     vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
     sort(result.begin(), result.end());
-    return vector<int>(unique_copy(result.begin(), result.end()));
+    vector<int> temp;
+    for(int i = 0; i < result.size(); i++) {
+        if(i == 0 || !issame({result[i]}, {temp.back()}))
+            temp.push_back(result[i]);
+    }
+    return temp;
 }
 
 vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iterator end) {
@@ -29,18 +35,10 @@ vector<int>::iterator unique_copy(vector<int>::iterator start, vector<int>::iter
 }
 
 int main() {
-    vector<int> l;
-    // Read input from user
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        l.push_back(x);
+    vector<int> v = {1, 2, 3, 4, 5, 6};
+    vector<int> result = unique(v);
+    for(int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
-    
-    // Call the function
-    unique(l);
-
     return 0;
 }
