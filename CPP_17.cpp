@@ -1,59 +1,26 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
 
 vector<int> parse_music(string music_string) {
     vector<int> result;
-    string note = "";
+    int beats = 4; // initialize beats for each note
+    
     for (char c : music_string) {
-        if (c == 'o' || c == '.' || c == '|') {
-            if (!note.empty()) {
-                int beats = 0;
-                switch (note[0]) {
-                    case 'o':
-                        beats = 4;
-                        break;
-                    case '.':
-                        beats = 1;
-                        break;
-                    case 'o':
-                    case '|':
-                        beats = 2;
-                        break;
-                }
-                result.push_back(beats);
+        if (c == 'o') { // whole note
+            result.push_back(beats);
+            beats = 4;
+        } else if (c == '|') { // note duration change
+            if (beats > 1) {
+                result.push_back(beats / 2); // update beats for next note
+                beats /= 2; // half the beats
             }
-            note = "";
-        } else {
-            note += c;
+        } else if (c == '.') { // quater note
+            result.push_back(1);
+            beats = 4;
         }
     }
-    if (!note.empty()) {
-        int beats = 0;
-        switch (note[0]) {
-            case 'o':
-                beats = 4;
-                break;
-            case '.':
-                beats = 1;
-                break;
-            case 'o':
-            case '|':
-                beats = 2;
-                break;
-        }
-        result.push_back(beats);
-    }
+    
     return result;
-}
-
-int main() {
-    string music_string = "o o| .| o| o| .| .| .| .| o o";
-    vector<int> result = parse_music(music_string);
-    for (int beat : result) {
-        cout << beat << " ";
-    }
-    cout << endl;
-    return 0;
 }
