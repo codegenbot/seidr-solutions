@@ -5,6 +5,7 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
+    
     if (arr.empty()) return result;
     
     int minEven = INT_MAX;
