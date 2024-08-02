@@ -1,16 +1,22 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
+    vector<vector<string>> result;
     for(auto str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        bool same = false;
+        for(auto s : str) {
+            if(s.find(substring) != string::npos) {
+                same = true;
+                break;
+            }
+        }
+        if(same) {
             result.push_back(str);
         }
     }
@@ -18,14 +24,23 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    vector<string> vec1 = {"apple", "banana", "cherry"};
-    vector<string> vec2 = {"banana", "cherry", "date"};
-
-    if(issame(vec1, filter_by_substring(vec2, "ba"))) {
-        cout << "The vectors are the same" << endl;
-    } else {
-        cout << "The vectors are not the same" << endl;
+    vector<vector<string>> strings = {{"apple", "banana"}, {"orange", "grape"}};
+    string substring = "ana";
+    vector<vector<string>> result = filter_by_substring(strings, substring);
+    for(auto str : result) {
+        bool same = false;
+        for(auto s : str) {
+            if(s.find(substring) != string::npos) {
+                same = true;
+                break;
+            }
+        }
+        if(same) {
+            cout << "Substrings found: ";
+            for(auto s : str) {
+                cout << s << " ";
+            }
+            cout << endl;
+        }
     }
-
-    return 0;
 }
