@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 from typing import List
 
 
@@ -13,12 +16,6 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
             if note in beats_per_note:
                 result.append(beats_per_note[note])
-            elif note[0] == '.' and note[1] == '|':
-                j = 2
-                while i + j < len(music_string) and music_string[i+j] != '.':
-                    j += 1
-                duration = music_string[i+2:i+j].count('.')
-                result.append(duration)
-            else:
-                print("Invalid note format")
+            elif note[0] in beats_per_note and note[1] in ['o', '|']:
+                result.append(beats_per_note[note[0]])
     return result
