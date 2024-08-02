@@ -13,20 +13,21 @@ string int_to_mini_romank(int number){
         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"},
         {1, "i"}
     };
-    
+
     string result = "";
-    
+
     for(const auto& numeral : roman_numerals){
         while(number >= numeral.first){
             result += numeral.second;
             number -= numeral.first;
         }
     }
-    
+
     return result;
 }
 
-int main() {
+int main(){
     assert(int_to_mini_romank(1000) == "m");
+    
     return 0;
 }
