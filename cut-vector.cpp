@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     

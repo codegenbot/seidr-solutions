@@ -12,7 +12,7 @@ int bowlingScore(std::string s) {
                 score += (s[bowl + 1] == 'X') ? 10 : (s[bowl + 1] - '0');
                 score += (s[bowl + 2] == 'X') ? 10 : (s[bowl + 2] == '/' ? 10 - (s[bowl + 1] - '0') : (s[bowl + 2] - '0'));
                 frame++;
-                bowl += 1;
+                bowl++;
             }
         } else if (c == '/') {
             score += 10 - (s[bowl - 1] - '0');
