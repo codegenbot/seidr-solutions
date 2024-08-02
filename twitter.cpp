@@ -1,20 +1,31 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <clocale>
+#include <limits>
 
-using namespace std;
-
-string validateTweet(string tweet) {
-    if(tweet.empty()) return "You didn't type anything";
-    if(mblen(tweet.c_str(), tweet.length()) > 140) return "Too many characters";
-    return "Your tweet has " + to_string(mblen(tweet.c_str(), tweet.length())) + " characters";
+std::string validateTweet(std::string tweet) {
+    if (tweet.empty()) {
+        return "You didn't type anything";
+    }
+    else if (tweet.length() > 140) {
+        return "Too many characters";
+    }
+    else {
+        return "Your tweet has " + std::to_string(tweet.length()) + " characters";
+    }
 }
 
 int main() {
-    setlocale(LC_CTYPE, "");
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
+    int numTests;
+    std::cin >> numTests;
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    for(int i = 0; i < numTests; ++i) {
+        std::string tweet;
+        std::getline(std::cin, tweet);
+        std::cout << validateTweet(tweet) << std::endl;
+    }
+
     return 0;
 }
