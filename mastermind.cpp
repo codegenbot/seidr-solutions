@@ -1,7 +1,7 @@
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int getWhitePegs(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
@@ -31,3 +31,4 @@ int main() {
     int blackPegs = getBlackPegs(code, guess);
     std::cout << whitePegs << "\n" << blackPegs << "\n";
     return 0;
+}
