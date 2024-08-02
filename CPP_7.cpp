@@ -16,8 +16,5 @@ vector<string> filter_by_substring(vector<string> words, string substr) {
     return filtered_words;
 }
 
-int main() {
-    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert((result == vector<string>{"grunt", "prune"}));
-    return 0;
-}
+/* main() function without redefinition */
+```
