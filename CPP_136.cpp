@@ -1,3 +1,4 @@
+```cpp
 vector<int> largest_smallest_integers(vector<int> lst) {
     int maxNeg = 0;
     int minPos = INT_MAX;
@@ -11,5 +12,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return std::make_pair(maxNeg, minPos);
+    return {std::make_pair(maxNeg, minPos)};
 }
