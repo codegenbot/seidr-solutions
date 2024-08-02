@@ -6,9 +6,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 int main(){
-    std::vector<int> result = {1, 3}; // Initialize result vector
+    std::vector<int> result = {1, 3};
 
-    assert(issame(result, {1, 3}));  // Check if result vector matches the expected vector
+    assert(issame(result, {1, 3}));
 
     return 0;
 }
