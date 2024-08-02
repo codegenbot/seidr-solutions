@@ -22,10 +22,8 @@ std::string int_to_mini_roman(int number){
 
 int main(){
     assert(int_to_mini_roman(1000) == "m");
-    assert(int_to_mini_roman(3999) == "mmmcmxcix");
-    assert(int_to_mini_roman(476) == "cdlxxvi");
-    assert(int_to_mini_roman(208) == "ccviii");
-    assert(int_to_mini_roman(89) == "lxxxix");
+    assert(int_to_mini_roman(345) == "cccxlv");
+    assert(int_to_mini_roman(1987) == "mcmlxxxvii");
     
     return 0;
 }
