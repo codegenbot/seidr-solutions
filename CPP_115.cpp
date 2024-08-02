@@ -8,5 +8,5 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
     
-    return ceil((double)total_water / capacity);
+    return static_cast<int>(ceil((double)total_water / capacity));
 }
