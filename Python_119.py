@@ -1,4 +1,4 @@
-```Python
+```
 def match_parens(lst):
     stack = []
     for s in lst:
