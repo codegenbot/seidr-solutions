@@ -1,20 +1,28 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
+#include <bits/stdc++.h>
+using namespace std;
 
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) {
-            sum += pow(num, 2);
+long long doubleTheDifference(vector<vector<int>>& vectors) {
+    long long sum1 = 0;
+    long long sum2 = 0;
+    
+    for (auto& vec : vectors) {
+        long long sum3 = 0, sum4 = 0;
+        
+        for (int num : vec) {
+            if (num % 2 == 0) {
+                sum3 += num;
+            } else {
+                sum4 += num;
+            }
         }
+        
+        sum1 += abs(sum3 - sum4);
     }
-    return sum;
+    
+    return sum1;
 }
 
 int main() {
-    std::vector<float> lst;
-    int odd_sum = 0;
-    // Rest of your code...
-    assert(double_the_difference(lst) == odd_sum);
+    vector<vector<int>> vectors = {{10,2},{-5,1,7},{3,-1,5}};
+    cout << doubleTheDifference(vectors) << endl;
 }
