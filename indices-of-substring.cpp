@@ -11,7 +11,7 @@ int main() {
     for (size_t i = 0; i <= text.length() - target.length(); ++i) {
         if (text.substr(i, target.length()) == target + " ") {
             bool isOverlap = false;
-            if (i != 0 && text[i - 1] == ' ') { // Check for overlap
+            if (i != 0 && text[i-1] == ' ') { // Check for overlap
                 isOverlap = true;
             }
             if (i + target.length() < text.length() && text[i + target.length()] == ' ') { // Check for overlap
