@@ -1,15 +1,11 @@
 Here is the solution:
 
-string squareDigits(long int num) {
-    string str = to_string(num);
+string squareDigits(int n) {
+    string s = to_string(n);
     string result;
-    
-    for (int i = 0; i < str.length(); i++) {
-        int digit = str[i] - '0';
-        long long squared = (long long)digit * digit;
-        char c = (char)(squared + '0');
-        result += c;
+    for (char c : s) {
+        int digit = c - '0';
+        result += to_string(digit * digit);
     }
-    
     return result;
 }
