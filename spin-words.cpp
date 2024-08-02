@@ -1,23 +1,47 @@
-```
-std::string spinWords(std::string input) {
-    std::string output;
-    std::size_t pos = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    while ((pos = input.find(' ')) != std::string::npos) {
-        std::size_t length = input.length() - pos - 1;
-        if (length >= 5) {
-            std::string word = input.substr(pos + 1, length);
-            for (int i = word.length() - 1; i >= 0; --i)
-                output += word[i];
-            output += ' '; // Fix: Changed append to +=
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length()-1; j >= 0; j--) {
+                    result += word[j];
+                }
+            } else {
+                result += word;
+            }
+            word = "";
         } else {
-            output += input.substr(0, pos + 1);
+            word += str[i];
         }
-        input.erase(0, pos + 1);
     }
+    
+    if (word.length() >= 5) {
+        for (int i = word.length()-1; i >= 0; i--) {
+            result += word[i];
+        }
+    } else {
+        result += word;
+    }
+    
+    return result;
+}
 
-    if (!input.empty())
-        output += input;
-
-    return output;
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    str.erase(0, str.find_first_of(' ')); 
+    while (str.length() > 0 && str[0] == ' ') { 
+        str = str.substr(1); 
+    }
+    cout << spinWords(str) << endl;
+    return 0;
 }
