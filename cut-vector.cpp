@@ -1,21 +1,44 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res;
-    if (n == 0) return {{}}; // edge case: empty array
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    int min_diff = INT_MAX, cut_index = -1;
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    for (int i = 1; i <= v.size(); i++) {
+        if (i == v.size() || v[i] - v[i-1] < minDiff) {
+            minDiff = v[i] - v[i-1];
+            cutIndex = i;
         }
     }
     
-    res.push_back(vector<int>(nums.begin(), nums.begin() + cut_index));
-    res.push_back(vector<int>(nums.begin() + cut_index, nums.end()));
-    return res;
+    vector<int> leftVec(v.begin(), v.begin() + cutIndex);
+    vector<int> rightVec(v.begin() + cutIndex, v.end());
+    
+    return make_pair(leftVec, rightVec);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) {
+        cin >> x;
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "left: ";
+    for (const auto &x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    cout << "right: ";
+    for (const auto &x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
