@@ -1,7 +1,20 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool isPrime(int n) {
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+    
+    for (const auto& word : words) {
+        if (is_prime(word.length())) {
+            result += word + " ";
+        }
+    }
+    
+    return result.substr(0, result.size() - 1);
+}
+
+bool is_prime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
@@ -9,37 +22,14 @@ bool isPrime(int n) {
     return true;
 }
 
-string words_in_sentence(string sentence) {
-    vector<string> words;
-    int len = 0;
-    string word;
-    
-    // Split the sentence into words
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (len > 0) {
-                words.push_back(word);
-                word.clear();
-                len = 0;
-            }
-        } else {
-            word += c;
-            len++;
-        }
+vector<string> split(const string& str, char ch) {
+    vector<string> tokens;
+    size_t pos = str.find(ch);
+    while (pos != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+        pos = str.find(ch);
     }
-    
-    // Add the last word
-    if (len > 0) {
-        words.push_back(word);
-    }
-
-    string result;
-    for (string w : words) {
-        int wl = w.length();
-        if (isPrime(wl)) {
-            result += w + " ";
-        }
-    }
-    
-    return result.substr(0, result.length() - 1); // Remove the extra space at the end
+    tokens.push_back(str);
+    return tokens;
 }
