@@ -3,7 +3,8 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+using std::vector;
+using std::string;
 
 vector<string> separate_paren_groups(string paren_string);
 
