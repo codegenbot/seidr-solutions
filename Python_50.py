@@ -4,7 +4,6 @@ def decode_shift(s):
     )
     return decoded_message
 
-# Input format: <encoded message>
 encoded_message = input().strip()
 decoded_message = decode_shift(encoded_message)
 print(decoded_message)
