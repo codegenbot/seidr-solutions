@@ -5,13 +5,13 @@ def int_to_mini_roman(number):
         100, 90, 50, 40,
         10, 9, 5, 4,
         1
-    ]
+        ]
     syb = [
         "M", "CM", "D", "CD",
         "C", "XC", "L", "XL",
         "X", "IX", "V", "IV",
         "I"
-    ]
+        ]
     roman_num = ''
     i = 0
     while number > 0:
