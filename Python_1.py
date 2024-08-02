@@ -14,7 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group += stack.pop()
             if stack:
                 if len(stack) > 0:
-                    stack.pop() 
+                    stack.pop() # remove the last '('
                 else:
                     groups.append(current_group)
                     current_group = ""
