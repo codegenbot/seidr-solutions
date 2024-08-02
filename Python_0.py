@@ -5,8 +5,10 @@ def check_adjacent_numbers(numbers, threshold):
             return True
     return False
 
+# Take input from the user
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
-# Corrected function call
-numbers = [1, 3, 5, 7]
-threshold = 2
-print(check_adjacent_numbers(numbers, threshold))
+# Call the function with correct arguments
+result = check_adjacent_numbers(numbers, threshold)
+print(result)
