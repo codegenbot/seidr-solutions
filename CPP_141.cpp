@@ -21,13 +21,12 @@ string file_name_check(string file_name) {
     for (int i = 0; i < file_name.length(); i++) {
         if (file_name[i] == '.') {
             dotCount++;
+            break;
         }
-        else if (!isalpha((unsigned char)file_name[i])) {
+        if (!isalpha((unsigned char)file_name[i])) {
             return "No";
         }
-        else {
-            validStart = true;
-        }
+        validStart = true;
     }
 
     if (!validStart || dotCount > 1) {
@@ -44,4 +43,8 @@ string file_name_check(string file_name) {
         return "No";
     }
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
 }
