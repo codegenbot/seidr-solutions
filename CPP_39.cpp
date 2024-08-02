@@ -1,4 +1,8 @@
-int a = 1, b = 1, c, count = 2;
+#include <iostream>
+#include <cassert>
+
+int prime_fib(int n) {
+    int a = 1, b = 1, c, count = 2;
     while (count < n) {
         c = a + b;
         a = b;
