@@ -1,14 +1,12 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
 std::string camelCase(const std::string& s) {
     std::vector<std::string> words;
-    size_t start = 0;
     for (size_t i = 0; i <= s.size(); ++i) {
         if (i == s.size() || s[i] == ' ') {
-            words.push_back(s.substr(start, i - start));
+            words.push_back(s.substr(i - start, i - start + 1));
             start = i + 1;
         }
     }
