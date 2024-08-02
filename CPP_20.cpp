@@ -5,7 +5,7 @@
 #include <utility>
 
 bool issame(float a, float b) {
-    return fabs(a - b) < std::numeric_limits<float>::epsilon();
+    return std::fabs(a - b) < std::numeric_limits<float>::epsilon();
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float>& numbers) {
