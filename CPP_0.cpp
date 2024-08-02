@@ -5,7 +5,7 @@
 #include <cmath>
 
 bool has_close_elements(std::initializer_list<float> numbers, float threshold) {
-    std::vector<float> numList(std::initializer_list<float>{numbers});
+    std::vector<float> numList(numbers);
     std::sort(numList.begin(), numList.end());
     for (int i = 0; i < numList.size() - 1; ++i) {
         if (std::abs(numList[i] - numList[i + 1]) < threshold) {
@@ -16,6 +16,6 @@ bool has_close_elements(std::initializer_list<float> numbers, float threshold) {
 }
 
 int main() {
-    assert(!has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5));
+    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 1.0));
     return 0;
 }
