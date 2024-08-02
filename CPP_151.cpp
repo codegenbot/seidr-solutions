@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <cmath>
 
-long long double_the_difference(vector<float> lst){
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
     for (float x : lst) {
         if (x > 0 && floor(x) == x) { 
@@ -13,18 +12,11 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> input_vector; // declare the input vector
-    // read user input and store it in the vector
-    int n;
-    cin >> n;
-    for(int i=0; i<n; i++){
-        float num;
-        cin >> num;
-        input_vector.push_back(num);
+    std::vector<float> lst;
+    float num;
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
-
-    long long result = double_the_difference(input_vector); 
-    cout << "The sum of squares is: " << result << endl;
-
-    return 0;
+    long long odd_sum = double_the_difference(lst);
+    assert(double_the_difference(lst) == odd_sum );
 }
