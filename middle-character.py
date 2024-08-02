@@ -1,10 +1,9 @@
-```
+Here is the Python code to solve the problem:
+
 def middle_character(s):
-    s = str(s)  # Ensure s is a string
+    s = s.strip()
     length = len(s)
-    middle_index = length // 2
-    
-    if length % 2 == 0:  # Even length
-        return s[middle_index - 1:middle_index + 1]
-    else:  # Odd length
-        return s[middle_index]
+    if length % 2 == 0:
+        return s[length//2 - 1:length//2 + 1]
+    else:
+        return s[length//2]
