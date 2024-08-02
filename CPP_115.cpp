@@ -1,14 +1,19 @@
 #include <vector>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (const auto& row : grid) {
-        for (int water : row) {
-            if (water == 1) {
-                total_water += water;
+    int n = grid.size();
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = 0; j < grid[i].size(); j++) {
+            if (grid[i][j] == 1) {
+                sum++;
             }
         }
+        while (sum > 0) {
+            ans += min(sum, capacity);
+            sum -= capacity;
+        }
     }
-
-    return total_water / capacity + (total_water % capacity != 0);
+    return ans;
 }
