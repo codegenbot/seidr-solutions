@@ -1,9 +1,9 @@
+#include <cassert>
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert> // Include <cassert> for assert macro
 
 using namespace std;
 
@@ -17,5 +17,4 @@ vector<string> filter_by_substring(vector<string> words, string substr) {
     return filtered_words;
 }
 
-// Use assert directly without stray code block markers
 assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
