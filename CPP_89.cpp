@@ -1,16 +1,13 @@
-string encrypt(string s) {
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+string encrypt(string s){
     string result = "";
-    
-    for (char c : s) {
-        if (isalpha(c)) {
-            int index = tolower(c) - 'a';
-            index = (index + 2 * 2) % 26;
-            result += alphabet[index];
-        } else {
-            result += c;
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 2*2) % 26 + 'a';
+        } else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 2*2) % 26 + 'A';
         }
+        result += c;
     }
-    
     return result;
 }
