@@ -10,25 +10,33 @@ string spinWords(string str) {
     
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length()-1; j >= 0; j--) {
-                    result += word[j];
+            if (!word.empty()) {
+                if (word.length() >= 5) {
+                    for (int j = word.length()-1; j >= 0; j--) {
+                        result += word[j];
+                    }
+                } else {
+                    result += word;
                 }
-            } else {
-                result += word;
+                word.clear();
+            } 
+            else {
+                result += ' ';
             }
-            word = "";
         } else {
             word += str[i];
         }
     }
     
-    if (word.length() >= 5) {
-        for (int i = word.length()-1; i >= 0; i--) {
-            result += word[i];
+    if (!word.empty()) {
+        if (word.length() >= 5) {
+            for (int j = word.length()-1; j >= 0; j--) {
+                result += word[j];
+            }
+        } else {
+            result += word;
         }
-    } else {
-        result += word;
+        word.clear();
     }
     
     return result;
@@ -38,10 +46,6 @@ int main() {
     string str;
     cout << "Enter a sentence: ";
     getline(cin, str);
-    str.erase(0, str.find_first_of(' ')); 
-    while (str.length() > 0 && str[0] == ' ') { 
-        str = str.substr(1); 
-    }
     cout << spinWords(str) << endl;
     return 0;
 }
