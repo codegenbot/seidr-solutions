@@ -1,5 +1,3 @@
-#include <vector>
-
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
