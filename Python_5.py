@@ -1,5 +1,6 @@
-result = []
-for num in numbers:
-    result.extend([num, delimeter])
-result.pop()  # Remove the last delimeter
-return result
+def intersperse(numbers, delimiter):
+    result = []
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()  
+    return result
