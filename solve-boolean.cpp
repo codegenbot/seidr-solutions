@@ -1,5 +1,4 @@
-```cpp
-#include <iostream>
+#include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -10,7 +9,7 @@ bool solveBoolean(string s) {
         } else if (s[i] == 'F') {
             return false;
         } else if (s[i] == '&') {
-            result &= false;
+            result &= true;
         } else if (s[i] == '|') {
             result |= true;
         }
@@ -19,13 +18,9 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    string s1 = "T&F";
-    string s2 = "TF|T";
-    string s3 = "T&T|F";
-    
-    cout << solveBoolean(s1) << endl;  // Output: F
-    cout << solveBoolean(s2) << endl;  // Output: T
-    cout << solveBoolean(s3) << endl;  // Output: T
-    
+    cout << solveBoolean("T|F") << endl;  // Expected output: 1
+    cout << solveBoolean("F&F") << endl;  // Expected output: 0
+    cout << solveBoolean("T&T") << endl;  // Expected output: 1
+    cout << solveBoolean("T|T") << endl;   // Expected output: 1
     return 0;
 }
