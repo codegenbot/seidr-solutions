@@ -3,8 +3,6 @@
 #include <string>
 #include <algorithm>
 
-std::any compare_one(const std::any& a, const std::any& b);
-
 std::any compare_one(const std::any& a, const std::any& b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(std::any_cast<int>(a) > std::any_cast<int>(b))
@@ -23,12 +21,14 @@ std::any compare_one(const std::any& a, const std::any& b) {
             return std::any();
     }
     else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        std::string str_a = std::any_cast<std::string>(a); 
-        std::string str_b = std::any_cast<std::string>(b); 
-        str_a.replace(str_a.find(','), 1, ".");
-        str_b.replace(str_b.find(','), 1, ".");
-        float num1 = stof(str_a);
-        float num2 = stof(str_b);
+        std::string str1 = std::any_cast<std::string>(a);
+        str1.replace(str1.find(','), 1, ".");
+        float num1 = std::stof(str1);
+        
+        std::string str2 = std::any_cast<std::string>(b);
+        str2.replace(str2.find(','), 1, ".");
+        float num2 = std::stof(str2);
+        
         if(num1 > num2)
             return a;
         else if(num1 < num2)
