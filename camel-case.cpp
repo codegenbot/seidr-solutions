@@ -5,12 +5,12 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool capitalizeNext = true;
 
-    if (str[0] != '-') { // Handle the first character
+    if (str[0] != '-') {
         result += toupper(str[0]);
         capitalizeNext = false;
     }
 
-    for (char c : str.substr(1)) { // Start from the second character
+    for (char c : str.substr(1)) {
         if (c == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
