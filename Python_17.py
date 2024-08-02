@@ -1,4 +1,3 @@
-```
 def parse_music(music_string: str) -> list:
     music_list = []
     for char in music_string:
