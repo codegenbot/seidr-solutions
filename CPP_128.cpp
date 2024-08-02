@@ -1,4 +1,8 @@
-if (arr.empty()) {
+#include <vector>
+#include <cmath>
+
+int prod_signs(std::vector<int> arr) {
+    if (arr.empty()) {
         return -32768;
     }
 
