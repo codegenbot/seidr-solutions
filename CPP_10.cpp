@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include<string>
+#include <algorithm>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -7,18 +6,22 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str) {
-    if (is_palindrome(str)) {
-        return str + str;
+string make_palindrome(string str){
+    int i=str.length()-1;
+    while(i>0 && str[i-1]==str[i])
+        i--;
+    string palin=slice(str, 0, i);
+    return str+rev(slice(str, i))+palin;
+}
+
+string slice(const string& s, int start, int end) {
+    return s.substr(start, end-start);
+}
+
+string rev(const string& s) {
+    string r;
+    for(int i = s.length() - 1; i >= 0; i--) {
+        r += s[i];
     }
-    
-    int i = 0;
-    while (i < str.length() && !is_palindrome(str.substr(i))) {
-        i++;
-    }
-    
-    string prefix = str.substr(0, i);
-    string suffix = str.substr(i) + str.rbegin()->substr(1);
-    
-    return prefix + prefix.reverse() + suffix;
+    return r;
 }
