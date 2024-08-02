@@ -3,25 +3,21 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<std::string> issame(const std::vector<std::string>& vec_a, const std::vector<std::string>& vec_b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     std::vector<std::string> result_vec;
-    for (size_t i = 0; i < vec_a.size(); ++i) {
-        std::string result = "";
-        for (char ch : vec_a[i]) {
-            if (vec_b[i].find(ch) == std::string::npos) {
-                result += ch;
-            }
+    for (const auto& str : a) {
+        if (std::find(b.begin(), b.end(), str) == b.end()) {
+            result_vec.push_back(str);
         }
-        std::string result_reverse = result;
-        std::reverse(result_reverse.begin(), result_reverse.end());
-        result_vec.push_back(result == result_reverse ? "true" : "false");
     }
-    return result_vec;
+    
+    std::vector<std::string> result_reverse = result_vec;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+
+    return result_vec == result_reverse;
 }
 
 int main() {
-    std::vector<std::string> expected = {"true"};
-    std::vector<std::string> result = issame({"mamma"}, {"mia"});
-    assert(result == expected);
+    assert(issame({"mamma"}, {"mia"}) == true);
     return 0;
 }
