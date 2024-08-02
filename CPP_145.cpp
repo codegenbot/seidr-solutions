@@ -1,11 +1,12 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <utility>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
