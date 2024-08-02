@@ -1,18 +1,14 @@
-#include <vector>
-#include <cassert>
-#include <cmath>
-
-float mean_absolute_deviation(const std::vector<float>& numbers) {
-    float sum = 0.0;
+float sum = 0.0;
+    float mean = 0.0;
     for (float num : numbers) {
         sum += num;
     }
-    float mean = sum / numbers.size();
-    
-    float absolute_diff_sum = 0.0;
+    mean = sum / numbers.size();
+
+    float deviation = 0.0;
     for (float num : numbers) {
-        absolute_diff_sum += std::abs(num - mean);
+        deviation += abs(num - mean);
     }
-    
-    return absolute_diff_sum / numbers.size();
+
+    return deviation / numbers.size();
 }
