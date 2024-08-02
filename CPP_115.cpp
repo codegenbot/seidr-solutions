@@ -16,15 +16,16 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 int main() {
     int n, m, capacity;
     std::cin >> n >> m >> capacity;
-    
+
     std::vector<std::vector<int>> grid(n, std::vector<int>(m));
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
             std::cin >> grid[i][j];
         }
     }
-    
+
     std::cout << max_fill(grid, capacity) << std::endl;
-    
+
     return 0;
 }
