@@ -38,6 +38,8 @@ int main() {
     string text, target;
 
     cin >> a >> b;
+    cout << endl;
+
     cin >> textLength >> targetLength;
     cin.ignore();
     getline(cin, text);
