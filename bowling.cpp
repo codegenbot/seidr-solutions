@@ -1,32 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-int score(string s) {
+int calculateBowlingScore(const std::vector<int>& scores) {
     int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(22, 0);
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball++] = 10;
-            scores[ball++] = 0;
-            frame++;
-        } else if (c == '/') {
-            scores[ball - 1] = 10 - scores[ball - 2];
-            frame++;
-        } else if (c == '-') {
-            scores[ball++] = 0;
-        } else {
-            scores[ball++] = c - '0';
-        }
-    }
-
-    if (scores[20] == 10 || (scores[20] + scores[21] == 10 && s.size() > 20)) {
-        total += scores[20] + scores[21] + scores[22];
-    } else {
-        total += scores[20] + scores[21];
-    }
 
     for (int i = 0; i < 10; i++) {
         if (scores[i * 2] == 10) {
@@ -45,8 +21,10 @@ int score(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::vector<int> scores(23); // Assuming 'scores' is provided as input
+
+    int result = calculateBowlingScore(scores);
+    std::cout << result << std::endl;
+
     return 0;
 }
