@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<int> unique_digits(vector<int> x);
+
+bool issame(int a, int b) {
+    // Function body implementation    
+}
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
