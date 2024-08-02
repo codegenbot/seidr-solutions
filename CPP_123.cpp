@@ -38,4 +38,13 @@ vector<int> get_odd_collatz(int n) {
     return odd_result;
 }
 
-assert(issame(get_odd_collatz(1), {1}));
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    int n;
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    return 0;
+}
