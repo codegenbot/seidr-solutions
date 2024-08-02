@@ -15,7 +15,7 @@ std::vector<int> minPath(std::vector<std::pair<int, int>> grid, int k) {
     return path;
 }
 
-int main() {
+int main(){
     int n, k;
     std::cin >> n >> k;
 
