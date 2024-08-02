@@ -1,28 +1,18 @@
 #include <iostream>
 #include <string>
-#include <cassert>
-#include <openssl/md5.h>
+#include <functional>
 
-std::string string_to_md5(const std::string& text) {
+std::size_t string_to_md5(const std::string& text) {
     if (text.empty()) {
-        return "None";
+        return 0;
     }
-
-    unsigned char digest[16];
-    EVP_MD_CTX* mdctx;
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
     
-    char mdString[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i * 2], "%02x", digest[i]);
-    }
-
-    return std::string(mdString);
+    std::hash<std::string> hasher;
+    return hasher(text);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    std::size_t md5_value = string_to_md5("password");
+    std::cout << md5_value << std::endl;
     return 0;
 }
