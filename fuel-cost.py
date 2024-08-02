@@ -1,4 +1,3 @@
-total = 0
-for x in map(int, input().split()):
-    total += max(x // 3 - 2, 0)
+values = input().split()
+total = sum(max(int(x) // 3 - 2, 0) for x in values)
 print(total)
