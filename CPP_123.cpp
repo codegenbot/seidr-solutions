@@ -1,4 +1,14 @@
-vector<int> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<int> get_odd_collatz(int n);
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         n = n % 2 == 0 ? n / 2 : 3 * n + 1;
@@ -12,3 +22,4 @@ vector<int> result;
         }
     }
     return odd_result;
+}
