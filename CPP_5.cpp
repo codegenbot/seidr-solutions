@@ -3,10 +3,10 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b);
+bool issame(vector<int> a, vector<int> b);
 vector<int> intersperse(const vector<int>& numbers, int delimiter);
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
