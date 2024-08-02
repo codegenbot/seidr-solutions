@@ -1,9 +1,13 @@
-def luhn(card):
-    card = [int(x) for x in str(card)]
-    result = sum(
-        [
-            x if i % 2 == 0 else 2 * x if x * 10 // 9 < 9 else 2 * x - 9
-            for i, x in enumerate(card)
-        ]
-    )
-    return result
+```
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number)]
+    sum_of_digits = 0
+    is_second = True
+    for digit in card_number:
+        if is_second:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        is_second = not is_second
+        sum_of_digits += digit
+    return sum_of_digits
