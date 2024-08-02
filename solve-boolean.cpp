@@ -18,13 +18,14 @@ bool solveBoolean(string s) {
 }
 
 int main() {
-    cout << boolalpha << solveBoolean("T") << endl;  // Expected output: true
-    cout << boolalpha << solveBoolean("F") << endl;  // Expected output: false
-    cout << boolalpha << solveBoolean("|T") << endl;  // Expected output: true
-    cout << boolalpha << solveBoolean("|F") << endl;  // Expected output: true
-    cout << boolalpha << solveBoolean("&T") << endl;  // Expected output: true
-    cout << boolalpha << solveBoolean("&F") << endl;  // Expected output: false
-    cout << boolalpha << solveBoolean("|&T") << endl;  // Expected output: true
-    cout << boolalpha << solveBoolean("|&F") << endl;  // Expected output: true
+    cout << solveBoolean("T") << endl;  // Expected output: 1
+    cout << solveBoolean("F") << endl;  // Expected output: 0
+    cout << solveBoolean("T&") << endl;  // Expected output: 0
+    cout << solveBoolean("T|") << endl;  // Expected output: 1
+    cout << solveBoolean("T&T") << endl;  // Expected output: 1
+    cout << solveBoolean("F&F") << endl;  // Expected output: 0
+    cout << solveBoolean("F|F") << endl;  // Expected output: 0
+    cout << solveBoolean("T&F") << endl;  // Expected output: 0
+    cout << solveBoolean("T|F") << endl;  // Expected output: 1
     return 0;
 }
