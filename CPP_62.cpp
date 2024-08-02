@@ -1,24 +1,12 @@
-#include <iostream>
-#include <vector>
-
+#include<stdio.h>
+#include<math.h>
+#include<vector>
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result;
-    for (int i = 1; i <= xs.size() - 1; i++) {
+    for(int i = 1; i < xs.size(); ++i) {
         result.push_back(i * xs[i]);
     }
     return result;
-}
-
-int main() {
-    vector<float> xs = {3, 1, 2, 4, 5};
-    vector<float> derivativeResult = derivative(xs);
-    
-    for (float x : derivativeResult) {
-        cout << x << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
