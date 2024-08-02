@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+
 using namespace std;
 
 bool isPrime(int n) {
@@ -10,24 +12,36 @@ bool isPrime(int n) {
 }
 
 string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-    for (auto word : words) {
-        int len = word.length();
-        if (isPrime(len)) {
-            result += word + " ";
+    vector<string> words;
+    int len = 0;
+    string word;
+
+    // split the sentence into words
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (len > 0) {
+                words.push_back(word);
+                word.clear();
+                len = 0;
+            }
+        } else {
+            word += sentence[i];
+            len++;
         }
     }
-    return result.substr(0, result.size() - 1);
-}
 
-vector<string> split(const string& str, char ch) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(ch)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+    // add the last word
+    if (len > 0) {
+        words.push_back(word);
     }
-    tokens.push_back(str);
-    return tokens;
+
+    string result = "";
+    for (int i = 0; i < words.size(); i++) {
+        int len_word = words[i].length();
+        if (isPrime(len_word)) {
+            result += words[i] + " ";
+        }
+    }
+
+    return result.substr(0, result.length() - 1);
 }
