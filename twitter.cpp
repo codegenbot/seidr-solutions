@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -20,7 +19,7 @@ int main() {
 
     for(int i = 0; i < numTests; ++i) {
         std::string tweet;
-        std::getline(std::cin, tweet);
+        std::getline(std::cin, tweet); 
         std::cout << validateTweet(tweet) << std::endl;
     }
 
