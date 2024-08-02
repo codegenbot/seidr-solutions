@@ -26,6 +26,6 @@ std::vector<int> pluck(std::vector<int> arr){
     if(smallestEvenIndex == -1){
         return {};
     } else {
-        return {smallestEven};
+        return {smallestEven, smallestEvenIndex};
     }
 }
