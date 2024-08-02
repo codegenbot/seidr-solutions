@@ -14,3 +14,4 @@ string rounded_avg(int n,int m){
         avg >>= 1;
     }
     return res;
+}
