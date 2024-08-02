@@ -1,6 +1,10 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
+std::vector<int> parse_nested_parens(std::string paren_string);
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -33,6 +37,6 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    return 0;
+  assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+  return 0;
 }
