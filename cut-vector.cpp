@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -11,8 +12,8 @@ vector<int> cutVector(vector<int>& nums) {
             cutIndex = i;
         }
     }
-    return {vector<int>(nums.begin(), nums.begin() + cutIndex),
-            vector<int>(nums.begin() + cutIndex, nums.end())};
+    return {{vector<int>(nums.begin(), nums.begin() + cutIndex)},
+            {vector<int>(nums.begin() + cutIndex, nums.end())}};
 }
 
 int main() {
@@ -22,13 +23,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    vector<int> result = cutVector(nums);
+    vector<vector<int>> result = cutVector(nums);
     for (auto num : result[0]) {
         cout << num << " ";
     }
     cout << endl;
-    for (int num : result[1]) {
-        cout << num << " ";
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i] << " ";
     }
     cout << endl;
     return 0;
+}
