@@ -1,4 +1,4 @@
-def add(x: int, y: int) -> int:
+def add(x: int, y: int):
     return x + y
 
 
@@ -8,6 +8,6 @@ try:
 
     result = add(x, y)
 
-    print("The result of adding", x, "and", y, "is:", result)
+    print("The result of adding {} and {} is: {}".format(x, y, result))
 except ValueError:
     print("Please enter valid integers for input.")
