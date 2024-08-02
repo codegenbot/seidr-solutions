@@ -1,19 +1,17 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    is_within_parentheses = False
-    
+    count = 0
     for char in paren_string:
-        if is_within_parentheses:
-            temp += char
-            if char == ")":
+        if char == "(":
+            count += 1
+            if count > 1:
+                temp += char
+        elif char == ")":
+            count -= 1
+            if count > 0:
+                temp += char
+            if count == 0:
                 result.append(temp)
                 temp = ""
-                is_within_parentheses = False
-        else:
-            if char == "(":
-                temp += char
-                is_within_parentheses = True
     return result
