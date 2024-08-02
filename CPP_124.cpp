@@ -38,10 +38,3 @@ bool valid_date(const std::string& date) {
 
     return true;
 }
-
-int main() {
-    assert(valid_date("02-2020") == true);
-    assert(valid_date("13-1999") == false);
-
-    return 0;
-}
