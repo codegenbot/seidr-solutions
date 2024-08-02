@@ -1,24 +1,38 @@
-int bowlingScore(string str) {
+int bowling(string s) {
     int score = 0;
-    int roll1, roll2;
+    int currentFrame = 1;
+    int rollsThisFrame = 0;
 
-    for (int frame = 1; frame <= 10; ++frame) {
-        if (str[3*frame-3] == 'X') {
-            score += 10;
-        } else if (isdigit(str[3*frame-3])) {
-            roll1 = str[3*frame-2] - '0';
-            if (str[3*frame-1] == '/') {
-                roll2 = 10 - roll1;
-                score += roll1 + roll2;
-            } else {
-                int rolls[] = {roll1, str[3*frame-1] - '0'};
-                std::sort(rolls, rolls+2);
-                score += (rolls[0]+rolls[1]);
-            }
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + (currentFrame < 10 ? 10 : 0);
+            currentFrame++;
+            rollsThisFrame = 0;
+        } else if (c == '/') {
+            int nonStrikeRolls = s.find('/');
+            string prevRolls = s.substr(0, nonStrikeRolls);
+            score += getStrikeValue(prevRolls);
+            currentFrame++;
+            rollsThisFrame = 0;
         } else {
-            score += 10;
+            if (rollsThisFrame < 2) {
+                score += c - '0';
+                rollsThisFrame++;
+            }
+            if (rollsThisFrame == 2 && c != 'X') {
+                string prevRolls = s.substr(0, nonStrikeRolls);
+                int strikeValue = getStrikeValue(prevRolls);
+                score += strikeValue;
+                currentFrame++;
+                rollsThisFrame = 0;
+            }
         }
     }
 
     return score;
+}
+
+int getStrikeValue(string s) {
+    int value = 10 + (s.find('/') > -1 ? getStrikeValue(s.substr(s.find('/') + 1)) : 10);
+    return value;
 }
