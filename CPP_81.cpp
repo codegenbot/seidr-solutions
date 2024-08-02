@@ -1,19 +1,20 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
+bool issame(vector<string> v1, vector<string> v2) {
+    if (v1.size() != v2.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i])
             return false;
     }
     return true;
 }
 
 int main() {
-    vector<float> grades = {3.5, 4.2, 1.8};
+    vector<float> grades = {4.5, 3.8, 2.9};
     vector<string> letter_grades = numerical_letter_grade(grades);
-    
-    // Call the issame function
-    bool result = issame(letter_grades, {"A", "A+", "E"});
-    
+    vector<string> expected_result = {"A+", "A", "B+"};
+    if (issame(letter_grades, expected_result))
+        cout << "Pass";
+    else
+        cout << "Fail";
     return 0;
 }
