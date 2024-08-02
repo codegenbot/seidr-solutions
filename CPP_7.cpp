@@ -1,26 +1,14 @@
-```c++
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(auto s : a) {
-        bool found = false;
-        for(auto t : b) {
-            if(s == t) {
-                found = true; break;
-            }
-        }
-        if(!found) return false;
-    }
-    return true;
-}
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
         if(s.find(substring) != string::npos) {
-            result.push_back(s);
+            bool found = false;
+            for(string t : strings) {
+                if(t.find(substring) != string::npos && t != s) {
+                    found = true; break;
+                }
+            }
+            if(!found) result.push_back(s);
         }
     }
     return result;
