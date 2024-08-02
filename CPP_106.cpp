@@ -2,7 +2,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> fix_code(int n) {
+std::vector<int> function_name(int n) {
     std::vector<int> result;
     int factorial = 1;
     int sum = 0;
