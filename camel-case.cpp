@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 string camelCase(string s) {
@@ -11,15 +11,15 @@ string camelCase(string s) {
                 i++; // skip the spaces
             }
             if (!result.empty()) {
-                result += toupper(s[i]); 
+                result += toupper(s[i]); // capitalize the first letter of each word
             } else {
-                result += tolower(s[i]);
+                result += tolower(s[i]); // convert all letters to lowercase for the first word
             }
         } else if (s[i] != ' ') {
-            if (i > 0 && s[i-1] == '-') { 
-                result += tolower(s[i]); 
+            if (i == 0) {
+                result += tolower(s[i]); // convert all letters to lowercase for the first word
             } else {
-                result += toupper(s[i]);
+                result += toupper(s[i]); // capitalize the first letter of each word
             }
         }
     }
@@ -29,7 +29,7 @@ string camelCase(string s) {
 int main() {
     string s;
     while (cin >> s) {
-        cout << camelCase(s) << endl; 
+        cout << camelCase(s) << endl; // Use cout from included iostream
     }
     return 0;
 }
