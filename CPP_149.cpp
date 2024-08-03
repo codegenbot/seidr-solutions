@@ -5,7 +5,9 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> sorted_lst = lst;
@@ -17,10 +19,6 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
         return a.length() < b.length();
     });
     return sorted_lst;
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
 }
 
 int main() {
