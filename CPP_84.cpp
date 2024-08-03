@@ -1,5 +1,7 @@
-```
-```cpp
+#include <iostream>
+#include <bitset>
+#include <cassert>
+
 std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
@@ -8,4 +10,8 @@ std::string solve(int N) {
     }
     return std::bitset<32>(sum).to_string().substr(32 - sum);
 }
-```
+
+int main2() {
+    assert(solve(963) == "10010");
+    return 0;
+}
