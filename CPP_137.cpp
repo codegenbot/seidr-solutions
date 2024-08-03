@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
-#include <boost/convert.hpp>
 
 using namespace boost;
 
@@ -23,31 +22,31 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return any("None");
         }
     }
     else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(int))) {
         std::string str = boost::any_cast<std::string>(b);
 
-        if (boost::any_cast<int>(a) > boost::lexical_cast<int>(str)) {
+        if (boost::any_cast<int>(a) > stoi(str)) {
             return a;
         }
-        else if (boost::any_cast<int>(a) < boost::lexical_cast<int>(str)) {
+        else if (boost::any_cast<int>(a) < stoi(str)) {
             return b;
         }
         else {
-            return boost::any("None");
+            return any("None");
         }
     }
     else {
-        return boost::any("None");
+        return any("None");
     }
 }
 
 int main() {
     int a = 1;
     double b = 2.0;
-    std::cout << "Result: " << compare_one(a,b) << endl;
+    std::cout << "Result: " << compare_one(a,b) << std::endl;
     return 0;
 }
