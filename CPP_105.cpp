@@ -12,22 +12,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
                                       {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
     for (int num : arr) {
+        string str;
         if (num >= 1 && num <= 9) {
-            int count = 0;
-            string str;
-            if(num == 4 || num == 6 || num == 7)
-                str = numberNames[num];
-            else
-                for(int i=0; i<num; i++) {
-                    str += "Zero";
-                    count++;
-                }
-            if(count > 1) {
-                result.push_back(str + "s");
-            }else{
-                result.push_back(str);
-            }
+            str = numberNames[num];
+        } else {
+            str = "Out of range";
         }
+        result.push_back(str);
     }
 
     return result;
