@@ -12,7 +12,6 @@ int main() {
         cin >> vec1[i];
     }
     
-    cin >> n;
     vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
@@ -20,10 +19,10 @@ int main() {
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2.0);
+        sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    cout << fixed << sqrt(static_cast<double>(sum)) << endl;
+    cout << fixed << sqrt(sum) << endl;
 
     return 0;
 }
