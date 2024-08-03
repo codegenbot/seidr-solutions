@@ -14,7 +14,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
     
-    for (int i = 0; i <= n - m + 1; ++i) {
+    for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
             if (text[i + j] != target[j]) {
@@ -34,10 +34,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int a, b;
-    cin >> a;
-    cin >> b;
+    cin >> a >> b;
     cin.ignore();
-    
+
     string text, target;
     getline(cin, text);
     getline(cin, target);
