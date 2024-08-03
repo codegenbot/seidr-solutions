@@ -1,9 +1,4 @@
-int main() {
-    vector<float> lst;
-    long long odd_sum = 0;
-    cin >> lst;
-    cout << double_the_difference(lst) << endl;
-}
+#include <bits/stdc++.h>
 
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
@@ -15,4 +10,11 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<float> lst = {1,2,3,4,5}; // Declare and initialize your list
+    long long odd_sum = double_the_difference(lst); 
+    assert (double_the_difference(lst) == odd_sum );
+    return 0;
 }
