@@ -14,7 +14,9 @@ int main() {
     std::vector<double> vec1 = {1.0, 2.0, 3.0};
     std::vector<double> vec2 = {4.0, 5.0, 6.0};
 
-    std::cout << euclideanDistance(vec1, vec2) << std::endl;
+    double distance = euclideanDistance(vec1, vec2);
+
+    std::cout << "Euclidean Distance: " << distance << std::endl;
 
     return 0;
 }
