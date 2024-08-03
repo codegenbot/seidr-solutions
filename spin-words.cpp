@@ -1,7 +1,4 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
@@ -13,24 +10,28 @@ string spinWords(string str) {
             string word = str.substr(start, i - start);
             
             if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                string revWord = "";
+                for(int j = word.length() - 1; j >= 0; j--) {
+                    revWord += word[j];
+                }
+                result += revWord + " ";
+            } else {
+                result += word + " ";
             }
             
-            result += word + " ";
             start = i + 1;
         }
     }
     
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    // Read input from user
-    string str;
-    cin >> str;
-
-    // Process the input and generate output
-    cout << spinWords(str) << endl;
-
+    // test cases
+    cout << spinWords("a") << endl; // a
+    cout << spinWords("this is a test") << endl; // this is a test
+    cout << spinWords("this is another test") << endl; // this is rehtona test
+    cout << spinWords("hi") << endl; // hi
+    
     return 0;
 }
