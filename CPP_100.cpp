@@ -1,9 +1,26 @@
 #include <vector>
+#include <cassert>
 
-vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i < n; i++) {
         if (n % 2 == 0) {
             n += 2;
         } else {
@@ -14,12 +31,15 @@ vector<int> make_a_pile(int n) {
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    // Implementation to compare two vectors
-}
-
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    // Additional test cases can be added here
+    int n;
+    cin >> n;
+
+    vector<int> result = make_a_pile(n);
+
+    for (int stone : result) {
+        cout << stone << " ";
+    }
+
     return 0;
 }
