@@ -1,34 +1,32 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    return v1 == v2;
+bool issame(vector<string> v1, vector<string> v2) {
+    if(v1.size() != v2.size())
+        return false;
+    for(int i=0; i<v1.size(); i++) {
+        if(v1[i] != v2[i])
+            return false;
+    }
+    return true;
 }
 
-std::vector<std::string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int idx1 = -1;
-    int idx2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (planet1 == planets[i]) {
-            idx1 = i;
-        } else if (planet2 == planets[i]) {
-            idx2 = i;
-        }
+int main() {
+    string planet1, planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
+    
+    vector<string> result = bf(planet1, planet2);
+    if(result.empty()) {
+        cout << "Planets not found." << endl;
+    } else if(issame({"Mercury", "Venus", "Earth"}, result)) {
+        cout << "The planets are in order from Mercury to Earth." << endl;
+    } else if(issame({"Mars", "Jupiter", "Saturn"}, result)) {
+        cout << "The planets are in order from Mars to Saturn." << endl;
+    } else if(issame({"Uranus", "Neptune"}, result)) {
+        cout << "The planets are in order from Uranus to Neptune." << endl;
+    } else {
+        cout << "The planets are not in order." << endl;
     }
-
-    if (idx1 == -1 || idx2 == -1) {
-        return {};
-    }
-
-    vector<string> result;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (i > idx1 && i < idx2) {
-            result.push_back(planets[i]);
-        }
-    }
-
-    return result;
+    
+    return 0;
 }
