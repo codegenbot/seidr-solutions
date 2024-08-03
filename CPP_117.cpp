@@ -1,41 +1,42 @@
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
-vector<string> select_words(string s, int n);
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    if (s.empty()) {
+        return result;
     }
     
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
+    string word = "";
+    int count = 0;
+    for (char c : s) {
+        if (c != ' ') {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                count = 0;
+                word = "";
+            } else {
+                count++;
+            }
+            word += c;
+        } else {
+            if (count == n) {
+                result.push_back(word);
+            }
+            count = 0;
+            word = "";
         }
     }
     
-    return true;
+    if (count == n) {
+        result.push_back(word);
+    }
+    
+    return result;
 }
 
 int main() {
-    string input;
-    int n;
-    
-    getline(cin, input);
-    cin >> n;
-    
-    vector<string> selected_words = select_words(input, n);
-    
-    // Additional code logic to generate another vector of strings for comparison
-    vector<string> another_vector = {"example", "words", "to", "compare"};
-    
-    bool is_same = issame(selected_words, another_vector);
-    
-    if(is_same){
-        cout << "Selected words are the same as the words to compare." << endl;
-    }
-    else{
-        cout << "Selected words are different from the words to compare." << endl;
-    }
-    
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
