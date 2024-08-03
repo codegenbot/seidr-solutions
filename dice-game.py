@@ -1,4 +1,9 @@
-Here is the solution:
-
+```
 def dice_game(n, m):
-    return (n-m)/(n+m-1) if n > m else (m-n)/(m+n-1)
+    total_outcomes = n * m
+    peter_wins = 0
+    
+    for i in range(m-1, 0, -1):
+        peter_wins += (n - i)
+    
+    return peter_wins / total_outcomes
