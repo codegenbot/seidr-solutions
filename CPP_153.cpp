@@ -1,8 +1,4 @@
-```c++
-#include <iostream>
-#include <vector>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int Strongest_Extension(string class_name,vector<string> extensions){
@@ -27,28 +23,4 @@ int Strongest_Extension(string class_name,vector<string> extensions){
     }
     
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    string class_name;
-    vector<string> extensions;
-    
-    cout << "Enter the name of the class: ";
-    cin >> class_name;
-    
-    cout << "Enter the list of extensions (space separated): ";
-    string temp;
-    getline(cin, temp);
-    size_t pos = 0;
-    while ((pos = temp.find(" ")) != string::npos) {
-        extensions.push_back(temp.substr(0, pos));
-        temp.erase(0, pos + 1);
-    }
-    if (!temp.empty()) {
-        extensions.push_back(temp);
-    }
-    
-    cout << "The strongest extension for the class " << class_name << " is: " << Strongest_Extension(class_name, extensions) << endl;
-    
-    return 0;
 }
