@@ -1,16 +1,13 @@
-vector<int> res = l;
-    vector<int> sorted_third;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sorted_third.push_back(l[i]);
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> sort_third(vector<int> l) {
+    for (size_t i = 2; i < l.size(); i += 3) {
+        for (size_t j = i; j > 0 && l[j] < l[j - 1]; j--) {
+            swap(l[j], l[j - 1]);
         }
     }
-    sort(sorted_third.begin(), sorted_third.end());
-    int idx = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            res[i] = sorted_third[idx++];
-        }
-    }
-    return res;
+    return l;
 }
