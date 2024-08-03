@@ -1,15 +1,13 @@
 string solve(string s) {
     string result = "";
-    bool hasLetters = false;
-
     for (char c : s) {
-        if (!isalpha(c)) {
-            result += c;
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
         } else {
-            hasLetters = true;
-            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c);
+            result += c;
         }
     }
-
-    return hasLetters ? s : string(rbegin(s), rend(s));
+    return result.empty() ? string(s).reverse() : result;
 }
