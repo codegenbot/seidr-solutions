@@ -3,7 +3,9 @@ def sort_array(array):
     if len(array) == 0:
         return array
     total = array[0] + array[-1]
+    copy = array.copy()
     if total % 2 != 0:
-        return sorted(array)
+        copy.sort()
     else:
-        return sorted(array, reverse=True)
+        copy.sort(reverse=True)
+    return copy
