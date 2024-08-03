@@ -1,3 +1,1 @@
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
-    return a == b;
-}
+std::map<char, int> histogram(std::string test);
