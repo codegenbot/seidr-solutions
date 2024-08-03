@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a[0] == b[0] && a[1] == b[1];
+    return a[0].compare(b[0]) == 0 && a[1].compare(b[1]) == 0;
 }
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
@@ -19,7 +19,4 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == reverse_result ? "True" : "False"};
 }
 
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
-}
+assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
