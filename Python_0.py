@@ -1,4 +1,3 @@
-numbers = [4, 6, 1, 7, 10]
+numbers = [4, 2, 5, 1, 3]
 threshold = 2
-
 check_numbers(numbers, threshold)
