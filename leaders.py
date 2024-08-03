@@ -1,12 +1,6 @@
-```
-def leaders(a):
-    n = len(a)
-    result = [a[n-1]]
-    
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[n-1]:
-            result.insert(0, a[i])
-            n = i
-            break
-            
-    return result
+def leaders(input_vector):
+    return [
+        i
+        for i in reversed(input_vector)
+        if all(i >= j for j in input_vector[input_vector.index(i) + 1 :])
+    ]
