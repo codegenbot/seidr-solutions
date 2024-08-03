@@ -1,4 +1,4 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
 def middle_character(s):
     length = len(s)
