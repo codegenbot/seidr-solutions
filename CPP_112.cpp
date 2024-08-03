@@ -1,31 +1,20 @@
-#include <string>
-#include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c){
-    string result;
+std::vector<std::string> reverse_delete(std::string s, std::string c){
+    std::string result;
     for(char ch : s){
-        if(c.find(ch) == string::npos){
+        if(c.find(ch) == std::string::npos){
             result += ch;
         }
     }
-    string reverse_result = result;
-    reverse(reverse_result.begin(), reverse_result.end());
+    std::string reverse_result = result;
+    std::reverse(reverse_result.begin(), reverse_result.end());
     return {result, result == reverse_result ? "True" : "False"};
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    
-    cout << "All tests passed successfully!" << endl;
-    
-    return 0;
 }
