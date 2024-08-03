@@ -11,6 +11,7 @@ int main() {
     std::vector<double> vec2(n);
     
     double distance = 0.0;
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
