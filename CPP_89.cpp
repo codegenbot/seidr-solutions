@@ -1,13 +1,20 @@
+#include <iostream>
 #include <string>
-#include <cctype>
-#include <cassert>
+using namespace std;
 
-std::string encrypt(std::string s){
-    std::string encrypted = "";
+string encrypt(string s);
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
+}
+
+string encrypt(string s){
+    string encrypted = "";
     for(char c : s){
-        if(std::isalpha(c)){
-            char encryptedChar = c + 2 * 2;
-            if(std::islower(c)){
+        if(isalpha(c)){
+            char encryptedChar = c + 4;
+            if(islower(c)){
                 if(encryptedChar > 'z'){
                     encryptedChar = 'a' + (encryptedChar - 'z' - 1);
                 }
@@ -22,9 +29,4 @@ std::string encrypt(std::string s){
         }
     }
     return encrypted;
-}
-
-int main(){
-    assert (encrypt("a")=="e");
-    return 0;
 }
