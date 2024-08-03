@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <cmath>
+#include <cmath> 
 using namespace std;
 
 double vectorDistance(int n) {
