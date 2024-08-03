@@ -5,18 +5,8 @@
 
 using namespace std;
 
-bool are_vectors_equal(const vector<string>& vec1, const vector<string>& vec2) {
-    if(vec1.size() != vec2.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < vec1.size(); ++i) {
-        if(vec1[i] != vec2[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool check_if_equal(const vector<string>& v1, const vector<string>& v2) {
+    return v1 == v2;
 }
 
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
@@ -30,6 +20,6 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    assert(are_vectors_equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(check_if_equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
