@@ -23,5 +23,5 @@ string longest(vector<string> strings) {
 int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
     
-    return 0; // return 0 to indicate successful completion
+    return 0;
 }
