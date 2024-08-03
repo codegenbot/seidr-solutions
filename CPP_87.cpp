@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 bool issame(int a, int b) {
     return a == b;
@@ -24,6 +25,9 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    assert (issame(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3).at(0).at(0), 2);
+    assert(issame(get_row({{1, 5, 6}, {4, 8}}, 4).at(0).at(1), 1);
+    assert(issame(get_row({{9}, {7, 8, 9}, {4, 5, 6, 7}}, 7).at(1).at(2), 0);
+
     return 0;
 }
