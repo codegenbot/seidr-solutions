@@ -1,14 +1,5 @@
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::string& s1, const std::string& s2) {
-    return s1.length() == s2.length();
-}
-
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result = lst;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
             it = result.erase(it);
@@ -17,7 +8,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
     sort(result.begin(), result.end(), 
-         [](const std::string& a, const std::string& b) {
+         [](const string& a, const string& b) {
              if (a.length() == b.length()) {
                  return a < b;
              } else {
@@ -25,8 +16,4 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
              }
          });
     return result;
-}
-
-int main() {
-    // Your code here
 }
