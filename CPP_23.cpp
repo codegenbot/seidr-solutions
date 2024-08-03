@@ -1,8 +1,14 @@
+#include <iostream>
 #include <string>
 
-int main() {
+int my_strlen(std::string str){
+    return str.length();
+}
+
+int main(){
+    std::cout << "Enter a string: ";
     std::string s;
-    cin >> s;
-    int length = s.length();
+    std::cin >> s;
+    assert(my_strlen(s) == s.length());
     return 0;
 }
