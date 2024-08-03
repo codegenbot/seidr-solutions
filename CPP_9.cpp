@@ -14,11 +14,13 @@ std::vector<int> rolling_max(std::vector<int> numbers){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    std::vector<int> numbers = {1, 3, 5, 2, 8};
+    std::vector<int> result = rolling_max(numbers);
+    assert(issame(result, {1, 3, 5, 5, 8}));
     return 0;
 }
