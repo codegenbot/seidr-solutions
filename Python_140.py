@@ -1,3 +1,4 @@
+```
 def fix_spaces(text):
     if text is None or not text.strip():
         return ""
