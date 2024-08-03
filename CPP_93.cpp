@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 std::string encode(std::string message) {
     std::string encoded_message = "";
