@@ -29,13 +29,11 @@ int main() {
     int n;
     cin >> n;
     
-    // Read first vector
     vector<float> v1(n);
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     
-    // Read second vector
     vector<float> v2(n);
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
@@ -45,3 +43,4 @@ int main() {
     cout << fixed << setprecision(10) << distance << endl;
     
     return 0;
+}
