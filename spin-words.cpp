@@ -1,35 +1,36 @@
-Here's the solution:
-
 #include <string>
+#include <iostream>
+
 using namespace std;
 
-string spinWords(string sentence) {
+string spinWords(string str) {
     string result = "";
-    size_t start = 0;
-    while (start < sentence.length()) {
-        size_t end = sentence.find(" ", start);
-        if (end == string::npos) {
-            end = sentence.length();
+    int length = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (length >= 5)
+                for (int j = length - 1; j >= 0; j--)
+                    result += str[i - j];
+            else
+                result += str.substr(i - length, length);
+            length = 0;
+            result += " ";
+        } else {
+            length++;
         }
-        string word = sentence.substr(start, end - start);
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
-        }
-        result += word + " ";
-        start = end + 1;
     }
-    return result.substr(0, result.length() - 1); // remove the extra space at the end
+    if (length >= 5)
+        for (int i = length - 1; i >= 0; i--)
+            result += str[i];
+    else
+        result += str;
+    return result;
 }
 
 int main() {
-    string sentence;
-    while (true) {
-        cout << "Enter a sentence (or 'q' to quit): ";
-        cin >> sentence;
-        if (sentence == "q") {
-            break;
-        }
-        cout << spinWords(sentence) << endl;
-    }
+    string s;
+    cout << "Enter a sentence: ";
+    cin >> s;
+    cout << spinWords(s) << endl;
     return 0;
 }
