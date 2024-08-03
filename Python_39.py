@@ -4,9 +4,9 @@ def prime_fib(n: int):
     count = 0
     while True:
         if is_prime(b):
-            if count == n - 1:
-                return b
             count += 1
+            if count == n:
+                return b
         a, b = b, a + b
 
 def is_prime(num: int):
