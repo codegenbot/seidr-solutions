@@ -9,7 +9,6 @@ int sum_squares(std::vector<float> lst){
         result += pow(ceil_num, 2);
     }
     return result;
-
 }
 
 int main() {
