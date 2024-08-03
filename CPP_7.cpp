@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +15,20 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main(){
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    int n;
+    cin >> n;
+    vector<string> strings(n);
+    for(int i=0; i<n; i++){
+        cin >> strings[i];
+    }
+    string substring;
+    cin >> substring;
+    
+    vector<string> filteredStrings = filter_by_substring(strings, substring);
+    
+    for(const string& s : filteredStrings){
+        cout << s << endl;
+    }
     
     return 0;
 }
