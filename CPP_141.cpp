@@ -1,3 +1,4 @@
+```cpp
 string file_name_check(string file_name);
 string file_name_check(string file_name){
     int dot_pos = file_name.find('.');
