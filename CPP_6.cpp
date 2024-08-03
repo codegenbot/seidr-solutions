@@ -1,8 +1,18 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
+vector<int> parse_nested_parens(string paren_string);
+
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> result;
@@ -26,11 +36,13 @@ vector<int> parse_nested_parens(string paren_string){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main() {
-    assert (issame(parse_nested_parens("(()(())((())))"), {4}));
+    string input;
+    getline(cin, input);
+    vector<int> res = parse_nested_parens(input);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
