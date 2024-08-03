@@ -1,3 +1,4 @@
+```cpp
 bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
