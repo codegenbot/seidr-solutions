@@ -1,14 +1,17 @@
 bool issame(vector<string> a,vector<string>b){
-    vector<string> merged = a;
-    merged.insert(merged.end(), b.begin(), b.end());
-    sort(merged.begin(), merged.end());
-
-    return merged == a;
+    if(a.size() != b.size())return false;
+    for(int i=0;i<a.size();i++){
+        sort(a[i].begin(),a[i].end());
+        sort(b[i].begin(),b[i].end());
+        if(a[i] != b[i])return false;
+    }
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-                     [](const string& a, const string& b){ return a.length() % 2 == 1 && b.length() % 2 == 0; });
+    auto it = unique(lst.begin(), lst.end(),
+                     [](const string& a, const string& b){ 
+                         return a.length() % 2 == 1 && b.length() % 2 == 0; });
     lst.erase(it, lst.end());
     
     sort(lst.begin(), lst.end(),
@@ -23,6 +26,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(sorted_list_sum({{"aaaa", "bbbb", "dd", "cc"}}) == {{"aa","bb","cc","dd"}});
+    assert(issame({{"aaaa", "bbbb", "dd", "cc"}}, {{"cc","dd","aaaa","bbbb"}}));
     return 0;
 }
