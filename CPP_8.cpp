@@ -1,15 +1,15 @@
 #include <vector>
 
-std::vector<int> sum_product(std::vector<int> numbers) {
+bool issame(vector<int> a, vector<int> b) {
     int sum = 0;
     int product = 1;
-    for (int num : numbers) {
+    for (int num : a) {
         sum += num;
         product *= num;
     }
-    return {sum, product};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (sum == b[0] && product == b[1]) {
+        return true;
+    } else {
+        return false;
+    }
 }
