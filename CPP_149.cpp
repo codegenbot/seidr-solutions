@@ -1,15 +1,20 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-                     [](const string& a, const string& b){ return a.length() % 2 == 1 && b.length() % 2 == 0; });
-    lst.erase(it, lst.end());
-    
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length())
-                 return a.length() < b.length();
-             else
-                 return a < b;
-         });
+    vector<string> result;
 
-    return lst;
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
+        }
+    }
+
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.size() == b.size()) {
+                      return a < b;
+                  } else {
+                      return a.size() < b.size();
+                  }
+              });
+
+    return result;
 }
