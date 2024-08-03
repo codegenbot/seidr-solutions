@@ -1,9 +1,6 @@
-def process_numbers(numbers, delimeter):
+def join_with_delimeter(numbers, delimeter):
     result = []
-    for num in numbers[:-1]:
+    for num in numbers:
         result.extend([num, delimeter])
-    if numbers:
-        result.append(numbers[-1])
+    result.pop()
     return result
-
-print(process_numbers(numbers, delimeter))
