@@ -1,14 +1,14 @@
 #include <vector>
 #include <list>
-#include <variant>
+#include <any>
 #include <cassert>
 #include <typeinfo>
 
-std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
+std::vector<int> filter_integers(std::list<std::any> values){
     std::vector<int> result;
     for (auto val : values) {
-        if (std::holds_alternative<int>(val)) {
-            result.push_back(std::get<int>(val));
+        if (val.type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(val));
         }
     }
     return result;
@@ -19,6 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert (issame(filter_integers({3, int('c'), 3, 3, int('a'), int('b')}), {3, 3, 3}));
     return 0;
 }
