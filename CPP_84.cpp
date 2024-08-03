@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -13,10 +11,6 @@ std::string solve(int N) {
         binarySum = std::to_string(sum % 2) + binarySum;
         sum /= 2;
     }
-    return binarySum == "" ? "0" : binarySum;
-}
-
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
+    std::string result = binarySum == "" ? "0" : binarySum;
+    return result;
 }
