@@ -10,7 +10,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
-    // Splitting logic using stringstream
     std::stringstream ss(txt);
     std::string word;
     while (ss >> word) {
