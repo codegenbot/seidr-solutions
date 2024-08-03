@@ -1,6 +1,6 @@
 #include <iostream>
-#include <limits>
 #include <vector>
+#include <limits>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -25,8 +25,6 @@ int main() {
     int a, b;
     std::cin >> a;
     std::cin >> b;
-    std::cout << gcd(a, b) << std::endl;
-
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::string text, target;
@@ -34,6 +32,8 @@ int main() {
     getline(std::cin, target);
 
     std::vector<int> result = findIndicesOfSubstring(text, target);
+    
+    std::cout << gcd(a, b) << std::endl;
     for (int i : result) {
         std::cout << i << " ";
     }
