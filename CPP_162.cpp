@@ -12,3 +12,4 @@ string string_to_md5(string text) {
         ss << setfill('0') << setw(2) << hex << (int)md5[i];
     }
     return ss.str();
+}
