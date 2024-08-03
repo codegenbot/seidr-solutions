@@ -20,11 +20,11 @@ int main() {
 
     long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]); 
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]); // Avoid using pow for better accuracy
     }
 
-    cout << fixed;
-    cout.precision(17);
+    cout << fixed; // Ensure fixed point notation
+    cout.precision(17); // Set precision to 17 decimal places
     cout << sqrt(sum) << endl;
 
     return 0;
