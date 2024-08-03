@@ -1,11 +1,6 @@
-```cpp
-bool isPalindrome(vector<string> s) {
-    string temp = "";
-    for (int i = 0; i < s.size(); i++) {
-        temp += s[i];
-    }
+bool isPalindrome(vector<string> temp) {
     bool result = false;
-    int start = 0, end = temp.length() - 1;
+    int start = 0, end = temp.size() - 1;
     while (start < end) {
         if (temp[start] != temp[end]) {
             result = false;
@@ -31,6 +26,11 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
         }
     }
-    result.push_back(isPalindrome(result) ? "True" : "False");
+    string temp = "";
+    for (int i = 0; i < result.size(); i++) {
+        temp += result[i];
+    }
+    bool isPalindromeTemp = isPalindrome(vector<string>(temp.begin(), temp.end()));
+    result.push_back(isPalindromeTemp ? "True" : "False");
     return result;
 }
