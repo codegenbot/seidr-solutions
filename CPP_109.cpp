@@ -9,13 +9,12 @@ bool move_one_ball(const std::vector<int>& arr) {
         if (std::is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        std::vector<int> arr_copy = arr;
-        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
+    assert(move_one_ball({}) == true); // Add test cases here
     return 0;
 }
