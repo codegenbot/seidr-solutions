@@ -1,3 +1,4 @@
+```c++
 /*Here is the solution:*/
 string middleCharacter(string str) {
     int len = str.length();
