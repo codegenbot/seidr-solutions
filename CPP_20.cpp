@@ -1,9 +1,8 @@
 ```cpp
-#include <algorithm>
 #include <vector>
-#include <limits>
+#include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size();
 }
 
@@ -28,5 +27,6 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(issame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}));
+    std::vector<float> closest = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
 }
