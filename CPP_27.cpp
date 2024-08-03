@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
+#include <cassert> // Added the missing header
 
 std::string flip_case(std::string str){
     for(int i=0; i<str.length(); i++){
