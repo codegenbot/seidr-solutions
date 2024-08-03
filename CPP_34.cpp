@@ -14,7 +14,6 @@ std::vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::ve
         if (first + 1 != last && *first == *(first+1))
             continue;
         *first = *unique_copy;
-        result++;
     }
     return --first;
 }
