@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
 
 double triangle_area(double a, double h) {
@@ -9,6 +8,7 @@ double triangle_area(double a, double h) {
 int main() {
     double a, h;
     std::cin >> a >> h;
-    std::cout << triangle_area(a, h) << std::endl;
+    double area = triangle_area(a, h);
+    std::cout << area << std::endl;
     return 0;
 }
