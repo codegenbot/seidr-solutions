@@ -10,14 +10,15 @@ std::string kebabToCamel(const std::string& str) {
             result += char(std::toupper(str[start]));
             start = end + 1;
         } else {
-            result = str.substr(start);
-            break;
+            start = end + 1;
         }
     }
 
     if (start < str.size()) {
         result += char(std::toupper(str[start]));
-        result += str.substr(start+1);
+        result += str.substr(start + 1);
+    } else {
+        result = str;
     }
 
     return result;
