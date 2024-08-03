@@ -1,20 +1,16 @@
-#include <vector>
-using namespace std;
+bool is_sorted(vector<int> lst); 
 
-bool is_sorted(vector<int> lst) {
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] <= lst[i - 1]) return false;
-    }
-    bool has_duplicates = false;
-    for (int i = 0; i < lst.size() - 1; ++i) {
-        if (lst[i] == lst[i + 1]) {
-            has_duplicates = true;
-            break;
+bool is_sorted(vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            return false;
         }
     }
-    return !has_duplicates;
-}
-
-int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(std::count(lst.begin(), it, *it) > 1){
+            return false;
+        }
+    }
+    return true;
 }
