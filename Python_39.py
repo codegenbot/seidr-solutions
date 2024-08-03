@@ -1,6 +1,5 @@
 ```
-def prime_fib():
-    n = int(input("Enter a positive integer: "))
+def prime_fib(n):
     a, b = 2, 3
     count = 1
     while True:
@@ -17,3 +16,6 @@ def is_prime(num):
         if num % i == 0:
             return False
     return True
+
+n = int(input("Enter an integer: "))
+print(prime_fib(n))
