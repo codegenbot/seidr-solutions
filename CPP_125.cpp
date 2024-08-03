@@ -17,6 +17,8 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(split_words("").empty());
+    vector<string> split_result = split_words("");
+    assert(split_result.size() == 0);
+    
     return 0;
 }
