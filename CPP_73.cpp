@@ -1,4 +1,6 @@
 #include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int left = 0, right = arr.size() - 1;
     int changes = 0;
