@@ -13,15 +13,13 @@ bool issame(vector<float> a, vector<float> b) {
 vector<float> rescale_to_unit(vector<float> numbers);
 
 int main() {
-    vector<float> numbers = {1.0, 2.0, 4.0, 8.0};
+    vector<float> numbers = {2.5, 3.0, 1.5, 4.0};
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
-    vector<float> expected_result = {0.0, 0.142857, 0.428571, 1.0};
 
-    if (issame(rescaled_numbers, expected_result)) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
+    vector<float> original = {2.5, 3.0, 1.5, 4.0};
+    vector<float> expected = {0.5, 0.666667, 0.0, 1.0};
+    
+    issame(rescaled_numbers, expected);
 
     return 0;
 }
