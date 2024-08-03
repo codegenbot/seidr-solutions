@@ -13,12 +13,11 @@ std::vector<std::string> split(const std::string& s, char delimiter) {
     return tokens;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
-    std::string words_string = "ahmed,gamal";
-    assert(issame(split(words_string, ','), {"ahmed", "gamal"}));
+    assert(issame(split("ahmed,gamal", ','), {"ahmed", "gamal"}));
     return 0;
 }
