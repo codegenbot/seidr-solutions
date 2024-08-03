@@ -1,29 +1,24 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 string spinWords(string str) {
     string result = "";
-    string temp = "";
-    
+    int length = 0;
     for (char c : str) {
         if (c == ' ') {
-            if (temp.length() >= 5)
-                for (int i = temp.length()-1; i >= 0; --i)
-                    result += temp[i];
-            else
-                result += temp;
-            temp = "";
+            if (length >= 5) {
+                for (int i = length - 1; i >= 0; --i)
+                    result += str[i];
+            } else
+                result += c;
+            length = 0;
         } else {
-            temp += c;
+            result += c;
+            ++length;
         }
     }
-    
-    // Add the last word to the result, if it's 5 letters or more
-    if (temp.length() >= 5)
-        for (int i = temp.length()-1; i >= 0; --i)
-            result += temp[i];
-    else
-        result += temp;
-    
+    if (length >= 5) {
+        for (int i = length - 1; i >= 0; --i)
+            result += str[i];
+    }
     return result;
 }
