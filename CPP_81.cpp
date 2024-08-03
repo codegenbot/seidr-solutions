@@ -25,7 +25,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     return letter_grades;
 }
 
-int main() {
-    // Code in the main function if required
+int main(){
+    // Test your functions here
     return 0;
 }
