@@ -27,7 +27,7 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-    if(cin.fail()) {
+    if(!cin.eof()) {
         cin.clear();
         cin.ignore();
     }
