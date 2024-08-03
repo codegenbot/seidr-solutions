@@ -6,9 +6,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> custom_sort(std::vector<int> vec) {
-    std::sort(vec.begin(), vec.end());
-    return vec;
+std::vector<int> custom_sort(std::vector<int> v) {
+    std::sort(v.begin(), v.end());
+    return v;
 }
 
 int main() {
