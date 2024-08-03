@@ -1,7 +1,11 @@
 #include <vector>
 using namespace std;
 
-std::vector<int> make_a_pile(int n){
+bool issame(const std::vector<int>& s1, const std::vector<int>& s2) {
+    return s1 == s2;
+}
+
+std::vector<int> make_a_pile(int n) {
     std::vector<int> stones;
     while(n > 0){
         stones.push_back(n);
