@@ -1,11 +1,13 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' 
-           && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' 
-           && tolower(c) != 'o' && tolower(c) != 'u'){
-            result += tolower(c);
+#include <string>
+#include <cctype>
+
+std::string remove_vowels(std::string text) {
+    std::string result = "";
+    for (char c : text) {
+        if (!std::string("aeiouAEIOU").find(std::tolower(c))) {
+            continue;
         }
+        result += tolower(c);
     }
     return result;
 }
