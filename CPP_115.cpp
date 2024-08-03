@@ -16,5 +16,5 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
     int max_lowerings = total_water / capacity;
     
-    return max_lowerings + (total_water % capacity > 0);
+    return max_lowerings + ((total_water % capacity > 0));
 }
