@@ -1,3 +1,9 @@
+#include <algorithm>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
 string solve(string s){
     int n = s.size();
     bool hasLetter = false;
