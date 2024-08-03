@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> solve(int n) {
     vector<int> result = {0, 0};
     for (int i = 1; i <= n; ++i) {
@@ -25,7 +21,10 @@ vector<int> solve(int n) {
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 int main() {
-    assert(issame(solve(1), {0, 1}));
-    return 0;
+    assert (issame(solve(1) , {0, 1}));
 }
