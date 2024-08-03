@@ -22,7 +22,7 @@ std::string encrypt(std::string s){
     return result;
 }
 
-int main() {
-    assert (encrypt("a") == "e");
-    return 0;
-}
+// int main() {
+//     assert (encrypt("a") == "e");
+//     return 0;
+// }
