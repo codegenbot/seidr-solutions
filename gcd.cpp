@@ -31,6 +31,7 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
+    // std::cin.ignore(); // Remove this line
     getline(std::cin, text);
     getline(std::cin, target);
 
