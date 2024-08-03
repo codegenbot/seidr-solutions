@@ -1,17 +1,34 @@
-string solveBoolean(string s) {
-    if (s == "T") return "True";
-    if (s == "F") return "False";
-    for (int i = 0; i < s.size(); i++) {
-        char c = s[i];
-        if (c == '|') {
-            string t = s.substr(0, i);
-            string f = s.substr(i + 1);
-            return t + ((t == "T" && f == "F") || (t == "F" && f == "T")) ? "True" : "False";
-        } else if (c == '&') {
-            string t = s.substr(0, i);
-            string f = s.substr(i + 1);
-            return t + ((t == "T" && f == "T") || (t == "F" && f == "F")) ? "True" : "False";
+bool evaluateBoolean(string expression) {
+    stack<char> st;
+    for (int i = expression.length() - 1; i >= 0; --i) {
+        char c = expression[i];
+        if (c == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+            bool left = st.top() == 'T';
+            st.pop();
+            bool right = st.top() == 'F' || st.top() == '&';
+            st.pop();
+            st.push((left && right) ? '&' : !right);
+        } else if (c == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+            bool left = st.top() == 'T';
+            st.pop();
+            bool right = st.top() == 'F' || st.top() == '|';
+            st.pop();
+            st.push((left || right) ? '|' : !right);
+        } else {
+            st.push(c == 't' ? 'T' : c == 'f' ? 'F' : (c == '&' ? '&' : '|'));
         }
     }
-    return s;
+    return st.top() == 'T';
 }
