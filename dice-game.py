@@ -1,8 +1,7 @@
-```
 def dice_game(n, m):
-    if n == 1 or m == 1:
+    if n < m:
         return 0.0
+    elif n == m:
+        return 0.5
     else:
-        total = n * m
-        peter_higher = (n - 1) * m + n
-        return peter_higher / total
+        return (m - 1) / (n + m - 2)
