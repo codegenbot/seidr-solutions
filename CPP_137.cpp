@@ -12,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             sa = boost::any_cast<std::string>(a);
             sb = boost::any_cast<std::string>(b);
         } catch (...) {
-            return a;
+            return a; // Assuming this is correct
         }
     }
 
@@ -21,6 +21,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (db > da) {
         return b;
     } else {
-        return a;
+        return a; // Assuming this is correct
     }
 }
