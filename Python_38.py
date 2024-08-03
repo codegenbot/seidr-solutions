@@ -1,9 +1,12 @@
-def decode_cyclic(s: str):
+def decode_cyclic(s: str) -> str:
     result = ""
     group = ""
     for char in s:
         if len(group) == 3:
-            result += group[1]
+            if group[0] == group[1]:
+                result += group[0]
+            else:
+                result += group[1]
             group = char
         else:
             group += char
