@@ -1,14 +1,17 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
+    coin_names = ["quarters", "dimes", "nickles", "pennies"]
 
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            result[i] += 1
+        count = int(cents // coins[i])
+        cents %= coins[i]
 
-    return result
+        print(count)
 
-
-c = int(input())
-print(*coin_sums(c))
+    if cents > 0:
+        print(0, end=" ")
+    for coin, name in zip([25, 10, 5, 1], ["quarters", "dimes", "nickles", "pennies"]):
+        count = int(cents // coin)
+        cents %= coin
+        print(count, end=" ")
+    print()
