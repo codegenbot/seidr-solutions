@@ -16,13 +16,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> words_string(const std::string& str) {
-    std::vector<std::string> result;
+    std::vector<std::string> words;
     std::istringstream ss(str);
     std::string word;
-    while (std::getline(ss, word, ',')) {
-        result.push_back(word);
+    while (ss >> word) {
+        words.push_back(word);
     }
-    return result;
+    return words;
 }
 
 int main() {
