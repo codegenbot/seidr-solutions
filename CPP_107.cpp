@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
-#include <assert.h>
+#include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -18,7 +18,7 @@ vector<int> even_odd_palindrome(int n){
         if(num == rev_num){
             if(i % 2 == 0){
                 result[0]++;
-            } else {
+            } else{
                 result[1]++;
             }
         }
