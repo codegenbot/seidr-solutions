@@ -1,3 +1,54 @@
+```c++
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word;
+    int consonants = 0;
+
+    for (char c : s) {
+        if (c == ' ') {
+            if (consonants == n) {
+                result.push_back(word);
+                consonants = 0;
+                word.clear();
+            } else {
+                consonants = 0;
+                word.clear();
+            }
+        } else {
+            if (islower(c)) {
+                continue;
+            }
+
+            bool isConsonant = false;
+            for (char ch : "bcdfghjklmnpqrstvwxyz") {
+                if (c == ch) {
+                    isConsonant = true;
+                    break;
+                }
+            }
+
+            if (isConsonant) {
+                consonants++;
+            }
+
+            word += c;
+        }
+    }
+
+    if (consonants == n) {
+        result.push_back(word);
+    }
+
+    return result;
+}
+
 int main() {
     string s = "Mary had a little lamb";
     int n = 4;
