@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <iostream> 
+#include <iostream> // Add missing include for cout and endl
 
 using namespace std;
 
