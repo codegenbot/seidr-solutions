@@ -5,7 +5,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-a = int(input())
-b = int(input())
+n1 = int(input())
+n2 = int(input())
 
-print(gcd(a, b))
+print(gcd(n1,n2))
