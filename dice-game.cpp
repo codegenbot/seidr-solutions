@@ -4,7 +4,7 @@ double diceGame(int n, int m) {
         if (i < n) {
             total -= 1.0 / m;
         } else if (i == n) {
-            total -= 1.0 / m;
+            total += 1.0 / m;
         }
     }
     return total;
