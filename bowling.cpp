@@ -20,7 +20,7 @@ int bowlingScore(std::string s) {
                     frame++;
                 } else {
                     frame++;
-                    if (s.back() != '/' && s[s.length()-2] != '/') {
+                    if (!s.empty() && s.back() != '/' && s[s.length()-2] != '/') {
                         int nextPins = s.back() - '0';
                         score += pins + nextPins;
                         frame++;
