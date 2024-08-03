@@ -1,10 +1,17 @@
+#include <iostream>
 #include <map>
-#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool issame(map<char,int> a, map<char,int> b){
+    return a == b;
+}
 
 map<char, int> histogram(string test);
 
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
 }
 
 map<char, int> histogram(string test) {
