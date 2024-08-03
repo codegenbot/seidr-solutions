@@ -5,16 +5,11 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    double peterWins = 0.0;
-    
+    double p1 = 0.0;
     for(int i=1; i<n; i++) {
-        for(int j=1; j<m; j++) {
-            if(i > j)
-                peterWins++;
-        }
+        p1 += (n-i) / total;
     }
-    
-    return peterWins / total;
+    return p1;
 }
 
 int main() {
