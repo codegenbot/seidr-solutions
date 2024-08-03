@@ -15,7 +15,7 @@ int main() {
             continue;
         }
         indices.push_back(static_cast<int>(pos));
-        pos += 1; 
+        pos += 1; // Increment by 1 for overlapping matches
     }
 
     for (int i : indices) {
