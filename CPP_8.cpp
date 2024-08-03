@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <utility>
 
 std::pair<int, int> sum_product(std::vector<int> numbers) {
     int sum = 0;
