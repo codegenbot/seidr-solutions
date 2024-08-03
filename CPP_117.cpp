@@ -7,32 +7,41 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    int consonant_count = 0;
+    string word;
+    int consonants = 0;
 
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && consonant_count == n) {
+            if (consonants == n) {
                 result.push_back(word);
+                consonsons = 0;
+                word.clear();
+            } else {
+                consonsons = 0;
+                word.clear();
             }
-            word = "";
-            consonant_count = 0;
         } else {
-            bool is_consonant = false;
-            for (char letter : {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"}) {
-                if (tolower(c) == tolower(letter)) {
-                    is_consonant = true;
+            if (islower(c)) {
+                continue;
+            }
+
+            bool isConsonant = false;
+            for (char ch : "bcdfghjklmnpqrstvwxyz") {
+                if (c == ch) {
+                    isConsonant = true;
                     break;
                 }
             }
-            if (!is_consonant && c != ' ') {
-                consonant_count++;
+
+            if (isConsonant) {
+                consonants++;
             }
+
             word += c;
         }
     }
 
-    if (!word.empty() && consonant_count == n) {
+    if (consonants == n) {
         result.push_back(word);
     }
 
@@ -40,14 +49,15 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    // Test the function
     string s = "Mary had a little lamb";
     int n = 4;
-    vector<string> words = select_words(s, n);
+    vector<string> result = select_words(s, n);
 
-    for (const auto& word : words) {
-        cout << word << endl;
+    cout << "Words with exactly " << n << " consonants: ";
+    for (string word : result) {
+        cout << word << " ";
     }
+    cout << endl;
 
     return 0;
 }
