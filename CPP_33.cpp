@@ -1,26 +1,28 @@
 #include <vector>
+#include <cassert>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+using namespace std;
+
+vector<int> sort_third(vector<int> l) {
+    sort(l.begin() + 2, l.begin() + 3);
+    return l;
 }
 
-std::vector<int> sort_third(std::vector<int> l);
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-std::vector<int> sort_third(std::vector<int> l) {
-    std::vector<int> res = l;
-    std::vector<int> sorted_third;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            sorted_third.push_back(l[i]);
-        }
-    }
-    std::sort(sorted_third.begin(), sorted_third.end());
-    int idx = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            res[i] = sorted_third[idx++];
-        }
-    }
-    return res;
+int main() {
+    assert(isSame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+
+    return 0;
 }
