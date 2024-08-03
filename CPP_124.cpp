@@ -1,7 +1,7 @@
 bool valid_date(string date) {
     if(date.empty())
         return false;
-
+    
     if(date.size() != 10)
         return false;
 
