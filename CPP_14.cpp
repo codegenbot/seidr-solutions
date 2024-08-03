@@ -12,8 +12,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    assert(a == b);
-    return true;
+    return a == b;
 }
 
 int main() {
