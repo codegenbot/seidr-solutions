@@ -1,11 +1,7 @@
-```
 def prod_signs(arr):
     if not arr:
         return None
-    sign = 1
-    for num in arr:
-        if num < 0:
-            sign *= -1
-        elif num > 0:
-            sign *= 1
-    return sum(abs(num) * sign for num in arr)
+    signs = [1 if x > 0 else -1 if x < 0 else 0 for x in arr]
+    magnitude_sum = sum(abs(x) for x in arr)
+    product_of_signs = reduce(lambda x, y: x * y, signs)
+    return magnitude_sum * product_of_signs
