@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
+#include <algorithm> // Include algorithm header for std::max 
 
 std::vector<int> parse_nested_parens(std::string paren_string);
 
