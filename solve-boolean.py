@@ -7,12 +7,5 @@ def solve_boolean(expression):
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= eval('True')
-            elif char == '|':
-                result |= eval('True')
-            elif char in ['T', 'F']:
-                result = (char == 'T')
+        result = eval('True' + expression.replace('&', 'and').replace('|', 'or'))
         return result
