@@ -6,7 +6,11 @@ def match_parens(lst):
             if c == '(':
                 stack.append(c)
             elif c == ')':
-                if len(stack) == 0:
+                if not stack:
                     return 'No'
-                stack.pop()
-    return 'Yes' if len(stack) == 0 else 'No'
+                else:
+                    stack.pop()
+    if not stack:
+        return 'Yes'
+    else:
+        return 'No'
