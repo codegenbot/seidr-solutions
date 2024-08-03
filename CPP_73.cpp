@@ -1,24 +1,21 @@
 int smallest_change(vector<int> arr) {
-    int left = 0, right = arr.size() - 1;
+    int n = arr.size();
+    int left = 0, right = n - 1;
     int changes = 0;
 
     while (left < right) {
         if (arr[left] != arr[right]) {
             changes++;
-            for (int i = 0; i < arr.size(); i++) {
-                if (i == left || i == right) continue;
-                if (arr[i] == arr[right]) {
-                    swap(arr[i], arr[left]);
-                    break;
-                }
-                else if (arr[i] == arr[left]) {
-                    swap(arr[i], arr[right]);
-                    break;
-                }
-            }
+            break;
         }
         left++;
         right--;
+    }
+
+    for (int i = left; i <= right; i++) {
+        if (arr[i] != arr[n - i - 1]) {
+            changes++;
+        }
     }
 
     return changes;
