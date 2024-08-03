@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 double poly(const std::vector<double>& coeffs, double x) {
     double result = 0.0;
@@ -16,13 +17,10 @@ double find_zero(const std::vector<double>& xs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, 2.0, 3.0};
+    std::vector<double> coeffs = {1.0, 2.0, 3.0}; 
     coeffs.push_back(4.0);
     double solution = find_zero(coeffs);
-    
-    if (std::abs(poly(coeffs, solution)) < 1e-3) {
-        /* Handle success */
-    }
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
 }
