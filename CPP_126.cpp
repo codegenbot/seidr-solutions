@@ -1,4 +1,4 @@
-Here's the completed code:
+Here is the completed code:
 
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
@@ -6,12 +6,15 @@ bool is_sorted(vector<int> lst){
             return false;
         }
     }
-    bool has_duplicates = false;
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] == lst[i+1]){
-            has_duplicates = true;
+    vector<int> temp(lst.begin(), lst.end());
+    sort(temp.begin(), temp.end());
+    int count = 0;
+    for(int i = 0; i < lst.size(); i++){
+        if(temp[i] == lst[i]){
+            count++;
+        }else{
             break;
         }
     }
-    return !has_duplicates;
+    return count == lst.size();
 }
