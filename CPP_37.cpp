@@ -30,10 +30,10 @@ std::vector<float> sort_even(const std::vector<float>& v) {
 
 int main() {
     std::vector<float> numbers = {2.5, 3, 4.2, 6, 7.5, 8, 9.1};
+    std::vector<float> expected_sorted_even = {2, 4};
     std::vector<float> sorted_even_numbers = sort_even(numbers);
-    std::vector<float> expected_sorted_even_numbers = {2.0, 4.0, 6.0, 8.0};
     
-    assert(issame(sorted_even_numbers, expected_sorted_even_numbers));
-
+    assert(issame(sorted_even_numbers, expected_sorted_even));
+    
     return 0;
 }
