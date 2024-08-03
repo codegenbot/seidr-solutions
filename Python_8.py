@@ -1,10 +1,10 @@
-```
-def calculate_statistics(data: List[int]) -> Tuple[float, float]:
-    if not data:
-        return 0.0, 1.0
-    total_sum = sum(data)
-    product = 1.0
-    for num in data:
-        product *= num
-    average = total_sum / len(data)
-    return average, product
+def find_max_min(numbers: List[int]) -> Tuple[int, int]:
+    if not numbers:
+        return None, None
+    max_num = min_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+        elif num < min_num:
+            min_num = num
+    return min_num, max_num
