@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,8 +24,8 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    cout << fixed;
-    cout.precision(17);
+    cout << fixed; // Ensure fixed point notation
+    cout.precision(17); // Set precision to 17 decimal places
     cout << sqrt(sum) << endl;
 
     return 0;
