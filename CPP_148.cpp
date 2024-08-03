@@ -17,7 +17,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == -1 || end == -1 || start == end) {
         return {};
     }
 
