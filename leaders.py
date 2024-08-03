@@ -1,7 +1,6 @@
-def leaders(arr):
-    leaders_list = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leaders_list.append(arr[i])
-            arr.pop()
-    return list(reversed(leaders_list))
+def leaders(integers):
+    return [
+        x
+        for x in reversed(integers)
+        if all(x >= y for y in integers[integers.index(x) + 1 :])
+    ]
