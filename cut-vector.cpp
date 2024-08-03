@@ -5,15 +5,14 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int n; // number of elements to read
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        int num;
+    int num;
+    
+    do {
         cin >> num;
         nums.push_back(num);
-    }
-
+    } while (cin.peek() != '\n');
+    
+    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
