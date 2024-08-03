@@ -3,18 +3,23 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    count = 1
+    count = 0
+
     for char in paren_string:
-        temp += char
         if char == "(":
             count += 1
         elif char == ")":
             count -= 1
+            if count < 0:  
+                return ["Invalid Input: Unbalanced Parentheses"]
+            temp += char
             if count == 0:
                 result.append(temp)
                 temp = ""
-    return result
+        else:
+            return ["Invalid Input: Invalid Character Found"]
 
-# Example usage
-paren_string = input("Enter a string with parentheses: ")
-print(separate_paren_groups(paren_string))
+    if count != 0:
+        return ["Invalid Input: Unbalanced Parentheses"]
+        
+    return result
