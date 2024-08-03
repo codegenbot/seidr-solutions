@@ -1,45 +1,25 @@
-#include <vector>
-using namespace std;
-
-vector<int> findIndices(string text, string target) {
+vector<int> findIndices(const string& text, const string& target) {
     vector<int> indices;
-    int targetLen = target.length();
-    for(int i = 0; i <= text.length() - targetLen; i++){
-        if(text.substr(i, targetLen) == target){
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; ++i) {
+        if (text.substr(i, m) == target) {
             indices.push_back(i);
-            // check for overlapping targets
-            while(i + targetLen < text.length() && text.substr(i, targetLen) == target){
-                i += targetLen;
+            // check if the target string overlaps itself
+            while (i + m < n && text.substr(i, m) == target) {
+                i += m;
             }
         }
     }
+
     return indices;
 }
 
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    
-    // your code for calculating gcd
-    long a = max(num1, num2);
-    long b = min(num1, num2);
-    while (b != 0) {
-        long temp = b;
-        b = a % b;
-        a = temp;
+int greatestCommonDivisor(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return greatestCommonDivisor(b, a % b);
     }
-    cout << a << endl;
-
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-    
-    vector<int> result = findIndices(text, target);
-    for(int i : result){
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
