@@ -7,6 +7,5 @@ def decode_cyclic(s: str):
 
 with open('input.txt', 'r') as f:
     s = f.read().strip()
-    
 result = decode_cyclic(s)
 print(result)
