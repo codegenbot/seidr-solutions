@@ -1,4 +1,3 @@
-```
 using namespace std;
 
 int bowlingScore(string s) {
@@ -24,7 +23,11 @@ int bowlingScore(string s) {
                 second += s[i];
                 ++i;
             }
-            score += (stoi(first) + stoi(second));
+            if (second.empty()) {
+                score += stoi(first);
+            } else {
+                score += stoi(first) + stoi(second);
+            }
         }
     }
     return score;
