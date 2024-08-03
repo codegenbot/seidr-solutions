@@ -30,4 +30,4 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 int main() {
     assert(issues_same(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
     return 0;
-} 
+}
