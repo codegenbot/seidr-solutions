@@ -1,19 +1,19 @@
-#include <string>
-#include <vector>
-#include <iostream>
-#include <assert.h>
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b; // Compare the vectors directly
+    return a == b;
 }
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
-    // Implement splitting logic using stringstream or similar
+    // Splitting logic using stringstream
+    std::stringstream ss(txt);
+    std::string word;
+    while (ss >> word) {
+        words.push_back(word);
+    }
     return words;
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"})); // Test comparison and splitting
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
