@@ -1,5 +1,5 @@
 ```cpp
-bool is_sorted(vector<int> lst) {
+"bool is_sorted(vector<int> lst) {
     if (lst.size() <= 1)
         return true;
 
@@ -14,3 +14,4 @@ bool is_sorted(vector<int> lst) {
         }
     }
     return true;
+}"
