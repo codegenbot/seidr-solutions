@@ -6,7 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    vector<string> result;
+    std::vector<string> result;
 
     for (float grade : grades) {
         string letterGrade = "";
