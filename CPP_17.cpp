@@ -2,11 +2,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-std::vector<int> parse_music(std::string s) {
+std::vector<int> parse_music(const std::string& s) {
     std::vector<int> result;
     int count = 0;
 
@@ -29,6 +29,6 @@ std::vector<int> parse_music(std::string s) {
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>({2, 1, 2, 1, 4, 2, 4, 2})));
     return 0;
 }
