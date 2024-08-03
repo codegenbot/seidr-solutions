@@ -1,43 +1,43 @@
+#include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) return false;
+    vector<string> intersection;
+    set<string>(intersection.begin(), intersection.end());
+    copy_if(b.begin(), b.end(), back_inserter(intersection),
+        bind2nd(not_equal_to<string>(), *a.rbegin()));
+    return intersection.empty();
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    vector<string> result;
-
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
-        string letterGrade = "";
-
         if (grade >= 4.0)
-            letterGrade = "A+";
+            letter_grades.push_back("A+");
         else if (grade > 3.7)
-            letterGrade = "A";
+            letter_grades.push_back("A");
         else if (grade > 3.3)
-            letterGrade = "A-";
+            letter_grades.push_back("A-");
         else if (grade > 3.0)
-            letterGrade = "B+";
+            letter_grades.push_back("B+");
         else if (grade > 2.7)
-            letterGrade = "B";
+            letter_grades.push_back("B");
         else if (grade > 2.3)
-            letterGrade = "B-";
+            letter_grades.push_back("B-");
         else if (grade > 2.0)
-            letterGrade = "C+";
+            letter_grades.push_back("C+");
         else if (grade > 1.7)
-            letterGrade = "C";
+            letter_grades.push_back("C");
         else if (grade > 1.3)
-            letterGrade = "C-";
+            letter_grades.push_back("C-");
         else if (grade > 1.0)
-            letterGrade = "D+";
+            letter_grades.push_back("D+");
         else if (grade > 0.7)
-            letterGrade = "D";
+            letter_grades.push_back("D");
         else
-            letterGrade = "F";
-
-        result.push_back(letterGrade);
+            letter_grades.push_back("E");
     }
-
-    return result;
+    return letter_grades;
 }
