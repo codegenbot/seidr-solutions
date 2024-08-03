@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     result = []
     temp = ""
@@ -8,4 +9,4 @@ def decode_cyclic(s: str):
             temp = ""
     if temp:
         result.append(temp)
-    return "".join([i[1] + i[0] + i[2] for i in zip(*[iter(result)] * 3)])
+    return "".join([r[1] + r[0] + r[2] for r in [result[i][1:] + result[i][0] for i in range(len(result))]])
