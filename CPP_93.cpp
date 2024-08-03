@@ -1,21 +1,23 @@
-string encode(string message){
-    string encoded_message = "";
-    for(char& c : message){
-        if(isalpha(c)){
-            if(isupper(c)){
-                c = tolower(c);
+#include <cassert>
+#include <string>
+#include <cctype>
+
+std::string encode(std::string message) {
+    std::string encoded_message = "";
+    for (char& c : message) {
+        if (std::isalpha(c)) {
+            if (std::isupper(c)) {
+                c = std::tolower(c);
             }
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 c = char(c + 2);
-            }
-            if(c == 'z'){
+            } else if (c == 'z') {
                 c = 'b';
-            }
-            else{
+            } else {
                 c = char(c + 1);
             }
-            if(isupper(message)){
-                c = toupper(c);
+            if (std::isupper(message.at(&c - &message[0]))) {
+                c = std::toupper(c);
             }
         }
         encoded_message += c;
