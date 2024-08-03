@@ -17,19 +17,6 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> rescale_to_unit(vector<float> numbers);
-
-vector<float> rescale_to_unit(vector<float> numbers) {
-    float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
-    vector<float> result;
-    for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
-    }
-    return result;
-}
-
 int main() {
     vector<float> numbers = {1.0, 2.0, 4.0, 8.0};
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
