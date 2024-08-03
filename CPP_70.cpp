@@ -1,11 +1,3 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<int> strange_sort_list(std::vector<int> lst){
     std::vector<int> result;
     std::sort(lst.begin(), lst.end());
