@@ -4,19 +4,19 @@
 #include <cassert>
 
 bool move_one_ball(const std::vector<int>& arr) {
-    int n = arr.size();
-    std::vector<int> arr_copy = arr;
+    std::vector<int> temp_arr = arr;
+    int n = temp_arr.size();
     for (int i = 0; i < n; ++i) {
-        if (std::is_sorted(arr_copy.begin(), arr_copy.end())) {
+        if (std::is_sorted(temp_arr.begin(), temp_arr.end())) {
             return true;
         }
-        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
+        std::rotate(temp_arr.rbegin(), temp_arr.rbegin() + 1, temp_arr.rend());
     }
     return false;
 }
 
 int main() {
     std::vector<int> test_case;
-    assert(move_one_ball(test_case) == true); // Add test cases here
+    assert(move_one_ball(test_case) == true);
     return 0;
 }
