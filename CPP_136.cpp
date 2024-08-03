@@ -18,9 +18,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return {largest_negative, smallest_positive};
 }
 
-int main(){
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
+void main(){
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1})[0] == -3 && largest_smallest_integers({-6, -4, -4, -3, -100, 1})[1] == 1);
     cout << "Test passed successfully!" << endl;
-
-    return 0;
 }
