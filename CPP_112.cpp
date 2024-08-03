@@ -2,7 +2,7 @@
 #include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<string> result;
+    vector<string> result;
     string temp = "";
     for (char ch : s) {
         bool found = false;
