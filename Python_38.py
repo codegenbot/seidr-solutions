@@ -1,1 +1,1 @@
-print(decode_cyclic("abcde"))
+print(decode_cyclic("abcd"))
