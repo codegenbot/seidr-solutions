@@ -1,9 +1,7 @@
 from typing import List
+import math
 
-
-def find_max_value_in_array(arr: List[int]) -> int:
-    max_val = arr[0]
-    for i in range(1, len(arr)):
-        if arr[i] > max_val:
-            max_val = arr[i]
-    return max_val
+def calculate_area_and_perimeter(radius: float) -> (float, float):
+    area = math.pi * (radius ** 2)
+    perimeter = 2 * math.pi * radius
+    return area, perimeter
