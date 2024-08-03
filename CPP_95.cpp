@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <string>
 using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
