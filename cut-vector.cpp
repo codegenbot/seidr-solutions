@@ -8,7 +8,9 @@ vector<vector<int>> cutVector(vector<int> vec) {
     
     for(int i = 0; i < n; i++) {
         if(i == n - 1 || vec[i] != vec[i+1]) {
-            result.push_back({vec.begin(), vec.begin() + i + 1});
+            vector<int> left = {vec.begin(), vec.begin() + i};
+            vector<int> right = {vec.begin() + i, vec.end()};
+            result.push_back({left, right});
             break;
         }
     }
@@ -26,8 +28,15 @@ int main() {
     
     vector<vector<int>> res = cutVector(vec);
     for(auto v : res) {
-        for(auto x : v) {
+        cout << "Left: ";
+        for(auto x : v[0]) {
             cout << x << " ";
+        }
+        cout << endl;
+        
+        cout << "Right: ";
+        for(auto y : v[1]) {
+            cout << y << " ";
         }
         cout << endl;
     }
