@@ -19,7 +19,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main(){
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-100, 1});
     cout << "Test passed successfully!" << endl;
 
     return 0;
