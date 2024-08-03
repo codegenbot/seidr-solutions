@@ -1,7 +1,7 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
     return abs(a)
 
@@ -16,10 +16,13 @@ def indices_of_substring(text, target):
         start = pos + 1
     return result
 
+# Read input from user
 a = int(input())
 b = int(input())
+
 print(gcd(a, b))
 
 text = input()
 target = input()
+
 print(indices_of_substring(text, target))
