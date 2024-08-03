@@ -3,10 +3,10 @@
 
 using namespace std;
 
-vector<vector<int>> pluck(vector<int> arr) {
-    vector<vector<int>> result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
     
-    if(arr.empty()) return {{}}; // If array is empty, return an empty pair
+    if(arr.empty()) return result; // If array is empty, return an empty pair
     
     int smallestEven = INT_MAX;
     int index = -1;
@@ -18,7 +18,7 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
     
-    result.push_back({{smallestEven, index}});
+    result.push_back({smallestEven, index});
     
     return result;
 }
