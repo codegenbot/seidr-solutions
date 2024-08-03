@@ -20,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any((boost::any_cast<std::string>(a)).c_str());
         }
     }
     else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || 
