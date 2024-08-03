@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <bitset>
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -8,10 +8,12 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
+
     return std::bitset<8>(sum).to_string();
 }
 
 int main() {
     assert(solve(963) == "10010");
+
     return 0;
 }
