@@ -14,7 +14,7 @@ std::string camelCase(std::string str) {
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += char(toupper(c));
+                result.push_back(char(toupper(c)));
             }
             firstWord = true;
         } else {
