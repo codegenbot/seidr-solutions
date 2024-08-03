@@ -1,9 +1,9 @@
+#include <iostream>
 #include <vector>
-#include <cassert> 
 
 int add_elements(const std::vector<int>& arr, int k) {
     int sum = 0;
-    for (int i = 0; i < k; ++i) {
+    for (int i = 0; i < arr.size(); ++i) {
         if (arr[i] >= 10 && arr[i] <= 99) {
             sum += arr[i];
         }
@@ -11,7 +11,21 @@ int add_elements(const std::vector<int>& arr, int k) {
     return sum;
 }
 
-int main(int argc, char* argv[]) { 
-    assert(add_elements({1}, 1) == 1);
+int main() {
+    std::vector<int> arr;
+    int k;
+    
+    // Read vector elements from user input
+    int num;
+    while(std::cin >> num) {
+        arr.push_back(num);
+    }
+
+    // Read integer k from user input
+    std::cin >> k;
+
+    // Call the add_elements function and print the result
+    std::cout << add_elements(arr, k) << std::endl;
+
     return 0;
 }
