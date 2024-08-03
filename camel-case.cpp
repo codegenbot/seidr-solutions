@@ -21,9 +21,8 @@ std::string camelCase(std::string str) {
     for(int i = 0; i < words.size(); i++) {
         if(i == 0)
             result += words[i];
-        else {
-            result += toupper((char)words[i][0]) + std::string(words[i].erase(0,1));
-        }
+        else
+            result += toupper(words[i][0]) + std::string(words[i].erase(0,1));
     }
 
     return result;
