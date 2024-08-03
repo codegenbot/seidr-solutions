@@ -1,26 +1,36 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    for (char& c : txt) {
-        if (!isalpha(c) || !islower(c)) {
+    size_t start = 0;
+    while (start < txt.size()) {
+        if (isspace(txt[start])) {
+            if (result.empty() || result.back().find(',') == string::npos) {
+                break;
+            }
+            start++;
+            continue;
+        }
+        size_t end = start;
+        while (end < txt.size() && !isspace(txt[end]) && txt[end] != ',') {
+            end++;
+        }
+        if (start == end) {
+            int count = 0;
+            for (char c : txt.substr(start)) {
+                if (islower(c)) {
+                    count += (c - 'a');
+                }
+            }
+            result.push_back(to_string(count));
             break;
         }
+        result.push_back(txt.substr(start, end - start));
+        start = end;
     }
-    if (result.empty() && c == '\0') {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c) && ++count % 2 == 1) {
-                result.push_back(to_string(count));
-                return result;
-            }
-        }
-    }
-    return {txt};
+    return result;
 }
