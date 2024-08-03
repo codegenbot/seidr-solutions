@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <functional> // Add for std::greater<>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
