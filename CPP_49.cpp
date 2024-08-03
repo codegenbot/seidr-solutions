@@ -1,27 +1,23 @@
-#include <stdio.h>
+#include <iostream>
+
 using namespace std;
 
 int modp(int n, int p) {
+    if (n == 0)
+        return 1;
     long long res = 1;
-    for (int i = 0; i < __builtin_clz(n); i++) {
-        if (!(n & 1))
-            p = (long long)p * p % p;
-        n >>= 1;
-    }
-    while (n > 0) {
-        if (n & 1)
-            res = (long long)res * p % p;
-        n >>= 1;
-        p = (long long)p * p % p;
+    for (int i = 1; i <= n; i++) {
+        res = (res * 2) % p;
     }
     return res;
 }
 
 int main() {
-    printf("%d\n", modp(3, 5));
-    printf("%d\n", modp(1101, 101));
-    printf("%d\n", modp(0, 101));
-    printf("%d\n", modp(3, 11));
-    printf("%d\n", modp(100, 101));
+    int n, p;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    cout << "Enter the value of p: ";
+    cin >> p;
+    cout << "Modular Power is: " << modp(n, p) << endl;
     return 0;
 }
