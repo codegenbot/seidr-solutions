@@ -1,18 +1,8 @@
-bool hasOdd(int num) {
-    return num % 2 != 0;
-}
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int odd_count = 0;
     for (int num : lst1) {
-        if (hasOdd(num)) {
-            oddCount++;
-        }
+        if (num % 2 != 0)
+            odd_count++;
     }
-
-    if (oddCount > (lst2.size() - oddCount)) {
-        return "NO";
-    }
-
-    return "YES";
+    return odd_count == 0 ? "YES" : "NO";
 }
