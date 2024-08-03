@@ -42,5 +42,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-// Include assert check inside main or a function to be executed
-assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+using namespace std;
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
+}
