@@ -1,58 +1,25 @@
-```c++
-int i = 0;
-bool is_valid = true;
+Here is the completed code:
 
-// Check for more than three digits
-while(i < file_name.length() && is_valid) {
-    if(isdigit(file_name[i])) {
-        i++;
-        while(i < file_name.length() && isdigit(file_name[i])) {
-            i++;
+string file_name_check(string file_name){
+    int digitCount = 0;
+    bool dotFound = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digitCount++;
+        }else if(file_name[i] == '.'){
+            dotFound = true;
         }
-        if(i - 1 > 3) {
-            is_valid = false;
-            break;
-        }
-    } else {
-        i++;
     }
-}
 
-// Check for exactly one dot
-int count_dot = 0;
-for(int j = 0; j < file_name.length(); j++) {
-    if(file_name[j] == '.') {
-        count_dot++;
-    }
-}
-if(count_dot != 1) {
-    is_valid = false;
-}
+    if(digitCount > 3 || !dotFound) return "No";
+    
+    string firstPart = file_name.substr(0, file_name.find('.'));
+    if(firstPart.empty() || !isalpha(firstPart[0])) return "No";
 
-// Check for the substring before the dot starting with a letter
-int start_index = 0;
-for(int k = 0; k < file_name.length(); k++) {
-    if(file_name[k] == '.') {
-        start_index = k + 1;
-        break;
-    }
+    string secondPart = file_name.substr(file_name.find('.')+1);
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if(find(validExtensions.begin(), validExtensions.end(), secondPart) == validExtensions.end()) 
+        return "No";
+    
+    return "Yes";
 }
-if(!isalpha(file_name[start_index])) {
-    is_valid = false;
-}
-
-// Check for the substring after the dot being one of the allowed extensions
-int end_index = file_name.length() - 1;
-for(int l = 0; l < file_name.length(); l++) {
-    if(file_name[end_index] == '.') {
-        end_index--;
-    } else {
-        break;
-    }
-}
-string extension = file_name.substr(start_index, end_index - start_index);
-if(extension != "txt" && extension != "exe" && extension != "dll") {
-    is_valid = false;
-}
-
-return is_valid ? "Yes" : "No";
