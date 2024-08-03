@@ -1,23 +1,11 @@
-```
-def solve(input_str):
-    def evaluate(expression):
-        stack = []
-        for char in expression[::-1]:
-            if char == '&':
-                right = stack.pop()
-                left = stack.pop()
-                stack.append(left and right)
-            elif char == '|':
-                right = stack.pop()
-                left = stack.pop()
-                stack.append(left or right)
-            else:
-                stack.append(char == 'T')
-        return stack[0]
-
-    if input_str == 't':
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input_str == 'f':
+    elif expression == "F":
         return False
-    else:
-        return evaluate(input_str)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid operation")
+    elif "&" in expression:
+        return all(c == "T" for c in expression)
+    elif "|" in expression:
+        return any(c == "T" for c in expression)
