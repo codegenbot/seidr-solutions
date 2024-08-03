@@ -1,23 +1,39 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame_count = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            score += 10
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            if first_roll + second_roll == 10:
-                score += 10
-            else:
-                score += first_roll + second_roll
-        else:
-            for roll in map(int, frame):
-                if roll != 10:
-                    if frame_count < 9 and sum(map(int, frames.split('/')[frame_count+1].split()[0])) == 10:
-                        score += 10 - max(map(int, frames.split('/')[frame_count+1].split()[0]))
-                    else:
-                        score += roll
+    frame_count = 1
+    for char in frames:
+        if char.isdigit():
+            strike = False
+            spare = False
+            if len(frames) - len(frames.lstrip('X')) < 2:
+                strike = True
+            elif len(frames) - len(frames.rstrip('/')):
+                spare = True
+            if frame_count == 10:
+                break
+            if char == 'X':
+                score += 30
                 frame_count += 1
+            elif char == '/':
+                score += 10
+                frame_count += 1
+            else:
+                strike_frame = False
+                for c in frames[len(frames) - len(frames).lstrip('X') + 1:]:
+                    if c.isdigit():
+                        strike_frame = True
+                    if not strike_frame and c != 'X':
+                        break
+                if strike_frame:
+                    score += int(char)
+                else:
+                    frame_count += 1
+                    score += int(char) + 10
+        elif char == 'X':
+            score += 30
+            frame_count += 1
+        elif char == '/':
+            score += 10
+            frame_count += 1
     return score
