@@ -13,7 +13,7 @@ int main() {
     int sum = 0;
     
     for (int i = 0; i < 16; i++) {
-        if (i % 2 == 1) {
+        if ((i + 1) % 2 == 0) { // Change here to start doubling from the second digit
             int doubled_digit = digits[i] * 2;
             sum += (doubled_digit > 9) ? (doubled_digit - 9) : doubled_digit;
         } else {
