@@ -1,18 +1,18 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& l){
+bool issame(const std::vector<int>& l) {
     std::vector<int> res = l;
-
-    auto sort_third = [](std::vector<int>::iterator start, std::vector<int>::iterator end){
-        std::sort(start, end);
+    
+    auto sort_third = [](int i, std::vector<int>& res) {
+        std::sort(res.begin() + i, res.begin() + i + 3);
     };
-
-    for (int i = 0; i < res.size(); ++i){
+    
+    for (int i = 0; i < l.size(); ++i){
         if (i % 3 == 0){
-            sort_third(res.begin() + i, res.begin() + i + 3);
+            sort_third(i, res);
         }
     }
-
+    
     return res;
 }
