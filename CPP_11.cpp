@@ -1,10 +1,9 @@
 #include <string>
 #include <cassert>
 
-string compareStrings(const string &a, const string &b) {
-    assert(a.size() == b.size());
-    
+string solve(const string& a, const string& b) {
     string result = "";
+    assert(a.size() == b.size());
     for (int i = 0; i < a.size(); i++) {
         if (a[i] == b[i]) {
             result += "0";
