@@ -1,46 +1,54 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <set>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    
+    // Create a set of characters in string c for efficient lookup
+    std::set<char> c_set(c.begin(), c.end());
+    
+    // Initialize an empty string to store the result
+    std::string temp = "";
+    
+    // Iterate over each character in string s
     for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        // Check if the character is not in set c_set
+        if (c_set.find(ch) == c_set.end()) {
+            // If the character is not in set c_set, add it to temp
             temp += ch;
         }
     }
+    
+    // Check if the result string temp is palindrome
+    bool is_palindrome = false;
+    if (temp.length() > 0) {
+        std::string rev_temp = temp;
+        std::reverse(rev_temp.begin(), rev_temp.end());
+        is_palindrome = temp == rev_temp;
+    }
+    
+    // Add the result string and a boolean indicating whether it's palindrome to the vector
     result.push_back(temp);
-    string reverseTemp = temp;
-    reverse(reverseTemp.begin(), reverseTemp.end());
-    result.push_back(to_string(issame({temp}, {reverseTemp}) ? "true" : "false"));
+    if (is_palindrome) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    
     return result;
 }
 
 int main() {
-    string str, chrs;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << "Enter characters to be deleted: ";
-    getline(cin, chrs);
-    vector<string> output = reverse_delete(str, chrs);
-    for (string s : output) {
-        cout << s << endl;
-    }
-    return 0;
+    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
+    // ...
 }
