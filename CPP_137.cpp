@@ -1,4 +1,5 @@
 #include <boost/any.hpp>
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     double da, db;
@@ -21,6 +22,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (db > da) {
         return b;
     } else {
-        return a;
+        return a;  // changed from "None"
     }
 }

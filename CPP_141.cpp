@@ -1,5 +1,5 @@
-```cpp
-string file_name_check(string file_name);
+string file_name_check(string file_name); 
+
 string file_name_check(string file_name){
     int dot_pos = file_name.find('.');
     if(dot_pos == string::npos || dot_pos > 0 && !isalpha(file_name[0])){
