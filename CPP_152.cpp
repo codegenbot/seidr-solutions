@@ -6,8 +6,9 @@ using namespace std;
 
 vector<int> compare(const vector<int>& game, const vector<int>& guess) {
     vector<int> result;
-    transform(game.begin(), game.end(), guess.begin(), back_inserter(result), 
-              [](int a, int b) { return abs(a - b); });
+    for (size_t i = 0; i < game.size(); i++) {
+        result.push_back(abs(game[i] - guess[i]));
+    }
     return result;
 }
 
