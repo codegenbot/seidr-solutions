@@ -1,5 +1,8 @@
-#include <iostream>
 #include <vector>
+#include <climits>
+#include <algorithm>
+#include <iostream>
+using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
@@ -21,14 +24,17 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while(cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
+    }
+    if(cin.eof()) {
+        cin.clear();
     }
     
     vector<int> result = findLeaders(nums);
     
-    for (int i : result) {
-        cout << i << " ";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
     
     return 0;
