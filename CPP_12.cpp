@@ -1,17 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
-int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    return 0;
-}
-
-string longest(vector<string> strings){
-    if(strings.empty()) return "Error: Input vector is empty";
-    string longest = strings[0];
-    for(string s : strings){
+std::string longest(std::vector<std::string> strings){
+    if(strings.empty()) return "";
+    std::string longest = strings[0];
+    for(std::string s : strings){
         if(s.length() > longest.length())
             longest = s;
         else if(s.length() == longest.length())
