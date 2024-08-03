@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a,vector<string>b){
     return a==b;
 }
@@ -34,4 +31,24 @@ vector<string> bf(string planet1, string planet2) {
     sort(result.begin(), result.end());
 
     return result;
+}
+
+int main() {
+    string planet1, planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
+
+    vector<string> res = bf(planet1, planet2);
+    
+    bool samePlanets = issame(res, {"Earth", "Mars"});
+
+    if (samePlanets) {
+        cout << "The planets are the same." << endl;
+    } else {
+        cout << "The planets are different." << endl;
+    }
+
+    return 0;
 }
