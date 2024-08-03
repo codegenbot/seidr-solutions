@@ -1,17 +1,29 @@
+#include <vector>
 #include <algorithm>
+
+using namespace std;
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
+    if (lst.empty()) return result;
+
+    sort(lst.begin(), lst.end());
+    result.push_back(*min_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+
+    sort(lst.begin(), lst.end());
+    result.push_back(*max_element(lst.begin(), lst.end()));
+    lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
+
     while (!lst.empty()) {
-        int minVal = *min_element(lst.begin(), lst.end());
-        result.push_back(minVal);
-        lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
-        
-        if (!lst.empty()) {
-            int maxVal = *max_element(lst.begin(), lst.end());
-            result.push_back(maxVal);
-            lst.erase(remove(lst.begin(), lst.end(), maxVal), lst.end());
+        if (result.back() == *min_element(lst.begin(), lst.end())) {
+            result.push_back(*min_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        } else {
+            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
         }
     }
+
     return result;
 }
