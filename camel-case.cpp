@@ -1,31 +1,34 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::vector<std::string> split = {""};
-    for (char c : s + " ") {
-        if (c == '-') {
-            split.back() += toupper(c + 1);
-        } else if (c == ' ') {
-            split.push_back("");
-        } else {
-            split.back() += tolower(c);
-        }
+std::string kebabToCamel(const std::string& str) {
+    std::vector<std::string> words;
+    size_t start = 0, end;
+
+    while ((end = str.find(' ')) != std::string::npos) {
+        words.push_back(str.substr(start, end - start));
+        start = end + 1;
     }
+
+    words.push_back(str.substr(start));
+
     std::string result;
-    for (int i = 0; i < split.size(); i++) {
-        result += split[i];
-        if (i < split.size() - 1) {
-            result[0] = toupper(result[0]);
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result += words[i].substr(0, 1).toupper() + words[i].substr(1);
+        } else {
+            result = words[i];
         }
     }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << camelCase(s) << "\n";
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
+    }
     return 0;
 }
