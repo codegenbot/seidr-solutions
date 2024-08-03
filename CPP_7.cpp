@@ -1,29 +1,15 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(const string& str : strings){
-        if(str.find(substring) != string::npos){
+        if(str.find(substring) != string::npos){ // Corrected string comparison
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string substring;
-    cin >> substring;
-    
-    vector<string> filteredStrings = filter_by_substring(strings, substring);
-    
-    for(const string& str : filteredStrings){
-        cout << str << endl;
-    }
-    
-    return 0;
 }
