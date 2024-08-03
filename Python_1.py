@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the corrected code:
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
