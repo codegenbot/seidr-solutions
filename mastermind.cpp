@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -26,10 +25,11 @@ int main() {
         }
     }
 
-    for (int i = 0; i < 4; ++i) {
-        if (codeFreq[guess[i] - 'A'] > 0) {
+    for (int i = 0; i < guess.size(); ++i) {
+        int currChar = guess[i] - 'A';
+        if (codeFreq[currChar] > 0 && codeFreq[currChar] > guessFreq[currChar]) {
             whitePegs++;
-            codeFreq[guess[i] - 'A']--;
+            codeFreq[currChar]--;
         }
     }
 
