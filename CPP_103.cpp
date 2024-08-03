@@ -1,6 +1,6 @@
 #include <string>
 
-std::string solve(int n, int m) {
+std::string calculateBinaryAverage(int n, int m) {
     if (n > m) {
         return "-1";
     }
