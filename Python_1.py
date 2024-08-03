@@ -1,9 +1,8 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    temp = "("
+    temp = ""
     count = 1
     for char in paren_string:
         temp += char
@@ -13,5 +12,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             count -= 1
             if count == 0:
                 result.append(temp)
-                temp = "("
+                temp = ""
     return result
+
+# Example usage
+paren_string = input("Enter a string with parentheses: ")
+print(separate_paren_groups(paren_string))
