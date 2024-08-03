@@ -21,21 +21,21 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
         string strA = boost::any_cast<string>(a);
-        int num = boost::any_cast<int>(b);
-        if (strA > to_string(num)) {
+        int numB = boost::any_cast<int>(b);
+        if (strA > to_string(numB)) {
             return a;
-        } else if (strA < to_string(num)) {
-            return boost::any(to_string(num));
+        } else if (strA < to_string(numB)) {
+            return b;
         } else {
             return boost::any("None");
         }
     } else if (a.type() != typeid(string) && b.type() == typeid(string)) {
-        int num = boost::any_cast<int>(a);
+        int numA = boost::any_cast<int>(a);
         string strB = boost::any_cast<string>(b);
-        if (to_string(num) > strB) {
+        if (to_string(numA) > strB) {
             return a;
-        } else if (to_string(num) < strB) {
-            return boost::any(strB);
+        } else if (to_string(numA) < strB) {
+            return b;
         } else {
             return boost::any("None");
         }
@@ -45,20 +45,22 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    int x, y;
-    std::cout << "Enter two numbers: ";
-    std::cin >> x >> y;
+    int num1, num2;
+    string s1, s2;
 
-    boost::any a = boost::any(x);
-    boost::any b = boost::any(y);
+    cout << "Enter first number or string: ";
+    cin >> boost::any(&num1).type(typeid(int));
+    
+    cout << "Enter second number or string: ";
+    cin >> boost::any(&num2).type(typeid(int));
 
-    boost::any result = compare_one(a, b);
+    boost::any result = compare_one(boost::any(num1), boost::any(num2));
 
-    if (boost::any_cast<string>(result) == "None") {
-        cout << "The numbers are equal." << endl;
+    if (result.type() == typeid(string)) {
+        cout << "Result: " << boost::any_cast<string>(result) << endl;
     } else {
-        cout << "The greater number is: " << boost::any_cast<string>(result) << endl;
+        cout << "Result: " << boost::any_cast<int>(result) << endl;
     }
-
+    
     return 0;
 }
