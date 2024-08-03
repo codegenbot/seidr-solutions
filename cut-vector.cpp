@@ -37,15 +37,16 @@ int main() {
         for (int i = cut_index + 1; i < n; i++) {
             cout << nums[i] << " ";
         }
+        cout << endl;
     } else {
         for (int i = 0; i <= cut_index; i++) {
             cout << nums[i] << " ";
         }
         cout << endl;
-        cout << nums[cut_index] << " ";
         for (int i = cut_index + 1; i < n; i++) {
             cout << nums[i] << " ";
         }
+        cout << endl;
     }
     
     return 0;
