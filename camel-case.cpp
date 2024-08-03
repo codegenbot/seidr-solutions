@@ -19,10 +19,10 @@ std::string camelCase(std::string str) {
 
     std::string result;
     for(int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if(i < words.size() - 1) {
-            result += " ";
-        }
+        if(i == 0) 
+            result += words[i];
+        else
+            result += toupper(words[i][0]) + tolower(string(words[i]).substr(1));
     }
 
     return result;
