@@ -14,3 +14,4 @@ vector<string> words;
         words.push_back(word);
     }
     return words;
+}
