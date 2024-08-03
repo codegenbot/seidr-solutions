@@ -22,23 +22,3 @@ vector<int> findLeaders(vector<int> nums) {
     reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-
-int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-
-    vector<int> leaders = findLeaders(nums);
-
-    for (int leader : leaders) {
-        cout << leader << " ";
-    }
-    cout << endl;
-
-    return 0;
-} 
