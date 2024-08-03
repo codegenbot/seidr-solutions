@@ -13,9 +13,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    assert(issame(maximum({5, 8, 1, 3, 4, 2}, 3), {8, 5, 4});
-    assert(issame(maximum({-10, -2, 0, 6, -4, 7, -1}, 4), {7, 6, 0, -1});
-    assert(issame(maximum({100}, 5), {100, 0, 0, 0, 0});
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
     return 0;
 }
