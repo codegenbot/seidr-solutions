@@ -1,12 +1,13 @@
 def solve_boolean(expression):
-    if expression == "t":
+    if expression == "T":
         return True
-    elif expression == "f":
+    elif expression == "F":
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    else:
-        for op, val in zip(["&", "|"], [lambda x, y: x and y, lambda x, y: x or y]):
-            if op * 2 in expression:
-                a, b = expression.split(op)
-                return eval(f"{val}({a}, {b})")
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (solve_boolean(left) and solve_boolean(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
