@@ -5,20 +5,22 @@
 
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
-    for(int num : lst){
-        if(num < 0 && num > largest_negative){
+    for (int num : lst) {
+        if (num < 0 && num > largest_negative) {
             largest_negative = num;
         }
-        if(num > 0 && num < smallest_positive){
+        if (num > 0 && num < smallest_positive) {
             smallest_positive = num;
         }
     }
     return {largest_negative, smallest_positive};
 }
 
-void main(){
-    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1})[0] == -3 && largest_smallest_integers({-6, -4, -4, -3, -100, 1})[1] == 1);
+int main() {
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
     cout << "Test passed successfully!" << endl;
+
+    return 0;
 }
