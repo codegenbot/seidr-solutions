@@ -1,6 +1,6 @@
 #include <vector>
-#include <cctype>
 #include <string>
+#include <cctype>
 
 bool issame(vector<string> a, vector<string> b);
 
