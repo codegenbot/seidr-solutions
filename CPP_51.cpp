@@ -7,7 +7,6 @@ std::string remove_vowels(std::string text) {
     return text;
 }
 
-// Example of use in the main function
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
 
