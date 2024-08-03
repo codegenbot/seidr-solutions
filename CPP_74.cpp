@@ -1,6 +1,6 @@
 #include <string>
 
-vector<string> solve(vector<string> lst1, vector<string> lst2) {
+bool issame(vector<string> lst1, vector<string> lst2) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
