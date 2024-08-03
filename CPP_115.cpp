@@ -16,6 +16,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::cout << max_fill({{1,1,1,1}, {1,1,1,1}}, 9) << std::endl;
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
     return 0;
 }
