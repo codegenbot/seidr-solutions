@@ -1,46 +1,20 @@
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
-
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<float>(a)) {
-        float af = boost::any_cast<float>(a);
-        float bf = boost::any_cast<float>(b);
-        if (af > bf)
-            return a;
-        else if (bf > af)
-            return b;
-        else
-            return any("None");
-    } else if (is_any_of<double>(a)) {
-        double ad = boost::any_cast<double>(a);
-        double bd = boost::any_cast<double>(b);
-        if (ad > bd)
-            return a;
-        else if (bd > ad)
-            return b;
-        else
-            return any("None");
-    } else if (is_any_of<int>(a)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        if (ai > bi)
-            return a;
-        else if (bi > ai)
-            return b;
-        else
-            return any("None");
-    } else if (is_string(a)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        if (stof(as) > stof(bs))
-            return a;
-        else if (stof(bs) > stof(as))
-            return b;
-        else
-            return any("None");
-    } else {
-        return any("None");
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a > (double)b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (int)a > boost::any_cast<string>(b) ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        return (float)a > (double)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return str1.compare(str2) > 0 ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a > (int)b ? a : b;
     }
+    return boost::any("None");
 }
