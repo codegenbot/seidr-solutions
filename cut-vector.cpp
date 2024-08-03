@@ -35,6 +35,6 @@ int main() {
         cout << nums[i] << endl;
     }
     cout << "0" << endl;
-
+    
     return 0;
 }
