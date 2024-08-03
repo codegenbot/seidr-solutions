@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letter_grades;
     for (float g : grades) {
         std::string grade;
@@ -28,8 +28,17 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (g > 0.7)
             grade = "D";
         else
-            grade = "F";
+            grade = "E";
         letter_grades.push_back(grade);
     }
     return letter_grades;
+}
+
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<float> grades = {0.0f, 0.7f};
+    assert(isSame(numerical_letter_grade(grades), {"E", "D-"}));
 }
