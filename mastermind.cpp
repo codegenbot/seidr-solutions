@@ -7,14 +7,15 @@ int mastermind(std::string code, std::string guess) {
 
     for (char c : code) {
         auto pos = guess.find(c);
-        if (pos != std::string::npos && pos == guess.size() - 1) {
-            black++;
-            guess.erase(pos, 1);
-        } else if (pos != std::string::npos) {
-            white++;
-            guess.erase(pos, 1);
+        if (pos != std::string::npos) {
+            if (code[pos] == c) {
+                black++;
+            } else {
+                white++;
+                guess.erase(pos, 1);
+            }
         }
     }
 
-    return black;
+    return black + white;
 }
