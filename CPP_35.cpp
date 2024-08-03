@@ -2,11 +2,8 @@
 #include <algorithm>
 
 int main() {
-    std::vector<float> l;
-    std::cin >> l[0];
-    for(int i = 1; i <= 10; i++) {
-        float x;
-        std::cin >> x;
-        l.push_back(x);
-    }
-    return *std::max_element(l.begin(), l.end());
+    vector<float> l;
+    cout << "Enter numbers (space-separated): ";
+    for(float x; cin >> x) l.push_back(x);
+    return *max_element(l.begin(), l.end());
+}
