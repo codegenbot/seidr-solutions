@@ -1,10 +1,4 @@
-#include <iostream>
-using namespace std;
-
-int pennies(int cents) {
-    return cents;
-}
-
+```c++
 void printCoins(int quarters, int nickles, int dimes, int pennies) {
     cout << quarters << endl;
     cout << nickles << endl;
