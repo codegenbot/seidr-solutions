@@ -36,6 +36,13 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Your code goes here
+    int n;
+    std::cin >> n;
+    std::vector<int> odds = get_odd_collatz(n);
+    
+    for (int num : odds) {
+        std::cout << num << " ";
+    }
+    
     return 0;
 }
