@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 vector<float> derivative(vector<float> xs);
 
@@ -9,9 +8,4 @@ vector<float> derivative(vector<float> xs){
         result.push_back(xs[i] * i);
     }
     return result;
-}
-
-int main(){
-    // Test your derivative function here
-    return 0;
 }
