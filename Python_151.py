@@ -1,3 +1,3 @@
 def check(func):
-    result = func([1, 2, 3, 4])
-    print(result)
+    lst = [int(input("Enter a number: ")) for _ in range(5)]
+    print(func(lst))
