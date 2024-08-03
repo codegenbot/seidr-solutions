@@ -1,10 +1,9 @@
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> even_odd_count(int n) {
+std::vector<int> even_odd_count(int n) {
     return {n, n % 2};
 }
