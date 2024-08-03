@@ -1,22 +1,24 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    int len = 0;
+#include <iostream>
+#include <string>
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    int count = 0;
     for(int i = 0; i < sentence.size(); i++){
-        if(sentence[i] == ' '){
-            if(isPrime(len)) result += sentence.substr(len - (i + 1), i - len) + " ";
-            len = 0;
-        }else{
-            len++;
+        if(sentence[i] == ' ' || i == sentence.size() - 1){
+            std::string word = sentence.substr(count, i - count);
+            bool is_prime = true;
+            if(i != sentence.size() - 1)count = i + 1;
+            for(int j = 2; j * j <= word.length(); j++){
+                if(word.length() % j == 0){
+                    is_prime = false;
+                    break;
+                }
+            }
+            if(is_prime){
+                result += word + " ";
+            }
         }
     }
-    if(isPrime(len)) result += sentence.substr(len - len, len);
     return result;
-}
-
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0) return false;
-    }
-    return true;
 }
