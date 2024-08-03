@@ -1,9 +1,14 @@
-int n = arr.size();
+#include <vector>
+#include <algorithm>
+
+bool move_one_ball(const std::vector<int>& arr) {
+    int n = arr.size();
+    std::vector<int> arr_copy = arr;
     for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
+        if (std::is_sorted(arr_copy.begin(), arr_copy.end())) {
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
     }
     return false;
 }
