@@ -6,23 +6,27 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int convertNext = false;
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == '-') {
-            convertNext = true;
-        }
-        if (!convertNext) {
+    bool first = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            if (!first) {
+                result += tolower(s[i]);
+            } else {
+                first = false;
+                result += toupper(s[i]);
+            }
+        } else if (s[i] == ' ') {
             continue;
         } else {
-            if (s[i] != ' ') {
-                if (result.empty()) {
-                    result += toupper(s[i]);
-                } else {
-                    result += tolower(s[i]);
-                }
+            if (!first) {
+                result += tolower(s[i]);
             } else {
-                convertNext = false;
-                result += ' ';
+                first = false;
+                result += toupper(s[i]);
             }
         }
     }
@@ -37,4 +41,3 @@ int main() {
         cout << "The camelCase version is: " << camelCase(s) << endl;
     }
     return 0;
-}
