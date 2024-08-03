@@ -1,7 +1,19 @@
-def main():
-    paren_string = input("Enter the string with parentheses: ")
-    result = separate_paren_groups(paren_string)
-    print(result)
-
-if __name__ == "__main__":
-    main()
+def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
+    temp = ""
+    count = 0
+    for char in paren_string:
+        if char == "(":
+            if count > 0:
+                temp += char
+            count += 1
+        elif char == ")":
+            count -= 1
+            if count > 0:
+                temp += char
+            if count == 0:
+                result.append(temp)
+                temp = ""
+        elif count > 0:
+            temp += char
+    return result
