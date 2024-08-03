@@ -32,6 +32,10 @@ std::vector<int> order_by_points(std::vector<int> nums){
     return nums;
 }
 
-assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+int main(){
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
-std::cout << "Test passed successfully!" << std::endl;
+    std::cout << "Test passed successfully!" << std::endl;
+
+    return 0;
+}
