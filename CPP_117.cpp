@@ -1,9 +1,19 @@
+#include <cassert>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
@@ -38,10 +48,6 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    std::vector<std::string> a = select_words("a b c d e f", 1);
-    // Code for comparing two vectors of strings
-    std::vector<std::string> b = {"b", "c", "d", "f"};
-    bool same = (a == b); // Check if the vectors are equal
-
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
