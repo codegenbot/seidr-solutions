@@ -10,3 +10,4 @@ int sum_squares(vector<int> lst){
             total += pow(lst[i], 3);
     }
     return total;
+}
