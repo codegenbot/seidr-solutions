@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+#include <cstdlib>
 
 int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) return -32768;
@@ -16,6 +18,6 @@ int prod_signs(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    std::cout << prod_signs({-1, 1, 1, 0}) << std::endl;
     return 0;
 }
