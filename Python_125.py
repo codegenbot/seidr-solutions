@@ -1,9 +1,13 @@
 ```
 def split_words(txt):
     words = txt.split()
-    if len(words) > 0 and any(char.isalnum() for char in words[0]):
+    if len(words) > 1:
         return words
     elif ',' in txt:
         return txt.split(',')
     else:
-        return sum(1 for i, c in enumerate(map(ord, txt.lower())) if 'a' <= chr(i) <= 'z' and (i - ord('a')) % 2 == 1)
+        result = 0
+        for char in txt.lower():
+            if 'a' <= char <= 'z':
+                result += 1
+        return result
