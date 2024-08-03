@@ -1,3 +1,13 @@
 ```
-numbers = input("Enter a list of numbers separated by spaces: ").split()
-print(sum_squares(list(map(int, numbers))))
+def sum_squares():
+    lst = input("Enter a list of numbers (space-separated): ")
+    lst = [int(x) for x in lst.split()]
+    total_sum = 0
+    for i in range(len(lst)):
+        if i % 3 == 0 and i % 4 != 0:
+            total_sum += lst[i] ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total_sum += lst[i] ** 3
+    print(total_sum)
+
+sum_squares()
