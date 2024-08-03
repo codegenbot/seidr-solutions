@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <numeric>
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<long double> vec1(n);
-    std::vector<long double> vec2(n);
+    std::vector<float> vec1(n);
+    std::vector<float> vec2(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -17,12 +18,13 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    long double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
+    float sum = std::inner_product(vec1.begin(), vec1.end(), vec2.begin(), 0.0f,
+                                   [](float a, float b) {
+                                       return a + (b - a) * (b - a);
+                                   },
+                                   std::plus<>());
 
-    long double distance = std::sqrt(sum);
+    float distance = std::sqrt(sum);
     std::cout << distance << std::endl;
 
     return 0;
