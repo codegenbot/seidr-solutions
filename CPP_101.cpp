@@ -5,7 +5,7 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 vector<string> words_string(const string& s) {
