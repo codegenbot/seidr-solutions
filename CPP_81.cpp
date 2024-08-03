@@ -1,5 +1,10 @@
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+#include <vector>
+#include <string>
+
+using namespace std;
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) {
             letter_grades.push_back("A+");
