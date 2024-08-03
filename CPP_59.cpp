@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 int largest_prime_factor(int n) {
     int maxPrime = -1;
