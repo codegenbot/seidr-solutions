@@ -17,10 +17,12 @@ int main() {
 
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (100.0 - discounts[i]) / 100.0;
+        total += prices[i] * (1 - discounts[i] * 0.01);
     }
 
-    cout << fixed << setprecision(2) << total << endl;
+    cout << fixed;
+    cout.precision(2);
+    cout << total << endl;
 
     return 0;
 }
