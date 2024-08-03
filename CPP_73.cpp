@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -28,4 +31,9 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n-1].size();
+}
+
+int main() {
+    assert (smallest_change({0, 1}) == 1);
+    return 0;
 }
