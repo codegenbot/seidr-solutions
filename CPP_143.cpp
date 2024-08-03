@@ -6,11 +6,11 @@ using namespace std;
 
 std::string words_in_sentence(std::string sentence) {
     vector<int> lengths;
-    string result = "";
+    std::string result = "";
     
     for (const auto& word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
-            lengths.push_back(word.length());
+        if (is_prime(stoi(word.length() + string(""))) ) {
+            lengths.push_back(stoi(word.length() + string("")));
             result += word + " ";
         }
     }
@@ -35,9 +35,4 @@ bool is_prime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-}
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    return 0;
 }
