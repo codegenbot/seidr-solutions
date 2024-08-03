@@ -1,12 +1,17 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-void remove_duplicates(std::vector<int>& vec) {
-    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
+void remove_duplicates(std::vector<int>& v) {
+    v.erase(std::unique(v.begin(), v.end()), v.end());
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> a_temp = a;
+    std::vector<int> b_temp = b;
+
+    remove_duplicates(a_temp);
+    remove_duplicates(b_temp);
+
+    return a_temp == b_temp;
 }
