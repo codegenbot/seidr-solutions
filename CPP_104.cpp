@@ -1,9 +1,38 @@
-#include <unordered_set>
-#include <vector>
+bool issame(int x, int y);
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::unordered_set<int> digitsA(a.begin(), a.end());
-    std::unordered_set<int> digitsB(b.begin(), b.end());
+bool issame(int x, int y) {
+    string s1 = to_string(x);
+    string s2 = to_string(y);
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    return s1 == s2;
+}
 
-    return (digitsA.size() == digitsB.size()) && (digitsA == digitsB);
+vector<int> unique_digits(vector<int> x){
+    vector<int> result;
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int temp = num;
+        while (temp > 0) {
+            if (temp % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
+            bool unique = true;
+            for (int res : result) {
+                if (issame(res, num)) {
+                    unique = false;
+                    break;
+                }
+            }
+            if (unique) {
+                result.push_back(num);
+            }
+        }
+    }
+    sort(result.begin(), result.end());
+    return result;
 }
