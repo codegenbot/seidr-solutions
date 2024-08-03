@@ -24,20 +24,17 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
+
+    // Read input until the end of file
     while (cin >> num) {
         nums.push_back(num);
-        char nextChar;
-        cin.get(nextChar);
-        if (nextChar != ' ' && nextChar != '\n') {
-            break;
-        }
     }
-    
+
     vector<int> result = findLeaders(nums);
-    
+
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
-    
+
     return 0;
 }
