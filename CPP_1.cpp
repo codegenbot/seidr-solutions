@@ -22,7 +22,8 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
             count--;
             if (count >= 0) {
                 group += c;
-            } else if (count == 0) {
+            }
+            if (count == 0) {
                 result.push_back(group);
                 group = "";
             }
