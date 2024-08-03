@@ -13,7 +13,7 @@ vector<int> leaders(vector<int>& nums) {
         if(res.back() < nums[i]){
             res.clear();
             res.push_back(nums[i]);
-        } else if(res.back() == nums[i]) {
+        } else {
             res.push_back(nums[i]);
         }
     }
