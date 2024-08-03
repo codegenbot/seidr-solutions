@@ -1,4 +1,3 @@
-```Python
 def sort_third(l: list):
     sorted_list = sorted([x for x in l if i % 3 == 0])
     return [
