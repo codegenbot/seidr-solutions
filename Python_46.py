@@ -1,11 +1,9 @@
-```
 def fib4(n: int):
     if n < 0:
-        return None
-    elif n <= 3:
+        raise ValueError("Input must be a non-negative integer")
+    if n <= 3:
         return [0, 0, 2, 0][n]
-    else:
-        a, b, c, d = 0, 0, 2, 0
-        for _ in range(4, n+1):
-            a, b, c, d = d, a+b+c, c+d, b+c
-        return d
+    fib = [0, 0, 2, 0]
+    for i in range(4, n + 1):
+        fib.append(fib[i - 1] + fib[i - 2] + fib[i - 3] + fib[i - 4])
+    return fib[n]
