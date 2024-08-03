@@ -1,12 +1,22 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
-min_diff = abs(sum(a) - 2 * a[0])
-cut_index = 0
-for i in range(1, n):
-    diff = abs(sum(a[:i]) - sum(a[i:]))
-    if diff < min_diff:
-        min_diff = diff
+a = []
+for i in range(n):
+    a.append(int(input()))
+
+total_sum = sum(a)
+prefix_sum = 0
+best_diff = total_sum
+cut_index = -1
+
+for i in range(n):
+    prefix_sum += a[i]
+    diff = abs(total_sum - 2 * prefix_sum)
+    if diff < best_diff:
+        best_diff = diff
         cut_index = i
 
-print(*a[:cut_index])
-print(*a[cut_index:])
+subvector1 = a[: cut_index + 1]
+subvector2 = a[cut_index + 1 :]
+
+print(*subvector1)
+print(*subvector2)
