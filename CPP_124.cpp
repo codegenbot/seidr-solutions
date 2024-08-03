@@ -25,16 +25,3 @@ bool valid_date(string date) {
 
     return true;
 }
-
-int main() {
-    string date;
-    cin >> date;
-
-    if(valid_date(date)) {
-        cout << "Valid date" << endl;
-    } else {
-        cout << "Invalid date" << endl;
-    }
-
-    return 0;
-}
