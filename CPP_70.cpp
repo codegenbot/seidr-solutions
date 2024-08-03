@@ -15,3 +15,15 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
     return true;
 }
+
+std::vector<int> strange_sort_list(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        return a < b;
+    });
+    return nums;
+}
+
+int main() {
+    // Your main function implementation here
+    return 0;
+}
