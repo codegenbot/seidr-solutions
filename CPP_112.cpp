@@ -39,15 +39,22 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::string s, c;
-    std::cout << "Enter string: ";
+    std::cout << "Enter the string: ";
     std::cin >> s;
-    std::cout << "Enter character to be deleted: ";
+    std::cout << "Enter the character to delete: ";
     std::cin >> c;
-    std::vector<std::string> result = reverse_delete(s, c);
-    if (issame(result, {"", "True"})) {
-        std::cout << "The reversed string is the same as the original.\n";
+    
+    auto result = reverse_delete(s, c);
+    bool issame_result = issame(result, {"True", "False"});
+    
+    if (issame_result) {
+        for (auto str : result) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     } else {
-        std::cout << "The reversed string is not the same as the original.\n";
+        std::cout << "Vectors are not the same." << std::endl;
     }
+
     return 0;
 }
