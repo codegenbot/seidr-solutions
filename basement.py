@@ -1,8 +1,6 @@
-Here is the solution:
-
-def basement(nums):
-    for i in range(len(nums)):
-        total = sum(nums[:i+1])
+def basement(vec):
+    for i in range(len(vec)):
+        total = sum(vec[: i + 1])
         if total < 0:
             return i
     return -1
