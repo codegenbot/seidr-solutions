@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 int main() {
-    std::vector<int> digits(16);
+    vector<int> digits(16);
     for (int i = 0; i < 16; ++i) {
-        std::cin >> digits[i];
+        cin >> digits[i];
     }
 
     int sum = 0;
@@ -19,7 +20,7 @@ int main() {
         sum += num;
     }
 
-    std::cout << sum << std::endl;
+    cout << sum << endl;
 
     return 0;
 }
