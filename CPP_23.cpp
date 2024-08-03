@@ -1,5 +1,2 @@
-#include <cstring>
-
-int main(){
-    assert(strlen("asdasnakj") == 9);
-}
+#include <string>
+return str.length();
