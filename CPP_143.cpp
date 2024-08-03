@@ -31,7 +31,7 @@ std::string words_in_sentence(std::string sentence) {
         result += word;
     }
     return result;
-} 
+}
 
 int main() {
     std::string sentence;
