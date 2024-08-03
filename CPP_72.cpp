@@ -1,7 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
@@ -16,17 +16,8 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q;
-    int w;
-    cout << "Enter the number of queens: ";
-    int n; cin >> n;
-    cout << "Enter the weights: ";
-    for(int i=0;i<n;i++)cin>>q[i];
-    cout << "Enter the weight limit: ";
-    cin >> w;
-    if(will_it_fly(q, w))
-        cout << "The queens will fly.";
-    else
-        cout << "The queens won't fly.";
+    vector<int> q = {1,2,3};
+    int w = 6;
+    cout << boolalpha << will_it_fly(q, w);
     return 0;
 }
