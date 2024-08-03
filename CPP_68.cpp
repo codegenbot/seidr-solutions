@@ -13,8 +13,7 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     if(smallest_even != -1){
-        result.push_back(smallest_even);
-        result.push_back(smallest_index);
+        result = { smallest_even, smallest_index };
     }
     
     return result;
@@ -26,6 +25,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 int main(){
     assert(issame(pluck({7, 9, 7, 1}), {}));
-    
+
     return 0;
 }
