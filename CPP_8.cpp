@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::pair<int, int> sum_product(std::vector<int> numbers) {
     int sum = 0;
@@ -13,6 +11,10 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
         product *= num;
     }
     return {sum, product};
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
