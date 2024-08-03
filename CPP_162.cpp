@@ -2,23 +2,20 @@
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
-std::string string_to_md5(std::string text);
+string string_to_md5(string text);
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
     
-    std::string result = string_to_md5(input);
-    std::cout << "MD5 of the entered string is: " << result << std::endl;
-    
-    return 0;
+    string_to_md5(input);
 }
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
-    unsigned char md5[16];
+    unsigned char md5[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
     MD5_Init(&ctx);
     const char* ptr = text.c_str();
@@ -28,8 +25,8 @@ std::string string_to_md5(std::string text) {
     }
     MD5_Final(md5, &ctx);
 
-    std::string result;
-    for (int i = 0; i < 16; i++) {
+    string result;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         sprintf(result + strlen(result), "%02x", md5[i]);
     }
 
