@@ -1,3 +1,3 @@
-#include <string>  // Include the <string> header file
+#include <string>
 
-assert (std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
