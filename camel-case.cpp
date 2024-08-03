@@ -1,34 +1,33 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string &str) {
-    std::string result;
-    bool first = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            if (!first)
-                result.push_back('\0');
-            else
-                first = false;
-        } else if (c == ' ') {
-            continue;
-        } else {
-            if (!first)
-                result.push_back(std::toupper(c));
-            else
-                result += c;
-            first = false;
+string kebabToCamel(string s) {
+    string result = "";
+    int start = 0;
+    
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == ' ') {
+            string word = s.substr(start, i - start);
+            if (!result.empty()) {
+                result += char(toupper(word[0]));
+                result += word.substr(1).substr(1);
+            } else {
+                result = word;
+            }
+            start = i + 1;
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    string s;
+    cout << "Enter the kebab-case string: ";
+    getline(cin, s);
+    cout << "The camelCase string is: " << kebabToCamel(s) << endl;
     return 0;
 }
