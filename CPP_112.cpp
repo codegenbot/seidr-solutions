@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
