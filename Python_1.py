@@ -18,4 +18,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group += char
                 groups.append(current_group)
                 current_group = ''
-    return groups
+
+    return [group for group in groups if stack and not group.startswith('(')] + groups
