@@ -2,21 +2,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && code.find(d) != code.npos) {
-                count++;
-            }
+    for(int i = 0; i < 6; i++) {
+        int countCode = 0, countGuess = 0;
+        for(int j = 0; j < 4; j++) {
+            if(code[j] == i+'0' && ++countCode > 1) break;
+            if(guess[j] == i+'0' && ++countGuess > 1) break;
         }
-        white += min(count, 1);
+        black -= countCode - 1;
+        black -= countGuess - 1;
     }
 
-    return black + white - black;
+    white = 4 - black;
+
+    return make_pair(white, black).second;
 }
