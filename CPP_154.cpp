@@ -7,8 +7,6 @@ bool cycpattern_check(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    std::string a, b;
-    std::cin >> a >> b;
-    std::cout << cycpattern_check(a, b) << std::endl;
+    std::cout << cycpattern_check("winemtt", "tinem") << std::endl;
     return 0;
 }
