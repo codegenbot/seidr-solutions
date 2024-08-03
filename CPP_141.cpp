@@ -1,26 +1,25 @@
 string file_name_check(string file_name){
     int digit_count = 0;
-    int dot_count = 0;
-    bool valid_start = false;
+    bool has_dot = false;
+    bool starts_with_letter = true;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    for(char c : file_name){
+        if(isdigit(c)){
             digit_count++;
-        } else if(file_name[i] == '.'){
-            dot_count++;
-        } else if(i==0 && isalpha(file_name[i])){
-            valid_start = true;
+            if(digit_count > 3) return "No";
+        }
+        else if(c == '.'){
+            has_dot = true;
+        }
+        else if(!isalpha(c) && !has_dot){
+            starts_with_letter = false;
         }
     }
 
-    string extension = file_name.substr(file_name.find('.')+1);
-    bool valid_extension = false;
+    if(!has_dot || !starts_with_letter) return "No";
 
-    for(int i=0; i<extension.length(); i++){
-        if(extension[i] == 't' || extension[i] == 'x' || extension[i] == 'd' || extension[i] == 'l'){
-            valid_extension = true;
-        }
-    }
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
 
-    return (digit_count <= 3 && dot_count == 1 && valid_start && valid_extension) ? "Yes" : "No";
+    return "Yes";
 }
