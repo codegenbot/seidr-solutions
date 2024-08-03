@@ -1,41 +1,49 @@
 int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
+    string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "*") {
-                    temp += operand[j + 1] * operand[j];
-                } else if (operator_[j] == "+") {
-                    result += temp;
-                    break;
-                }
-            }
-        } else if (operator_[i] == "//") {
-            int temp = operand[i];
-            for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "//") {
-                    temp /= operand[j + 1];
-                } else if (operator_[j] == "+") {
-                    result += temp;
-                    break;
-                }
-            }
-        } else if (operator_[i] == "**") {
-            int base = operand[i];
-            for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "**") {
-                    base = pow(base, operand[j + 1]);
-                } else if (operator_[j] == "+") {
-                    result += base;
-                    break;
-                }
-            }
-        }
+        expression += to_string(operand[i]);
+        expression += operator_[i];
     }
+    expression += to_string(operand.back());
+    
+    int result = eval(expression.c_str());
     return result;
+}
+
+long long eval(const char *p) {
+    long long x, y;
+    while (*p) {
+        if (isdigit(*p)) {
+            sscanf(p, "%lld", &y);
+            p++;
+            break;
+        }
+        p++;
+    }
+    while (*p) {
+        switch (*p) {
+            case '+':
+                x += y;
+                y = 0;
+                break;
+            case '-':
+                x -= y;
+                y = 0;
+                break;
+            case '*':
+                x *= y;
+                y = 0;
+                break;
+            case '/':
+                x /= y;
+                y = 0;
+                break;
+            case '^':
+                x = pow(x, y);
+                y = 0;
+                break;
+        }
+        p++;
+    }
+    return x;
 }
