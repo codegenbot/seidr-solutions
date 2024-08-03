@@ -12,8 +12,8 @@ int main() {
     
     int sum = 0;
     
-    for (int i = 15; i >= 0; i--) {
-        if ((15 - i) % 2 == 1) {
+    for (int i = 15; i >= 0; i--) { // Start from the rightmost digit
+        if ((15 - i) % 2 == 1) { // Double every other digit
             digits[i] *= 2;
             sum += (digits[i] > 9) ? (digits[i] - 9) : digits[i];
         } else {
