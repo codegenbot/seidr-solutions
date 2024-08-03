@@ -1,4 +1,3 @@
-# Read the entire line of input and split it into integers
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
