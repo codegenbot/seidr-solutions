@@ -19,6 +19,6 @@ std::vector<int> filter_integers(std::vector<std::variant<int, char>> values){
 }
 
 int main() {
-    assert(issame(filter_integers({std::variant<int, char>(3), 'c', std::variant<int>(3), std::variant<int>(3), 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
