@@ -1,26 +1,27 @@
+```cpp
 #include <vector>
-#include <map>
-#include <string>
+#include <algorithm>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> result;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            result.push_back(num);
         }
     }
-
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-
-    std::vector<std::string> result;
-    std::map<int, std::string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"},
-                                               {4, "Four"}, {5, "Five"}, {6, "Six"},
-                                               {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
-
-    for (int num : numbers) {
-        result.push_back(numberNames[num]);
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
+    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    vector<string> output;
+    for (int num : result) {
+        output.push_back(names[num - 1]);
     }
-
-    return result;
+    return output;
 }
