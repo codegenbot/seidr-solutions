@@ -1,2 +1,7 @@
-def fuel_cost(fuel_costs):
-    return sum((n // 3) - 2 for n in map(int, input().split()))
+def fuel_cost():
+    n = int(input())
+    total = 0
+    for _ in range(n):
+        x = int(input())
+        total += x // 3 - 2
+    return total
