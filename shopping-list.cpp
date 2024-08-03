@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -29,7 +30,7 @@ int main() {
 
     double result = shoppingList(prices, discounts);
 
-    cout << fixed << setprecision(1) << result << endl;
+    cout << fixed << setprecision(2) << result << endl;
 
     return 0;
 }
