@@ -1,7 +1,8 @@
 def double_the_difference(odd_sum):
     total = 0
-    for num in [i**2 for i in range(1, odd_sum + 1)]:
-        total += num
+    for num in range(1, odd_sum + 1):
+        if num % 2 == 0:
+            total += num**2
     return total
 
 
