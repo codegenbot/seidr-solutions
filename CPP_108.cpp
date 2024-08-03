@@ -1,13 +1,8 @@
+#include <iostream>
 #include <vector>
-using namespace std;
 
-int main() {
-    vector<int> n;
+int count_nums(std::vector<int> n) {
     int count = 0;
-    cout << "Enter numbers (separated by spaces): ";
-    for(int i; cin >> i; ) {
-        n.push_back(i);
-    }
     for (int num : n) {
         bool has_positive_sum = false;
         if (num >= 0) {
@@ -36,6 +31,22 @@ int main() {
         if (has_positive_sum)
             count++;
     }
-    cout << "Count of numbers with positive sum of digits: " << count << endl;
+    return count;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    std::vector<int> numbers(n);
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element "<<i+1<<": ";
+        std::cin >> numbers[i];
+    }
+    
+    int result = count_nums(numbers);
+    std::cout << "Number of elements with positive sum of digits: " << result << std::endl;
+    
     return 0;
 }
