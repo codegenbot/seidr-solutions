@@ -30,7 +30,6 @@ int main() {
     std::cout << "Even palindromes: " << result[0] << std::endl;
     std::cout << "Odd palindromes: " << result[1] << std::endl;
 
-    // Assert statement without issame function
     assert(result == std::vector<int>{0, 1});
 
     return 0;
