@@ -1,6 +1,4 @@
-#include <string>
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int frame = 1;
     for (char c : s) {
@@ -8,8 +6,7 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 1)));
-            score += leftPins;
+            score += 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
             frame++;
             s.erase(0, s.find('/') + 1);
         } else {
@@ -18,8 +15,7 @@ int bowlingScore(string s) {
             if (pins < 10) {
                 s.erase(0, 1);
                 if (!s.empty() && s[0] == '/') {
-                    int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 1)));
-                    score += leftPins;
+                    score += 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
                     frame++;
                     s.erase(0, s.find('/') + 1);
                 }
@@ -29,3 +25,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
