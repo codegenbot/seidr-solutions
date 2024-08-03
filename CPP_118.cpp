@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -6,13 +5,11 @@ std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return std::string(1, tolower(word[i]));
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (std::tolower(word[i]) == 'a' || std::tolower(word[i]) == 'e'
+            || std::tolower(word[i]) == 'i' || std::tolower(word[i]) == 'o'
+            || std::tolower(word[i]) == 'u') return std::string(1, word[i]);
         while (i > 0 && !isalpha(word[i]) && i < n - 1) --i;
     }
     return "";
-}
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    return 0;
 }
