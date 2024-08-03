@@ -1,33 +1,35 @@
 #include <vector>
 #include <iostream>
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if(a.size() != b.size())
+        return false;
+    for(size_t i = 0; i < a.size(); ++i)
+        if(std::abs(a[i] - b[i]) > 1e-9f)
+            return false;
+    return true;
+}
+
+int main() {
+    std::vector<float> l;
+    float x;
+    while(std::cin >> x) {
+        l.push_back(x);
+    }
+    std::vector<float> pos = get_positive(l);
+    bool same = issame(l, pos);
+    if(same)
+        std::cout << "The vectors are the same.\n";
+    else
+        std::cout << "The vectors are different.\n";
+    return 0;
+}
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(auto x : l) {
         if(x > 0.0f)
             result.push_back(x);
     }
     return result;
-}
-
-int main() {
-    std::vector<float> numbers = {1, -2, 3, -4, 5};
-    std::vector<float> positive_numbers = get_positive(numbers);
-
-    for(auto x : positive_numbers) {
-        std::cout << x << " ";
-    }
-    return 0;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if(a.size() != b.size()) 
-        return false;
-
-    for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-9)
-            return false;
-    }
-
-    return true;
 }
