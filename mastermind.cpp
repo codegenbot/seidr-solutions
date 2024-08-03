@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::pair<int, int> mastermind(std::string code, std::string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -40,4 +40,3 @@ int main() {
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
-}
