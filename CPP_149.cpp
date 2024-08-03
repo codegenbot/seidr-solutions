@@ -1,16 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool issame(string s1,string s2){
+    if(s1.length() != s2.length())
+        return false;
+    for(int i=0;i<s1.length();i++){
+        if(s1[i] != s2[i])
+            return false;
+    }
+    return true;
+}
+
 vector<string> sorted_list_sum(vector<string> lst) {
-    // Remove strings with odd lengths from the vector
-    lst.erase(remove_if(lst.begin(), lst.end(),
-        [](const string& s){ return s.length() % 2 != 0; }), lst.end());
-
-    // Sort the vector by length and then alphabetically
-    sort(lst.begin(), lst.end(), 
-        [](const string& a, const string& b) {
-            if (a.size() == b.size())
-                return a.compare(b) < 0;
-            else
-                return a.size() < b.size();
-        });
-
-    return lst;
+    vector<string> result = lst;
+    for (auto it = result.begin(); it != result.end();) {
+        if (it->length() % 2 == 1) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
+             }
+         });
+    return result;
 }
