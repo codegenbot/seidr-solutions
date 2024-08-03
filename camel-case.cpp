@@ -6,27 +6,26 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    int capitalizeNext = 1;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == ' ') {
-                i++;
+    bool isFirst = true;
+    for (char c : s) {
+        if (c == '-') {
+            while (s[s.find(c) + 1] == ' ') {
+                s.erase(s.find(c), 1);
             }
-            capitalizeNext = 1;
-        } else if (s[i] == ' ') {
-            capitalizeNext = 1;
-        } else {
-            if (!capitalizeNext) {
-                result += tolower(s[i]);
+            if (!isFirst) {
+                result += tolower(c + 1);
             } else {
-                result += toupper(s[i]);
-                capitalizeNext = 0;
+                isFirst = false;
+            }
+        } else if (c != ' ') {
+            if (!isFirst) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+                isFirst = false;
             }
         }
     }
-    
     return result;
 }
 
