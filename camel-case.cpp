@@ -5,35 +5,23 @@ std::string camelCase(std::string str) {
     std::string result = "";
     for (char c : str) {
         if (c == '-') {
-            int pos = str.find(c);
-            while (pos != string::npos) {
-                char next = str[pos + 1];
-                if (next >= 'a' && next <= 'z') {
-                    result += next;
-                } else if (next >= 'A' && next <= 'Z') {
-                    result += tolower(next);
-                }
-                pos = str.find(c, pos + 1);
-            }
-        } else {
-            if (!result.empty()) {
-                char firstChar = c;
-                if ((firstChar >= 'a' && firstChar <= 'z')) {
-                    firstChar = toupper(firstChar);
-                }
-                result += firstChar;
-            } else {
-                result += tolower(c);
-            }
+            int i = str.find(c);
+            result += str.substr(0, i).at(i - 1). toupper();
+            str.erase(0, i + 1);
+        } else if (c == ' ') {
+            int i = str.find(c);
+            result += str.substr(0, i).at(i - 1).toupper();
+            str.erase(0, i + 1);
         }
     }
+    result += str;
     return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
