@@ -12,7 +12,7 @@ int main() {
         } else if (capitalize) {
             c = std::toupper(c);
             capitalize = false;
-        } else if (std::isupper(c)) {  // Check if the character is already uppercase
+        } else if (std::isupper(c)) {
             c = std::tolower(c);
         }
     }
