@@ -2,28 +2,30 @@
 #include <cassert>
 using namespace std;
 
+vector<int> count_up_to(int n);
+
 vector<int> count_up_to(int n){
     vector<int> primes;
-    for (int num = 2; num <= n; num++) {
-        bool is_prime = true;
-        for (int i = 2; i < num; i++) {
-            if (num % i == 0) {
-                is_prime = false;
-                break;
+    if (n >= 2) {
+        primes.push_back(2);
+        for (int i = 3; i <= n; i += 2) {
+            bool is_prime = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    is_prime = false;
+                    break;
+                }
             }
-        }
-        if (is_prime) {
-            primes.push_back(num);
+            if (is_prime) {
+                primes.push_back(i);
+            }
         }
     }
     return primes;
 }
 
 int main(){
-    vector<int> expected_primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-    vector<int> calculated_primes = count_up_to(101);
-
-    assert(calculated_primes == expected_primes);
+    assert(count_up_to(101) == vector<int>{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97});
     
     return 0;
 }
