@@ -1,1 +1,1 @@
-std::make_pair(blackPegs, whitePegs)
+std::make_pair(blackPegs, whitePegs);
