@@ -1,6 +1,6 @@
 #include <vector>
-#include <cmath> // Include this for std::abs
-#include <algorithm> // Include this for std::sort
+#include <algorithm>
+#include <iostream>
 #include <cassert>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
@@ -15,8 +15,8 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 
 int main() {
     std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    assert(has_close_elements(a, 0.5) == true);
-    assert(has_close_elements(a, 0.1) == false);
+    assert(has_close_elements(a, 0.5f) == true);
+    assert(has_close_elements(a, 0.1f) == false);
 
     return 0;
 }
