@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 #include <iomanip>
+
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -18,4 +20,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(6) << diceGame(n, m);
     return 0;
-}
