@@ -1,14 +1,25 @@
-// Include necessary headers
 #include <vector>
 #include <cmath>
 #include <cassert>
 
-// Remove forward declaration of find_zero function
-// Add header file for vector
-double find_zero(const vector<double>& xs) {
-    // Initialize coefficients vector
-    vector<double> coeffs = {1, -2, 1}; // Example coefficients: x^2 - 2x + 1
-    double a = poly(coeffs, 1);
-    double b = poly(coeffs, 0);
+std::vector<double> coeffs = {};
+
+for (double coeff : coeffs){
+    coeffs.push_back(coeff);
+}
+
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * std::pow(x, i);
+    }
+    return result;
+}
+
+double find_zero(const std::vector<double>& xs) {
+    double a = poly(xs, 1);
+    double b = poly(xs, 0);
     return -b / a;
 }
+
+assert(std::abs(poly(coeffs, solution)) < 1e-3);
