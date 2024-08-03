@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 def prime_fib(n: int):
     a, b = 0, 1
     for _ in range(n):
