@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int pennies(int cents) {
     return cents;
 }
