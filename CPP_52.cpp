@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,15 +12,13 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> list = {1, 2, 3, 4};
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
     int threshold = 3;
 
-    bool result = below_threshold(list, threshold);
-
-    if (result) {
-        std::cout << "All elements are below the threshold." << std::endl;
+    if (below_threshold(numbers, threshold)) {
+        std::cout << "All numbers are below the threshold." << std::endl;
     } else {
-        std::cout << "At least one element is not below the threshold." << std::endl;
+        std::cout << "At least one number is not below the threshold." << std::endl;
     }
 
     return 0;
