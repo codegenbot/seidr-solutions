@@ -3,15 +3,10 @@
 
 int main() {
     std::vector<int> nums;
-
     int n;
+
     while (std::cin >> n) {
         nums.push_back(n);
-    }
-    if (!std::cin.eof()) {
-        std::cin.clear();
-        std::string dummy;
-        std::getline(std::cin, dummy);
     }
 
     int sum = 0;
