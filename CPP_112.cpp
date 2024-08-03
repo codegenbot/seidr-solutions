@@ -1,15 +1,9 @@
-bool isPalindrome(vector<string> temp) {
-    bool result = false;
-    int start = 0, end = temp.size() - 1;
-    while (start < end) {
-        if (temp[start] != temp[end]) {
-            result = false;
-            break;
-        }
-        start++;
-        end--;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-    return result;
+    return true;
 }
 
 vector<string> reverse_delete(string s, string c) {
@@ -30,7 +24,16 @@ vector<string> reverse_delete(string s, string c) {
     for (int i = 0; i < result.size(); i++) {
         temp += result[i];
     }
-    bool isPalindromeTemp = isPalindrome(vector<string>(temp.begin(), temp.end()));
-    result.push_back(isPalindromeTemp ? "True" : "False");
+    bool isPalindrome = false;
+    int start = 0, end = temp.length() - 1;
+    while (start < end) {
+        if (temp[start] != temp[end]) {
+            isPalindrome = false;
+            break;
+        }
+        start++;
+        end--;
+    }
+    result.push_back(isPalindrome ? "True" : "False");
     return result;
 }
