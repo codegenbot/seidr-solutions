@@ -3,11 +3,14 @@ bool are_vectors_equal(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> result;
-    for (int i = 1; i <= n; ++i) {
-        result.push_back(i % 2 == 1 ? i / 2 + 1 : n - i / 2 + 1);
+    std::vector<int> palindrome;
+    for(int i = 1; i <= n; ++i) {
+        palindrome.push_back(i);
     }
-    return result;
+    for(int i = n - (n % 2); i > 0; --i) {
+        palindrome.push_back(i);
+    }
+    return palindrome;
 }
 
 int main() {
