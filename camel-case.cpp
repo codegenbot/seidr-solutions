@@ -4,7 +4,7 @@
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     bool capitalize = true;
     for (char& c : input) {
         if (c == '-' || c == ' ') {
@@ -16,11 +16,11 @@ int main() {
             c = std::tolower(c);
         }
     }
-    
-    if (!input.empty() && input[0] >= 'a' && input[0] <= 'z') 
+
+    if (!input.empty() && input[0] >= 'a' && input[0] <= 'z')
         input[0] = std::toupper(input[0]); // Capitalize the first letter if it's a lowercase letter
-    
+
     std::cout << input << std::endl;
-    
+
     return 0;
 }
