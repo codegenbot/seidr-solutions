@@ -1,4 +1,3 @@
-#include <cassert>
 #include <vector>
 
 bool checkIfSame(std::vector<int> a, std::vector<int> b) {
