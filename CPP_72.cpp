@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != toString(reverse(str))) return false;
+    if (str != tostring(reverse(str))) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -20,8 +21,8 @@ vector<int> reverse(vector<int> v) {
         result.push_back(v[i]);
     }
     return result;
-}
 
+}
 int main() {
     assert(will_it_fly({5}, 5) == true);
     return 0;
