@@ -16,7 +16,6 @@ string longest(vector<string> strings) {
     return longestStr;
 }
 
-// Example test case
 int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
 }
