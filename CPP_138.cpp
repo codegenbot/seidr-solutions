@@ -1,12 +1,14 @@
-Here is the completed code:
+#include <vector>
 
-bool is_equal_to_sum_even(int n){
-    for(int i = 2; i <= n; i += 2){
+bool is_equal_to_sum_even(int n) {
+    for (int i = 2; i <= n; i += 2) {
         int sum = 0;
-        for(int j = 2; j <= (n - i); j += 2){
-            if(i + j + 2*j > n) break;
+        std::vector<int> nums;
+        for (int j = 2; j <= i; j += 2) {
+            if ((sum + j) > n) break;
             sum += j;
-            if(sum == i) return true;
+            nums.push_back(j);
+            if (sum == n) return true;
         }
     }
     return false;
