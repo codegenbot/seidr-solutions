@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,8 +13,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {100, 101, 102, 103, 104};
+    std::vector<int> nums = {11, 12, 13, 14, 15};
     int result = specialFilter(nums);
-    std::cout << "The result is: " << result << std::endl;
+    std::cout << "The number of special numbers in the array is: " << result << std::endl;
     return 0;
 }
