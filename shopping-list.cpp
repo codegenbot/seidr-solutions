@@ -1,12 +1,11 @@
 #include <vector>
 using namespace std;
 
-double shoppingList(double prices[], double discounts[], int n) {
+double shoppingList(double price[], double discount[], int n) {
     double total = 0;
     for (int i = 0; i < n; i++) {
-        double price = prices[i];
-        double discount = price * discounts[i] / 100.0;
-        total += price - discount;
+        double discountedPrice = price[i] * (1 - discount[i] / 100.0);
+        total += discountedPrice;
     }
     return total;
 }
@@ -14,7 +13,7 @@ double shoppingList(double prices[], double discounts[], int n) {
 int main() {
     int n;
     cin >> n;
-    double prices[n], discounts[n];
+    vector<double> prices(n), discounts(n);
     for (int i = 0; i < n; i++) {
         cin >> prices[i] >> discounts[i];
     }
