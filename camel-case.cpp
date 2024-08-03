@@ -1,21 +1,39 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    for (const auto& word : str.split("-")) {
-        if (!result.empty()) {
-            result[0] = toupper(result[0]);
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool firstWord = true;
+    
+    for (char c : str) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (firstWord) {
+                result += c;
+            } else {
+                result += char(tolower(c));
+            }
+            firstWord = false;
         }
-        result += word;
     }
+    
     return result;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "camelCase: " << kebabToCamel(input) << std::endl;
+    std::string str;
+    std::cin >> str;
+    std::cout << camelCase(str) << std::endl;
     return 0;
 }

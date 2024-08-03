@@ -1,33 +1,30 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgorithm(const vector<int>& ccNum) {
+int luhnCheck(vector<int>& nums) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = ccNum.size() - 1; i >= 0; --i) {
-        int digit = ccNum[i];
-        
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9)
-                digit -= 9;
+    bool doubling = false;
+    for(int i = 0; i < nums.size(); i++) {
+        int num = nums[i];
+        if(doubling) {
+            num *= 2;
+            if(num > 9) {
+                num -= 9;
+            }
         }
-        
-        sum += digit;
-        doubleNext = !doubleNext;
+        sum += num;
+        doubling = !doubling;
     }
-
     return sum;
 }
 
 int main() {
-    vector<int> ccNum = vector<int>(16);
-    for (int i = 0; i < 16; ++i) {
-        cin >> ccNum[i];
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
-
-    cout << luhnAlgorithm(ccNum) << endl;
-
+    cout << luhnCheck(nums) << endl;
     return 0;
 }
