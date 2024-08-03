@@ -3,7 +3,7 @@ def indices_of_substring():
     target = input().strip()
 
     indices = [i for i in range(len(text)) if text.startswith(target, i)]
-    
+
     current_index = 0
     while True:
         current_index = text.find(target, current_index)
