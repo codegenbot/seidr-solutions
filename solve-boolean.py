@@ -1,21 +1,11 @@
-def solve_boolean(expression):
-    def boolean_operator(operator):
-        if operator == "|":
-            return lambda a, b: a or b
-        elif operator == "&":
-            return lambda a, b: a and b
-
-    def evaluate_expression(expression):
-        stack = []
-        for char in expression:
-            if char.isalpha():
-                stack.append(char)
-            else:
-                operator = stack.pop()
-                operand2 = stack.pop()
-                stack.append(
-                    boolean_operator(operator)(operand1 == "T", operand2 == "T")
-                )
-        return stack[0] == "T"
-
-    return evaluate_expression(expression)
+def solve_boolean(input_str):
+    if input_str == 'T':
+        return True
+    elif input_str == 'F':
+        return False
+    elif '&' in input_str and '|' in input_str:
+        raise ValueError('Invalid expression')
+    else:
+        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
+        output = eval(''.join(operators[op](x, y) for op, (x, y) in zip(*[input_str[i:i+2] for i in range(0, len(input_str), 2)])))
+    return output
