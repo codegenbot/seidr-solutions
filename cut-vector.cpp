@@ -19,7 +19,6 @@ int main() {
         sum += nums[i];
     }
     
-    int half_sum = sum / 2;
     int prefix_sum = 0;
     int cut_index = -1;
     
