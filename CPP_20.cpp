@@ -4,16 +4,15 @@
 #include <cassert>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
-    std::vector<float> copy_numbers = numbers;
-    std::sort(copy_numbers.begin(), copy_numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     
-    std::pair<float, float> closest_pair = std::make_pair(copy_numbers[0], copy_numbers[1]);
-    float min_diff = copy_numbers[1] - copy_numbers[0];
+    std::pair<float, float> closest_pair = std::make_pair(numbers[0], numbers[1]);
+    float min_diff = numbers[1] - numbers[0];
 
-    for (int i = 1; i < copy_numbers.size() - 1; i++) {
-        if (copy_numbers[i + 1] - copy_numbers[i] < min_diff) {
-            min_diff = copy_numbers[i + 1] - copy_numbers[i];
-            closest_pair = std::make_pair(copy_numbers[i], copy_numbers[i + 1]);
+    for (int i = 1; i < numbers.size() - 1; i++) {
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
+            closest_pair = std::make_pair(numbers[i], numbers[i + 1]);
         }
     }
 
