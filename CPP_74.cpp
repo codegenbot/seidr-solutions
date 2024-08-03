@@ -12,11 +12,9 @@ int countTotalChars(const vector<string>& lst) {
     return total;
 }
 
-bool areSame(vector<string> a, vector<string> b) {
+bool areVectorsEqual(vector<string> a, vector<string> b) {
     return a == b;
 }
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total1 = countTotalChars(lst1);
@@ -30,7 +28,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(areSame(total_match({"this"}, {}), vector<string>{}));
-    
+    assert(areVectorsEqual(total_match({"this"}, {}), {}));
     return 0;
 }
