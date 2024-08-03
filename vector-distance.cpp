@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -43,3 +44,4 @@ int main() {
     cout << fixed << setprecision(10) << distance << endl;
     
     return 0;
+}
