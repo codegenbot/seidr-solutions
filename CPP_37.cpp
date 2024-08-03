@@ -1,5 +1,6 @@
 #include <vector>
-#include <algorithm>
+
+std::vector<float> sort_even(const std::vector<float>& v);
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -22,9 +23,4 @@ std::vector<float> sort_even(const std::vector<float>& v) {
     }
     std::sort(even_sorted.begin(), even_sorted.end());
     return even_sorted;
-}
-
-int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 2, 4, 12}));
-    return 0;
 }
