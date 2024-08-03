@@ -40,13 +40,7 @@ string sort_numbers(const string& input) {
     for (const auto& num : numbers) {
         sorted_numbers += num + " ";
     }
-    sorted_numbers.pop_back(); // Remove the extra space at the end
+    sorted_numbers.pop_back(); 
 
     return sorted_numbers;
-}
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
-    return 0;
 }
