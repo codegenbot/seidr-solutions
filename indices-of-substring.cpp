@@ -9,12 +9,12 @@ int main() {
     std::vector<int> indices;
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
-        if (!indices.empty() && pos == indices.back()) {
+        if (!indices.empty() && pos == indices.back() && target.length() > 1) {
             pos++;
             continue;
         }
         indices.push_back(static_cast<int>(pos));
-        pos += 1;
+        pos += target.length(); 
     }
     
     for (int i : indices) {
