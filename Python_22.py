@@ -1,2 +1,2 @@
-def filter_int_values(values):
-    return [value for value in values if isinstance(value, int)]  
+def filter_integers(values):
+    return [value for value in values if isinstance(value, int)]
