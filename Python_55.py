@@ -8,4 +8,4 @@ def fib(n: int):
     for _ in range(2, n + 1):
         a, b = b, a + b
     return b
-print("The {}th number is {}".format(n, fib(n)))
+print("Fibonacci number is:", fib(n))
