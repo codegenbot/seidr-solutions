@@ -3,15 +3,15 @@
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int result = 0;
-    for (std::vector<int> well : grid) {
+    for (const auto& well : grid) {
         int water = 0;
         for (int unit : well) {
             if (unit == 1) {
-                water += min(capacity, unit);
+                water += std::min(capacity, unit);
             }
         }
         while (water > 0) {
-            capacity = min(capacity, water);
+            capacity = std::min(capacity, water);
             result++;
             water -= capacity;
         }
