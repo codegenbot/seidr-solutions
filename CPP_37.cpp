@@ -1,3 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+void sort_even(std::vector<float>& v) {
+    std::sort(v.begin(), v.end(), [](float a, float b) {
+        return ((int)a % 2 == 0 && (int)b % 2 == 0) ? a > b : (int)a % 2 < (int)b % 2;
+    });
+}
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
+}
+
 int main() {
     std::vector<float> v = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> tmp = v;
