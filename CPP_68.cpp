@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 std::vector<int> pluck(std::vector<int> arr){
@@ -23,24 +24,26 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 int main(){
-    std::vector<int> input1 = {2, 4, 6, 8};
-    std::vector<int> result1 = pluck(input1);
-    
-    std::vector<int> expected1 = {2, 0};
-    if(issame(result1, expected1)){
-        std::cout << "Test case 1 passed" << std::endl;
-    } else {
-        std::cout << "Test case 1 failed" << std::endl;
+    int n;
+    std::vector<int> nums;
+
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++){
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
+
+    std::vector<int> plucked = pluck(nums);
     
-    std::vector<int> input2 = {1, 3, 5, 7};
-    std::vector<int> result2 = pluck(input2);
-    
-    std::vector<int> expected2 = {};
-    if(issame(result2, expected2)){
-        std::cout << "Test case 2 passed" << std::endl;
-    } else {
-        std::cout << "Test case 2 failed" << std::endl;
+    if (!plucked.empty()) {
+        std::cout << "Smallest even number: " << plucked[0] << " at index " << plucked[1] << std::endl;
+    }
+    else {
+        std::cout << "No even numbers found in the input." << std::endl;
     }
     
     return 0;
