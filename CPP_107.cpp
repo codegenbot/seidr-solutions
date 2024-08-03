@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool are_vectors_equal(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -15,6 +14,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    assert(are_vectors_equal(even_odd_palindrome(2), {1, 2}));
+    assert(issame(even_odd_palindrome(3), {2, 1, 3}));
     return 0;
 }
