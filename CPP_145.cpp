@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
+#include <cmath> // include for std::abs
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -32,12 +32,12 @@ std::vector<int> order_by_points(std::vector<int> nums){
     return nums;
 }
 
-int main(){
+int main() {
     std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-  
+
     for (int num : result) {
         std::cout << num << " ";
     }
-  
+
     return 0;
 }
