@@ -24,7 +24,7 @@ int main() {
     int number;
     std::cout << "Enter a number: ";
     std::cin >> number;
-    
+
     int result = largest_prime_factor(number);
     std::cout << "Largest prime factor: " << result << std::endl;
 
