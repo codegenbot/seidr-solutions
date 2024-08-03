@@ -1,7 +1,8 @@
 #include <vector>
 #include <iostream>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool is_same(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -11,4 +12,9 @@ std::vector<int> make_a_pile(int n){
         stones.push_back(n + 2 * i);
     }
     return stones;
+}
+
+int main(){
+    assert (is_same(make_a_pile(8) , {8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
