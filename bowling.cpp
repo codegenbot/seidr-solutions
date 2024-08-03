@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -20,7 +19,7 @@ int bowlingScore(std::string s) {
                     frame++;
                 } else {
                     frame++;
-                    if (!((s.length()-1)>s.find('/')) && !((s.length()-2)>s.find('/'))) {
+                    if (s.back() != '/' && s[s.length()-2] != '/') {
                         int nextPins = s.back() - '0';
                         score += pins + nextPins;
                         frame++;
