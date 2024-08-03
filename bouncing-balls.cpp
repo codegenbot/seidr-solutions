@@ -1,5 +1,10 @@
-double starting_height, total_distance, bounciness_index;
-std::cin >> starting_height >> bounciness_index;
+double starting_height, bounciness_index;
+int number_of_bounces;
+cin >> starting_height >> bounciness_index >> number_of_bounces;
 
-total_distance = starting_height;
-total_distance += 2 * total_distance * bounciness_index;
+double total_distance = starting_height;
+for (int i = 0; i < number_of_bounces; ++i) {
+    total_distance += 2 * total_distance * bounciness_index;
+}
+
+cout << total_distance << endl;
