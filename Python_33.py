@@ -1,5 +1,3 @@
-```
 def sort_third(l: list):
-    indexed_l = [(i, x) for i, x in enumerate(l)]
-    return [x if i % 3 != 0 else sorted([y for j, y in indexed_l if (j - indexed_l.index((k, y))) % 3 != 0])[0]
-           for i, x in indexed_l]
+    return [sorted([x for x in l if (i - l.index(x)) % 3 != 0])[0] if i % 3 == 0 else x 
+            for i, x in enumerate(l)]
