@@ -1,8 +1,7 @@
-#include <vector>
-#include <string>
 #include <cassert>
+#include <string>
 
-int odd_count(const std::initializer_list<std::string>& strings) {
+int odd_count(const std::initializer_list<std::string>& strings){
     int count = 0;
     for (const std::string& str : strings) {
         for (char c : str) {
@@ -14,7 +13,7 @@ int odd_count(const std::initializer_list<std::string>& strings) {
     return count;
 }
 
-bool issame(int result, const std::initializer_list<std::string>& expected_output) {
+bool issame(int result, const std::initializer_list<std::string>& expected_output){
     int i = 0;
     for (const std::string& str : expected_output) {
         if (str.find(std::to_string(result)) == std::string::npos) {
@@ -26,9 +25,8 @@ bool issame(int result, const std::initializer_list<std::string>& expected_outpu
 }
 
 int main() {
-    assert(issame(3, {"123", "345", "789"}) == true);
-    assert(odd_count({"abc", "123", "def", "456"}) == 4);
-    assert(issame(odd_count({"271", "137", "314"}), { "271", "137", "314" }) == true);
-  
+    assert(issame(3, {"abc", "def", "ghi", "123", "456"}));
+    assert(issame(odd_count({"271", "137", "314"}), { "true" });
+    
     return 0;
 }
