@@ -9,7 +9,7 @@ int add_elements(const std::vector<int>& arr, int k) {
         }
     }
     return sum;
-} 
+}
 
 int main() {
     assert(add_elements({1}, 1) == 1);
