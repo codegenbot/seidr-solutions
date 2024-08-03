@@ -1,5 +1,5 @@
-#include <string>
 #include <algorithm>
+#include <string>
 
 string anti_shuffle(string s) {
     string result = "";
@@ -16,12 +16,4 @@ string anti_shuffle(string s) {
     sort(word.begin(), word.end());
     result += word;
     return result;
-}
-
-int main() {
-    // Sample test cases using assert
-    assert(anti_shuffle("fedcba") == "abcdef");
-    assert(anti_shuffle("bya i ekscwiaosjo") == "a abceiijkoosswy");
-
-    return 0;
 }
