@@ -15,10 +15,10 @@ vector<string> reverse_delete(string s, string c) {
     }
     string resultReverse = result;
     reverse(resultReverse.begin(), resultReverse.end());
-    return {resultReverse}; // Return vector of strings
+    return {resultReverse};
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{""}); // Compare result properly
+    assert(reverse_delete("mamma", "mia") == vector<string>{""});
     return 0;
 }
