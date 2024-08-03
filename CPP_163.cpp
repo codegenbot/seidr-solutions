@@ -1,7 +1,7 @@
 #include <cassert>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     for (auto num : a) {
         if (num % 2 == 0) {
             return true;
@@ -16,4 +16,9 @@ std::vector<int> generate_integers(int start, int end) {
         result.push_back(i);
     }
     return result;
+}
+
+int main() {
+    assert(issame(generate_integers(17, 89), std::vector<int>()) == true);
+    return 0;
 }
