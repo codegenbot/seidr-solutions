@@ -3,29 +3,17 @@
 
 using namespace std;
 
-string compare_one(string a, string b) {
-    if (a > b) {
-        return a;
-    } else if (b > a) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (any_cast<int>(a) && any_cast<float>(b)) {
         return b;
-    }
-    return "None";
-}
-
-string compare_one(float a, int b) {
-    if (a > b) {
-        return to_string(a);
-    } else if (b > a) {
-        return to_string(b);
-    }
-    return "None";
-}
-
-string compare_one(int a, float b) {
-    if ((float)a > b) {
-        return to_string(a);
-    } else if (b > (float)a) {
-        return to_string(b);
+    } else if (any_cast<float>(a) && any_cast<string>(b)) {
+        return max(to_string(any_cast<float>(a)), b);
+    } else if (any_cast<int>(a) && any_cast<string>(b)) {
+        return b;
+    } else if (any_cast<float>(a) && any_cast<int>(b)) {
+        return a < b ? a : b;
+    } else if (any_cast<string>(a) && any_cast<string>(b)) {
+        return max(a, b);
     }
     return "None";
 }
