@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
 #include <string>
@@ -8,15 +6,19 @@ std::string kebabToCamel(const std::string& str) {
     size_t start = 0, end;
 
     while ((end = str.find(' ')) != std::string::npos) {
+        if (start != end) {
+            result += char(std::toupper(str[start]));
+            result += str.substr(start + 1, end - start - 1);
+        }
         start = end + 1;
     }
 
-    std::string result = "";
-    if (!str.empty()) {
-        result += char(std::toupper(str[0]));
-        result += str.substr(1);
-    } else {
-        return str;
+    if (start != str.size()) {
+        if (!result.empty()) {
+            result += char(std::toupper(str[start]));
+        } else {
+            result = std::string(1, std::toupper(str[start])) + str.substr(start + 1);
+        }
     }
 
     return result;
