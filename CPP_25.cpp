@@ -1,5 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+
+bool is_same(std::vector<int> a, std::vector<int> b);
+std::vector<int> factorize(int n);
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
