@@ -1,4 +1,3 @@
-Here is the completed code:
-
-def camel_case(s):
-    return ' '.join(word.capitalize() for word in s.split())
+def kebab_to_camel(s):
+    s = s.replace("-", " ")
+    return "".join(word.capitalize() for word in s.split()) if " " in s else s
