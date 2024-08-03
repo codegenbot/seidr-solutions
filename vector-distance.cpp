@@ -17,7 +17,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]); // Calculate squared difference
+        distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     distance = sqrt(distance);
