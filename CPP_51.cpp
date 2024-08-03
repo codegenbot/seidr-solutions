@@ -10,3 +10,4 @@ std::string remove_vowels(std::string text) {
         result += tolower(c);
     }
     return result;
+}
