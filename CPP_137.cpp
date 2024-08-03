@@ -1,6 +1,7 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
+#include <cmath>
 
 using namespace boost;
 
@@ -53,10 +54,10 @@ boost::any compare_one(boost::any a, boost::any b) {
             str = str.substr(1);
         }
 
-        if (stod(a.convert_to<string>()) < stod(str)) {
+        if (a.convert_to<double>() < stod(str)) {
             return a;
         }
-        else if (stod(a.convert_to<string>()) > stod(str)) {
+        else if (a.convert_to<double>() > stod(str)) {
             return b;
         }
         else {
