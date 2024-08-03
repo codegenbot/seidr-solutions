@@ -1,41 +1,31 @@
-Here is the completed code:
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    vector<vector<bool>> dp(n, vector<bool>(n));
+    vector<vector<int>> dp(n, vector<int>(n));
+    
     for (int i = 0; i < n; i++) {
-        dp[i][i] = true;
+        dp[i][i] = 0;
     }
-    for (int len = 2; len <= n; len++) {
-        for (int i = 0; i < n - len + 1; i++) {
-            int j = i + len - 1;
+    
+    for (int length = 2; length <= n; length++) {
+        for (int i = 0; i <= n - length; i++) {
+            int j = i + length - 1;
+            
             if (arr[i] == arr[j]) {
-                dp[i][j] = true;
+                dp[i][j].push_back(0);
             } else {
-                dp[i][j] = false;
+                int min_change = INT_MAX;
+                
                 for (int k = i; k <= j; k++) {
-                    if (!dp[i][k-1] || !dp[k+1][j]) {
-                        dp[i][j] = true;
-                        break;
+                    int change = dp[i][k-1].size() + dp[k+1][j].size() + 1;
+                    if (change < min_change) {
+                        min_change = change;
                     }
                 }
+                
+                dp[i][j] = min_change;
             }
         }
     }
-    int ans = 0;
-    for (int i = 0, j = n - 1; i < j; ) {
-        if (!dp[i][j]) {
-            ans++;
-            if (i != j) {
-                i++;
-                j--;
-            } else {
-                break;
-            }
-        } else {
-            i++;
-            j--;
-        }
-    }
-    return ans;
+    
+    return dp[0][n-1].size();
 }
