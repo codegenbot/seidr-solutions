@@ -2,31 +2,23 @@
 #include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    
-    return true;
+    return a == b;
 }
 
 std::vector<int> count_up_to(int limit) {
     std::vector<int> primes;
-    if (limit < 2) return primes;
-
-    std::vector<bool> is_prime(limit + 1, true);
-    is_prime[0] = is_prime[1] = false;
-
-    for (int i = 2; i <= limit; ++i) {
-        if (is_prime[i]) {
-            primes.push_back(i);
-            for (int j = i * 2; j <= limit; j += i) {
-                is_prime[j] = false;
+    for (int num = 2; num <= limit; ++num) {
+        bool is_prime = true;
+        for (int i = 2; i * i <= num; ++i) {
+            if (num % i == 0) {
+                is_prime = false;
+                break;
             }
         }
+        if (is_prime) {
+            primes.push_back(num);
+        }
     }
-
     return primes;
 }
 
