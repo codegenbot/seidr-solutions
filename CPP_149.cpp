@@ -1,23 +1,28 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
+#include <string>
+
+bool issame(vector<string> a,vector<string> b){
+    return a==b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = lst.begin();
-    while (it != lst.end()) {
-        if (it->length() % 2 == 1) {
-            it = lst.erase(it);
-        } else {
-            ++it;
+    // Remove strings with odd lengths
+    vector<string> result;
+    for (const string& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
 
-    std::sort(lst.begin(), lst.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
+    // Sort the resulting vector by length and then alphabetically
+    sort(result.begin(), result.end(), [](const string& a, const string& b) {
+        if (a.length() != b.length()) {
+            return a.length() < b.length();
+        } else {
+            return a < b;
+        }
+    });
 
-    return lst;
+    return result;
 }
