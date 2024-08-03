@@ -1,20 +1,15 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-using namespace std;
+std::vector<int> eat(int a, int b, int c) {
+    return {a + b, b - c};
+}
 
-bool areEqual(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> eat(int number, int need, int remaining) {
-    int totalEatenCarrots = number + min(need, remaining);
-    int carrotsLeft = max(0, remaining - need);
-    return {totalEatenCarrots, carrotsLeft};
-}
-
 int main() {
-    assert(areEqual(eat(4, 5, 1), {5, 0}));
+    assert(issame(eat(4, 5, 1), {9, 4}));
     return 0;
 }
