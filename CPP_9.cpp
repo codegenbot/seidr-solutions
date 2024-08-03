@@ -2,10 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+#include <cassert>
 
 std::vector<int> rolling_max(std::vector<int> numbers){
     std::vector<int> result;
@@ -17,11 +14,11 @@ std::vector<int> rolling_max(std::vector<int> numbers){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 int main() {
-    std::vector<int> numbers = {1, 3, 5, 2, 8};
-    std::vector<int> result = rolling_max(numbers);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
