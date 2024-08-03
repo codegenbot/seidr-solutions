@@ -37,7 +37,6 @@ int main() {
     cin >> a >> b;
     cin.ignore();
     
-    cin.ignore();
     string text, target;
     getline(cin, text);
     getline(cin, target);
