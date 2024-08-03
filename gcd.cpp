@@ -25,8 +25,8 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    getline(std::cin, text);
-    getline(std::cin, target);
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
