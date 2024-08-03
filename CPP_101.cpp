@@ -16,7 +16,7 @@ vector<string> words_string(const string& s) {
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
-            }
+            } 
         } else {
             word += c;
         }
