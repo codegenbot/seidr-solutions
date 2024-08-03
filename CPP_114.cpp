@@ -1,22 +1,22 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-long long minSubArraySum(std::vector<long long> nums) {
-    int n = nums.size();
+long long minSubArraySum(vector<long long> nums) {
+    long long total = 0;
     long long min_sum = LLONG_MAX;
-    for (int i = 0; i < n; ++i) {
-        long long sum = 0;
-        for (int j = i; j < n; ++j) {
-            sum += nums[j];
-            if (sum < min_sum)
-                min_sum = sum;
+
+    for (int i = 0; i < nums.size(); i++) {
+        total += nums[i];
+        min_sum = min(min_sum, total);
+        if (total < 0) {
+            total = 0;
         }
     }
+
     return min_sum;
 }
 
 int main() {
-    std::vector<long long> nums = {1, -1};
-    assert(minSubArraySum(nums) == -1);
-    return 0;
+    assert(minSubArraySum({1, -1}) == -1);
+    // Your test cases here
 }
