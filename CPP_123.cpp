@@ -18,6 +18,6 @@ vector<int> get_odd_collatz(int n) {
     return collatz_sequence;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool check_equality(vector<int> a, vector<int> b) {
     return a == b;
 }
