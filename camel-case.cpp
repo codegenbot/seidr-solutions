@@ -7,7 +7,7 @@ int main() {
     
     bool capitalize = true;
     for (char& c : input) {
-        if (!std::isalpha(c)) {
+        if (c == '-' || c == ' ') {
             capitalize = true;
         } else if (capitalize) {
             c = std::toupper(c);
