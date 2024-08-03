@@ -1,14 +1,18 @@
 ```
 def compare_one(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
-        return a if float(a.replace(',', '.')) > b else None
+        a = str(a).replace('.', '').replace(',', '.').format(format(float(a), '.6f'))
     elif isinstance(b, str) and isinstance(a, (int, float)):
-        return b if float(b.replace(',', '.')) > a else None
-    elif isinstance(a, str) and isinstance(b, str):
-        return a if float(a.replace(',', '.')) > float(b.replace(',', '.')) else None
-    elif a > b:
+        b = str(b).replace('.', '').replace(',', '.').format(format(float(b), '.6f'))
+    
+    if isinstance(a, str):
+        a = float(a.replace(',', '.'))
+    if isinstance(b, str):
+        b = float(b.replace(',', '.'))
+
+    if a > b:
         return a
-    elif b > a:
+    elif a < b:
         return b
     else:
         return None
