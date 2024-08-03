@@ -20,8 +20,10 @@ int main() {
     string input;
     getline(cin, input);
     vector<string> result = split_words(input);
-    for (const auto &word : result) {
-        cout << word << " ";
+    
+    for (const string& word : result) {
+        cout << word << endl;
     }
+
     return 0;
 }
