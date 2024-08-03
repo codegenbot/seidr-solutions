@@ -12,5 +12,8 @@ def solve_boolean(expression):
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
 
-expression = input()
-print(solve_boolean(expression))
+print(solve_boolean('t'))  # True
+print(solve_boolean('f'))  # False
+print(solve_boolean('f&f'))  # False
+print(solve_boolean('f&t'))  # False
+print(solve_boolean('t&f'))  # False
