@@ -1,3 +1,16 @@
-```
+```Python
 def fix_spaces(text):
-    return "-".join(text.split()) if " " in text else text.replace(" ", "_")
+    new_text = ""
+    for i in range(len(text)):
+        if text[i] == " ":
+            if i < len(text) - 1 and text[i+1] == " ":
+                if new_text and new_text[-1] != "-":
+                    new_text += "-"
+                continue
+            new_text += "_"
+        else:
+            new_text += text[i]
+    return new_text
+
+text = input("Enter your text: ")
+print(fix_spaces(text))
