@@ -1,4 +1,5 @@
-if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
@@ -7,4 +8,13 @@ if (a.size() != b.size()) {
         }
     }
     return true;
+}
+
+int main() {
+    vector<string> strings = {"apple", "banana", "apricot", "cherry"};
+    string prefix = "app";
+    vector<string> result = filter_by_prefix(strings, prefix);
+    
+    // Your code here
+    return 0;
 }
