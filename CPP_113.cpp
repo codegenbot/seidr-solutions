@@ -2,21 +2,18 @@
 #include <vector>
 #include <string>
 
-namespace std {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
-    bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-        return a == b;
-    }
-
-    int odd_count(std::vector<std::string> vec) {
-        int count = 0;
-        for (const auto &str : vec) {
-            for (char c : str) {
-                if (c >= '0' && c <= '9' && (c - '0') % 2 == 1) {
-                    count++;
-                }
+int odd_count(std::vector<std::string> vec) {
+    int count = 0;
+    for (const auto &str : vec) {
+        for (char c : str) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 == 1) {
+                count++;
             }
         }
-        return count;
     }
+    return count;
 }
