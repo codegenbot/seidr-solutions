@@ -3,8 +3,8 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){ 
-    return a == b; 
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
 }
 
 std::vector<std::string> select_words(std::string s, int n){
@@ -32,8 +32,6 @@ std::vector<std::string> select_words(std::string s, int n){
 }
 
 int main(){
-    std::vector<std::string> expected_result = {"b", "c", "d", "f"};
-    std::vector<std::string> selected_words = select_words("a b c d e f", 1);
-    assert(issame(selected_words, expected_result));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
