@@ -20,6 +20,8 @@ std::string string_to_md5(const std::string &input) {
     return std::string(buf);
 }
 
+int main();
+
 int main() {
     std::string input;
     std::cout << "Enter the string to compute MD5 hash: ";
