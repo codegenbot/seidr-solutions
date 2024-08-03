@@ -1,9 +1,9 @@
-Here is the solution:
+Here is the completed code:
 
-string string_sequence(int n) {
-    string result = "0";
-    for (int i = 1; i <= n; ++i) {
-        result += " " + to_string(i);
+string string_sequence(int n){
+    ostringstream oss;
+    for(int i = 0; i <= n; i++){
+        oss << i << " ";
     }
-    return result;
+    return oss.str();
 }
