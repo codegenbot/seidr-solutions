@@ -26,7 +26,7 @@ int main() {
         cin >> v2[i];
     }
 
-    cout << setprecision(10) << vectorDistance(v1, v2) << endl;
+    cout << std::setprecision(10) << vectorDistance(v1, v2) << endl;
 
     return 0;
 }
