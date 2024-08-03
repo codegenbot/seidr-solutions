@@ -1,20 +1,21 @@
-Here is the solution:
-
+```
 def gcd(a, b):
-    while b:
+    while b != 0:
         a, b = b, a % b
     return abs(a)
 
 def indices_of_substring(text, target):
     indices = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
+    current_index = 0
+    while True:
+        current_index = text.find(target, current_index)
+        if current_index == -1:
+            break
+        indices.append(current_index)
+        current_index += 1
+
     return indices
 
-# Test cases
-print(gcd(1, 1))  
+# Test the functions
 print(gcd(4, 400000))
-print(gcd(54, 24))
-print(gcd(4200, 3528))
-print(gcd(820000, 63550))
+print(indices_of_substring('This is a test. This is only a test.', 'test'))
