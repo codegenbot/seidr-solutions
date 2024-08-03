@@ -1,33 +1,39 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& s) {
+std::string camelCase(std::string str) {
     std::string result = "";
-    size_t start = 0;
-    
-    while (start < s.length()) {
-        size_t end = s.find('-');
-        if (end == std::string::npos) {
-            result += toupper(s[start]);
-            break;
+    for (char c : str) {
+        if (c == '-') {
+            int pos = str.find(c);
+            while (pos != string::npos) {
+                char next = str[pos + 1];
+                if (next >= 'a' && next <= 'z') {
+                    result += next;
+                } else if (next >= 'A' && next <= 'Z') {
+                    result += tolower(next);
+                }
+                pos = str.find(c, pos + 1);
+            }
+        } else {
+            if (!result.empty()) {
+                char firstChar = c;
+                if ((firstChar >= 'a' && firstChar <= 'z')) {
+                    firstChar = toupper(firstChar);
+                }
+                result += firstChar;
+            } else {
+                result += tolower(c);
+            }
         }
-        
-        size_t wordLen = end - start;
-        result += toupper(s.substr(start, 1));
-        
-        for (size_t i = 1; i < wordLen; ++i) {
-            result += tolower(s[start + i]);
-        }
-        
-        start = end + 1;
     }
-    
     return result;
 }
 
 int main() {
     std::string input;
-    std::cin >> input;
-    std::cout << kebabToCamel(input) << std::endl;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
+    }
     return 0;
 }
