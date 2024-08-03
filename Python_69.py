@@ -1,5 +1,6 @@
 ```
-def search(lst):
+def search():
+    lst = list(map(int, input("Enter numbers separated by space: ").split()))
     freq_dict = {}
     for num in lst:
         if num in freq_dict:
@@ -11,6 +12,3 @@ def search(lst):
         if freq >= num and num > 0:
             max_num = num
     return max_num
-
-numbers = input("Enter the numbers separated by space: ").split()
-print(search([int(num) for num in numbers]))
