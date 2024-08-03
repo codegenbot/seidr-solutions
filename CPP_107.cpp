@@ -18,5 +18,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    // Your main function code here
+    // main function implementation
+    return 0;
 }
