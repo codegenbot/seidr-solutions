@@ -15,8 +15,7 @@ def minPath(grid, k):
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
                 new_sum = total_sum + grid[i][j]
-                if new_sum > k:
-                    return
+                if new_sum > k: continue
                 dfs(ni, nj, current_path + [grid[i][j]], new_sum)
         visited[i][j] = False
 
