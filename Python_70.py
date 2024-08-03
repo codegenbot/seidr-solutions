@@ -1,16 +1,23 @@
 ```
 def strange_sort_list(lst):
+    if not lst:
+        return []
+
     result = []
-    while lst:
-        result.append(min(lst))
-        if len(lst) > 1:
-            lst.pop(lst.index(min(lst)))
+    min_val = min(lst)
+    max_val = max(lst)
+
+    while len(result) < len(lst):
+        if min_val in lst and max_val in lst:
+            result.append(min_val)
+            min_val = min([x for x in lst if x != min_val])
+            result.append(max_val)
+            max_val = max([x for x in lst if x != max_val])
+        elif min_val in lst:
+            result.append(min_val)
+            min_val = min([x for x in lst if x != min_val])
         else:
-            break
-    while lst:
-        result.append(max(lst))
-        if len(lst) > 1:
-            lst.pop(lst.index(max(lst)))
-        else:
-            break
+            result.append(max_val)
+            max_val = max([x for x in lst if x != max_val])
+
     return result
