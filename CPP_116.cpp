@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
