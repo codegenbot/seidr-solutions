@@ -2,7 +2,17 @@
 #include <string>
 #include <algorithm>
 
-bool will_it_fly(vector<int> q, int w) {
+bool main() {
+    vector<int> q;
+    int w;
+    
+    cin >> w;
+    for (int i = 0; i < 3; i++) {
+        int num;
+        cin >> num;
+        q.push_back(num);
+    }
+    
     string str = "";
     for (int i : q) {
         str += to_string(i);
