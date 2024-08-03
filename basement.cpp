@@ -1,6 +1,5 @@
+```c++
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
 int basementIndex(vector<int> v) {
@@ -14,7 +13,7 @@ int basementIndex(vector<int> v) {
 }
 
 int main() {
-    vector<int> v = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    vector<int> v = {-2, 3, 1, -5, 4};
     int result = basementIndex(v);
     cout << "Basement index: " << result << endl;
     return 0;
