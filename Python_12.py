@@ -1,7 +1,11 @@
-from typing import List, Optional
-
-
-def longest(strings: List[str]) -> Optional[str]:
+```python
+def longest(strings: list[str]) -> str | None:
     if not strings:
         return None
-    return max(strings, key=len)
+    max_length = 0
+    longest_str = ''
+    for s in strings:
+        if len(s) > max_length:
+            max_length = len(s)
+            longest_str = s
+    return longest_str
