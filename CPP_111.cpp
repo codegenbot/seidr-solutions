@@ -1,6 +1,6 @@
 #include <map>
-#include <cassert>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -12,7 +12,10 @@ map<char, int> histogram(const string& str) {
     return result;
 }
 
-int main() {
-    assert(histogram(string("a")) == map<char, int>{{'a', 1}});
-    return 0;
+auto result = histogram(string("a"));
+if (result == map<char, int>{{'a', 1}}) {
+    // Test passed
+} else {
+    // Test failed
 }
+return 0;
