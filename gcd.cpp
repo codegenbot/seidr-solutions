@@ -9,10 +9,12 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i = 0; i <= n - m; i++) {
         if(text.substr(i, m) == target) {
             result.push_back(i);
+            while(i + m <= n && text.substr(i, m) == target) {
+                i++;
+            }
         }
     }
     return result;
-
 }
 
 int gcd(int a, int b) {
