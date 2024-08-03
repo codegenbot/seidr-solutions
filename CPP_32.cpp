@@ -16,27 +16,21 @@ double find_zero(const std::vector<double>& xs){
     return -b/a;
 }
 
-int main() {
-    std::vector<double> coeffs;
-    
+int main(){
     int n;
     std::cout << "Enter the number of coefficients: ";
     std::cin >> n;
-    
+
+    std::vector<double> coeffs;
     for(int i = 0; i < n; i++){
         double coeff;
         std::cout << "Enter coefficient " << i << ": ";
         std::cin >> coeff;
         coeffs.push_back(coeff);
     }
-    
-    double x;
-    std::cout << "Enter the value of x: ";
-    std::cin >> x;
-    
-    double result = poly(coeffs, x);
-    
-    std::cout << "Result of polynomial evaluation: " << result << std::endl;
-    
+
+    double solution = find_zero(coeffs);
+    std::cout << "Solution: " << solution << std::endl;
+
     return 0;
 }
