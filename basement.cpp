@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 int basementIndex(vector<int>& nums) {
@@ -11,7 +12,7 @@ int basementIndex(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {-5, 1, -3, 4, -2};
-    cout << "Basement Index is: " << basementIndex(nums) << endl;
+    vector<int> nums = {-3,2,-3,4,5,1,-12,6,1,7};
+    cout << "The basement index is: " << basementIndex(nums) << endl;
     return 0;
 }
