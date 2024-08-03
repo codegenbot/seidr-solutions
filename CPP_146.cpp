@@ -1,4 +1,4 @@
-Count Numbers with Unique Digits
+Find the Numbers That Are Special
 
 int specialFilter(vector<int> nums) {
     int count = 0;
