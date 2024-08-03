@@ -19,7 +19,8 @@ string longest(vector<string> strings){
     return longest_str;
 }
 
-int main(){
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz"); // Use assert from cassert
-    return 0;
+string test_case(){
+    string result = longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"});
+    assert(result == "zzzz"); // Use assert from cassert
+    return result;
 }
