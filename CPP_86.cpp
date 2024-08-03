@@ -1,17 +1,23 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+string anti_shuffle(const string& s);
+
 string anti_shuffle(const string& s) {
     string result = "";
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
+    int start = 0;
+    for (size_t i = 0; i <= s.length(); ++i) {
+        if (i == s.length() || s[i] == ' ') {
+            string word = s.substr(start, i - start);
             sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+            result += word + (i == s.length() ? "" : " ");
+            start = i + 1;
         }
     }
-    sort(word.begin(), word.end());
-    result += word;
     return result;
 }
 
