@@ -1,4 +1,8 @@
-from typing import List
-
-def remove_duplicates(numbers: List[int]) -> List[int]:
+def find_unique_numbers(numbers):
     return [num for num in numbers if numbers.count(num) == 1]
+
+def check(find_unique_numbers):
+    numbers = list(map(int, input().split()))
+    result = find_unique_numbers(numbers)
+    for num in result:
+        print(num, end=" ")
