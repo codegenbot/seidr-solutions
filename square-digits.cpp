@@ -1,11 +1,9 @@
-#include <string>
-using namespace std;
-
-string squareDigits(string n) {
-    string res = "";
-    for (char c : n) {
-        int num = (c - '0') * (c - '0');
-        res += to_string(num);
+string squareDigits(string input) {
+    string result = "";
+    for(int i = 0; i < input.length(); i++) {
+        int digit = input[i] - '0';
+        int squared = digit * digit;
+        result += to_string(squared);
     }
-    return res;
+    return result;
 }
