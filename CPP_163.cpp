@@ -1,7 +1,4 @@
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     for(int i = 0; i < a.size(); i++){
         if(a[i] % 2 == 0){
             return true;
@@ -11,6 +8,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}) == true);
+    assert(std::issame(generate_integers(17, 89), {}) == true);
     return 0;
 }
