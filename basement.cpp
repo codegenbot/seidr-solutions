@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int findFirstNegativeIndex(const vector<int>& nums) {
@@ -17,6 +19,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << findFirstNegativeIndex(nums) << endl;
+    cout << std::fixed << findFirstNegativeIndex(nums) << endl;
     return 0;
 }
