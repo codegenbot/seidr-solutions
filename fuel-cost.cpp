@@ -1,15 +1,24 @@
 #include <vector>
 using namespace std;
 
-int fuelCost(vector<int> prices) {
+int solve(vector<int> v) {
     int sum = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3);
-        if(newPrice < 1)
-            newPrice = 0;
-        else
-            newPrice--;
-        sum += newPrice;
+    for (int i : v) {
+        int temp = i / 3 - 2;
+        sum += temp;
     }
     return sum;
+}
+
+int main() {
+    vector<int> v;
+    int n;
+    cin >> n;
+    while (n--) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    cout << solve(v) << endl;
+    return 0;
 }
