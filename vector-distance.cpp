@@ -7,10 +7,11 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vec1(n);
-    std::vector<double> vec2(n);
+    std::vector<long double> vec1(n);
+    std::vector<long double> vec2(n);
     
-    double distance = 0.0;
+    long double distance = 0.0;
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
