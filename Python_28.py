@@ -1,5 +1,5 @@
 def concatenate_strings(strings):
     return "\n".join(strings)
 
-strings = input("Enter strings separated by spaces: ").split()
+strings = input().split(" ")  # Split the input by whitespace
 print(concatenate_strings(strings))
