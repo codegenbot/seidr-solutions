@@ -1,7 +1,7 @@
 string file_name_check(const string& file_name) {
     if (file_name.empty()) return "No";
-    
-    size_t dotPos = file_name.find('.');
+
+    int dotPos = file_name.find('.');
     if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) return "No";
 
     string beforeDot = file_name.substr(0, dotPos);
