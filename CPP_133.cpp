@@ -1,14 +1,6 @@
-```cpp
-#include <cmath>
+```
 #include <vector>
-
-#ifndef MYCODE_H
-#define MYCODE_H
-
-int sum_squares(std::vector<float> lst);
-
-#endif
-
+#include <cmath>
 
 int sum_squares(std::vector<float> lst){
     int result = 0;
@@ -20,8 +12,7 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> numbers = {1.5f, 2.3f, 3.7f};
-    int output = sum_squares(numbers);
-    // Print the result
-    printf("The sum of squares is: %d\n", output);
+    std::vector<float> numbers = {1.5f, 2.7f, 3.8f};
+    int total_sum_squares = sum_squares(numbers);
+    std::cout << "The sum of squares is: " << total_sum_squares << std::endl;
 }
