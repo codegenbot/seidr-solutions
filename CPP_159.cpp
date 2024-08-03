@@ -14,6 +14,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame({eat(4, 5, 1).first, eat(4, 5, 1).second}, {5, 0}));
+    assert(issame(std::vector<int>{eat(4, 5, 1).first, eat(4, 5, 1).second}, {5, 0}));
     return 0;
 }
