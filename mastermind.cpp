@@ -6,13 +6,14 @@ int mastermind(std::string code, std::string guess) {
     int black = 0;
 
     for (char c : code) {
-        size_t pos = guess.find(c);
-        if (pos != std::string::npos && pos == guess.find(c)) {
-            black++;
-            guess.erase(pos, 1);
-        } else if (pos != std::string::npos) {
-            white++;
-            guess.erase(pos, 1);
+        auto it = guess.find(c);
+        while (it != std::string::npos) {
+            if (code.find(c) == it) {
+                black++;
+            } else {
+                white++;
+            }
+            it = guess.find(c, it + 1);
         }
     }
 
