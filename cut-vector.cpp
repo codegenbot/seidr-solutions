@@ -39,7 +39,7 @@ int main() {
         cout << "0" << endl;
     } else {
         cout << "1" << endl;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < cut_index; i++) {
             cout << nums[i] << endl;
         }
     }
