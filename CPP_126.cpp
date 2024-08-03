@@ -2,9 +2,9 @@
 #include <vector>
 #include <cassert>
 
-bool is_sorted(const std::vector<int>& lst) {
-    for (size_t i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || lst[i] == lst[i + 1]) {
+bool is_sorted(const vector<int>& lst) {
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] >= lst[i + 1]) {
             return false;
         }
     }
@@ -12,6 +12,6 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    assert(is_sorted(vector<int>{1, 2, 3, 4}) == true);
     return 0;
 }
