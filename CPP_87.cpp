@@ -3,12 +3,12 @@
 #include <functional>
 #include <cassert>
 
-bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b){
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x){
-    std::vector<std::vector<int>> result;
+vector<vector<int>> get_row(const vector<vector<int>>& lst, int x){
+    vector<vector<int>> result;
     for (size_t i = 0; i < lst.size(); ++i) {
         for (size_t j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
@@ -16,11 +16,11 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
             }
         }
     }
-    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
+    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
         return a[0] < b[0];
     });
     for (auto& coord : result) {
-        std::sort(coord.begin(), coord.end(), std::greater<int>());
+      sort(coord.begin(), coord.end(), std::greater<int>());
     }
     return result;
 }
