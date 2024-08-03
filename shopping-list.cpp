@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // for fixed and setprecision
+#include <iomanip>
 #include <vector>
 using namespace std;
 
