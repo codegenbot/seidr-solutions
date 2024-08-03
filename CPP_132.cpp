@@ -1,10 +1,15 @@
+#include <string>
+using namespace std;
+
 bool is_nested(string str) {
     int open = 0, close = 0;
     for (char c : str) {
-        if (c == '[')
+        if (c == '[') {
             open++;
-        else if (c == ']')
+        } else if (c == ']') {
             close++;
+        }
+        if (open < close) return true;
     }
-    return open > 1 || (open && close);
+    return false;
 }
