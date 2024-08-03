@@ -1,3 +1,4 @@
+
 #include <string>
 #include <openssl/evp.h>
 
@@ -22,7 +23,6 @@ std::string string_to_md5(const std::string& text) {
     for(int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
     }
-    mdString[32] = '\0'; // Null-terminate the string
 
     return mdString;
 }
