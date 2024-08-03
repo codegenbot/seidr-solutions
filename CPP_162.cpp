@@ -1,3 +1,5 @@
+int main();
+
 #include <openssl/evp.h>
 #include <iostream>
 #include <string>
@@ -19,8 +21,6 @@ std::string string_to_md5(const std::string &input) {
 
     return std::string(buf);
 }
-
-int main();
 
 int main() {
     std::string input;
