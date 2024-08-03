@@ -1,22 +1,11 @@
 string remove_vowels(string text){
     string result = "";
     for (char c : text) {
-        if (!isvowel(c))
+        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+              toupper(c) == 'A' || toupper(c) == 'E' || toupper(c) == 'I' || 
+              toupper(c) == 'O' || toupper(c) == 'U')) {
             result += c;
+        }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    switch (c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-            return true;
-        default:
-            return false;
-    }
 }
