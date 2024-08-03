@@ -1,6 +1,4 @@
-def leaders(integers):
-    return [
-        x
-        for x in reversed(integers)
-        if all(x >= y for y in integers[integers.index(x) + 1 :])
-    ]
+Here is the Python code for the problem:
+
+def leaders(input_vector):
+    return [x for x in reversed(input_vector) if all(x >= y for y in input_vector[input_vector.index(x)+1:])]
