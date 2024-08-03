@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n && !cin.eof()) {
         nums.push_back(n);
     }
     int sum = 0;
@@ -21,13 +23,13 @@ int main() {
             break;
         }
     }
-    std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
+    vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvec2(nums.begin() + idx + 1, nums.end());
     for (int num : subvec1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     for (int num : subvec2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     return 0;
 }
