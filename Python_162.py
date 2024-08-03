@@ -1,14 +1,15 @@
-```
 import hashlib
+
 
 def string_to_md5(text):
     if not text:
         return None
     return hashlib.md5(text.encode()).hexdigest()
 
+
 while True:
     try:
-        text = str(input("Please enter a string: "))
+        text = input("Please enter a string: ")
         print(string_to_md5(text))
         break
     except Exception as e:
