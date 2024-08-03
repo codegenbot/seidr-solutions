@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -9,23 +8,23 @@ int main() {
     int n;
     cin >> n;
 
-    vector<double> vec1(n);
+    vector<long double> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
     
-    vector<double> vec2(n);
+    vector<long double> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]); 
     }
 
-    cout << fixed; // Ensure fixed point notation
-    cout.precision(17); // Set precision to 17 decimal places
+    cout << fixed;
+    cout.precision(17);
     cout << sqrt(sum) << endl;
 
     return 0;
