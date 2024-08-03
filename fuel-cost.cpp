@@ -24,9 +24,7 @@ int main() {
         int num;
         cin >> num;
         input.push_back(num);
-    }
-    
-    cout << std::fixed << setprecision(0) << fuelCost(input) << std::endl;
-    
+    }    
+    cout << std::fixed << std::setprecision(0) << fuelCost(input) << std::endl;
     return 0;
 }
