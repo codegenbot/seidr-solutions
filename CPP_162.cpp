@@ -1,3 +1,4 @@
+  
 #include <string>
 #include <openssl/evp.h>
 
@@ -15,7 +16,6 @@ std::string string_to_md5(const std::string& text) {
 
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
-    
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
 
@@ -24,5 +24,5 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
     }
 
-    return std::string(mdString);
+    return mdString;
 }
