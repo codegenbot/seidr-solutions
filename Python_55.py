@@ -1,4 +1,4 @@
-def fib(n):
+def fib(n: int):
     if n <= 1:
         return n
     a, b = 1, 1
