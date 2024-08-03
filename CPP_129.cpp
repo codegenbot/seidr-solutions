@@ -1,33 +1,29 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<int> res;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0 && j > 0) {
-                dp[i][j] = min({dp[i-1][j], dp[i][j-1]});
-            } else if (i > 0) {
-                dp[i][j] = dp[i-1][j];
-            } else {
-                dp[i][j] = dp[i][j-1];
+            if (k == 1) {
+                res.push_back(grid[i][j]);
+                return res;
             }
-        }
-    }
-    vector<int> res;
-    int i = n - 1, j = n - 1;
-    for (int l = 0; l < k; l++) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && j > 0) {
-            if (grid[i-1][j] < grid[i][j-1]) {
-                i--;
-            } else {
-                j--;
+            vector<vector<int>> tempGrid;
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    if (x == 0 && y == 0) continue;
+                    int newX = i + x, newY = j + y;
+                    if (newX >= 0 && newX < n && newY >= 0 && newY < n) {
+                        tempGrid.push_back({grid[newX][newY]});
+                    }
+                }
             }
-        } else if (i > 0) {
-            i--;
-        } else {
-            j--;
+            vector<int> minPath = minPath(tempGrid, k - 1);
+            res.insert(res.end(), minPath.begin(), minPath.end());
+            if (res.size() == k) return res;
         }
     }
     return res;
