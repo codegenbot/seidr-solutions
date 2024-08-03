@@ -1,4 +1,5 @@
 #include <vector>
+#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && a.size() > 0 ? a[0] == b[0] : false;
