@@ -28,7 +28,9 @@ vector<int> parse_music(string music_string){
             beats.push_back(1);
             i++;
         }
-        i++;
+        else {
+            i++;
+        }
     }
     return beats;
 }
