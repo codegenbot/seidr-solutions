@@ -7,6 +7,9 @@ vector<float> find_closest_elements(vector<float> numbers) {
     pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
+        if (numbers[i] + min_diff <= numbers[i + 1]) {
+            return {numbers[i], numbers[i]};
+        }
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
             min_diff = diff;
