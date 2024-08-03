@@ -1,23 +1,25 @@
+#include <iostream>
+
 int main() {
-    string input;
-    cin >> input;
+    std::string input;
+    std::cin >> input;
     
     if (input == "t") {
-        cout << "True";
+        std::cout << "True";
     } else if (input == "f") {
-        cout << "False";
+        std::cout << "False";
     } else {
         bool result = true;
-        for (int i = 0; i < input.size(); i += 2) {
-            if (input[i] == 'f' || input[i + 1] == 'f') {
+        for (int i = 0; i < input.size(); i+=2) {
+            if (input[i] == 'f' || input[i+1] == 'f') {
                 result = false;
                 break;
             }
         }
         if (result) {
-            cout << "True";
+            std::cout << "True";
         } else {
-            cout << "False";
+            std::cout << "False";
         }
     }
     
