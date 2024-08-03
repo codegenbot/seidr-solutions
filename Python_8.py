@@ -1,10 +1,10 @@
+```
 from typing import List, Tuple
 
-def sum_product():
-    numbers = input("Enter space-separated integers: ").split()
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not numbers:
         return 0, 1
-    numbers = [int(num) for num in numbers]
     total_sum = 0
     product = 1
     for num in numbers:
@@ -12,5 +12,6 @@ def sum_product():
         product *= num
     return total_sum, product
 
-result = sum_product()
-print(f"Sum: {result[0]}, Product: {result[1]}")
+numbers = [int(num) for num in input("Enter numbers (space-separated): ").split()]
+result_sum, result_product = sum_product(numbers)
+print(f"Sum: {result_sum}, Product: {result_product}")
