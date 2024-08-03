@@ -1,5 +1,8 @@
-def check(lst, output):
-    if isinstance(output, (int, float)):
-        print(f"The difference between the largest and smallest elements in {lst} is: {output}")
+def check(lst, result):
+    print("Input List:", lst)
+    if isinstance(result, int) and result > 0:
+        print("The difference is positive.")
+    elif isinstance(result, int) and result < 0:
+        print("The difference is negative.")
     else:
-        print("The function did not return a number.")
+        print("It's zero.")
