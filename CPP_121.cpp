@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,5 +12,13 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 16);
-    // Your code goes here
+    std::cout << "Enter a list of integers: ";
+    int n;
+    std::cin >> n;
+    std::vector<int> lst(n);
+    for(int i=0; i<n; i++){
+        std::cin >> lst[i];
+    }
+    std::cout << "The sum is: " << solutions(lst) << std::endl;
+    return 0;
 }
