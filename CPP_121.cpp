@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-int solution(vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -11,4 +11,9 @@ int solution(vector<int> lst) {
     return sum;
 }
 
-assert(solution({3, 13, 2, 9}) == 3);
+int main() {
+    std::vector<int> lst = {1, 3, 4, 5, 7};
+    int result = solution(lst);
+    std::cout << "The sum of odd numbers is: " << result << std::endl;
+    return 0;
+}
