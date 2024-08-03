@@ -9,11 +9,16 @@ int main() {
     for (char& c : input) {
         if (c == '-' || c == ' ') {
             capitalize = true;
-        } else {
-            c = capitalize ? std::toupper(c) : std::tolower(c);
+        } else if (capitalize) {
+            c = std::toupper(c);
             capitalize = false;
+        } else {
+            c = std::tolower(c);
         }
     }
+    
+    if (!input.empty())
+        input[0] = std::toupper(input[0]); // Capitalize the first letter after processing
     
     std::cout << input << std::endl;
     
