@@ -15,7 +15,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return result;
 }
 
-int main() {
-    assert(common({4, 3, 2, 8}, {}) == vector<int>{});
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
