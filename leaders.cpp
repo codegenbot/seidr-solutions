@@ -21,8 +21,7 @@ vector<int> leaders(vector<int>& nums) {
 
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> leaders_result = leaders(nums);
-    for (int i : leaders_result)
-        cout << i << " ";
+    vector<int> result = leaders(nums);
+    for(int i: result) cout << i << " ";
     return 0;
 }
