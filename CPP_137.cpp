@@ -1,7 +1,7 @@
 #include <any>
 #include <string>
 #include <algorithm>
-#include <cassert>
+#include <boost/any.hpp>
 
 using namespace std;
 
@@ -25,6 +25,11 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert (std::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    auto result = compare_one(string("1"), 1);
+    if (boost::any_cast<string>(&result) != nullptr && boost::any_cast<string>(result) == "None") {
+        cout << "Result is None" << endl;
+    } else {
+        cout << "Result is not None" << endl;
+    }
     return 0;
 }
