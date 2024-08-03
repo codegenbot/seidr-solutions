@@ -29,8 +29,7 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main(){
-    // Test pluck function
     assert(issame(pluck({7, 9, 7, 1}), {}));
-
+    
     return 0;
 }
