@@ -1,11 +1,15 @@
-def solve.Boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        left, right = input_str.split('&')
-        return Boolean(left) and Boolean(right)
-    elif '|' in input_str:
-        left, right = input_str.split('|')
-        return Boolean(left) or Boolean(right)
+def solveBoolean(expression):
+    stack = []
+    for char in expression[::-1]:
+        if char in "TF":
+            result = char == "T"
+            while stack and stack[0] in "|&":
+                op = stack.pop()
+                if op == "|":
+                    result = result or stack[0]
+                elif op == "&":
+                    result = result and stack[0]
+                stack.append(not result)
+        else:
+            stack.append(char)
+    return bool(stack.pop())
