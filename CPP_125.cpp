@@ -1,8 +1,10 @@
+#include <cassert>
 #include <string>
+#include <vector>
 
-vector<string> split_words(const string& txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
@@ -11,11 +13,13 @@ vector<string> split_words(const string& txt){
             hasWhitespace = true;
             result.push_back(word);
             word = "";
-        } else if(c == ','){
+        } 
+        else if(c == ','){
             hasComma = true;
             result.push_back(word);
             word = "";
-        } else {
+        } 
+        else {
             word += c;
         }
     }
@@ -24,15 +28,20 @@ vector<string> split_words(const string& txt){
         if(word != ""){
             result.push_back(word);
         }
-    } else {
+    } 
+    else {
         int oddCount = 0;
         for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(std::to_string(oddCount));
     }
     
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
