@@ -1,4 +1,9 @@
-def leaders(input):
-    return [
-        x for x in reversed(input) if all(x >= y for y in input[input.index(x) + 1 :])
-    ]
+Here is the solution:
+
+def leaders(arr):
+    leaders_list = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            leaders_list.append(arr[i])
+            last_leader = arr[i]
+    return list(reversed(leaders_list))
