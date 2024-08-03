@@ -1,5 +1,4 @@
 #include <string>
-using namespace std;
 
 std::string compareStrings(const std::string &a, const std::string &b) {
     std::string result = "";
@@ -12,5 +11,3 @@ std::string compareStrings(const std::string &a, const std::string &b) {
     }
     return result;
 }
-
-assert(compareStrings("0101", "0000") == "0101");
