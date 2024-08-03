@@ -20,13 +20,13 @@ int main() {
     int a, b;
     std::cin >> a;
     std::cin >> b;
+
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cin.ignore(); // Add this line
-    getline(std::cin, text); // Use getline() to read the full line
-    getline(std::cin, target); // Use getline() to read the full line
-
+    std::cin >> text;
+    std::cin >> target;
+  
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
