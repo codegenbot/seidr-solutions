@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 #include <iostream>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if(a.size() != b.size()) 
+    if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-9f)
+        if(std::abs(a[i] - b[i]) > 1e-5)
             return false;
     }
     return true;
@@ -18,25 +17,11 @@ int main() {
     while(std::cin >> x) {
         l.push_back(x);
     }
-    vector<float> result = get_positive(l);
-
-    if(result.empty()) {
-        std::cout << "No positive numbers" << std::endl;
-    } else {
-        for(auto x : result) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        std::vector<float> another = {1.0f, 2.0f};
-        if(issame(result, another)) {
-            std::cout << "same" << std::endl;
-        } else {
-            std::cout << "not same" << std::endl;
-        }
-    }
-
-    return 0;
+    std::vector<float> result = get_positive(l);
+    if(issame(result, l))
+        std::cout << "The vector is same." << std::endl;
+    else
+        std::cout << "The vectors are different." << std::endl;
 }
 
 vector<float> get_positive(vector<float> l){
