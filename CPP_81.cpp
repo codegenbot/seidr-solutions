@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -25,17 +26,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<float> grades;
-    for (int i = 0; i < n; ++i) {
-        float grade;
-        cin >> grade;
-        grades.push_back(grade);
-    }
-    
-    vector<string> result = numerical_letter_grade(grades);
+    vector<string> result = numerical_letter_grade({0, 0.7});
     for (const string& grade : result) {
         cout << grade << " ";
     }
