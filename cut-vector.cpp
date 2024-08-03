@@ -3,7 +3,8 @@
 
 int main() {
     int n, cutIndex;
-    std::cin >> n >> cutIndex;
+    std::cin >> n;
+    std::cin >> cutIndex;
 
     std::vector<int> nums(n);
 
