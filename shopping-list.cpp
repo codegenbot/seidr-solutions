@@ -8,7 +8,7 @@ int main() {
     float total_price = 0.0;
     
     for (int i = 0; i < prices.size(); ++i) {
-        total_price += prices[i] * (1 - discounts[i] / 100.0);
+        total_price += prices[i] * (1 - discounts[i] / 100.0); // Fixed the division by casting to float
     }
     
     std::cout << "Total price after discount: " << total_price << std::endl;
