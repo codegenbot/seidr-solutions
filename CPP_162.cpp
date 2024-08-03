@@ -1,25 +1,16 @@
-#include <algorithm>
-#include <bitset>
 #include <iomanip>
-#include <sstream>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    if (text.empty()) return "";
 
-    unsigned char md5[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    int len = text.length();
+    unsigned char result[16];
+    MD5((unsigned char*)text.c_str(), text.size(), result);
 
-    MD5_Update(&ctx, ptr, len);
-
-    MD5_Final(md5, &ctx);
-
-    stringstream ss;
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)(md5[i]);
+    string md5 = "";
+    for (int i = 0; i < 16; i++) {
+        sprintf("%02x", &result[i]);
+        md5 += string(1, (char)result[i]);
     }
 
-    return ss.str();
+    return md5;
 }
