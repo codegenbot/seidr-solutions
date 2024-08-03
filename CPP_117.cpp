@@ -1,30 +1,20 @@
-#include <cctype>
-using namespace std;
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    bool in_word = false;
-
+    string word = "";
     for (char c : s) {
-        if (!in_word && isspace(c)) continue;
-        if (!in_word && isalpha(c)) {
-            in_word = true;
-            word += tolower(c);
-        } else if (in_word && !isalpha(c)) {
-            if ((int)word.size() - (int)count(word.begin(), word.end(), 'a') - (int)count(word.begin(), word.end(), 'e') - (int)count(word.begin(), word.end(), 'i') - (int)count(word.begin(), word.end(), 'o') - (int)count(word.begin(), word.end(), 'u') == n) {
+        if (c == ' ') {
+            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
                 result.push_back(word);
             }
-            in_word = false;
-            word.clear();
-        } else if (in_word && isalpha(c)) {
+            word = "";
+        } else if (isalpha(c)) {
             word += tolower(c);
         }
     }
-
-    if ((int)word.size() - (int)count(word.begin(), word.end(), 'a') - (int)count(word.begin(), word.end(), 'e') - (int)count(word.begin(), word.end(), 'i') - (int)count(word.begin(), word.end(), 'o') - (int)count(word.begin(), word.end(), 'u') == n) {
+    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+        count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
         result.push_back(word);
     }
-
     return result;
 }
