@@ -14,11 +14,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    for(int i = 1; i <= 10; i++) {
-        lst.push_back(i * 1.5f);
+    for(int i=1;i<=10;++i){
+        lst.push_back(i*1.5); // add your code to fill the vector with values
     }
 
-    int odd_sum = 0;
+    int odd_sum = 0; 
     for (float x : lst) {
         if (x > 0 && modf(x, &x) == 0) {
             odd_sum += x;
