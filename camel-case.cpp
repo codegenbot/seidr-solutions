@@ -22,7 +22,7 @@ std::string camelCase(std::string str) {
         if(i == 0) {
             result += words[i];
         } else {
-            result += toupper(words[i][0]) + tolower(&words[i][1]);
+            result += toupper(words[i][0]) + tolower(string(words[i].erase(0,1)));
         }
     }
 
