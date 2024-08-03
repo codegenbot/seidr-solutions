@@ -1,9 +1,6 @@
 ```
 #include <algorithm>
 #include <vector>
-#include <functional>
-
-using namespace std;
 
 bool int_equal(int a, int b) {
     return a == b;
@@ -25,6 +22,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 
 int main() {
     vector<int> result = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    assert(issame(vector<int>(result.begin(), result.end()), {1, 4, 5}));
+    assert (issame(vector<int>(result.begin(), result.end()), {1, 4, 5})
     return 0;
 }
