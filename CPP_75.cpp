@@ -23,16 +23,14 @@ bool is_multiply_prime(int a){
 }
 
 int main() {
+    static bool called = false;
+    if (called) return 0;
+    called = true;
+    
     int num;
-    bool result = false;
-
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
+    std::cout << (is_multiply_prime(num) ? "true" : "false") << std::endl;
     
-    if(num) {
-        result = is_multiply_prime(num);
-        std::cout << (result ? "true" : "false") << std::endl;
-    }
-
     return 0;
 }
