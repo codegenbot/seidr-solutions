@@ -1,31 +1,27 @@
 ```
-def bowling_score(bowling):
+def bowling_score(rolls):
     score = 0
-    frame = 1
-    for i in range(len(bowling)):
-        if bowling[i].isdigit():
-            strike = False
-            while i < len(bowling) and bowling[i].isdigit():
-                i += 1
-            if i < len(bowling) and bowling[i] == '/':
-                i += 1
-                while i < len(bowling) and bowling[i].isdigit():
-                    i += 1
-                strike = True
-        else:
-            i -= 1
-            break
-        if frame < 10:
-            if strike:
+    roll_index = 0
+    for frame in range(1, 11):
+        if rolls[roll_index] == 'X':
+            if frame < 10:
                 score += 30
-            elif int(bowling[:i]) == 10:
-                score += 10 + 10
             else:
-                score += min(int(bowling[:i]), 10) * 2
-            frame += 1
+                score += 10 + int(rolls[roll_index + 1].replace('/',''))
+            roll_index += 1
+        elif '/' in rolls[roll_index]:
+            left, right = map(int, rolls[roll_index].split('/'))
+            score += left + right
+            roll_index += 1
         else:
-            if strike:
-                score += 10 + bowling[i:i+2].count('X') * 10
-            elif int(bowling[:i]) == 10:
-                score += 10 + min(int(bowling[i]), 10) * 10
+            for i in range(1, 3):
+                if i == 2 and frame < 10 and int(rolls[roll_index]) + int(rolls[roll_index + 1]) >= 10:
+                    score += 10
+                    break
+                elif i == 2:
+                    score += int(rolls[roll_index]) + int(rolls[roll_index + 1])
+                    break
+                else:
+                    score += int(rolls[roll_index])
+            roll_index += 1
     return score
