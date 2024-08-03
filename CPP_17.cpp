@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
+// Fix the function signature of issame to use std::vector with correct namespace
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -25,8 +25,6 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    assert(issame(parse_music(input), {2, 1, 2, 1, 4, 2, 4, 2}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
