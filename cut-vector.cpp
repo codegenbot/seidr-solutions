@@ -1,32 +1,24 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
+    int minDiff = INT_MAX;
+    int index = -1;
     
-    for(int i = 0; i < n - 1; i++) {
-        if(abs(vec[i] - vec[i+1]) > (vec[n-1] - vec[0])) {
-            vector<int> v1;
-            for(int j = 0; j <= i; j++) {
-                v1.push_back(vec[j]);
-            }
-            vector<int> v2;
-            for(int j = i + 1; j < n; j++) {
-                v2.push_back(vec[j]);
-            }
-            result = {{v1}, {v2}};
-            return result;
+    for(int i = 0; i < n-1; i++) {
+        if(abs(vec[i] - vec[i+1]) <= minDiff) {
+            minDiff = abs(vec[i] - vec[i+1]);
+            index = i;
         }
     }
     
-    vector<int> v1;
-    for(int j = 0; j < n; j++) {
-        v1.push_back(vec[j]);
-    }
-    vector<int> v2;
-    result = {{v1}, {}};
+    vector<int> leftVec(vec.begin(), vec.begin() + index);
+    vector<int> rightVec(vec.begin() + index, vec.end());
+    result.push_back(leftVec);
+    result.push_back(rightVec);
     
     return result;
 }
