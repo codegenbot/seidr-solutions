@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
-#include <boost/conversion.hpp>
+#include <boost/lexical_cast.hpp>
+#include <string>
 
 using namespace boost;
 
@@ -12,7 +13,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (bf > af)
             return b;
         else
-            return boost::any(0.0f);
+            return any("None");
     } else if (is_any_of<double>(a)) {
         double ad = boost::any_cast<double>(a);
         double bd = boost::any_cast<double>(b);
@@ -21,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (bd > ad)
             return b;
         else
-            return boost::any(0.0);
+            return any("None");
     } else if (is_any_of<int>(a)) {
         int ai = boost::any_cast<int>(a);
         int bi = boost::any_cast<int>(b);
@@ -30,23 +31,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (bi > ai)
             return b;
         else
-            return boost::any(0);
+            return any("None");
     } else if (is_string(a)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        try {
-            float af = boost::lexical_cast<float>(as);
-            float bf = boost::lexical_cast<float>(bs);
-            if (af > bf)
-                return a;
-            else if (bf > af)
-                return b;
-            else
-                return boost::any(0.0f);
-        } catch (...) {
-            return boost::any(0.0f);
-        }
+        if (std::stof(as) > std::stof(bs))
+            return a;
+        else if (std::stof(bs) > std::stof(as))
+            return b;
+        else
+            return any("None");
     } else {
-        return boost::any(0.0f);
+        return any("None");
     }
 }
