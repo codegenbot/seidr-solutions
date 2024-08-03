@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
@@ -12,17 +12,10 @@ long long double_the_difference(std::vector<float> lst){
     return sum;
 }
 
+std::vector<float> lst = {1.0, 3.0, 5.0, 7.0, 9.0};
+long long odd_sum = 165;
+
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> lst(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> lst[i];
-    }
-
-    long long odd_sum = double_the_difference(lst); // assuming 'odd_sum' is calculated elsewhere
-
     assert(double_the_difference(lst) == odd_sum);
-
     return 0;
 }
