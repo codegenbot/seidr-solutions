@@ -1,15 +1,14 @@
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
-    max_depth = 0
-    current_depth = 0
-    stack = []
+    max_count = 0
+    curr_count = 0
     
-    for paren in paren_string:
-        if paren == '(':
-            stack.append(paren)
-            current_depth += 1
-            max_depth = max(max_depth, current_depth)
-        elif paren == ')':
-            stack.pop()
-            current_depth -= 1
+    for char in paren_string:
+        if char == '(':
+            curr_count += 1
+            max_count = max(max_count, curr_count)
+        elif char == ')':
+            curr_count = 0
     
-    return [max_depth]
+    return [max_count]
