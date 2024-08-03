@@ -10,10 +10,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
+    vector<string> sortedArr;
     for (int num : arr) {
         if (num >= 1 && num <= 9)
-            sortedArr.push_back(num);
+            sortedArr.push_back(to_string(num));
     }
     sort(sortedArr.begin(), sortedArr.end());
     reverse(sortedArr.begin(), sortedArr.end());
@@ -22,7 +22,7 @@ vector<string> by_length(vector<int> arr) {
                                      {4, "Four"}, {5, "Five"}, {6, "Six"},
                                      {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     for (int num : sortedArr) {
-        result.push_back(numberNames[num]);
+        result.push_back(numberNames[stoi(num)]);
     }
     return result;
 }
