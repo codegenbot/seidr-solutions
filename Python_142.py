@@ -1,6 +1,4 @@
-def sum_squares(lst):
-    total_sum = 0
-    for num in lst:
-        if isinstance(num, int) and (num % 3 == 0 or num % 4 == 0):
-            total_sum += num**2
-    return total_sum
+```
+numbers = input("Enter a list of numbers separated by space: ")
+lst = [int(num) for num in numbers.split()]
+print(sum_squares(lst))
