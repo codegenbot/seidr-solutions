@@ -1,9 +1,4 @@
-#include <iostream>
 #include <vector>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
-}
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
@@ -23,16 +18,29 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
 int main(){
-    std::vector<int> test1 = {1, 3, 4, 6, 7};
-    std::vector<int> result = pluck(test1);
+    std::vector<int> input1 = {2, 4, 6, 8};
+    std::vector<int> result1 = pluck(input1);
     
-    std::vector<int> expected_result = {4, 2};
-    
-    if(issame(result, expected_result)){
-        std::cout << "Test case passed" << std::endl;
+    std::vector<int> expected1 = {2, 0};
+    if(issame(result1, expected1)){
+        std::cout << "Test case 1 passed" << std::endl;
     } else {
-        std::cout << "Test case failed" << std::endl;
+        std::cout << "Test case 1 failed" << std::endl;
+    }
+    
+    std::vector<int> input2 = {1, 3, 5, 7};
+    std::vector<int> result2 = pluck(input2);
+    
+    std::vector<int> expected2 = {};
+    if(issame(result2, expected2)){
+        std::cout << "Test case 2 passed" << std::endl;
+    } else {
+        std::cout << "Test case 2 failed" << std::endl;
     }
     
     return 0;
