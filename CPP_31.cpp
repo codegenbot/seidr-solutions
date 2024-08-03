@@ -1,4 +1,7 @@
-if (n <= 1) {
+#include <cassert>
+
+bool is_prime(int n) {
+    if (n <= 1) {
         return false;
     }
     if (n <= 3) {
