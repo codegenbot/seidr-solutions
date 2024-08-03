@@ -1,19 +1,24 @@
-Here is the completed Python code:
-
-def solve_boolean(s):
-    if s == 'T':
-        return True
-    elif s == 'F':
-        return False
-    elif '&' in s and '|' in s:
-        raise ValueError("Invalid expression")
-    else:
-        stack = []
-        for c in s + '&':
-            if c in {'&', '|'}:
-                b2 = stack.pop()
-                b1 = stack.pop()
-                stack.append(b1 and b2 if c == '&' else b1 or b2)
-            elif c == 'T' or c == 'F':
-                stack.append(c == 'T')
-    return stack[0]
+def solve_boolean(expression):
+    stack = []
+    for char in expression:
+        if char == '&':
+            second = stack.pop()
+            first = stack.pop()
+            if first.lower() == 'f' and second.lower() == 'f':
+                stack.append('False')
+            elif first.lower() == 'f' or second.lower() == 'f':
+                stack.append('False')
+            else:
+                stack.append('True')
+        elif char == '|':
+            second = stack.pop()
+            first = stack.pop()
+            if first.lower() == 't' and second.lower() == 't':
+                stack.append('True')
+            elif first.lower() == 'f' or second.lower() == 'f':
+                stack.append('False')
+            else:
+                stack.append('True')
+        else:
+            stack.append(char)
+    return stack[0] if stack else 'True'
