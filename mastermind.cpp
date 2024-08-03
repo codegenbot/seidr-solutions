@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -37,8 +36,7 @@ int main() {
     std::cin >> code;
     std::cout << "Enter your guess: ";
     std::cin >> guess;
-    auto result = mastermind(code, guess);
+    std::pair<int, int> result = mastermind(code, guess);
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
-}
