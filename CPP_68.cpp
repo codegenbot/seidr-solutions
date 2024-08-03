@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(vector<int> a, vector<int> b){
+    // Function implementation
+}
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
