@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <cmath>
+#include <iomanip>
 
-#include <cmath> // for pow and log2
-#include <iomanip> // for setprecision
+using namespace std;
 
 int main() {
     double startHeight, heightAfterFirstBounce;
