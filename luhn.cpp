@@ -1,16 +1,29 @@
-int luhn(vector<int> digits) {
+#include <vector>
+using namespace std;
+
+int luhnCheck(vector<int> numbers) {
     int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
+    for (int i = 0; i < numbers.size(); i++) {
+        if ((i % 2 == 1)) {
+            int doubleNumber = numbers[i] * 2;
+            if (doubleNumber > 9) {
+                doubleNumber -= 9;
+            }
+            sum += doubleNumber;
+        } else {
+            sum += numbers[i];
         }
-        sum += digit;
-        doubleNext = !doubleNext;
     }
-
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        cin >> numbers[i];
+    }
+    cout << luhnCheck(numbers) << endl;
+    return 0;
 }
