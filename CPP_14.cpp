@@ -14,7 +14,7 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(const vector<string>& a, const vector<string>& b){
     if(a.size() != b.size())
         return false;
     for(size_t i=0; i < a.size(); i++){
@@ -24,4 +24,8 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
+int main() {
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
+    
+    return 0;
+}
