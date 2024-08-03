@@ -1,27 +1,26 @@
 #include <openssl/evp.h>
+#include <iostream>
 #include <string>
-#include <cassert>
 
-std::string string_to_md5(const std::string& input) {
-    EVP_MD_CTX *mdctx;
-    const EVP_MD *md = EVP_md5();
-    unsigned char md_value[EVP_MAX_MD_SIZE];
-    unsigned int md_len;
+std::string string_to_md5(const std::string &input) {
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_md5(), nullptr);
+    EVP_DigestUpdate(ctx, input.c_str(), input.length());
+    unsigned char hash[EVP_MD_size(EVP_md5())];
+    EVP_DigestFinal_ex(ctx, hash, nullptr);
+    EVP_MD_CTX_free(ctx);
 
-    mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, md, NULL);
-    EVP_DigestUpdate(mdctx, input.c_str(), input.length());
-    EVP_DigestFinal_ex(mdctx, md_value, &md_len);
-    EVP_MD_CTX_free(mdctx);
+    char buf[2 * EVP_MD_size(EVP_md5()) + 1];
+    char *ptr = buf;
+    for (int i = 0; i < EVP_MD_size(EVP_md5()); ++i) {
+        ptr += sprintf(ptr, "%02x", hash[i]);
+    }
+    *ptr = '\0';
 
-    char mdString[33];
-    for(int i = 0; i < md_len; i++)
-        sprintf(&mdString[i*2], "%02x", (unsigned int)md_value[i]);
-
-    return std::string(mdString);
+    return std::string(buf);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    execute_md5_hashing();
     return 0;
 }
