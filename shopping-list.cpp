@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
-#include <cmath>
 
 using namespace std;
 
@@ -23,8 +22,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         total_price += prices[i] - (prices[i] * discounts[i] / 100.0);
     }
-
-    total_price = round(total_price * 100) / 100.0; // Round to 2 decimal places
 
     cout << fixed << setprecision(2) << total_price << endl;
 
