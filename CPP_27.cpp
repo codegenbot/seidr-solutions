@@ -2,20 +2,16 @@
 #include <string>
 #include <cctype>
 #include <cassert>
+#include <algorithm>
 
 std::string flip_case(std::string str){
-    for(int i=0; i<str.length(); i++){
-        if(std::islower(str[i])){
-            str[i] = std::toupper(str[i]);
-        }
-        else if(std::isupper(str[i])){
-            str[i] = std::tolower(str[i]);
-        }
-    }
+    std::transform(str.begin(), str.end(), str.begin(), [](unsigned char c){
+        return std::islower(c) ? std::toupper(c) : (std::isupper(c) ? std::tolower(c) : c);
+    });
     return str;
 }
 
 int main(){
-    assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
