@@ -23,6 +23,19 @@ std::string get_closest_vowel(std::string word) {
 }
 
 int main() {
-    std::cout << get_closest_vowel("Hello World") << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    if (!input.empty()) {
+        std::string closest_vowel = get_closest_vowel(input);
+        if (!closest_vowel.empty())
+            std::cout << "The closest vowel is: " << closest_vowel << std::endl;
+        else
+            std::cout << "No vowels found in the string." << std::endl;
+    } else {
+        std::cout << "You didn't enter a string. Please try again." << std::endl;
+    }
+    
     return 0;
 }
