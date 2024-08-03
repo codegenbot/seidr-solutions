@@ -12,13 +12,5 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
         }
     }
-    vector<float> sorted = result;
-    std::sort(sorted.begin(), sorted.end());
-    vector<float> unique;
-    for (float num : sorted) {
-        if (!issame(vector<float>{num},unique)) {
-            unique.push_back(num);
-        }
-    }
-    return unique;
+    return result;
 }
