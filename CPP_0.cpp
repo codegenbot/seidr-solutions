@@ -3,17 +3,17 @@
 #include <cassert>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     for (int i = 1; i < numbers.size(); ++i) {
-        if (abs(numbers[i] - numbers[i - 1]) < threshold)
+        if (std::abs(numbers[i] - numbers[i - 1]) < threshold)
             return true;
     }
     return false;
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    assert(has_close_elements(a, 1.1) == true);
-    
+    std::vector<float> test_numbers = {6.5, 3.2, 8.7, 2.1};
+    float test_threshold = 1.5;
+    assert(has_close_elements(test_numbers, test_threshold) == true);
     return 0;
 }
