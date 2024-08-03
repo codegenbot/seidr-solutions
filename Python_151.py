@@ -1,10 +1,10 @@
 ```
 def double_the_difference(odd_sum):
     total = 0
-    for num in range(1, (odd_sum // 2) + 1):
-        if odd_sum % (2 * num) == 0:
+    for num in lst:
+        if isinstance(num, int) and num >= 0:
             total += num**2
-    return total
+    return total * 2
 
 def check():
     n = int(input())
