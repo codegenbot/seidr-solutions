@@ -1,4 +1,7 @@
-bool is_sorted(vector<int> lst){
+#include <iostream>
+#include <vector>
+
+bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1)
         return true;
 
@@ -7,9 +10,30 @@ bool is_sorted(vector<int> lst){
             return false;
     }
 
-    vector<int>::iterator it;
-    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+    std::vector<int>::iterator it;
+    for(it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it){
         if(*it > 0 && *(it-1) == *it)
             return false;
     }
     return true;
+
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> lst(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
+    }
+
+    if(is_sorted(lst))
+        std::cout << "The list is sorted.\n";
+    else
+        std::cout << "The list is not sorted.\n";
+
+    return 0;
+}
