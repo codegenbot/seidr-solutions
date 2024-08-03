@@ -7,9 +7,7 @@ def find_zero(xs: list):
     d = xs[3]
     return round((-b + math.sqrt(b * b - 4 * a * c)) / (2 * a), 2)
 
-# Read input from user
 xs = [float(x) for x in input().split()]
 
-# Call the function with user input
 result = find_zero(xs)
 print(result)
