@@ -3,7 +3,8 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b); 
+bool issame(vector<int> a, vector<int> b); // Declare the function to avoid redefinition issue
+
 vector<int> intersperse(vector<int> numbers, int delimeter);
 
 bool issame(vector<int> a, vector<int> b){
