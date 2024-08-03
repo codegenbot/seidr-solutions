@@ -1,3 +1,4 @@
+```Python
 def modpow(n: int, p: int) -> int:
     if p == 1:
         return 0
