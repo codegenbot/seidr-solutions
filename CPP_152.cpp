@@ -1,7 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -12,7 +11,5 @@ vector<int> compare(const vector<int>& game, const vector<int>& guess) {
     return result;
 }
 
-int main() {
-    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>{2, 0, 0, 1});
-    return 0;
-}
+assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>{2, 0, 0, 1});
+```
