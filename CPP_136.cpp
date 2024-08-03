@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <climits>
 
 using namespace std;
