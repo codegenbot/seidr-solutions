@@ -9,19 +9,21 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> get_odd_collatz(int num) {
-    vector<int> collatzSeq;
-    collatzSeq.push_back(num);
-    while (num > 1) {
+    vector<int> collatz_sequence;
+    collatz_sequence.push_back(num);
+
+    while (num != 1) {
         if (num % 2 == 0) {
             num /= 2;
         } else {
             num = 3 * num + 1;
         }
         if (num % 2 != 0) {
-            collatzSeq.push_back(num);
+            collatz_sequence.push_back(num);
         }
     }
-    return collatzSeq;
+
+    return collatz_sequence;
 }
 
 int main() {
