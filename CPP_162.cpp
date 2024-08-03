@@ -17,7 +17,7 @@ std::string string_to_md5(std::string text) {
 
     std::string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        sprintf(&result + strlen(result), "%02x", md5[i]);
+        sprintf(&result.back() + 1, "%02x", md5[i]);
     }
 
     return result;
