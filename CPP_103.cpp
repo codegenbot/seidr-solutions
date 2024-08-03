@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+#include <cmath>
 
 std::string computeBinaryAvg(int n, int m) {
     if (n > m) {
@@ -22,10 +24,10 @@ std::string computeBinaryAvg(int n, int m) {
 }
 
 int main() {
-    int n = 3;
-    int m = 8;
+    int n, m;
+    std::cin >> n >> m;
     
-    std::string result = computeBinaryAvg(n, m);
+    std::cout << computeBinaryAvg(n, m) << std::endl;
     
     return 0;
 }
