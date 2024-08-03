@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 bool is_palindrome(const std::string &str) {
     return str == std::string(str.rbegin(), str.rend());
