@@ -1,13 +1,21 @@
-Here is the solution:
-
-def bowling_score(game):
-    frames = game.split('/')
+```
+def bowling_score(input_str):
     score = 0
-    for i in range(len(frames)):
-        if len(frames[i]) == 1:
-            score += 1
-        elif len(frames[i]) == 2:
-            score += int(frames[i])
+    frame = 1
+    for char in input_str:
+        if char == 'X':
+            score += 30
+            frame -= 1
+        elif char == '/':
+            continue
         else:
-            score += int(frames[i][0]) + int(frames[i][1])
+            strike = False
+            if char == 'X' and frame < 10:
+                strike = True
+            if not strike:
+                score += int(char)
+            else:
+                score += 10 + max(0, 10 - (frame % 2))
+        if frame > 9 and score > 100:
+            break
     return score
