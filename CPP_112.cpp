@@ -1,33 +1,24 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    return {s, c};
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
-            result += ch;
-        }
-    }
-    std::string result_reverse = result;
-    std::reverse(result_reverse.begin(), result_reverse.end());
-    return { result, (issame(std::vector<std::string>{result}, std::vector<std::string>{result_reverse}) ? "True" : "False") };
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 int main() {
-    std::string input_s, input_c;
-    std::cin >> input_s >> input_c;
-    std::vector<std::string> expected_result;
-    expected_result.push_back("");
-    expected_result.push_back("True");
-    
-    assert(issame(reverse_delete(input_s, input_c), expected_result));
-    
+    std::string s, c;
+    std::cin >> s >> c;
+
+    auto result = reverse_delete(s, c);
+    std::cout << result[0] << " " << result[1] << std::endl;
+
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+
     return 0;
 }
