@@ -31,7 +31,4 @@ std::vector<int> factorize(int n) {
     return factors;
 }
 
-int main() {
-    assert(is_same(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
-    return 0;
-}
+assert(is_same(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
