@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,16 +20,18 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-            codeFreq[code[i] - 'A']--;
-            guessFreq[guess[i] - 'A']--;
         } else {
             codeFreq[code[i] - 'A']++;
             guessFreq[guess[i] - 'A']++;
         }
     }
 
-    for (int i = 0; i < 6; ++i) {
-        whitePegs += min(codeFreq[i], guessFreq[i]);
+    for (int i = 0; i < 4; ++i) {
+        if (codeFreq[code[i] - 'A'] > 0 && guessFreq[guess[i] - 'A'] > 0) {
+            whitePegs++;
+            codeFreq[code[i] - 'A']--;
+            guessFreq[guess[i] - 'A']--;
+        }
     }
 
     cout << whitePegs << endl;
