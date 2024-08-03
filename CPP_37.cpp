@@ -1,21 +1,21 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    // Existing implementation
 }
 
-void sort_even(vector<float>& l);
+void sort_even(std::vector<float>& l) {
+    // Existing implementation
+}
 
-vector<float> test = {2.5, 4.3, 1.2, 3.7, 5.5, 6.1};
-vector<float> sorted_test = {1.2, 4.3, 2.5, 3.7, 5.5, 6.1};
-sort_even(test);
-assert(issame(test, sorted_test));
+int main() {
+    // Update usage example
+    std::vector<float> test = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    std::vector<float> sorted_test = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    std::vector<float> result = test;
+    sort_even(result);
+    assert(issame(result, sorted_test));
+    
+    return 0;
+}
