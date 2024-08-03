@@ -21,7 +21,6 @@ int main() {
     
     int min_abs_diff = std::abs(2 * nums[0] - sum);
     int cut_index = 0;
-    
     for (int i = 1; i < n; i++) {
         if (std::abs(2 * nums[i] - sum) < min_abs_diff) {
             min_abs_diff = std::abs(2 * nums[i] - sum);
