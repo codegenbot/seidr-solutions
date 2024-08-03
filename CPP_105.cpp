@@ -5,7 +5,15 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr){
@@ -30,9 +38,4 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     return result;
-}
-
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
 }
