@@ -1,4 +1,6 @@
-#include "catch2/catch.hpp"
+#include "catch.hpp"
+
+#define CATCH_CONFIG_MAIN
 
 #include <iostream>
 #include <cmath>
@@ -9,5 +11,5 @@ double truncate_number(double number) {
 }
 
 TEST_CASE("Truncate number test", "[truncate_number]") {
-    REQUIRE(std::fabs(truncate_number(123.456) - 0.456) < 1e-4);
+    REQUIRE(fabs(truncate_number(123.456) - 0.456) < 1e-4);
 }
