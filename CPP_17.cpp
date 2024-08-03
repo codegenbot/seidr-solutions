@@ -4,7 +4,14 @@
 
 std::vector<int> parse_music(const std::string& music) {
     std::vector<int> result;
-    // Implement the logic to parse the music string and populate the result vector
+    size_t pos = 0;
+    while ((pos = music.find("| ")) != std::string::npos) {
+        result.push_back((pos / 3) + 1);
+        music.erase(0, pos + 2);
+    }
+    if (!music.empty()) {
+        result.push_back((music.size() / 3) + 1);
+    }
     return result;
 }
 
