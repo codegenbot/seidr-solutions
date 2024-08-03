@@ -1,17 +1,10 @@
-#include <algorithm>
-#include <vector>
-#include <string>
-
-bool issame(char a, char b) {
-    return toupper(a) == toupper(b);
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::string result = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> output;
+    string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
-            if (issame(ch, cc)) {
+            if (ch == cc) {
                 found = true;
                 break;
             }
@@ -20,10 +13,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             result += ch;
         }
     }
-    std::vector<std::string> output;
     output.push_back(result);
-    std::string temp = result;
-    std::reverse(temp.begin(), temp.end());
+    string temp = result;
+    reverse(temp.begin(), temp.end());
     if (temp == result) {
         output.push_back("True");
     } else {
