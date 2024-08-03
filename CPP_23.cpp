@@ -1,6 +1,10 @@
 #include <cassert>
 #include <cstring>
 
+int testFunction(const char* str){
+    return strlen(str);
+}
+
 int main(){
-    assert(strlen("asdasnakj") == 9);
+    assert(testFunction("asdasnakj") == 9);
 }
