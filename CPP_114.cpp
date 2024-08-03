@@ -1,10 +1,9 @@
 ```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <limits>
 
-long long minSubArraySum(vector<long long> nums) {
-    long long sum = 0, min_sum = LLONG_MAX;
+long long minSubArraySum(std::vector<long long> nums) {
+    long long sum = 0, min_sum = std::numeric_limits<long long>::max();
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < min_sum) {
