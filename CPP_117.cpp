@@ -1,9 +1,3 @@
-#include <vector>
-#include <string>
-#include <cctype>
-
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -28,5 +22,5 @@ vector<string> select_words(string s, int n) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your function implementation
+    // Your implementation here
 }
