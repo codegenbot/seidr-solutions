@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,13 +13,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    assert(std::issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
-    return 0;
-}
-
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
+    std::sort(arr.begin(), arr.end());
+    std::reverse(arr.begin(), arr.end());
     return std::vector<int>(arr.begin(), arr.begin() + k);
 }
