@@ -1,17 +1,6 @@
-def double_the_difference(odd_sum):
+def double_the_difference(input_list):
     total = 0
-    for num in lst:
+    for num in input_list:
         if isinstance(num, int) and num >= 0:
             total += num**2
-    return total * 2
-
-
-def check():
-    n = int(input())
-    lst = list(map(int, input().split()))
-    odd_sum = sum(num for num in lst if num % 2 != 0)
-    result = double_the_difference(odd_sum)
-    print(result)
-
-
-check()
+    return total
