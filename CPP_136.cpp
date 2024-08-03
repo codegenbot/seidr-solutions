@@ -1,17 +1,19 @@
 #include <vector>
-
+#include <climits>
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst) {
-    int maxNegative = 0, minPositive = INT_MAX;
+pair<int, int> largest_smallest_integers(vector<int> lst){
+    int maxNeg = 0;
+    int minPos = INT_MAX;
     
-    for (int num : lst) {
-        if (num < 0 && num > maxNegative) {
-            maxNegative = num;
-        } else if (num > 0 && num < minPositive) {
-            minPositive = num;
+    for(int i : lst) {
+        if(i < 0 && i > maxNeg) {
+            maxNeg = i;
+        }
+        else if(i > 0 && i < minPos) {
+            minPos = i;
         }
     }
     
-    return {(maxNegative >= 0) ? 0 : maxNegative, (minPositive <= 0) ? 0 : minPositive};
+    return std::make_pair((maxNeg == 0)?0:maxNeg, (minPos == INT_MAX)?0:minPos);
 }
