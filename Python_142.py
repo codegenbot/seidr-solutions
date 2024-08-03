@@ -9,5 +9,5 @@ def sum_squares(lst):
     return total_sum
 
 numbers = input("Enter a list of numbers separated by space: ")
-numbers = [int(num) for num in numbers.split()]
-print(sum_squares(numbers))
+lst = [int(num) for num in numbers.split()]
+print(sum_squares(lst))
