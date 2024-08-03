@@ -1,5 +1,5 @@
 // Problem description: 
-// Check whether all keys in a dictionary (map) have the same case.
+// Check if all keys in a dictionary are either all lowercase or all uppercase.
 
 bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
