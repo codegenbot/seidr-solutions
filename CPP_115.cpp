@@ -1,15 +1,14 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>>& grid, int capacity) {
     int count = 0;
-    for (int j = 0; j < grid[0].size(); ++j) {
-        int sum = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            sum += grid[i][j];
+    for (int i = 0; i < grid.size(); i++) {
+        int current = 0;
+        for (int j = 0; j < grid[0].size(); j++) {
+            current += grid[i][j];
         }
-        count += sum / capacity + (sum % capacity != 0);
+        count += current / capacity;
+        if (current % capacity != 0) {
+            count++;
+        }
     }
     return count;
 }
