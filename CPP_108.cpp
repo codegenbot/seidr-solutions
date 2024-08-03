@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int count_nums(vector<int> v) {
@@ -17,4 +16,3 @@ int count_nums(vector<int> v) {
         if (has_positive_sum) count++;
     }
     return count;
-}
