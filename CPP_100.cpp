@@ -11,11 +11,3 @@ std::vector<int> make_a_pile(int n){
     }
     return stones;
 }
-
-std::vector<int> make_a_pile(int n){
-    std::vector<int> stones;
-    for(int i = 0; i < n; ++i){
-        stones.push_back(n + 2 * i);
-    }
-    return stones;
-}
