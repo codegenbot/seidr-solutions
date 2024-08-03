@@ -1,6 +1,5 @@
 #include <vector>
 #include <climits>
-#include <cassert>
 #include <algorithm>
 
 using namespace std;
