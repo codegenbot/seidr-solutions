@@ -1,16 +1,9 @@
+#include <string>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> parse_nested_parens(string paren_string);
-
-int main() {
-    vector<int> levels = parse_nested_parens("(( ) (( )) ) ");
-    
-    for (int level : levels) {
-        cout << level << " ";
-    }
-
-    return 0;
-}
+using namespace std;
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> levels;
@@ -33,4 +26,14 @@ vector<int> parse_nested_parens(string paren_string){
     levels.push_back(max_level);
 
     return levels;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    
+    return 0;
 }
