@@ -6,14 +6,18 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
+    int minDiff = INT_MAX;
+    int pos = -1;
     
-    for(int i = 0; i < n; i++) {
-        if(i == n - 1 || abs(vec[i] - vec[i+1]) > (vec[i + 1] - vec[0])) {
-            result.push_back({vec.begin(), vec.begin() + i + 1});
-            result.push_back({vec.begin() + i + 1, vec.end()});
-            break;
+    for(int i = 0; i < n - 1; i++) {
+        if(abs(vec[i] - vec[i+1]) < minDiff) {
+            minDiff = abs(vec[i] - vec[i+1]);
+            pos = i + 1;
         }
     }
+    
+    result.push_back({vec, 0, pos});
+    result.push_back({{vec.begin() + pos}, (pos) , n});
     
     return result;
 }
