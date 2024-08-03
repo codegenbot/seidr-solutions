@@ -1,34 +1,42 @@
 #include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-int mastermindCode(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-    
-    vector<char> codeVector(code.begin(), code.end());
-    vector<char> guessVector(guess.begin(), guess.end());
+std::pair<int, int> mastermind(std::string code, std::string guess) {
+    int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; i++) {
-        if (codeVector[i] == guessVector[i]) {
-            blackPegs++;
-            codeVector[i] = '-';
-            guessVector[i] = '-';
+    // Count the number of correct colors in wrong positions (white pegs)
+    for(int i = 0; i < 4; ++i) {
+        if(code[i] == guess[i]) {
+            black++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (guessVector[j] == codeVector[i] && codeVector[i] != '-') {
-                whitePegs++;
-                codeVector[i] = '-';
-                guessVector[j] = '-';
-                found = true;
-                break;
+    // Count the number of correct colors in right positions (black pegs)
+    for(int i = 0; i < 6; ++i) {
+        int count = 0;
+        for(int j = 0; j < 4; ++j) {
+            if(code[j] == std::string(1, (char)(i + 'A')) && guess[j] == std::string(1, (char)(i + 'A'))) {
+                count++;
             }
         }
+        white += (count - 1);
     }
 
-    return make_pair(blackPegs, whitePegs).second;
+    // Subtract the black pegs from total white pegs
+    white -= black;
+
+    return std::pair<int, int>(white, black);
 }
+
+int main() {
+    std::string code, guess;
+    std::cout << "Enter Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << "\n";
+    std::cout << "Black pegs: " << result.second << "\n";
+    return 0;
