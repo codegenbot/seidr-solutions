@@ -1,19 +1,19 @@
 ```cpp
-#include <cmath>
-#include <iostream>
+#include<iostream>
+using namespace std;
 
 bool iscuber(int a){
     int c = (int)cbrt(a);
     return c*c*c == a;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-    if(iscuber(num))
-        std::cout << num << " is a perfect cube.\n";
+int main(){
+    int n;
+    cout << "Enter an integer: ";
+    cin >> n;
+    if(iscuber(n))
+        cout << "Yes, the cube root of " << n << " is an integer." << endl;
     else
-        std::cout << num << " is not a perfect cube.\n";
+        cout << "No, the cube root of " << n << " is not an integer." << endl;
     return 0;
 }
