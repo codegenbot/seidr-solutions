@@ -25,21 +25,15 @@ bool main() {
         reverse(rev.begin(), rev.end());
         return s == rev;
     }
-    
+
     vector<int> q;
     int w;
-    cout << "Enter the number of queries: ";
-    cin >> q.size();
-    for (int i = 0; i < q.size(); i++) {
-        cout << "Enter query " << i + 1 << ": ";
-        cin >> q[i];
+    cin >> w;
+    for(int i=0; i<5;i++){
+        int a;
+        cin>>a;
+        q.push_back(a);
     }
     
-    cout << "Enter the weight w: ";
-    cin >> w;
-    
-    if(will_it_fly(q, w)) 
-        cout << "Yes, it will fly." << endl;
-    else
-        cout << "No, it won't fly." << endl;
+    cout << will_it_fly(q, w) << endl;
 }
