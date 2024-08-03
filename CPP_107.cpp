@@ -22,18 +22,4 @@ vector<int> even_odd_palindrome(int n){
     return result;
 }
 
-vector<int> test_result = even_odd_palindrome(1);
-assert(test_result[0] == 0 && test_result[1] == 1);
-
-test_result = even_odd_palindrome(10);
-assert(test_result[0] == 6 && test_result[1] == 4);
-
-test_result = even_odd_palindrome(100);
-assert(test_result[0] == 60 && test_result[1] == 40);
-
-test_result = even_odd_palindrome(1000);
-assert(test_result[0] == 540 && test_result[1] == 460);
-
-cout << "All test cases passed." << endl;
-
-return 0;
+```
