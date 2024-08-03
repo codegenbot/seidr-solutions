@@ -1,16 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <sstream>
 
 int main() {
     std::vector<int> nums;
-    std::string input;
-    std::getline(std::cin, input);
-    std::stringstream ss(input);
     int n;
 
-    while (ss >> n) {
+    while (std::cin >> n) {
         nums.push_back(n);
     }
 
