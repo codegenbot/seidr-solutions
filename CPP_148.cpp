@@ -1,10 +1,9 @@
-vector<string> issame(vector<string> planets1, vector<string> planets2) {
-    if (planets1.size() != planets2.size()) return {};
-    for (int i = 0; i < planets1.size(); i++) {
-        if (find(planets2.begin(), planets2.end(), planets1[i]) == planets2.end())
-            return {};
-    }
-    return planets1;
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string>b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -30,4 +29,9 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Mars") , {}));  
+    return 0;
 }
