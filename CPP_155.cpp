@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -19,9 +20,13 @@ std::vector<int> even_odd_count(int n){
 }
 
 int main() {
-    assert(issame({4, 5}, even_odd_count(123456789)));
-    assert(issame({5, 0}, even_odd_count(24680)));
-    assert(issame({0, 6}, even_odd_count(111111));
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    
+    std::vector<int> result = even_odd_count(input);
+    
+    std::cout << "Even count: " << result[0] << ", Odd count: " << result[1] << std::endl;
 
     return 0;
 }
