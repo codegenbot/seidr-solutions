@@ -8,11 +8,11 @@ def prime_fib(n: int):
         return True
 
     a, b = 0, 1
+    primes = []
     while True:
         a, b = b, a + b
         if is_prime(b):
-            if n == 1:
-                return str(a) + ", " + str(b)
+            primes.append(str(b))
             n -= 1
         if n == 0:
-            return str(b)
+            return ", ".join(primes)
