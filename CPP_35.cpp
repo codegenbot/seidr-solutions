@@ -3,6 +3,20 @@
 
 int main() {
     std::vector<float> l;
-    std::cin >> std::fixed >> std::showpoint;
-    for(float i;std::cin>>i;)l.push_back(i);
-    return *std::max_element(l.begin(), l.end());
+    int num;
+    float max = -INFINITY;
+
+    // Input numbers
+    while (true) {
+        std::cin >> num;
+        if (!std::cin) break;
+        l.push_back(num);
+    }
+
+    for (const auto& val : l) {
+        if (val > max)
+            max = val;
+    }
+
+    return static_cast<int>(max);
+}
