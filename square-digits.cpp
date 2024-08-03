@@ -2,21 +2,21 @@
 #include <iostream>
 #include <string>
 
-std::string squareDigits(std::string input) {
-    std::string output;
+string squareDigits(string input) {
+    string result = "";
     for (char c : input) {
         int digit = c - '0';
-        int squared = digit * digit;
-        output += to_string(squared);
+        result += to_string(digit * digit);
     }
-    return output;
+    return result;
 }
 
 int main() {
-    std::cout << squareDigits("0") << std::endl;
-    std::cout << squareDigits("1") << std::endl;
-    std::cout << squareDigits("2") << std::endl;
-    std::cout << squareDigits("3") << std::endl;
-    std::cout << squareDigits("4") << std::endl;
+    std::cout << squareDigits("0") << std::endl;  // output: 0
+    std::cout << squareDigits("1") << std::endl;  // output: 1
+    std::cout << squareDigits("2") << std::endl;  // output: 4
+    std::cout << squareDigits("3") << std::endl;  // output: 9
+    std::cout << squareDigits("4") << std::endl;  // output: 16
+
     return 0;
 }
