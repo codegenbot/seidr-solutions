@@ -12,9 +12,20 @@ int smallest_change(vector<int> arr) {
             else if (arr[j] == arr[n - 1 - i + j])
                 dp[i][j] = dp[i - 1][j - 1];
             else
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
+                dp[i][j] = min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]}) + 1;
         }
     }
     
-    return *min_element(dp[n - 1].begin(), dp[n - 1].end());
+    return dp[n - 1][0];
+}
+
+int main() {
+    vector<int> coins = {1, 2};
+    cout << "Smallest change for " << endl;
+    for (int coin : coins) {
+        cout << coin << " ";
+    }
+    cout << "= " << smallest_change(coins) << endl;
+    
+    return 0;
 }
