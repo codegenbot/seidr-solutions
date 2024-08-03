@@ -1,2 +1,4 @@
-def roll_probability(n, m):
-    return (m - 1) / (n * m)
+Here is the solution:
+
+def dice_game(n, m):
+    return (n-1) / (n+m-2)
