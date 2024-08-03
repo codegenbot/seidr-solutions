@@ -1,14 +1,7 @@
 #include <iostream>
 
 void solveProblem() {
-    int n, sum = 0;
-    std::cin >> n;
-
-    for(int i=1; i<=n; i++) {
-        sum += i;
-    }
-
-    std::cout << sum << std::endl;
+    // Write your code here
 }
 
 int main() {
