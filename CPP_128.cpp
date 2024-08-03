@@ -1,10 +1,6 @@
 #include <vector>
-#include <cassert>
-#include <cmath>
 
-using namespace std;
-
-int prod_signs(const vector<int>& arr) {
+int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) return -32768;
 
     int product = 1;
@@ -16,11 +12,4 @@ int prod_signs(const vector<int>& arr) {
     }
 
     return product * sum_magnitudes;
-}
-
-int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); // Sample test case
-    // Add more test cases as needed
-
-    return 0;
 }
