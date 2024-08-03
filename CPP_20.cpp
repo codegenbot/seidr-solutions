@@ -13,6 +13,9 @@ bool is_same(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
-    // Add your implementation here
-    return {0.0f, 0.0f}; // Placeholder return values
+    if (numbers.size() < 2) {
+        return {0.0f, 0.0f};
+    }
+    std::pair<float, float> result = {numbers[0], numbers[1]};
+    return result;
 }
