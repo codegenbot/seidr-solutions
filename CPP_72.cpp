@@ -1,4 +1,8 @@
-Here is the completed code:
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -9,4 +13,11 @@ bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
     for (int i : q) sum += i;
     return sum <= w;
+}
+
+int main() {
+    vector<int> q = {1,2,3};
+    int w = 6;
+    cout << boolalpha << will_it_fly(q, w);
+    return 0;
 }
