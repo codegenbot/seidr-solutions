@@ -1,11 +1,34 @@
-string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if (!isalpha(word[i])) continue;
-        if (isvowel(tolower(word[i]))) return string(1, tolower(word[i]));
-        while (!isalpha(word[i-1]) && i > 1) --i;
-        if (!isalpha(word[i-1])) continue;
-        if (isvowel(tolower(word[i-1]))) return string(1, tolower(word[i-1]));
+```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+std::string get_closest_vowel(std::string word) {
+    int left = 0;
+    for (int right = word.size() - 1; right > 0; --right) {
+        if (!isvowel(word[right])) {
+            break;
+        }
+        left = right;
     }
-    return "";
+    
+    while (left > 0 && !isvowel(word[left - 1]))
+        --left;
+
+    return left > 0 ? word.substr(left - 1, 1) : "";
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::cout << "The closest vowel is: " << get_closest_vowel(input) << std::endl;
+    
+    return 0;
 }
