@@ -2,7 +2,15 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::find(b.begin(), b.end(), a[i]) == b.end()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -10,8 +18,8 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     if (lst.empty()) return result;
 
     auto min_max = [](const std::vector<int>& v) {
-        int min_val = *min_element(v.begin(), v.end());
-        int max_val = *max_element(v.begin(), v.end());
+        int min_val = *std::min_element(v.begin(), v.end());
+        int max_val = *std::max_element(v.begin(), v.end());
         return make_pair(min_val, max_val);
     };
 
