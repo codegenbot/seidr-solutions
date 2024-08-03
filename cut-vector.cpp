@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-
+  
     int vectorSize;
     cin >> vectorSize;
     for (int i = 0; i < vectorSize; i++) {
