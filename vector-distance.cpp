@@ -1,29 +1,39 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
 int main() {
     int n;
-    cin >> n;
-    vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
+    stringstream ss;
+    string line;
+
+    getline(cin, line);
+    ss.str(line);
+
+    vector<double> vec1;
+    while (ss >> n) {
+        vec1.push_back(n);
     }
 
-    vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+    ss.clear();
+    getline(cin, line);
+    ss.str(line);
+
+    vector<double> vec2;
+    while (ss >> n) {
+        vec2.push_back(n);
     }
 
     double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (size_t i = 0; i < vec1.size(); ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
     double distance = sqrt(sum);
-    cout << distance << endl;
+    cout << fixed << distance << endl;
 
     return 0;
 }
