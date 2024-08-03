@@ -1,4 +1,3 @@
-```
 def prime_fib(n):
     a, b = 2, 3
     count = 1
@@ -8,6 +7,8 @@ def prime_fib(n):
                 return b
             count += 1
         a, b = b, a + b
+
+
 def is_prime(num):
     if num < 2:
         return False
@@ -15,6 +16,3 @@ def is_prime(num):
         if num % i == 0:
             return False
     return True
-
-n = int(input("Enter the value of n: "))
-print(prime_fib(n))
