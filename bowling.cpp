@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     int frame = 1;
@@ -6,7 +8,7 @@ int bowlingScore(string s) {
             score += 10 + (frame < 10 ? 10 : 0);
             frame++;
         } else if (c == '/') {
-            score += 10 - ((s.back() - '0') + (s[s.length() - 2] - '0'));
+            score += 10 - ((s[s.length() - 1] - '0') + (s[s.length() - 2] - '0'));
             frame++;
         } else {
             int pins = c - '0';
@@ -17,8 +19,8 @@ int bowlingScore(string s) {
                     frame++;
                 } else {
                     frame++;
-                    if (!s.substr(s.length() - 1).find('/') && !s.substr(s.length() - 2).find('/')) {
-                        int nextPins = s.back() - '0';
+                    if (s[s.length() - 1] != '/' && s[s.length() - 2] != '/') {
+                        int nextPins = s[s.length() - 1] - '0';
                         score += pins + nextPins;
                         frame++;
                     }
@@ -29,4 +31,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
