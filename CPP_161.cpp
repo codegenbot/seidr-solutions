@@ -1,14 +1,26 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
+#include <iostream>
+#include <algorithm>
+
+std::string solve(std::string s){
+    int n = s.size();
+    bool hasLetter = false;
+    for(int i=0; i<n; i++){
+        if(std::isalpha(s[i])){
+            hasLetter = true;
+            if(std::islower(s[i])){
+                s[i] = std::toupper(s[i]);
             } else {
-                c = tolower(c);
+                s[i] = std::tolower(s[i]);
             }
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if(!hasLetter){
+        std::reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
