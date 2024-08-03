@@ -20,14 +20,7 @@ bool issame(vector<int>& a, vector<int>& b) {
 vector<int> sort_third(vector<int> l);
 
 int main() {
-    vector<int> input = {9, 2, 6, 4, 1, 7, 5, 8, 3};
-    vector<int> sorted_third = sort_third(input);
-    
-    for (int num : sorted_third) {
-        cout << num << " ";
-    }
-    cout << endl;
-
+    // Add main function code to call sort_third function correctly
     return 0;
 }
 
@@ -44,7 +37,7 @@ vector<int> sort_third(vector<int> l) {
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (j % 3 == 0) {
-            l_prime[i] = l_divisible_by_three[j];
+            l_prime[i] = l_divisible_by_three[j / 3];
             j++;
         }
     }
