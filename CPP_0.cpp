@@ -15,6 +15,8 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
 
 int main() {
     std::vector<double> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    std::cout << (has_close_elements(a, 0.1) ? "True" : "False");
+    std::vector<double> b={1.1, 2.2, 3.1, 4.1, 5.1};
+    std::cout << (has_close_elements(a, 0) ? "True" : "False") << std::endl;
+    std::cout << (has_close_elements(b, 0.5) ? "True" : "False") << std::endl;
     return 0;
 }
