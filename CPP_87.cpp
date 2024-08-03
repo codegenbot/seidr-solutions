@@ -3,7 +3,7 @@
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 bool issame(const vector<int>& a, const vector<int>& b){
-    return (a[0] == b[0] && a[1] == b[1]);
+    return a == b;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
