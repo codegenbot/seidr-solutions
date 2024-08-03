@@ -11,7 +11,7 @@ vector<int> incr_list(const vector<int>& a) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
