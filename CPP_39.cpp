@@ -1,5 +1,6 @@
-```cpp
 bool isPrime(int num);
+int prime_fib(int n);
+
 int prime_fib(int n) {
     int a = 0, b = 1, fib = 0;
     for (int i = 1; ; i++) {
