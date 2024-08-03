@@ -4,21 +4,30 @@
 int main() {
     int n;
     std::cin >> n;
+    
+    if (n <= 0) {
+        std::cout << "Invalid input: n should be greater than 0." << std::endl;
+        return 1;
+    }
+
     int cutIndex;
     std::cin >> cutIndex;
-    --cutIndex; // Adjust cutIndex to be 0-based
-
+    
+    if (cutIndex <= 0 || cutIndex >= n) {
+        std::cout << "Invalid input: cutIndex should be greater than 0 and less than n." << std::endl;
+        return 1;
+    }
+    
     std::vector<int> nums(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
 
-    int diff = abs(nums[cutIndex] - nums[cutIndex + 1]); // Update this line
+    int diff = abs(nums[cutIndex - 1] - nums[cutIndex]);
+    int left = cutIndex - 1, right = cutIndex;
 
-    int left = cutIndex, right = cutIndex + 1;
-
-    for (int i = cutIndex + 2; i < n; ++i) {
+    for (int i = cutIndex + 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
         if (newDiff < diff) {
             diff = newDiff;
