@@ -15,15 +15,4 @@ vector<string> split_words(string txt) {
     }
     return words;
 }
-
-int main() {
-    string input;
-    getline(cin, input);
-    vector<string> result = split_words(input);
-    
-    for (const string& word : result) {
-        cout << word << endl;
-    }
-
-    return 0;
-}  
+}
