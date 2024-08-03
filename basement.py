@@ -1,9 +1,6 @@
-Here is the Python code that solves the problem:
-
-def basement(lst):
-    total = 0
-    for i, num in enumerate(lst):
-        total += num
+def basement(nums):
+    for i in range(len(nums)):
+        total = sum(nums[: i + 1])
         if total < 0:
             return i
     return -1
