@@ -1,40 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <string>
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    stack<string> parenthesesStack;
-    string currentParentheses = "";
+    string current_group = "";
+    int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            currentParentheses += c;
-            parenthesesStack.push(currentParentheses);
-            currentParentheses = "";
+            open_count++;
+            current_group += c;
         } else if (c == ')') {
-            currentParentheses += c;
-            stack<string> tempStack(parenthesesStack);
-            while (!tempStack.empty()) {
-                tempStack.pop();
+            open_count--;
+            current_group += c;
+            if (open_count == 0) {
+                result.push_back(current_group);
+                current_group = "";
             }
-            result.push_back(currentParentheses);
-            currentParentheses = "";
         }
     }
 
     return result;
-}
-
-int main() {
-    string input = "( ) (( )) (( )( ))";
-    vector<string> output = separate_paren_groups(input);
-
-    for (string s : output) {
-        cout << s << endl;
-    }
-
-    return 0;
 }
