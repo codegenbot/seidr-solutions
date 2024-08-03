@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 vector<int> rolling_max(const vector<int>& numbers) {
     vector<int> result;
     int maxSoFar = INT_MIN;
@@ -12,6 +14,6 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    // Your main function logic here
+    // Your main function here
     return 0;
 }
