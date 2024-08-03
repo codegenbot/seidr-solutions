@@ -1,6 +1,8 @@
-#include <algorithm>
+#include <algorithm> // Add this include for std::__gcd
+#include <stdio.h>
 #include <string>
 #include <cmath>
+using namespace std;
 
 bool simplify(string x, string n) {
     int num1 = stoi(x.substr(0, x.find('/')));
@@ -11,7 +13,7 @@ bool simplify(string x, string n) {
     int result_num = num1 * num2;
     int result_den = den1 * den2;
 
-    int gcd = __gcd(result_num, result_den);
+    int gcd = __gcd(result_num, result_den); // Change gcd to __gcd
 
     return result_num % gcd == 0 && result_den % gcd == 0;
 }
