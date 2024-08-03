@@ -1,13 +1,13 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+using namespace std;
+
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b){
     return a[0] == b[0] && a[1] == b[1];
 }
 
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x){
+vector<vector<int>> get_row(const vector<vector<int>>& lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
         for (int j = 0; j < lst[i].size(); ++j) {
@@ -16,7 +16,7 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
+    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
         return a[0] < b[0];
     });
     for (auto& coord : result) {
@@ -25,6 +25,6 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     return result;
 }
 
-vector<vector<int>> main() {
-    // existing main function remains the same
-}  
+int main() {
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+}
