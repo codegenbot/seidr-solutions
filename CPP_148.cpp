@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(vector<string>, vector<string>) {
-    // implementation
+    // Function implementation not required for this problem
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -28,4 +28,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Saturn") == std::vector<std::string>({"Venus", "Earth", "Mars"}));
+    return 0;
 }
