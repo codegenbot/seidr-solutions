@@ -1,31 +1,38 @@
-```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if(a.size() != b.size()) {
+bool issame(const vector<float>& a, const vector<float>& b) {
+    if(a.size() != b.size())
         return false;
-    }
+    
     for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-9f) {
+        if(std::abs(a[i] - b[i]) > 1e-6f)
             return false;
-        }
     }
     return true;
 }
 
 int main() {
-    std::vector<float> l;
+    vector<float> l;
     float x;
-    while(std::cin >> x) {
+    std::cout << "Enter numbers (enter 'q' to finish): ";
+    
+    while(true) {
+        std::cin >> x;
+        if(x == 'q')
+            break;
         l.push_back(x);
     }
-    if(l.size() < 2) {
-        std::cout << "Not enough elements to compare" << std::endl;
-    } else {
-        bool is_same = issame(l, get_positive(l));
-        std::cout << (is_same ? "Same" : "Different") << std::endl;
-    }
+    
+    vector<float> result = get_positive(l);
+    
+    if(result.size() > 0) {
+        for(auto x : result)
+            std::cout << x << " ";
+        std::cout << "\n";
+    } else
+        std::cout << "All numbers are negative.\n";
+        
     return 0;
 }
 
