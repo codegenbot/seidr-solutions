@@ -8,8 +8,8 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    if (code.size() != 4 || guess.size() != 4) {
-        cout << "Invalid input. Code and guess must be 4 characters each." << endl;
+    if (code.length() != 4 || guess.length() != 4) {
+        cout << "Invalid input" << endl;
         return 0;
     }
 
@@ -21,8 +21,8 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
+            codeFreq[code[i] - '1']++;
+            guessFreq[guess[i] - '1']++;
         }
     }
 
