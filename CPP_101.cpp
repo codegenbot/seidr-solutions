@@ -26,4 +26,3 @@ std::vector<std::string> words_string(const std::string& str) {
 }
 
 assert(issame(words_string("ahmed , gamal"), {"ahmed", "gamal"}));
-```
