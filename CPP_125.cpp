@@ -2,12 +2,13 @@
 #include <string>
 #include <cassert>
 #include <iostream>
+#include <algorithm> // Include algorithm header for std::islower
 
 std::vector<std::string> split_words(const std::string& txt);
 bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 int main() {
-    assert_equal(split_words(""), std::vector<std::string>{"0"});
+    assert(assert_equal(split_words(""), std::vector<std::string>{"0"}));
     
     return 0;
 }
