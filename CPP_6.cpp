@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> parse_nested_parens(std::string paren_string) {
+std::vector<int> parse_nested_parens(std::string paren_string){
     std::vector<int> depths;
     int max_depth = 0;
     int current_depth = 0;
@@ -28,13 +28,10 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
 }
 
 int main() {
-    std::string input_parens = "( ) ( ( ) )";
-    std::string expected_output = "( ) ( )";
-    
-    std::vector<int> depths = parse_nested_parens(input_parens);
-    std::vector<int> expected_result = parse_nested_parens(expected_output);
-    
-    assert(issame(depths, expected_result));
+    std::string input_string = "( ( ) ) ( ( ) ) ( ) ";
+    std::vector<int> depths = parse_nested_parens(input_string);
+    std::vector<int> expected_output = {2, 2, 2, 1};
+    assert(issame(depths, expected_output));
     
     return 0;
 }
