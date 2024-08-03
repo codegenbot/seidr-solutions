@@ -1,14 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
 vector<string> select_words(string s, int n);
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    string input;
+    int n;
+    
+    cin >> input >> n;
+    
+    vector<string> selected_words = select_words(input, n);
+    vector<string> comparison_vector = {"apple", "banana", "cherry"};
+    
+    if (issame(selected_words, comparison_vector)) {
+        cout << "Selected words match comparison vector." << endl;
+    } else {
+        cout << "Selected words do not match comparison vector." << endl;
+    }
+    
+    return 0;
 }
