@@ -5,9 +5,8 @@ def string_to_md5(text):
 
 try:
     text = input().strip()
-    if text:
-        print(string_to_md5(text))
-    else:
-        raise ValueError("Input is empty")
-except Exception as e:
-    print("Error:", e)
+    if text == "":
+        raise ValueError("Input was empty")
+    print(string_to_md5(text))
+except ValueError as e:
+    print(e)
