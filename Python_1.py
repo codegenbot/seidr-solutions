@@ -22,4 +22,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 current_group += char
             else:
-                return [group.strip() for group in groups]
+                return "Program did not receive expected input"
+    return [group for group in groups]
