@@ -1,4 +1,9 @@
-int maxPrime = -1;
+#include <iostream>
+#include <cmath>
+#include <cassert>
+
+int largest_prime_factor(int n) {
+    int maxPrime = -1;
     while (n % 2 == 0) {
         maxPrime = 2;
         n /= 2;
