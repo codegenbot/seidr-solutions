@@ -1,9 +1,17 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-void remove_duplicates(vector<int>& nums);
+void remove_duplicates(std::vector<int>& v) {
+    v.erase(std::unique(v.begin(), v.end()), v.end());
+}
 
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> a_temp = a;
+    std::vector<int> b_temp = b;
+
+    remove_duplicates(a_temp);
+    remove_duplicates(b_temp);
+
+    return a_temp == b_temp;
 }
