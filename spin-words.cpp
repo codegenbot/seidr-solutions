@@ -1,28 +1,34 @@
-Here's the completed C++ code:
-
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string input) {
-    string output = "";
-    string word = "";
-
+std::string spinWords(std::string input) {
+    std::string output = "";
+    int wordLength = 0;
     for (char c : input) {
         if (c == ' ') {
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+            if (wordLength >= 5) {
+                std::reverse(output.begin() + wordLength, output.end());
             }
-            output += word + " ";
-            word = "";
+            output += c;
+            wordLength = 0;
         } else {
-            word += c;
+            output += c;
+            wordLength++;
         }
     }
-
-    if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
+    // check the last word
+    if (wordLength >= 5) {
+        std::reverse(output.begin() + wordLength, output.end());
     }
-    output += word;
-
     return output;
+}
+
+int main() {
+    std::string input;
+    while (true) {
+        std::cout << "input: ";
+        std::cin >> input;
+        std::cout << "output: " << spinWords(input) << std::endl;
+    }
+    return 0;
 }
