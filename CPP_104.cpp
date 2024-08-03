@@ -1,15 +1,15 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <unordered_set>
 #include <cassert>
 
 bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
     for (int digit : b) {
-        if (a.count(digit) == 0) {
-            return false;
+        if (a.count(digit)) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 std::unordered_set<int> unique_digits(const std::vector<int>& input) {
