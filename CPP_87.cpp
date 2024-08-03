@@ -27,17 +27,13 @@ vector<vector<int>> get_row(const vector<vector<int>>& lst, int x){
     return result;
 }
 
-void solve_problem(){
+int solve_problem(){
     vector<vector<int>> result = get_row({{}, {1}, {1, 2, 3}}, 3);
     vector<vector<int>> expected = {{2, 2}};
-    if(is_same(result, expected)){
-        cout << "Solution is correct." << endl;
+    if (is_same(result, expected)) {
+        cout << "Test Passed" << endl;
     } else {
-        cout << "Solution is incorrect." << endl;
+        cout << "Test Failed" << endl;
     }
-}
-
-int main(){
-    solve_problem();
     return 0;
 }
