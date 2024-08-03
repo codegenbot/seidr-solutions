@@ -1,7 +1,6 @@
 #include <string>
+#include <iostream>
 #include <cassert>
-
-using namespace std;
 
 std::string compareStrings(const std::string &a, const std::string &b) {
     assert(a.size() == b.size());
@@ -15,4 +14,10 @@ std::string compareStrings(const std::string &a, const std::string &b) {
         }
     }
     return result;
+}
+
+int main() {
+    assert (compareStrings("0101", "0000") == "0101");
+
+    return 0;
 }
