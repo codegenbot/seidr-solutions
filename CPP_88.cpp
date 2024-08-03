@@ -1,12 +1,13 @@
+
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-namespace std {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
+namespace custom {
     std::vector<int> sort_array(const std::vector<int>& array) {
         std::vector<int> sorted_array = array;
 
@@ -21,6 +22,4 @@ namespace std {
     }
 }
 
-int main() {
-    assert(std::issame(std::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
-}
+assert(issame(custom::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
