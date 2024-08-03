@@ -15,5 +15,5 @@ for i, num in enumerate(arr):
 if running_sum - half_sum < half_sum - running_sum + num:
     idx += 1
 
-print(arr[:idx + 1])
-print(arr[idx + 1:])
+print(arr[: idx + 1])
+print(arr[idx + 1 :])
