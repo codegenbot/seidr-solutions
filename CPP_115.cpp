@@ -1,17 +1,17 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int result = 0;
-    for (const auto& well : grid) {
+    for (vector<int> well : grid) {
         int water = 0;
         for (int unit : well) {
             if (unit == 1) {
-                water += std::min(capacity, unit);
+                water += min(capacity, unit);
             }
         }
         while (water > 0) {
-            capacity = std::min(capacity, water);
+            capacity = min(capacity, water);
             result++;
             water -= capacity;
         }
@@ -20,8 +20,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
-    int result = max_fill(grid, 9);
-    std::cout << "Result: " << result << std::endl;
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
     return 0;
 }
