@@ -1,24 +1,22 @@
-#include <string>
-using namespace std;
+#include <iostream>
+#include <algorithm>
+#include <cassert>
 
-bool is_palindrome(string str){
-    int n = str.size();
-    for (int i = 0; i < n / 2; i++) {
-        if (str[i] != str[n - i - 1]) {
-            return false;
-        }
-    }
-    return true;
+bool is_palindrome(const std::string &str) {
+    return str == std::string(str.rbegin(), str.rend());
 }
 
-string make_palindrome(string str){
-    int n = str.size();
-    for (int i = n - 1; i >= 0; i--) {
+std::string make_palindrome(const std::string &str) {
+    std::string rev_str(str.rbegin(), str.rend());
+    for (size_t i = str.size(); i >= 0; --i) {
         if (is_palindrome(str.substr(i))) {
-            string prefix = str.substr(0, i);
-            reverse(prefix.begin(), prefix.end());
-            return str + prefix;
+            return str + rev_str.substr(rev_str.size() - i);
         }
     }
     return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+    return 0;
 }
