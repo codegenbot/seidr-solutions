@@ -1,6 +1,12 @@
 #include <iostream>
 #include <vector>
 
+namespace std {
+    bool ISSame(std::vector<int> a, std::vector<int> b) {
+        return a == b;
+    }
+}
+
 std::vector<int> tri(int n) {
     std::vector<int> result;
     if (n == 0) {
@@ -26,12 +32,8 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(tri(1), {1, 3}));
+    assert(std::ISSame(tri(1), {1, 3}));
     
     return 0;
 }
