@@ -4,16 +4,7 @@
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    int num;
-
-    while (!cin.eof()) {
-        cin >> num;
-        if (!cin.eof()) {
-            nums.push_back(num);
-        }
-    }
-
+    vector<int> nums = {5, 2, 7, 9}; // Example input size known in advance
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
