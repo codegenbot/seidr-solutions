@@ -1,7 +1,12 @@
 #include <vector>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
+namespace std{
+    using std::vector;
+    using std::int;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
