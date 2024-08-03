@@ -1,35 +1,26 @@
-#include <vector>
+#include <unordered_set>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
-    for (int num : x) {
-        int temp = num;
-        bool hasEvenDigit = false;
-        while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
+bool issame(unordered_set<int> a, unordered_set<int> b) {
+    unordered_set<int> digits;
+    for (int digit : a) {
+        if (digits.count(digit)) {
+            return true;
         }
-        if (!hasEvenDigit) {
-            result.push_back(num);
-        }
+        digits.insert(digit);
     }
-    sort(result.begin(), result.end());
-    return result;
+    for (int digit : b) {
+        if (digits.count(digit)) {
+            return true;
+        }
+        digits.insert(digit);
+    }
+    return false;
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    unordered_set<int> a{1, 2, 3};
+    unordered_set<int> b{4, 5, 6};
+    assert(!issame(a, b));
+    
     return 0;
 }
