@@ -1,9 +1,10 @@
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
+```
+def calculate_stats(numbers: List[int]) -> Tuple[float, float]:
     if not numbers:
-        return 0, 1
-    total_sum = 0
+        return 0.0, 1.0
+    total_sum = sum(numbers)
     product = 1
     for num in numbers:
-        total_sum += num
         product *= num
-    return total_sum, product
+    average = total_sum / len(numbers)
+    return average, product
