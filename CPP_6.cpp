@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0, curr_depth = 0;
