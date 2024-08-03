@@ -22,6 +22,6 @@ int smallest_change(vector<int> arr) {
 int main() {
     vector<int> arr = {0, 1};
     int result = smallest_change(arr);
-    std::cout << "The smallest change is: " << result << std::endl;
+    std::cout << "The minimum number of operations is: " << result << std::endl;
     return 0;
 }
