@@ -23,7 +23,7 @@ int bowlingScore(string s) {
                 second += s[i];
                 ++i;
             }
-            score += (stoi(first) + stoi(second));
+            score += stoi(first) +stoi(second);
         }
     }
     return score;
