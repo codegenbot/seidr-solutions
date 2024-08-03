@@ -3,7 +3,15 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst){
@@ -17,22 +25,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
         }
     }
     return result;
-}
-
-int main(){
-    std::vector<int> input;
-    int num;
-    std::cout << "Enter numbers (0 to stop): ";
-    while (std::cin >> num && num != 0){
-        input.push_back(num);
-    }
-
-    std::vector<int> result = strange_sort_list(input);
-
-    std::cout << "Sorted list: ";
-    for(int num : result){
-        std::cout << num << " ";
-    }
-    
-    return 0;
 }
