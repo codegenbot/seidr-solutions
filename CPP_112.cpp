@@ -1,18 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return {"False"};
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return {"False"};
-    }
-    return {"True"};
-}
-
-std::vector<std::string> reverse_delete(string s, string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
-    string temp = "";
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -26,23 +19,38 @@ std::vector<std::string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string revTemp = temp;
+    std::string revTemp = temp;
     std::reverse(revTemp.begin(), revTemp.end());
     result.push_back((temp == revTemp) ? "True" : "False");
     return result;
 }
 
-int main() {
-    string s, c;
-    cin >> s >> c;
-    vector<string> res = reverse_delete(s, c);
-    cout << res[0] << endl;
-    cout << res[1] << endl;
-    if (res.size() > 2) {
-        vector<string> temp = issame({res[0]}, {res[1]});
-        for (string t : temp) {
-            cout << t << endl;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
+
+int main() {
+    std::string s, c;
+    std::cout << "Enter string: ";
+    std::cin >> s;
+    std::cout << "Enter character to delete: ";
+    std::cin >> c;
+    
+    std::vector<std::string> result = reverse_delete(s, c);
+    
+    if (issame({s}, result)) {
+        std::cout << "Result: Reversed string is the same as original." << std::endl;
+    } else {
+        std::cout << "Result: Reversed string is different from original." << std::endl;
+    }
+    
     return 0;
 }
