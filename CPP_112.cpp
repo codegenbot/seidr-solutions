@@ -14,12 +14,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    string reverseTemp = temp;
+    reverse(Temp.begin(), Temp.end());
+    result.push_back(to_string(temp == reverseTemp));
     return result;
 }
