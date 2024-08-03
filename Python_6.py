@@ -15,5 +15,4 @@ if __name__ == "__main__":
             result.append(max_level)
         return result
 
-    paren_string = input("Enter a string with nested parentheses: ")
-    print(parse_nested_parens(paren_string))
+    print(parse_nested_parens("((()))"))
