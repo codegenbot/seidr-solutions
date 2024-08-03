@@ -1,17 +1,16 @@
-bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
     }
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -21,7 +20,7 @@ vector<string> by_length(vector<int> arr) {
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
 
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
