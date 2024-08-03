@@ -1,42 +1,25 @@
-```cpp
 #include <vector>
-#include <iostream>
+#include <climits>
+#include <cmath>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> result;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> res(2);
     int minDiff = INT_MAX;
-    int pos = -1;
-    
-    for(int i = 0; i < n - 1; i++) {
-        if(abs(vec[i] - vec[i+1]) < minDiff) {
-            minDiff = abs(vec[i] - vec[i+1]);
-            pos = i + 1;
+    for (int i = 1; i < n; i++) {
+        if (nums[i] - nums[0] == nums[n-1] - nums[i]) {
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), nums.begin(), nums.begin() + i);
+            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
+            return res;
+        }
+        int diff = abs(nums[i] - nums[0]) - abs(nums[n-1] - nums[i]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), nums.begin(), nums.begin() + i);
+            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
         }
     }
-    
-    result.push_back({vec, 0, pos});
-    result.push_back({{vec.begin() + pos}, (pos) , n});
-    
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
-    
-    vector<vector<int>> res = cutVector(vec);
-    for(auto v : res) {
-        for(auto x : v) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-    
-    return 0;
-}
+    return res;
