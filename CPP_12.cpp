@@ -1,4 +1,3 @@
-```
 std::string longest(std::vector<std::string> strings){
     if(strings.empty()) return "";
     std::string longest = strings[0];
