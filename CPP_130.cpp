@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // Your implementation here
 }
 
 vector<int> tri(int n) {
@@ -29,4 +29,4 @@ vector<int> tri(int n) {
     return result;
 }
 
-assert(issame(tri(1), {1, 3}));
+assert (issame(tri(1), {1, 3}));
