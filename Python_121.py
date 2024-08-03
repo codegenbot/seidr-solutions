@@ -1,5 +1,5 @@
 def solution(lst):
-    for num in lst:
-        if num % 2 == 0:
-            raise ValueError("List should contain at least one odd number")
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+    if any(i % 2 == 0 for i in lst):
+        return sum(i for i in lst[1::2] if i % 2 != 0)
+    else:
+        return "The input list must contain at least one even number."
