@@ -1,4 +1,10 @@
-sort(lst.begin(), lst.end());
+#include <vector>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
+int next_smallest(vector<int> lst) {
+    sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
     for (int num : lst) {
