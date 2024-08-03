@@ -17,6 +17,5 @@ vector<int> leaders(vector<int>& arr) {
             leaders.push_back(arr[i]);
         }
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return vector<int>(leaders.rbegin(), leaders.rend());
 }
