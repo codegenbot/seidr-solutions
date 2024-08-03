@@ -1,13 +1,20 @@
 #include <vector>
-#include <algorithm>
-#include <numeric>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+namespace std {
+  
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> sum_product(const std::vector<int>& v) {
-    int sum = std::accumulate(v.begin(), v.end(), 0);
-    int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
+vector<int> sum_product(const vector<int>& v) {
+    int sum = 0, product = 1;
+    for (auto num : v) {
+        sum += num;
+        product *= num;
+    }
     return {sum, product};
 }
+
+}
+
+using namespace std;
