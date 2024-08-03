@@ -23,8 +23,10 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
+#ifndef TEST
 int main(){
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 
     return 0;
 }
+#endif
