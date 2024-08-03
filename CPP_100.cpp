@@ -11,7 +11,7 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
