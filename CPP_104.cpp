@@ -2,21 +2,18 @@
 #include <unordered_set>
 #include <cassert>
 
-bool issame(std::unordered_set<int> a, std::unordered_set<int> b) {
-    for (int digit : a) {
-        if (b.count(digit)) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::unordered_set<int> digits(a.begin(), a.end());
+    for (int digit : b) {
+        if (digits.count(digit)) {
             return true;
         }
     }
     return false;
 }
 
-std::unordered_set<int> unique_digits(std::vector<int> input) {
-    std::unordered_set<int> result;
-    for (int digit : input) {
-        result.insert(digit);
-    }
-    return result;
+std::unordered_set<int> unique_digits(const std::vector<int>& input) {
+    return std::unordered_set<int>(input.begin(), input.end());
 }
 
 int main() {
