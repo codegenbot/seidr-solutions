@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool is_sorted(std::vector<int> lst){
+bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1)
         return true;
 
@@ -11,29 +11,30 @@ bool is_sorted(std::vector<int> lst){
     }
 
     std::vector<int>::iterator it;
-    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+    for(it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it){
         if(*it > 0 && *(it-1) == *it)
             return false;
     }
     return true;
 
+}
+
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
-    std::vector<int> lst;
+    
+    std::vector<int> lst(n);
     for(int i = 0; i < n; i++){
-        int x;
         std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+        std::cin >> lst[i];
     }
-
-    if(is_sorted(lst))
-        std::cout << "The list is sorted.\n";
-    else
-        std::cout << "The list is not sorted.\n";
+    
+    if(is_sorted(lst)){
+        std::cout << "The list is sorted." << std::endl;
+    } else {
+        std::cout << "The list is not sorted." << std::endl;
+    }
 
     return 0;
 }
