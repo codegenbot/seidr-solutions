@@ -6,8 +6,9 @@ std::vector<int> factorize(int n) {
     return {}; // Placeholder return
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a != b) return false;
+    return true;
 }
 
 int contest_main() {
