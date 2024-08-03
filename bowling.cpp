@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,7 +18,7 @@ int bowlingScore(string s) {
             int rightPins = stoi(right);
             score += 10 - leftPins;
             frame++;
-            s.erase(0, s.find('/') + 2);
+            s.erase(0, s.find('/') + 1);
         } else {
             int pins = c - '0';
             score += pins;
@@ -30,7 +31,7 @@ int bowlingScore(string s) {
                     int rightPins = stoi(right);
                     score += 10 - leftPins;
                     frame++;
-                    s.erase(0, s.find('/') + 2);
+                    s.erase(0, s.find('/') + 1);
                 }
             } else {
                 frame++;
