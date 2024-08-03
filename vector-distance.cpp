@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -21,7 +22,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    std::cout << result << std::endl;
+    std::cout << std::setprecision(15) << result << std::endl;
 
     return 0;
 }
