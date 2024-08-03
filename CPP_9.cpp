@@ -1,7 +1,9 @@
+// Function to check if two vectors are same
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
+// Function to find rolling maximum of numbers
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int n = numbers.size();
