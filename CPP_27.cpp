@@ -1,6 +1,6 @@
 #include <string>
 
-int main() {
+int main(){
     string flip_case(string str){
         for(char &c : str){
             if(islower(c)){
