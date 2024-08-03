@@ -1,5 +1,5 @@
 #include <string>
-#include <cassert> // Include the necessary header
+#include <cassert>
 
 template <typename T>
 std::string compare(const T& val1, const T& val2) {
@@ -7,6 +7,6 @@ std::string compare(const T& val1, const T& val2) {
 }
 
 int main() {
-    assert(compare(std::string("1"), std::string("1")) == "Equal"); // Update the function call
+    assert(compare(std::string("1"), std::string("1")) == "Equal");
     return 0;
 }
