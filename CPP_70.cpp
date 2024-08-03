@@ -15,9 +15,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-// Declare the function here if needed
-void strange_sort_list(std::vector<int>& list);
-
 int main() {
     assert(issame(std::vector<int>{111111}, std::vector<int>{111111}));
     return 0;
