@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -15,7 +16,7 @@ int main() {
     // Calculate total distance traveled
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, -1.0 * log2(bouncinessIndex)) * startHeight;
+        totalDistance += pow(2, -log2(bouncinessIndex)) * startHeight;
     }
 
     cout << fixed << setprecision(4);
