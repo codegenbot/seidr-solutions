@@ -1,11 +1,10 @@
-// Function to check if two vectors are same
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+#include <vector>
+#include <cassert>
 
-// Function to find rolling maximum of numbers
-vector<int> rolling_max(vector<int> numbers) {
-    vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> rolling_max(std::vector<int> numbers) {
+    std::vector<int> result;
     int n = numbers.size();
     for (int i = 0; i < n; ++i) {
         int max_val = numbers[i];
@@ -19,6 +18,11 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    return 0;
 }
