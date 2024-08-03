@@ -3,10 +3,10 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<int> parse_nested_parens(std::string paren_string);
-
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+namespace std {
+    bool is_same(std::vector<int> a, std::vector<int> b) {
+        return a == b;
+    }
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
