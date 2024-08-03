@@ -1,48 +1,30 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
+
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = 0;
-    string expression = "";
-    
-    for(int i=0; i<operator_.size(); i++) {
-        if(i==0) {
-            expression += to_string(operand[i]);
-        } else {
-            expression += " " + operator_[i] + " ";
-            expression += to_string(operand[i]);
+    for (int i = 0; i < operato.size(); i++) {
+        if (operato[i] == "+") {
+            result += operand[i];
+        } else if (operato[i] == "-") {
+            result -= operand[i];
+        } else if (operato[i] == "*") {
+            int temp = 0;
+            for (int j = i; j < operand.size(); j++) {
+                temp *= operand[j];
+            }
+            result += temp;
+        } else if (operato[i] == "//") {
+            result /= operand[i + 1];
+        } else if (operato[i] == "**") {
+            int temp = pow(operand[i], operand[i + 1]);
+            result = temp;
         }
     }
-    
-    int temp = 0;
-    for(int i=0; i<expression.length(); i++) {
-        if(expression[i]>='0' && expression[i]<='9') {
-            temp = temp*10 + (expression[i]-'0');
-        } else {
-            if(temp!=0) {
-                result += temp;
-                temp = 0;
-            }
-            if(expression[i]==' ') {
-                continue;
-            }
-            switch(expression[i]) {
-                case '+':
-                    result+=operand[operator_.size()];
-                    break;
-                case '-':
-                    result -= operand[operator_.size()];
-                    break;
-                case '*':
-                    result *= operand[operator_.size()];
-                    break;
-                case '/':
-                    result /= operand[operator_.size()];
-                    break;
-                default:
-                    if(expression[i]=='^') {
-                        result = pow(result, operand[operator_.size()]);
-                    }
-            }
-        }
-    }
-    
     return result;
 }
