@@ -17,17 +17,17 @@ int main() {
 
     cin >> cents;
 
-    int remainingCents = cents;
-    int penniesNeeded = 0;
+    int penniesNeeded = cents;
     int nicklesNeeded = 0;
     int dimesNeeded = 0;
     int quartersNeeded = 0;
 
-    while(remainingCents >= 25) {
-        remainingCents -= 25;
+    while(penniesNeeded >= 25) {
+        penniesNeeded -= 25;
         quartersNeeded++;
     }
 
+    int remainingCents = penniesNeeded;
     while(remainingCents >= 10) {
         remainingCents -= 10;
         dimesNeeded++;
@@ -38,10 +38,8 @@ int main() {
         nicklesNeeded++;
     }
 
-    int penniesRemaining = remainingCents % 5;
-    penniesNeeded += (remainingCents / 5);
-
-    printCoins(quartersNeeded, nicklesNeeded, dimesNeeded, penniesRemaining);
+    printCoins(quartersNeeded, nicklesNeeded + (remainingCents / 5), 
+               dimesNeeded + ((remainingCents % 5) / 2), penniesNeeded);
 
     return 0;
 }
