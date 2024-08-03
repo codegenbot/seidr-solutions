@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <string.h>
 #include <cmath>
 
 using namespace std;
+
+string intersection(vector<int> interval1, vector<int> interval2);
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -30,6 +32,5 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    return 0;
+    // Your main function code
 }
