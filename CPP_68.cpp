@@ -13,7 +13,8 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     if(smallest_even != -1){
-        result = { smallest_even, smallest_index };
+        result.push_back(smallest_even);
+        result.push_back(smallest_index);
     }
     
     return result;
