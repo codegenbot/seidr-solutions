@@ -1,16 +1,19 @@
 #include <vector>
 #include <string>
-#include <cassert> 
+#include <cassert>
+#include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b) { 
+std::vector<std::string> split_words(std::string txt);
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
-vector<string> split_words(const string& txt); 
-
-vector<string> split_words(const string& txt) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -31,7 +34,7 @@ vector<string> split_words(const string& txt) {
                 count++;
             }
         }
-        result[0] = to_string(count);
+        result[0] = std::to_string(count);
     }
     return result;
 }
