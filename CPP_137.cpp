@@ -3,24 +3,17 @@
 
 using namespace std;
 
-string compare_one(string a, string b) {
-    if (a > b) {
-        return a;
-    } else if (b > a) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (typeid(a) == typeid(int) && typeid(b) == typeid(float)) {
         return b;
+    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(string)) {
+        return max((float)a, (string)b);
+    } else if (typeid(a) == typeid(int) && typeid(b) == typeid(string)) {
+        return b;
+    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(int)) {
+        return boost::any((float)a > (int)b ? a : b);
+    } else if (typeid(a) == typeid(string) && typeid(b) == typeid(string)) {
+        return max(a, b);
     }
     return "None";
-}
-
-int main() {
-    // input from user
-    cout << "Enter the first string: ";
-    string a; cin >> a;
-    cout << "Enter the second string: ";
-    string b; cin >> b;
-
-    // call compare_one function and print output
-    cout << "The result is: " << compare_one(a, b) << endl;
-
-    return 0;
 }
