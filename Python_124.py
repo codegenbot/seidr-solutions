@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     date_str = date.replace('-', '')
     values = map(int, date_str.split())
