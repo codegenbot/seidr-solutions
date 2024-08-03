@@ -17,6 +17,8 @@ int main() {
     } else {
         // Do something if the groups are different
     }
+
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
