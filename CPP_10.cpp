@@ -1,8 +1,12 @@
-string make_palindrome(string str){
-    string rev_str(str.rbegin(), str.rend());
-    for (int i = str.size(); i >= 0; --i) {
+#include <string>
+
+std::string make_palindrome(std::string str){
+    int n = str.size();
+    for (int i = n - 1; i >= 0; i--) {
         if (is_palindrome(str.substr(i))) {
-            return str + rev_str.substr(rev_str.size() - i);
+            std::string prefix = str.substr(0, i);
+            reverse(prefix.begin(), prefix.end());
+            return str + prefix;
         }
     }
     return str;
