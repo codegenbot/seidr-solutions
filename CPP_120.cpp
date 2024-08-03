@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
+bool issame(vector<int> a,vector<int>b){
     return a == b;
 }
 
@@ -12,16 +12,6 @@ vector<int> maximum(vector<int> arr, int k) {
     vector<int> result(arr.begin(), arr.end());
     sort(result.rbegin(), result.rend());
     for(int i = 0; i < k; i++){
-        if(i >= result.size())
-            break;
-        cout << result[i] << " ";
+        cout << result[i] << endl;
     }
-    return result;
-}
-
-int main() {
-    vector<int> arr({1, 2, 3, -23, 243, -400, 0});
-    int k = 7;
-    maximum(arr, k);
-    return 0;
 }
