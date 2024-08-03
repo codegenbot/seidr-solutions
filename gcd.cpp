@@ -39,7 +39,6 @@ int main() {
     cin.ignore();
     getline(cin, text);
     getline(cin, target);
-    
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
