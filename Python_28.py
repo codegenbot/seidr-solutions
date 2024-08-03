@@ -1,11 +1,11 @@
-```
 from typing import List
+
 
 def concatenate(strings: List[str]) -> str:
     result = ""
-    for string in strings:
-        if len(string) > 5 and string.endswith("ing"):
-            result += string + "ed"
+    for s in strings:
+        if len(s) > 5:
+            result += s[:5] + "..."
         else:
-            result += string
+            result += s
     return result
