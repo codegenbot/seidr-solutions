@@ -1,15 +1,6 @@
-int prime_fib(int n) {
-    int a = 0, b = 1, fib = 1;
-    while (fib <= n) {
-        if (isPrime(fib)) {
-            return fib;
-        }
-        a = b;
-        b = fib;
-        fib = a + b;
-    }
-    return -1; // or any other value to indicate that the number is not found
-}
+#include <iostream>
+
+using namespace std;
 
 bool isPrime(int num) {
     if (num <= 1) return false;
@@ -17,4 +8,26 @@ bool isPrime(int num) {
         if (num % i == 0) return false;
     }
     return true;
+}
+
+int prime_fib(int n) {
+    int fibNum = 0, prevFibNum = 1, count = 0;
+    while (true) {
+        int newFibNum = fibNum + prevFibNum;
+        if (isPrime(newFibNum)) {
+            if (++count == n) return newFibNum;
+            fibNum = prevFibNum;
+            prevFibNum = newFibNum;
+        } else {
+            fibNum = prevFibNum;
+            prevFibNum = newFibNum;
+        }
+    }
+}
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        cout << prime_fib(i) << endl;
+    }
+    return 0;
 }
