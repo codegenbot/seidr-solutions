@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool is_same(const vector<int>& a, const vector<int>& b){
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+bool are_equal_vectors(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 vector<int> parse_nested_parens(string paren_string){
@@ -30,6 +30,6 @@ vector<int> parse_nested_parens(string paren_string){
 }
 
 int main(){
-    assert(is_same(parse_nested_parens("(()(())((())))"), vector<int>{4}));
+    assert(are_equal_vectors(parse_nested_parens("(()(())((())))"), vector<int>{4}));
     return 0;
 }
