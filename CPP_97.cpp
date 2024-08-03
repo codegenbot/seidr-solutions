@@ -1,5 +1,5 @@
-Here is the completed code:
-
 int multiply(int a, int b) {
-    return (a % 10) * (b % 10);
+    int digitA = a % 10;
+    int digitB = abs(b) % 10;
+    return digitA * digitB;
 }
