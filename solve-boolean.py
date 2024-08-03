@@ -8,11 +8,13 @@ def solve_boolean(expression):
         raise ValueError("Invalid expression")
     else:
         result = True
-        for op, value in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
-            if value % 2 != 0:
-                if op == '&':
-                    result = False
-                elif op == '|':
-                    result = True
-                break
+        for char in expression:
+            if char == '&':
+                result &= True
+            elif char == '|':
+                result |= True
+            elif char == 'T':
+                result &= True
+            elif char == 'F':
+                result = False
         return result
