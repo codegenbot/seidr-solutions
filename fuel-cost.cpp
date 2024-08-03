@@ -5,8 +5,12 @@ using namespace std;
 int fuelCost(vector<int> arr) {
     int sum = 0;
     for (int num : arr) {
-        int result = static_cast<int>(floor(double(num) / 3));
-        result = max(0, result - 1);
+        int result = (num / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result--;
+        }
         sum += result;
     }
     return sum;
@@ -22,7 +26,7 @@ int main() {
         input.push_back(num);
     }
     
-    cout << fuelCost(input) << std::endl;
+    cout << std::fixed << setprecision(0) << fuelCost(input) << std::endl;
     
     return 0;
 }
