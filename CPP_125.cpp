@@ -1,3 +1,9 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cassert>
+#include <sstream>
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
