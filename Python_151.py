@@ -1,9 +1,9 @@
 ```
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-
-input_list = input().split()
-odd_sum = sum(int(i) for i in input_list if int(i) % 2 != 0)
-expected_result = 2 * odd_sum
-
-print(double_the_difference(input_list))
+    total = 0
+    count = 0
+    for i in lst:
+        if isinstance(i, int) and i > 0:
+            total += (i * 2 - sum(1 for j in lst if isinstance(j, int) and j > 0)) ** 2
+            count += 1
+    return total / count if count != 0 else 0
