@@ -1,18 +1,30 @@
-int bowlingScore(string s) {
+#include <vector>
+using namespace std;
+
+int bowlingScore(string str) {
     int score = 0;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 30;
-            i++;
-            if(i < s.length() && (s[i] == '/' || i == s.length()-1)) {
-                score++;
-            }
-        } else if(s[i] == '/') {
-            int prev = i-1 > -1 ? (s[i-1] == 'X' ? 30 : (s[i-1]-48)*2) : 0;
-            score += 10 + prev;
+    bool newFrame = true;
+    vector<int> frames(11);
+    for (char c : str) {
+        if (c == '/') {
+            newFrame = true;
         } else {
-            score += s[i] - 48;
+            if (!newFrame)
+                frames[frames.size() - 1] = frames[frames.size() - 1] * 10 + c - '0';
+            else
+                frames.back() = frames.back() * 10 + c - '0';
+            newFrame = false;
         }
     }
+    
+    for (int i = 0; i < 11; ++i) {
+        if (frames[i] == 10) 
+            score += 10 + max(frames[i+1]-1, 0);
+        else if (frames[i] + frames[i+1] >= 10) 
+            score += 10;
+        else 
+            score += frames[i] + frames[i+1];
+    }
+    
     return score;
 }
