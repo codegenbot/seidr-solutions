@@ -5,14 +5,14 @@
 string string_to_md5(string text);
 
 int main() {
-    string str;
+    string text;
     cout << "Enter a string: ";
-    getline(cin, str);
-    cout << "MD5 of the string is: " << string_to_md5(str) << endl;
+    getline(cin, text);
+    cout << "MD5 sum: " << string_to_md5(text) << endl;
     return 0;
 }
 
-string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
     
     unsigned char md5[16];
