@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-using namespace std;
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = -1;
     string strongest_extension;
     for(auto extension : extensions){
