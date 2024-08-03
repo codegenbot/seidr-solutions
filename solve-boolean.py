@@ -1,19 +1,23 @@
-Here is the Python solution for the problem:
+```
+def solve(input_str):
+    def evaluate(expression):
+        stack = []
+        for char in expression[::-1]:
+            if char == '&':
+                right = stack.pop()
+                left = stack.pop()
+                stack.append(left and right)
+            elif char == '|':
+                right = stack.pop()
+                left = stack.pop()
+                stack.append(left or right)
+            else:
+                stack.append(char == 'T')
+        return stack[0]
 
-def solve_boolean(expression):
-    if expression == 'T':
+    if input_str == 't':
         return True
-    elif expression == 'F':
+    elif input_str == 'f':
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return not (solve_boolean(a) and solve_boolean(b))
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
-
-print(solve_boolean('t'))  # True
-print(solve_boolean('f'))  # False
-print(solve_boolean('f&f'))  # False
-print(solve_boolean('f&t'))  # False
-print(solve_boolean('t&f'))  # False
+    else:
+        return evaluate(input_str)
