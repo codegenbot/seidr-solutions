@@ -14,7 +14,7 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-int main(){
+int main() {
     int n;
     std::cin >> n;
 
