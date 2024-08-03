@@ -12,11 +12,7 @@ int main() {
 
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        char comma;
-        if (i != n - 1)
-            std::cin >> vec2[i] >> comma;
-        else
-            std::cin >> vec2[i];
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
