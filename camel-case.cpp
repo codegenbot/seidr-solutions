@@ -14,18 +14,14 @@ std::string camelCase(std::string str) {
 
     for(int i = 0; i < words.size(); i++) {
         if(i > 0)
-            words[i][0] = toupper(words[i][0]);
+            std::transform(words[i].begin(), words[i].end(), words[i].begin(), ::toupper);
     }
 
     std::string result;
-    bool firstWord = true;
-
-    for(auto word : words) {
-        if(firstWord) {
-            result = word;
-            firstWord = false;
-        } else {
-            result += std::string("").append(word).toupper().substr(1);
+    for(int i = 0; i < words.size(); i++) {
+        result += words[i];
+        if(i < words.size() - 1) {
+            result += " ";
         }
     }
 
