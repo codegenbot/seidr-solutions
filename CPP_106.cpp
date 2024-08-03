@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if ((a[i] + b[i]) % 2 == 0) {
             return false;
         }
     }
