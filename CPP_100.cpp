@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -14,20 +13,15 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-int main() {
-    // Read input
+int main(){   
     int n;
     std::cin >> n;
+    
+    std::vector<int> pile = make_a_pile(n);
 
-    // Generate piles of stones
-    std::vector<int> pile_a = make_a_pile(n);
-    std::vector<int> pile_b = make_a_pile(n);
-
-    // Check if the piles are the same
-    bool result = issame(pile_a, pile_b);
-
-    // Output result
-    std::cout << (result ? "Same" : "Different") << std::endl;
+    for (int stone : pile) {
+        std::cout << stone << " ";
+    }
 
     return 0;
 }
