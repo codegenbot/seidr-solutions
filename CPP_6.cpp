@@ -32,4 +32,4 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     return levels;
 }
 
-assert(is_same(parse_nested_parens("(()(())(()))"), std::vector<int>{4}));
+assert(is_same(parse_nested_parens("(()(())((())))"), {4}));
