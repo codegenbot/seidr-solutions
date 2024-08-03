@@ -1,3 +1,9 @@
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
@@ -11,9 +17,9 @@ int main() {
         }
         result += word + " ";
     }
-    
+
     result.pop_back(); // remove the extra space at the end
     cout << result << endl;
-    
+
     return 0;
 }
