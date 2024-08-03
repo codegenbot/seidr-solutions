@@ -1,8 +1,11 @@
-Here is the completed code:
-
-long long special_factorial(int n) {
-    if (n <= 1)
-        return 1;
-    else
-        return n * special_factorial(n - 1);
+long long special_factorial(int n){
+    if(n <= 1) return 1;
+    long long result = 1;
+    for(int i = n; i > 0; --i){
+        result *= i;
+        for(long long j = i - 1; j > 0; --j){
+            result *= j;
+        }
+    }
+    return result;
 }
