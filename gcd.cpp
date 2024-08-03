@@ -34,8 +34,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int a, b;
-    cin >> a;
-    cin >> b;
+    cin >> a >> b;
     cin.ignore();
     
     string text, target;
