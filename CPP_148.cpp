@@ -1,13 +1,13 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string>, std::vector<std::string>) {
-    // This function is not used in the given problem
+bool issame(vector<string>, vector<string>) {
+    // function body
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -20,7 +20,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         if (index1 != -1 && index2 != -1) break;
     }
     
-    std::vector<std::string> result;
+    vector<string> result;
     
     if (index1 < 0 || index2 < 0) return result;
     
@@ -32,7 +32,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    std::vector<std::string> result = bf("Jupiter", "Saturn");
-    assert(result == std::vector<std::string>({"Venus", "Earth", "Mars"}));
+    assert(bf("Jupiter", "Saturn") == vector<string>({"Neptune"}));
+    // other function calls
     return 0;
 }
