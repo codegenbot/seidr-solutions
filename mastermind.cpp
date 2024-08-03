@@ -12,11 +12,7 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for (char c : guess) {
-        auto it = code.find(c);
-        while (it != std::string::npos && black > 0) {
-            it = code.find(c, it + 1);
-        }
-        if (it != std::string::npos) {
+        if (std::count(code.begin(), code.end(), c) > 0) {
             white++;
         }
     }
