@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -16,7 +15,7 @@ bool issame(vector<int> a,vector<int>b){
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).good()) {
+        if (any_cast<int>(value).has_value()) {
             result.push_back(any_cast<int>(value));
         }
     }
