@@ -1,8 +1,10 @@
 #include <vector>
+#include <numeric>
 
-bool issame(const vector<int>& a, const vector<int>& b);
-
-std::vector<int> sum_product(const std::vector<int>& v);
+namespace std {
+    using vector;
+    using int;
+}
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
