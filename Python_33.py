@@ -1,10 +1,10 @@
-```
+```Python
 def sort_third(l: list):
     return [
         (
             x
-            if i % 3 != 0
-            else sorted([y for y in l[:i//3*3+(i%3)*3:(i+1)//3*3] + l[(i+1)//3*3:]])[::-1][j]
+            if j % 3 != 0
+            else sorted([y for y in l[:j // 3 * 3 + (j % 3) * 3 : (j + 1) // 3 * 3] + l[(j + 1) // 3 * 3 :]])[::-1][k]
         )
-        for j, x, i in enumerate(l)
+        for k, j, x in enumerate(l)
     ]
