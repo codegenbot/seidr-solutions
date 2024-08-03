@@ -1,6 +1,10 @@
+
 #include <vector>
 #include <cmath>
 #include <cassert>
+#include <iostream>
+
+using namespace std;
 
 double poly(const std::vector<double>& coeffs, double x);
 
