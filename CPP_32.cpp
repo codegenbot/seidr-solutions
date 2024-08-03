@@ -4,7 +4,7 @@
 
 std::vector<double> coeffs = {};
 
-for (double coeff : coeffs){
+for (double coeff : coeffs) {
     coeffs.push_back(coeff);
 }
 
