@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <cassert>
 
 std::string calculate_avg(int n, int m) {
     if (n > m) {
@@ -14,9 +13,4 @@ std::string calculate_avg(int n, int m) {
     int avg = static_cast<int>((double)sum / (m - n + 1));
     std::string binary_avg = std::bitset<32>(avg).to_string();
     return binary_avg.substr(binary_avg.find('1'));
-}
-
-int main() {
-    assert(calculate_avg(5, 5) == "101");
-    return 0;
 }
