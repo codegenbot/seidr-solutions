@@ -1,28 +1,23 @@
-// Problem description: 
-// Check whether all keys in a dictionary are either in lowercase or uppercase.
+#include <bits/stdc++.h>
+using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
-    bool allLower = true;
-    bool allUpper = true;
+    bool all_lower = true;
+    bool all_upper = true;
 
-    for (auto& pair : dict) {
-        if (dict.empty()) return false; // empty map
-        if (!allLower && !allUpper) break; // not both lower and upper
-
-        string key = pair.first;
-        for (char& c : key) {
-            if ((c >= 'a' && c <= 'z') != allLower) {
-                allLower = false;
-                allUpper = true;
-                break;
-            }
-            if ((c >= 'A' && c <= 'Z') != allUpper) {
-                allLower = true;
-                allUpper = false;
-                break;
-            }
-        }
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!all_lower && !all_upper)
+            return false;
+        if (all_lower && !islower(it->first[0]))
+            all_lower = false;
+        if (all_upper && !isupper(it->first[0]))
+            all_upper = false;
     }
 
-    return allLower || allUpper;
+    return all_lower || all_upper;
+}
+
+int main() {
+    assert(check_dict_case({}) == false);
+    return 0;
 }
