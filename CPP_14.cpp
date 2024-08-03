@@ -12,12 +12,12 @@ std::vector<std::string> b(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> vecB) {
-    return a == vecB;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 int main() {
-    auto all_prefixes = b; // Function alias assignment
+    auto all_prefixes = b; 
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
