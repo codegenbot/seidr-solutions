@@ -1,10 +1,8 @@
-Here is the solution:
-
 def move_one_ball(arr):
-    if not arr:
+    if len(arr) == 0:
         return True
-    max_val = max(arr)
-    for i in range(len(arr) - 1):
-        if arr[i] > arr[i + 1]:
+
+    for i in range(len(arr)):
+        if arr[i] > arr[0]:
             return False
     return True
