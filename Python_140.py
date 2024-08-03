@@ -1,14 +1,16 @@
+```
 def fix_spaces(text):
     new_text = ""
-    for i in range(len(text)):
-        if text[i] == " ":
-            if i < len(text) - 1 and text[i + 1] != " ":
-                new_text += "_"
-            elif i > 0 and text[i - 1] != " ":
-                if new_text and new_text[-1] != "-":
-                    new_text += "-"
+    prev_was_space = False
+    for char in text:
+        if char == " ":
+            if not prev_was_space:
+                new_text += "-"
             else:
-                new_text += " "
+                new_text += "_"
+            prev_was_space = True
         else:
-            new_text += text[i]
+            new_text += char
+            prev_was_space = False
+
     return new_text
