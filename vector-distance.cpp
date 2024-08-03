@@ -15,7 +15,7 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    float sum = 0.0;
+    float sum = 0.0f;
     for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
