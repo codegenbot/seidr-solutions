@@ -1,4 +1,9 @@
-starting_height, bounce_height, bounces = map(float, input().split())
-bounciness_index = bounce_height / starting_height
-total_distance = starting_height + bounce_height * ((1 - bounciness_index ** (bounces)) / (1 - bounciness_index))
-print(total_distance)
+h0, h1, n = map(float, input().split())
+r = h1 / h0
+s = h0 + h1
+d = h0
+for _ in range(n - 1):
+    d += s
+    s *= r
+    d += s
+print(d)
