@@ -5,8 +5,7 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    double numerator = (n - 1) * m + n;
-    return numerator / total;
+    return (n - 1) / total;
 }
 
 int main() {
