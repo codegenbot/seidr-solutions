@@ -9,11 +9,11 @@ std::pair<int, int> eat(int number, int need, int remaining) {
     return std::make_pair(eaten, left);
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(std::vector<int>{eat(4, 5, 1).first, eat(4, 5, 1).second}, {5, 0}));
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
