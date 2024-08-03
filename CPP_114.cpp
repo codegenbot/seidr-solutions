@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,10 +25,10 @@ int main() {
 
     long long result = minSubArraySum(nums);
 
-    if (result == LLONG_MAX) {
-        std::cout << "No subarray found with sum less than or equal to zero.\n";
+    if(result == LLONG_MAX) {
+        std::cout << "No subarray with positive sum exists." << std::endl;
     } else {
-        std::cout << "Minimum subarray sum: " << result << "\n";
+        std::cout << "The minimum sum of a subarray is: " << result << std::endl;
     }
 
     return 0;
