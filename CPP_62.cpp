@@ -11,7 +11,7 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-int main() {
-    // main function code
+int main(){
+    // Test your derivative function here
     return 0;
 }
