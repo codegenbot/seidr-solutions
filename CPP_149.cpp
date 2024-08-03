@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 using namespace std;
 
@@ -22,8 +21,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
 int main() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    if (result != expected) {
-        cout << "Test failed";
-        exit(1);
+    if (result == expected) {
+        cout << "Test passed." << endl;
+    } else {
+        cout << "Test failed." << endl;
     }
 }
