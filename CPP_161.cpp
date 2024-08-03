@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 
 std::string solve(std::string s) {
     for (char &c : s) {
@@ -9,15 +8,18 @@ std::string solve(std::string s) {
         }
     }
     
-    if (std::count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-        std::reverse(s.begin(), s.end());
+    if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
+        reverse(s.begin(), s.end());
     }
     
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add more test cases here
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::cout << solve(input) << std::endl;
+
     return 0;
 }
