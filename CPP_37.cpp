@@ -14,7 +14,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-int main() {
+int main(int argc) {
     std::vector<float> v = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> tmp = sort_even(v);
     assert(issame(tmp, {-12, 8, 3, 4, 23, 2, 12, 11, 5, -10}));
