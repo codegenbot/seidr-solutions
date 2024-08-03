@@ -1,14 +1,14 @@
 #include <vector>
-#include <limits>
+#include <climits>
 #include <cmath>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res;
-    if (n == 0) return {{}}; // edge case: empty array
-    
-    int min_diff = numeric_limits<int>::max(), cut_index = -1;
+    if (n == 0) return {{}}; 
+
+    int min_diff = INT_MAX, cut_index = -1;
     for (int i = 1; i < n; i++) {
         int diff = abs(nums[i] - nums[i-1]);
         if (diff <= min_diff) {
