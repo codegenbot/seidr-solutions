@@ -1,5 +1,20 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    str.erase(unique(str.begin(), str.end()), str.end());
-    return str.size();
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+int count_distinct_characters(const std::string& str) {
+    std::vector<char> distinctChars;
+    for (char c : str) {
+        char lowercaseC = std::tolower(c);
+        if (std::find(distinctChars.begin(), distinctChars.end(), lowercaseC) == distinctChars.end()) {
+            distinctChars.push_back(lowercaseC);
+        }
+    }
+    return distinctChars.size();
+}
+
+int main() {
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    return 0;
 }
