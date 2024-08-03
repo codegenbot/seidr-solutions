@@ -17,12 +17,21 @@ std::vector<int> make_a_pile(int n){
 int main(){   
     int n;
     std::cin >> n;
-    
-    std::vector<int> pile = make_a_pile(n);
 
-    for (int stone : pile) {
-        std::cout << stone << " ";
+    std::vector<int> pile = make_a_pile(n);
+    std::vector<int> guess;
+    
+    for (int i = 0; i < n; ++i) {
+        int stone;
+        std::cin >> stone;
+        guess.push_back(stone);
+    }
+    
+    if (issame(pile, guess)) {
+        std::cout << "Success" << std::endl;
+    } else {
+        std::cout << "Try again" << std::endl;
     }
 
-    return 0;
+    return 0; 
 }
