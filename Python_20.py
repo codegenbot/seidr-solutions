@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```
 from collections import List, Tuple
 
