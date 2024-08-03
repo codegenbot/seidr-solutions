@@ -1,7 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-
-using namespace std;
 
 bool issame(const std::vector<int>& stones){
     for(int i=0; i<stones.size()-1; i++){
@@ -27,14 +26,8 @@ std::vector<int> make_a_pile(int n){
 }
 
 int main(){
-    int n;
-    std::cin >> n;
-    std::vector<int> result = make_a_pile(n);
-    if(issame(result)){
-        std::cout << "All stones in the pile are the same." << std::endl;
-    } else {
-        std::cout << "Stones in the pile are not all the same." << std::endl;
-    }
+    std::vector<int> result = make_a_pile(8);
+    assert(issame(result));
     
     return 0;
 }
