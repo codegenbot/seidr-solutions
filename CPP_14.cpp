@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -24,8 +25,8 @@ bool issame(const vector<string>& a, const vector<string>& b){
     return true;
 }
 
-int main() {
+int main(){
     assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
-    
+    cout << "Test Passed" << endl;
     return 0;
 }
