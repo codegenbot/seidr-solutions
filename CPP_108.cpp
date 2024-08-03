@@ -23,6 +23,6 @@ int count_nums(vector<int> v) {
 
 int main() {
     vector<int> v = {1, -2, 3};
-    cout << "Number of numbers having at least one positive digit: " << count_nums(v);
+    cout << count_nums(v);
     return 0;
 }
