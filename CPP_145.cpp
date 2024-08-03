@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a == b) {
@@ -36,5 +37,6 @@ std::vector<int> order_by_points(std::vector<int> nums){
 
 int main(){
     std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
+    // Add code to use the result if needed
     return 0;
 }
