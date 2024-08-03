@@ -1,4 +1,4 @@
-// Check if the sequence will fly
+// Check if the sequence will fly based on its weight and quality.
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
