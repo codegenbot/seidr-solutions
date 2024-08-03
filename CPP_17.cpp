@@ -26,8 +26,6 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 1};
-    std::vector<int> b = parse_music("o|o");
-    assert(is_same(a, b));
+    assert(is_same(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
