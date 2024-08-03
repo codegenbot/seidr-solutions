@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Include the <cassert> header
 
 using namespace std;
 
@@ -24,4 +24,5 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return letter_grades;
 }
 
+// Correct assert usage by passing a single argument
 assert(numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
