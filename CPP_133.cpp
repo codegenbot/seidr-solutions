@@ -4,7 +4,6 @@ int sum_squares(vector<float> lst){
         total += ceil(x) * ceil(x);
     }
     return total;
-
 }
 
 int main() {
