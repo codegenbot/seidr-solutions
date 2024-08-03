@@ -12,7 +12,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     auto it_a = std::unique(a_sorted.begin(), a_sorted.end());
     auto it_b = std::unique(b_sorted.begin(), b_sorted.end());
     
-    return std::equal(a_sorted.begin(), it_a, b_sorted.begin()) && std::equal(b_sorted.begin(), it_b, a_sorted.begin());
+    return it_a == a_sorted.end() && it_b == b_sorted.end();
 }
 
 int main() {
