@@ -1,17 +1,19 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int result = 0;
-    for (vector<int> well : grid) {
-        int water = 0;
-        for (int unit : well) {
-            if (unit == 1) {
-                water += min(capacity, unit);
+    int total_water = 0;
+    for (const auto& row : grid) {
+        for (const auto& cell : row) {
+            if (cell == 1) {
+                total_water++;
             }
         }
-        while (water > 0) {
-            capacity = min(capacity, water);
-            result++;
-            water -= capacity;
-        }
     }
-    return result;
+
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity > 0) {
+        buckets_needed++;
+    }
+
+    return buckets_needed;
 }
