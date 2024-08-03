@@ -1,7 +1,6 @@
-def leaders(v):
-    leaders = [v[-1]]
-    for i in range(len(v) - 2, -1, -1):
-        if v[i] >= v[-1]:
-            leaders.append(v[i])
-            v.pop()
-    return reversed(leaders)
+def leaders(a):
+    return [
+        a[i]
+        for i in range(len(a) - 1, -1, -1)
+        if a[i] >= all(x for x in a[i + 1 :]) or i == len(a) - 1
+    ]
