@@ -1,4 +1,3 @@
-```
 #include <string>
 
 std::string words_in_sentence(std::string sentence){
