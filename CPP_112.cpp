@@ -19,7 +19,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     string resultReverse = result;
     reverse(resultReverse.begin(), resultReverse.end());
-    return {result};
+    return {result, result == resultReverse ? "True" : "False"};
 }
 
 int main() {
