@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -12,7 +12,7 @@ int smallest_change(vector<int> arr) {
             else if (arr[j] == arr[n - 1 - i + j])
                 dp[i][j] = dp[i - 1][j - 1];
             else
-                dp[i][j] = min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]}) + 1;
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
         }
     }
     
@@ -20,12 +20,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> coins = {1, 2};
-    cout << "Smallest change for " << endl;
-    for (int coin : coins) {
-        cout << coin << " ";
-    }
-    cout << "= " << smallest_change(coins) << endl;
-    
+    vector<int> arr = {0, 1};
+    cout << smallest_change(arr) << endl;
     return 0;
 }
