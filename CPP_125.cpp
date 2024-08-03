@@ -1,7 +1,7 @@
 #include <vector>
-#include <string>
 #include <algorithm>
 #include <cctype>
+#include <string>
 
 vector<string> split_words(string txt);
 
