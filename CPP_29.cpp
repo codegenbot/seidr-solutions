@@ -1,11 +1,14 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(vector<string> str1, vector<string> str2) {
+    if(str1.size() != str2.size()) {
+        return false;
+    }
+    for(int i = 0; i < str1.size(); i++) {
+        if(str1[i] != str2[i]) {
+            return false;
+        }
     }
     return true;
 }
