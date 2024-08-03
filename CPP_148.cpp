@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
@@ -20,8 +21,8 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
         }
     }
 
-    if (start == -1 || end == -1 || start == end) {
-        return {}; // if planets are not found or are the same
+    if (start == -1 || end == -1) {
+        return {};
     }
 
     if (start > end) {
