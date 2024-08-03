@@ -24,4 +24,6 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
-int main() {}
+int main() {
+    return 0;
+}
