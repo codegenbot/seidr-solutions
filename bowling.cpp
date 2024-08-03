@@ -6,8 +6,8 @@ int bowlingScore(string s) {
         if (s[i] == 'X') {
             score += 30;
         } else if (s[i] == '/') {
-            int left = s[i+1] - '0';
-            int right = s[i+2] - '0';
+            int left = s[i-1] - '0';
+            int right = s[i+1] - '0';
             score += left + right;
         } else {
             int count = s[i] - '0';
