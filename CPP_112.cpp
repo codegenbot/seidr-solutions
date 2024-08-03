@@ -1,13 +1,6 @@
 vector<string> reverse_delete(string s, string c) {
     vector<string> output;
-    string temp = s;
-    sort(temp.begin(), temp.end());
-    if (temp == s) {
-        output.push_back("True");
-    } else {
-        output.push_back("False");
-    }
-    temp = "";
+    string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -17,11 +10,16 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            temp += ch;
+            result += ch;
         }
     }
-    output.push_back(temp);
+    output.push_back(result);
+    string temp = result;
     reverse(temp.begin(), temp.end());
-    output.push_back(string(1, temp[0]));
+    if (temp == result) {
+        output.push_back("True");
+    } else {
+        output.push_back("False");
+    }
     return output;
 }
