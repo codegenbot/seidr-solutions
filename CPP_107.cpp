@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame_palindrome(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,7 +29,7 @@ std::vector<int> even_odd_palindrome(int n) {
             }
         }
     }
-    return {even, odd};
+    return { even, odd };
 }
 
 int main() {
