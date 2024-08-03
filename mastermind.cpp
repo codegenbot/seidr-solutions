@@ -1,24 +1,15 @@
-int getHint(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
+#include <string>
+using namespace std;
 
-    vector<int> codeCount(6, 0);
-    vector<int> guessCount(6, 0);
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-            codeCount[code[i] - 'A']--;
-            guessCount[guess[i] - 'A']--;
-        } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+int mastermind(string code, string guess) {
+    int black = 0;
+    int white = 0;
+    for(int i = 0; i < 4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
         }
     }
-
-    for (int i = 0; i < 6; i++) {
-        whitePegs += min(codeCount[i], guessCount[i]);
-    }
-
-    return {blackPegs, whitePegs};
+    return black << 2 | white;
 }
