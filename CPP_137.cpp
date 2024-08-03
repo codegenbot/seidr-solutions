@@ -21,21 +21,21 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
         string strA = boost::any_cast<string>(a);
-        int numB = boost::any_cast<int>(b);
-        if (strA > to_string(numB)) {
+        int bInt = boost::any_cast<int>(b);
+        if (strA > to_string(bInt)) {
             return a;
-        } else if (strA < to_string(numB)) {
-            return b;
+        } else if (strA < to_string(bInt)) {
+            return boost::any(b);
         } else {
             return boost::any("None");
         }
     } else if (a.type() != typeid(string) && b.type() == typeid(string)) {
+        int aInt = boost::any_cast<int>(a);
         string strB = boost::any_cast<string>(b);
-        int numA = boost::any_cast<int>(a);
-        if (to_string(numA) > strB) {
+        if (to_string(aInt) > strB) {
             return a;
-        } else if (to_string(numA) < strB) {
-            return b;
+        } else if (to_string(aInt) < strB) {
+            return boost::any(b);
         } else {
             return boost::any("None");
         }
@@ -45,28 +45,12 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    int x;
-    double y;
-    string s;
-
-    cout << "Enter an integer: ";
-    cin >> x;
-    cout << "Enter a double: ";
-    cin >> y;
-    cout << "Enter a string: ";
-    cin.ignore();
-    getline(cin, s);
-
-    boost::any a = boost::any(x);
-    boost::any b = boost::any(y);
-    boost::any c = boost::any(s);
-
-    boost::any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    } else {
-        cout << "The result is: " << boost::any_cast<double>(result) << endl;
-    }
-
+    int x = 5;
+    double y = 10.0;
+    string s1 = "Hello";
+    string s2 = "World";
+    
+    cout << compare_one(boost::any(x), boost::any(y)) << endl;
+    cout << compare_one(boost::any(s1), boost::any(s2)) << endl;
     return 0;
 }
