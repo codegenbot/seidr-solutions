@@ -13,4 +13,5 @@ int main(){
 
         return count / total;
     }
+    std::cout << diceGame(6, 6) << std::endl;
 }
