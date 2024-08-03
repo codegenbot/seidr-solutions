@@ -13,5 +13,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if count == 0:
                 result.append(temp)
                 temp = ""
-                count = 1  # Reset the count to 1
     return result
+
+# Get user input
+paren_string = input("Enter a string of parentheses: ")
+
+# Call the function with user input
+output = separate_paren_groups(paren_string)
+
+# Print the output
+print(output)
