@@ -1,5 +1,5 @@
 #include <string>
-#include <assert.h>
+#include <cassert>
 
 int digitSum(string s){
     int sum = 0;
