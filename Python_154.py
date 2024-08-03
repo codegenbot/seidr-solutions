@@ -1,2 +1,5 @@
 def cycpattern_check(a, b):
-    return b in a + a or any(b == s for s in (a[i:] + a[:i] for i in range(len(a))))
+    for i in range(len(b)):
+        if b[i:] + b[:i] in a:
+            return True
+    return False
