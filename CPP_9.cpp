@@ -4,11 +4,7 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> rolling_max(std::vector<int> numbers){
+std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
     int max_num = INT_MIN;
     for (int i = 0; i < numbers.size(); i++) {
@@ -18,9 +14,12 @@ std::vector<int> rolling_max(std::vector<int> numbers){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    std::vector<int> numbers = {1, 3, 5, 2, 8};
-    std::vector<int> result = rolling_max(numbers);
-    assert(issame(result, {1, 3, 5, 5, 8}));
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    std::cout << "Test Passed!";
     return 0;
 }
