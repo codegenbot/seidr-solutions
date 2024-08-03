@@ -1,36 +1,39 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-vector<int> strange_sort_list(vector<int> lst) {
-    sort(lst.begin(), lst.end());
-    vector<int> result;
-    int i = 0, j = lst.size() - 1;
-    while (i <= j) {
-        result.push_back(lst[i]);
-        if (i != j) {
-            result.push_back(lst[j]);
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Add your logic to compare vectors a and b here
+    return false;
+}
+
+std::vector<int> strange_sort_list(std::vector<int> lst){
+    std::sort(lst.begin(), lst.end());
+    std::vector<int> result;
+    int start = 0, end = lst.size() - 1;
+    while (start <= end) {
+        result.push_back(lst[start++]);
+        if (start <= end) {
+            result.push_back(lst[end--]);
         }
-        i++;
-        j--;
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
+int main(){
+    std::vector<int> input;
+    int num;
+    std::cout << "Enter numbers (0 to stop): ";
+    while (std::cin >> num && num != 0){
+        input.push_back(num);
     }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
 
-int main() {
-    assert(issame(strange_sort_list({111111}), {111111}));
+    std::vector<int> result = strange_sort_list(input);
+
+    std::cout << "Sorted list: ";
+    for(int num : result){
+        std::cout << num << " ";
+    }
+    
     return 0;
 }
