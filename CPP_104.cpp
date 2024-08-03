@@ -1,9 +1,10 @@
-bool issame(int x, int y) {
-    string s1 = to_string(x);
-    string s2 = to_string(y);
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
-    return s1 == s2;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 vector<int> unique_digits(vector<int> x){
@@ -19,18 +20,14 @@ vector<int> unique_digits(vector<int> x){
             temp /= 10;
         }
         if (!hasEvenDigit) {
-            bool unique = true;
-            for (int res : result) {
-                if (issame(res, num)) {
-                    unique = false;
-                    break;
-                }
-            }
-            if (unique) {
-                result.push_back(num);
-            }
+            result.push_back(num);
         }
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main(){
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    return 0;
 }
