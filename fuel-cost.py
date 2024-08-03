@@ -1,11 +1,10 @@
-Here is the solution to the problem:
-
-def fuel_cost(vector):
-    return sum((i // 3) - 2 for i in vector)
-
-# test cases
-print(fuel_cost([1])) # output: 0
-print(fuel_cost([1, 7])) # output: 0
-print(fuel_cost([1, 8])) # output: 0
-print(fuel_cost([1, 9])) # output: 1
-print(fuel_cost([1, 10])) # output: 1
+def fuel_cost():
+    n = int(input())
+    result = 0
+    for _ in range(n):
+        x = int(input())
+        temp = (x // 3) - 2
+        if temp < 0:
+            temp = 0
+        result += temp
+    print(result)
