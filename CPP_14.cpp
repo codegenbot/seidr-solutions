@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
@@ -14,11 +13,11 @@ std::vector<std::string> all_prefixes(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Your comparison logic here
-}
-
 int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Your comparison logic here
 }
