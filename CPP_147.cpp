@@ -1,8 +1,3 @@
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 int get_matrix_triples(int n) {
     vector<int> a(n);
     for (int i = 0; i < n; ++i) {
