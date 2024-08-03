@@ -41,4 +41,5 @@ int main() {
     for (string w : words) {
         cout << w << endl;
     }
+    return 0;
 }
