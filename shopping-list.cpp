@@ -3,8 +3,8 @@
 #include <cmath>
 
 int main() {
-    std::vector<float> prices = {10.0, 20.0, 30.0}; // Example prices vector
-    std::vector<float> discounts = {0.1, 0.15, 0.2}; // Example discounts vector
+    std::vector<float> prices = {10.0, 20.0, 30.0};
+    std::vector<float> discounts = {0.1, 0.15, 0.2};
     
     float total_price = 0.0;
     
