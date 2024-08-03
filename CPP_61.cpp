@@ -1,9 +1,5 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-#include <cstdlib>
 
-int correct_bracketing(std::string brackets) {
+int correct_bracketing(string brackets) {
     int count = 0;
     for (char c : brackets) {
         if (c == '(') {
@@ -15,11 +11,10 @@ int correct_bracketing(std::string brackets) {
             count--;
         }
     }
-    return count == 0;
+    return count;
 }
 
 int main() {
-    std::string inputString = "(()())";
-    std::cout << correct_bracketing(inputString);
-    return EXIT_SUCCESS;
+    string inputString = "(()())";
+    cout << correct_bracketing(inputString);
 }
