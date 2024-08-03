@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-int main(){
+int main() {
     int Strongest_Extension(string class_name,vector<string> extensions){
         int max_strength = -1;
         string strongest_extension;
@@ -26,6 +26,9 @@ int main(){
         return class_name + "." + strongest_extension;
     }
 
-    // Your code here
+    // You can call the function here
+    int result = Strongest_Extension("SomeClass", {"Java", "Python", "C++"});
+    cout << "The strongest extension for SomeClass is: " << result << endl;
+
     return 0;
 }
