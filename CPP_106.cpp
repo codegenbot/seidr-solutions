@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()){
+    if(std::vector<int>(a) != std::vector<int>(b)){
         return false;
     }
     for(size_t i = 0; i < a.size(); ++i){
