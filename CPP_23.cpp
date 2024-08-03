@@ -1,5 +1,9 @@
 #include <cstring>
 
-int main(){
+int main() {
+    // Add your code logic here
+
     assert(strlen("asdasnakj") == 9);
+
+    return 0;
 }
