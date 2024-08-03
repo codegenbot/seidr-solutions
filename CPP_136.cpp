@@ -14,12 +14,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> nums) {
-    int smallest = INT_MAX;
-    int largest = INT_MIN;
+    int largest = nums[0];
+    int smallest = nums[0];
     
-    for(int num : nums) {
-        smallest = std::min(smallest, num);
-        largest = std::max(largest, num);
+    for(int i = 1; i < nums.size(); i++) {
+        if(nums[i] > largest)
+            largest = nums[i];
+        if(nums[i] < smallest)
+            smallest = nums[i];
     }
     
     return {smallest, largest};
