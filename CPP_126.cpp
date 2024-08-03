@@ -25,15 +25,16 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst(n);
+
     std::cout << "Enter the elements: ";
     for(int i = 0; i < n; i++){
         std::cin >> lst[i];
     }
 
     if(is_sorted(lst))
-        std::cout << "The list is sorted." << std::endl;
+        std::cout << "The list is sorted.\n";
     else
-        std::cout << "The list is not sorted." << std::endl;
+        std::cout << "The list is not sorted.\n";
 
     return 0;
 }
