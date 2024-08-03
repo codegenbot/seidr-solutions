@@ -1,4 +1,11 @@
-vector<int> result;
+#include <vector>
+
+using namespace std;
+
+std::vector<int> tri(int n);
+
+std::vector<int> tri(int n) {
+    std::vector<int> result;
     result.push_back(3);
     if (n == 0) {
         return result;
@@ -19,3 +26,4 @@ vector<int> result;
         }
     }
     return result;
+}
