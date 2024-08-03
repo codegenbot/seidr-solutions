@@ -28,18 +28,14 @@ int main() {
     // Test cases for sort_even function
     std::vector<float> test_case1 = {3.2f, 5.5f, 2.4f, 7.8f, 4.1f};
     std::vector<float> result1 = sort_even(test_case1);
+    
+    // Test cases for issame function
+    std::vector<float> test_vec1 = {1.0f, 2.0f, 3.0f};
+    std::vector<float> test_vec2 = {1.0f, 2.0f, 3.0f};
+    std::vector<float> test_vec3 = {1.0f, 2.0f, 4.0f};
 
-    // Additional test cases and validations
-    std::vector<float> test_case2 = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    std::vector<float> result2 = sort_even(test_case2);
-
-    std::vector<float> expected_result2 = {2.0f, 4.0f};
-    bool test_case2_passed = issame(result2, expected_result2);
-
-    if (test_case2_passed) {
-        // Validation successful for test_case2
-        // Add more test cases and validations if needed
-    }
+    bool test_result1 = issame(test_vec1, test_vec2); // Expected: true
+    bool test_result2 = issame(test_vec1, test_vec3); // Expected: false
 
     return 0;
 }
