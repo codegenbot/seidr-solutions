@@ -5,8 +5,6 @@
 #include <cassert>
 
 std::any compare_one(const std::any& a, const std::any& b) {
-    assert(a.has_value() && b.has_value());
-
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
@@ -14,15 +12,17 @@ std::any compare_one(const std::any& a, const std::any& b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = std::any_cast<std::string>(a);
         std::string strB = std::any_cast<std::string>(b);
+
         if (strA.find_first_of(".,") != std::string::npos) {
             std::replace(strA.begin(), strA.end(), ',', '.');
         }
         if (strB.find_first_of(".,") != std::string::npos) {
             std::replace(strB.begin(), strB.end(), ',', '.');
         }
+
         return (std::stod(strA) > std::stod(strB)) ? a : b;
     }
-    return std::any("None");
+    return std::any(std::string("None"));
 }
 
 int main() {
