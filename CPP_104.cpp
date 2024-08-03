@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
