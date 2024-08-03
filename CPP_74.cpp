@@ -21,11 +21,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     return lst2;
 }
 
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    return 0;
-}
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
