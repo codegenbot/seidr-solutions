@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
 int prime_fib(int n) {
@@ -18,7 +18,6 @@ int prime_fib(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    cout << prime_fib(n) << endl;
+    scanf("%d", &n);
+    printf("%d\n", prime_fib(n));
     return 0;
-}

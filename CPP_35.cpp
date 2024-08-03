@@ -4,8 +4,8 @@
 float max_element(float l){
     float max = l[0];
     for (int i = 1; i <= sizeof...(l); i++) {
-        if (l[i-1] > max) {
-            max = l[i-1];
+        if ((l[i-1]) > max) {
+            max = (l[i-1]);
         }
     }
     return max;
