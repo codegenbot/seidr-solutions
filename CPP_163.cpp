@@ -2,7 +2,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    for(int num : a) {
+    for (auto num : a) {
         if (num % 2 == 0) {
             return true;
         }
