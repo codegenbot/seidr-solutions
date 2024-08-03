@@ -9,10 +9,12 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
 std::vector<float> derivative(const std::vector<float>& xs){
     std::vector<float> result;
     for(size_t i = 1; i < xs.size(); i++){
-        result.push_back(xs[i] - xs[i-1]);
+        result.push_back(xs[i] - xs[i - 1]);
     }
     return result;
 }
 
-assert(issame(derivative({1.0f}), {0.0f}));
-return 0;
+int main(){
+    assert(issame(derivative({1.0f}), {0.0f}));
+    return 0;
+}
