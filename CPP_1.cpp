@@ -10,7 +10,7 @@ vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-
+    
     string group;
     int count = 0;
 
@@ -41,4 +41,4 @@ if (issame(a, b)) {
     // Do something if the groups are same
 } else {
     // Do something if the groups are different
-}
+} 
