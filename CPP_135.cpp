@@ -1,8 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
-int can_arrange(std::vector<int> arr){
+int can_arrange(std::vector<int> arr) {
     for(int i=1; i<arr.size(); i++){
         if(arr[i-1] <= arr[i]){
             return i-1;
@@ -11,25 +11,7 @@ int can_arrange(std::vector<int> arr){
     return -1;
 }
 
-int main(){
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for(int i=0; i<n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
-    }
-
-    int result = can_arrange(arr);
-
-    if(result != -1){
-        std::cout << "The first index where the array cannot be arranged is: " << result << std::endl;
-    }
-    else{
-        std::cout << "The array can be arranged" << std::endl;
-    }
-
+int main() {
+    // Your code here
     return 0;
 }
