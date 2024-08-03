@@ -1,18 +1,14 @@
-Here is the solution:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve_boolean(input_str):
+    if input_str == 'T':
         return True
-    elif expression == 'F':
+    elif input_str == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+    elif len(input_str) > 1 and input_str[0] in ['f', 't']:
+        return solve_boolean(input_str[0]) and solve_boolean(input_str[1:])
     else:
-        result = True
-        for operation, value in zip(['&', '|'], [expression.count('&'), expression.count('|')]):
-            if value > 0:
-                if operation == '&':
-                    result = all(char != 'T' for char in expression.replace('&', '').replace('|', '')) and result
-                elif operation == '|':
-                    result = any(char != 'F' for char in expression.replace('&', '').replace('|', '')) or result
-        return result
+        if '&' in input_str:
+            a, b = map(solve_boolean, input_str.split('&'))
+            return a and b
+        elif '|' in input_str:
+            a, b = map(solve_boolean, input_str.split('|'))
+            return a or b
