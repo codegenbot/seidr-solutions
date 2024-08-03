@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
@@ -5,7 +7,7 @@ int bowlingScore(string s) {
             score += 30;
         } else if (s[i] == '/') {
             int left = s[i-1] - '0';
-            int right = s[i+1] - '0' - '0';
+            int right = s[i+1] - '0';
             score += left + right;
         } else {
             int count = s[i] - '0';
@@ -17,7 +19,7 @@ int bowlingScore(string s) {
                     break;
                 } else if (s[i+1] == '/') {
                     int left = s[i+2] - '0';
-                    int right = s[i+3] - '0' - '0';
+                    int right = s[i+3] - '0';
                     score += 10 + left + right;
                     break;
                 }
@@ -25,3 +27,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
