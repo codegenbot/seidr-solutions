@@ -3,8 +3,8 @@
 #include <cassert>
 
 std::vector<float> rescale_to_unit(const std::vector<float>& values) {
-    float min_val = *std::min_element(values.begin(), values.end());
-    float max_val = *std::max_element(values.begin(), values.end());
+    float min_val = *min_element(values.begin(), values.end());
+    float max_val = *max_element(values.begin(), values.end());
 
     std::vector<float> rescaled_values;
     for (float val : values) {
