@@ -18,5 +18,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group += char
                 groups.append(current_group)
                 current_group = ''
-    
     return groups
