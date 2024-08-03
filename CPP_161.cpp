@@ -1,11 +1,19 @@
+#include <algorithm>
+#include <cctype>
+using namespace std;
+
 string solve(string s) {
     string result = "";
+    bool hasLetter = false;
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            hasLetter = true;
+            result += toupper(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    if (!hasLetter)
+        reverse(result.begin(), result.end());
+    return result;
 }
