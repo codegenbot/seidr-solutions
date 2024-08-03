@@ -1,10 +1,12 @@
-```cpp
 #include <string>
 #include <vector>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> lengths;
-    std::string result = "";
+#include <algorithm>
+#include <sstream>
+
+string words_in_sentence(string sentence) {
+    vector<int> lengths;
+    string result = "";
     
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
@@ -16,14 +18,13 @@ std::string words_in_sentence(std::string sentence) {
     return result.substr(0, result.size() - 1);
 }
 
-std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
-    std::vector<std::string> tokens;
+vector<string> split(const string& s, const string& delimiter) {
+    vector<string> tokens;
     size_t pos = 0;
-    while ((pos = s.find(delimiter)) != std::string::npos) {
-        tokens.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
+    std::stringstream ss(s);
+    while (std::getline(ss, delimiter)) {
+        tokens.push_back(delimiter);
     }
-    tokens.push_back(s);
     return tokens;
 }
 
