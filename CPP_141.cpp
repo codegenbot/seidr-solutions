@@ -1,6 +1,6 @@
 #include <string>
 
-string file_name_check(string file_name) {
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.size(); i++){
