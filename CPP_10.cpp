@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool is_palindrome(const std::string& str){
-    return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
+    return str == std::string(str.rbegin(), str.rend());
 }
 
 std::string make_palindrome(std::string str){
