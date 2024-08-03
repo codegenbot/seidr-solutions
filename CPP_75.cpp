@@ -28,7 +28,7 @@ int main() {
 
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
-
+    
     if(num) {
         result = is_multiply_prime(num);
         std::cout << (result ? "true" : "false") << std::endl;
