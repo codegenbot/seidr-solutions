@@ -1,11 +1,11 @@
-```c++
 #include <vector>
+#include <limits>
 #include <numeric>
-#include <climits>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
+    int min_diff = numeric_limits<int>::max();
     pair<vector<int>, vector<int>> res;
     
     for(int i=0; i<v.size(); i++) {
@@ -14,7 +14,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         
         if(left.size() == 0 || right.size() == 0) continue;
         
-        int diff = std::accumulate(left.begin(), left.end(), 0) - std::accumulate(right.begin(), right.end(), 0);
+        int diff = abs(std::accumulate(left.begin(), left.end(), 0)) - abs(std::accumulate(right.begin(), right.end(), 0));
         
         if(diff < min_diff) {
             min_diff = diff;
