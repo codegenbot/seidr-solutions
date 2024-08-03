@@ -44,7 +44,6 @@ int main() {
         // Do something if the groups are different
     }
 
-    // Assert if the function works correctly
     assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
 
     return 0;
