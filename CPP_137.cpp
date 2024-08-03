@@ -12,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             sa = boost::any_cast<std::string>(a);
             sb = boost::any_cast<std::string>(b);
         } catch (...) {
-            return a;
+            return a; // Return a if both are not convertible to double
         }
     }
 
@@ -21,6 +21,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (db > da) {
         return b;
     } else {
-        return a; // Return the first value when they are equal
+        return a; // Return the first one if they are equal
     }
 }
