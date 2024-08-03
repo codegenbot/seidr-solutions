@@ -1,6 +1,4 @@
-#include <iostream>
-#include <bitset>
-#include <cassert>
+#include <string>
 
 std::string solve(int N) {
     int sum = 0;
@@ -9,11 +7,11 @@ std::string solve(int N) {
         N /= 2;
     }
 
-    return std::bitset<8>(sum).to_string();
-}
+    std::string binary = "";
+    while (sum > 0) {
+        binary = std::to_string(sum % 2) + binary;
+        sum /= 2;
+    }
 
-int main() {
-    assert(solve(963) == "10010");
-
-    return 0;
+    return binary;
 }
