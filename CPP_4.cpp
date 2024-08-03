@@ -1,4 +1,6 @@
-float calculate_mean_abs_deviation(const std::vector<float>& numbers) {
+#include <cmath>
+
+float mean_abs_deviation(const std::vector<float>& numbers) {
     float sum = 0;
     for (float num : numbers) {
         sum += num;
