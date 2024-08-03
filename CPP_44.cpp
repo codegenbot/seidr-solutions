@@ -1,11 +1,16 @@
+#include <string>
+
+using namespace std;
+
 string change_base(int x, int base) {
-    if (x < base) {
-        return to_string(x);
-    }
-    string result = "";
+    string res = "";
     while (x > 0) {
-        result = to_string(x % base) + result;
+        int remainder = x % base;
+        if (remainder >= 10)
+            res = char(55 + remainder) + res; // 'A' to 'F'
+        else
+            res = to_string(remainder) + res;
         x /= base;
     }
-    return result;
+    return res;
 }
