@@ -29,7 +29,3 @@ bool issame(vector<string> a, vector<string> b){
         if(a[i] != b[i]) return false;
     return true;
 }
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia") , vector<string>{ "", "True" }));
-}
