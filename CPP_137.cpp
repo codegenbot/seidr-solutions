@@ -1,8 +1,11 @@
-#include <any>
+#include <variant>
 #include <string>
 
-std::string compare_one(std::any data, int num) {
+std::string compare_one(const std::string& s, int n) {
     return "None";
 }
 
-assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+int main() {
+    assert(std::get<std::string>(compare_one(std::string("1"), 1)) == "None");
+    return 0;
+}
