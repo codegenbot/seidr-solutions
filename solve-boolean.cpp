@@ -1,46 +1,9 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operatorStack;
-    for (char c : booleanExpression) {
-        if (c == '&' || c == '|') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                if (operatorStack.top() == '&') {
-                    operatorStack.pop();
-                    cout << "True" << endl;
-                    return true;
-                } else if (operatorStack.top() == '|') {
-                    operatorStack.pop();
-                    cout << "False" << endl;
-                    return false;
-                }
-            }
-            operatorStack.push(c);
-        } else if (c == '(') {
-            operatorStack.push(c);
-        } else if (c == ')') {
-            while (!operatorStack.empty() && operatorStack.top() != '(') {
-                if (operatorStack.top() == '&') {
-                    operatorStack.pop();
-                    cout << "True" << endl;
-                    return true;
-                } else if (operatorStack.top() == '|') {
-                    operatorStack.pop();
-                    cout << "False" << endl;
-                    return false;
-                }
-            }
-            operatorStack.pop();
-        }
+bool solveBoolean(string s) {
+    bool res = true;
+    for (char c : s) {
+        if (c == 'F') res = false;
+        else if (c == '&') return res;
+        else if (c == '|') res = !res;
     }
-    while (!operatorStack.empty()) {
-        if (operatorStack.top() == '&') {
-            operatorStack.pop();
-            cout << "True" << endl;
-            return true;
-        } else if (operatorStack.top() == '|') {
-            operatorStack.pop();
-            cout << "False" << endl;
-            return false;
-        }
-    }
-    return false;
+    return res;
 }
