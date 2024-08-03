@@ -1,17 +1,15 @@
-Here is a Python solution for the problem:
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return a
+    return abs(a)
 
 def indices_of_substring(text, target):
-    result = []
+    indices = []
     i = 0
-    while True:
-        pos = text.find(target, i)
-        if pos == -1:
-            break
-        result.append(pos + 1)
-        i = pos + 1
-    return result
+    while i < len(text):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+            i += len(target)
+        else:
+            i += 1
+    return indices
