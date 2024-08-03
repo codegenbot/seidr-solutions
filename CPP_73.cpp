@@ -30,7 +30,7 @@ int main() {
     }
     
     int result = smallest_change(arr);
-    std::cout << "The smallest change is: " << result << std::endl;
+    std::cout << "Smallest change is: " << result << std::endl;
     
     return 0;
 }
