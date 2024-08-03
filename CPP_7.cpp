@@ -1,16 +1,9 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<string> a,vector<string>b){
-    return a.size() == b.size() && a==b;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (str.find(substring) != string::npos) {
-            result.push_back(str);
+bool issame(vector<string> a,vector<string> b){
+    vector<string> filtered = filter_by_substring(a,"same");
+    for(const auto &str : b){
+        if(find(filtered.begin(),filtered.end(),str) == filtered.end()){
+            return false;
         }
     }
-    return result;
+    return true;
 }
