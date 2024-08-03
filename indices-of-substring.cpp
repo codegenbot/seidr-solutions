@@ -4,13 +4,18 @@
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
-
     std::vector<int> indices;
+
+    std::getline(std::cin, text);
+    std::cin >> target;
+
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + target.length());
+        pos = text.find(target, pos + 1);
+        if (pos != std::string::npos) {
+            indices.push_back(static_cast<int>(pos));
+        }
     }
 
     for (int i = 0; i < static_cast<int>(indices.size()); ++i) {
