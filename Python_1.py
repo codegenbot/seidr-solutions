@@ -2,9 +2,9 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
-    groups = []
+    result = []
     current_group = ""
+    stack = []
 
     for char in paren_string:
         if char == " ":
@@ -13,10 +13,17 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             current_group += char
         elif char == ")":
-            stack.pop()
+            while stack and stack[-1] != "(":
+                current_group += stack.pop()
+            if not stack or stack.pop() != "(":
+                return []  # invalid parentheses
             current_group += char
-            if not stack:
-                groups.append(current_group)
-                current_group = ""
+        else:
+            while stack and stack[-1] != "(":
+                current_group += stack.pop()
+            if not stack or stack.pop() != "(":
+                return []  # invalid parentheses
+            current_group += char
 
-    return [group.strip() for group in groups]
+    result.append(current_group)
+    return [current_group]
