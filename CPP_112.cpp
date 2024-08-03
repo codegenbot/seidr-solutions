@@ -1,10 +1,21 @@
+#include <algorithm>
+#include <vector>
+#include <string>
+
+bool issame(char a, char b) {
+    if ((a >= 'a' && a <= 'z') || (a >= 'A' && a <= 'Z')) {
+        return tolower(a) == tolower(b);
+    } else {
+        return a == b;
+    }
+}
+
 vector<string> reverse_delete(string s, string c) {
-    vector<string> output;
     string result = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
-            if (ch == cc) {
+            if (issame(ch, cc)) {
                 found = true;
                 break;
             }
@@ -13,10 +24,14 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
+    vector<string> output;
     output.push_back(result);
     string temp = result;
     reverse(temp.begin(), temp.end());
-    bool same = (temp == result);
-    output.push_back(to_string(same));
+    if (temp == result) {
+        output.push_back("True");
+    } else {
+        output.push_back("False");
+    }
     return output;
 }
