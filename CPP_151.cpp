@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-long long double_the_difference(const std::vector<int>& lst) {
+long long double_the_difference(std::vector<int> lst) {
     long long sum = 0;
     for (int num : lst) {
         if (num > 0 && num % 2 != 0) {
