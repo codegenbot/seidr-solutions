@@ -1,27 +1,14 @@
-#include <vector>
-using namespace std;
-
-int luhn(int n) {
+int luhn(const vector<int>& cardNumber) {
     int sum = 0;
-    for (int i = 15; i >= 0; --i) {
-        int digit = (n / pow(10, i)) % 10;
-        if ((i % 2 == 1 && digit % 2 == 1) || (i % 2 == 0))
-            digit *= 2;
-        if (digit > 9)
-            sum += digit - 9;
-        else
+    for(int i = cardNumber.size() - 1; i >= 0; --i){
+        if(i % 2 == 1) {
+            int digit = cardNumber[i] * 2;
+            if(digit > 9)
+                digit -= 9;
             sum += digit;
+        }
+        else
+            sum += cardNumber[i];
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; ++i) {
-        cin >> v[i];
-    }
-    cout << luhn((*max_element(v.begin(), v.end()))<<endl;
-    return 0;
 }
