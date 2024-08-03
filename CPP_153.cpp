@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 int main() {
     int Strongest_Extension(string class_name,vector<string> extensions){
         int max_strength = -1;
@@ -25,7 +27,6 @@ int main() {
         
         return class_name + "." + strongest_extension;
     }
-    
-    // Your code here
+
     return 0;
 }
