@@ -1,16 +1,14 @@
 #include <vector>
 
-bool issame(vector<int> arr1, vector<int> arr2){
-    if(arr1.size() != arr2.size()){
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    
-    for(int i = 0; i < arr1.size(); i++){
-        if(arr1[i] != arr2[i]){
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
-    
     return true;
 }
 
@@ -34,14 +32,14 @@ vector<int> f(int n){
     return result;
 }
 
-int main(){
-    vector<int> arr1 = f(5);
-    vector<int> arr2 = {0, 1, 2, 6, 15};
+int main() {
+    vector<int> expected = {1, 1, 2, 6, 3};
+    vector<int> computed = f(5);
     
-    if(issame(arr1, arr2)){
-        cout << "Arrays are the same" << endl;
+    if(issame(expected, computed)){
+        cout << "Test passed" << endl;
     } else {
-        cout << "Arrays are different" << endl;
+        cout << "Test failed" << endl;
     }
     
     return 0;
