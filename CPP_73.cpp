@@ -12,7 +12,7 @@ int smallest_change(std::vector<int> arr) {
             else if (arr[j] == arr[n - 1 - i + j])
                 dp[i][j] = dp[i - 1][j - 1];
             else
-                dp[i][j] = std::min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]} ) + 1;
+                dp[i][j] = std::min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]}) + 1;
         }
     }
     
@@ -30,7 +30,7 @@ int main() {
     }
     
     int result = smallest_change(arr);
-    std::cout << "Smallest change is: " << result << std::endl;
+    std::cout << "The smallest change is: " << result << std::endl;
     
     return 0;
 }
