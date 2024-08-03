@@ -7,19 +7,19 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> parse_music(std::string s) {
-    std::vector<int> beats;
+    std::vector<int> notes;
     int count = 0;
+
     for (char c : s) {
-        if (c == 'o') count++;
-        else if (c == '|') {
-            beats.push_back(count);
+        if (c == 'o') {
+            count++;
+        } else if (c == '|') {
+            notes.push_back(count);
             count = 0;
         }
     }
-    if (count > 0) {
-        beats.push_back(count);
-    }
-    return beats;
+
+    return notes;
 }
 
 int main() {
