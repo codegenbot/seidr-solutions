@@ -1,10 +1,15 @@
-#include <iostream>
-#include <algorithm>
-#include <cassert>
+#include <vector>
 #include <cmath>
+#include <cassert>
 
-float max_element(std::initializer_list<float> l) {
-    return *std::max_element(l.begin(), l.end());
+float max_element(const vector<int>& l){
+    int max = l[0];
+    for (int num : l) {
+        if (num > max) {
+            max = num;
+        }
+    }
+    return max;
 }
 
 int main() {
