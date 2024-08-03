@@ -9,7 +9,7 @@ bool simplify(string x, string n) {
     int num2 = stoi(n.substr(0, n.find('/')));
     int den2 = stoi(n.substr(n.find('/') + 1));
 
-    return (num1 * den2) == (den1 * num2);
+    return (num1 * den2) == (num2 * den1);
 }
 
 int main(){
