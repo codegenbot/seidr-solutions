@@ -1,11 +1,6 @@
-#include <boost/any.hpp>
 #include <string>
+#include <boost/any.hpp>
 
-std::string compare_one(const std::string& s, int n) {
-    return "None";
-}
+boost::any compare_one(std::string str, int num);
 
-int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
-    return 0;
-}
+assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
