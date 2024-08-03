@@ -3,14 +3,14 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(vector<string> a, vector<string> b);
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> words;
-    std::string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+vector<string> split_words(string txt){
+    vector<string> words;
+    string word = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 words.push_back(word);
                 word = "";
             }
@@ -18,30 +18,26 @@ std::vector<std::string> split_words(std::string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         words.push_back(word);
     }
-    if (words.empty()) {
+    if(words.empty()){
         int count = 0;
-        for (char c : txt) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    // Sample test case to use the split_words function
-    std::string input = "hello,world";
-    std::vector<std::string> result = split_words(input);
-    assert(issame(result, std::vector<std::string>{"hello", "world"}));
-    
+    // Your main function implementation here
     return 0;
 }
