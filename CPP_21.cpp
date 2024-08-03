@@ -1,8 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 vector<float> rescale_to_unit(vector<float> numbers);
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
+bool issame(vector<float> a, vector<float> b);
 
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
@@ -15,7 +18,12 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     return result;
 }
 
+bool issame(vector<float> a, vector<float> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
-    // Your main function code here
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    
     return 0;
 }
