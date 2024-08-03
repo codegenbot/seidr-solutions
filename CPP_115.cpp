@@ -1,7 +1,27 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += accumulate(row.begin(), row.end(), 0);
+#include <iostream>
+#include <vector>
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+    int result = 0;
+    for (std::vector<int> well : grid) {
+        int water = 0;
+        for (int unit : well) {
+            if (unit == 1) {
+                water += min(capacity, unit);
+            }
+        }
+        while (water > 0) {
+            capacity = min(capacity, water);
+            result++;
+            water -= capacity;
+        }
     }
-    return (total_water + capacity - 1) / capacity;
+    return result;
+}
+
+int main() {
+    std::vector<std::vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    int result = max_fill(grid, 9);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
