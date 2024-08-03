@@ -1,6 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <string>
+#include <sstream>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -15,22 +16,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> words_string(const std::string& str) {
-    std::vector<std::string> words;
+    std::vector<std::string> result;
+    std::istringstream ss(str);
     std::string word;
-    for (char c : str) {
-        if (c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else if (c != ' ') {
-            word += c;
-        }
+    while (std::getline(ss, word, ',')) {
+        result.push_back(word);
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return words;
+    return result;
 }
 
 int main() {
