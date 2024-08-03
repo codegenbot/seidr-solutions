@@ -1,2 +1,2 @@
 #include <string>
-return str.length();
+str.length();
