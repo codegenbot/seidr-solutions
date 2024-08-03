@@ -9,7 +9,7 @@ string words_in_sentence(string sentence){
             int j = 0;
             while(j < sentence.length()){
                 len++;
-                j += sentence.find_first_not_of(' ', j);
+                j += (int)strlen(&sentence.substr(j,1)) + 1;
                 if(len == i) {
                     result += &sentence[j-1] + " ";
                     len = 0;
