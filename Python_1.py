@@ -6,16 +6,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     current_group = ''
     
-    for char in paren_string:
-        if char == ' ':
+    for paren in paren_string:
+        if paren == ' ':
             continue
-        if char == '(':
-            stack.append(char)
-            current_group += char
-        elif char == ')':
+        if paren == '(':
+            stack.append(paren)
+            current_group += paren
+        elif paren == ')':
             if stack and stack[-1] == '(':
                 stack.pop()
-                current_group += char
+                current_group += paren
                 groups.append(current_group)
                 current_group = ''
     
