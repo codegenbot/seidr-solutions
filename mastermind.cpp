@@ -27,7 +27,7 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     // Subtract the black pegs from total white pegs
     white -= black;
 
-    return {white, black};
+    return std::pair<int, int>(white, black);
 }
 
 int main() {
