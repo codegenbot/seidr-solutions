@@ -24,7 +24,7 @@ int main() {
         total_price += prices[i] * (1.0 - (discounts[i] / 100.0));
     }
 
-    total_price = floor(total_price * 100 + 0.5) / 100.0; // Round to 2 decimal places
+    total_price = floor(total_price * 100 + 0.5) / 100.0;
 
     cout << fixed << setprecision(2) << total_price << endl;
 
