@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -17,17 +18,18 @@ int main() {
     std::cin >> n;
 
     std::vector<long long> nums(n);
-
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> nums[i];
     }
 
-    long long min_sum = minSubArraySum(nums);
-    if (min_sum == LLONG_MAX)
-        std::cout << "No such subarray exists.\n";
-    else
-        std::cout << "Minimum sum of a subarray is: " << min_sum << "\n";
+    long long result = minSubArraySum(nums);
+
+    if(result == LLONG_MAX) {
+        std::cout << "No subarray with positive sum exists." << std::endl;
+    } else {
+        std::cout << "The minimum sum of a subarray is: " << result << std::endl;
+    }
 
     return 0;
 }
