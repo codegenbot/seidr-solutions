@@ -30,7 +30,7 @@ int main() {
     }
     
     int result = smallest_change(arr);
-    std::cout << "Smallest change: " << result << std::endl;
+    std::cout << "The minimum number of operations to make all elements equal is: " << result << std::endl;
     
     return 0;
 }
