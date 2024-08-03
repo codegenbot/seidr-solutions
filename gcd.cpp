@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -28,9 +28,8 @@ int main() {
     int a, b;
     std::cin >> a;
     std::cin >> b;
+    std::cout << gcd(a, b) << std::endl;
 
-    std::cin.ignore();
-    
     std::string text, target;
     getline(std::cin, text);
     getline(std::cin, target);
