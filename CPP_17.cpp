@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
@@ -26,4 +27,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 4, 2, 4, 2}));
+int main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 4, 2, 4, 2}));
+    return 0;
+}
