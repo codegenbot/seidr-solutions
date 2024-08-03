@@ -5,8 +5,11 @@
 
 using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
+map<char, int> histogram(string test);
+
+int main() {
+    assert(histogram("a") == map<char, int>{{'a', 1}});
+    return 0;
 }
 
 map<char, int> histogram(string test) {
