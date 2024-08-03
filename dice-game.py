@@ -1,6 +1,2 @@
-n = int(input())
-m = int(input())
-
-prob = (n - 1) / (n * m)
-
-print(prob)
+def dice_game(n, m):
+    return 1 - (n + m - 2) / (n * m)
