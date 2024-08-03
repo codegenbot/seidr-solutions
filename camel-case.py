@@ -1,8 +1,3 @@
-words = input().split()
-result = ""
-for i, word in enumerate(words):
-    if i == 0:
-        result += word
-    else:
-        result += word.capitalize()
-print(result)
+words = input().split("-")
+camel_case_words = [words[0]] + [word.capitalize() for word in words[1:]]
+print("".join(camel_case_words))
