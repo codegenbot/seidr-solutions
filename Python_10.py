@@ -1,10 +1,9 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
+def is_palindrome(s):
+    return s == s[::-1]
 
-
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
-    for i in range(len(string), 0, -1):
-        if string[:i] == string[:i][::-1]:
-            return string[:i] + string[i:][::-1] + string[:i][::-1]
+def make_palindrome(s):
+    if s == s[::-1]:
+        return s + s[::-1]
+    for i in range(len(s), 0, -1):
+        if s[:i] == s[:i][::-1]:
+            return s[:i] + s[i:][::-1] + s[:i][::-1]
