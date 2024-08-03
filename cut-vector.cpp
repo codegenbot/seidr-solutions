@@ -25,12 +25,18 @@ int main() {
         prefix_sum += nums[i];
         if (prefix_sum >= half_sum) {
             cut_index = i;
+            if (prefix_sum == half_sum) {
+                break;
+            }
+            if (std::abs(prefix_sum - half_sum) > std::abs(prefix_sum - nums[cut_index] - half_sum)) {
+                cut_index--;
+            }
             break;
         }
     }
 
     if (n % 2 == 0) {
-        if (std::abs(prefix_sum - (sum - prefix_sum)) < std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
+        if (std::abs(prefix_sum - half_sum) <= std::abs(prefix_sum - nums[cut_index] - half_sum)) {
             cout << "1" << endl;
             for (int i = 0; i <= cut_index; i++) {
                 cout << nums[i] << endl;
@@ -38,13 +44,16 @@ int main() {
             cout << "0" << endl;
         } else {
             cout << "1" << endl;
-            for (int i = 0; i < cut_index; i++) {
+            for (int i = 0; i <= cut_index; i++) {
                 cout << nums[i] << endl;
             }
-            cout << nums[cut_index] << endl;
+            cout << "1" << endl;
+            for (int i = cut_index + 1; i < n; i++) {
+                cout << nums[i] << endl;
+            }
         }
     } else {
-        if (std::abs(prefix_sum - (sum - prefix_sum)) < std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index])) && cut_index < n - 1) {
+        if (std::abs(prefix_sum - half_sum) < std::abs(prefix_sum - nums[cut_index] - half_sum)) {
             cout << "1" << endl;
             for (int i = 0; i <= cut_index; i++) {
                 cout << nums[i] << endl;
@@ -52,10 +61,13 @@ int main() {
             cout << "0" << endl;
         } else {
             cout << "1" << endl;
-            for (int i = 0; i < cut_index; i++) {
+            for (int i = 0; i <= cut_index; i++) {
                 cout << nums[i] << endl;
             }
-            cout << nums[cut_index] << endl;
+            cout << "1" << endl;
+            for (int i = cut_index + 1; i < n; i++) {
+                cout << nums[i] << endl;
+            }
         }
     }
 
