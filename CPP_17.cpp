@@ -24,9 +24,4 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    assert(issame(parse_music(input), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
-}
+assert(issame(parse_music("o| .| o| .| o o| o o|"), std::vector<int>{2, 1, 2, 1, 4, 2, 4, 2}));
