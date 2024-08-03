@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+#include <bitset>
+#include <cassert>
+
 std::string round_avg(int n, int m) {
     if (n > m) {
         return "-1";
