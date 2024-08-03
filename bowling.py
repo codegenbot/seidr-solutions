@@ -1,15 +1,15 @@
 ```
-def bowling_score(frames):
+def bowling_score(bowling):
     score = 0
+    roll = 0
     for i in range(10):
-        if '/' in frames[i]:
-            first, second = map(int, re.split('/', frames[i]))
-            if i < 9 and frames[i+1].startswith('X'):
-                score += max(first, 10) + second
+        if '/' in str(bowling)[i*2:i*2+2]:
+            first, second = map(int, str(bowling)[i*2:i*2+2].split('/'))
+            if first == 10:
+                score += 10 + sum(str(bowling)[(i+1)*2:(i+1)*2+2])
             else:
-                score += max(first, 10)
-        elif 'X' == frames[i]:
-            score += 10
-        else:
-            score += int(frames[i])
+                score += first + second
+        elif str(bowling)[i*2:i*2+1] != 'X':
+            score += int(str(bowling)[i*2:i*2+1]) * 10
+        roll += 1
     return score
