@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-bool monotonic(const std::vector<int>& l) {
+bool monotonic(std::vector<int> l);
+
+bool monotonic(std::vector<int> l) {
     int n = l.size();
     bool increasing = true, decreasing = true;
     for (int i = 1; i < n; ++i) {
@@ -13,7 +14,7 @@ bool monotonic(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
-    
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::cout << std::boolalpha << monotonic(arr) << std::endl;
     return 0;
 }
