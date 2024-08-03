@@ -1,7 +1,12 @@
 def mastermind(code, guess):
-    correct_colors = sum(c1 == c2 for c1, c2 in zip(code, guess))
-    white_pegs = correct_colors - sum(
-        c1 == g and c2 != c1
-        for c1, c, c2 in itertools.zip_longest(code, guess, fillvalue="-")
-    )
-    return str(white_pegs), str(correct_colors)
+    code_counts = [0] * 6
+    for char in code:
+        code_counts[ord(char) - ord("B")] += 1
+    guess_counts = [0] * 6
+    for char in guess:
+        guess_counts[ord(char) - ord("B")] += 1
+
+    black_pegs = sum(min(code_counts[i], guess_counts[i]) for i in range(6))
+    white_pegs = sum(min(code_counts[i], 4 - guess_counts[i]) for i in range(6))
+
+    return str(white_pegs), str(black_pegs)
