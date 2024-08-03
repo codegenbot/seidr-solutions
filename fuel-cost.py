@@ -1,3 +1,3 @@
 nums = list(map(int, input().split()))
-result = sum(map(lambda x: max(0, (x - 2) // 3), nums))
+result = sum([(num // 3 - 2) if num >= 6 else 0 for num in nums])
 print(result)
