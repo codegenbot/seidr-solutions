@@ -1,9 +1,10 @@
 #include <vector>
 #include <cassert>
+using namespace std;
 
 std::vector<int> factorize(int n) {
     // Implement factorize function here
-    return {2, 3, 3};
+    return {}; // Placeholder return
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
