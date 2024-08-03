@@ -1,4 +1,4 @@
-def format_numbers(numbers, delimiter):
+def concatenate_numbers(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
         result.extend([num, delimiter])
