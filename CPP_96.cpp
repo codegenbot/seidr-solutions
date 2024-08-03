@@ -1,4 +1,14 @@
-vector<int> result;
+#include <vector>
+#include <cassert>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+vector<int> count_up_to(int n);
+
+vector<int> count_up_to(int n) {
+    vector<int> result;
     if (n < 2) {
         return result;
     }
