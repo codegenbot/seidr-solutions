@@ -48,23 +48,3 @@ boost::any compare_one(boost::any a, boost::any b) {
         return boost::any("None");
     }
 }
-
-int main() {
-    std::cout << "Enter two values: ";
-    int val1, val2;
-    std::cin >> val1 >> val2;
-
-    boost::any a = val1;
-    boost::any b = val2;
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(int)) {
-        std::cout << "Greater value: " << boost::any_cast<int>(result) << std::endl;
-    }
-    else if (result.type() == typeid(std::string)) {
-        std::cout << "Equal values" << std::endl;
-    }
-
-    return 0;
-}
