@@ -1,8 +1,8 @@
-#include <vector>
-#include <climits>
+#include<vector>
+#include<climits>
 using namespace std;
 
-pair<int, int> largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int maxNeg = 0;
     int minPos = INT_MAX;
     
@@ -15,5 +15,5 @@ pair<int, int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    return std::make_pair((maxNeg == 0)?0:maxNeg, (minPos == INT_MAX)?0:minPos);
+    return {maxNeg, minPos};
 }
