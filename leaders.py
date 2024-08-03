@@ -1,2 +1,4 @@
-def leaders(arr):
-    return [i for i in reversed(arr) if all(i >= j for j in arr[arr.index(i) + 1 :])]
+def leaders(v):
+    return [
+        v[i] for i in range(len(v) - 1, -1, -1) if all(x <= v[i] for x in v[i + 1 :])
+    ]
