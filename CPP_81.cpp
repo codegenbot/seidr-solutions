@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> numerical_letter_grade(vector<float> grades);
-
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
@@ -35,6 +31,6 @@ vector<string> numerical_letter_grade(vector<float> grades){
 int main(){
     assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     // Add more test cases here
-    
+
     return 0;
 }
