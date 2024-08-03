@@ -1,8 +1,5 @@
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+#include <vector>
+#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -21,10 +18,12 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
+void solveProblem() {
+    std::vector<int> result = even_odd_palindrome(1);
+    assert(result == std::vector<int>{0, 1});
+}
+
 int main() {
-    if (issame(even_odd_palindrome(1), {0, 1})) {
-        return 0;
-    } else {
-        return 1;
-    }
+    solveProblem();
+    return 0;
 }
