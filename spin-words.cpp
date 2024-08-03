@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector> 
+#include <vector>
 
 std::string spinWords(std::string str) {
     std::vector<std::string> words;
