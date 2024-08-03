@@ -17,12 +17,12 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+    for (int i = 1; i <= n; i++) {
+        std::cout << "Enter element " << i << ": ";
+        int val;
+        std::cin >> val;
+        lst.push_back(val);
     }
-    std::cout << "Sum of odd numbers: " << solution(lst) << std::endl;
+    std::cout << "The sum of odd numbers is: " << solution(lst) << std::endl;
     return 0;
 }
