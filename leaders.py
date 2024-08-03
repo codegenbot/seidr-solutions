@@ -1,6 +1,9 @@
-def leaders(arr):
-    return [
-        x
-        for i, x in enumerate(reversed(arr))
-        if all(x >= arr[j] for j in range(i + 1, len(arr)))
-    ]
+def leaders(a):
+    n = len(a)
+    leaders = [a[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders.insert(0, a[i])
+
+    return leaders
