@@ -1,6 +1,8 @@
-def leaders(a):
-    return [
-        a[i]
-        for i in range(len(a) - 1, -1, -1)
-        if all(a[i] >= a[j] for j in range(i + 1, len(a)))
-    ]
+def leaders(nums):
+    leaders_list = []
+    max_num_right = nums[-1]
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] >= max_num_right:
+            leaders_list.append(nums[i])
+            max_num_right = nums[i]
+    return leaders_list[::-1]
