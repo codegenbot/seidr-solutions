@@ -2,7 +2,6 @@
 #include <string>
 #include <cassert>
 
-// Fix the function signature of issame to use std::vector with correct namespace
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
