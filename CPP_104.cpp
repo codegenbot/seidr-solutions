@@ -1,5 +1,7 @@
 bool issame(int x, int y);
 
+vector<int> unique_digits(vector<int> x);
+
 bool issame(int x, int y) {
     string s1 = to_string(x);
     string s2 = to_string(y);
