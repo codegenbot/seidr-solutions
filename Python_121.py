@@ -1,11 +1,14 @@
-```
-def sum_of_odd_numbers_in_range():
-    start = int(input("Enter the start of the range: "))
-    end = int(input("Enter the end of the range: "))
+def find_max_sum_of_subarray(arr):
+    max_sum = arr[0]
+    current_sum = arr[0]
 
-    total_sum = 0
-    for num in range(start, end + 1):
-        if num % 2 != 0:
-            total_sum += num
+    for num in arr[1:]:
+        if current_sum < 0:
+            current_sum = num
+        else:
+            current_sum += num
+        
+        if current_sum > max_sum:
+            max_sum = current_sum
 
-    return total_sum
+    return max_sum
