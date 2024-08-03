@@ -1,9 +1,8 @@
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i].length() % 2 != b[i].length() % 2)
-            return false;
+    if(a.size()!=b.size())return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i].length() % 2 == 1 && b[i].length() % 2 == 0)return false;
+    }
     return true;
 }
 
@@ -20,5 +19,26 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
          });
 
-    return lst;
+    vector<string> result;
+    for(string s:lst){
+        int sum = 0;
+        for(char c:s){
+            sum += c;
+        }
+        bool valid = true;
+        for(string str:lst){
+            if(sum == std::stoi(str)){
+                valid = false;
+                break;
+            }
+        }
+        if(valid)result.push_back(s);
+    }
+
+    return result;
+}
+
+int main() {
+    assert (issame({{"aaaa", "bbbb", "dd", "cc"}}, {{"cc","dd","aaaa","bbbb"}}));
+    return 0;
 }
