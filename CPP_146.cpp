@@ -13,8 +13,9 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    int nums[] = {12, 34, 56};
-    vector<int> vec(nums, nums + sizeof(nums) / sizeof(nums[0]));
-    cout << specialFilter(vec) << endl;
+    vector<int> test1 = {11, 22, 33};
+    cout << specialFilter(test1) << endl;
+    vector<int> test2 = {-11, -22, -33};
+    cout << specialFilter(test2) << endl;
     return 0;
 }
