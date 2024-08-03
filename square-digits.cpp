@@ -1,5 +1,7 @@
+#include <vector>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 std::string squareDigits(std::string input) {
     std::string output = "";
