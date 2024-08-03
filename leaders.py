@@ -1,2 +1,5 @@
-def leaders(a):
-    return [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= all(a[i + 1 :])]
+Here is the solution:
+
+def leaders(arr):
+    leaders = [arr[i] for i in range(len(arr) - 1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    return leaders[::-1]
