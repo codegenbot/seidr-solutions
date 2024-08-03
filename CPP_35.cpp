@@ -1,6 +1,8 @@
+```cpp
+#include <vector>
 #include <algorithm>
-#include <cmath>
 
-int main() {
-    return *std::max_element(l.begin(), l.end());
+float findMax(float l) {
+    std::vector<float> v = {l};
+    return *std::max_element(v.begin(), v.end());
 }
