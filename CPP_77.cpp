@@ -12,8 +12,8 @@ int main(){
     cout << "Enter an integer: ";
     cin >> n;
     if(iscuber(n))
-        cout << "Yes, the cube root of " << n << " is an integer." << endl;
+        cout << n << " is a perfect cube." << endl;
     else
-        cout << "No, the cube root of " << n << " is not an integer." << endl;
+        cout << n << " is not a perfect cube." << endl;
     return 0;
 }
