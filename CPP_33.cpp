@@ -3,16 +3,16 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 std::vector<int> sort_third(std::vector<int> v) {
-    std::sort(v.begin(), v.begin() + v.size() / 3);
+    std::sort(v.begin(), v.end());
     return v;
 }
 
 int main() {
-    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
