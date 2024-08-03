@@ -2,11 +2,9 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-    std::vector<float> sort_even(const std::vector<float>& v);
-}
+std::vector<float> sort_even(const std::vector<float>& v);
 
-bool std::issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,7 +16,7 @@ bool std::issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> std::sort_even(const std::vector<float>& v) {
+std::vector<float> sort_even(const std::vector<float>& v) {
     std::vector<float> even_sorted;
     for (float num : v) {
         if (static_cast<int>(num) % 2 == 0) {
