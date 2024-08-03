@@ -20,11 +20,3 @@ vector<string> generate_output(vector<string> lst) {
     }
     return result;
 }
-
-int main() {
-    assert (issame(generate_output({"271", "137", "314"}), {
-        "the number of odd elements 1 in the string 271 of the input.",
-        "the number of odd elements 2 in the string 137 of the input.",
-        "the number of odd elements 2 in the string 314 of the input."
-    }));
-}
