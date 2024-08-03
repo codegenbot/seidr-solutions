@@ -24,3 +24,6 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     }
     return result;
 }
+
+// Remove the second 'int main()' function definition to resolve redefinition error
+```
