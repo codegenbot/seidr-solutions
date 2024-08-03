@@ -1,6 +1,12 @@
-Here is the completed code:
-
 bool is_simple_power(int x, int n){
-    double y = pow(n, ceil(log2(x)));
-    return (y == x);
+    if (n < 2) {
+        return false;
+    }
+    while (x > 1) {
+        if (x % n != 0) {
+            return false;
+        }
+        x /= n;
+    }
+    return true;
 }
