@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::vector<int> v(q);
-    std::reverse(v.begin(), v.end());
+bool will_it_fly(vector<int> q, int w) {
+    vector<int> v(q);
+    reverse(v.begin(), v.end());
     if (v != q)
         return false;
     int sum = 0;
@@ -14,6 +14,13 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    // Add your code here
+    int n, w;
+    cin >> n >> w;
+    vector<int> q(n);
+    for (int i = 0; i < n; i++)
+        cin >> q[i];
+    
+    cout << (will_it_fly(q, w) ? "YES" : "NO") << endl;
+
     return 0;
 }
