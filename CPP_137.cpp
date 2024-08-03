@@ -1,11 +1,8 @@
-#include <any>
 #include <string>
 
-std::string compare_one(const std::string& s, int n) {
-    return "None";
+template <typename T>
+std::string compare(const T& val1, const T& val2) {
+    return val1 == val2 ? "Equal" : "Not Equal";
 }
 
-int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
-    return 0;
-}
+assert(compare(std::string("1"), 1) == "Not Equal");
