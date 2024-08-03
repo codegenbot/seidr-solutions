@@ -1,6 +1,6 @@
-#include <string>
+#include <iostream>
 #include <vector>
-#include <cassert> // Include the <cassert> header for using assert
+#include <cassert>
 
 std::string longest(std::vector<std::string> strings) {
     if (strings.empty()) {
@@ -19,5 +19,8 @@ std::string longest(std::vector<std::string> strings) {
 
 int main() {
     assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    
+    std::cout << "Test Passed" << std::endl;
+    
     return 0;
 }
