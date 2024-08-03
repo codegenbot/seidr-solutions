@@ -1,16 +1,37 @@
 #include <string>
 #include <vector>
-#include <iostream>
-#include <assert.h>
+#include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Your comparison logic here
-    return true; // Placeholder return for now
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> words;
-    // Your splitting logic here
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+        int oddCount = 0;
+        for (char c : words[0]) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddCount++;
+            }
+        }
+        words[0] = to_string(oddCount);
+    }
     return words;
 }
 
