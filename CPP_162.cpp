@@ -1,29 +1,15 @@
-```cpp
-#include <openssl/evp.h>
 #include <string>
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5_CTX mdContext;
-    MD5_Init(&mdContext);
-    const unsigned char* ptr = reinterpret_cast<const unsigned char*>(text.c_str());
-    size_t len = text.size();
-    MD5_Update(&mdContext, ptr, len);
-    MD5_Final(result, &mdContext);
+    unsigned char result[16];
+    MD5((unsigned char*)text.c_str(), text.size(), result);
 
-    std::string output;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", result[i]);
-        output += buff;
+    string md5 = "";
+    for (int i = 0; i < 16; i++) {
+        md5 += sprintf("%02x", &result[i]);
     }
 
-    return output;
-}
-
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
+    return md5;
 }
