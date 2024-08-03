@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 vector<string> words_string(const string& s) {
     vector<string> words;
     string word;
@@ -16,7 +12,7 @@ vector<string> words_string(const string& s) {
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
-            } 
+            }
         } else {
             word += c;
         }
