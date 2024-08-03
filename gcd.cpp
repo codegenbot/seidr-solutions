@@ -35,11 +35,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    
+
     string text, target;
     cin.ignore();
     getline(cin, text);
     getline(cin, target);
+
     vector<int> result = indicesOfSubstring(text, target);
     for (int index : result) {
         cout << index << " ";
