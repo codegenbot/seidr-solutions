@@ -1,10 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <sstream>
-#include <cassert>
+# include <iostream>
+# include <vector>
+# include <string>
+# include <sstream>
+# include <cassert>
 
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> split_words(string txt) {
     vector<string> words;
@@ -16,7 +20,5 @@ vector<string> split_words(string txt) {
     return words;
 }
 
-int main() {
-    assert(issame(split_words(""), { "0" }));
-    return 0;
-}
+
+```
