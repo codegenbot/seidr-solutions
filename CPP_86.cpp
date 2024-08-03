@@ -19,7 +19,8 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string input = "lshfufe fe obret";
-    string output = anti_shuffle(input);
+    string test_case = "pemogrma test cpp cmotest";
+    string result = anti_shuffle(test_case);
+    cout << result << endl;
     return 0;
 }
