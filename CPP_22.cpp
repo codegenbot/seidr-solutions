@@ -15,7 +15,7 @@ bool issame(vector<int> a,vector<int>b){
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).has_value()) {
+        if (any_cast<int>(value).good()) {
             result.push_back(any_cast<int>(value));
         }
     }
@@ -24,6 +24,6 @@ vector<int> filter_integers(list<any> values) {
 
 int main() {
     list<any> lst = {3, any('c'), 3, 3, any('a'), any('b')};
-    assert(issame(filter_integers(lst),vector<int>{3, 3, 3}));
+    assert(issame(filter_integers(lst),{3, 3, 3}));
     return 0;
 }
