@@ -5,7 +5,5 @@ def concatenate(strings: List[str]) -> str:
     result = ""
     for string in strings:
         if len(string) > 5:
-            result += string + " "
-        else:
-            result += "* " + string + " *"
-    return result.strip()
+            result += string
+    return result
