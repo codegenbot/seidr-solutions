@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
@@ -27,8 +27,8 @@ int main(){
     std::vector<int> input = {1, 3, 4, 2, 5};
     std::vector<int> result = pluck(input);
 
-    for(int num : result) {
-        std::cout << num << " ";
+    for(std::vector<int>::iterator it = result.begin(); it != result.end(); ++it) {
+        std::cout << *it << " ";
     }
     return 0;
 }
