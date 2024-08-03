@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,7 +11,7 @@ std::string get_closest_vowel(std::string word) {
             while (left < word.length() && !isalpha(word[left])) left++;
             for (; left < word.length(); left++) {
                 if (isvowel(word[left])) {
-                    result = std::string(1, word[left]);
+                    result = word.substr(left, 1);
                     return result;
                 }
             }
