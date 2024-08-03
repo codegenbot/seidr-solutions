@@ -1,5 +1,3 @@
-Problem: Find the zero of a quadratic equation given its coefficients.
-
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
