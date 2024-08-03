@@ -1,4 +1,6 @@
-def nice_problem():
+def main():
     lst = [1, 2, 3, 4, 5]
-    result = double_the_difference(lst)
-    print(result)
+    print(double_the_difference(lst))
+
+def double_the_difference(lst):
+    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0) - min(lst)
