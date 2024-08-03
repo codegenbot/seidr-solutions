@@ -11,7 +11,7 @@ bool is_sorted(std::vector<int> lst) {
     }
 
     std::vector<int>::iterator it;
-    for(it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
         if(*it > 0 && *(it-1) == *it)
             return false;
     }
@@ -25,15 +25,16 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst(n);
-    for(int i = 0; i < n; i++){
-        std::cout << "Element " << i+1 << ": ";
+    std::cout << "Enter the elements (space-separated): ";
+    for(int i = 0; i < n; ++i) {
         std::cin >> lst[i];
     }
 
-    if(is_sorted(lst))
-        std::cout << "The list is sorted.\n";
-    else
-        std::cout << "The list is not sorted.\n";
+    if(is_sorted(lst)) {
+        std::cout << "The list is sorted." << std::endl;
+    } else {
+        std::cout << "The list is not sorted." << std::endl;
+    }
 
     return 0;
 }
