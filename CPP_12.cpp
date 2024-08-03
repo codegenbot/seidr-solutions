@@ -17,5 +17,4 @@ std::string longest(std::vector<std::string> strings) {
     return longestStr;
 }
 
-// in the main function or any test function
-assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
