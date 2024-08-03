@@ -1,5 +1,7 @@
 #include <iostream>
 #include <openssl/evp.h>
+#include <iomanip>
+#include <sstream>
 
 std::string string_to_md5(const std::string& input);
 
