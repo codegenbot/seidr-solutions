@@ -1,25 +1,32 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
+int masterMind(string code, string guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
+
+    // Count black pegs (correct color and position)
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+            code[i] = '-';
+            guess[i] = '-';
         }
     }
 
-    map<char, int> codeCount, guessCount;
-
-    for(int i = 0; i < 4; i++) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-
-    for(int i = 0; i < 6; i++) {
-        if(codeCount.count(i+'A') && codeCount[i+'A'] > 0 && guessCount[i+'A'] > codeCount[i+'A']) {
-            white += (codeCount[i+'A'] - guessCount[i+'A']);
+    // Count white pegs (correct color, wrong position)
+    for (int i = 0; i < 4; i++) {
+        int correctColorCount = 0;
+        for (int j = 0; j < 4; j++) {
+            if (code[j] == guess[i]) {
+                correctColorCount++;
+            }
+        }
+        if (correctColorCount > 0) {
+            whitePegs += min(correctColorCount, 1);
         }
     }
 
-    return make_pair(white, black).second;
+    return blackPegs << 2 | whitePegs;
 }
