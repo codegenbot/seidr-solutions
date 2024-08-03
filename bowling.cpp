@@ -1,26 +1,18 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == 'X') {
+    int frame = 1;
+    for (char c : s) {
+        if (c == 'X') {
             score += 30;
-        } else if (s[i] == '/') {
-            int left = s[i-1] - '0';
-            int right = s[i+1] - '0';
-            score += left + right;
+            frame++;
+        } else if (c == '/') {
+            score += 10 + 10 - frame;
+            frame++;
         } else {
-            int count = s[i] - '0';
-            for (int j = 0; j < count; j++) {
-                if (i == 9) {
-                    score += 10;
-                } else if (s[i+1] == 'X') {
-                    score += 10 + 10;
-                    break;
-                } else if (s[i+1] == '/') {
-                    int left = s[i+2] - '0';
-                    int right = s[i+3] - '0';
-                    score += 10 + left + right;
-                    break;
-                }
+            int pins = c - '0';
+            score += pins;
+            if (frame < 10) {
+                frame++;
             }
         }
     }
