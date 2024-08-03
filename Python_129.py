@@ -18,7 +18,7 @@ def minPath(grid, k):
 
     for i in range(N):
         for j in range(N):
-            if not visited[i][j]:
-                dfs(i, j, [grid[i][j]])
+            if grid[i][j].isdigit():
+                dfs(i, j, [int(grid[i][j])])
 
     return res
