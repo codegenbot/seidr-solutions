@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -11,5 +10,6 @@ bool same_chars(std::string s0, std::string s1) {
 }
 
 int main() {
-    assert (same_chars("aabb", "aaccc") == false);
+    assert(same_chars("aabb", "aaccc") == false);
+    return 0;
 }
