@@ -1,7 +1,5 @@
 ```c++
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
 int basementIndex(vector<int> v) {
