@@ -1,11 +1,9 @@
-def find_zero(xs: list):
-    n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients should be even")
-    for i in range(n, -1, -1):
-        if xs[i] != 0:
-            return -xs[0] / xs[i]
+def find_zero():
+    coefficients = list(map(float, input("Enter the coefficients of the polynomial separated by commas: ").split(',')))
+    a = coefficients[-1]
+    b = coefficients[-2]
+    
+    return -b / a
 
-coefficients = list(map(float, input("Enter the coefficients separated by space: ").split()))
-result = find_zero(coefficients)
-print("Result:", result)
+zero = find_zero()
+print(f"Zero of the polynomial: {zero}")
