@@ -1,12 +1,7 @@
-Here is the solution:
-
 def luhn(card):
-    card = [int(x) for x in str(card).replace(' ', '')]
-    total = 0
-    for i, n in enumerate(card):
-        if i % 2 == 1:
-            n *= 2
-            if n > 9:
-                n -= 9
-        total += n
-    return total
+    card = [int(x) for x in str(card)]
+    for i in range(1, len(card), 2):
+        card[i] *= 2
+        if card[i] > 9:
+            card[i] -= 9
+    return sum(card)
