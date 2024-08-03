@@ -1,13 +1,7 @@
-```c
 #include <algorithm>
 #include <numeric>
-#include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();
     pair<float, float> closest_pair;
