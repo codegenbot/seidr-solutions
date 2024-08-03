@@ -1,19 +1,18 @@
 #include <vector>
 #include <string>
 #include <cassert>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars1 = 0, total_chars2 = 0;
 
-    for (const std::string& str : lst1) {
+    for (const string& str : lst1) {
         total_chars1 += str.length();
     }
 
-    for (const std::string& str : lst2) {
+    for (const string& str : lst2) {
         total_chars2 += str.length();
     }
 
@@ -24,7 +23,6 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 }
 
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
