@@ -1,24 +1,9 @@
-#include <cassert>
-
 bool is_happy(const std::string& s) {
-    if(s.length() < 3) {
-        return false;
-    }
-    
-    for(int i = 0; i < s.length() - 2; i++) {
-        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]) {
+    if(s.length() < 3) return false;
+    for(int i=0; i<=s.length()-3; i++){
+        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]){
             return false;
         }
     }
-    
     return true;
-}
-
-int main() {
-    assert(is_happy("abc"));
-    assert(is_happy("xyz"));
-    assert(!is_happy("abbc"));
-    assert(!is_happy("aabb"));
-    
-    return 0;
 }
