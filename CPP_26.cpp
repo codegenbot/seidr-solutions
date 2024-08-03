@@ -1,17 +1,18 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
 
-using namespace std;
-
-bool operator==(const vector<int>& a, const vector<int>& b) {
+bool int_equal(int a, int b) {
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> remove_duplicates(std::vector<int> numbers){
+    std::vector<int> result;
     for(int num : numbers) {
-        if(find_if(result.begin(), result.end(), [num](int x) {return x != num;}) == result.end()) {
+        if(find_if(result.begin(), result.end(), bind1st(ptr_fun(int_equal), num)) == result.end()) {
             result.push_back(num);
         }
     }
@@ -19,6 +20,7 @@ vector<int> remove_duplicates(vector<int> numbers){
 }
 
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>({1, 2, 3, 4, 5}));
+    vector<int> result = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    assert (issame(vector<int>(result.begin(), result.end()), {1, 4, 5})
     return 0;
 }
