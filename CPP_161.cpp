@@ -1,15 +1,12 @@
 string solve(string s) {
     string result = "";
-    bool hasLetters = false;
-
     for (char c : s) {
-        if (!isalpha(c)) {
+        if (!isalnum(c)) {
             result += c;
         } else {
-            hasLetters = true;
-            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c);
+            result += (c >= 'a' && c <= 'z') ? char(c - ('z' - 'Z')) : char(c + ('A' - 'a'));
         }
     }
-
-    return hasLetters ? s : string(rbegin(s), rend(s));
+    reverse(result.begin(), result.end());
+    return result;
 }
