@@ -1,9 +1,10 @@
-#include <iostream>
 #include <cmath>
+#include <vector>
 
-int main() {
-    double sum = (vec1[0] - vec2[0]) * (vec1[0] - vec2[0]) + (vec1[1] - vec2[1]) * (vec1[1] - vec2[1]) + ...; // Sum of squared differences
-    double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
-    return 0;
+double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
+    double sum = 0.0;
+    for (size_t i = 0; i < vec1.size(); ++i) {
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+    }
+    return std::sqrt(sum);
 }
