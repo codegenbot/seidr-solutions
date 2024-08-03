@@ -1,19 +1,17 @@
-#include <string>
-#include <vector>
 #include <iostream>
-#include <cassert>
+#include <vector>
+#include <string>
 #include <sstream>
+#include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> split_words(string txt) {
-    vector<string> words;
-    stringstream ss(txt);
-    string word;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::stringstream ss(txt);
+    std::string word;
     while (ss >> word) {
         words.push_back(word);
     }
