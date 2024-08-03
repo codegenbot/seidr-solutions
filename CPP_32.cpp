@@ -16,7 +16,7 @@ double find_zero(const std::vector<double>& xs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -4, 4}; 
+    std::vector<double> coeffs = {1, -4, 4}; // Example coefficients
     double solution = find_zero(coeffs);
     
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
