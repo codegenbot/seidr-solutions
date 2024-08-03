@@ -1,23 +1,24 @@
 #include <iostream>
 #include <map>
+#include <string>
 
 using namespace std;
 
-map<char, int> histogram(string test);
+map<char,int> histogram(string test);
 
 bool issame(map<char, int> a, map<char, int> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(auto& pairA : a) {
-        if(b.find(pairA.first) == b.end() || b[pairA.first] != pairA.second) {
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
             return false;
         }
     }
     return true;
 }
 
-map<char, int> histogram(string test){
+map<char,int> histogram(string test){
     map<char,int> result;
     string word;
     for(auto c : test){
