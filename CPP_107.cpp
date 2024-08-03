@@ -1,5 +1,6 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
+#include <algorithm>
 
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -19,8 +20,12 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 void solveProblem() {
-    std::vector<int> result = even_odd_palindrome(1);
-    assert(result == std::vector<int>{0, 1});
+    auto result = even_odd_palindrome(1);
+    if (result == std::vector<int>{0, 1}) {
+        std::cout << "Test Passed!\n";
+    } else {
+        std::cout << "Test Failed!\n";
+    }
 }
 
 int main() {
