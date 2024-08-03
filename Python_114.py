@@ -1,7 +1,7 @@
 def minSubArrayLen(nums):
     if not nums:
         return 0
-    min_len = float("inf")
+    min_len = float('inf')
     current_sum = 0
     left = 0
     for right in range(len(nums)):
@@ -10,4 +10,4 @@ def minSubArrayLen(nums):
             min_len = min(min_len, right - left + 1)
             current_sum -= nums[left]
             left += 1
-    return min_len if min_len != float("inf") else 0
+    return min_len
