@@ -2,13 +2,13 @@
 #include <cmath>
 
 long long double_the_difference(vector<float> lst) {
-    long long odd_sum = 0;
+    long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
             if (fmod(num, 2.0) != 0.0) { 
-                odd_sum += pow(num, 2);
+                sum += pow(num, 2);
             }
         }
     }
-    return odd_sum;
+    return sum;
 }
