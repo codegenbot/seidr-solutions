@@ -9,15 +9,15 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     for (std::string extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
-            if (isupper(c)) cap++;
-            else if (islower(c)) sm++;
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > strongest) {
             strongest = strength;
             strongest_extension = extension;
         } else if (strength == strongest) {
-            if (find(extensions.begin(), extensions.end(), extension) < find(extensions.begin(), extensions.end(), strongest_extension))
+            if (std::find(extensions.begin(), extensions.end(), extension) < std::find(extensions.begin(), extensions.end(), strongest_extension))
                 strongest_extension = extension;
         }
     }
