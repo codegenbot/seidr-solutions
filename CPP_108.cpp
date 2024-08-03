@@ -1,3 +1,4 @@
+```
 #include <vector>
 
 int count_nums(vector<int> v) {
@@ -7,7 +8,7 @@ int count_nums(vector<int> v) {
         int sign = (num < 0) ? -1 : 1;
         num *= sign;
         while (num != 0) {
-            if (num % 10 > 0) {
+            if (abs(num) % 10 > 0) {
                 has_positive_sum = true;
                 break;
             }
