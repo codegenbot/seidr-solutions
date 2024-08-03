@@ -11,5 +11,6 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 16);
-    // Your code goes here
+    std::cout << solutions({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) << std::endl;
+    return 0;
 }
