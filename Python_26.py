@@ -3,7 +3,7 @@ from typing import Set, List
 
 def remove_duplicates(numbers: list[int]) -> list[int]:
     seen: Set[int] = set()
-    result: list[int] = []
+    result: List[int] = []
     for num in numbers:
         if num not in seen:
             seen.add(num)
