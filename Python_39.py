@@ -1,18 +1,27 @@
-def prime_fib(n: int):
-    def is_prime(num: int):
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+def main():
+    n = int(input("Enter an integer: "))
+    print(prime_fib(n))
 
-    a, b = 0, 1
-    result = []
+
+def prime_fib(n):
+    a, b = 2, 1
+    count = 0
     while True:
-        a, b = b, a + b
         if is_prime(b):
-            result.append(str(a))
-            n -= 1
-        if n == 0:
-            return ", ".join(result)
+            count += 1
+            if count == n:
+                return b
+        a, b = b, a + b
+
+
+def is_prime(num: int):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
+if __name__ == "__main__":
+    main()
