@@ -36,6 +36,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     reverse(path.begin(), path.end());
-    
+
     return path;
 }
