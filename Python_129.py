@@ -18,3 +18,5 @@ def minPath(grid, k):
                 if m[nx][ny] <= k and not visited[nx][ny]:
                     visited[nx][ny] = True
                     queue.append((nx, ny, path + [m[nx][ny]]))
+                    
+    return min_path[1:]
