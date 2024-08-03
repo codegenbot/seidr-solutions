@@ -33,10 +33,8 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore();
+    cin.ignore();  // Added line to consume the newline character
     cout << gcd(a, b) << endl;
-
-    cin.ignore();
 
     string text, target;
     cin >> text >> target;
