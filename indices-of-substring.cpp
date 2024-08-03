@@ -7,15 +7,14 @@ int main() {
     std::cin >> text >> target;
 
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-
-    while (pos != std::string::npos) {
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + 1);
+        pos += 1; // Update pos by 1 to handle overlapping targets
     }
 
-    for (int i = 0; i < static_cast<int>(indices.size()); ++i) {
-        std::cout << indices[i] << " ";
+    for (int i : indices) {
+        std::cout << i << " ";
     }
 
     return 0;
