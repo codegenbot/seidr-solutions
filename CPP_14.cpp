@@ -12,11 +12,12 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    assert(a == b);
+    return true;
 }
 
-int main(){
+int main() {
     assert(issame(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"}));
     
-    return 0; 
+    return 0;
 }
