@@ -1,7 +1,7 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <string>
-#include <cassert>
+#include <cassert> 
 
 using namespace std;
 
@@ -27,7 +27,7 @@ int main() {
     string result = anti_shuffle(test_case);
     cout << result << endl;
 
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") ==
+           ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
