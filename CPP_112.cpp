@@ -1,8 +1,4 @@
 ```cpp
-#include <vector>
-#include <set>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -11,14 +7,14 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     
     // Create a set of characters in string c for efficient lookup
-    std::set<char> c_set(c.begin(), c.end());
+    set<char> c_set(c.begin(), c.end());
     
     // Initialize an empty string to store the result
-    std::string temp = "";
+    string temp = "";
     
     // Iterate over each character in string s
     for (char ch : s) {
@@ -32,8 +28,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     // Check if the result string temp is palindrome
     bool is_palindrome = false;
     if (temp.length() > 0) {
-        std::string rev_temp = temp;
-        std::reverse(rev_temp.begin(), rev_temp.end());
+        string rev_temp = temp;
+        reverse(rev_temp.begin(), rev_temp.end());
         is_palindrome = temp == rev_temp;
     }
     
