@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -12,6 +13,6 @@ int add(vector<int> lst){
 
 int main() {
     vector<int> lst = {4, 4, 6, 8};
-    cout << "The sum of even numbers in the list is: " << add(lst) << endl;
+    assert(add(lst) == 12);
     return 0;
 }
