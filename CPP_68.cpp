@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
     int smallest_even = -1, smallest_index = -1;
