@@ -1,13 +1,14 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int len = sentence.length();
     int word_start = 0;
-    for (int i = 0; i <= len; i++){
-        if (i == len || sentence[i] == ' '){
-            string word = sentence.substr(word_start, i - word_start);
+    for (int i = 0; i < len; i++){
+        if (i == len - 1 || sentence[i] == ' '){
+            std::string word = sentence.substr(word_start, i - word_start);
             int word_len = word.length();
             bool is_prime = true;
             for (int j = 2; j*j <= word_len; j++){
@@ -26,4 +27,9 @@ string words_in_sentence(string sentence){
         result.pop_back(); // remove extra space at the end
     }
     return result;
+}
+
+int main(){
+    assert (words_in_sentence("here is") == "is");
+    return 0;
 }
