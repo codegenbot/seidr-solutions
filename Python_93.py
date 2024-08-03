@@ -11,9 +11,9 @@ def encode(message):
                     result += chr((ord('a') + (ord(char) - ord('a') + shift)) % 26)
             else:
                 if char.isupper():
-                    result += chr((ord(char) - ord('A') + 2) % 26 + ord('A'))
+                    result += char
                 else:
-                    result += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
+                    result += char
         else:
             result += char
     return result
