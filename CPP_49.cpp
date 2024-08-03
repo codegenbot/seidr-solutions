@@ -22,5 +22,3 @@ int solve() {
     
     return 0;
 }
-
-return solve();
