@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -13,9 +12,14 @@ std::vector<std::string> by_length(std::vector<int> arr) {
                                       {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
     for (int num : arr) {
+        string str;
         if (num >= 1 && num <= 9) {
-            result.push_back(numberNames[num]);
+            str = numberNames[num];
         }
+        else {
+            str = to_string(num);
+        }
+        result.push_back(str);
     }
 
     sort(result.begin(), result.end());
