@@ -4,15 +4,15 @@
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (typeid(a) == typeid(int) && typeid(b) == typeid(float)) {
+    if (any_cast<int>(a) && any_cast<float>(b)) {
         return b;
-    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(string)) {
-        return max((float)a, (string)b);
-    } else if (typeid(a) == typeid(int) && typeid(b) == typeid(string)) {
+    } else if (any_cast<float>(a) && any_cast<string>(b)) {
+        return max(to_string(any_cast<float>(a)), b);
+    } else if (any_cast<int>(a) && any_cast<string>(b)) {
         return b;
-    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(int)) {
-        return boost::any((float)a > (int)b ? a : b);
-    } else if (typeid(a) == typeid(string) && typeid(b) == typeid(string)) {
+    } else if (any_cast<float>(a) && any_cast<int>(b)) {
+        return a < b ? a : b;
+    } else if (any_cast<string>(a) && any_cast<string>(b)) {
         return max(a, b);
     }
     return "None";
