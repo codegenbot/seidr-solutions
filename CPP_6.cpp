@@ -2,17 +2,15 @@
 #include <algorithm>
 #include <string>
 #include <cassert>
-
 bool issame(std::vector<int> a, std::vector<int> b);
-  
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> depths;
+std::vector<int> parse_nested_parens(std::string paren_string) {
+    std::vector<int> depths;
     int max_depth = 0, curr_depth = 0;
     
     for (char c : paren_string) {
         if (c == '(') {
             curr_depth++;
-            max_depth = max(max_depth, curr_depth);
+            max_depth = std::max(max_depth, curr_depth);
         } else if (c == ')') {
             curr_depth--;
         } else if (c == ' ') {
@@ -28,4 +26,4 @@ vector<int> parse_nested_parens(string paren_string) {
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
+}  
