@@ -1,7 +1,12 @@
-Here is the solution:
-
+```
 def mastermind(code, guess):
-    correct = [c1 == c2 for c1,c2 in zip(code, guess)]
-    white = sum(1 for c1,c2 in zip(code, guess) if c1==c2 and not correct.pop(0))
-    black = sum(correct)
-    return str(black), str(white)
+    count_white = 0
+    count_black = 0
+    
+    for i in range(4):
+        if code[i] == guess[i]:
+            count_black += 1
+        elif str(guess[i]) in code:
+            count_white += 1
+            
+    return count_black, count_white
