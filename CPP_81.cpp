@@ -1,9 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
