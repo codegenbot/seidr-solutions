@@ -1,12 +1,16 @@
-string encrypt(string s){
-    string result = "";
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string encrypt(std::string s){
+    std::string result = "";
     for(char c : s){
-        if(isalpha(c)){
-            char encrypted = c + 2 * 2;
-            if(islower(c) && encrypted > 'z'){
+        if(std::isalpha(c)){
+            char encrypted = c + 4;
+            if(std::islower(c) && encrypted > 'z'){
                 encrypted = 'a' + (encrypted - 'z' - 1);
             }
-            else if(isupper(c) && encrypted > 'Z'){
+            else if(std::isupper(c) && encrypted > 'Z'){
                 encrypted = 'A' + (encrypted - 'Z' - 1);
             }
             result += encrypted;
@@ -17,3 +21,8 @@ string encrypt(string s){
     }
     return result;
 }
+
+// int main() {
+//     assert (encrypt("a") == "e");
+//     return 0;
+// }
