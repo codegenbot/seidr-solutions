@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <string>
 #include <cassert>
@@ -13,12 +12,12 @@ std::vector<std::string> b(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> vecB) {
+    return a == vecB;
 }
 
 int main() {
     auto all_prefixes = b; // Function alias assignment
-    assert(issame(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"})); // Fix for redefinition issue and vector initialization
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
