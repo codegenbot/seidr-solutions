@@ -1,16 +1,7 @@
-#include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-string circular_shift(int x, int shift);
-
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    cout << circular_shift(x, shift) << endl;
-    return 0;
-}
 
 string circular_shift(int x, int shift) {
     string numStr = to_string(x);
@@ -22,4 +13,9 @@ string circular_shift(int x, int shift) {
         string shiftedNum = numStr.substr(n - shift) + numStr.substr(0, n - shift);
         return shiftedNum;
     }
+}
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    return 0;
 }
