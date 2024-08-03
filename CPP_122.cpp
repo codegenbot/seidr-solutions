@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <cstdlib>
 
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
@@ -8,4 +10,11 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    int arr[] = {1};
+    int k = 1;
+    cout << "Sum: " << add_elements(vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), k) << endl;
+    return 0;
 }
