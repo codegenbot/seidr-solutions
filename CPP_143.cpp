@@ -2,8 +2,8 @@
 #include <string>
 #include <cstring>
 
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int len = 0;
     for(int i=2; i<=100; i++){
         if(isPrime(i)){
