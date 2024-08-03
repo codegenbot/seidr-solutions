@@ -1,10 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<std::string> find_planets_between(std::string planet1, std::string planet2) {
