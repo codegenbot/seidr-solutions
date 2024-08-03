@@ -1,4 +1,11 @@
-bool is_simple_power(int x, int n) {
-    double log_value = log((double)x) / log((double)n);
-    return round(log_value) == log_value;
+bool isSimplePower(int x, int n){
+    double y = pow(n, ceil(log2(x)));
+    if(y == x) {
+        for(int i = 1; ;i++){
+            if(pow(n, i) != x) break;
+        }
+        return true;
+    } else {
+        return false;
+    }
 }
