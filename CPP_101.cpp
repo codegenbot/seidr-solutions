@@ -1,35 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-vector<string> words_string(const string& s) {
-    vector<string> words;
-    string word;
-    
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-
-    return words;
+    return true;
 }
 
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    return 0;
-}
+assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
