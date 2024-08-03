@@ -2,10 +2,6 @@
 #include <cmath>
 #include <cassert>
 
-double poly(const std::vector<double>& coeffs, double x);
-
-double find_zero(const std::vector<double>& xs);
-
 double poly(const std::vector<double>& coeffs, double x) {
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
