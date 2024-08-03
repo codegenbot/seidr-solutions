@@ -20,7 +20,7 @@ int main() {
         total_price += prices[i] * (1.0 - (discounts[i] / 100.0));
     }
 
-    std::cout.precision(2);
+    std::cout.precision(2); // Set the precision to 2 decimal places
     std::cout << std::fixed << total_price << std::endl;
 
     return 0;
