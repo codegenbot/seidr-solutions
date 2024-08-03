@@ -4,18 +4,12 @@
 int main() {
     int n;
     std::cin >> n;
-    
-    if (n <= 0) {
-        std::cout << "Invalid input: n should be greater than 0." << std::endl;
-        return 1;
-    }
-
     int cutIndex;
     std::cin >> cutIndex;
-    
+
     if (cutIndex <= 0 || cutIndex >= n) {
-        std::cout << "Invalid input: cutIndex should be greater than 0 and less than n." << std::endl;
-        return 1;
+        std::cout << "Invalid cutIndex provided." << std::endl;
+        return 1; // Error code for invalid cutIndex
     }
     
     std::vector<int> nums(n);
