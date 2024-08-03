@@ -1,4 +1,6 @@
-``` 
+```
+print("Enter a number: ")
+n = int(input())
 def fib(n: int):
     if n <= 1:
         return n
@@ -6,3 +8,4 @@ def fib(n: int):
     for _ in range(2, n + 1):
         a, b = b, a + b
     return b
+print(fib(n))
