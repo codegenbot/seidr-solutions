@@ -1,12 +1,11 @@
-def find_max_consecutive_ones(nums):
-    max_count = 0
-    current_count = 0
-    
-    for num in nums:
-        if num == 1:
-            current_count += 1
-            max_count = max(max_count, current_count)
-        else:
-            current_count = 0
-    
-    return max_count
+```
+def sum_of_odd_numbers_in_range():
+    start = int(input("Enter the start of the range: "))
+    end = int(input("Enter the end of the range: "))
+
+    total_sum = 0
+    for num in range(start, end + 1):
+        if num % 2 != 0:
+            total_sum += num
+
+    return total_sum
