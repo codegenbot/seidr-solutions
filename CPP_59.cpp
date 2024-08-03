@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
-int largest_prime_factor(int n) {
+int largest_prime_factor(long long n) {
     int maxPrime = -1;
     while (n % 2 == 0) {
         maxPrime = 2;
@@ -21,6 +21,6 @@ int largest_prime_factor(int n) {
 }
 
 int main() {
-    assert(largest_prime_factor(13195) == 29);
+    assert (largest_prime_factor(13195) == 29);
     return 0;
 }
