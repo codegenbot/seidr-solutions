@@ -8,6 +8,19 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> separate_paren_groups(string paren_string);
 
+int main() {
+    vector<string> a = separate_paren_groups("((()))");
+    vector<string> b = separate_paren_groups("((())())");
+
+    if (issame(a, b)) {
+        // Do something if the groups are same
+    } else {
+        // Do something if the groups are different
+    }
+
+    return 0;
+}
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     
@@ -32,13 +45,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-} 
-
-vector<string> a = separate_paren_groups("((()))");
-vector<string> b = separate_paren_groups("((())())");
-
-if (issame(a, b)) {
-    // Do something if the groups are same
-} else {
-    // Do something if the groups are different
-} 
+}
