@@ -1,6 +1,7 @@
+
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 vector<int> count_up_to(int n) {
     vector<int> result;
