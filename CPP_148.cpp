@@ -1,5 +1,6 @@
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+```cpp
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> bf(string planet1, string planet2) {
