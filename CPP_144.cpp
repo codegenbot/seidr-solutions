@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 #include <string>
-#include <cmath>
+#include <cassert>
 using namespace std;
 
 bool simplify(string x, string n) {
@@ -9,10 +9,10 @@ bool simplify(string x, string n) {
     int num2 = stoi(n.substr(0, n.find('/')));
     int den2 = stoi(n.substr(n.find('/') + 1));
 
-    int result_num = num1 * num2;
-    int result_den = den1 * den2;
+    return (num1 * den2) == (den1 * num2);
+}
 
-    int gcd = gcd(result_num, result_den);
-
-    return result_num % gcd == 0 && result_den % gcd == 0;
+int main(){
+    assert (simplify("1/5", "1/5") == false);
+    return 0;
 }
