@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a[0].compare(b[0]) == 0 && a[1].compare(b[1]) == 0;
