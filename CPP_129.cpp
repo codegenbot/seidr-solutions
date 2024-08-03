@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> minPath(std::vector<std::vector<int>> paths, int num) {
+std::vector<int> minPath(const std::vector<std::vector<int>> &paths, int num) {
     std::vector<int> result;
     for (const auto &path : paths) {
         for (int i = 0; i < num; ++i) {
