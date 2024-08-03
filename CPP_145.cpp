@@ -1,9 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
 std::vector<int> order_by_points(const std::vector<int>& nums){
-    std::vector<int> sorted_nums(nums);
+    std::vector<int> sorted_nums = nums;
     std::sort(sorted_nums.begin(), sorted_nums.end(), [](int a, int b){
         int sum_a = 0, sum_b = 0;
         a = (a < 0) ? -a : a;
