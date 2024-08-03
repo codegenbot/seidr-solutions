@@ -3,12 +3,11 @@ using namespace std;
 
 int basementIndex(vector<int>& nums) {
     int sum = 0;
-    int i = -1; // initialize i to -1
-    for (i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0) return i;
     }
-    return i; // return -1 if no such index is found
+    return -1;
 }
 
 int main() {
