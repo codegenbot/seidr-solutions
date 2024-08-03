@@ -2,18 +2,18 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(unique_copy(l.begin(), l.end()));
+    vector<int> result(l.begin(), end(unique_copy(l.begin(), l.end())));
     sort(result.begin(), result.end());
     return result;
 }
 
-std::vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+vector<int>::iterator unique_copy(vector<int>::iterator first, vector<int>::iterator last) {
     if (first == last)
         return first;
-    for (; first != last; ++first) {
-        if (first + 1 != last && *first == *(first+1))
+    for (vector<int>::iterator i = first; i != last; ++i) {
+        if (next(i) != last && *i == *(next(i)))
             continue;
-        *first;
+        *first++ = *i;
     }
-    return --first;
+    return ++first;
 }
