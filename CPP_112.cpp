@@ -1,9 +1,10 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -16,5 +17,17 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     }
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
-    return { result, issame(std::vector<std::string>{result, (issame(std::vector<std::string>{result, (issame(std::vector<std::string>{result, std::vector<std::string>{result_reverse}}) ? "True" : "False")}, std::vector<std::string>{"", "True"}) ? "True" : "False"}), std::vector<std::string>{"", "True"}) ? "True" : "False" };
+    return { result, (issame(std::vector<std::string>{result}, std::vector<std::string>{result_reverse}) ? "True" : "False") };
+}
+
+int main() {
+    std::string input_s, input_c;
+    std::cin >> input_s >> input_c;
+    std::vector<std::string> expected_result;
+    expected_result.push_back("");
+    expected_result.push_back("True");
+    
+    assert(issame(reverse_delete(input_s, input_c), expected_result));
+    
+    return 0;
 }
