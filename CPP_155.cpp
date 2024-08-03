@@ -5,17 +5,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> even_odd_count(int n){
-    int evens = 0, odds = 0;
+std::vector<int> even_odd_count(int n) {
+    int evenCount = 0, oddCount = 0;
     while (n > 0) {
-        if (n % 2 == 0) {
-            evens++;
-        } else {
-            odds++;
-        }
+        if (n % 2 == 0)
+            evenCount++;
+        else
+            oddCount++;
         n /= 10;
     }
-    return {evens, odds};
+    return {evenCount, oddCount};
 }
 
 int main() {
