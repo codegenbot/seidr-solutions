@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,8 +17,7 @@ std::string kebabToCamel(const std::string& str) {
     std::string result;
     for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
-            result += char(std::toupper(words[i][0]));
-            result += words[i].substr(1);
+            result += words[i].substr(0, 1).toupper() + words[i].substr(1);
         } else {
             result = words[i];
         }
