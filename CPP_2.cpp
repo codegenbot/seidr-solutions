@@ -1,3 +1,4 @@
+#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
 #include <iostream>
@@ -8,6 +9,6 @@ double truncate_number(double number) {
     return number - floor(number);
 }
 
-TEST_CASE("Truncate number test", "[truncate_number]") {
+TEST_CASE("Truncate number test case", "[truncate_number]") {
     REQUIRE(fabs(truncate_number(123.456) - 0.456) < 1e-4);
 }
