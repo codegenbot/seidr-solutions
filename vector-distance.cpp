@@ -1,1 +1,1 @@
-double distance = sum;
+double distance = std::sqrt(sum);
