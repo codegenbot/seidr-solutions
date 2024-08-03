@@ -1,19 +1,17 @@
 ```
-#include <cmath>
-#include <vector>
-
-int sum_squares(std::vector<float> lst) {
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int sum_squares(vector<float> lst){
     int result = 0;
     for(float num : lst) {
-        int ceil_num = std::ceil(num);
+        int ceil_num = ceil(num);
         result += pow(ceil_num, 2);
     }
     return result;
 }
-
 int main() {
-    std::vector<float> numbers = {1.5f, 2.2f, 3.8f};
-    int sum = sum_squares(numbers);
-    std::cout << "Sum of squares: " << sum << std::endl;
+    vector<float> numbers = {1.5, 3.2, 4.8};
+    cout << "Sum of squares is: " << sum_squares(numbers) << endl;
     return 0;
 }
