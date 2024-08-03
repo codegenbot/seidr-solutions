@@ -1,3 +1,14 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool compare_vectors(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> parse_nested_parens(string paren_string){
     vector<int> result;
     int max_depth = 0;
@@ -16,4 +27,9 @@ vector<int> parse_nested_parens(string paren_string){
     }
     result.push_back(max_depth);
     return result;
+}
+
+int contest_main(){
+    assert(compare_vectors(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
 }
