@@ -1,11 +1,19 @@
-bool isSimplePower(int x, int n){
+#include <cmath>
+#include <iostream>
+
+bool is_simple_power(int x, int n) {
     double y = pow(n, ceil(log2(x)));
-    if(y == x) {
-        for(int i = 1; ;i++){
-            if(pow(n, i) != x) break;
-        }
-        return true;
+    return (y == x);
+}
+
+int main() {
+    int x, n;
+    std::cout << "Enter a number and its power: ";
+    std::cin >> x >> n;
+    if (is_simple_power(x, n)) {
+        std::cout << x << " is a simple power of " << n << std::endl;
     } else {
-        return false;
+        std::cout << x << " is not a simple power of " << n << std::endl;
     }
+    return 0;
 }
