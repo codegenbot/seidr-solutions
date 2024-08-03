@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), unique_copy(l.end(), l.end())).first);
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
