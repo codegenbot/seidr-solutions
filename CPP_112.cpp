@@ -1,3 +1,5 @@
+Here is the completed code:
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -14,8 +16,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string reversed = temp;
-    reverse(reversed.begin(), reversed.end());
-    result.push_back((temp == reversed) ? "True" : "False");
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    result.push_back((temp == revTemp) ? "True" : "False");
     return result;
 }
