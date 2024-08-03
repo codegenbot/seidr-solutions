@@ -11,34 +11,28 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
-        } else {
-            if (!word.empty()) {
-                bool has_n_consonants = false;
-                int consonant_count = 0;
-                for (char ch : word) {
-                    if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) {
-                        consonant_count++;
+        } else if (!word.empty()) {
+            bool has_n_consonants = false;
+            int consonant_count = 0;
+            for (char ch : word) {
+                if (!isvowel(ch)) {
+                    consonant_count++;
+                    if (consonant_count == n) {
+                        has_n_consonants = true;
+                        break;
                     }
                 }
-                if (consonant_count == n) {
-                    has_n_consonants = true;
-                }
-                if (has_n_consonants) {
-                    result.push_back(word);
-                }
-                word = "";
             }
+            if (has_n_consonants) {
+                result.push_back(word);
+            }
+            word = "";
         }
     }
     return result;
 }
 
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> words = select_words(s, n);
-    for (string w : words) {
-        cout << w << endl;
-    }
-    return 0;
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
