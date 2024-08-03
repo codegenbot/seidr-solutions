@@ -21,16 +21,16 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in the array: ";
     std::cin >> n;
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element at index " << i << ": ";
         std::cin >> arr[i];
     }
     
     int result = smallest_change(arr);
-    std::cout << "Smallest change is: " << result << std::endl;
+    std::cout << "The minimum number of operations required to make all elements equal is: " << result << std::endl;
     
     return 0;
 }
