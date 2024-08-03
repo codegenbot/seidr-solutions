@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return std::vector<float>(a.begin(), a.end()) == std::vector<float>(b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<float> derivative(std::vector<float> xs){
