@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 using namespace std;
 
 int main() {
@@ -23,22 +22,27 @@ int main() {
     int half_sum = sum / 2;
     int prefix_sum = 0;
     int cut_index = -1;
-    int min_diff = INT_MAX; // Initialize min_diff
     
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        int current_diff = std::abs(2 * prefix_sum - sum);
-        if (current_diff < min_diff) {
-            min_diff = current_diff;
+        if (std::abs(2 * prefix_sum - sum) < std::abs(2 * prefix_sum - sum - 2 * nums[i])) {
             cut_index = i;
+            break;
         }
     }
     
-    cout << "2" << endl;
-    for (int i = 0; i <= cut_index; i++) {
-        cout << nums[i] << endl;
+    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
+        cout << "2" << endl;
+        for (int i = 0; i <= cut_index; i++) {
+            cout << nums[i] << endl;
+        }
+        cout << "0" << endl;
+    } else {
+        cout << "1" << endl;
+        for (int i = 0; i <= cut_index; i++) {
+            cout << nums[i] << endl;
+        }
     }
-    cout << "0" << endl;
     
     return 0;
 }
