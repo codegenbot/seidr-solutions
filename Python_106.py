@@ -1,13 +1,15 @@
-```
 def f(n):
     result = []
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         if i % 2 == 0:
             result.append(factorial(i))
         else:
-            result.append(sum(range(1, i+1)))
+            result.append(sum(range(1, i + 1)))
     return result
 
-import math
-def factorial(x):
-    return math.factorial(x)
+
+def factorial(k):
+    if k == 1 or k == 0:
+        return 1
+    else:
+        return k * factorial(k - 1)
