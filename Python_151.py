@@ -1,2 +1,3 @@
 def check(func):
-    func([1, 2, 3, 4])
+    result = func([1, 2, 3, 4])
+    print(result)
