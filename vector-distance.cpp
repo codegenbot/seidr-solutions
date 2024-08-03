@@ -2,8 +2,7 @@
 #include <cmath>
 
 int main() {
-    double sum = 0.0; // Initialize sum to 0
-    // Calculate the sum of squared differences between corresponding elements of the two n-dimensional vectors here
+    double sum = (vec1[0] - vec2[0]) * (vec1[0] - vec2[0]) + (vec1[1] - vec2[1]) * (vec1[1] - vec2[1]) + ...; // Sum of squared differences
     double distance = std::sqrt(sum);
     std::cout << distance << std::endl;
     return 0;
