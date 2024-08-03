@@ -12,5 +12,14 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
         }
     }
-    return result;
+    sort(result.begin(),result.end());
+    vector<float> temp;
+    int count = 1;
+    for(int i=0; i < result.size(); i++) {
+        if(i==0 || !issame({result[i]}, {result[i-1]})) {
+            temp.push_back(result[i]);
+            count++;
+        }
+    }
+    return temp;
 }
