@@ -28,4 +28,4 @@ int main() {
     assert(issame(even_odd_palindrome(1), {0, 1}));
     // Add more assert statements for further testing
     return 0;
-}  
+}
