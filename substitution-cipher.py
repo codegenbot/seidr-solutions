@@ -1,7 +1,15 @@
-def substitution_cipher():
-    cipher_map = [c for c1, c2 in zip(input(), input())]
-    message = input()
-    deciphered_message = ''.join([c for c, c_map in zip(message, cipher_map) if c_map.isalpha() else c])
-    return deciphered_message
+def decipher_cipher(cipher_map, message):
+    result = ""
+    for char in message:
+        if char in cipher_map[0]:
+            index = cipher_map[0].index(char)
+            result += cipher_map[1][index]
+        else:
+            result += char
+    return result
 
-print(substitution_cipher())
+
+cipher_map = [input(), input()]
+message = input()
+
+print(decipher_cipher((cipher_map), message))
