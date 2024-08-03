@@ -1,3 +1,4 @@
+```
 #include <string>
 
 bool same_chars(string s0, string s1) {
