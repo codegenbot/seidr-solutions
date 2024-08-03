@@ -1,22 +1,16 @@
-#include <vector>
-using namespace std;
-
-int luhnCheck(vector<int> digits) {
+int luhn(int n) {
     int sum = 0;
-    bool doubleDigit = false;
-    
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        if (doubleDigit) {
-            int digit = digits[i] * 2;
-            if (digit > 9) {
+    bool alt = false;
+    while (n > 0) {
+        int digit = n % 10;
+        if (alt) {
+            digit *= 2;
+            if (digit > 9)
                 digit -= 9;
-            }
-            sum += digit;
-        } else {
-            sum += digits[i];
         }
-        doubleDigit = !doubleDigit;
+        sum += digit;
+        n /= 10;
+        alt = !alt;
     }
-    
     return sum;
 }
