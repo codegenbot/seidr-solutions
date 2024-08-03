@@ -1,20 +1,22 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string toCamelCase(std::string s) {
-    std::string result = "";
-    size_t start = 0;
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || s[i] == '-') {
-            size_t wordLen = i - start;
-            if (wordLen > 0) {
-                result += s.substr(start, wordLen);
-                if (start < i && i < s.size()) {
-                    result += std::string(1, toupper(s[i]));
-                }
-            }
-            start = i + 1;
+std::string camelCase(std::string s) {
+    std::vector<std::string> split = {""};
+    for (char c : s + " ") {
+        if (c == '-') {
+            split.back() += toupper(c + 1);
+        } else if (c == ' ') {
+            split.push_back("");
+        } else {
+            split.back() += tolower(c);
+        }
+    }
+    std::string result;
+    for (int i = 0; i < split.size(); i++) {
+        result += split[i];
+        if (i < split.size() - 1) {
+            result[0] = toupper(result[0]);
         }
     }
     return result;
@@ -22,8 +24,8 @@ std::string toCamelCase(std::string s) {
 
 int main() {
     std::string s;
-    while (std::cin >> s) {
-        std::cout << toCamelCase(s) << std::endl;
-    }
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << camelCase(s) << "\n";
     return 0;
 }
