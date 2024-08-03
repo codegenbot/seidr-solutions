@@ -21,6 +21,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (db > da) {
         return b;
     } else {
-        return a; // Return the first one in case of equality
+        return a;
     }
 }
