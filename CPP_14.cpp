@@ -16,7 +16,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::vector<std::string> all_prefixes = b("WWW"); // Pass "WWW" to function b
-    assert(issame(all_prefixes, {"W", "WW", "WWW"})); // Use correct function name b
+    std::vector<std::string> all_prefixes = b("WWW");
+    assert(issame(all_prefixes, {"W", "WW", "WWW"}));
     return 0;
 }
