@@ -13,10 +13,12 @@ int skjkasdkd(vector<int> lst){
             maxPrime = num;
         }
     }
+    
     int sumDigits = 0;
     while (maxPrime > 0) {
         sumDigits += maxPrime % 10;
         maxPrime /= 10;
     }
+    
     return sumDigits;
 }
