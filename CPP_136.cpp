@@ -8,5 +8,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     int result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    assert(issame({0, 1}, result));  
+    assert(issame({result[0], result[1]}, {-3, 1}));  
+    return 0;
 }
