@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -13,13 +12,11 @@ std::string kebabToCamel(const std::string& str) {
         start = end + 1;
     }
 
-    if (start != str.size()) {
-        if (!result.empty()) {
+    if (start < str.size()) {
+        if (!result.empty())
             result += char(std::toupper(str[start]));
-        } else {
-            result = std::string(1, std::toupper(str[start]));
-        }
-        result += str.substr(start + 1);
+        else
+            result = str.substr(start);
     }
 
     return result;
