@@ -1,13 +1,10 @@
-```
 def strange_sort_list(lst):
-    result = []
+    if len(lst) <= 1:
+        return lst
+    result = [min(lst)]
+    lst.remove(min(lst))
     while lst:
-        if len(lst) == 1:
-            result.append(lst.pop())
-        else:
-            result.append(min(lst))
-            lst.remove(min(lst))
-            if lst:
-                result.append(max(lst))
-                lst.remove(max(lst))
+        result.append(max(lst))
+        lst.remove(max(lst))
+    result.extend(sorted(lst))
     return result
