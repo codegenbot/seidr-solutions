@@ -1,6 +1,8 @@
-#include <boost/any.hpp>
-#include <string>
+#include <any> // Include the <any> header file
+#include <string> // Include the <string> header file
 
-std::string compare_one(std::string str, int num) {
-    return boost::any_cast<std::string>("None");
+std::string compare_one(std::any data, int num) {
+    return "None";
 }
+
+assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
