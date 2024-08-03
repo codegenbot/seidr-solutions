@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -7,8 +7,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int cutIndex = 0;
     
     for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size() || v[i] - v[i-1] < minDiff) {
-            minDiff = v[i] - v[i-1];
+        if (i == v.size() || abs(v[i] - v[i-1]) < minDiff) {
+            minDiff = abs(v[i] - v[i-1]);
             cutIndex = i;
         }
     }
