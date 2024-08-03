@@ -25,7 +25,10 @@ int main() {
         
         return class_name + "." + strongest_extension;
     }
-    
-    // Your code here
+
+    // You can call the function here
+    int result = Strongest_Extension("SomeClass", {"Java", "Python", "C++"});
+    cout << "The strongest extension for SomeClass is: " << result << endl;
+
     return 0;
 }
