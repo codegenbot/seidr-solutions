@@ -1,4 +1,3 @@
-
 #include <cassert>
 #include <vector>
 
@@ -17,4 +16,9 @@ std::vector<int> generate_integers(int start, int end){
         result.push_back(i);
     }
     return result;
+}
+
+int main(){
+    assert(issame(generate_integers(17, 89), std::vector<int>()) == false);
+    return 0;
 }
