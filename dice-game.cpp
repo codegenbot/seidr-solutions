@@ -1,12 +1,14 @@
 #include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
-    return (n - 1.0) / (n * m - m);
+    double total = (double)n * m;
+    return (n - 1) / total;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << fixed << setprecision(2) << probability(n, m) << '\n';
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << probability(n, m);
     return 0;
 }
