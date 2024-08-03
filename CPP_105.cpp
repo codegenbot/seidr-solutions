@@ -1,19 +1,18 @@
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <map>
 
-std::vector<std::string> by_length(std::vector<int> arr){
-    std::vector<int> filtered;
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> by_length(vector<int> arr){
+    vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
     }
-    std::sort(filtered.begin(), filtered.end());
-    std::reverse(filtered.begin(), filtered.end());
+    sort(filtered.begin(), filtered.end());
+    reverse(filtered.begin(), filtered.end());
 
-    std::map<int, std::string> numToString = {
+    map<int, string> numToString = {
         {1, "One"},
         {2, "Two"},
         {3, "Three"},
@@ -25,15 +24,10 @@ std::vector<std::string> by_length(std::vector<int> arr){
         {9, "Nine"}
     };
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : filtered) {
         result.push_back(numToString[num]);
     }
 
     return result;
 }
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b)
-{
-    return a == b;
-}  
