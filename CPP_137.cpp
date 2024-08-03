@@ -1,4 +1,3 @@
-#include <string>
 #include <iostream>
 #include <any>
 #include <string>
@@ -21,7 +20,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
         }
         return (std::stod(strA) > std::stod(strB)) ? a : b;
     }
-    return std::any("None");
+    return std::any(std::string("None"));
 }
 
 int main() {
