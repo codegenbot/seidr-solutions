@@ -1,7 +1,5 @@
 def check(lst, result):
-    if abs(result - (double_the_difference(lst) * 2)) > 0.00001:
-        print("Wrong Answer")
-    elif isinstance(result, bool):
-        print("Run-Time Error")
+    if isinstance(result, int) and (result == 0 or lst[1] - lst[0] == 2 * result):
+        print("Good")
     else:
-        print("Correct")
+        print("Bad")
