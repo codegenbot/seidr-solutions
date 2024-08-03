@@ -1,21 +1,9 @@
-#include <stdio.h>
-using namespace std;
-
-int modp(int n, int p) {
-    if (n == 0)
-        return 1;
-    else if (n % 2 == 0)
-        return modp(n / 2, p) * modp(n / 2, p) % p;
-    else
-        return (n * modp(n - 1, p)) % p;
-}
-
-int main() {
-    int n, p;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("Enter the value of p: ");
-    scanf("%d", &p);
-    printf("2^%d mod %d = %d\n", n, p, modp(n, p));
-    return 0;
+int modp(int n,int p){
+    long long res = 1; 
+    for(int i=0;i<32;++i){
+        if(n&(1<<i)){
+            res=(long long)res*p%((long long)p);
+        }
+    }
+    return (int)(res%p+res/p+p)%p;
 }
