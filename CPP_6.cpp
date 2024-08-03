@@ -11,8 +11,7 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    // Existing main function here
-    return 0;
+    // Main function logic here
 }
 
 vector<int> parse_nested_parens(string paren_string){
