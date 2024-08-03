@@ -1,11 +1,15 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
-        nums.push_back(n);
+    while (std::cin) {
+        if (cin >> n) {
+            nums.push_back(n);
+        }
     }
 
     int sum = 0;
