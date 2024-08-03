@@ -11,7 +11,7 @@ int count_nums(vector<int> n) {
             }
             if (sum_digits > 0) count++;
         } else {
-            num = -num; 
+            num = -num; // convert to positive
             int sum_digits = 0;
             bool has_negative_digit = false;
             while (num > 0) {
