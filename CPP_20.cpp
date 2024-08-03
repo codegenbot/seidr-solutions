@@ -25,6 +25,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     return closest_elements;
 }
 
+
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
