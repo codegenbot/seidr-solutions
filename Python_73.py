@@ -1,4 +1,4 @@
-```python
+```
 def smallest_change(arr):
     n = len(arr)
     forward = arr[:]
