@@ -1,32 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 #include <cmath>
 
-using namespace std;
-
 int main() {
-    int n;
-    cin >> n;
-    vector<double> prices(n);
-    vector<double> discounts(n);
+    std::vector<float> prices = {10.0, 20.0, 30.0}; // Example prices vector
+    std::vector<float> discounts = {0.1, 0.15, 0.2}; // Example discounts vector
     
-    for (int i = 0; i < n; ++i) {
-        cin >> prices[i];
+    float total_price = 0.0;
+    
+    for (int i = 0; i < prices.size(); ++i) {
+        total_price += prices[i] * (1 - discounts[i]);
     }
     
-    for (int i = 0; i < n; ++i) {
-        cin >> discounts[i];
-    }
-
-    double total_price = 0.0;
-    for (int i = 0; i < n; ++i) {
-        total_price += prices[i] - (prices[i] * (discounts[i] / 100.0));
-    }
-
-    total_price = round(total_price * 100) / 100.0; // Round to 2 decimal places
-
-    cout << fixed << setprecision(2) << total_price << endl;
-
+    std::cout << "Total price after discount: " << total_price << std::endl;
+    
     return 0;
 }
