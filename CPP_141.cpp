@@ -1,43 +1,26 @@
-Here is the completed code:
+string file_name_check(string file_name){
+    int digit_count = 0;
+    int dot_count = 0;
+    bool valid_start = false;
 
-```cpp
-bool hasDigit = false;
-int dotCount = 0;
-for(int i=0; i<file_name.length(); i++){
-    if(file_name[i] >= '0' && file_name[i] <= '9'){
-        hasDigit = true;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+        } else if(file_name[i] == '.'){
+            dot_count++;
+        } else if(i==0 && isalpha(file_name[i])){
+            valid_start = true;
+        }
     }
-    else if(file_name[i] == '.'){
-        dotCount++;
-        if(dotCount > 1) return "No";
+
+    string extension = file_name.substr(file_name.find('.')+1);
+    bool valid_extension = false;
+
+    for(int i=0; i<extension.length(); i++){
+        if(extension[i] == 't' || extension[i] == 'x' || extension[i] == 'd' || extension[i] == 'l'){
+            valid_extension = true;
+        }
     }
+
+    return (digit_count <= 3 && dot_count == 1 && valid_start && valid_extension) ? "Yes" : "No";
 }
-
-if(hasDigit && file_name.length() - dotCount > 3) return "No";
-
-string beforeDot = "";
-for(int i=0; i<file_name.length(); i++){
-    if(file_name[i] == '.'){
-        break;
-    }
-    else{
-        beforeDot += file_name[i];
-    }
-}
-
-if(beforeDot.empty()) return "No";
-if(!isalpha(beforeDot[0])) return "No";
-
-string afterDot = "";
-for(int i=file_name.length()-1; i>=0; i--){
-    if(file_name[i] == '.'){
-        break;
-    }
-    else{
-        afterDot = file_name[i] + afterDot;
-    }
-}
-
-if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
-
-return "Yes";
