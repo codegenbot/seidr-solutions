@@ -1,17 +1,17 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Add this line to include assert
 
 using namespace std;
 
 string longest(vector<string> strings);
 
 string longest(vector<string> strings){
-    if(strings.empty()) return "None";
+    if(strings.empty()) return ""; // Change "None" to ""
     
     string longest_str = strings[0];
-    for(const string& str : strings) {
-        if(str.length() > longest_str.length() || (str.length() == longest_str.length() && str < longest_str)){
+    for(const string& str : strings){
+        if(str.length() > longest_str.length() || (str.length() == longest_str.length() && str > longest_str)){ // Change "<" to ">"
             longest_str = str;
         }
     }
@@ -19,7 +19,8 @@ string longest(vector<string> strings){
     return longest_str;
 }
 
-int main(){
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    return 0;
+string test_case(){
+    string result = longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"});
+    assert(result == "zzzz"); // Use assert from cassert
+    return result;
 }
