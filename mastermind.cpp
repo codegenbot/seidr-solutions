@@ -5,13 +5,17 @@ int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+    for (char c : code) {
+        auto pos = guess.find(c);
+        while (pos != std::string::npos) {
+            if (pos == guess.find(c)) {
+                black++;
+            } else {
+                white++;
+            }
+            pos = guess.find(c, pos + 1);
         }
     }
 
-    return black + white;
+    return black;
 }
