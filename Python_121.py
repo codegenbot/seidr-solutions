@@ -1,3 +1,3 @@
 def solution(lst):
-    """Return the sum of all odd numbers in every other element of the input list."""
+    """Given a list of integers, returns the sum of all odd numbers starting from the second number to the end."""
     return sum(i for i in lst[1::2] if i % 2 != 0)
