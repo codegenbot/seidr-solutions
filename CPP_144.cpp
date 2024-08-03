@@ -1,8 +1,8 @@
 #include <algorithm>
+#include <numeric> // Add this line
 #include <stdio.h>
 #include <string>
 #include <cmath>
-#include <iostream>
 using namespace std;
 
 bool simplify(string x, string n) {
@@ -14,18 +14,7 @@ bool simplify(string x, string n) {
     int result_num = num1 * num2;
     int result_den = den1 * den2;
 
-    int gcd = __gcd(result_num, result_den);
+    int gcd = std::gcd(result_num, result_den); // Change to std::gcd
 
     return result_num % gcd == 0 && result_den % gcd == 0;
-}
-
-int main() {
-    string x, n;
-    cin >> x >> n;
-    if (simplify(x, n)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-    return 0;
 }
