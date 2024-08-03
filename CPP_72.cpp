@@ -14,22 +14,11 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q;
-    int w;
-    cout << "Enter the number of queries: ";
-    cin >> q.size();
-    q.resize(q.size());
-    cout << "Enter the weights: ";
-    for (int i = 0; i < q.size(); i++) {
+    int n, w;
+    cin >> n >> w;
+    vector<int> q(n);
+    for(int i=0; i<n; i++)
         cin >> q[i];
-    }
-    cout << "Enter the maximum weight: ";
-    cin >> w;
-    
-    if(will_it_fly(q, w))
-        cout << "The plane will fly." << endl;
-    else
-        cout << "The plane won't fly." << endl;
-    
+    cout << will_it_fly(q, w) << endl;
     return 0;
 }
