@@ -1,28 +1,23 @@
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<bool> values;
+Here is the solution:
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == 'T') {
-            values.push(true);
-        } else if (expression[i] == 'F') {
-            values.push(false);
-        } else if (expression[i] == '|') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-
-            values.push(b1 || b2);
-        } else if (expression[i] == '&') {
-            bool b1 = values.top();
-            values.pop();
-            bool b2 = values.top();
-            values.pop();
-
-            values.push(b1 && b2);
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (char c : s) {
+        if (c == '|') {
+            char op1 = st.top();
+            st.pop();
+            char op2 = st.top();
+            st.pop();
+            st.push((op1 == 'T' && op2 == 'T') ? 'T' : ((op1 == 'F' || op2 == 'F') ? 'T' : 'F'));
+        } else if (c == '&') {
+            char op1 = st.top();
+            st.pop();
+            char op2 = st.top();
+            st.pop();
+            st.push((op1 == 'T' && op2 == 'T') ? 'T' : ((op1 == 'F' || op2 == 'F') ? 'F' : 'T'));
+        } else {
+            st.push(c);
         }
     }
-
-    return values.top();
+    return st.top() == 'T';
 }
