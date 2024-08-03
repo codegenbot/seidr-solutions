@@ -34,8 +34,8 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    std::cout << words_in_sentence(sentence);
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << words_in_sentence(input) << std::endl;
     return 0;
 }
