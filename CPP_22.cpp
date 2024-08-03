@@ -1,4 +1,8 @@
-#include <vector> // Added missing header file
+#include <vector>
+#include <list>
+#include <variant>
+#include <cassert>
+#include <typeinfo>
 
 std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
     std::vector<int> result;
@@ -10,6 +14,6 @@ std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Corrected function signature
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
