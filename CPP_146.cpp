@@ -13,8 +13,18 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    std::vector<int> numbers = {11, 21, 12, 13, -14, 25, 16};
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> numbers.push_back(n);
+    }
+    
     int result = specialFilter(numbers);
-    std::cout << "The number of special filter is: " << result;
+    std::cout << "Number of elements that meet the condition: " << result << std::endl;
+    
     return 0;
 }
