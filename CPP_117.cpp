@@ -40,9 +40,5 @@ std::vector<std::string> select_words(std::string s, int n) {
 
 int main() {
     std::vector<std::string> a = select_words("a b c d e f", 1);
-    // Code for comparing two vectors of strings
-    std::vector<std::string> b = {"b", "c", "d", "f"};
-    bool same = (a == b); // Check if the vectors are equal
-
     return 0;
 }
