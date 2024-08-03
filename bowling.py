@@ -1,14 +1,15 @@
-```
-def bowling_score(frames):
+def bowling_score(input_str):
     score = 0
-    roll = [int(i) for i in re.sub('[^0-9X]', '', frames).replace('X', '10').replace('/', '')]
-    
-    for i in range(0, len(roll), 2):
-        if roll[i] == 10:
-            score += 10 + (i+1 > len(roll)-1 and 0 or roll[i+1])
-        elif roll[i:i+2].count('10') >= 1:
-            score += 20
-            i -= 1
+    frames = [int(x) for x in re.sub("/", "-", input_str)]
+
+    for i in range(10):
+        if frames[i] == 10:
+            score += 10 + (frames[i + 1] if i < 9 else 0)
+        elif frames[i : i + 2].count("X"):
+            score += 10 + (frames[i + 2] if i < 8 else 0)
+        elif sum(frames[i : i + 2]) == 10:
+            score += sum(frames[i : i + 2])
         else:
-            score += sum(roll[:i+2]) if roll[i] + roll[i+1] < 11 else 10 + (i+2 > len(roll)-1 and 0 or roll[i+2])
+            score += frames[i]
+
     return score
