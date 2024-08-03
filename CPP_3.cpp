@@ -1,1 +1,0 @@
-std::vector<int> operations = {1, -2, 2, -2, 5, -5, 4, -4};
