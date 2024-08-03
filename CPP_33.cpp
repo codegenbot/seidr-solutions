@@ -11,13 +11,11 @@ std::vector<int> sort_third(std::vector<int> nums) {
     return nums;
 }
 
-int main() {
-    std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
-    std::vector<int> result = sort_third(input);
+std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
+std::vector<int> result = sort_third(input);
 
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-
-    return 0;
+for (int num : result) {
+    std::cout << num << " ";
 }
+
+return 0;
