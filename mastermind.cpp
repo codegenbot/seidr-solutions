@@ -1,1 +1,1 @@
-if (codeFreq[code[i] - 'A'] > 0) 
+if (codeFreq[code[i] - 'A'] > 0)
