@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
@@ -22,12 +22,13 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
-    vector<float> rescaled_input = rescale_to_unit(input);
-
-    for (float num : rescaled_input) {
+    vector<float> numbers = {3.0, 1.0, 5.0, 2.0, 4.0};
+    
+    vector<float> scaled_numbers = rescale_to_unit(numbers);
+    
+    for (float num : scaled_numbers) {
         cout << num << " ";
     }
-
+    
     return 0;
 }
