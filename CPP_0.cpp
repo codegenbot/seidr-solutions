@@ -17,20 +17,20 @@ int main() {
     std::vector<float> a;
     int n;
     float input;
-
+    
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-
+    
     std::cout << "Enter the elements: ";
     for (int i = 0; i < n; ++i) {
         std::cin >> input;
         a.push_back(input);
     }
-
+    
     float threshold;
     std::cout << "Enter the threshold: ";
     std::cin >> threshold;
-
+    
     assert(has_close_elements(a, threshold) == true);
 
     return 0;
