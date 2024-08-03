@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <cmath> // Include cmath for pow and sqrt
+#include <cmath> 
 #include <iomanip>
 
 using namespace std;
@@ -27,3 +27,4 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
+}
