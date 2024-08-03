@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool is_sorted(std::vector<int> lst) {
+bool is_sorted(std::vector<int> lst){
     if(lst.size() <= 1)
         return true;
 
@@ -11,13 +11,11 @@ bool is_sorted(std::vector<int> lst) {
     }
 
     std::vector<int>::iterator it;
-    for(it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
         if(*it > 0 && *(it-1) == *it)
             return false;
     }
     return true;
-
-}
 
 int main() {
     int n;
