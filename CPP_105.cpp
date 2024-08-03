@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> filtered_arr;
@@ -13,9 +20,7 @@ vector<string> by_length(vector<int> arr){
         }
     }
 
-    sort(filtered_arr.begin(), filtered_arr.end());
-
-    reverse(filtered_arr.begin(), filtered_arr.end());
+    sort(filtered_arr.begin(), filtered_arr.end(), greater<int>());
 
     for (int num : filtered_arr) {
         result.push_back(num_to_name[num]);
