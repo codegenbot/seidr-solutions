@@ -14,7 +14,7 @@ int main() {
             continue;
         }
         indices.push_back(static_cast<int>(pos));
-        pos += 1; 
+        pos += 1;
     }
     
     for (int i : indices) {
@@ -22,4 +22,4 @@ int main() {
     }
     
     return 0;
-} 
+}
