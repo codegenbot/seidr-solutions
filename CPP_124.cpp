@@ -22,13 +22,21 @@ bool valid_date(const std::string& date) {
 }
 
 int main() {
-    std::string date;
-    while(std::cin >> date) {
-        if(valid_date(date)) {
-            std::cout << "Valid date" << std::endl;
+    while(true) {
+        std::string input;
+        std::cout << "Enter a date (MM-DD-YYYY format) or 'quit' to exit: ";
+        std::cin >> input;
+
+        if (input == "quit") {
+            break;
         } else {
-            std::cout << "Invalid date" << std::endl;
+            if (valid_date(input)) {
+                std::cout << "Valid date!" << std::endl;
+            } else {
+                std::cout << "Invalid date!" << std::endl;
+            }
         }
     }
+
     return 0;
 }
