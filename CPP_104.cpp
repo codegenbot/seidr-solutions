@@ -4,13 +4,8 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    for (int digit : b) {
-        if (std::find(a.begin(), a.end(), digit) == a.end()) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::unordered_set<int>& a, const std::unordered_set<int>& b) {
+    return a == b;
 }
 
 std::unordered_set<int> unique_digits(const std::vector<int>& input) {
@@ -18,6 +13,6 @@ std::unordered_set<int> unique_digits(const std::vector<int>& input) {
 }
 
 int main() {
-    assert(issame(std::vector<int>(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end()), std::vector<int>({31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), unique_digits({31, 135})));
     return 0;
 }
