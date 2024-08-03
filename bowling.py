@@ -13,12 +13,13 @@ def bowling_score(frames):
         else:
             if frames[i * 2 : i * 2 + 2].count("/"):
                 score += 10 - int(frames[i * 2])
-            elif frames[i * 2] == "X":
+            elif frames[i * 2 : i * 2 + 1] == "X":
                 score += 10
+                strike = True
             else:
                 score += int(frames[i * 2]) + int(frames[i * 2 + 1])
         if strike and i < 9:
-            score += 10 + int(frames[(i + 1) * 2])
+            score += 10 + int(frames[(i + 1) * 2 + 1])
         elif spare and i < 8:
-            score += 10 + int(frames[(i + 1) * 2] + frames[(i + 1) * 2 + 1])
+            score += 10 + int(frames[(i + 1) * 2 + 1 : i * 2 + 3].count("/"))
     return score
