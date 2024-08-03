@@ -17,9 +17,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> words_string(const std::string& str) {
     std::vector<std::string> words;
-    std::istringstream ss(str);
+    std::istringstream iss(str);
     std::string word;
-    while (ss >> word) {
+    while (iss >> word) {
         words.push_back(word);
     }
     return words;
