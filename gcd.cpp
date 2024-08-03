@@ -18,15 +18,14 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     int a, b;
-    std::cin >> a;
-    std::cin.ignore();
-    std::cin >> b;
-    
+    std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
 
-    std::string text, target;
     std::cin.ignore();
-    std::cin >> text >> target;
+    std::string text, target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
+
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
