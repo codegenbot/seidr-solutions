@@ -7,7 +7,7 @@ std::string string_xor(const std::string &a, const std::string &b) {
     
     std::string result = "";
     for (int i = 0; i < a.size(); i++) {
-        result += (a[i] == b[i]) ? "0" : "1";
+        result.push_back((a[i] == b[i]) ? '0' : '1');
     }
     return result;
 }
