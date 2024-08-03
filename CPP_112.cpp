@@ -6,6 +6,10 @@
 
 using namespace std;
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
@@ -13,14 +17,12 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
-
     string resultReverse = result;
     reverse(resultReverse.begin(), resultReverse.end());
-
     return {result, result == resultReverse ? "True" : "False"};
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == vector<string>{"", "True"});
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
