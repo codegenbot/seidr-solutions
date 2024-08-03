@@ -8,7 +8,7 @@ string string_to_md5(string text) {
 
     string md5 = "";
     for (int i = 0; i < 16; i++) {
-        md5 += sprintf("%02x", &result[i]);
+        md5 += std::setiosflags(std::ios::hex) << (int)result[i] << resetiosflags(std::ios);
     }
 
     return md5;
