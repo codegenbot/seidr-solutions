@@ -1,19 +1,10 @@
-Here is the solution:
-
-#include <iostream>
-
-double probability(int n, int m) {
-    if (n > m)
-        return 1.0 - ((double)m / n);
-    else if (m > n)
-        return (double)m / n;
-    else
-        return 0.5;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << probability(n, m) << std::endl;
-    return 0;
+double diceGame(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= n && i < m; i++) {
+        total += 1.0 / m;
+    }
+    for (int i = m + 1; i <= n; i++) {
+        total += 1.0 / n;
+    }
+    return total;
 }
