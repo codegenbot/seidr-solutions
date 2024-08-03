@@ -13,8 +13,6 @@ int main() {
         }
     }
 
-    probability -= 1.0;
-
     std::cout << std::fixed << std::setprecision(9) << probability << std::endl;
 
     return 0;
