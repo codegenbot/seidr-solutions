@@ -1,4 +1,7 @@
-string encode(string message){
+#include <string>
+using namespace std;
+
+std::string encode(std::string message){
     for(char &c : message){
         if(isalpha(c)){
             c = islower(c) ? toupper(c) : tolower(c);
