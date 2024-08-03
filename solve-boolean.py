@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -9,7 +10,7 @@ def solve_boolean(expression):
         result = True
         for char in expression:
             if char == '&':
-                result &= eval('True')
+                result &= bool(next(iter(char)))
             elif char == '|':
-                result |= eval('True')
+                result |= bool(next(iter(char)))
         return result
