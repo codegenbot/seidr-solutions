@@ -1,33 +1,46 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
-    }
-    int target = sum / 2;
-    int prefixSum = 0;
-    int idx = 0;
-    for (int i = 0; i < nums.size(); ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
+    
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 1; i < nums.size(); ++i) {
+        int sum_left = 0;
+        int sum_right = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            sum_left += nums[j];
+        }
+        
+        for (int j = i; j < nums.size(); ++j) {
+            sum_right += nums[j];
+        }
+        
+        int diff = abs(sum_left - sum_right);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    std::vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> subvec2(nums.begin() + idx + 1, nums.end());
-    for (int num : subvec1) {
-        std::cout << num << std::endl;
+    
+    for (int i = 0; i < cut_index; ++i) {
+        cout << nums[i] << endl;
     }
-    for (int num : subvec2) {
-        std::cout << num << std::endl;
+    
+    cout << endl;
+    
+    for (int i = cut_index; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
+    
     return 0;
 }
