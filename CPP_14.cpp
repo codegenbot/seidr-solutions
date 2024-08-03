@@ -1,4 +1,5 @@
 #include <string>
+
 vector<string> b(string str) {
     vector<string> prefixes;
     string prefix = "";
