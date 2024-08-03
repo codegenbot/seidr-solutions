@@ -1,14 +1,14 @@
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
 double triangle_area(double a, double h) {
     return 0.5 * a * h;
 }
 
+#ifndef TESTING
 int main() {
-    double a, h;
-    std::cin >> a >> h;
-    double area = triangle_area(a, h);
-    std::cout << area << std::endl;
+    assert(std::abs(triangle_area(10, 8) - 40.0) < 1e-4);
     return 0;
 }
+#endif
