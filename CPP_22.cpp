@@ -15,11 +15,7 @@ vector<int> filter_integers(list<any> values) {
     return result;
 }
 
-void main() {
-    vector<int> expected = {3, 3, 3};
-    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
-  
-    assert(filtered == expected);
-    
-    return;
+int main() {
+    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>{3, 3, 3});
+    return 0;
 }
