@@ -13,7 +13,7 @@ std::vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::ve
     for (; first != last; ++first) {
         if (first + 1 != last && *first == *(first+1))
             continue;
-        *first = *first;
+        *first;
     }
     return --first;
 }
