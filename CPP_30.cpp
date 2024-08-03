@@ -2,26 +2,53 @@
 #include <iostream>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if(a.size() != b.size())
+    if(a.size() != b.size()) {
         return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-5)
-            return false;
     }
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(std::abs(a[i] - b[i]) > 1e-5f) {
+            return false;
+        }
+    }
+    
     return true;
 }
 
 int main() {
     std::vector<float> l;
-    float x;
-    while(std::cin >> x) {
-        l.push_back(x);
+    float num;
+
+    while(true) {
+        std::cout << "Enter a number (0 to finish): ";
+        std::cin >> num;
+        
+        if(num == 0.0f) {
+            break;
+        }
+        
+        l.push_back(num);
     }
-    std::vector<float> result = get_positive(l);
-    if(issame(result, l))
-        std::cout << "The vector is same." << std::endl;
-    else
-        std::cout << "The vectors are different." << std::endl;
+
+    if(l.size() > 1) {
+        if(issame(get_positive(l), get_positive(std::vector<float>(l.rbegin(), l.rend())))) {
+            std::cout << "The two vectors are the same.\n";
+        } else {
+            std::cout << "The two vectors are not the same.\n";
+        }
+    } else if(l.size() == 1) {
+        std::cout << "You entered one number: ";
+        
+        for(auto x : get_positive(l)) {
+            std::cout << x << " ";
+        }
+        
+        std::cout << "\n";
+    } else {
+        std::cout << "You didn't enter any numbers.\n";
+    }
+
+    return 0;
 }
 
 vector<float> get_positive(vector<float> l){
