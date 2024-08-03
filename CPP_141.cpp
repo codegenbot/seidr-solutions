@@ -1,25 +1,26 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    int digitCount = 0;
-    bool dotFound = false;
+    int digit_count = 0;
+    int dot_count = 0;
+    bool valid_start = false;
+
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
-            digitCount++;
-        }else if(file_name[i] == '.'){
-            dotFound = true;
+            digit_count++;
+        } else if(file_name[i] == '.'){
+            dot_count++;
+        } else if(i==0 && isalpha(file_name[i])){
+            valid_start = true;
         }
     }
 
-    if(digitCount > 3 || !dotFound) return "No";
-    
-    string firstPart = file_name.substr(0, file_name.find('.'));
-    if(firstPart.empty() || !isalpha(firstPart[0])) return "No";
+    string extension = file_name.substr(file_name.find('.')+1);
+    bool valid_extension = false;
 
-    string secondPart = file_name.substr(file_name.find('.')+1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if(find(validExtensions.begin(), validExtensions.end(), secondPart) == validExtensions.end()) 
-        return "No";
-    
-    return "Yes";
+    for(int i=0; i<extension.length(); i++){
+        if(extension[i] == 't' || extension[i] == 'x' || extension[i] == 'd' || extension[i] == 'l'){
+            valid_extension = true;
+        }
+    }
+
+    return (digit_count <= 3 && dot_count == 1 && valid_start && valid_extension) ? "Yes" : "No";
 }
