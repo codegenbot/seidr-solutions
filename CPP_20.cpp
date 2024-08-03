@@ -32,6 +32,6 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 
 int main() {
     assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}),
-                  std::vector<float>({2.2f, 3.1f}));
+                  std::vector<float>{2.2f, 3.1f}));  // Corrected argument passing style
     return 0;
 }
