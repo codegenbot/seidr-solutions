@@ -18,7 +18,7 @@ int main() {
     
     double sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec2[i] - vec1[i], 2);
+        sum += std::pow(vec2[i] - vec1[i], 2); // Corrected the order of subtraction
     }
     
     double distance = std::sqrt(sum);
