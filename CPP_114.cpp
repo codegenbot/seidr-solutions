@@ -1,3 +1,4 @@
+// Problem: Find the minimum sum of a subarray.
 long long minSubArraySum(vector<long long> nums) {
     long long sum = 0;
     long long min_sum = LLONG_MAX;
@@ -11,4 +12,11 @@ long long minSubArraySum(vector<long long> nums) {
     }
 
     return min_sum;
+}
+
+// Main function.
+int main() {
+    // Test the function.
+    assert(minSubArraySum({1, -1}) == -1);
+    return 0;
 }
