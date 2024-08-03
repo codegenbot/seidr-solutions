@@ -5,12 +5,6 @@
 
 using namespace std;
 
-vector<float> rescale_to_unit(const vector<float>& numbers);
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b; // Check if vectors are equal
-}
-
 vector<float> rescale_to_unit(const vector<float>& numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
@@ -29,7 +23,7 @@ int main() {
     vector<float> result = rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0});
     
     // Check if the result matches the expected values
-    assert(issame(result, expected));
+    assert(result == expected);
 
     return 0;
 }
