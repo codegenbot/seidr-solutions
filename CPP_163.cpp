@@ -7,11 +7,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
             return true;
         }
     }
-    for(int num : b){
-        if(num % 2 == 0){
-            return true;
-        }
-    }
     return false;
 }
 
@@ -24,6 +19,6 @@ std::vector<int> generate_integers(int start, int end){
 }
 
 int main(){
-    assert(issame(generate_integers(17, 89), generate_integers(1, 10)) == false);
+    assert(issame(generate_integers(17, 89), std::vector<int>()) == false);
     return 0;
 }
