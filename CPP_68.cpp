@@ -24,12 +24,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 int main(){
-    using namespace std;
     std::vector<int> input = {1, 3, 4, 2, 5};
     std::vector<int> result = pluck(input);
 
     for(int num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
     return 0;
 }
