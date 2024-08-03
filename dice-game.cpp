@@ -1,3 +1,5 @@
+#include <iostream>
+
 int main(){
     double diceGame(int n, int m) {
         double total = (double)n * m;
@@ -11,5 +13,4 @@ int main(){
 
         return count / total;
     }
-    return 0;
 }
