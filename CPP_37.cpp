@@ -1,10 +1,14 @@
-std::vector<float> sort_even(std::vector<float> nums) {
-    std::vector<float> even_nums;
-    for (const auto& num : nums) {
-        if (static_cast<int>(num) % 2 == 0) {
-            even_nums.push_back(num);
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    std::sort(even_nums.begin(), even_nums.end());
-    return even_nums;
-}
+    return true;
+} 
