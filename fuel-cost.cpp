@@ -6,7 +6,8 @@ int main() {
     int n;
 
     while (!std::cin.eof()) {
-        if (std::cin >> n) {
+        std::cin >> n;
+        if (!std::cin.eof()) {
             nums.push_back(n);
         }
     }
