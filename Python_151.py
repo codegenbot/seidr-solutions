@@ -1,4 +1,3 @@
-```
 def double_the_difference(lst):
     total = 0
     count = 0
