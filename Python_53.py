@@ -1,9 +1,5 @@
 ```
-def add(x: int, y: int):
+def add():
+    x = int(input("Enter the first number: "))
+    y = int(input("Enter the second number: "))
     return x + y
-
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
-
-result = add(num1, num2)
-print(f"The sum of {num1} and {num2} is {result}")
