@@ -1,15 +1,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result(n);
     int factorial = 1, sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
+    for(int i = 0; i < n; i++){
+        if(i % 2 == 0){
             factorial *= (i + 1);
             result[i] = factorial;
         } else {
@@ -18,6 +14,10 @@ std::vector<int> f(int n) {
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 int main() {
