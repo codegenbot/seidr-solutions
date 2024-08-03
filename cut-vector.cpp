@@ -19,15 +19,12 @@ int main() {
         sum += nums[i];
     }
     
-    int half_sum = sum / 2;
-    int prefix_sum = 0;
-    int cut_index = -1;
-    int min_diff = INT_MAX;
+    int min_abs_diff = std::abs(2 * nums[0] - sum);
+    int cut_index = 0;
     
-    for (int i = 0; i < n; i++) {
-        prefix_sum += nums[i];
-        if (abs(sum - 2 * prefix_sum) < min_diff) {
-            min_diff = abs(sum - 2 * prefix_sum);
+    for (int i = 1; i < n; i++) {
+        if (std::abs(2 * nums[i] - sum) < min_abs_diff) {
+            min_abs_diff = std::abs(2 * nums[i] - sum);
             cut_index = i;
         }
     }
@@ -37,6 +34,6 @@ int main() {
         cout << nums[i] << endl;
     }
     cout << "0" << endl;
-
+    
     return 0;
 }
