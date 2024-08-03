@@ -4,17 +4,13 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-void parse_music(std::vector<int>& data){
-    // Your implementation for parse_music goes here
-}
-
-int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
+// Define 'parse_music' function if needed
+std::vector<int> parse_music(std::string music){
+    std::vector<int> result;
     
-    if (issame(a, b)) {
-        parse_music(a);
+    for(char c : music){
+        result.push_back(static_cast<int>(c));
     }
-
-    return 0;
+    
+    return result;
 }
