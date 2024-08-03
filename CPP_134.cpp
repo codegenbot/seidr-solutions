@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <cctype>
 #include <string>
 
 bool check_if_last_char_is_a_letter(std::string txt) {
@@ -17,11 +18,10 @@ bool check_if_last_char_is_a_letter(std::string txt) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    if(check_if_last_char_is_a_letter(input)) {
-        std::cout << "The last character is a letter." << std::endl;
-    } else {
-        std::cout << "The last character is not a letter." << std::endl;
-    }
+    std::cin >> input;
+    if(check_if_last_char_is_a_letter(input))
+        std::cout << "The last character of the string is a letter." << std::endl;
+    else
+        std::cout << "The last character of the string is not a letter." << std::endl;
     return 0;
 }
