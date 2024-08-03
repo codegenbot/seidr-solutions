@@ -1,20 +1,21 @@
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
+#include <boost/lexical_cast.hpp>
 
 using namespace boost;
 
-any compare_one(any a, any b) {
-    if (a.type() == type_id<int>() && b.type() == type_id<double>()) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     }
-    else if (a.type() == type_id<double>() && b.type() == type_id<int>()) {
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return b;
     }
-    else if (a.type() == type_id<string>() && b.type() == type_id<string>()) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-        
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+
         if (str1 > str2) {
             return a;
         }
@@ -22,24 +23,31 @@ any compare_one(any a, any b) {
             return b;
         }
         else {
-            return "None";
+            return any("None");
         }
     }
-    else if ((a.type() == type_id<int>() && b.type() == type_id<string>()) || 
-             (a.type() == type_id<string>() && b.type() == type_id<int>())) {
-        string str = any_cast<string>(b);
-        
-        if (any_cast<int>(a) > lexical_cast<int>(str)) {
+    else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || 
+             (a.type() == typeid(std::string) && b.type() == typeid(int))) {
+        std::string str = boost::any_cast<std::string>(b);
+
+        if (boost::any_cast<int>(a) > boost::lexical_cast<int>(str)) {
             return a;
         }
-        else if (any_cast<int>(a) < lexical_cast<int>(str)) {
+        else if (boost::any_cast<int>(a) < boost::lexical_cast<int>(str)) {
             return b;
         }
         else {
-            return "None";
+            return any("None");
         }
     }
     else {
-        return "None";
+        return any("None");
     }
+}
+
+int main() {
+    int a = 1;
+    double b = 2.0;
+    std::cout << "Result: " << compare_one(a,b) << endl;
+    return 0;
 }
