@@ -15,7 +15,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
         }
         return count_a < count_b;
     });
-
     return arr;
 }
 
