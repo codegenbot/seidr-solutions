@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
+
 using namespace std;
 
 int main() {
@@ -10,38 +9,27 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-    
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
-    for (int i = 1; i < nums.size(); ++i) {
-        int sum_left = 0;
-        int sum_right = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            sum_left += nums[j];
-        }
-        
-        for (int j = i; j < nums.size(); ++j) {
-            sum_right += nums[j];
-        }
-        
-        int diff = abs(sum_left - sum_right);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    int target = sum / 2;
+    int prefixSum = 0;
+    int idx = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
-    
-    for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvec2(nums.begin() + idx + 1, nums.end());
+    for (int num : subvec1) {
+        cout << num << endl;
     }
-    
-    cout << endl;
-    
-    for (int i = cut_index; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+    for (int num : subvec2) {
+        cout << num << endl;
     }
-    
     return 0;
 }
