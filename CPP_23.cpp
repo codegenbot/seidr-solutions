@@ -4,6 +4,6 @@
 int main() {
     std::string s;
     cin >> s;
-    assert(s.length() == 9);
+    cout << s.length();
     return 0;
 }
