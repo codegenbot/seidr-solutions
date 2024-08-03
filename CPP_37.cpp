@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -15,24 +14,12 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> sort_even(const std::vector<float>& v) {
-    std::vector<float> even_nums;
+    std::vector<float> even_sorted;
     for (float num : v) {
         if (static_cast<int>(num) % 2 == 0) {
-            even_nums.push_back(num);
+            even_sorted.push_back(num);
         }
     }
-    std::sort(even_nums.begin(), even_nums.end());
-    return even_nums;
-}
-
-int main() {
-    // Test cases
-    std::vector<float> test1 = {2.1f, 3.2f, 4.0f, 5.5f, 6.2f};
-    std::vector<float> sorted_even = sort_even(test1);
-    
-    for (const auto& num : sorted_even) {
-        std::cout << num << " ";
-    }
-    
-    return 0;
+    std::sort(even_sorted.begin(), even_sorted.end());
+    return even_sorted;
 }
