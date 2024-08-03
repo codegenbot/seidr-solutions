@@ -1,7 +1,7 @@
 vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
-    unsigned int open_braces = 0;
+    unsigned open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
