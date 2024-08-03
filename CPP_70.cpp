@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst){
+std::vector<std::vector<int>> strange_sort_list(std::vector<int> lst){
     std::sort(lst.begin(), lst.end());
     std::vector<int> result;
     int start = 0, end = lst.size() - 1;
@@ -24,5 +24,5 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
             result.push_back(lst[end--]);
         }
     }
-    return result;
+    return {result};
 }
