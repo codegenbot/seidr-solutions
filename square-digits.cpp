@@ -1,8 +1,20 @@
-string squareDigits(string n) {
-    string result = "";
-    for(int i=0; i<n.length(); i++) {
-        int digit = (int)(n[i] - '0'); // convert character to integer
-        result += to_string(digit * digit); // square the digit and add it to the result
+#include <iostream>
+#include <string>
+
+std::string squareDigits(std::string input) {
+    std::string output;
+    for (char c : input) {
+        int digit = c - '0';
+        output += std::to_string(digit * digit);
     }
-    return result;
+    return output;
+}
+
+int main() {
+    std::cout << squareDigits("0") << std::endl;  // Output: "0"
+    std::cout << squareDigits("1") << std::endl;  // Output: "1"
+    std::cout << squareDigits("2") << std::endl;  // Output: "4"
+    std::cout << squareDigits("3") << std::endl;  // Output: "9"
+    std::cout << squareDigits("4") << std::endl;  // Output: "16"
+    return 0;
 }
