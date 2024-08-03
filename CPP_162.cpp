@@ -21,7 +21,8 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
 
-    char mdString[33];
+    char mdString[33] = {'\0'}; // Initialize the array
+
     for(int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
     }
