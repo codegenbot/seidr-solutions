@@ -5,30 +5,19 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return v1 == v2;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int idx1 = -1;
-    int idx2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (planet1 == planets[i]) {
-            idx1 = i;
-        } else if (planet2 == planets[i]) {
-            idx2 = i;
-        }
-    }
-
-    if (idx1 == -1 || idx2 == -1) {
+std::vector<std::string> bf(std::vector<std::string> planets, int idx1, int idx2) {
+    if (idx1 >= planets.size() || idx2 >= planets.size()) {
         return {};
     }
 
-    vector<string> result;
+    std::sort(planets.begin(), planets.end());
 
     for (int i = 0; i < planets.size(); i++) {
-        if (i > idx1 && i < idx2) {
-            result.push_back(planets[i]);
-        }
+        if (i == idx1) continue;
+        if (i == idx2) continue;
+
+        return planets;
     }
 
-    return result;
+    return {};
 }
