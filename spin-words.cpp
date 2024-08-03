@@ -10,9 +10,9 @@ string spinWords(string str) {
         if (i == str.length() || str[i] == ' ') {
             if (length >= 5)
                 for (int j = length - 1; j >= 0; j--)
-                    result += str.substr(i - length, j + 1);
+                    result += str[i - j - 1];
             else
-                result += str.substr(i - length, length + 1);
+                result += str.substr(i - length, length);
             length = 0;
             if (i < str.length())
                 result += " ";
@@ -26,7 +26,7 @@ string spinWords(string str) {
 int main() {
     string s;
     cout << "Enter a sentence: ";
-    getline(cin, s);
+    cin >> s;
     cout << spinWords(s) << endl;
     return 0;
 }
