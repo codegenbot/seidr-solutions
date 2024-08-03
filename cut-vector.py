@@ -1,11 +1,6 @@
-def cut_vector(vector):
-    min_diff = float("inf")
-    split_index = 0
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            split_index = i
-    return vector[:split_index], vector[split_index:]
+def cut_vector(nums):
+    left_sum = sum(nums[:i+1]) for i in range(len(nums))
+    min_diff = min(abs(sum(nums[:i+1]) - sum(nums[i:])) for i in range(len(nums)))
+    
+    best_index = [i for i, diff in enumerate([abs(sum(nums[:i+1]) - sum(nums[i:])) for i in range(len(nums))]) if diff == min_diff][0]
+    return nums[:best_index], nums[best_index:]
