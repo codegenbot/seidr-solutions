@@ -15,10 +15,10 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    assert(is_happy("abcde"));
-    assert(!is_happy("hello"));
-    assert(is_happy("coding"));
-    assert(!is_happy("good"));
+    assert(is_happy("abc"));
+    assert(is_happy("xyz"));
+    assert(!is_happy("abbc"));
+    assert(!is_happy("aabb"));
     
     return 0;
 }
