@@ -12,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
         std::string str2 = boost::any_cast<std::string>(b);
-        
+
         if (str1 > str2) {
             return a;
         }
@@ -20,13 +20,13 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return typeid(std::string);
         }
     }
     else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(int))) {
         std::string str = boost::any_cast<std::string>(b);
-        
+
         if (boost::any_cast<int>(a) > std::stoi(str)) {
             return a;
         }
@@ -34,10 +34,10 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return typeid(std::string);
         }
     }
     else {
-        return boost::any("None");
+        return typeid(std::string);
     }
 }
