@@ -1,4 +1,6 @@
 ```
+lst = [1, 2, 3, 4, 5]
+print(sum_squares(lst))
 def sum_squares(lst):
     total = 0
     for i in range(len(lst)):
