@@ -22,9 +22,9 @@ vector<int> leaders(vector<int>& nums) {
 
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> leadersRes = leaders(nums);
-    for(int i=0; i<leadersRes.size(); i++){
-        cout << leadersRes[i] << " ";
+    vector<int> result = leaders(nums);
+    for (int i : result) {
+        cout << i << " ";
     }
     return 0;
 }
