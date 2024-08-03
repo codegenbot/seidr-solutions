@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && ((num / 10) % 2 != 0 || num % 10 % 2 != 0)) {
@@ -12,8 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {100, 101, 102, -11, -12, -13};
-    int result = specialFilter(nums);
-    std::cout << "The number of elements that satisfy the condition is: " << result << std::endl;
+    assert(specialFilter({}) == 0);
+    vector<int> nums = {12, 15, 18, 21};
+    cout << specialFilter(nums) << endl; // Output: 4
     return 0;
 }
