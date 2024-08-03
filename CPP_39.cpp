@@ -5,9 +5,9 @@ int prime_fib(int n) {
     int a = 0, b = 1;
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
-            cout << a << endl;
+            printf("%d\n", a);
         } else {
-            cout << b << endl;
+            printf("%d\n", b);
         }
         int temp = a;
         a = b;
