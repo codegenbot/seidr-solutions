@@ -1,11 +1,7 @@
 ```
 def sum_squares():
-    lst = input("Enter a list of numbers separated by space: ").split()
-    try:
-        lst = [int(i) for i in lst]
-    except ValueError:
-        print("Invalid input. Please enter integers only.")
-        return
+    lst = input("Enter a list of numbers separated by space: ")
+    lst = [int(i) for i in lst.split()]
     total_sum = 0
     for i in range(len(lst)):
         if i % 3 == 0 and i % 4 != 0:
