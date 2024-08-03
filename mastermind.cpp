@@ -13,8 +13,8 @@ int main() {
     }
 
     int blackPegs = 0, whitePegs = 0;
-    vector<int> codeFreq(6, 0);
-    vector<int> guessFreq(6, 0);
+    vector<int> codeFreq(26, 0);
+    vector<int> guessFreq(26, 0);
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -25,12 +25,11 @@ int main() {
         }
     }
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeFreq[guess[i] - 'A'] > 0) {
-            whitePegs++;
-            codeFreq[guess[i] - 'A']--;
-        }
+    for (int i = 0; i < 26; ++i) {
+        whitePegs += min(codeFreq[i], guessFreq[i]);
     }
+
+    whitePegs -= blackPegs;
 
     cout << whitePegs << endl;
     cout << blackPegs << endl;
