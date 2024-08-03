@@ -4,15 +4,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() == 'a':
-                result += 'c'
+                result += '@'
             elif char.lower() == 'e':
-                result += 'g'
+                result += '3'
             elif char.lower() == 'i':
-                result += 'k'
+                result += '1'
             elif char.lower() == 'o':
-                result += 'q'
+                result += '0'
             elif char.lower() == 'u':
-                result += 'y'
+                result += 'u'
             else:
                 if char.islower():
                     result += chr(ord(char) + 3)
