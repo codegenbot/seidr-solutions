@@ -13,7 +13,8 @@ int bowlingScore(string s) {
         } else if (c == '/') {
             string left = s.substr(0, s.find('/'));
             string right = s.substr(s.find('/') + 1);
-            int leftPins = stoi(left) + stoi(right);
+            int leftPins = stoi(left) - 1;
+            int rightPins = stoi(right);
             score += 10 - leftPins;
             frame++;
             s.erase(0, s.find('/') + 2);
@@ -25,7 +26,8 @@ int bowlingScore(string s) {
                 if (!s.empty() && s[0] == '/') {
                     string left = s.substr(0, s.find('/'));
                     string right = s.substr(s.find('/') + 1);
-                    int leftPins = stoi(left) + stoi(right);
+                    int leftPins = stoi(left) - 1;
+                    int rightPins = stoi(right);
                     score += 10 - leftPins;
                     frame++;
                     s.erase(0, s.find('/') + 2);
