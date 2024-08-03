@@ -1,5 +1,7 @@
-def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a") if ch.islower() else ord(ch) for ch in s])
+import sys
 
-input_string = input("Enter a string to decode: ")
+def decode_shift(s: str):
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+
+input_string = sys.stdin.readline().rstrip()
 print(decode_shift(input_string))
