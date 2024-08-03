@@ -1,12 +1,21 @@
-string longest(vector<string> strings) {
-    if (strings.empty()) {
-        return "None";
-    }
-    string longestStr = strings[0];
-    for (const string& str : strings) {
-        if (str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)) {
-            longestStr = str;
+#include <string>
+
+string longest(vector<string> strings);
+
+string longest(vector<string> strings){
+    if(strings.empty()) return "None";
+    
+    string longest_str = strings[0];
+    for(const string& str : strings){
+        if(str.length() > longest_str.length() || (str.length() == longest_str.length() && str < longest_str)){
+            longest_str = str;
         }
     }
-    return longestStr;
+    
+    return longest_str;
+}
+
+int main(){
+    // Main function implementation here (if needed)
+    return 0;
 }
