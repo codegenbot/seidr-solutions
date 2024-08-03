@@ -3,9 +3,13 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
+
+vector<string> select_words(string s, int n);
 
 vector<string> select_words(string s, int n){
     vector<string> result;
@@ -32,6 +36,15 @@ vector<string> select_words(string s, int n){
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    vector<string> output = select_words("hello world from cpp", 2);
+    vector<string> expected_output = {"world", "cpp"};
+    assert(issame(output, expected_output));
+    
+    output = select_words("a b c d e f", 1);
+    expected_output = {"b", "c", "d", "f"};
+    assert(issame(output, expected_output));
+    
+    cout << "Tests passed successfully!" << endl;
+    
     return 0;
 }
