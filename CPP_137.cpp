@@ -2,28 +2,26 @@
 #include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    double da;
-    std::string sa;
+    double da, db;
+    std::string sa, sb;
 
     try {
         da = boost::any_cast<double>(a);
-        if (boost::any_cast<double>(b) > da) {
-            return b;
-        } else if (da > boost::any_cast<double>(b)) {
-            return a;
-        }
+        db = boost::any_cast<double>(b);
     } catch (...) {
         try {
             sa = boost::any_cast<std::string>(a);
-            if (sa < boost::any_cast<std::string>(b)) {
-                return a;
-            } else if (boost::any_cast<std::string>(b) < sa) {
-                return b;
-            }
+            sb = boost::any_cast<std::string>(b);
         } catch (...) {
-            return "None";
+            return a; // Return the first value if both are strings
         }
     }
 
-    return "None";
+    if (da > db) {
+        return a;
+    } else if (db > da) {
+        return b;
+    } else {
+        return a; // Return the first value if they are equal
+    }
 }
