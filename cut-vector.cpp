@@ -1,25 +1,25 @@
 #include <vector>
-#include <climits> 
-#include <cmath> 
+#include <climits>
+#include <numeric>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
-    for (int i = 1; i < n; i++) {
-        if (nums[i] - nums[0] == nums[n-1] - nums[i]) {
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), nums.begin(), nums.begin() + i);
-            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
-            return res;
-        }
-        int diff = abs(nums[i] - nums[0]) - abs(nums[n-1] - nums[i]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), nums.begin(), nums.begin() + i);
-            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> res;
+    
+    for(int i=0; i<v.size(); i++) {
+        vector<int> left(v.begin(), v.begin()+i);
+        vector<int> right(v.begin()+i, v.end());
+        
+        if(left.size() == 0 || right.size() == 0) continue;
+        
+        int diff = abs(std::accumulate(left.begin(), left.end(), 0)) - abs(std::accumulate(right.begin(), right.end(), 0));
+        
+        if(diff < min_diff) {
+            min_diff = diff;
+            res = {left, right};
         }
     }
+    
     return res;
+}
