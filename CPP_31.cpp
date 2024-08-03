@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cassert>
-
 bool is_prime(long long n) {
     if (n <= 1) {
         return false;
