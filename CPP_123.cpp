@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -23,6 +24,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    int n;
+    cin >> n;
+    vector<int> result = get_odd_collatz(n);
+    assert(issame(result, {1}));
     return 0;
 }
