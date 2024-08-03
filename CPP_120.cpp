@@ -1,7 +1,14 @@
 Here is the completed code:
 
 vector<int> maximum(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end());
-    reverse(arr.begin(), arr.end());
-    return vector<int>(arr.begin(), arr.begin() + k);
+    priority_queue<int> pq;
+    for (int num : arr) {
+        pq.push(num);
+    }
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        result.push_back(pq.top());
+        pq.pop();
+    }
+    return result;
 }
