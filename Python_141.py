@@ -1,14 +1,14 @@
 ```
 def file_name_check(file_name):
-    count = sum(c.isdigit() for c in file_name)
-    if count > 3:
+    if len([i for i in file_name if i.isdigit()]) > 3:
         return 'No'
-    if '.' not in file_name or file_name.count('.') != 1:
+    if file_name.count('.') != 1:
         return 'No'
-    pre_dot, post_dot = file_name.split('.')
-    if not pre_dot[0].isalpha():
+    before_dot = file_name.split('.')[0]
+    after_dot = file_name.split('.')[1]
+    if not before_dot or not before_dot[0].isalpha():
         return 'No'
-    allowed_extensions = ['txt', 'exe', 'dll']
-    if post_dot.lower() not in allowed_extensions:
+    valid_extensions = ['txt', 'exe', 'dll']
+    if after_dot not in valid_extensions:
         return 'No'
     return 'Yes'
