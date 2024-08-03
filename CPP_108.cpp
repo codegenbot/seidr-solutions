@@ -36,13 +36,15 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> numbers;
+    std::vector<int> n;
     int num;
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while ((std::cin >> num) && (num != -1)) {
-        numbers.push_back(num);
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1)
+            break;
+        n.push_back(num);
     }
-    int result = count_nums(numbers);
-    std::cout << "Number of positive sums: " << result << std::endl;
+    std::cout << "Count of numbers with positive sum: " << count_nums(n) << std::endl;
     return 0;
 }
