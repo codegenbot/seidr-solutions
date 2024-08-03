@@ -18,6 +18,6 @@ int main() {
     });
 
     assert(issame(arr, std::vector<int>{2, 4, 8, 16, 32}));
-
+    
     return 0;
 }
