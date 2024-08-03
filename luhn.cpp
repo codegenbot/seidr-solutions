@@ -1,29 +1,35 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhn(vector<int> num) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2 == 1)) {
-            int double_digit = digits[i] * 2;
-            if (double_digit > 9) {
-                double_digit -= 9;
+    bool doubleNext = false;
+    
+    for (int i = num.size() - 1; i >= 0; --i) {
+        int digit = num[i];
+        
+        if (doubleNext) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += double_digit;
-        } else {
-            sum += digits[i];
         }
+        
+        sum += digit;
+        doubleNext = !doubleNext;
     }
+    
     return sum;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
-        cin >> digits[i];
+    vector<int> num(n);
+    for(int i=0; i<n; ++i) {
+        cin >> num[i];
     }
-    cout << luhn(digits) << endl;
+    cout << luhn(num) << endl;
     return 0;
 }
