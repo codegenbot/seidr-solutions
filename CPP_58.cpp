@@ -7,6 +7,6 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(is_same({4, 3, 2, 8}, {}));
+    assert(is_same({4, 3, 2, 8}, std::vector<int>{}));
     return 0;
 }
