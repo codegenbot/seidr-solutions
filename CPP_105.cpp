@@ -25,7 +25,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         {8, "Eight"},
         {9, "Nine"}
     };
-    
+
     std::vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -42,5 +42,3 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     return result;
 }
-
-assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
