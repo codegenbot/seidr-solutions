@@ -4,6 +4,7 @@
 #include <cassert>
 
 using namespace std;
+using std::any_cast;
 
 any compare_one(const any& a, const any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
