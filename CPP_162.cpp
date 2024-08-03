@@ -1,7 +1,4 @@
 #include <initializer_list>
-#include <algorithm>
-#include <iomanip>
-#include <sstream>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
