@@ -1,11 +1,16 @@
-int sum_squares(vector<float> lst){
+#include <vector>
+#include <cmath>
+#include <cassert>
+
+int sum_squares(std::vector<float> lst){
     int total = 0;
     for(float x : lst){
-        total += ceil(x) * ceil(x);
+        total += std::ceil(x) * std::ceil(x);
     }
     return total;
+
 }
 
 int main() {
-    assert(sum_squares({-1,1,0})==2); 
+    assert(sum_squares({-1,1,0})==2);
 }
