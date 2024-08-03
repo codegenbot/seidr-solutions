@@ -1,11 +1,13 @@
-```cpp
+// Problem description: 
+// Check whether all keys in a dictionary are either all lower case or all upper case.
+
 bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (dict.empty()) return false; 
-        if (!allLower && !allUpper) break; 
+        if (dict.empty()) return false; // empty map
+        if (!allLower && !allUpper) break; // not both lower and upper
 
         string key = pair.first;
         for (char& c : key) {
