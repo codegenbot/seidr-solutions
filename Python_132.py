@@ -8,4 +8,4 @@ def is_nested(string):
             if len(stack) == 0:
                 return False
             stack.pop()
-    return len(stack) != 0
+    return len(stack) > 0
