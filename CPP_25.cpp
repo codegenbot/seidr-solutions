@@ -14,12 +14,26 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> factors = factorize(n);
-    for (int factor : factors) {
-        cout << factor << " ";
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
     }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    vector<int> test1 = factorize(24);
+    vector<int> test2 = factorize(24);
+    assert(issame(test1, test2));
+
+    vector<int> test3 = factorize(15);
+    vector<int> test4 = factorize(20);
+    assert(!issame(test3, test4));
+
     return 0;
-}  
+}
