@@ -7,18 +7,10 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"},
