@@ -1,30 +1,32 @@
 vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+    vector<string> result;
     for (float grade : grades) {
+        string letterGrade;
         if (grade >= 4.0)
-            letter_grades.push_back("A+");
+            letterGrade = "A+";
         else if (grade > 3.7)
-            letter_grades.push_back("A");
+            letterGrade = "A";
         else if (grade > 3.3)
-            letter_grades.push_back("A-");
+            letterGrade = "A-";
         else if (grade > 3.0)
-            letter_grades.push_back("B+");
+            letterGrade = "B+");
         else if (grade > 2.7)
-            letter_grades.push_back("B");
+            letterGrade = "B";
         else if (grade > 2.3)
-            letter_grades.push_back("B-");
+            letterGrade = "B-";
         else if (grade > 2.0)
-            letter_grades.push_back("C+");
+            letterGrade = "C+";
         else if (grade > 1.7)
-            letter_grades.push_back("C");
+            letterGrade = "C";
         else if (grade > 1.3)
-            letter_grades.push_back("C-");
+            letterGrade = "C-";
         else if (grade > 1.0)
-            letter_grades.push_back("D+");
+            letterGrade = "D+";
         else if (grade > 0.7)
-            letter_grades.push_back("D");
+            letterGrade = "D";
         else
-            letter_grades.push_back("E");
+            letterGrade = "E";
+        result.push_back(letterGrade);
     }
-    return letter_grades;
+    return result;
 }
