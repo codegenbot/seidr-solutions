@@ -12,21 +12,29 @@ int gcd(int a, int b) {
 
 std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
     std::vector<int> indices;
-    // Implement your logic to find indices of target in text
+    int textSize = text.size();
+    int targetSize = target.size();
+    
+    for (int i = 0; i <= textSize - targetSize; ++i) {
+        if (text.substr(i, targetSize) == target) {
+            indices.push_back(i);
+        }
+    }
+    
     return indices;
 }
 
 int main() {
     int a, b;
     std::cin >> a;
-    std::cin.ignore();
     std::cin >> b;
-    
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    std::cin.ignore();
+    getline(std::cin, text);
+    getline(std::cin, target);
+
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";

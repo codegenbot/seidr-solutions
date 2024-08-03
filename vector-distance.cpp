@@ -4,27 +4,25 @@
 #include <cmath>
 
 int main() {
-    long double n;
+    int n;
     std::cin >> n;
 
-    std::vector<long double> vec1(n);
-    for (long double i = 0; i < n; ++i) {
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
+    
+    double distance = 0.0;
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-    
-    std::vector<long double> vec2(n);
-    for (long double i = 0; i < n; ++i) {
+
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
+        distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    long double sum = 0.0;
-    for (long double i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
-    }
-
-    long double distance = std::sqrt(sum);
-
-    std::cout << std::fixed << std::setprecision(21) << distance << std::endl;
+    distance = sqrt(distance);
+    
+    std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
 
     return 0;
 }
