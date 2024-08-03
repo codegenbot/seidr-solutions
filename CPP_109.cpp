@@ -1,24 +1,20 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-using namespace std;
-
-bool move_one_ball(vector<int>& arr);
-
-int main() {
-    vector<int> arr = {2, 4, 1, 5, 3};
-    cout << move_one_ball(arr) << endl;
-    return 0;
+bool is_sorted(const std::vector<int>& v) {
+    return std::is_sorted(v.begin(), v.end());
 }
 
-bool move_one_ball(vector<int>& arr){
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
-    for(int i=0; i<n; i++){
-        if(is_sorted(arr.begin(), arr.end())){
+    if (n == 0) {
+        return false;
+    }
+    for (int i = 0; i < n; i++) {
+        if (is_sorted(arr)) {
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
