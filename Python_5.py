@@ -1,4 +1,4 @@
-def join_with_delimeter(numbers, delimeter):
+def process_numbers(numbers, delimeter):
     result = []
     for num in numbers:
         result.extend([num, delimeter])
