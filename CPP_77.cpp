@@ -8,12 +8,12 @@ bool iscuber(int a){
 }
 
 int main() {
-    int num;
+    int n;
     std::cout << "Enter an integer: ";
-    std::cin >> num;
-    if(iscuber(num))
-        std::cout << num << " is a perfect cube.\n";
+    std::cin >> n;
+    if(iscuber(n))
+        std::cout << n << " is a cube of an integer.\n";
     else
-        std::cout << num << " is not a perfect cube.\n";
+        std::cout << n << " is not a cube of an integer.\n";
     return 0;
 }
