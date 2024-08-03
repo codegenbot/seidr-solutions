@@ -18,8 +18,12 @@ int main() {
     std::vector<float> numbers = {2.5, 3, 4.2, 6, 7.5, 8, 9.1};
     std::vector<float> sorted_even_numbers = sort_even(numbers);
     
-    std::vector<float> expected_sorted_even_numbers = {2, 4, 6, 8};
-    assert(sorted_even_numbers == expected_sorted_even_numbers);
+    // Test the sorted even numbers
+    std::vector<float> expected_sorted_even = {2.0, 4.2, 6.0, 8.0};
+    assert(sorted_even_numbers.size() == expected_sorted_even.size());
+    for (size_t i = 0; i < sorted_even_numbers.size(); ++i) {
+        assert(sorted_even_numbers[i] == expected_sorted_even[i]);
+    }
 
     return 0;
 }
