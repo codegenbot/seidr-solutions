@@ -14,5 +14,5 @@ std::string intersection(vector<int> interval1, vector<int> interval2){
         }
     }
 
-    return isPrime ? "YES" : "NO";
+    return std::to_string(isPrime);
 }
