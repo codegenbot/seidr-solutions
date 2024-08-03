@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool areEqual(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -15,6 +15,6 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(areEqual(eat(4, 5, 1), {5, 0}));
     return 0;
 }
