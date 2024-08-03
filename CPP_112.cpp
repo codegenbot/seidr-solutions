@@ -1,11 +1,20 @@
-vector<string> reverse_delete(string s, string c){
-    string result;
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = "";
+    for (char ch : s) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string reverse_result = result;
-    reverse(reverse_result.begin(), reverse_result.end());
-    return {result, result == reverse_result ? "True" : "False"};
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+    return {result, issame(result, result_reverse) ? "True" : "False"};
 }
