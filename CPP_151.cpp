@@ -1,4 +1,3 @@
-```cpp
 int main() {
     vector<float> lst;
     long long double_the_difference(vector<float> input_list) {
