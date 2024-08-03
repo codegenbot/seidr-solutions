@@ -1,4 +1,4 @@
 ```
-def add(x: int, y: int):
+def add(x: int, y: int) -> None:
     total = x + y
-    print("Sum of two numbers is:", total)
+    print(total)
