@@ -20,4 +20,3 @@ string anti_shuffle(const string& s) {
     }
     return result;
 }
-```
