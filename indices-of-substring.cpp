@@ -4,14 +4,15 @@
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
     std::vector<int> indices;
     size_t pos = 0;
 
-    while (pos <= text.length() && (pos = text.find(target, pos)) != std::string::npos) {
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos += target.length();
+        pos += 1; // Increment by 1 for overlapping matches
     }
 
     for (int i : indices) {
