@@ -7,16 +7,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     for (int num : arr) {
         switch (num) {
-            case 4:
-                result.push_back("Four");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
-            // Handle other cases if needed
+            case 4: result.push_back("Four"); break;
+            case 8: result.push_back("Eight"); break;
+            case 9: result.push_back("Nine"); break;
+            default: result.push_back("Unknown"); break;
         }
     }
 
