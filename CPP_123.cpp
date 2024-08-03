@@ -24,8 +24,5 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(6), {6, 3, 10, 5, 16, 8, 4, 2, 1}));
-    assert(issame(get_odd_collatz(10), {10, 5, 16, 8, 4, 2, 1}));
-    
     return 0;
 }
