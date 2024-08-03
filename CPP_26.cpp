@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 
 std::vector<int> remove_duplicates(std::vector<int> vec) {
     vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
@@ -17,17 +16,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-
+    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
     input = remove_duplicates(input);
-    
-    for (int num : input) {
-        std::cout << num << " ";
-    }
+    assert(issame(input, std::vector<int>{1, 4, 5}));
     
     return 0;
 }
