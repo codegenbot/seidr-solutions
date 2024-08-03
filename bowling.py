@@ -1,37 +1,26 @@
-Here is the Python solution for the bowling problem:
-
-```
-def bowling_score(gutter):
+def bowling_score(frames):
     score = 0
     roll = 0
-    prev_rolls = [0, 0]
-    for char in gutter:
-        if char.isdigit():
-            if len(prev_rolls) < 2:
-                prev_rolls.append(int(char))
+    for frame in frames.split("/"):
+        if len(frame) > 1:
+            if "X" in frame:
+                score += 10 + 10 * (roll // 2)
+                roll = 0
             else:
-                if len(prev_rolls) == 2 and (prev_rolls[0] + prev_rolls[1]) == 10:
-                    score += 10
-                elif roll >= 1:
-                    score += min(prev_rolls[0], prev_rolls[1]) * 2
-                else:
-                    score += sum(prev_rolls)
-                prev_rolls = [int(char)]
-        else:
-            if char == 'X':
-                score += 10
-                prev_rolls = [10]
-            elif char == '-':
-                score += sum(prev_rolls)
-                prev_rolls = [0, 0]
-            else:
-                prev_rolls[roll % 2] = int(char)
-        roll += 1
-    if len(prev_rolls) > 0:
-        if len(prev_rolls) < 2:
-            score += sum(prev_rolls)
-        elif sum(prev_rolls) == 10:
+                first_roll = int(frame[0])
+                second_roll = 10 - first_roll
+                score += (
+                    10
+                    + min(first_roll, second_roll) * (roll // 2)
+                    + max(first_roll, second_roll)
+                )
+                roll = 0
+        elif len(frame) == 1 and frame == "X":
             score += 10
+            roll = 0
         else:
-            score += min(prev_rolls[0], prev_rolls[1]) * 2
+            for p in frame:
+                if p.isdigit():
+                    score += int(p)
+            roll += sum(map(int, frame))
     return score
