@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cstring>
 
@@ -9,7 +10,7 @@ string words_in_sentence(string sentence){
             int j = 0;
             while(j < sentence.length()){
                 len++;
-                j += (sentence.find(' ', j) - j);
+                j += sentence.find_first_not_of(' ', j);
                 if(len == i) {
                     result += &sentence[j-1] + " ";
                     len = 0;
