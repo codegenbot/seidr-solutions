@@ -3,7 +3,7 @@
 
 vector<int> parse_nested_parens(string paren_string);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
