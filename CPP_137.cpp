@@ -1,26 +1,11 @@
-#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    double da, db;
-    std::string sa, sb;
+using namespace std;
 
-    try {
-        da = boost::any_cast<double>(a);
-        db = boost::any_cast<double>(b);
-    } catch (...) {
-        try {
-            sa = boost::any_cast<std::string>(a);
-            sb = boost::any_cast<std::string>(b);
-        } catch (...) {
-            return a; // return a as it is
-        }
-    }
-
-    if (da > db) {
+string compare_one(string a, string b) {
+    if (a > b)
         return a;
-    } else if (db > da) {
+    else
         return b;
-    } else {
-        return a; // return a if both are equal
-    }
 }
