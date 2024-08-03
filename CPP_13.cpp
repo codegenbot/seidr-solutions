@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cassert>
+
 int greatest_common_divisor(int a, int b) {
     if (b == 0)
         return a;
@@ -5,8 +8,11 @@ int greatest_common_divisor(int a, int b) {
 }
 
 int main() {
-    assert(greatest_common_divisor(144, 60) == 12);
-    assert(greatest_common_divisor(10, 5) == 5);
-    assert(greatest_common_divisor(17, 5) == 1);
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+
+    std::cout << "Greatest Common Divisor: " << greatest_common_divisor(a, b) << std::endl;
+
     return 0;
 }
