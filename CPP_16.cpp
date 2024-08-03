@@ -1,6 +1,5 @@
 #include <string>
-
-int count_distinct_characters(std::string str){
+int count_distinct_characters(string str){
     transform(str.begin(), str.end(), str.begin(), ::tolower);
     sort(str.begin(), str.end());
     auto last = unique(str.begin(), str.end());
