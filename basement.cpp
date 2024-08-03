@@ -1,15 +1,9 @@
-#include <vector>
-using namespace std;
-
-int firstNegIndex(vector<int>& nums) {
-    int ans = -1;
+int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
+    for(int i=0; i<nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0) {
-            ans = i;
-            break;
-        }
+        if(sum < 0)
+            return i;
     }
-    return ans;
+    return -1; // return -1 as the sum of all integers is always non-negative
 }
