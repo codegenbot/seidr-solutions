@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -13,7 +13,7 @@ vector<int> even_odd_palindrome(int n){
         if(num == rev_num){
             if(i % 2 == 0){
                 result[0]++;
-            } else {
+            } else{
                 result[1]++;
             }
         }
@@ -22,8 +22,9 @@ vector<int> even_odd_palindrome(int n){
 }
 
 int main(){
+    // Test the even_odd_palindrome function
     vector<int> result = even_odd_palindrome(1);
     cout << result[0] << " " << result[1] << endl;
-
+    
     return 0;
 }
