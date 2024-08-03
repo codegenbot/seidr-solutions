@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 bool below_threshold(std::vector<int> l, int t);
 
@@ -8,29 +9,19 @@ int main() {
     int threshold;
 
     // Read input from user
-    int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
+    std::cout << "Enter the list of numbers (space-separated): ";
+    for (std::string num; std::getline(std::cin, num), !num.empty(); ) {
+        numbers.push_back(std::stoi(num));
     }
-    
-    std::cout << "Enter threshold: ";
+    std::cout << "Enter the threshold: ";
     std::cin >> threshold;
+    std::cin.ignore();
 
-    // Check if all elements are below the threshold
+    // Check if all numbers are below the threshold
     bool result = below_threshold(numbers, threshold);
 
-    // Print output
-    if (result) {
-        std::cout << "All elements are below the threshold." << std::endl;
-    } else {
-        std::cout << "At least one element is not below the threshold." << std::endl;
-    }
+    // Print the output
+    std::cout << (result ? "All numbers are below the threshold." : "At least one number is not below the threshold.") << std::endl;
 
     return 0;
 }
