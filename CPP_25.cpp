@@ -2,10 +2,17 @@
 #include <vector>
 #include <cassert>
 
+bool is_same(std::vector<int> a, std::vector<int> b);
+std::vector<int> factorize(int n);
+
 bool is_same(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -18,7 +25,9 @@ std::vector<int> factorize(int n) {
             n /= i;
         }
     }
-    if (n > 1) factors.push_back(n);
+    if (n > 1) {
+        factors.push_back(n);
+    }
     return factors;
 }
 
