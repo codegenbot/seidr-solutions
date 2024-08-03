@@ -7,3 +7,7 @@ std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
     }
     return result;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
