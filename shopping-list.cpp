@@ -6,18 +6,19 @@ int main() {
     int n;
     cin >> n;
     vector<float> prices(n);
+    vector<float> discounts(n);
+
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
 
-    vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
 
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (100.0 - discounts[i]) * 0.01;
+        total += prices[i] * (100.0 - discounts[i]) / 100.0;
     }
 
     cout << fixed;
