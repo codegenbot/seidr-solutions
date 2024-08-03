@@ -1,5 +1,10 @@
-Here is the completed code:
+Here's the completed code:
 
 bool is_simple_power(int x, int n) {
-    return pow(n, log(x)/log(n)) == x;
+    if (n == 0)
+        return false;
+
+    double res = pow(n, round(log(x) / log(n)));
+
+    return res == x;
 }
