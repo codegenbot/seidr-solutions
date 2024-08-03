@@ -3,6 +3,14 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     std::string temp = "";
@@ -25,32 +33,17 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     std::string s, c;
-    std::cout << "Enter string: ";
+    std::cout << "Enter the string: ";
     std::cin >> s;
-    std::cout << "Enter character to delete: ";
+    std::cout << "Enter the character to delete: ";
     std::cin >> c;
-    
-    std::vector<std::string> result = reverse_delete(s, c);
-    
-    if (issame({s}, result)) {
-        std::cout << "Result: Reversed string is the same as original." << std::endl;
+    std::vector<std::string> output = reverse_delete(s, c);
+    if (issame({s}, output)) {
+        std::cout << "The original string is the same as the reversed string." << std::endl;
     } else {
-        std::cout << "Result: Reversed string is different from original." << std::endl;
+        std::cout << "The original string and the reversed string are different." << std::endl;
     }
-    
     return 0;
 }
