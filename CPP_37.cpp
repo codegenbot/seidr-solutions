@@ -2,7 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<float> sort_even(const std::vector<float>& v);
+namespace std {
+    std::vector<float> sort_even(const std::vector<float>& v);
+
+    bool issame(const std::vector<float>& a, const std::vector<float>& b);
+}
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
