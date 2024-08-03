@@ -4,11 +4,10 @@
 
 using namespace std;
 
-vector<int> compare(vector<int> game, vector<int> guess) {
+vector<int> compare(const vector<int>& game, const vector<int>& guess) {
     vector<int> result;
-    for (int i = 0; i < game.size(); i++) {
-        result.push_back(abs(game[i] - guess[i]));
-    }
+    transform(game.begin(), game.end(), guess.begin(), back_inserter(result), 
+              [](int a, int b) { return abs(a - b); });
     return result;
 }
 
