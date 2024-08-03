@@ -3,12 +3,12 @@
 
 using namespace std;
 
-map<char, int> histogram(const string& s) {
-    map<char, int> result;
-    for (char c : s) {
-        result[c]++;
+map<char, int> histogram(const string& str) {
+    map<char, int> hist;
+    for (char c : str) {
+        hist[c]++;
     }
-    return result;
+    return hist;
 }
 
 bool issame(const map<char, int>& a, const map<char, int>& b) {
