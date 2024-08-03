@@ -17,7 +17,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (strA < strB) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
         string strA = boost::any_cast<string>(a);
@@ -27,46 +27,19 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (strA < to_string(numB)) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else if (a.type() != typeid(string) && b.type() == typeid(string)) {
-        string strB = boost::any_cast<string>(b);
         int numA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
         if (to_string(numA) > strB) {
             return a;
         } else if (to_string(numA) < strB) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else {
-        return boost::any("None");
+        return boost::any((string)"None");
     }
-}
-
-int main() {
-    int x;
-    double y;
-    string s;
-
-    cout << "Enter an integer: ";
-    cin >> x;
-    cout << "Enter a double: ";
-    cin >> y;
-    cout << "Enter a string: ";
-    cin.ignore();
-    getline(cin, s);
-
-    boost::any a = boost::any(x);
-    boost::any b = boost::any(y);
-    boost::any c = boost::any(s);
-
-    boost::any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    } else {
-        cout << "The result is: " << boost::any_cast<double>(result) << endl;
-    }
-
-    return 0;
 }
