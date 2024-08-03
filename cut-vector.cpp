@@ -21,14 +21,10 @@ int main() {
     for (auto &i : vec) cin >> i;
     auto result = cutVector(vec);
     cout << "1 ";
-    for (int i = 0; i < result[0].size(); ++i) {
-        cout << result[0][i] << " ";
-    }
+    for (auto it = result[0].begin(); it != result[0].end(); ++it) cout << *it << " ";
     cout << "\n";
     cout << "0 ";
-    for (int i = 0; i < result[1].size(); ++i) {
-        cout << result[1][i] << " ";
-    }
+    for (auto it = result[1].begin(); it != result[1].end(); ++it) cout << *it << " ";
     cout << "\n";
     return 0;
 }
