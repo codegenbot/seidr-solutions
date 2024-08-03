@@ -1,4 +1,3 @@
-```
 #include <vector>
 using namespace std;
 
@@ -26,6 +25,7 @@ int main() {
         cout << result[0][i] << " ";
     }
     cout << "\n";
+    
     cout << "0 ";
     for (int i = 0; i < result[1].size(); ++i) {
         cout << result[1][i] << " ";
