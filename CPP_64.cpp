@@ -3,7 +3,7 @@
 #include <cassert>
 
 int vowels_count(std::string s) {
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
