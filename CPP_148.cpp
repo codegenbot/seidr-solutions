@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm> // Add this header
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
 }
 
@@ -36,6 +36,6 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
 }
 
 int main() {
-    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn", "Uranus"})); 
+    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn", "Uranus"}));
     return 0;
 }
