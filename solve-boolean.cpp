@@ -1,34 +1,33 @@
-bool evaluateBoolean(string expression) {
-    stack<char> st;
-    for (int i = expression.length() - 1; i >= 0; --i) {
-        char c = expression[i];
-        if (c == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return true;
-            }
-            bool left = st.top() == 'T';
-            st.pop();
-            bool right = st.top() == 'F' || st.top() == '&';
-            st.pop();
-            st.push((left && right) ? '&' : !right);
-        } else if (c == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return true;
-            }
-            bool left = st.top() == 'T';
-            st.pop();
-            bool right = st.top() == 'F' || st.top() == '|';
-            st.pop();
-            st.push((left || right) ? '|' : !right);
-        } else {
-            st.push(c == 't' ? 'T' : c == 'f' ? 'F' : (c == '&' ? '&' : '|'));
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool result = false;
+    for (char c : s) {
+        if (c == 'T' || c == 't')
+            return true;
+        else if (c == 'F' || c == 'f')
+            return false;
+        else if (c == '&') {
+            if (result)
+                result = true;
+            else
+                result = false;
+        } 
+        else if (c == '|') {
+            if (result)
+                result = true;
+            else
+                result = false;
         }
     }
-    return st.top() == 'T';
+    return result;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
