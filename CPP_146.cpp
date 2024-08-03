@@ -13,14 +13,7 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // add your test cases here
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    cout << "Number of special numbers: " << specialFilter(nums) << endl;
+    vector<int> nums = {12, 14, 16, 17};
+    cout << specialFilter(nums) << endl;
     return 0;
 }
