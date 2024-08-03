@@ -18,7 +18,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::string words_string = "ahmed,gamal";
+    std::string words_string = "ahmed, gamal"; // Corrected formatting of the input string
     assert(issame(split(words_string, ','), {"ahmed", "gamal"}));
     return 0;
 }
