@@ -1,10 +1,15 @@
+Here is the completed code:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-string squareDigits(string input) {
-    string result = "";
-    for (char c : input) {
+using namespace std;
+
+string squareDigits(int n) {
+    string str = to_string(n);
+    string result;
+    for (char c : str) {
         int digit = c - '0';
         result += to_string(digit * digit);
     }
@@ -12,11 +17,9 @@ string squareDigits(string input) {
 }
 
 int main() {
-    std::cout << squareDigits("0") << std::endl;  // output: 0
-    std::cout << squareDigits("1") << std::endl;  // output: 1
-    std::cout << squareDigits("2") << std::endl;  // output: 4
-    std::cout << squareDigits("3") << std::endl;  // output: 9
-    std::cout << squareDigits("4") << std::endl;  // output: 16
-
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    cout << "The square digits of " << n << " is " << squareDigits(n) << endl;
     return 0;
 }
