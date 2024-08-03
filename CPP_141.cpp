@@ -1,26 +1,16 @@
+```cpp
+string file_name_check(string file_name);
 string file_name_check(string file_name){
+    int dot_pos = file_name.find('.');
+    if(dot_pos == string::npos || dot_pos > 0 && !isalpha(file_name[0])){
+        return "No";
+    }
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
     int digit_count = 0;
-    int dot_count = 0;
-    bool valid_start = false;
-
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        } else if(file_name[i] == '.'){
-            dot_count++;
-        } else if(i==0 && isalpha(file_name[i])){
-            valid_start = true;
-        }
+    for(char c : before_dot) if(isdigit(c)) digit_count++;
+    if(digit_count > 3 || after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
+        return "No";
     }
-
-    string extension = file_name.substr(file_name.find('.')+1);
-    bool valid_extension = false;
-
-    for(int i=0; i<extension.length(); i++){
-        if(extension[i] == 't' || extension[i] == 'x' || extension[i] == 'd' || extension[i] == 'l'){
-            valid_extension = true;
-        }
-    }
-
-    return (digit_count <= 3 && dot_count == 1 && valid_start && valid_extension) ? "Yes" : "No";
+    return "Yes";
 }

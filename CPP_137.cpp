@@ -1,46 +1,26 @@
-```
-#include <iostream>
-#include<string>
 #include <boost/any.hpp>
 
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+    double da, db;
+    std::string sa, sb;
+
+    try {
+        da = boost::any_cast<double>(a);
+        db = boost::any_cast<double>(b);
+    } catch (...) {
+        try {
+            sa = boost::any_cast<std::string>(a);
+            sb = boost::any_cast<std::string>(b);
+        } catch (...) {
+            return a;
+        }
+    }
+
+    if (da > db) {
+        return a;
+    } else if (db > da) {
         return b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strA > strB) {
-            return a;
-        } else if (strA < strB) {
-            return b;
-        } else {
-            return typeid(string);
-        }
-    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        int bInt = boost::any_cast<int>(b);
-        if (strA > to_string(bInt)) {
-            return a;
-        } else if (strA < to_string(bInt)) {
-            return b;
-        } else {
-            return typeid(string);
-        }
-    } else if (a.type() != typeid(string) && b.type() == typeid(string)) {
-        int aInt = boost::any_cast<int>(a);
-        string strB = boost::any_cast<string>(b);
-        if (to_string(aInt) > strB) {
-            return a;
-        } else if (to_string(aInt) < strB) {
-            return b;
-        } else {
-            return typeid(string);
-        }
     } else {
-        return typeid(string);
+        return a;
     }
 }
