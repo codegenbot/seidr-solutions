@@ -1,18 +1,15 @@
-#include <cmath>
-
-bool is_prime(int n) {
+int isPrime(int n) {
     if (n <= 1) {
-        return false;
+        return 0;
     }
-    for (int i = 2; i <= sqrt(n); i++) {
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            return false;
+            return 0;
         }
     }
-    return true;
+    return 1;
 }
 
-bool prime_length(string str) {
-    int length = str.length();
-    return is_prime(length);
+bool prime_length(string str){
+    return isPrime(str.length());
 }
