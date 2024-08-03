@@ -1,18 +1,25 @@
+#include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = false;
     for (char c : s) {
-        if (c == 't')
+        if (c == 'T' || c == 't')
             return true;
-        else if (c == 'f')
+        else if (c == 'F' || c == 'f')
             return false;
         else if (c == '&') {
-            result = false;
+            if (result)
+                result = true;
+            else
+                result = false;
         } 
         else if (c == '|') {
-            result = true;
+            if (result)
+                result = true;
+            else
+                result = false;
         }
     }
     return result;
