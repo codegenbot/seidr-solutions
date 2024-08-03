@@ -4,9 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -25,7 +25,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         {8, "Eight"},
         {9, "Nine"}
     };
-    
+
     std::vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -43,5 +43,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-// Fix the assert statement to compare vectors properly
-assert(issame(by_length({9, 4, 8}), std::vector<std::string>{"Nine", "Eight", "Four"}));
+assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
