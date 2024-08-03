@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
-#include <cassert>
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -12,21 +11,19 @@ std::any compare_one(const std::any& a, const std::any& b) {
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = std::any_cast<std::string>(a);
         std::string strB = std::any_cast<std::string>(b);
-
         if (strA.find_first_of(".,") != std::string::npos) {
             std::replace(strA.begin(), strA.end(), ',', '.');
         }
         if (strB.find_first_of(".,") != std::string::npos) {
             std::replace(strB.begin(), strB.end(), ',', '.');
         }
-
         return (std::stod(strA) > std::stod(strB)) ? a : b;
     }
-    return std::any(std::string("None"));
+    return std::any("None");
 }
 
 int main() {
-    if (std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None") {
+    if (std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None") {
         std::cout << "Comparison successful!" << std::endl;
     } else {
         std::cout << "Comparison failed!" << std::endl;
