@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::string;
 
 string kebabToCamel(string s) {
     string result = "";
