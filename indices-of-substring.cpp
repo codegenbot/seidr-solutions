@@ -28,3 +28,4 @@ int main() {
     for (auto i : res)
         cout << i << " ";
     return 0;
+}
