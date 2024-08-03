@@ -12,5 +12,5 @@ def search(lst):
             max_num = num
     return max_num
 
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-print(search(numbers))
+numbers = input("Enter the numbers separated by space: ").split()
+print(search([int(num) for num in numbers]))
