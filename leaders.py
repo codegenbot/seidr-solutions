@@ -1,9 +1,6 @@
-def leaders(a):
-    n = len(a)
-    leaders_list = [a[n - 1]]
+Here is the solution:
 
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            leaders_list.append(a[i])
+def leaders(vector):
+    return [vector[i] for i in range(len(vector)-1, -1, -1) if all(x <= vector[i] for x in vector[i+1:])]
 
-    return reversed(leaders_list)
+print(leaders([int(i) for i in input().split()]))
