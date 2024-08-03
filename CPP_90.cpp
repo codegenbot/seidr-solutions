@@ -3,7 +3,7 @@ using namespace std;
 
 int next_smallest(vector<int> lst) {
     vector<int> v = lst;
-    if(v.size() < 2) return -1; // Return None (or -1 in this case)
+    if(v.size() < 2) return -1; 
     sort(v.begin(), v.end());
     for(int i=0; i<v.size()-1; i++) {
         if(v[i] != v[i+1]) {
@@ -11,5 +11,5 @@ int next_smallest(vector<int> lst) {
             else return v[i];
         }
     }
-    return -1; // Return None (or -1 in this case)
+    return -1; 
 }
