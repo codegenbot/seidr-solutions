@@ -14,6 +14,6 @@ vector<int> filter_integers(list<int> values) {
 }
 
 int main() {
-    assert(filter_integers({3, 5, 3, 3, 7, 8}) == vector<int>{3, 5, 3, 3, 7, 8});
+    assert(issame(filter_integers({3, 5, 3, 3, 7, 8}), {3, 5, 3, 3, 7, 8}));
     return 0;
 }
