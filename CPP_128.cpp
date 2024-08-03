@@ -1,14 +1,13 @@
 int prod_signs(vector<int> arr) {
-    int product = 1;
-    long long sum = 0;
-
+    if (arr.empty()) return -32768;
+    int product_of_signs = 1;
     for (int num : arr) {
-        if (num == 0) {
-            return -32768; // Check for zero
-        }
-        product *= abs(num); // Multiply by absolute value of each number
-        sum += abs(num); // Add absolute values to the sum
+        product_of_signs *= ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
     }
-
-    return product * sum;
+    int sum_of_magnitudes = 0;
+    for (int num : arr) {
+        if (product_of_signs == -1 || product_of_signs == 1)
+            sum_of_magnitudes += abs(num);
+    }
+    return sum_of_magnitudes * product_of_signs;
 }
