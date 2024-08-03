@@ -1,24 +1,20 @@
-Here is the solution:
+#include <algorithm>
+using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique(l.begin(), l.end()).end());
+    vector<int> result(unique_copy(l.begin(), l.end()));
+    sort(result.begin(), result.end());
     return result;
 }
 
-vector<int>::iterator
-unique(vector<int>::iterator first, vector<int>::iterator last) {
+std::vector<int>::iterator unique_copy(std::vector<int>::iterator first, std::vector<int>::iterator last) {
     if (first == last)
-        return last;
-
-    vector<int>::iterator i = first;
-    for (; i != last; ++i) {
-        if (std::find_first_of(i + 1, last, *i) == last)
+        return first;
+    for (; first != last; ++first) {
+        if (first + 1 != last && *first == *(first+1))
             continue;
-        *i = *result++;
+        *first = *unique_copy;
+        result++;
     }
-    while (last != i) {
-        *(--last) = 0;
-    }
-    return ++(result = unique_result);
+    return --first;
 }
-vector<int> result;
