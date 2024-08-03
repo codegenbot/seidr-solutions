@@ -20,22 +20,5 @@ vector<int> unique(vector<int> l) {
     }
     sort(result.begin(), result.end());
     return result;
-}
 
-vector<int> unique(vector<int> l) {
-    vector<int> result;
-    for (int i : l) {
-        bool found = false;
-        for (int j : result) {
-            if (i == j) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(i);
-        }
-    }
-    sort(result.begin(), result.end());
-    return result;
 }
