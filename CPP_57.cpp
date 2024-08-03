@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 bool monotonic(std::vector<int> l);
@@ -14,7 +13,7 @@ bool monotonic(std::vector<int> l) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::cout << std::boolalpha << monotonic(arr) << std::endl;
+    std::vector<int> l = {1, 2, 3, 4, 5};
+    std::cout << std::boolalpha << monotonic(l) << std::endl;
     return 0;
 }
