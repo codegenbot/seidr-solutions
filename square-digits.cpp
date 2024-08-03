@@ -1,10 +1,12 @@
-string squareDigits(string n) {
-    string result = "";
-    for(int i=0; i<n.length(); i++){
-        int digit = n[i] - '0';
-        int squaredDigit = digit * digit;
-        char c = (char)('0' + squaredDigit);
-        result += c;
+Here is the solution:
+
+string squareDigits(long int N) {
+    string res = "";
+    while(N > 0) {
+        long int digit = N % 10;
+        N /= 10;
+        res += to_string(digit * digit);
     }
-    return result;
+    reverse(res.begin(), res.end());
+    return res;
 }
