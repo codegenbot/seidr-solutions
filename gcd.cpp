@@ -36,7 +36,7 @@ int main() {
     int a, b;
     cin >> a >> b;
     
-    cin.ignore(); // Consume the newline character
+    cin.ignore();
     
     string text, target;
     getline(cin, text);
