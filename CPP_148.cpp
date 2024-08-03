@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
@@ -12,7 +12,7 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
     std::vector<std::string> result;
     int start = -1, end = -1;
 
-    for (size_t i = 0; i < planets.size(); i++) {
+    for (int i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
             start = i;
         }
