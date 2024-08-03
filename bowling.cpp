@@ -1,5 +1,7 @@
-```cpp
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -9,8 +11,9 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            int pins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 1)));
-            score += pins;
+            string left = s.substr(0, s.find('/'));
+            int nonStrikePins = stoi(left);
+            score += 10 - nonStrikePins;
             frame++;
             s.erase(0, s.find('/') + 1);
         } else {
@@ -19,14 +22,11 @@ int bowlingScore(string s) {
             if (pins < 10) {
                 s.erase(0, 1);
                 if (!s.empty() && s[0] == '/') {
-                    int remainingPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 1)));
-                    score += remainingPins;
+                    string left = s.substr(0, s.find('/'));
+                    int nonStrikePins = stoi(left);
+                    score += 10 - nonStrikePins;
                     frame++;
                     s.erase(0, s.find('/') + 1);
-                } else if (!s.empty() && s[0] == 'X') {
-                    score += 30;
-                    frame++;
-                    s.erase(0, 1);
                 }
             } else {
                 frame++;
