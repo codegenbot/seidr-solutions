@@ -1,14 +1,8 @@
-```
 def prod_signs(arr):
     if not arr:
         return None
-    signs = 1
-    total = 0
-    for num in arr:
-        if num < 0:
-            signs *= -1
-        elif num > 0:
-            total += abs(num)
-        else:
-            total += abs(num)
-    return signs * total
+    signs = [1 if x > 0 else -1 if x < 0 else 0 for x in arr]
+    product_of_signs = 1
+    for sign in signs:
+        product_of_signs *= sign
+    return sum(abs(x) for x in arr) * product_of_signs
