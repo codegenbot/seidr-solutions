@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,23 +7,25 @@ int main() {
     std::vector<int> numbers;
     int threshold;
 
-    // Read input from the user
+    // Read input from user
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; ++i) {
+    
+    for (int i = 0; i < n; i++) {
         int num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         numbers.push_back(num);
     }
-    std::cout << "Enter the threshold: ";
+    
+    std::cout << "Enter threshold: ";
     std::cin >> threshold;
 
     // Check if all elements are below the threshold
     bool result = below_threshold(numbers, threshold);
 
-    // Print the result
+    // Print output
     if (result) {
         std::cout << "All elements are below the threshold." << std::endl;
     } else {
