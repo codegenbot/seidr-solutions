@@ -1,10 +1,14 @@
-```cpp
-#include <vector>
-
 int can_arrange(vector<int> arr){
-    for(int i=1; i<arr.size(); i++){
-        if(arr[i] <= arr[i-1])
-            return i;
+    int maxIndex = -1;
+    for(int i=0; i<arr.size(); i++){
+        bool isSorted = true;
+        for(int j=i+1; j<arr.size(); j++){
+            if(arr[i] >= arr[j]){
+                isSorted = false;
+                break;
+            }
+        }
+        if(isSorted) return i;
     }
-    return -1;
+    return maxIndex;
 }
