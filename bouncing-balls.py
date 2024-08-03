@@ -1,8 +1,9 @@
-h0 = float(input())
-hf1 = float(input())
-n = int(input())
+bounciness_index = float(input("Enter height after first bounce: ")) / float(
+    input("Enter starting height: ")
+)
+num_bounces = int(input("Enter number of bounces: "))
 
-bi = hf1 / h0
-
-distance = bi * (2**n - 1) * h0
-print(distance)
+distance = 0
+for _ in range(num_bounces):
+    distance += 2 * (1 - math.pow(bounciness_index, -1))
+print("%.3f" % distance)
