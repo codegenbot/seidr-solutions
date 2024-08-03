@@ -19,6 +19,7 @@ int main() {
         sum += nums[i];
     }
     
+    int half_sum = sum / 2;
     int prefix_sum = 0;
     int cut_index = -1;
     
@@ -26,6 +27,7 @@ int main() {
         prefix_sum += nums[i];
         if (std::abs(2 * prefix_sum - sum) <= std::abs(2 * prefix_sum - sum + 2 * nums[i])) {
             cut_index = i;
+            break; // Add this line to stop the loop once the cut position is found
         }
     }
     
