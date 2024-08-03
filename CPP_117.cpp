@@ -14,10 +14,10 @@ vector<string> select_words(string s, int n) {
         if (c == ' ') {
             if (consonants == n) {
                 result.push_back(word);
-                consonsons = 0;
+                consonants = 0;
                 word.clear();
             } else {
-                consonsons = 0;
+                consonants = 0;
                 word.clear();
             }
         } else {
