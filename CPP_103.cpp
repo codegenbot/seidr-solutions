@@ -16,4 +16,7 @@ std::string calculate_avg(int n, int m) {
     return binary_avg.substr(binary_avg.find('1'));
 }
 
-assert(calculate_avg(5, 5) == "101");
+int main() {
+    assert(calculate_avg(5, 5) == "101");
+    return 0;
+}
