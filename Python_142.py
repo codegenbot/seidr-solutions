@@ -1,2 +1,8 @@
-lst = [1, 2, 3, 4, 5]
-print(sum_squares(lst))
+def sum_squares(lst):
+    total = 0
+    for i, num in enumerate(lst):
+        if (i+1) % 3 == 0 and (i+1) % 4 != 0:
+            total += num ** 2
+        elif (i+1) % 4 == 0 and (i+1) % 3 != 0:
+            total += num ** 3
+    return total
