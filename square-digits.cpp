@@ -1,12 +1,8 @@
-Here is the solution:
-
-string squareDigits(long int N) {
-    string res = "";
-    while(N > 0) {
-        long int digit = N % 10;
-        N /= 10;
-        res += to_string(digit * digit);
+string squareDigits(string n) {
+    string result = "";
+    for(int i=0; i<n.length(); i++) {
+        int digit = (int)(n[i] - '0'); // convert character to integer
+        result += to_string(digit * digit); // square the digit and add it to the result
     }
-    reverse(res.begin(), res.end());
-    return res;
+    return result;
 }
