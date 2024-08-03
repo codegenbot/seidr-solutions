@@ -1,16 +1,19 @@
-def solve_boolean(input_str):
-    if input_str == 'T':
+Here is the completed Python code:
+
+def solve_boolean(s):
+    if s == 'T':
         return True
-    elif input_str == 'F':
+    elif s == 'F':
         return False
-    elif '&' in input_str and '|' in input_str:
-        left, op, right = input_str.split(op)
-        return (op == '&') * (solve_boolean(left) and solve_boolean(right)) + (op == '|') * (solve_boolean(left) or solve_boolean(right))
-    elif '&' in input_str:
-        left, op, right = input_str.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in input_str:
-        left, op, right = input_str.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid expression")
     else:
-        raise Exception('Invalid input')
+        stack = []
+        for c in s + '&':
+            if c in {'&', '|'}:
+                b2 = stack.pop()
+                b1 = stack.pop()
+                stack.append(b1 and b2 if c == '&' else b1 or b2)
+            elif c == 'T' or c == 'F':
+                stack.append(c == 'T')
+    return stack[0]
