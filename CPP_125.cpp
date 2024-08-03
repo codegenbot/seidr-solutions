@@ -1,8 +1,7 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    // Implement the function to compare two vectors of strings
+    return a == b;
+}
 
 vector<string> split_words(string txt) {
     vector<string> words;
@@ -20,6 +19,7 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         words.push_back(word);
     }
+
     if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
         int oddCount = 0;
         for (char c : words[0]) {
@@ -29,29 +29,12 @@ vector<string> split_words(string txt) {
         }
         words[0] = to_string(oddCount);
     }
+
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    // Correct the issame call
-    vector<string> v1 = {"apple", "banana", "cherry"};
-    vector<string> v2 = {"apple", "banana", "cherry"};
-
-    if (issame(v1, v2)) {
-        // Do something
-    }
-
+    assert(issame(split_words(""), {"0"}));
+    
     return 0;
 }
