@@ -31,17 +31,29 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int idx : result) {
-        cout << idx << " ";
+    int choice;
+    cout << "Enter 1 to find GCD or 2 to find indices of substrings: ";
+    cin >> choice;
+    
+    if (choice == 1) {
+        int a, b;
+        cout << "Enter two integers: ";
+        cin >> a >> b;
+        cout << "GCD: " << gcd(a, b) << endl;
     }
-    cout << endl;
-
+    else if (choice == 2) {
+        string text, target;
+        cout << "Enter text: ";
+        cin >> text;
+        cout << "Enter target: ";
+        cin >> target;
+        vector<int> result = indicesOfSubstring(text, target);
+        cout << "Indices of Substring:";
+        for (int idx : result) {
+            cout << " " << idx;
+        }
+        cout << endl;
+    }
+    
     return 0;
 }
