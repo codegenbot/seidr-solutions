@@ -1,35 +1,43 @@
-#include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
     int n = grid.size();
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
-            }
-            for (int x = -1; x <= 1; x++) {
-                for (int y = -1; y <= 1; y++) {
-                    int nx = i + x, ny = j + y;
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-                        res.push_back(grid[nx][ny]);
-                    }
-                }
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    vector<int> res;
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                visited[i][j] = true;
+                pq.push({grid[i][j], {i, j}});
             }
         }
     }
-    return res;
-}
 
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        res.push_back(val);
+        pq.pop();
+        
+        vector<pair<int, int>> neighbors = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for (auto &neighbor : neighbors) {
+            int x = pos.first + neighbor.first;
+            int y = pos.second + neighbor.second;
+            
+            if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
+                visited[x][y] = true;
+                pq.push({val, {x, y}});
+            }
+        }
+        
+        if (res.size() == k) break;
     }
-    return 0;
+    
+    return res;
 }
