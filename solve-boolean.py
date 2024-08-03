@@ -1,16 +1,20 @@
 def solve_boolean(expression):
-    stack = []
-    for char in expression[::-1]:
-        if char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        elif char == "|":
-            b2 = stack.pop()
-            b1 = stack.pop()
-            stack.append(b1 or b2)
-        elif char == "&":
-            b2 = stack.pop()
-            b1 = stack.pop()
-            stack.append(b1 and b2)
-    return stack[0]
+    def eval_expression(expression):
+        while "&" in expression or "|" in expression:
+            expression = re.sub(
+                r"((T|F)&(T|F))",
+                lambda m: str(eval(str(m.group(0)).replace("&", "and"))),
+                expression,
+            )
+            expression = re.sub(
+                r"((T|F)\|(T|F))",
+                lambda m: str(eval(str(m.group(0)).replace("|", "or"))),
+                expression,
+            )
+        return (
+            eval(expression)
+            if expression != "T" and expression != "F"
+            else bool(expression == "T")
+        )
+
+    return eval_expression(expression)
