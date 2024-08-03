@@ -3,9 +3,8 @@ def normalize(numbers):
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-def check(data):
-    return normalize(data)
+def rescale_to_unit(numbers):
+    return normalize(numbers)
 
-# Test the code
-data = [5, 10, 15, 20, 25]
-print(check(data))
+def check(numbers):
+    return rescale_to_unit(numbers)
