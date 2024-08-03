@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -21,7 +20,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {0, 1};
-    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    vector<int> coins = {0, 2};
+    cout << "Smallest change needed is: " << smallest_change(coins) << endl;
     return 0;
 }
