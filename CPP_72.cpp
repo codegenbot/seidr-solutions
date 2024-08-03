@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,19 +15,15 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q;
-    int w;
-    cout << "Enter the number of queries: ";
-    cin >> w;
-    cout << "Enter " << w << " queries: ";
-    for(int i=0; i<w; i++) {
-        int x;
-        cin >> x;
-        q.push_back(x);
+    int n, w;
+    cin >> n >> w;
+    vector<int> q(n);
+    for(int i=0; i<n; i++) {
+        cin >> q[i];
     }
-    if(will_it_fly(q, w))
-        cout << "The plane will fly." << endl;
+    if(will_it_fly(q,w))
+        cout << "Yes\n";
     else
-        cout << "The plane will not fly." << endl;
+        cout << "No\n";
     return 0;
 }
