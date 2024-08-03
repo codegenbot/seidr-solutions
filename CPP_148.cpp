@@ -1,9 +1,10 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(vector<string>, vector<string>) {
-    // function body
+vector<string> issame(vector<string> planets1, vector<string> planets2) {
+    if (planets1.size() != planets2.size()) return {};
+    for (int i = 0; i < planets1.size(); i++) {
+        if (find(planets2.begin(), planets2.end(), planets1[i]) == planets2.end())
+            return {};
+    }
+    return planets1;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -29,10 +30,4 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Saturn") == vector<string>({"Neptune"}));
-    // other function calls
-    return 0;
 }
