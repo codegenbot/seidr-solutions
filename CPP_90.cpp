@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 int next_smallest(std::vector<int> lst) {
     std::sort(lst.begin(), lst.end());
