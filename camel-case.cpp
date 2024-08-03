@@ -12,13 +12,10 @@ int main() {
         } else if (capitalize) {
             c = std::toupper(c);
             capitalize = false;
-        } else {
+        } else if (std::isupper(c)) {  // Check if the character is already uppercase
             c = std::tolower(c);
         }
     }
-    
-    if (!input.empty())
-        input[0] = std::toupper(input[0]); // Capitalize the first letter after processing all input
     
     std::cout << input << std::endl;
     
