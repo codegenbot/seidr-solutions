@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::equal(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -11,9 +11,13 @@ std::vector<int> sort_third(std::vector<int> nums) {
     return nums;
 }
 
-std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
-std::vector<int> result = sort_third(input);
+int main() {
+    std::vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
+    std::vector<int> result = sort_third(input);
 
-for (int num : result) {
-    std::cout << num << " ";
+    for (int num : result) {
+        std::cout << num << " ";
+    }
+
+    return 0;
 }
