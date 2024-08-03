@@ -1,21 +1,27 @@
-int count_open = 0;
-    int count_close = 0;
-    for (string s : lst) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string match_parens(const vector<string>& lst) {
+    int balance = 0;
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
-                count_open++;
+                balance++;
             } else {
-                if (count_open > 0) {
-                    count_open--;
-                } else {
-                    count_close++;
+                if (balance == 0) {
+                    return "No";
                 }
+                balance--;
             }
         }
     }
-    if (count_open == 0 && count_close <= 1) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+    return (balance == 0) ? "Yes" : "No";
+}
+
+int main() {
+    assert (match_parens({")", "("}) == "Yes" );
 }
