@@ -1,4 +1,7 @@
 bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
@@ -11,7 +14,7 @@ void sort_even(vector<float>& l) {
     vector<float> even_elements;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            even_elements.push_back(l[i]);
+            even_elements.push_back(l[i]);      
         }
     }
     sort(even_elements.begin(), even_elements.end());
@@ -24,9 +27,12 @@ void sort_even(vector<float>& l) {
             even_index++;
         }
     }
+
     l = l_prime;
 }
 
-// Usage:
-vector<float> v = {3, 1, 4, 1, 5, 9};
-sort_even(v);
+// Usage example
+vector<float> test = {2.5, 4.3, 1.2, 3.7, 5.5, 6.1};
+vector<float> sorted_test = {1.2, 4.3, 2.5, 3.7, 5.5, 6.1};
+sort_even(test);
+assert(issame(test, sorted_test));
