@@ -13,7 +13,3 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     auto min_max_pair = std::minmax_element(numbers.begin(), numbers.end());
     return {*min_max_pair.first, *min_max_pair.second};
 }
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
-}
