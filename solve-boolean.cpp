@@ -4,8 +4,8 @@
 int main() {
     std::string expr;
     std::cin >> expr;
-
-    if (expr == "T") {
+    
+    if (expr == "t") {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
