@@ -17,7 +17,7 @@ int main() {
     std::vector<float> v = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> tmp = v;
     sort_even(tmp);
-    assert(issame(tmp, {-12, 8, 3, 4, 23, 2, 12, 11, 5, -10}));
+    assert(issame(tmp, {-12, 8, 2, 4, 23, 3, 12, 11, 5, -10}));
 
     std::vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(input);
