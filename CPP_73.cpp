@@ -20,7 +20,8 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> coins = {0, 2};
-    cout << "Smallest change needed is: " << smallest_change(coins) << endl;
+    vector<int> arr = {0, 1};
+    int result = smallest_change(arr);
+    std::cout << "The smallest change is: " << result << std::endl;
     return 0;
 }
