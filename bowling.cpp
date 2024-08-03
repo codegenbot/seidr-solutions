@@ -1,34 +1,29 @@
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int frame = 1;
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + (frame < 10 ? 10 : 0);
+            score += 30;
             frame++;
         } else if (c == '/') {
-            score += 10 - ((s.back() - '0') + (s[s.length()-2] - '0'));
+            score += 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
             frame++;
+            s.erase(0, s.find('/') + 1);
         } else {
             int pins = c - '0';
             score += pins;
-            if (frame < 9) {
-                if (pins == 10) {
-                    score += 10;
+            if (pins < 10) {
+                s.erase(0, 1);
+                if (!s.empty() && s[0] == '/') {
+                    score += 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
                     frame++;
-                } else {
-                    frame++;
-                    if (s.back() != '/' && s[s.length()-2] != '/') {
-                        int nextPins = s.back() - '0';
-                        score += pins + nextPins;
-                        frame++;
-                    }
+                    s.erase(0, s.find('/') + 1);
                 }
             } else {
-                score += pins;
+                frame++;
             }
         }
     }
     return score;
-}
