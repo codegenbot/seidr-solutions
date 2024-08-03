@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -16,12 +16,5 @@ int smallest_change(vector<int> arr) {
         }
     }
     
-    return dp[n - 1][0];
-}
-
-int main() {
-    vector<int> arr = {0, 1};
-    int result = smallest_change(arr);
-    std::cout << "The minimum number of operations is: " << result << std::endl;
-    return 0;
+    return *min_element(dp[n - 1].begin(), dp[n - 1].end());
 }
