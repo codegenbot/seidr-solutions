@@ -1,14 +1,11 @@
-#include <iostream>
-#include <cmath>
-#include <cassert>
-
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
-    int rounded = (num > 0) ? floor(num + 0.5) : ceil(num - 0.5);
-    return rounded;
-}
-
-int main() {
-    assert(closest_integer("0") == 0);
-    return 0;
+    int rounded_num = static_cast<int>(round(num));
+    if (num - rounded_num > 0.5) {
+        return ceil(num);
+    } else if (num - rounded_num < -0.5) {
+        return floor(num);
+    } else {
+        return rounded_num;
+    }
 }
