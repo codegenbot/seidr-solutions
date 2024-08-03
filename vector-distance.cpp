@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <iomanip>
+#include <vector>
 #include <cmath>
 
 int main() {
@@ -22,9 +22,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double distance = std::sqrt(sum);
-
-    std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << std::sqrt(sum) << std::endl;
 
     return 0;
 }
