@@ -6,7 +6,7 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == k:
             nonlocal res
-            res = sorted(path, key=lambda x: x[0])
+            res.append(path[:])
             return
 
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -18,4 +18,4 @@ def minPath(grid, k):
         for j in range(n):
             dfs(i, j, [grid[i][j], i, j])
 
-    return res
+    return sorted(res, key=lambda x: (len(x), min(y for x, y in x)))
