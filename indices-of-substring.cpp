@@ -8,14 +8,14 @@ int main() {
 
     std::vector<int> indices;
     size_t pos = 0;
-
-    while (pos < text.length() && (pos = text.find(target, pos)) != std::string::npos) {
+  
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         if (!indices.empty() && pos == indices.back()) {
             pos++;
             continue;
         }
         indices.push_back(static_cast<int>(pos));
-        pos += 1; // Increment by 1 for overlapping matches
+        pos += 1;  // Increment by 1 to allow overlapping targets
     }
 
     for (int i : indices) {
