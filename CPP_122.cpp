@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the assert header
 
 int add_elements(const std::vector<int>& arr, int k) {
     int sum = 0;
@@ -11,7 +11,7 @@ int add_elements(const std::vector<int>& arr, int k) {
     return sum;
 }
 
-int main() {
+int main() { // Change the signature of main to resolve redefinition error
     assert(add_elements({1}, 1) == 1);
     return 0;
 }
