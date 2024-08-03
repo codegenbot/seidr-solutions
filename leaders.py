@@ -1,5 +1,2 @@
-Here is the solution:
-
-def leaders(arr):
-    leaders = [arr[i] for i in range(len(arr) - 1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
-    return leaders[::-1]
+def leaders(v):
+    return [v[i] for i in range(len(v) - 1, -1, -1)]
