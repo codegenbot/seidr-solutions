@@ -1,10 +1,14 @@
+```
 def search(lst):
-    from collections import Counter
-
-    freq = Counter(lst)
-    max_val = -1
-    for num in freq:
-        if num > 0 and freq[num] >= num:
-            max_val = num
+    frequency_dict = {}
+    for num in lst:
+        if num in frequency_dict:
+            frequency_dict[num] += 1
+        else:
+            frequency_dict[num] = 1
+    max_num = -1
+    for key, value in frequency_dict.items():
+        if key > 0 and value >= key:
+            max_num = key
             break
-    return max_val
+    return max_num
