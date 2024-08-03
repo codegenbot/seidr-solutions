@@ -4,7 +4,8 @@ def minPath(grid, k):
 
     def dfs(i, j, path):
         if len(path) == k:
-            res.append(sorted([t[0] for t in path]))
+            if len(path) == k:
+                res.append(sorted([t[0] for t in path]))
             return
 
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
