@@ -1,9 +1,9 @@
-def substitution_cipher(input1, input2, input3):
+def substitution_cipher(cipher1, cipher2, text):
     result = ""
-    for char in input3:
-        if char in input1:
-            index = input1.index(char)
-            result += input2[index]
+    for char in text:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
             result += char
     return result
