@@ -4,6 +4,8 @@
 
 using namespace std;
 
+string decimal_to_binary(int decimal);
+
 string decimal_to_binary(int decimal) {
     string binary = "db";
     if (decimal == 0) {
