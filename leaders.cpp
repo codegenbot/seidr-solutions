@@ -1,28 +1,21 @@
-```cpp
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    vector<int> arr = {17, 28, 4}; 
-    vector<int> leadersVec = leaders(arr);
-    for (int leader : leadersVec) {
-        cout << leader << endl; 
-    }
-    return 0;
-}
-
 vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
     vector<int> result;
-    
-    int maxRight = arr.back(); // Initialize the maximum right element
-    
-    for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
+    int n = arr.size();
+    for(int i=n-1; i>=0; i--) {
+        bool is_leader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] <= arr[j]) {
+                is_leader = false;
+                break;
+            }
+        }
+        if(is_leader) {
             result.push_back(arr[i]);
-            maxRight = arr[i]; 
         }
     }
-    
     return result;
 }
