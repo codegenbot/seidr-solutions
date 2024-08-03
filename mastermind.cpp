@@ -1,35 +1,40 @@
-int countWhitePegs(string mastermindCode, string guess) {
-    int whitePegs = 0;
-    for (int i = 0; i < 4; i++) {
-        if (mastermindCode[i] == guess[i]) {
-            whitePegs++;
+int numWhitePegs(const string& code, const string& guess) {
+    int white = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            white++;
         }
     }
-    return whitePegs;
+    return white;
 }
 
-int countBlackPegs(string mastermindCode, string guess) {
-    int blackPegs = 0;
-    for (int i = 0; i < 4; i++) {
-        bool correctColor = false;
-        for (int j = 0; j < 4; j++) {
-            if (mastermindCode[j] == guess[i]) {
-                correctColor = true;
-                break;
-            }
-        }
-        if (correctColor) {
-            blackPegs++;
-            mastermindCode.erase(remove(mastermindCode.begin(), mastermindCode.end(), guess[i]), mastermindCode.end());
+int numBlackPegs(const string& code, const string& guess) {
+    int black = 0;
+    int codes[6] = {0}; // Counting the occurrences of each character in the code
+    for (char c : code) {
+        codes[c - 'A']++;
+    }
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            codes[guess[i] - 'A']--;
+        } else if (codes[guess[i] - 'A'] > 0) {
+            black++;
+            codes[guess[i] - 'A']--;
         }
     }
-    return blackPegs;
+    
+    for (int i = 0; i < 6; ++i) {
+        black += codes[i];
+    }
+    
+    return black;
 }
 
 int main() {
-    string mastermindCode, guess;
-    cin >> mastermindCode >> guess;
-    cout << countWhitePegs(mastermindCode, guess) << endl;
-    cout << countBlackPegs(mastermindCode, guess) << endl;
+    string code, guess;
+    cin >> code >> guess;
+    cout << numWhitePegs(code, guess) << endl;
+    cout << numBlackPegs(code, guess) << endl;
     return 0;
 }
