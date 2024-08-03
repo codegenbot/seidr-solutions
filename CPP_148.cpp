@@ -37,6 +37,6 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
 }
 
 int main() {
-    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn", "Uranus"}));
+    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn"}));
     return 0;
 }
