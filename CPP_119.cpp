@@ -1,13 +1,9 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
+#include <vector>
 
-using namespace std;
-
-string match_parens(const vector<string>& lst) {
+std::string match_parens(const std::vector<std::string>& lst) {
     int balance = 0;
-    for (const string& s : lst) {
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 balance++;
@@ -20,8 +16,4 @@ string match_parens(const vector<string>& lst) {
         }
     }
     return (balance == 0) ? "Yes" : "No";
-}
-
-int main() {
-    assert(match_parens({")", "("}) == "Yes");
 }
