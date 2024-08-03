@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 int main() {
     std::vector<int> nums;
-    int n;
-
-    // Read integers until the end of file is reached (EOF)
-    for(int n; std::cin >> n;) {
-        nums.push_back(n);
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::istringstream iss(input);
+    int num;
+    while (iss >> num) {
+        nums.push_back(num);
     }
 
     int sum = 0;
