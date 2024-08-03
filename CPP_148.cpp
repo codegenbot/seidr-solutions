@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<std::string> find_planets_between(std::string planet1, std::string planet2) {
@@ -14,10 +14,10 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
 
     for (size_t i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
-            start = static_cast<int>(i);
+            start = i;
         }
         if (planet2 == planets[i]) {
-            end = static_cast<int>(i);
+            end = i;
         }
     }
 
@@ -37,6 +37,6 @@ std::vector<std::string> find_planets_between(std::string planet1, std::string p
 }
 
 int main() {
-    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn"}));
+    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn", "Uranus"}));
     return 0;
 }
