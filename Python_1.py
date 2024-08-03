@@ -15,20 +15,16 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group += char
         elif char == ")":
             if stack and stack[-1] == "(":
-                result.append(current_group)
-                current_group = ""
-                while stack and stack[-1] != "(":
-                    current_group += stack.pop()
-                if not stack or stack.pop() != "(":
-                    return []  # invalid parentheses
-                current_group += char
+                if current_group:
+                    result.append(current_group)
+                    current_group = ""
+                stack.pop()
             else:
                 while stack and stack[-1] != "(":
                     current_group += stack.pop()
                 if not stack or stack.pop() != "(":
                     return []  # invalid parentheses
                 current_group += char
-
         else:
             while stack and stack[-1] != "(":
                 current_group += stack.pop()
@@ -36,5 +32,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 return []  # invalid parentheses
             current_group += char
 
-    result.append(current_group)
+    if current_group:
+        result.append(current_group)
+
     return result
