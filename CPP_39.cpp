@@ -1,13 +1,13 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int prime_fib(int n) {
     int a = 0, b = 1;
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
-            printf("%d\n", a);
+            cout << a << endl;
         } else {
-            printf("%d\n", b);
+            cout << b << endl;
         }
         int temp = a;
         a = b;
@@ -18,7 +18,7 @@ int prime_fib(int n) {
 
 int main() {
     int n;
-    scanf("%d", &n);
-    printf("%d\n", prime_fib(n));
+    cin >> n;
+    cout << prime_fib(n) << endl;
     return 0;
 }
