@@ -11,20 +11,31 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
-            score += leftPins;
-            frame++;
-            s.erase(0, s.find('/') + 1);
+            string left, right;
+            size_t pos = s.find('/');
+            left = s.substr(0, pos);
+            right = s.substr(pos + 1);
+            int pins = 10 - stoi(left) - stoi(right);
+            score += 10 + pins;
+            s.erase(0, pos + 1);
         } else {
             int pins = c - '0';
             score += pins;
             if (pins < 10) {
                 s.erase(0, 1);
                 if (!s.empty() && s[0] == '/') {
-                    int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
-                    score += leftPins;
+                    string left, right;
+                    size_t pos = s.find('/');
+                    left = s.substr(0, pos);
+                    right = s.substr(pos + 1);
+                    int pins = 10 - stoi(left) - stoi(right);
+                    score += 10 + pins;
                     frame++;
-                    s.erase(0, s.find('/') + 1);
+                    s.erase(0, pos + 1);
+                } else if (!s.empty() && s[0] == 'X') {
+                    score += 30;
+                    frame++;
+                    s.erase(0, 1);
                 }
             } else {
                 frame++;
