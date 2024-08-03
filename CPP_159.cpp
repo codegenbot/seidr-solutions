@@ -10,6 +10,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), std::vector<int>{9, 4}));
+    assert(issame(eat(4, 5, 1), {9, 4}));
     return 0;
 }
