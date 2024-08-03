@@ -29,12 +29,12 @@ int main() {
     for (const string& grade : result) {
         cout << grade << " ";
     }
-    
-    vector<float> grades = {3.5, 2.8, 1.2, 4.0, 1.8};
-    vector<string> result2 = numerical_letter_grade(grades);
+
+    vector<string> result2 = numerical_letter_grade({3.8, 2.5, 1.1, 3.0, 4.0});
+    cout << "\n";
     for (const string& grade : result2) {
         cout << grade << " ";
     }
-    
+
     return 0;
 }
