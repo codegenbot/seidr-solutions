@@ -1,10 +1,9 @@
-
 #include <iostream>
 #include <vector>
 #include <unordered_set>
 #include <cassert>
 
-bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
+bool issame(const std::unordered_set<int>& a, const std::unordered_set<int>& b) {
     for (int digit : b) {
         if (a.count(digit)) {
             return true;
