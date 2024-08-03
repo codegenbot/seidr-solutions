@@ -16,3 +16,11 @@ bool issame(unordered_set<int> a, unordered_set<int> b) {
     }
     return false;
 }
+
+int main() {
+    unordered_set<int> a{1, 2, 3};
+    unordered_set<int> b{4, 5, 6};
+    assert(!issame(a, b));
+    
+    return 0;
+}
