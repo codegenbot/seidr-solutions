@@ -4,28 +4,26 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> reverse_delete(const string& s, const string& c) {
-    string result = "";
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = "";
     for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
-    return { result, (issame(vector<string>{result}, vector<string>{result_reverse}) ? "True" : "False") };
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+    return { result, (issame(std::vector<std::string>{result}, std::vector<std::string>{result_reverse}) ? "True" : "False") };
 }
 
 int main() {
-    string input_s, input_c;
-    cin >> input_s >> input_c;
-    vector<string> expected_result;
+    std::string input_s, input_c;
+    std::cin >> input_s >> input_c;
+    std::vector<std::string> expected_result;
     expected_result.push_back("");
     expected_result.push_back("True");
     
