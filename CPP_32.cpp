@@ -17,10 +17,10 @@ double find_zero(const std::vector<double>& xs) {
 }
 
 int main() {
-    std::vector<double> coeff = {1.0, 2.0, 3.0};
+    std::vector<double> coeff = {1.0, 2.0, 3.0}; 
     coeff.push_back(4.0);
     double solution = find_zero(coeff);
     assert(std::abs(poly(coeff, solution)) < 1e-3);
-
+    
     return 0;
 }
