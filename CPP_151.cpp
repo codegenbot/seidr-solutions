@@ -12,7 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; // Declare and initialize lst
-    float odd_sum = double_the_difference(lst); // Calculate the result and assign it to odd_sum
+    std::vector<float> lst; 
+    float odd_sum = double_the_difference(lst); 
     return 0;
 }
