@@ -1,11 +1,10 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <iterator>
 
 using namespace std;
 
-bool issame(vector<int>& a, vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,33 +16,26 @@ bool issame(vector<int>& a, vector<int>& b) {
     return true;
 }
 
-vector<int> sort_third(vector<int> l);
+std::vector<int> sort_third(std::vector<int> l);
 
 int main() {
-    vector<int> input = {9, 2, 6, 4, 1, 7, 5, 8, 3};
-    vector<int> sorted_third = sort_third(input);
-    
-    for (int num : sorted_third) {
-        cout << num << " ";
-    }
-    cout << endl;
-
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_divisible_by_three;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::vector<int> l_divisible_by_three;
     for (int i = 0; i < l.size(); i++) {
-        if (l[i] % 3 == 0) {
+        if (i % 3 == 0) {
             l_divisible_by_three.push_back(l[i]);
         }
     }
     sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
     
-    vector<int> l_prime = l;
+    std::vector<int> l_prime = l;
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
-        if (j % 3 == 0) {
+        if (i % 3 == 0) {
             l_prime[i] = l_divisible_by_three[j];
             j++;
         }
