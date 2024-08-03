@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool are_vectors_equal(const vector<string>& v1, const vector<string>& v2){
-    return v1 == v2;
-}
-
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for(float gpa : grades){
@@ -28,4 +24,10 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return letter_grades;
 }
 
-assert(are_vectors_equal(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+int main(){
+    assert(numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
+
+    // Add more test cases here
+
+    return 0;
+}
