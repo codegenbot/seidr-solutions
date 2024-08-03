@@ -5,7 +5,7 @@ std::vector<int> minPath(const std::vector<std::vector<int>>& matrix, int n) {
     std::vector<int> result;
     for (int i = 0; i < n; ++i) {
         for (const auto& row : matrix) {
-            for (int val : row) {
+            for (const auto& val : row) {
                 result.push_back(val);
             }
         }
