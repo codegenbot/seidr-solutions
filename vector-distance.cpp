@@ -8,3 +8,8 @@ double euclideanDistance(const std::vector<double>& vec1, const std::vector<doub
     }
     return std::sqrt(sum);
 }
+
+int main() {
+    // Add test cases here
+    return 0;
+}
