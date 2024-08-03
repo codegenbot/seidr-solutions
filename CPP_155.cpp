@@ -1,25 +1,19 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1[0] == v2[0] && v1[1] == v2[1];
+}
 
 vector<int> even_odd_count(int num) {
-    vector<int> counts(2, 0);
+    vector<int> result(2, 0);
     string num_str = to_string(abs(num));
     for (char c : num_str) {
-        if ((c - '0') % 2 == 0) {
-            counts[0]++;
+        if (c % 2 == 0) {
+            result[0]++;
         } else {
-            counts[1]++;
+            result[1]++;
         }
     }
-    return counts;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(even_odd_count(0), {1, 0}));
+    return result;
 }
