@@ -16,14 +16,13 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        return a < b;
-    });
-    return nums;
+std::vector<int> strange_sort_list(const std::vector<int>& input) {
+    std::vector<int> output = input;
+    std::sort(output.begin(), output.end());
+    return output;
 }
 
 int main() {
-    // Your main function implementation here
+    // Main function logic here
     return 0;
 }
