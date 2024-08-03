@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
-#include <algorithm> // Add this header
+#include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
