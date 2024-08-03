@@ -1,4 +1,7 @@
-Here is the completed code:
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
