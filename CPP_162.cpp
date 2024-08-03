@@ -1,32 +1,27 @@
 #include <openssl/evp.h>
 #include <iostream>
 #include <string>
+#include <cassert>
 
-std::string string_to_md5(const std::string &input) {
-    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(ctx, EVP_md5(), nullptr);
-    EVP_DigestUpdate(ctx, input.c_str(), input.length());
-    unsigned char hash[EVP_MD_size(EVP_md5())];
-    EVP_DigestFinal_ex(ctx, hash, nullptr);
-    EVP_MD_CTX_free(ctx);
-
-    char buf[2 * EVP_MD_size(EVP_md5()) + 1];
-    char *ptr = buf;
-    for (int i = 0; i < EVP_MD_size(EVP_md5()); ++i) {
-        ptr += sprintf(ptr, "%02x", hash[i]);
+std::string string_to_md5(const std::string& input) {
+    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
+    EVP_DigestInit(mdctx, EVP_md5());
+    EVP_DigestUpdate(mdctx, input.c_str(), input.length());
+    unsigned char hash[EVP_MAX_MD_SIZE];
+    unsigned int hash_len;
+    EVP_DigestFinal(mdctx, hash, &hash_len);
+    EVP_MD_CTX_free(mdctx);
+    
+    char mdString[33];
+    for (int i = 0; i < 16; ++i) {
+        sprintf(&mdString[i * 2], "%02x", (unsigned int)hash[i]);
     }
-    *ptr = '\0';
-
-    return std::string(buf);
+    
+    return std::string(mdString);
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter the string to hash: ";
-    std::cin >> input;
-
-    std::string hashed = string_to_md5(input);
-    std::cout << "MD5 Hash: " << hashed << std::endl;
-
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    
     return 0;
 }
