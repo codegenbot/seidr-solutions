@@ -1,4 +1,10 @@
-vector<int> result = {0, 0};
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+vector<int> even_odd_palindrome(int n) {
+    vector<int> result = {0, 0};
     for (int i = 1; i <= n; ++i) {
         string num = to_string(i);
         string rev_num = num;
