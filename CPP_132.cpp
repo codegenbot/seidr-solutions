@@ -2,10 +2,10 @@
 
 bool is_nested(const std::string& str) {
     int count = 0;
-    for(char c : str){
-        if(c == '['){
+    for(auto it = str.begin(); it != str.end(); ++it){
+        if(*it == '['){
             count++;
-        } else if(c == ']' && count > 0){
+        } else if(*it == ']' && count > 0){
             count--;
         }
     }
@@ -13,5 +13,6 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    assert(is_nested(" ]]]]]]]] ") == false);
-}      
+    assert(is_nested("]]]]]]]]") == false);
+    return 0;
+}
