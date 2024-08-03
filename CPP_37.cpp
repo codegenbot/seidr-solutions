@@ -1,28 +1,33 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b);
-
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> even_values;
-    std::vector<float> sorted_even_values;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
-            sorted_even_values.push_back(l[i]);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
 
-    int even_index = 0;
-    std::sort(sorted_even_values.begin(), sorted_even_values.end());
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = sorted_even_values[even_index];
-            even_index++;
+std::vector<float> sort_even(const std::vector<float>& v) {
+    std::vector<float> even_sorted;
+    for (float num : v) {
+        if (static_cast<int>(num) % 2 == 0) {
+            even_sorted.push_back(num);
         }
     }
+    std::sort(even_sorted.begin(), even_sorted.end());
+    return even_sorted;
+}
 
-    return l;
+int main() {
+    // Test cases for sort_even function
+    std::vector<float> test_case1 = {3.2, 5.5, 2.4, 7.8, 4.1};
+    std::vector<float> result1 = sort_even(test_case1);
+    // Add more test cases and validations here
+    
+    return 0;
 }
