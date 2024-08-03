@@ -1,4 +1,3 @@
-bool is_sorted(vector<int> lst);
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
@@ -12,3 +11,4 @@ bool is_sorted(vector<int> lst){
         }
     }
     return true;
+}
