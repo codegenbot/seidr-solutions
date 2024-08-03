@@ -43,4 +43,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
+// Fix the assert statement to compare vectors properly
 assert(issame(by_length({9, 4, 8}), std::vector<std::string>{"Nine", "Eight", "Four"}));
