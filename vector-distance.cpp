@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
+#include <iomanip>
 
 int main() {
     int n;
