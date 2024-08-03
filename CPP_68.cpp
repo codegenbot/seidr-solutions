@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = INT_MAX;
@@ -16,4 +19,13 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main(){
+    // Add test cases here
+    return 0;
 }
