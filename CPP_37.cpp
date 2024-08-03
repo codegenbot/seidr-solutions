@@ -1,3 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<float> sort_even(const std::vector<float>& v);
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    // Rest of the function code remains unchanged
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
