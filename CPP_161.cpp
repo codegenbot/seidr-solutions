@@ -1,9 +1,9 @@
+#include <algorithm>
 #include <string>
+
 using namespace std;
 
-string solve(string s);
-
-string solve(string s) {
+string solve(string s){
     bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
@@ -15,4 +15,9 @@ string solve(string s) {
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
