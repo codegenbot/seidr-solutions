@@ -1,17 +1,17 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
-    std::string line;
-    
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
+    vector<int> nums;
     int num;
-    while (iss >> num) {
-        nums.push_back(num);
+    
+    while (!cin.eof()) {
+        cin >> num;
+        if (!cin.eof()) {
+            nums.push_back(num);
+        }
     }
     
     int n = nums.size();
