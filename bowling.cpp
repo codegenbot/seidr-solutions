@@ -5,7 +5,7 @@ int bowlingScore(string s) {
     for (int i = 0; i < 10; ++i) {
         if (s[i] != '/') {
             if (isdigit(s[i])) {
-                score += stoi(string(1, s[i]));
+                score += s[i] - '0';
             } else {
                 score += 10;
             }
@@ -27,4 +27,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
