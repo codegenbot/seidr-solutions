@@ -1,12 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
 int main() {
     vector<int> nums;
-    int num;
+    int num, n;
     
-    while (cin >> num) {
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        cin >> num;
         nums.push_back(num);
     }
     
-    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
@@ -24,18 +31,17 @@ int main() {
         }
     }
     
-    if (abs(prefix_sum - (sum - prefix_sum)) < abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
-        cout << "1" << endl;
+    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
+        cout << "2" << endl;
         for (int i = 0; i <= cut_index; i++) {
             cout << nums[i] << endl;
         }
         cout << "0" << endl;
     } else {
         cout << "1" << endl;
-        for (int i = 0; i < cut_index; i++) {
+        for (int i = 0; i <= cut_index; i++) {
             cout << nums[i] << endl;
         }
-        cout << nums[cut_index] << endl;
     }
     
     return 0;
