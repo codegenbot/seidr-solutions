@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+    vector<string> result;
     for(string s : strings){
         if(s.find(substring) != string::npos){
             result.push_back(s);
@@ -16,7 +17,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     auto filtered = filter_by_substring(strings, "run");
     assert(std::equal(filtered.begin(), filtered.end(), {"grunt", "prune"}));
     return 0;
