@@ -1,28 +1,35 @@
-#include <vector>
-using namespace std;
+int countWhitePegs(string mastermindCode, string guess) {
+    int whitePegs = 0;
+    for (int i = 0; i < 4; i++) {
+        if (mastermindCode[i] == guess[i]) {
+            whitePegs++;
+        }
+    }
+    return whitePegs;
+}
 
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-    
-    // Count the number of correct colors in wrong positions (white pegs)
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
-            code[i] = 'x';
-            guess[i] = 'x';
+int countBlackPegs(string mastermindCode, string guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; i++) {
+        bool correctColor = false;
+        for (int j = 0; j < 4; j++) {
+            if (mastermindCode[j] == guess[i]) {
+                correctColor = true;
+                break;
+            }
+        }
+        if (correctColor) {
+            blackPegs++;
+            mastermindCode.erase(remove(mastermindCode.begin(), mastermindCode.end(), guess[i]), mastermindCode.end());
         }
     }
-    
-    // Count the number of correct colors in correct positions (black pegs)
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            white--;
-            black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
-        }
-    }
-    
-    return make_pair(white, black).second;
+    return blackPegs;
+}
+
+int main() {
+    string mastermindCode, guess;
+    cin >> mastermindCode >> guess;
+    cout << countWhitePegs(mastermindCode, guess) << endl;
+    cout << countBlackPegs(mastermindCode, guess) << endl;
+    return 0;
 }
