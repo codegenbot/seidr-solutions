@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 int main() {
@@ -6,7 +7,8 @@ int main() {
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melting_rate;
 
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground += snow_fall_rate - snow_on_ground * snow_melting_rate;
+        float snow_accumulation = snow_fall_rate - snow_on_ground * snow_melting_rate;
+        snow_on_ground += snow_accumulation;
     }
 
     std::cout << snow_on_ground << std::endl;
