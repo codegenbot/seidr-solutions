@@ -1,15 +1,14 @@
-#include <algorithm>
-#include <iostream>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 std::string anti_shuffle(const std::string& s) {
     std::string result = "";
     int start = 0;
-    for (size_t i = 0; i < s.length(); ++i) {
+    for (size_t i = 0; i <= s.length(); ++i) {
         if (i == s.length() || s[i] == ' ') {
             std::string word = s.substr(start, i - start);
-            std::sort(word.begin(), word.end()-1);
+            std::sort(word.begin(), word.end());
             result += word + (i == s.length() ? "" : " ");
             start = i + 1;
         }
