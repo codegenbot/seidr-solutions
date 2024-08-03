@@ -1,30 +1,21 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
+#include <cassert>
 
-bool issame(int n, const std::vector<std::string>& strVec) {
-    int count = std::count_if(strVec.begin(), strVec.end(),
-                              [n](const std::string& str) {
-                                  return std::count_if(str.begin(), str.end(), 
-                                                      [](char c) {
-                                                          return c >= '0' && c <= '9';
-                                                      }) == n;
-                              });
-
-    return count == n;
+bool issame(int count, std::vector<std::string> strings) {
+    return count == strings.size();
 }
 
-int odd_count(const std::vector<std::string>& strVec) {
-    int oddCount = 0;
-    for (const std::string& str : strVec) {
-        oddCount += std::count_if(str.begin(), str.end(),
-                                  [](char c) {
-                                      return (c >= '0' && c <= '9') && (c - '0') % 2 == 1;
-                                  });
+int odd_count(std::vector<std::string> strings) {
+    int count = 0;
+    for (const std::string& str : strings) {
+        for (char c : str) {
+            if (isdigit(c) && (c - '0') % 2 == 1) {
+                count++;
+            }
+        }
     }
-    
-    return oddCount;
+    return count;
 }
 
 int main() {
