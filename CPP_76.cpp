@@ -1,8 +1,11 @@
-if (x == 1) {
-        return true;
+#include <cmath>
+
+bool is_simple_power(int x, int n) {
+    if (n == 1) {
+        return (x == 1);
     }
     
     double root = pow(x, 1.0 / n);
     
-    return (pow((int)root, n) == x);
+    return (pow(static_cast<int>(root), n) == x);
 }
