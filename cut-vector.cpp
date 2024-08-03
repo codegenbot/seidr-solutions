@@ -1,17 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 int main() {
     int n;
     std::cin >> n;
+
     int cutIndex;
     std::cin >> cutIndex;
 
-    if (cutIndex <= 0 || cutIndex >= n) {
-        std::cout << "Invalid cutIndex provided." << std::endl;
-        return 1; // Error code for invalid cutIndex
-    }
-    
     std::vector<int> nums(n);
 
     for (int i = 0; i < n; ++i) {
@@ -23,7 +20,7 @@ int main() {
 
     for (int i = cutIndex + 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
-        if (newDiff < diff) {
+        if (newDiff < diff || (newDiff == diff && abs(i - cutIndex) < abs(right - left))) {
             diff = newDiff;
             left = i - 1;
             right = i;
