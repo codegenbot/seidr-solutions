@@ -1,7 +1,17 @@
 #include <iostream>
 
+void solveProblem() {
+    int n, sum = 0;
+    std::cin >> n;
+
+    for(int i=1; i<=n; i++) {
+        sum += i;
+    }
+
+    std::cout << sum << std::endl;
+}
+
 int main() {
-    // Write your code here
-    
+    solveProblem();
     return 0;
 }
