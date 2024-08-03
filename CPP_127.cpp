@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <assert.h>
+#include <cassert> 
 
 using namespace std;
 
