@@ -3,10 +3,12 @@
 #include <cassert>
 #include <cmath>
 
-bool has_close_elements(const std::vector<float>& numbers, float threshold) {
+using namespace std;
+
+bool has_close_elements(const vector<float>& numbers, float threshold) {
     for (size_t i = 0; i < numbers.size(); ++i) {
         for (size_t j = i + 1; j < numbers.size(); ++j) {
-            if (std::fabs(numbers[i] - numbers[j]) < threshold) {
+            if (fabs(numbers[i] - numbers[j]) < threshold) {
                 return true;
             }
         }
@@ -15,7 +17,7 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    assert(has_close_elements(std::vector<float>{1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    assert(has_close_elements(vector<float>{1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
     return 0;
 }
