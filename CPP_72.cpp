@@ -1,4 +1,4 @@
-// Complete the following code given the task description and function signature:
+// Check if the sequence will fly
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
