@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <priority_queue>
+#include <queue>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(vector<int> arr, int k) {
     std::priority_queue<int> pq;
     for (int num : arr) {
         pq.push(num);
