@@ -1,4 +1,10 @@
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+  
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0, curr_depth = 0;
@@ -18,4 +24,8 @@ vector<int> parse_nested_parens(string paren_string) {
     depths.push_back(max_depth);
     
     return depths;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
