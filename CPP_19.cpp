@@ -2,6 +2,7 @@
 #include <map>
 #include <algorithm>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -39,7 +40,7 @@ string sort_numbers(const string& input) {
     for (const auto& num : numbers) {
         sorted_numbers += num + " ";
     }
-    sorted_numbers.pop_back(); // Remove the extra space at the end
+    sorted_numbers.pop_back(); 
 
     return sorted_numbers;
 }
