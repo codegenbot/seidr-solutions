@@ -1,9 +1,10 @@
+Here is the Python solution:
+
 def mastermind(code, guess):
-    white = 0
-    black = 0
+    count = [0, 0]
     for i in range(4):
         if code[i] == guess[i]:
-            black += 1
-        elif str(code[i]) in str(guess):
-            white += 1
-    return black, white
+            count[1] += 1
+        elif str(guess[i]) in str(code):
+            count[0] += 1
+    return tuple(count)
