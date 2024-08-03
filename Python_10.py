@@ -1,2 +1,5 @@
 def make_palindrome(string: str) -> str:
-    return string + string[::-1][1:] if string == string[::-1] else string + string[::-1]
+    for i in range(len(string)):
+        if string[i:] == string[i:][::-1]:
+            return string + string[:i][::-1]
+    return string + string[:-1][::-1]
