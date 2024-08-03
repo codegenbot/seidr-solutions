@@ -25,8 +25,4 @@ def minPath(grid, k):
         for j in range(n):
             if dfs(i, j, []):  
                 return path
-    return path  # Also add this return statement at the end
-
-grid = [[1,2],[3,4]]
-k = 2
-print(minPath(grid, k))
+    return path 
