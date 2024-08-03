@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int pennies(int cents) {
     return cents;
 }
@@ -35,8 +38,12 @@ int main() {
         nicklesNeeded++;
     }
 
-    printCoins(quartersNeeded, nicklesNeeded, dimesNeeded + (remainingCents / 10), 
-               penniesNeeded);
+    while(remainingCents > 0) {
+        remainingCents--;
+        penniesNeeded++;
+    }
+
+    printCoins(quartersNeeded, nicklesNeeded, dimesNeeded, penniesNeeded);
 
     return 0;
 }
