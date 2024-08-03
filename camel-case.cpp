@@ -7,15 +7,18 @@ int main() {
     
     bool capitalize = true;
     for (char& c : input) {
-        if (c == '-' || c == ' ') {
+        if (c == ' ' || (c == '-' && capitalize)) {
             capitalize = true;
         } else if (capitalize) {
             c = std::toupper(c);
             capitalize = false;
-        } else if (std::isupper(c)) {
+        } else {
             c = std::tolower(c);
         }
     }
+    
+    if (!input.empty())
+        input[0] = std::toupper(input[0]);
     
     std::cout << input << std::endl;
     
