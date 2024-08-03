@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 #include <cmath>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
