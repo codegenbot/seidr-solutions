@@ -1,12 +1,17 @@
 ```
 def search(lst):
-    freq = {}
+    freq_dict = {}
     for num in lst:
-        if num in freq:
-            freq[num] += 1
+        if num in freq_dict:
+            freq_dict[num] += 1
         else:
-            freq[num] = 1
-    for k, v in freq.items():
-        if k > 0 and v >= k:
-            return k
-    return -1
+            freq_dict[num] = 1
+    max_num = -1
+    for num, freq in freq_dict.items():
+        if freq >= num and num > 0:
+            max_num = num
+    return max_num
+
+numbers = input("Enter space-separated numbers: ")
+numbers = [int(x) for x in numbers.split()]
+print(search(numbers))
