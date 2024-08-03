@@ -4,21 +4,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if (a.size() != b.size()){
-        return false;
-    }
+using namespace std;
 
-    for (int i = 0; i < a.size(); i++){
-        if (a[i] != b[i]){
-            return false;
-        }
-    }
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-    return true;
-}
-
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sorted_arr;
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
@@ -42,6 +32,11 @@ std::vector<std::string> by_length(std::vector<int> arr){
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+int contest_main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
