@@ -10,7 +10,7 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos += 1;
+        pos += (pos == 0) ? 1 : target.length(); // Move at least 1 position forward
     }
 
     for (int i : indices) {
