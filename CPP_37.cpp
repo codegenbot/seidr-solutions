@@ -4,12 +4,6 @@
 
 bool issame(std::vector<float> a, std::vector<float> b);
 
-std::vector<float> sort_even(std::vector<float> l);
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
-
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even_values;
     std::vector<float> sorted_even_values;
