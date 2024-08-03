@@ -1,6 +1,6 @@
 #include <map>
 #include <string>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -12,10 +12,15 @@ map<char, int> histogram(const string& str) {
     return result;
 }
 
-auto result = histogram(string("a"));
-if (result == map<char, int>{{'a', 1}}) {
-    // Test passed
-} else {
-    // Test failed
+int main() {
+    string input;
+    cin >> input;
+
+    auto result = histogram(input);
+    
+    for (auto pair : result) {
+        cout << pair.first << " " << pair.second << endl;
+    }
+    
+    return 0;
 }
-return 0;
