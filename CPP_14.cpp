@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
     string prefix = "";
@@ -16,7 +18,8 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-int main() {
+int main(){
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    
     return 0;
 }
