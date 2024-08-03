@@ -1,12 +1,18 @@
-#include <vector>
+#include <utility>
+#include <cassert>
 
-vector<int> eat(int number, int need, int remaining) {
-    int totalCarrots = number + need;
-    int eatenCarrots = totalCarrots <= remaining ? totalCarrots : remaining;
-    int carrotsLeft = remaining - eatenCarrots;
-    return {eatenCarrots, carrotsLeft};
+std::pair<int, int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = total > remaining ? remaining : total;
+    int left = remaining - eaten;
+    return {eaten, left};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
+}
+
+int main() {
+    assert(issame(eat(4, 5, 1), std::make_pair(5, 0)));
+    return 0;
 }
