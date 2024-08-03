@@ -1,14 +1,17 @@
-def bowling_score(gutter_balls):
+def bowling_score(game):
     score = 0
-    roll = []
-    for frame in gutter_balls.split("/"):
-        if len(frame) > 1 and frame[0] != "X":
-            roll.append(int(frame))
+    roll = list(map(int, game.replace("/", "")))
+    for i in range(10):
+        if len(str(i + 1)) == 2:
+            frame = [int(x) for x in str(i + 1)]
+            score += sum(frame)
+        elif len(str(i + 1)) == 1:
+            score += roll[i]
         else:
-            while len(roll) < 2:
-                roll.append(10)
-            score += sum(roll)
-            roll = []
-    if roll:
-        score += sum(roll)
+            if roll[i] == 10:
+                score += 10 + roll[i + 1]
+                i += 1
+            else:
+                frame = roll[i : i + 2]
+                score += sum(frame)
     return score
