@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -6,20 +5,31 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
+    bool capitalizeNext = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] == ' ') {
                 i++;
             }
-            result += toupper(s[i]);
+            if(capitalizeNext) {
+                result += toupper(s[i]);
+                capitalizeNext = false;
+            } else {
+                result += tolower(s[i]);
+            }
         } else if (s[i] == ' ') {
-            continue;
+            capitalizeNext = true;
         } else {
             if (!result.empty()) {
                 result += tolower(s[i]);
             } else {
-                result += toupper(s[i]);
+                if(capitalizeNext) {
+                    result += toupper(s[i]);
+                    capitalizeNext = false;
+                } else {
+                    result += tolower(s[i]);
+                }
             }
         }
     }
@@ -34,3 +44,4 @@ int main() {
         cout << "The camelCase version is: " << camelCase(s) << endl;
     }
     return 0;
+}
