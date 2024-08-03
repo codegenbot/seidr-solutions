@@ -1,17 +1,17 @@
-bool issame(int x, int y);
-
-vector<int> unique_digits(vector<int> x);
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 bool issame(int x, int y) {
-    string s1 = to_string(x);
-    string s2 = to_string(y);
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
+    std::string s1 = std::to_string(x);
+    std::string s2 = std::to_string(y);
+    std::sort(s1.begin(), s1.end());
+    std::sort(s2.begin(), s2.end());
     return s1 == s2;
 }
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -35,6 +35,21 @@ vector<int> unique_digits(vector<int> x){
             }
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    std::vector<int> input = {135, 103, 31};
+    std::vector<int> output = unique_digits(input);
+    
+    std::vector<int> expected_output = {31, 135};
+    
+    if (output == expected_output) {
+        std::cout << "Test case passed\n";
+    } else {
+        std::cout << "Test case failed\n";
+    }
+    
+    return 0;
 }
