@@ -1,11 +1,21 @@
-string encrypt(string s){
+#include<string>
+using namespace std;
+
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'z'){
-            c = (c - 'a' + 2*2) % 26 + 'a';
-        } else if(c >= 'A' && c <= 'Z'){
-            c = (c - 'A' + 2*2) % 26 + 'A';
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            char base = 'a';
+            int shift = 2 * 26;
+            c -= base;
+            c = (c + shift) % 26;
+            c += base;
+        } else if (c >= 'A' && c <= 'Z') {
+            char base = 'A';
+            int shift = 2 * 26;
+            c -= base;
+            c = (c + shift) % 26;
+            c += base;
         }
         result += c;
     }
