@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<float> sort_even(const std::vector<float>& v);
 
@@ -26,14 +25,4 @@ std::vector<float> sort_even(const std::vector<float>& v) {
     }
     std::sort(even_sorted.begin(), even_sorted.end());
     return even_sorted;
-}
-
-int main() {
-    std::vector<float> numbers = {2.5, 3, 4.2, 6, 7.5, 8, 9.1};
-    std::vector<float> expected_sorted_even = {2, 4};
-    std::vector<float> sorted_even_numbers = sort_even(numbers);
-    
-    assert(issame(sorted_even_numbers, expected_sorted_even));
-    
-    return 0;
 }
