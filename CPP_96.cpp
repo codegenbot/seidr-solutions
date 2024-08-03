@@ -1,32 +1,34 @@
 #include <vector>
+#include <cassert>
 using namespace std;
-
-vector<int> count_up_to(int n);
-
-bool issame(vector<int> a, vector<int> b){
-    // Add your code logic here
-
-    return false;
-}
 
 vector<int> count_up_to(int n){
     vector<int> primes;
-    if (n >= 2) {
-        primes.push_back(2);
-        for (int i = 3; i <= n; i += 2) {
-            bool is_prime = true;
-            for (int j = 2; j * j <= i; j++) {
-                if (i % j == 0) {
-                    is_prime = false;
-                    break;
-                }
+    for (int num = 2; num <= n; num++) {
+        bool is_prime = true;
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                is_prime = false;
+                break;
             }
-            if (is_prime) {
-                primes.push_back(i);
-            }
+        }
+        if (is_prime) {
+            primes.push_back(num);
         }
     }
     return primes;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
