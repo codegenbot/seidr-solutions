@@ -39,7 +39,7 @@ int main() {
         v.push_back(x);
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[" << string(1, '{');
+    cout << "[";
     for (int i = 0; i < result.first.size(); i++) {
         cout << result.first[i];
         if (i < result.first.size() - 1) {
@@ -47,7 +47,6 @@ int main() {
         }
     }
     cout << "] [";
-    cout << "{";
     for (int i = 0; i < result.second.size(); i++) {
         cout << result.second[i];
         if (i < result.second.size() - 1) {
