@@ -1,14 +1,15 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-if (lst.size() < 2) return -1;
-
-vector<int> sorted = lst;
-sort(sorted.begin(), sorted.end());
-
-for (int i = 0; i < sorted.size()-1; i++) {
-    if (sorted[i] != sorted[i+1]) {
-        return sorted[i+1];
+int next_smallest(vector<int> lst) {
+    vector<int> v = lst;
+    if(v.size() < 2) return -1; 
+    sort(v.begin(), v.end());
+    for(int i=0; i<v.size()-1; i++) {
+        if(v[i] != v[i+1]) {
+            if(i == v.size() - 2) return v[i+1];
+            else return v[i];
+        }
     }
+    return -1; 
 }
-
-return -1;
