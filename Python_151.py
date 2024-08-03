@@ -1,1 +1,3 @@
-check([1, 2, 3, 4, 5])
+```
+numbers = input("Enter numbers separated by space: ").split()
+print(double_the_difference([int(i) for i in numbers]))
