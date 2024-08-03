@@ -1,42 +1,26 @@
-int countDigits(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-bool isValidFileName(string file_name) {
-    int dotIndex = file_name.find('.');
-    if (dotIndex == -1 || dotIndex == file_name.length() - 1) {
-        return false;
-    }
-
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
-
-    if (!all_of(beforeDot.begin(), beforeDot.end(), ::isalpha)) {
-        return false;
-    }
-    
-    if (countDigits(file_name) > 3 || countDigits(beforeDot) > 0) {
-        return false;
-    }
-
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-    if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
-        return false;
-    }
-    
-    return true;
-}
+Here is the completed code:
 
 string file_name_check(string file_name){
-    if(isValidFileName(file_name)) {
-        return "Yes";
-    } else {
+    int dot_count = 0, digit_count = 0;
+    bool valid = true;
+
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        }
+        else if(isdigit(file_name[i])){
+            digit_count++;
+        }
+        else if(!isalpha(file_name[i]) && !islower(file_name[i]) && !isupper(file_name[i])){
+            valid = false;
+            break;
+        }
+    }
+
+    string extension = file_name.substr(file_name.find('.')+1);
+    if(digit_count > 3 || dot_count != 1 || !valid || (extension!="txt" && extension!="exe" && extension!="dll")){
         return "No";
     }
+
+    return "Yes";
 }
