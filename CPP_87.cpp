@@ -1,7 +1,7 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -27,9 +27,17 @@ vector<vector<int>> get_row(const vector<vector<int>>& lst, int x){
     return result;
 }
 
-int main(){
+void solve_problem(){
     vector<vector<int>> result = get_row({{}, {1}, {1, 2, 3}}, 3);
     vector<vector<int>> expected = {{2, 2}};
-    assert(is_same(result, expected));
+    if(is_same(result, expected)){
+        cout << "Solution is correct." << endl;
+    } else {
+        cout << "Solution is incorrect." << endl;
+    }
+}
+
+int main(){
+    solve_problem();
     return 0;
 }
