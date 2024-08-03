@@ -12,7 +12,7 @@ int smallest_change(std::vector<int> arr) {
             else if (arr[j] == arr[n - 1 - i + j])
                 dp[i][j] = dp[i - 1][j - 1];
             else
-                dp[i][j] = std::min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]}) + 1;
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
         }
     }
     
@@ -23,14 +23,17 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    
     std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
+    
+    for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
     
     int result = smallest_change(arr);
-    std::cout << "The minimum number of operations to make all elements equal is: " << result << std::endl;
+    
+    std::cout << "Smallest number of changes required: " << result << std::endl;
     
     return 0;
 }
