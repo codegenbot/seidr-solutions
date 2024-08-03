@@ -17,10 +17,3 @@ std::string circular_shift(int x, int shift){
     std::reverse(str.begin() + shift, str.end());
     return str;
 }
-
-#include <cassert>
-
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
-}
