@@ -1,7 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size())
+        return false;
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+        if(a[i] != b[i])
+            return false;
     }
     return true;
 }
@@ -26,4 +32,9 @@ vector<string> reverse_delete(string s, string c) {
     reverse(reverseTemp.begin(), reverseTemp.end());
     result.push_back(to_string(issame({temp}, {reverseTemp})));
     return result;
+}
+
+int main() {
+    // test your code here
+    return 0;
 }
