@@ -1,14 +1,11 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
 #include <cmath>
 
-float max_element(std::vector<float> l) {
-    float max = l[0];
-    for (int i = 1; i < l.size(); i++) {
-        if (l[i] > max) {
-            max = l[i];
+float max_element(const vector<int>& l){
+    int max = l[0];
+    for (int num : l) {
+        if (num > max) {
+            max = num;
         }
     }
     return max;
