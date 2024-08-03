@@ -1,23 +1,23 @@
 #include <vector>
 #include <cassert>
 
-vector<int> make_a_pile(int n){
+bool issame(vector<int>& a, vector<int>& b) {
+    return std::is_permutation(a.begin(), a.end(), b.begin());
+}
+
+vector<int> make_a_pile(int n) {
     vector<int> stones;
     stones.push_back(n);
-    for(int i = 1; i < n; i++){
-        if(n % 2 == 0)
-            stones.push_back(n + i*2);
+    for (int i = 1; i < n; i++) {
+        if (n % 2 == 0)
+            stones.push_back(n + i * 2);
         else
-            stones.push_back(n + i*2 - 1);
+            stones.push_back(n + i * 2 - 1);
     }
     return stones;
 }
 
-bool issame(int x, int y){
-    return x == y;
-}
-
 int main() {
-    // Main function
+    // your main function code here
     return 0;
 }
