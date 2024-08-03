@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> List[int]:
     beats = {'o': 4, 'o|': 2, '.|': 1}
     result = []
@@ -6,7 +7,7 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i] == '.':
             note_duration = beats['o|']
         else:
-            note_duration = beats[music_string[i-1:i+1]]
+            note_duration = beats[music_string[i:i+2]]
         result.append(note_duration)
         i += 2
     return result
