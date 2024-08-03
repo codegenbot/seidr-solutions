@@ -1,7 +1,8 @@
-int open = 0, close = 0;
-    for (string s : lst) {
-        for (char c : s) {
-            if (c == '(') {
+string match_parens(vector<string>& lst) {
+    int open = 0, close = 0;
+    for (vector<string>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        for (string::iterator c = it->begin(); c != it->end(); ++c) {
+            if (*c == '(') {
                 open++;
             } else {
                 if (open > 0) {
@@ -12,5 +13,9 @@ int open = 0, close = 0;
             }
         }
     }
-    return (open == 0 && close <= 1) ? "Yes" : "No";
+    if (open == 0 && close <= 1) {
+        return "Yes";
+    } else {
+        return "No";
+    }
 }
