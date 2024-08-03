@@ -1,16 +1,11 @@
 #include <vector>
 #include <algorithm>
-#include <functional>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
-std::vector<int> sort_array(std::vector<int> array){
+std::vector<int> sort_array(std::vector<int> array) {
     if(array.empty()) return array;
     
     int sum = array.front() + array.back();
@@ -21,8 +16,4 @@ std::vector<int> sort_array(std::vector<int> array){
     }
     
     return array;
-}
-
-int main(){
-    assert (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
 }
