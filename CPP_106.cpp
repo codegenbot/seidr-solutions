@@ -1,5 +1,10 @@
-vector<int> f(int n){
-    vector<int> result(n);
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> f(int n){
+    std::vector<int> result(n);
     for(int i = 0; i < n; i++){
         if(i % 2 == 0){
             int factorial = 1;
