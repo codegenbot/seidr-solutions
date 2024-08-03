@@ -11,5 +11,11 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     assert(solutions({3, 13, 2, 9}) == 16);
-    // Your code goes here
+    
+    std::vector<int> lst = {1, 5, 6, 8};
+    int result = solutions(lst);
+
+    std::cout << "The sum of odd elements from the vector is: " << result << std::endl;
+
+    return 0;
 }
