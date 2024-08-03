@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    vector<int> digits(16, 0);
+    vector<int> digits(16);
     
     for (int i = 0; i < 16; i++) {
         cin >> digits[i];
@@ -13,7 +13,7 @@ int main() {
     int sum = 0;
     
     for (int i = 0; i < 16; i++) {
-        if ((i + 1) % 2 == 0) { 
+        if ((i + 1) % 2 == 1) { 
             int doubled_digit = digits[i] * 2;
             sum += (doubled_digit > 9) ? (doubled_digit - 9) : doubled_digit;
         } else {
