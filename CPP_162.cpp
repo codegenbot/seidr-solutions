@@ -1,7 +1,6 @@
 #include <openssl/crypto.h>
-#include <openssl/evp.h>
 #include <string>
-#include <openssl/err.h>
+#include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text);
 
@@ -10,8 +9,8 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    OpenSSL_add_all_algorithms();
-    
+    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_DIGESTS, nullptr);
+
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
 
@@ -29,7 +28,6 @@ std::string string_to_md5(const std::string& text) {
     }
 
     EVP_cleanup();
-    ERR_free_strings();
 
     return std::string(mdString);
 }
