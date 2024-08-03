@@ -1,2 +1,7 @@
-def solve(n, m):
-    return (n - 1) / (n * m - 1) if n > m else (m - 1) / (n * m - 1)
+def solution(n, m):
+    if n < m:
+        return 0.0
+    elif n == m:
+        return 0.5
+    else:
+        return (n - m) / (n)
