@@ -1,1 +1,3 @@
-double_the_difference([1, 2, 3, 4, 5])
+def double_the_difference():
+    lst = input("Enter the list of numbers separated by space: ").split()
+    return sum(i**2 for i in map(int, lst) if int(i) % 2 != 0)
