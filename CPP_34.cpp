@@ -16,9 +16,9 @@ std::vector<int> unique(std::vector<int> vec) {
     return vec;
 }
 
-int solveProblem() {
+int main() {
     assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
     assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
-
+    
     return 0;
 }
