@@ -14,6 +14,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_level = max(max_level, level)
         result.append(max_level)
     return result
-
-if __name__ == '__main__':
-    print(parse_nested_parens("(a(b(c(d(e))))"))
