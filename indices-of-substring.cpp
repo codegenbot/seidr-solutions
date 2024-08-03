@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,7 +10,7 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos += 1; // Update pos by 1 to handle overlapping targets
+        pos += 1; // Update pos by 1 to search for overlapping targets
     }
 
     for (int i : indices) {
