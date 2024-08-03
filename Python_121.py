@@ -1,4 +1,4 @@
-```
+````
 def solution(lst):
-    """Given a list of integers, returns the sum of all odd numbers at even positions."""
+    """Return the sum of all odd numbers from every other element in the input list."""
     return sum(i for i in lst[1::2] if i % 2 != 0)
