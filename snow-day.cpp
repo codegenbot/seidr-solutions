@@ -7,8 +7,8 @@ int main() {
     
     for (int i = 0; i < hours; i++) {
         snow_on_ground += snow_fall_rate;
-        float melted_snow = snow_on_ground * snow_melt_rate;
-        snow_on_ground -= melted_snow;
+        float snow_to_melt = snow_on_ground * snow_melt_rate;
+        snow_on_ground -= snow_to_melt;
     }
     
     std::cout.precision(15);
