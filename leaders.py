@@ -1,4 +1,13 @@
-Here is the solution:
+Here is the completed code:
 
-def leaders(input):
-    return [x for i, x in enumerate(reversed(input)) if all(y <= x for y in input[i+1:])]
+def leaders(input_list):
+    result = []
+    max_right = input_list[-1]
+    for i in range(len(input_list) - 1, -1, -1):
+        if input_list[i] >= max_right:
+            result.append(input_list[i])
+            max_right = input_list[i]
+    return result[::-1]
+
+input_list = list(map(int, input().split()))
+print(*leaders(input_list))
