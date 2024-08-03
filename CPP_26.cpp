@@ -7,11 +7,7 @@ void remove_duplicates(std::vector<int>& vec) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> sortedA = a;
-    std::vector<int> sortedB = b;
-    std::sort(sortedA.begin(), sortedA.end());
-    std::sort(sortedB.begin(), sortedB.end());
-    return sortedA == sortedB;
+    return a == b;
 }
 
 int main() {
