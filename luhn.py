@@ -1,9 +1,7 @@
-Here is the solution:
-
 def luhn(card_number):
-    card_number = list(map(int, card_number))
-    for i in range(1, len(card_number), 2):
-        card_number[i] *= 2
-        if card_number[i] > 9:
-            card_number[i] -= 9
-    return sum(card_number)
+    card_number = [int(x) for x in str(card_number)[1:]]
+    double_odd = [
+        (card_number[i] * 2) if i % 2 else card_number[i]
+        for i in range(len(card_number))
+    ]
+    return sum([x - 9 if x > 9 else x for x in double_odd])
