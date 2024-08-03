@@ -18,7 +18,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+int main() {
+    assert(issame(filter_integers({std::variant<int, char>{3}, std::variant<int, char>{'c'}, std::variant<int, char>{3}, std::variant<int, char>{3}, std::variant<int, char>{'a'}, std::variant<int, char>{'b'}}), {3, 3, 3}));
     return 0;
 }
