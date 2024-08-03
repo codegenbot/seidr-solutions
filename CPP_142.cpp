@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-
 int sum_squares(vector<int> lst) {
     int total = 0;
     for (int i = 0; i < lst.size(); i++) {
