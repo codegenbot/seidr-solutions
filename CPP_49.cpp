@@ -1,21 +1,5 @@
 #include <iostream>
 
-int modp(int n, int p);
-
-int main() {
-    int n, p;
-    std::cout << "Enter value for n: ";
-    std::cin >> n;
-    std::cout << "Enter value for p: ";
-    std::cin >> p;
-
-    int result = modp(n, p);
-
-    std::cout << "Result: " << result << std::endl;
-
-    return 0;
-}
-
 int modp(int n, int p) {
     if (p == 1)
         return 0;
@@ -28,4 +12,13 @@ int modp(int n, int p) {
         n = (n * n) % p;
     }
     return result;
+}
+
+int main() {
+    int n, p;
+    std::cin >> n >> p;
+    
+    std::cout << modp(n, p) << std::endl;
+    
+    return 0;
 }
