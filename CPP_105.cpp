@@ -4,11 +4,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<std::string> arr) {
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"},
@@ -23,8 +23,7 @@ std::vector<std::string> by_length(std::vector<std::string> arr) {
     };
 
     std::vector<int> filtered;
-    for (const std::string& num_str : arr) {
-        int num = std::stoi(num_str);
+    for (int num : arr) {
         if (num >= 1 && num <= 9) {
             filtered.push_back(num);
         }
@@ -38,9 +37,4 @@ std::vector<std::string> by_length(std::vector<std::string> arr) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(by_length({"9", "4", "8"}), {"Nine", "Eight", "Four"}));
-    return 0;
 }
