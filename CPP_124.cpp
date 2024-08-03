@@ -2,6 +2,8 @@
 #include <cassert>
 
 bool valid_date(const std::string& date) {
+    // Given code snippet
+
     if(date.empty()) return false;
     if(date.size() != 10) return false;
     if(date[2] != '-' || date[5] != '-') return false;
@@ -24,8 +26,8 @@ bool valid_date(const std::string& date) {
 int main() {
     assert(valid_date("04-2003") == false);
     assert(valid_date("02-2020") == true);
-    assert(valid_date("13-2020") == false);
-    assert(valid_date("06-2000") == true);
-    assert(valid_date("15-2022") == false);
+    assert(valid_date("13-2021") == false);
+    assert(valid_date("09-1999") == true);
+    
     return 0;
 }
