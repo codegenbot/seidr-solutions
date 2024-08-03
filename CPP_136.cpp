@@ -1,22 +1,14 @@
-#include <cassert>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
-int main() {
-    assert(issame({-6, -4, -4, -3, -100, 1}, {-3, 1}));
+std::vector<int> largest_smallest_integers(std::vector<int> numbers) {
+    int smallest = *std::min_element(numbers.begin(), numbers.end());
+    int largest = *std::max_element(numbers.begin(), numbers.end());
     
-    return 0;
+    return { smallest, largest };
 }
