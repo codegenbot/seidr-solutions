@@ -27,9 +27,6 @@ std::string words_in_sentence(std::string sentence) {
             word += c;
         }
     }
-    if (is_prime(word.length())) {
-        result += word;
-    }
     if (!word.empty() && is_prime(word.length())) {
         result += word;
     }
