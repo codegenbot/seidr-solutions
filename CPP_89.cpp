@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <cctype>
+#include <cassert>
 
 std::string encrypt(const std::string& s) {
     std::string encrypted = "";
