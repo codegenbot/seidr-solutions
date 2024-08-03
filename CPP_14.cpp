@@ -3,9 +3,11 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> all_prefixes(const std::string& str);
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+namespace std {
+    inline bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+        return a == b;
+    }
+}
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -13,8 +15,4 @@ std::vector<std::string> all_prefixes(const std::string& str) {
         prefixes.push_back(str.substr(0, i));
     }
     return prefixes;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
 }
