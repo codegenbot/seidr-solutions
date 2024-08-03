@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -12,16 +13,17 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
+    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        int x;
+        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+        std::cin >> num;
+        input.push_back(num);
     }
-    std::cout << "Sum of odd elements: " << solution(lst) << std::endl;
+    int output = solution(input);
+    std::cout << "The sum of odd elements is: " << output << std::endl;
     return 0;
 }
