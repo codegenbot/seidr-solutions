@@ -1,19 +1,18 @@
 n = int(input())
-vector = [int(input()) for _ in range(n)]
-total_sum = sum(vector)
-cum_sum = 0
+v = [int(input()) for _ in range(n)]
+
+total_sum = sum(v)
+left_sum = 0
 min_diff = total_sum
-result_idx = 0
+cut_index = 0
 
 for i in range(n):
-    cum_sum += vector[i]
-    diff = abs(total_sum - 2 * cum_sum)
-    if diff <= min_diff:
+    left_sum += v[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
         min_diff = diff
-        result_idx = i
+        cut_index = i
 
-subvector1 = vector[: result_idx + 1]
-subvector2 = vector[result_idx + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(*v[: cut_index + 1])
+print(*v[cut_index + 1 :])
