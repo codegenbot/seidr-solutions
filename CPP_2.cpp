@@ -5,7 +5,7 @@
 #include <cassert>
 
 double truncate_number(double number) {
-    return number - std::floor(number);
+    return number - floor(number);
 }
 
 TEST_CASE("Truncate number test", "[truncate_number]") {
