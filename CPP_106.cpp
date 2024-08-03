@@ -2,11 +2,11 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()){
+    if(a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i){
-        if (a[i] != b[i]){
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -15,6 +15,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(std::vector<int>{1, 2, 6}, std::vector<int>{1, 2, 6}));
-    
-    return 0;
 }
