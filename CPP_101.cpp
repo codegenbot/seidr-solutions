@@ -4,6 +4,20 @@
 
 using namespace std;
 
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 vector<string> words_string(const string& s) {
     vector<string> words;
     string word;
@@ -24,6 +38,6 @@ vector<string> words_string(const string& s) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), vector<string>{"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
