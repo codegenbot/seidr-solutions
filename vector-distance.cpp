@@ -22,7 +22,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double distance = std::sqrt(sum);
+    double distance = std::sqrt(sum); // Calculate Euclidean distance
     std::cout << distance << std::endl;
 
     return 0;
