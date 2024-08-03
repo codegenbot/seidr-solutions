@@ -4,7 +4,7 @@
 #include <climits>
 #include <cassert>
 
-std::vector<int> rolling_max(std::vector<int> numbers) {
+std::vector<int> rolling_max(const std::vector<int>& numbers) {
     std::vector<int> result;
     int max_num = INT_MIN;
     for (int i = 0; i < numbers.size(); i++) {
@@ -14,7 +14,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
