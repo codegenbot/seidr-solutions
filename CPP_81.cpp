@@ -24,7 +24,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
     return letter_grades;
 }
 
-vector<string> result = numerical_letter_grade({0, 0.7});
-for(const string& grade : result) {
-    cout << grade << " ";
+int main() {
+    assert(numerical_letter_grade({0, 0.7}) == vector<string>{"E", "D-"});
+    return 0;
 }
