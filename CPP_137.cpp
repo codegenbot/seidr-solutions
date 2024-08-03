@@ -3,17 +3,29 @@
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (typeid(a) == typeid(int) && typeid(b) == typeid(float)) {
+string compare_one(string a, string b) {
+    if (a > b) {
+        return a;
+    } else if (b > a) {
         return b;
-    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(string)) {
-        return max((float)a, (string)b);
-    } else if (typeid(a) == typeid(int) && typeid(b) == typeid(string)) {
-        return b;
-    } else if (typeid(a) == typeid(float) && typeid(b) == typeid(int)) {
-        return boost::any((float)a > (int)b ? a : b);
-    } else if (typeid(a) == typeid(string) && typeid(b) == typeid(string)) {
-        return max(a, b);
+    }
+    return "None";
+}
+
+string compare_one(float a, int b) {
+    if (a > b) {
+        return to_string(a);
+    } else if (b > a) {
+        return to_string(b);
+    }
+    return "None";
+}
+
+string compare_one(int a, float b) {
+    if (a > b) {
+        return to_string(a);
+    } else if (b > a) {
+        return to_string(b);
     }
     return "None";
 }
