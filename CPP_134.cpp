@@ -1,6 +1,6 @@
-# include <iostream>
-# include <string>
-# include <cassert>
+#include <iostream>
+#include <string>
+#include <cassert>
 
 bool check_if_last_char_is_a_letter(const std::string& txt) {
     if(txt.empty()) return false;
@@ -11,7 +11,9 @@ bool check_if_last_char_is_a_letter(const std::string& txt) {
     return false;
 }
 
+#ifndef TESTING
 int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
+#endif
