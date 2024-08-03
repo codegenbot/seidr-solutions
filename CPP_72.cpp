@@ -1,3 +1,4 @@
+// Add function declaration and definition
 bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
     for (int num : q) {
@@ -14,4 +15,9 @@ bool will_it_fly(vector<int> q, int w) {
     }
     
     return false;
+}
+
+// In main function, call the function correctly
+int main() {
+    assert(will_it_fly({5}, 5) == true);
 }
