@@ -1,7 +1,6 @@
-#include<iostream>
-#include<assert.h>
+#include <cassert>
 
-bool any_int(double a, double b, double c) {
+bool any_int(double a, double b, double c){
     if((a == b + c) || (b == a + c) || (c == a + b)){
         if(a == (int)a && b == (int)b && c == (int)c){
             return true;
@@ -10,7 +9,7 @@ bool any_int(double a, double b, double c) {
     return false;
 }
 
-int main() {
+int main(){
     assert(any_int(3.01, 4, 7) == false);
     return 0;
 }
