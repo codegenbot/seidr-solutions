@@ -25,7 +25,11 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
 }
 
 int main() {
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+    vector<float> expected = {0.25, 0.0, 1.0, 0.5, 0.75};
+    vector<float> result = rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0});
     
+    // Check if the result matches the expected values
+    assert(issame(result, expected));
+
     return 0;
 }
