@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <vector> // include vector library
+#include <vector>
+#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::vector<std::string> words;
