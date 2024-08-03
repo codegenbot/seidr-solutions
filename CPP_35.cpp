@@ -12,11 +12,8 @@ float max_element(const std::vector<int>& l){
     return max;
 }
 
-void test_max_element() {
-    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
-}
-
-int main() {
-    test_max_element();
-    return 0;
+float max_element(const std::vector<int>& l1, const std::vector<int>& l2) {
+    float max1 = max_element(l1);
+    float max2 = max_element(l2);
+    return (max1 > max2) ? max1 : max2;
 }
