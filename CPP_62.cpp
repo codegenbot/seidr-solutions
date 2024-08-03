@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -15,12 +14,5 @@ std::vector<float> derivative(const std::vector<float>& xs){
     return result;
 }
 
-int main() {
-    std::vector<float> input;
-    float value;
-    while (std::cin >> value) {
-        input.push_back(value);
-    }
-    assert(issame(derivative(input), {}));
-    return 0;
-}
+assert(issame(derivative({1.0f}), {}));
+return 0;
