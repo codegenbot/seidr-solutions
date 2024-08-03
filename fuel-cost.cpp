@@ -6,7 +6,9 @@ int main() {
     int n;
     while (!std::cin.eof()) {
         std::cin >> n;
-        nums.push_back(n);
+        if (!std::cin.eof()) {
+            nums.push_back(n);
+        }
     }
 
     int sum = 0;
@@ -17,4 +19,4 @@ int main() {
     std::cout << sum << std::endl;
 
     return 0;
-}
+} 
