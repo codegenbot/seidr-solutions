@@ -1,8 +1,10 @@
 def luhn(card_number):
-    card_number = list(map(int, card_number[1:]))
-    for i in range(len(card_number)):
-        if i % 2 == 0:
-            card_number[i] *= 2
-            if card_number[i] > 9:
-                card_number[i] -= 9
-    return sum(card_number)
+    card_number = [int(x) for x in str(card_number)]
+    result = sum([i * 2 if i % 2 else i for i in card_number]) - sum(
+        [
+            int(str(i * 2).zfill(2)[1:])
+            for i in card_number[1::2]
+            if int(str(i * 2).zfill(2)[0]) > 4
+        ]
+    )
+    return str(result)
