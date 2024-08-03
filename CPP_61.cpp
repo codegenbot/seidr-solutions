@@ -1,4 +1,3 @@
-
 int correct_bracketing(string brackets) {
     int count = 0;
     for (char c : brackets) {
@@ -11,7 +10,7 @@ int correct_bracketing(string brackets) {
             count--;
         }
     }
-    return count;
+    return count == 0 ? 1 : 0;
 }
 
 int main() {
