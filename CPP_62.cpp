@@ -1,5 +1,11 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b){
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
+}
+
+int main() {
+    std::vector<float> derivative({1});
+    assert (issame(derivative, {}));
 }
