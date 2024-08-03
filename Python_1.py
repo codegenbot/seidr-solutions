@@ -19,6 +19,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(group)
                 group = ''
         else:
-            raise ValueError("Invalid input")
+            group += char
 
     return groups
