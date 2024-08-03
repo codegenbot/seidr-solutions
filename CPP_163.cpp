@@ -1,13 +1,13 @@
 #include <vector>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
-std::vector<int> generate_integers(int a, int b) {
-    std::vector<int> result;
+vector<int> generate_integers(int a, int b) {
+    vector<int> result;
     for(int i = a; i <= b; i++) {
-        if(i % 2 == 0) {
+        if(issame(i % 2, 0)) {
             result.push_back(i);
         }
     }
