@@ -12,17 +12,13 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
         }
     }
-    sort(result.begin(),result.end());
-    vector<float> unique_result;
-    for(float num: result){
-        bool is_in = false;
-        for(float n: unique_result){
-            if(issame(vector<float>({n}),vector<float>({num}))){
-                is_in = true;
-                break;
-            }
+    vector<float> sorted = result;
+    std::sort(sorted.begin(), sorted.end());
+    vector<float> unique;
+    for (float num : sorted) {
+        if (!issame(vector<float>{num},unique)) {
+            unique.push_back(num);
         }
-        if(!is_in)unique_result.push_back(num);
     }
-    return unique_result;
+    return unique;
 }
