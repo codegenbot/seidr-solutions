@@ -1,4 +1,4 @@
-def find_zero(xs: list):
+def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
     x = -xs[1] / xs[0]
