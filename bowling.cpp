@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -8,7 +9,7 @@ int bowlingScore(std::string s) {
             score += 10 + (frame < 10 ? 10 : 0);
             frame++;
         } else if (c == '/') {
-            score += 10 - ((s[s.length() - 1] - '0') + (s[s.length() - 2] - '0'));
+            score += 10 - ((s.back() - '0') + (s[s.length()-2] - '0'));
             frame++;
         } else {
             int pins = c - '0';
@@ -19,8 +20,8 @@ int bowlingScore(std::string s) {
                     frame++;
                 } else {
                     frame++;
-                    if (s[s.length() - 1] != '/' && s[s.length() - 2] != '/') {
-                        int nextPins = s[s.length() - 1] - '0';
+                    if (s.back() != '/' && s[s.length()-2] != '/') {
+                        int nextPins = s.back() - '0';
                         score += pins + nextPins;
                         frame++;
                     }

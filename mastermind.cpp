@@ -22,7 +22,7 @@ int countWhitePegs(const string& code, const string& guess) {
 int countBlackPegs(const string& code, const string& guess) {
     int blackPegs = 0;
     for (char c : code) {
-        if (c == guess[0] && c != ' ') {
+        if (c == guess[0]) {
             blackPegs++;
             break;
         }
