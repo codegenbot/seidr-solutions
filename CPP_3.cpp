@@ -1,9 +1,1 @@
-int balance = 0;
-    for (int op : operations) {
-        balance += op;
-        if (balance < 0) {
-            return true;
-        }
-    }
-    return false;
-}
+std::vector<int> operations = {1, -2, 2, -2, 5, -5, 4, -4};
