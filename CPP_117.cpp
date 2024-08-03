@@ -38,7 +38,7 @@ int main() {
     vector<string> expected_output = {"world", "cpp"};
     assert(issame(output, expected_output));
 
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
 
     cout << "All tests passed successfully!" << endl;
 
