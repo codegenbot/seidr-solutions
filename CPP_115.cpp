@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int count = 0;
@@ -10,4 +12,9 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         count += sum / capacity + (sum % capacity != 0);
     }
     return count;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
