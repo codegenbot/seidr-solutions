@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -41,16 +41,13 @@ int main() {
     std::string s, c;
     std::cout << "Enter string: ";
     std::cin >> s;
-    std::cout << "Enter character to delete: ";
+    std::cout << "Enter character to be deleted: ";
     std::cin >> c;
-    
     std::vector<std::string> result = reverse_delete(s, c);
-    
-    if (issame({s}, result)) {
-        std::cout << "Result: Reversed string is the same as original." << std::endl;
+    if (issame(result, {"", "True"})) {
+        std::cout << "The reversed string is the same as the original.\n";
     } else {
-        std::cout << "Result: Reversed string is different from original." << std::endl;
+        std::cout << "The reversed string is not the same as the original.\n";
     }
-    
     return 0;
 }
