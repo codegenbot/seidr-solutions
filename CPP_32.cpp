@@ -19,10 +19,10 @@ double find_zero(const vector<double>& xs) {
 }
 
 int main() {
-    vector<double> coeffs = {1.0, 2.0, 3.0, 0.0};
-    coeffs[3] = 4.0;
+    vector<double> coeffs = {1.0, 2.0, 3.0, 0.0}; // Updated coefficients
+    coeffs[3] = 4.0; // Change the last coefficient
     double solution = find_zero(coeffs);
     assert(fabs(poly(coeffs, solution)) < 1e-3);
-
+    
     return 0;
 }
