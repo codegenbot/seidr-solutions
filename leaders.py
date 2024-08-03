@@ -1,6 +1,2 @@
-def leaders(input_vector):
-    return [
-        x
-        for x in reversed(input_vector)
-        if all(x >= y for y in input_vector[input_vector.index(x) + 1 :])
-    ]
+def leaders(arr):
+    return [x for i, x in enumerate(reversed(arr)) if all(x >= y for y in arr[i + 1 :])]
