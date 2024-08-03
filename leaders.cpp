@@ -24,8 +24,13 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
+    char delimiter;
     while (cin >> num) {
         nums.push_back(num);
+        cin.get(delimiter);
+        if (delimiter == '\n') {
+            break;
+        }
     }
     
     vector<int> result = findLeaders(nums);
