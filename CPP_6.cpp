@@ -7,21 +7,17 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> parse_nested_parens(std::string str) {
-    int count = 0;
-    std::vector<int> result;
-    
+    std::vector<int> depths;
+    int depth = 0;
     for (char c : str) {
         if (c == '(') {
-            count++;
+            depth++;
         } else if (c == ')') {
-            if (count > 0) {
-                result.push_back(count);
-                count--;
-            }
+            depths.push_back(depth);
+            depth--;
         }
     }
-    
-    return result;
+    return depths;
 }
 
 int main() {
