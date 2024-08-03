@@ -10,7 +10,7 @@ vector<vector<int>> cutVector(vector<int> vec) {
     for (int i = 0; i < n - 1; i++) {
         if (vec[i] == vec[i + 1]) {
             result.push_back({vec[0], vec[i]});
-            return {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
+            return {{}, vector<int>(vec.begin() + i, vec.end())};
         }
     }
     
@@ -25,7 +25,7 @@ vector<vector<int>> cutVector(vector<int> vec) {
     }
     
     result.push_back({vec[0], vec[cutIndex]});
-    return {{vec.begin(), vec.begin() + cutIndex}, {vec.begin() + cutIndex, vec.end()}};
+    return {{}, vector<int>(vec.begin() + cutIndex, vec.end())};
 }
 
 int main() {
