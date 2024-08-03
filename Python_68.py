@@ -1,5 +1,8 @@
+Here is the solution:
+
 def pluck(arr):
-    even_nodes = [i for i in enumerate(arr) if arr[i[1]] % 2 == 0]
+    even_nodes = [(node, i) for i, node in enumerate(arr) if node % 2 == 0]
     if not even_nodes:
         return []
-    return [even_nodes[0][1], even_nodes[0][0]]
+    smallest_even_node = min(even_nodes)
+    return [smallest_even_node[0], smallest_even_node[1]]
