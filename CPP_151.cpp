@@ -1,18 +1,16 @@
-#include <cmath>
-#include <vector>
-
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0) {
-            sum += pow(num, 2);
+int main() {
+    vector<float> lst;
+    long long odd_sum = 0;
+    cout << "Enter numbers (negative to stop): ";
+    while (true) {
+        float num;
+        cin >> num;
+        if (num < 0) break;
+        if (num > 0 && floor(num) == num) { 
+            if (modf(sqrt(num), &num) != 0.0) { 
+                odd_sum += pow(num, 2);
+            }
         }
     }
-    return sum;
-}
-
-int main() {
-    std::vector<float> lst; // Declare and initialize lst
-    float odd_sum = double_the_difference(lst); // Calculate the result and assign it to odd_sum
-    return 0;
+    cout << "The difference is: " << odd_sum << endl;
 }
