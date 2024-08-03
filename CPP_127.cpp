@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <cassert>
+#include <assert.h>
 
 using namespace std;
 
@@ -28,9 +28,4 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     } else {
         return "NO";
     }
-}
-
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    return 0;
 }
