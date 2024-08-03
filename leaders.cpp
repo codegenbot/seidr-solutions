@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     if (nums.empty()) {
-        return {};
+        return {}; // return an empty vector if input is empty
     }
 
     vector<int> leaders;
