@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -13,7 +14,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     std::vector<std::pair<float, float>> result;
     if (numbers.size() < 2) {
-        result.push_back({numbers[0], numbers[0]});
+        for (int i = 0; i < numbers.size(); i++) {
+            result.push_back({numbers[i], numbers[i]});
+        }
         return result;
     }
 
@@ -37,5 +40,4 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 
 int main() {
     assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    // Your code here
 }
