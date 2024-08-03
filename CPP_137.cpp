@@ -1,4 +1,4 @@
-#include <variant>
+#include <any>
 #include <string>
 
 std::string compare_one(const std::string& s, int n) {
@@ -6,6 +6,6 @@ std::string compare_one(const std::string& s, int n) {
 }
 
 int main() {
-    assert(std::get<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
