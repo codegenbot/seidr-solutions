@@ -5,10 +5,7 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; ++i) {
-        totalSnow += rateOfSnowfall;
-        if (totalSnow > 0) {
-            totalSnow *= (1 - proportionOfMeltingPerHour);
-        }
+        totalSnow += rateOfSnowfall - totalSnow * proportionOfMeltingPerHour;
     }
     return totalSnow;
 }
