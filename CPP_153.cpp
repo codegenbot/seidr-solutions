@@ -1,8 +1,14 @@
-string Strongest_Extension(string class_name, vector<string> extensions){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+#include <cassert>
+
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = INT_MIN;
-    string strongest_extension = "";
+    std::string strongest_extension = "";
     
-    for(const string& ext : extensions){
+    for(const std::string& ext : extensions){
         int CAP = 0, SM = 0;
         for(char c : ext){
             if(isupper(c)){
