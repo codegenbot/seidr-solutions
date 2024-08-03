@@ -17,8 +17,8 @@ int main() {
         }
     }
     
-    if (!input.empty() && input[0] != '-' && !std::isupper(input[0])) 
-        input[0] = std::toupper(input[0]); // Capitalize the first letter after processing
+    if (!input.empty() && (input[0] == ' ' || input[0] == '-'))
+        input[0] = std::tolower(input[0]); // Convert the first letter after processing to lowercase
     
     std::cout << input << std::endl;
     

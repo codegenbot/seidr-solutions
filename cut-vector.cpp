@@ -9,9 +9,8 @@ int main() {
     
     while (!cin.eof()) {
         cin >> num;
-        if (!cin.eof()) {
-            nums.push_back(num);
-        }
+        if (cin.eof()) break;
+        nums.push_back(num);
     }
     
     int n = nums.size();
@@ -33,17 +32,17 @@ int main() {
     }
     
     if (std::abs(prefix_sum - (sum - prefix_sum)) < std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
-        std::cout << "1" << std::endl;
+        cout << "1" << endl;
         for (int i = 0; i <= cut_index; i++) {
-            std::cout << nums[i] << std::endl;
+            cout << nums[i] << endl;
         }
-        std::cout << "0" << std::endl;
+        cout << "0" << endl;
     } else {
-        std::cout << "1" << std::endl;
+        cout << "1" << endl;
         for (int i = 0; i < cut_index; i++) {
-            std::cout << nums[i] << std::endl;
+            cout << nums[i] << endl;
         }
-        std::cout << nums[cut_index] << std::endl;
+        cout << nums[cut_index] << endl;
     }
     
     return 0;
