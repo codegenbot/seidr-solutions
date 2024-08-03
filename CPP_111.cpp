@@ -1,12 +1,14 @@
 #include <map>
 #include <cassert>
+#include <string>
 
 using namespace std;
 
 map<char, int> histogram(const char* str) {
     map<char, int> result;
-    for (const char* p = str; *p != '\0'; ++p) {
-        result[*p]++;
+    while (*str) {
+        result[*str]++;
+        str++;
     }
     return result;
 }
