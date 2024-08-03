@@ -1,9 +1,23 @@
+#include <vector>
+using namespace std;
+
 int basement(vector<int>& nums) {
     int sum = 0;
-    for(int i=0; i<nums.size(); i++) {
+    for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if(sum < 0)
-            return i;
+        if (sum < 0) return i;
     }
-    return -1; // return -1 as the sum of all integers is always non-negative
+    return -1;
+}
+
+int main() {
+    vector<int> nums;
+    int n;
+    cin >> n;
+    nums.resize(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+    }
+    cout << basement(nums) << endl;
+    return 0;
 }
