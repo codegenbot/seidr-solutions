@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <cassert>
 
@@ -10,17 +9,24 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+vector<std::vector<int>> strange_sort_vector(vector<int> lst) {
+    vector<std::vector<int>> result;
     while (!lst.empty()) {
         int minVal = *min_element(lst.begin(), lst.end());
-        result.push_back(minVal);
-        lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
-        
-        if (!lst.empty()) {
-            int maxVal = *max_element(lst.begin(), lst.end());
-            result.push_back(maxVal);
-            lst.erase(remove(lst.begin(), lst.end(), maxVal), lst.end());
+        vector<int> temp;
+        for (int i : lst) {
+            if (i != minVal) temp.push_back(i);
+        }
+        if (!temp.empty()) {
+            int maxVal = *max_element(temp.begin(), temp.end());
+            result.push_back({minVal, maxVal});
+            lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
+            for (int i : temp) {
+                if (i != maxVal) lst.push_back(i);
+            }
+        } else {
+            result.push_back({minVal});
+            lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
         }
     }
     return result;
