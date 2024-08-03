@@ -1,27 +1,29 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string toCamelCase(std::string s) {
     std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            int i = str.find(c);
-            result += str.substr(0, i).at(i - 1). toupper();
-            str.erase(0, i + 1);
-        } else if (c == ' ') {
-            int i = str.find(c);
-            result += str.substr(0, i).at(i - 1).toupper();
-            str.erase(0, i + 1);
+    size_t start = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == '-') {
+            size_t wordLen = i - start;
+            if (wordLen > 0) {
+                result += s.substr(start, wordLen);
+                if (start < i && i < s.size()) {
+                    result += std::string(1, toupper(s[i]));
+                }
+            }
+            start = i + 1;
         }
     }
-    result += str;
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << toCamelCase(s) << std::endl;
     }
     return 0;
 }
