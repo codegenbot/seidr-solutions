@@ -11,8 +11,8 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> filter_by_prefix(vector<string> words, string prefix){
     vector<string> filtered_words;
-    for (const auto &word : words) {
-        if (word.substr(0, prefix.size()) == prefix) {
+    for(const string& word : words){
+        if(word.substr(0, prefix.size()) == prefix){
             filtered_words.push_back(word);
         }
     }
