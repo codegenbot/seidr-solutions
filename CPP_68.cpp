@@ -21,11 +21,23 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> v1, vector<int> v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
-int main(){
-    // Add test cases here
+int main() {
+    assert(issame(pluck({1, 2, 3, 4, 5}), {2, 1}));
+    assert(issame(pluck({1, 3, 5}), {}));
+    
     return 0;
 }
