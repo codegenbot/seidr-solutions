@@ -13,6 +13,6 @@ def minSubArraySum(nums):
             left += 1
         if current_sum < min_sum:
             min_sum = current_sum
-            start = right - left + 1
+            start = left
             end = right
     return nums[start:end+1]
