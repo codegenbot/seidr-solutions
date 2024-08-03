@@ -1,5 +1,5 @@
 #include <string>
-#include <bitset>
+#include <cassert>
 
 std::string calculate_avg(int n, int m) {
     if (n > m) {
