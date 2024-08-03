@@ -4,38 +4,42 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
-
-    int index1 = -1, index2 = -1;
+vector<string> bf(string planet1, string planet2){
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
+    int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            index1 = i;
+            start = i;
         }
         if (planets[i] == planet2) {
-            index2 = i;
+            end = i;
         }
     }
-
-    if (index1 == -1 || index2 == -1) {
-        return result;
+    if (start == -1 || end == -1) {
+        return {};
     }
-
-    int start = std::min(index1, index2) + 1;
-    int end = std::max(index1, index2);
-
-    for (int i = start; i < end; ++i) {
+    if (start > end) {
+        swap(start, end);
+    }
+    for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
-
     return result;
 }
 
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+int main(){
+    vector<string> result = bf("Jupiter", "Makemake");
+    if (issame(result, {})) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+    return 0;
 }
