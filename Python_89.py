@@ -1,11 +1,15 @@
 ```
 def encrypt(s):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    shifted_alphabet = alphabet[2*2:] + alphabet[:2*2]
     result = ''
     for char in s:
         if char.isalpha():
-            ascii_offset = 97 if char.islower() else 65
-            encrypted_char = chr((ord(char) - ascii_offset + 2 * 26) % 26 + ascii_offset)
-            result += encrypted_char
+            index = (alphabet.index(char.lower()) - 2*2) % len(alphabet)
+            if char.isupper():
+                result += shifted_alphabet[index].upper()
+            else:
+                result += shifted_alphabet[index]
         else:
             result += char
     return result
