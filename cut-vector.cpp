@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,16 +7,19 @@ vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
     
-    for(int i = 0; i < n - 1; i++) {
-        if(abs(vec[i] - vec[i+1]) > (vec[n-1] - vec[0])) {
-            result.push_back({&vec[0], 0, i});
-            result.push_back({&vec[i], 0, n-i-1});
+    for(int i = 0; i < n; i++) {
+        if(i == n - 1 || vec[i] != vec[i+1]) {
+            vector<int> left = vector<int>();
+            for(int j = 0; j <= i; j++) {
+                left.push_back(vec[j]);
+            }
+            vector<int> right = vector<int>();
+            for(int j = i + 1; j < n; j++) {
+                right.push_back(vec[j]);
+            }
+            result.push_back({left, right});
             break;
         }
-    }
-    
-    if(result.empty()) {
-        result.push_back({&vec[0], 0, n-1});
     }
     
     return result;
@@ -31,10 +35,14 @@ int main() {
     
     vector<vector<int>> res = cutVector(vec);
     for(auto v : res) {
-        for(auto x : v) {
-            cout << x << " ";
+        for(auto x : v[0]) {
+            std::cout << x << " ";
         }
-        cout << endl;
+        std::cout << " ";
+        for(auto x : v[1]) {
+            std::cout << x << " ";
+        }
+        std::cout << std::endl;
     }
     
     return 0;
