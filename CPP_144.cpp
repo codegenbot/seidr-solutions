@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <stdio.h>
 #include <string>
 #include <cmath>
@@ -13,7 +12,7 @@ bool simplify(string x, string n) {
     int result_num = num1 * num2;
     int result_den = den1 * den2;
 
-    int gcd = __gcd(result_num, result_den);
+    int gcd_result = gcd(result_num, result_den);
 
-    return result_num % gcd == 0 && result_den % gcd == 0;
+    return result_num % gcd_result == 0 && result_den % gcd_result == 0;
 }
