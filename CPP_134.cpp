@@ -1,14 +1,11 @@
-Here is the completed code:
+#include <string>
+#include <cctype>
 
-```cpp
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false;
-    string last_char = txt.substr(txt.length() - 1);
-    for(int i=0; i<txt.length(); i++) {
-        if(txt[i] == ' ' && i != (txt.length()-1)) {
-            string word = txt.substr(i+1, txt.length()-i-1);
-            if(last_char == word) return false;
-        }
+int check_if_last_char_is_a_letter(const std::string& s) {
+    int last_space_index = -1;
+    for(int i=s.length()-2; i>=0; i--){
+        if(s[i] == ' ')
+            last_space_index = i+1;
     }
-    return isalpha(txt[txt.length()-1]);
+    return (last_space_index != s.length() && isalpha(s.back()));
 }
