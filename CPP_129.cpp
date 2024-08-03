@@ -3,11 +3,14 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    for (int i = 0; i < k / grid.size(); ++i) {
-        for (const auto& row : grid) {
-            result.insert(result.end(), row.begin(), row.end());
-        }
+    vector<int> path;
+    for (int i = 0; i < k; ++i) {
+        path.push_back(grid[i % grid.size()][i % grid[0].size()]);
     }
-    return result;
+    return path;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
