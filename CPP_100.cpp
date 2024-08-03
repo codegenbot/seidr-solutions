@@ -2,38 +2,23 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(const std::vector<int>& stones){
-    for(int i=0; i<stones.size()-1; i++){
-        if(stones[i] != stones[i+1]){
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
-    stones.push_back(n);
-    for(int i=1; i<n; i++){
-        if(n % 2 == 0){
-            n += 2;
-        } else {
-            n += 1;
-        }
-        stones.push_back(n);
+    for(int i = 0; i < n; ++i){
+        stones.push_back(n + 2 * i);
     }
     return stones;
 }
 
 int main(){
-    std::vector<int> result = make_a_pile(8);
-    assert(issame(result));
+    int n;
+    std::cin >> n;
 
-    if(issame(result)){
-        std::cout << "All stones in the pile are the same." << std::endl;
-    } else {
-        std::cout << "Stones in the pile are not all the same." << std::endl;
-    }
-    
+    assert(issame(make_a_pile(n), std::vector<int>({n, n+2, n+4, n+6, n+8, n+10, n+12, n+14})));
+
     return 0;
 }
