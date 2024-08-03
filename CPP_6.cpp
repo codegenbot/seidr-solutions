@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> parse_nested_parens(std::string paren_string);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -29,4 +30,9 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     levels.push_back(max_level);
 
     return levels;
+}
+
+int main() {
+    assert(is_same(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
 }
