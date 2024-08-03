@@ -1,23 +1,16 @@
-```cpp
 #include <vector>
-#include <list>
 #include <any>
-#include <assert.h>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = boost::any_cast<int>(value);
-            result.push_back(i);
+        if (boost::any_cast<bool>(value)) {
+            int num = boost::any_cast<int>(value);
+            result.push_back(num);
         }
     }
     return result;
