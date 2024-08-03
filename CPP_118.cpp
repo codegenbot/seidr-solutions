@@ -1,7 +1,9 @@
+```cpp
+#include <iostream>
 #include <string>
 
-string get_closest_vowel(string word) {
-    string result = "";
+std::string get_closest_vowel(std::string word) {
+    std::string result = "";
     for (int i = word.length() - 1; i >= 0; i--) {
         if (!isalpha(word[i])) continue;
         if (isvowel(word[i])) {
