@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> words_string(const std::string& s) {
+std::vector<std::string> words_string(std::string s) {
     std::vector<std::string> words;
     std::string word;
     for (char c : s) {
