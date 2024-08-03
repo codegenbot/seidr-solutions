@@ -1,8 +1,9 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool is_sorted(const std::vector<int>& v) {
-    return std::is_sorted(v.begin(), v.end());
+bool is_sorted(const std::vector<int>::iterator& begin, const std::vector<int>::iterator& end) {
+    return std::is_sorted(begin, end);
 }
 
 bool move_one_ball(std::vector<int>& arr) {
@@ -11,7 +12,7 @@ bool move_one_ball(std::vector<int>& arr) {
         return false;
     }
     for (int i = 0; i < n; i++) {
-        if (is_sorted(arr)) {
+        if (is_sorted(arr.begin(), arr.end())) {
             return true;
         }
         std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
