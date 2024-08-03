@@ -14,3 +14,5 @@ int prod_signs(const std::vector<int>& arr) {
 
     return product * sum_magnitudes;
 }
+
+assert(prod_signs({-1, 1, 1, 0}) == 0);
