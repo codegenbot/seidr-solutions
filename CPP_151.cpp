@@ -8,12 +8,11 @@ double double_the_difference(const std::vector<float>& lst) {
             sum += (long long)pow(num, 2);
         }
     }
-    return 2 * sum;
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
+    std::vector<float> lst = {1.5, 2, 3, 4.0, 5};
     double odd_sum = double_the_difference(lst);
-    
     return 0;
 }
