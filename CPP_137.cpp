@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -17,3 +18,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (int)a > (int)b ? a : b;
     }
     return boost::any("None");
+}
