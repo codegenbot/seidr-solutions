@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -32,21 +31,15 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    stringstream ss(input);
-    
     int a, b;
-    ss >> a >> b;
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
-    getline(cin, input);
-    ss.str("");
-    ss.clear();
-    ss.str(input);
+    cin.ignore();
+    getline(cin, text);
+    getline(cin, target);
     
-    ss >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
