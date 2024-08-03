@@ -1,6 +1,5 @@
 #include <utility>
 #include <cassert>
-#include <vector>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
@@ -9,6 +8,6 @@ std::pair<int, int> eat(int number, int need, int remaining) {
     return std::make_pair(eaten, left);
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
 }
