@@ -1,24 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    return 0;
+}
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            sortedArr.push_back(i);
-        }
-    }
-    reverse(sortedArr.begin(), sortedArr.end());
+    map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"},
+                                     {4, "Four"}, {5, "Five"}, {6, "Six"},
+                                     {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     vector<string> result;
-    for (int i : sortedArr) {
-        switch (i) {
-            case 1: result.push_back("One"); break;
-            case 2: result.push_back("Two"); break;
-            case 3: result.push_back("Three"); break;
-            case 4: result.push_back("Four"); break;
-            case 5: result.push_back("Five"); break;
-            case 6: result.push_back("Six"); break;
-            case 7: result.push_back("Seven"); break;
-            case 8: result.push_back("Eight"); break;
-            case 9: result.push_back("Nine"); break;
-        }
+    for (int num : arr) {
+        if (num >= 1 && num <= 9)
+            result.push_back(numberNames[num]);
     }
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             return a.length() < b.length();
+         });
+    reverse(result.begin(), result.end());
     return result;
 }
