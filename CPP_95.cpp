@@ -1,5 +1,5 @@
 // Problem description: 
-// Check if all keys in a given dictionary are either in lowercase or uppercase.
+// Complete the following code given the task description and function signature..
 
 bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
