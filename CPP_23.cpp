@@ -3,6 +3,6 @@
 int main() {
     std::string s;
     cin >> s;
-    cout << s.length();
+    int len = s.length();
     return 0;
 }
