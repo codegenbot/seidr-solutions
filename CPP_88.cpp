@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool areVectorsEqual(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -19,6 +20,7 @@ std::vector<int> sort_array(const std::vector<int>& array) {
 }
 
 int main() {
-    assert (issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(areVectorsEqual(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    
     return 0;
 }
