@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <cassert>
 
@@ -14,18 +15,22 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
-    float min_diff = std::numeric_limits<float>::max();
-    std::pair<float, float> closest_elements;
-
-    for (size_t i = 0; i < numbers.size() - 1; ++i) {
-        float diff = std::abs(numbers[i] - numbers[i + 1]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_elements = {numbers[i], numbers[i + 1]};
+    if (numbers.size() < 2) {
+        return {0.0f, 0.0f};
+    }
+    
+    float minDiff = std::abs(numbers[1] - numbers[0]);
+    std::pair<float, float> closestPair = {numbers[0], numbers[1]};
+    
+    for (size_t i = 1; i < numbers.size() - 1; ++i) {
+        float diff = std::abs(numbers[i + 1] - numbers[i]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            closestPair = {numbers[i], numbers[i + 1]};
         }
     }
-
-    return closest_elements;
+    
+    return closestPair;
 }
 
 int main() {
