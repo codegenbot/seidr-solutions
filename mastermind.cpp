@@ -29,7 +29,7 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (codeFreq[guess[i] - 'A'] > 0) {
             whitePegs++;
-            codeFreq[guess[i] - 'A']--;  // Corrected line
+            codeFreq[guess[i] - 'A']--;
         }
     }
 
