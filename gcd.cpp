@@ -34,10 +34,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     int a, b;
-    cin >> a;
-    cin >> b;
+    cin >> a >> b;
+    cin.ignore(); // Add cin.ignore() here to ignore trailing newline character
+    
     string text, target;
-    cin.ignore();
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
