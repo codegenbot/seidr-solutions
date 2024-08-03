@@ -8,10 +8,6 @@ def gcd(a, b):
 def indices_of_substring(text, target):
     result = []
     for i in range(len(text)):
-        if text[i:i+len(target)] == target:
+        if text[i:].startswith(target):
             result.append(i)
     return result
-
-# test cases
-print(gcd(1, 1))
-print(indices_of_substring("hello", "ll"))
