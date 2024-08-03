@@ -1,21 +1,38 @@
 #include <iostream>
-#include <string>
 #include <vector>
-using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> indices;
+    // Implement your logic to find indices of target in text
+    return indices;
+}
 
 int main() {
-    // Add your code here to read inputs and call functions
     int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-    
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndicesOfSubstring(text, target);
+    std::cin >> a;
+    std::cin.ignore();
+    std::cin >> b;
+
+    std::cout << gcd(a, b) << std::endl;
+
+    std::string text, target;
+    std::cin.ignore();
+    std::cin >> text;
+    std::cin.ignore();
+    std::cin >> target;
+  
+    std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
-    
     return 0;
-}
+}  
