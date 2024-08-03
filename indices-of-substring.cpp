@@ -11,7 +11,7 @@ int main() {
 
     while (pos < text.length() && (pos = text.find(target, pos)) != std::string::npos) {
         if (!indices.empty() && pos == indices.back()) {
-            pos++;
+            pos += target.length() ? 1 : 1;
             continue;
         }
         indices.push_back(static_cast<int>(pos));
