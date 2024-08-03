@@ -1,13 +1,9 @@
-def find_max_value():
-    max_value = float("-inf")
-    while True:
-        user_input = input("Enter a number (or 'q' to quit): ")
-        if user_input.lower() == "q":
-            break
-        try:
-            num = int(user_input)
-            if num > max_value:
-                max_value = num
-        except ValueError:
-            print("Invalid input. Please enter a valid number or 'q' to quit.")
-    return max_value
+from typing import List
+
+
+def find_max_value_in_array(arr: List[int]) -> int:
+    max_val = arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] > max_val:
+            max_val = arr[i]
+    return max_val
