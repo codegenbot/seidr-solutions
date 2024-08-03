@@ -1,20 +1,11 @@
-```
-bool issame(string s1, string s2) {
-    if (s1.length() != s2.length()) {
-        return false;
-    }
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1[i] != s2[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const string& str1, const string& str2) {
+    return str1 == str2;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
-        if (issame(prefix, str.substr(0, prefix.length()))) {
+        if (str.find(prefix) == 0 || issame(str.substr(0, prefix.size()), prefix)) {
             result.push_back(str);
         }
     }
