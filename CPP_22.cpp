@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
-}
-
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (auto val : values) {
@@ -19,7 +15,9 @@ vector<int> filter_integers(list<any> values) {
     return result;
 }
 
-int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    return 0;
+void main() {
+    vector<int> expected = {3, 3, 3};
+    vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
+  
+    assert(filtered == expected);
 }
