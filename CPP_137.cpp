@@ -21,10 +21,10 @@ std::any compare_one(const std::any& a, const std::any& b) {
         }
         return (stod(strA) > stod(strB)) ? a : b;
     }
-    return std::any(std::string("None"));
+    return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)).empty());
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
