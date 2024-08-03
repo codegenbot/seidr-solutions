@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <cmath> // Include cmath for pow() and sqrt()
+#include <cmath> 
 #include <iomanip>
 
 using namespace std;
