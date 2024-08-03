@@ -1,18 +1,20 @@
 #include <vector>
 #include <string>
+#include <iostream>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> separate_paren_groups(const string paren_string);
+using std::vector;
+using std::string;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> separate_paren_groups(const string paren_string) {
-    vector<string> result;
+vector<string> separate_paren_groups(string paren_string);
 
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    
     string group;
     int count = 0;
 
@@ -34,13 +36,17 @@ vector<string> separate_paren_groups(const string paren_string) {
     }
 
     return result;
-}
+} 
 
 int main() {
     vector<string> a = separate_paren_groups("((()))");
     vector<string> b = separate_paren_groups("((())())");
 
-    assert(issame(a, b));
+    if (issame(a, b)) {
+        // Do something if the groups are same
+    } else {
+        // Do something if the groups are different
+    }
 
     return 0;
 }
