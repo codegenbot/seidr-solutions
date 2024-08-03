@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int sum = pairedDigits("123221");
+    int sum = pairedDigits("input_string"); 
     return 0;
 }
 
