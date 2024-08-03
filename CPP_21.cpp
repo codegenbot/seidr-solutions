@@ -1,9 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
-
-vector<float> rescale_to_unit(vector<float> numbers);
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
@@ -26,4 +26,14 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         result.push_back(rescaled_num);
     }
     return result;
+}
+
+int main() {
+    vector<float> numbers = {2.5, 3.0, 1.5, 4.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
+
+    assert(issame(rescaled_numbers, {0.5, 0.666667, 0.0, 1.0}));
+    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
+
+    return 0;
 }
