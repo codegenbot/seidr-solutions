@@ -2,7 +2,7 @@
 #include <cassert>
 
 std::vector<int> pluck(const std::vector<int>& arr){
-    return {};
+    return arr;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
