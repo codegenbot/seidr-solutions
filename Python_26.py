@@ -1,2 +1,6 @@
-def find_unique_numbers(numbers):
-    return [num for num in numbers if numbers.count(num) == 1]
+def remove_duplicates(numbers):
+    return [num for num in numbers if numbers.count(num)==1]
+
+input_numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
+result = remove_duplicates(input_numbers)
+print(result)
