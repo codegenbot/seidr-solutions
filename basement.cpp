@@ -1,23 +1,11 @@
 #include <vector>
-using namespace std;
 
 int basement(vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0) return i;
+        if (sum < 0)
+            return i + 1; // Return the index of the first negative sum
     }
-    return -1;
-}
-
-int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    nums.resize(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    cout << basement(nums) << endl;
-    return 0;
+    return -1; // If no such index is found, return -1
 }
