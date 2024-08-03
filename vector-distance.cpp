@@ -4,7 +4,7 @@
 
 int main() {
     double sum = 0.0;
-    std::vector<double> vec1 = {1.0, 2.0, 3.0};
+    std::vector<double> vec1 = {1.0, 2.0, 3.0}; // example vectors
     std::vector<double> vec2 = {4.0, 5.0, 6.0};
 
     for (int i = 0; i < vec1.size(); ++i) {
