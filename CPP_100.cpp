@@ -1,22 +1,7 @@
-Here is the completed code:
-
-```cpp
-#include <vector>
-
-using namespace std;
-
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int current = n;
-    
-    while (current > 0) {
-        pile.push_back(current);
-        if (current % 2 == 1) {
-            current += 2;
-        } else {
-            current += 1;
-        }
+    vector<int> pile(n);
+    for (int i = 0; i < n; ++i) {
+        pile[i] = (n % 2 == 1 ? i*2+1 : i*2+2);
     }
-    
     return pile;
 }
