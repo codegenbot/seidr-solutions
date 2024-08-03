@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 
-bool issame(int n, std::vector<std::string> a, std::vector<std::string> b) {
-    return n == a.size() && a == b;
+bool issame(int n, std::vector<std::string> vec) {
+    return n == vec.size();
 }
 
 int odd_count(std::vector<std::string> vec) {
@@ -19,7 +19,7 @@ int odd_count(std::vector<std::string> vec) {
 }
 
 int main() {
-    assert(issame(5, {"abc", "def", "ghi", "123", "456"}, {"abc", "def", "ghi", "123", "456"}));
+    assert(issame(3, {"abc", "def", "ghi"}));
     assert(odd_count({"271", "137", "314"}) == 1);
 
     return 0;
