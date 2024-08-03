@@ -9,7 +9,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
     for (int i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
-           start = i;
+            start = i;
         }
         if (planet2 == planets[i]) {
             end = i;
