@@ -1,1 +1,1 @@
-Count All Numbers in an Array Having Odd Sum of Digits at Unit's Place
+Count Numbers with Unique Factors Divisible by 3 or 5
