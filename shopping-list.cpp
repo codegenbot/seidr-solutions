@@ -9,15 +9,15 @@ int main() {
     cin >> n;
     vector<double> prices(n);
     vector<double> discounts(n);
-    
+
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-    
+
     int m;
     cin >> m;
     vector<double> discounts(m);
-    
+
     for (int i = 0; i < m; ++i) {
         cin >> discounts[i];
     }
