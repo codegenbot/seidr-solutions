@@ -1,7 +1,5 @@
-from typing import List
-import math
-
-def calculate_area_and_perimeter(radius: float) -> (float, float):
-    area = math.pi * (radius ** 2)
-    perimeter = 2 * math.pi * radius
-    return area, perimeter
+def calculate_total_expenses(expenses_per_month: List[int]) -> int:
+    total_expenses = 0
+    for expense in expenses_per_month:
+        total_expenses += expense
+    return total_expenses
