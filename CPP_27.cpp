@@ -5,9 +5,9 @@ string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            c = (char)toupper((int)c);
+            c -= ('a' - 'A');
         else if(c >= 'A' && c <= 'Z')
-            c = (char)tolower((int)c);
+            c += ('a' - 'A');
         result += c;
     }
     return result;
