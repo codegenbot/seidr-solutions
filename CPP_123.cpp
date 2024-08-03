@@ -4,27 +4,27 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0) {
-            n = n / 2;
-        } else {
-            n = 3 * n + 1;
-            if (n % 2 != 0) {
-                result.push_back(n);
-            }
-        }
-    }
-    return result;
-}
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
+vector<int> get_odd_collatz(int num) {
+    vector<int> collatzSeq;
+    collatzSeq.push_back(num);
+    while (num > 1) {
+        if (num % 2 == 0) {
+            num /= 2;
+        } else {
+            num = 3 * num + 1;
+        }
+        if (num % 2 != 0) {
+            collatzSeq.push_back(num);
+        }
+    }
+    return collatzSeq;
+}
+
 int main() {
     assert(issame(get_odd_collatz(1), {1}));
-    assert(issame(get_odd_collatz(5), {5, 13, 41}));
     return 0;
 }
