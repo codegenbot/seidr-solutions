@@ -5,23 +5,11 @@ using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&ctx, ptr, 1);
-        ptr++;
-    }
-    MD5_Final(md5, &ctx);
-
-    string result;
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), result);
+    string output;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buff[3];
-        sprintf(buff, "%02x", md5[i]);
-        result += buff;
+        sprintf(&output[2*i], "%02x", result[i]);
     }
-
-    return result;
+    return output;
 }
