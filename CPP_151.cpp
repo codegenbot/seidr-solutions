@@ -1,5 +1,5 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 long long double_the_difference(vector<float> lst) {
     long long odd_sum = 0;
