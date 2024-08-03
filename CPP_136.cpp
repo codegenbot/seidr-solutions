@@ -1,23 +1,25 @@
-```cpp
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+#include <vector>
+#include <climits>
 
-vector<int> largest_smallest_integers(vector<int> lst){
-    int max_negative = 0, min_positive = INT_MAX;
-    for(int i : lst){
-        if(i < 0 && i > max_negative) max_negative = i;
-        else if(i > 0 && i < min_positive) min_positive = i;
-    }
-    return {(max_negative > 0) ? max_negative : 0, (min_positive < INT_MAX) ? min_positive : 0};
-}
+using namespace std;
 
-int main() {
-    int result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    assert(issame(result, {-3, 1}));  
-    return 0;
+vector<int> largest_smallest_integers(vector<int> lst) {
+    vector<int> result;
+    
+    int max_negative = 0;
+    int min_positive = INT_MAX;
+    
+    for (int num : lst) {
+        if (num < 0 && num > max_negative) {
+            max_negative = num;
+        }
+        if (num > 0 && num < min_positive) {
+            min_positive = num;
+        }
+    }
+    
+    result.push_back(max_negative);
+    result.push_back(min_positive == INT_MAX ? 0 : min_positive);
+    
+    return result;
 }
