@@ -1,4 +1,6 @@
 ```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
@@ -14,7 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.pop()
             group += char
             if not stack:
-                groups.append(group.strip())
+                groups.append(group)
                 group = ''
         else:
             raise ValueError("Invalid input")
