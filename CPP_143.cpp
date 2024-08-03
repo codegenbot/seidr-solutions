@@ -9,9 +9,9 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
+    string sentence;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
 
     string result = "";
     int len = 0;
@@ -24,7 +24,8 @@ int main() {
         }
     }
     if(isPrime(len)) result += sentence.substr(len - len, len);
-    std::cout << "Result: " << result << std::endl;
+
+    cout << "The words in the sentence are: " << result << endl;
 
     return 0;
 }
