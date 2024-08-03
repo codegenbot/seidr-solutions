@@ -13,7 +13,7 @@ int main() {
     }
 
     int n;
-    cin >> n; // Add "int n;" before this line
+    cin >> n;
     vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
