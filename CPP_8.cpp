@@ -1,14 +1,16 @@
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> sum_product(const std::vector<int>& v) {
-    int sum = 0, product = 1;
-    for (auto num : v) {
-        sum += num;
-        product *= num;
+namespace YourNamespace {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
     }
-    return {sum, product};
+
+    std::vector<int> sum_product(const std::vector<int>& v) {
+        int sum = 0, product = 1;
+        for (auto num : v) {
+            sum += num;
+            product *= num;
+        }
+        return {sum, product};
+    }
 }
