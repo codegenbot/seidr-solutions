@@ -2,20 +2,10 @@
 #include <string>
 #include <algorithm>
 
-bool main() {
-    vector<int> q;
-    int w;
-    
-    cin >> w;
-    for (int i = 0; i < 3; i++) {
-        int num;
-        cin >> num;
-        q.push_back(num);
-    }
-    
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     
     if (!isPalindrome(str)) return false;
@@ -28,8 +18,8 @@ bool main() {
     return sum <= w;
 }
 
-bool isPalindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
+bool isPalindrome(std::string s) {
+    std::string rev = s;
+    std::reverse(rev.begin(), rev.end());
     return s == rev;
 }
