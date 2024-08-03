@@ -1,7 +1,13 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters, nickels, dimes, pennies = divmod(cents, coins)
-    return list(map(int, (quarters, nickels, dimes, pennies)))
+    result = [0, 0, 0, 0]
+
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            result[i] += 1
+
+    return tuple(result)
 
 
 cents = int(input())
