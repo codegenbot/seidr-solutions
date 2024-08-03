@@ -1,10 +1,6 @@
-Here is the solution:
-
-def leaders(arr):
-    n = len(arr)
-    result = [arr[-1]]
-    for i in range(n-2, -1, -1):
-        if arr[i] >= arr[-1]:
-            result.append(arr[i])
-            arr[-1] = arr[i]
-    return list(reversed(result))
+def leaders(nums):
+    return [
+        num
+        for num in reversed(nums)
+        if all(num >= x for x in nums[nums.index(num) + 1 :])
+    ]
