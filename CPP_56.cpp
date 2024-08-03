@@ -1,5 +1,10 @@
+#include <string>
+
+using namespace std;
+
 bool correct_bracketing(string brackets) {
     int count = 0;
+    
     for (char bracket : brackets) {
         if (bracket == '<') {
             count++;
@@ -9,5 +14,6 @@ bool correct_bracketing(string brackets) {
             count--;
         }
     }
+    
     return count == 0;
 }
