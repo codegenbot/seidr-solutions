@@ -22,39 +22,44 @@ def encode(message):
             elif char.lower() == 'i':
                 result += '9'
             elif char.lower() == 'j':
-                result += '10'
+                result += '!'
             elif char.lower() == 'k':
-                result += '11'
+                result += '@'
             elif char.lower() == 'l':
-                result += '12'
+                result += '#'
             elif char.lower() == 'm':
-                result += '13'
+                result += '$'
             elif char.lower() == 'n':
-                result += '14'
+                result += '%'
             elif char.lower() == 'o':
-                result += '15'
+                result += '^'
             elif char.lower() == 'p':
-                result += '16'
+                result += '&'
             elif char.lower() == 'q':
-                result += '17'
+                result += '*'
             elif char.lower() == 'r':
-                result += '18'
+                result += '('
             elif char.lower() == 's':
-                result += '19'
+                result += ')'
             elif char.lower() == 't':
-                result += '20'
+                result += '_'
             elif char.lower() == 'u':
-                result += '21'
+                result += '+'
             elif char.lower() == 'v':
-                result += '22'
+                result += '='
             elif char.lower() == 'w':
-                result += '23'
+                result += '-'
             elif char.lower() == 'x':
-                result += '24'
+                result += '<'
             elif char.lower() == 'y':
-                result += '25'
+                result += '>'
             elif char.lower() == 'z':
-                result += '26'
+                result += '?'
+            else:
+                if char.islower():
+                    result += chr(ord(char) - 97 + 65)
+                else:
+                    result += chr(ord(char) - 65)
         else:
             result += char
     return result
