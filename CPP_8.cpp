@@ -1,20 +1,14 @@
 #include <vector>
-#include <cassert>
 
-namespace ContestNamespace {
-    std::pair<int, int> sum_product(const std::vector<int>& numbers) {
-        int sum = 0;
-        int product = 1;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
-        for (int num : numbers) {
-            sum += num;
-            product *= num;
-        }
-
-        return {sum, product};
+std::vector<int> sum_product(const std::vector<int>& v) {
+    int sum = 0, product = 1;
+    for (auto num : v) {
+        sum += num;
+        product *= num;
     }
-
-    bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-        return (a.first == b.first) && (a.second == b.second);
-    }
+    return {sum, product};
 }
