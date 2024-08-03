@@ -1,19 +1,10 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 
 int main() {
-    double sum = 0.0;
-    std::vector<double> vec1 = {1.0, 2.0, 3.0}; // example vectors
-    std::vector<double> vec2 = {4.0, 5.0, 6.0};
-
-    for (int i = 0; i < vec1.size(); ++i) {
-        sum += std::pow(vec1[i] - vec2[i], 2);
-    }
-
+    double sum = 0.0; // Initialize sum to 0
+    // Calculate the sum of squared differences between corresponding elements of the two n-dimensional vectors here
     double distance = std::sqrt(sum);
-
-    std::cout << "Euclidean distance: " << distance << std::endl;
-
+    std::cout << distance << std::endl;
     return 0;
 }
