@@ -1,4 +1,4 @@
-Here is the solution in Python:
+Here is the Python solution:
 
-def fuel_cost(input_vector):
-    return sum((i//3 - 2) for i in input_vector)
+def fuel_cost(n):
+    return sum((i//3)-2 for i in map(int, input().split()))
