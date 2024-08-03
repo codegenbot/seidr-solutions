@@ -1,34 +1,28 @@
 #include <vector>
 #include <cassert>
-#include <cmath>
+#include <algorithm>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers){
-    float sum = 0;
-    for (const auto& num : numbers) {
-        sum += num;
+    std::vector<float> closest;
+    if (numbers.size() < 2) {
+        return closest;
     }
-    float avg = sum / numbers.size();
-
-    float min_diff = std::abs(avg - numbers[0]);
-    std::vector<float> closest_elements;
-
-    for (const auto& num : numbers) {
-        if (std::abs(avg - num) < min_diff) {
-            min_diff = std::abs(avg - num);
-            closest_elements.clear();
-            closest_elements.push_back(num);
-        } else if (std::abs(avg - num) == min_diff) {
-            closest_elements.push_back(num);
+    
+    float min_diff = std::abs(numbers[0] - numbers[1]);
+    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+        float diff = std::abs(numbers[i] - numbers[i + 1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest = {numbers[i], numbers[i + 1]};
         }
     }
-
-    return closest_elements;
+    return closest;
 }
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1});
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
 }
