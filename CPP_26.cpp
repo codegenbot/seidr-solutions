@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -29,25 +28,17 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
     for(int i = 0; i < n; i++){
         int num;
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         numbers.push_back(num);
     }
-    
-    std::vector<int> uniqueNums = remove_duplicates(numbers);
-    
-    if(issame(uniqueNums, numbers)){
-        std::cout << "The list is already unique." << std::endl;
-    } else {
-        std::cout << "Unique List: ";
-        for(int i = 0; i < uniqueNums.size(); i++){
-            std::cout << uniqueNums[i] << " ";
-        }
-        std::cout << std::endl;
+    std::vector<int> uniqueNumbers = remove_duplicates(numbers);
+    std::cout << "Unique Numbers: ";
+    for(int i = 0; i < uniqueNumbers.size(); i++){
+        std::cout << uniqueNumbers[i] << " ";
     }
-    
+    std::cout << std::endl;
     return 0;
 }
