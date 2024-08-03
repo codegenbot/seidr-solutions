@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -36,15 +35,12 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    std::vector<int> numbers;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i=0; i<n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> numbers.push_back(i);
+    std::vector<int> n;
+    int num;
+    std::cout << "Enter numbers separated by spaces: ";
+    while(std::cin >> num) {
+        n.push_back(num);
     }
-    int result = count_nums(numbers);
-    std::cout << "The number of elements with positive sum is: " << result;
+    std::cout << "Number of positive sums: " << count_nums(n) << std::endl;
     return 0;
 }
