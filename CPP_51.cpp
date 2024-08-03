@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <string>
-#include <cassert> // Include the header for assert function
+#include <cassert>
 
 std::string remove_vowels(std::string text) {
     text.erase(std::remove_if(text.begin(), text.end(), [](char c) {
