@@ -1,2 +1,10 @@
-def max_opening_parentheses(paren_string):
-    return [max([s.count("(") for s in group.split()]) for group in paren_string.split()]
+def parse_nested_parens(paren_string: str) -> List[int]:
+    depth = 0
+    max_depth = 0
+    for char in paren_string:
+        if char == "(":
+            depth += 1
+            max_depth = max(max_depth, depth)
+        elif char == ")":
+            depth -= 1
+    return [max_depth]
