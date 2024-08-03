@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+namespace std {
+    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+        return a == b;
+    }
 }
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
@@ -20,6 +22,6 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(std::issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
