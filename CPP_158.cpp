@@ -1,9 +1,12 @@
 string find_max(vector<string> words){
-    string result = *min_element(words.begin(), words.end(), 
-        [&words](const string& a, const string& b) {
-            if (a.size() != b.size()) return a.size() < b.size();
-            return count(a.begin(), a.end(), [](char c){return isalpha(c);}) <
-                count(b.begin(), b.end(), [](char c){return isalpha(c);});
-        });
-    return result;
+    string res = "";
+    for(auto str : words){
+        int count = 0;
+        set<char> unique_chars(str.begin(), str.end());
+        if(unique_chars.size() > count){
+            res = str;
+            count = unique_chars.size();
+        }
+    }
+    return res;
 }
