@@ -1,8 +1,7 @@
-```
-#include <vector>
-#include <cmath>
+#include <bits/stdc++.h>
+using namespace std;
 
-int sum_squares(std::vector<float> lst){
+int sum_squares(vector<float> lst){
     int result = 0;
     for(float num : lst) {
         int ceil_num = ceil(num);
@@ -12,7 +11,7 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> numbers = {1.5f, 2.3f, 3.8f};
-    int output = sum_squares(numbers);
-    return output;
+    vector<float> numbers = {1.5f, 2.3f, 4.7f};
+    cout << "Sum of squares: " << sum_squares(numbers) << endl;
+    return 0;
 }
