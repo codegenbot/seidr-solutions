@@ -1,9 +1,19 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x){
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool is_same(const vector<vector<int>>& a, const vector<vector<int>>& b){
+    return a == b;
+}
+
+vector<vector<int>> get_row(const vector<vector<int>>& lst, int x){
     vector<vector<int>> result;
-    for (int i = 0; i < lst.size(); ++i) {
-        for (int j = 0; j < lst[i].size(); ++j) {
+    for (size_t i = 0; i < lst.size(); ++i) {
+        for (size_t j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                result.push_back({i, j});
+                result.push_back({static_cast<int>(i), static_cast<int>(j)});
             }
         }
     }
