@@ -19,8 +19,8 @@ int odd_count(std::vector<std::string> vec) {
 }
 
 int main() {
-    assert(issame(3, {"abc", "def", "ghi"})); 
+    assert(issame(3, {"abc", "def", "ghi"}));
     assert(odd_count({"271", "137", "314"}) == 1);
-    
+
     return 0;
 }
