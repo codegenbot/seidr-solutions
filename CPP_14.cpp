@@ -1,16 +1,23 @@
 #include <vector>
 #include <cassert>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b){
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> all_prefixes(string str);
 
 int main() {
-    vector<string> expected = {"W", "WW", "WWW"};
-    assert(issame(all_prefixes("WWW"), expected));
+    vector<string> result = all_prefixes("WWW");
+    assert(issame(result, {"W", "WW", "WWW"}));
     return 0;
 }
 
