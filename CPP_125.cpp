@@ -4,7 +4,7 @@
 #include <assert.h>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    return a == b; // Compare vectors directly
 }
 
 std::vector<std::string> split_words(std::string txt) {
