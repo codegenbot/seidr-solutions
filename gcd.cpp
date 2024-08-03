@@ -31,24 +31,23 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    // Test gcd function
-    int num1, num2;
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
-    int result = gcd(num1, num2);
-    cout << "GCD: " << result << endl;
+    // Add your code to test the functions here
+    int a, b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
 
-    // Test indicesOfSubstring function
     string text, target;
-    cout << "Enter text: ";
+    cout << "Enter text string: ";
     cin >> text;
-    cout << "Enter target: ";
+    cout << "Enter target string: ";
     cin >> target;
-    vector<int> resultIndices = indicesOfSubstring(text, target);
-    cout << "Indices where target appears in text: ";
-    for (int index : resultIndices) {
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Indices at which target appears in the text: ";
+    for (int index : result) {
         cout << index << " ";
     }
     cout << endl;
+
     return 0;
 }
