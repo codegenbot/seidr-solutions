@@ -1,8 +1,5 @@
-def rounded_avg():
-    n = int(input("Enter number of rounds: "))
-    m = int(input("Enter maximum score in each round: "))
+def rounded_avg(n, m):
     if n > m:
-        print(-1)
-    else:
-        avg = (n + m) // 2
-        print(bin(avg)[2:])
+        return -1
+    avg = (n + m) // 2
+    return bin(avg)[2:].zfill(16)
