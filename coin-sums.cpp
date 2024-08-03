@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -6,21 +5,16 @@ using namespace std;
 int main() {
     int cents;
     cin >> cents;
-    
-    vector<int> coins = {1, 5, 10, 25};
-    vector<int> count(4);
-    
-    for(int i = 0; i < 4; i++) {
-        while(cents >= coins[i]) {
-            cents -= coins[i];
-            count[i]++;
-        }
-    }
-    
-    cout << count[3] << endl;
-    cout << count[2] << endl;
-    cout << count[1] << endl;
-    cout << count[0] << endl;
-    
+
+    int pennies = cents / 1;
+    int nickels = (cents % 100) / 5;
+    int dimes = ((cents % 100) % 5) / 10;
+    int quarters = (((cents % 100) % 5) % 10) / 25;
+
+    cout << pennies << endl;
+    cout << nickels << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
+
     return 0;
 }
