@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <cctype>
-#include <cstdio>
 
 std::string flip_case(std::string str) {
     for (char &c : str) {
@@ -20,4 +18,4 @@ int main() {
     std::getline(std::cin, input);
     assert(flip_case(input) == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
-} 
+}
