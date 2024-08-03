@@ -20,13 +20,11 @@ std::string string_to_md5(const std::string &input) {
     return std::string(buf);
 }
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <input string>" << std::endl;
-        return 1;
-    }
-    
-    std::string input(argv[1]);
+int main() {
+    std::string input;
+    std::cout << "Enter the string to compute MD5 hash: ";
+    std::cin >> input;
+
     std::string md5_hash = string_to_md5(input);
     std::cout << "MD5 Hash: " << md5_hash << std::endl;
 
