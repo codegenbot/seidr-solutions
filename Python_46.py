@@ -1,9 +1,11 @@
+```
 def fib4(n: int):
-    if n < 0 or n % 2 == 1:
-        return 0
+    if n < 0:
+        return None
     elif n <= 3:
-        return 2 if n == 2 else 0
-    a, b, c = 0, 0, 2
-    for _ in range(4, n + 1):
-        a, b, c = b, c, c + b
-    return c
+        return [0, 0, 2, 0][n]
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for _ in range(4, n+1):
+            a, b, c, d = d, a+b+c, c+d, b+c
+        return d
