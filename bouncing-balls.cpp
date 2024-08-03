@@ -25,4 +25,3 @@ int main() {
     cout << calculateTotalDistance(numBounces, bouncinessIndex) << endl;
 
     return 0;
-}
