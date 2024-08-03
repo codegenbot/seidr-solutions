@@ -1,13 +1,5 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(vector<string>, vector<string>) {
-    // implement this function
-}
-
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -20,7 +12,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         if (index1 != -1 && index2 != -1) break;
     }
     
-    std::vector<std::string> result;
+    vector<string> result;
     
     if (index1 < 0 || index2 < 0) return result;
     
@@ -29,9 +21,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Saturn") == vector<string>({"Venus", "Earth", "Mars"}));
-    return 0;
 }
