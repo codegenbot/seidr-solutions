@@ -1,21 +1,17 @@
 #include <vector>
-#include <iostream>
 using namespace std;
 
-double probability(int n, int m) {
-    double total = (double)n * m;
-    double favorable = 0;
-
-    for (int i = 1; i <= m - 1; i++) {
-        favorable += min(n, i);
+double getProbability(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        total += pow((n - i), 1.0);
     }
-
-    return favorable / total;
+    return total / (pow(n, 1.0));
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << probability(n, m) << endl;
+    cout << setprecision(5) << getProbability(n, m) << endl;
     return 0;
 }
