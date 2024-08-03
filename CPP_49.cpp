@@ -1,5 +1,10 @@
 #include <iostream>
 
+// Function signature
+int modp(int n, int p);
+
+int main();
+
 int modp(int n, int p) {
     if (p == 1)
         return 0;
