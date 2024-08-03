@@ -4,9 +4,9 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
     for (int digit : b) {
-        if (std::find(a.begin(), a.end(), digit) == a.end()) {
+        if (a.find(digit) == a.end()) {
             return false;
         }
     }
