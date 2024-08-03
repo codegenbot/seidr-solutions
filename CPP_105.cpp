@@ -1,5 +1,4 @@
-```bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+return (a == b);
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -19,7 +18,7 @@ vector<string> by_length(vector<int> arr) {
         switch (num) {
             case 1: str = "One"; break;
             case 2: str = "Two"; break;
-            case 3: str = str = "Three"; break;
+            case 3: str = "Three"; break;
             case 4: str = "Four"; break;
             case 5: str = "Five"; break;
             case 6: str = "Six"; break;
