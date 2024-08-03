@@ -1,3 +1,4 @@
 ```
 def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:]))) if N > 0 else ""
+    sum_of_digits = sum(int(i) for i in str(N))
+    return bin(sum_of_digits)[2:]
