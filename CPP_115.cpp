@@ -11,7 +11,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             }
         }
         while (water > 0) {
-            capacity = min(capacity, water);
+            capacity = std::min(capacity, water);
             result++;
             water -= capacity;
         }
