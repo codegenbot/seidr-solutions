@@ -2,7 +2,6 @@ from typing import List
 
 n = int(input())
 
-
 def factorize(n: int) -> List[int]:
     factors = []
     divisor = 2
