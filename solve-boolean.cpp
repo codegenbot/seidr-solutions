@@ -1,39 +1,30 @@
-bool solveBoolean(string input) {
-    bool result = false;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'T') {
-            result = true;
-        } else if (input[i] == 'F') {
-            return false;
-        } else if (input[i] == '|') {
-            bool temp1 = result;
-            for (int j = i + 1; j < input.length(); j++) {
-                if (input[j] == '&') {
-                    i = j;
-                    break;
-                }
-                if (input[j] == 'T') {
-                    result = true;
-                } else if (input[j] == 'F') {
-                    return false;
-                }
+bool solveBoolean(string booleanExpression) {
+    stack<char> operationStack;
+    bool currentResult = (booleanExpression[0] == 't');
+    
+    for(int i=1; i<booleanExpression.size(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(!operationStack.empty() && operationStack.top() == '&') {
+                operationStack.pop();
             }
-            result = temp1 | result;
-        } else if (input[i] == '&') {
-            bool temp1 = result;
-            for (int j = i + 1; j < input.length(); j++) {
-                if (input[j] == '|') {
-                    i = j;
-                    break;
-                }
-                if (input[j] == 'T') {
-                    result &= true;
-                } else if (input[j] == 'F') {
-                    return false;
-                }
+            if(operationStack.empty()) {
+                currentResult &= (booleanExpression[i-1] == 't');
+            } else {
+                currentResult = false;
             }
-            result = temp1 & result;
+        } else if(booleanExpression[i] == '|') {
+            while(!operationStack.empty() && operationStack.top() == '|') {
+                operationStack.pop();
+            }
+            if(operationStack.empty()) {
+                currentResult |= (booleanExpression[i-1] == 't');
+            } else {
+                currentResult = false;
+            }
+        } else {
+            operationStack.push(booleanExpression[i]);
         }
     }
-    return result;
+    
+    return currentResult;
 }
