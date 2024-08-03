@@ -1,13 +1,14 @@
-#include <iostream>
-#include <algorithm>
+#include <string>
+#include <cassert>
+using namespace std;
 
-bool is_palindrome(const std::string &str) {
-    return str == std::string(str.rbegin(), str.rend());
+bool is_palindrome(const string& s) {
+    return equal(s.begin(), s.begin() + s.size() / 2, s.rbegin());
 }
 
-std::string make_palindrome(const std::string &str) {
-    std::string rev_str(str.rbegin(), str.rend());
-    for (size_t i = str.size(); i >= 0; --i) {
+string make_palindrome(string str) {
+    string rev_str(str.rbegin(), str.rend());
+    for (int i = str.size(); i >= 0; --i) {
         if (is_palindrome(str.substr(i))) {
             return str + rev_str.substr(rev_str.size() - i);
         }
