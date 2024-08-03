@@ -6,19 +6,16 @@ int main() {
 
     std::cin >> startHeight >> firstBounce >> numBounces;
 
-    if (startHeight == 0) {
-        std::cout << "Error: Starting height cannot be zero." << std::endl;
-        return 1;
+    // Calculate the bounciness index
+    bounciness = (firstBounce / startHeight);
+
+    // Calculate the total distance traveled
+    double totalDistance = 2.0; // initial height is doubled after each bounce
+    for(int i = 1; i <= numBounces; ++i) {
+        totalDistance += bounciness * (2.0 * totalDistance); // height doubled after each bounce
     }
 
-    bounciness = firstBounce / startHeight;
-
-    double totalDistance = 2.0; // The ball travels twice the starting height after the first bounce
-    for (int i = 1; i < numBounces; ++i) {
-        totalDistance += (bounciness * (startHeight + 2 * totalDistance)) - startHeight;
-    }
-
-    std::cout << std::fixed << std::setprecision(6) << totalDistance << std::endl;
+    std::cout << std::fixed << std::setprecision(5) << totalDistance;
 
     return 0;
 }
