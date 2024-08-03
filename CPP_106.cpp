@@ -1,16 +1,15 @@
 #include <vector>
 
-bool issame(const std::vector<int>& res1, const std::vector<int>& res2) {
-    if (res1.size() != res2.size()) {
+bool issame(const std::vector<int>& arr) {
+    if (arr.empty()) {
         return false;
     }
-    
-    for (size_t i = 0; i < res1.size(); ++i) {
-        if (res1[i] != res2[i]) {
+    int first = arr[0];
+    for (int i = 1; i < arr.size(); ++i) {
+        if (arr[i] != first) {
             return false;
         }
     }
-    
     return true;
 }
 
@@ -18,7 +17,6 @@ std::vector<int> f(int n) {
     std::vector<int> res;
     int sum = 0;
     int fact = 1;
-
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
             fact *= i;
@@ -28,6 +26,5 @@ std::vector<int> f(int n) {
             res.push_back(sum);
         }
     }
-
     return res;
 }
