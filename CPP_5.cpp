@@ -5,7 +5,7 @@ bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (std::vector<int>::size_type i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -15,7 +15,7 @@ bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
     std::vector<int> result;
-    for (std::vector<int>::size_type i = 0; i < numbers.size(); i++) {
+    for (int i = 0; i < numbers.size(); i++) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
             result.push_back(delimiter);
