@@ -3,8 +3,6 @@
 
 std::vector<int> generate_integers(int start, int end); // Function declaration
 
-namespace std {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b){
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
