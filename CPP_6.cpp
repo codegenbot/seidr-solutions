@@ -1,35 +1,28 @@
 #include <vector>
-#include <string>
 #include <cassert>
-#include <algorithm>
 
-std::vector<int> parse_nested_parens(std::string paren_string);
+std::vector<int> parse_nested_parens(const std::string& str) {
+    std::vector<int> result;
+    int count = 0;
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> parse_nested_parens(std::string paren_string) {
-    std::vector<int> levels;
-    int max_level = 0;
-    int current_level = 0;
-
-    for (char c : paren_string) {
+    for (char c : str) {
         if (c == '(') {
-            current_level++;
-            max_level = std::max(max_level, current_level);
+            count++;
         } else if (c == ')') {
-            current_level--;
-        } else if (c == ' ') {
-            levels.push_back(max_level);
-            max_level = 0;
-            current_level = 0;
+            count--;
+            if (count == 0) {
+                result.push_back(0);
+            }
         }
     }
 
-    levels.push_back(max_level);
-
-    return levels;
+    return result;
 }
 
-assert(is_same(parse_nested_parens("(()(())(()))"), std::vector<int>{4}));
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(is_same(parse_nested_parens("(()(())((())))"), {4}));
+}
