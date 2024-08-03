@@ -1,2 +1,2 @@
-def probability(n, m):
-    return (n - m) / (n + m)
+def roll_game(n, m):
+    return (n - m) / (n + m - 1)
