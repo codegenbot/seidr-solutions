@@ -18,3 +18,11 @@ std::vector<int> even_odd_count(int num) {
     }
     return counts;
 }
+
+int main() {
+    assert(issame(std::vector<int>{4, 5}, even_odd_count(123456789)));
+    assert(issame(std::vector<int>{5, 0}, even_odd_count(24680)));
+    assert(issame(std::vector<int>{0, 6}, even_odd_count(111111)));
+
+    return 0;
+}
