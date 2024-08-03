@@ -1,7 +1,19 @@
+#include <iostream>
 #include <string>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
+bool isPrime(int n){
+    if(n <= 1) return false;
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0) return false;
+    }
+    return true;
+
+int main() {
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+
+    string result = "";
     int len = 0;
     for(int i = 0; i < sentence.size(); i++){
         if(sentence[i] == ' '){
@@ -12,13 +24,7 @@ std::string words_in_sentence(std::string sentence){
         }
     }
     if(isPrime(len)) result += sentence.substr(len - len, len);
-    return result;
-}
+    std::cout << "Result: " << result << std::endl;
 
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++){
-        if(n % i == 0) return false;
-    }
-    return true;
+    return 0;
 }
