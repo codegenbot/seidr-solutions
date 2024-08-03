@@ -18,4 +18,3 @@ string decimal_to_binary(int decimal) {
     }
     return binary + "db";
 }
-```
