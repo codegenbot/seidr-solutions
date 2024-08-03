@@ -1,12 +1,12 @@
-#include <cassert>
-#include <vector>
-#include <string>
+\#include <cassert>
+\#include <vector>
+\#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-int odd_count(std::vector<std::string> vec){
+int odd_count(vector<string> vec){
     int count = 0;
     for(const auto& str : vec){
         for(char c : str){
