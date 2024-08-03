@@ -1,26 +1,29 @@
-```
-if (a.type() == typeid(int) && b.type() == typeid(int))
-    return boost::any((int)std::max(at<int>(a), at<int>(b)));
-else if (a.type() == typeid(float) && b.type() == typeid(float))
-    return boost::any(std::max(at<float>(a), at<float>(b)));
-else if (a.type() == typeid(double) && b.type() == typeid(double))
-    return boost::any(std::max(at<double>(a), at<double>(b)));
-else if (a.type() == typeid(string) && b.type() == typeid(string))
-{
-    string str1 = boost::any_cast<string>(a);
-    string str2 = boost::any_cast<string>(b);
-    istringstream iss1(str1);
-    double num1;
-    iss1 >> num1;
-    istringstream iss2(str2);
-    double num2;
-    iss2 >> num2;
-    if (num1 > num2)
-        return a;
-    else if (num1 < num2)
-        return b;
-    else
-        return boost::any("None");
+#include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
+#include <string>
+
+using namespace boost;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_any_of<float>(a)) {
+        float af = boost::any_cast<float>(a);
+        float bf = boost::any_cast<float>(b);
+        return (af > bf) ? a : ((bf > af) ? b : any("None"));
+    } else if (is_any_of<double>(a)) {
+        double ad = boost::any_cast<double>(a);
+        double bd = boost::any_cast<double>(b);
+        return (ad > bd) ? a : ((bd > ad) ? b : any("None"));
+    } else if (is_any_of<int>(a)) {
+        int ai = boost::any_cast<int>(a);
+        int bi = boost::any_cast<int>(b);
+        return (ai > bi) ? a : ((bi > ai) ? b : any("None"));
+    } else if (is_string(a)) {
+        std::string as = boost::any_cast<std::string>(a);
+        std::string bs = boost::any_cast<std::string>(b);
+        float af = boost::lexical_cast<float>(as);
+        float bf = boost::lexical_cast<float>(bs);
+        return (af > bf) ? a : ((bf > af) ? b : any("None"));
+    } else {
+        return any("None");
+    }
 }
-else
-    return boost::any("None");
