@@ -1,5 +1,8 @@
+Here is the modified code:
+
+```python
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+    return ''.join(strings)
