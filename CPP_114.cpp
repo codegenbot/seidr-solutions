@@ -1,7 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <climits>
-
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
