@@ -1,6 +1,5 @@
-```cpp
 #include <cmath>
-#include <iostream>
+#include <cassert>
 
 bool iscuber(int a){
     int c = (int)cbrt(a);
@@ -8,12 +7,6 @@ bool iscuber(int a){
 }
 
 int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-    if(iscuber(num))
-        std::cout << num << " is a perfect cube.\n";
-    else
-        std::cout << num << " is not a perfect cube.\n";
+    assert(iscuber(1729) == false);
     return 0;
 }
