@@ -1,41 +1,40 @@
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstr(string text, string target) {
+vector<int> findIndices(const string& text, const string& target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m).compare(target) == 0) {
-            result.push_back(i);
+    int start = 0;
+    
+    while(start + target.size() <= text.size()) {
+        if(text.substr(start, target.size()) == target) {
+            result.push_back(start);
+            start += min(target.size(), start + target.size());
+        } else {
+            start++;
         }
     }
-
+    
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0) 
-        return a;
-    else
-        return gcd(b, a % b);
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    
-    cout << gcd(num1, num2) << endl;
+    int n1, n2;
+    cin >> n1 >> n2;
+    cout << gcd(n1, n2) << endl;
 
     string text, target;
     cin >> text >> target;
-    
-    vector<int> result = indicesOfSubstr(text, target);
-    for (int i : result) {
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices)
         cout << i << " ";
-    }
-    cout << endl;
-
     return 0;
 }
