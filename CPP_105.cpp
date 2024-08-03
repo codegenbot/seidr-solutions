@@ -14,12 +14,20 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            result.push_back(numberNames[num]);
+            string str = numberNames[num];
+            bool found = false;
+            for (string s : result) {
+                if (s.length() == str.length()) {
+                    result.push_back(str);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back(str);
+            }
         }
     }
-
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
 
     return result;
 }
