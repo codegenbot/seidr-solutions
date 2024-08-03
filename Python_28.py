@@ -1,12 +1,9 @@
-```
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
     result = ""
     for string in strings:
-        result += string
+        if isinstance(string, str):
+            result += string
     return result
-
-strings = input("Enter a list of strings (comma-separated): ").split(",")
-print(concatenate(strings))
