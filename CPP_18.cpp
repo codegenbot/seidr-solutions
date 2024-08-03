@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 int how_many_times(string str, string substring) {
@@ -9,10 +9,4 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
-}
-
-int main() {
-    // Call the function and test
-    assert(how_many_times("john doe", "john") == 1);
-    return 0;
 }
