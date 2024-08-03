@@ -1,21 +1,34 @@
-def bowling_score(bowling_input):
+Here's the solution:
+
+def bowling_score(frames):
     score = 0
-    roll = []
-    for char in bowling_input:
-        if char.isdigit():
-            roll.append(int(char))
-        elif char == "/":
-            if len(roll) < 2:
-                return "Invalid Input"
-            frame = sum(roll[:-1])
-            if roll[-1] == 10:
-                score += 10 + frame
+    for i in range(10):
+        if frames[i] == 'X':
+            if i < 8:
+                score += 30
             else:
-                score += min(10, roll[-1]) + frame
-            roll = []
-    if len(roll) > 0:
-        if len(roll) < 2:
-            return "Invalid Input"
-        frame = sum(roll[:-1])
-        score += min(10, roll[-1]) + frame
+                score += 10 + (int(frames[9-i]) * 10)
+        elif '-' not in frames[i]:
+            first_roll = int(frames[i].split('/')[0])
+            second_roll = int(frames[i].split('/')[-1])
+            if first_roll == 10:
+                score += 20
+            else:
+                score += first_roll + second_roll
+        else:
+            first_rolls = list(map(int, frames[i].split('/')[:-1]))
+            second_rolls = list(map(int, frames[i].split('/')[-1]))
+            for j in range(len(first_rolls)):
+                if sum(first_rolls[:j+1]) < 10:
+                    score += sum(first_rolls[:j+1])
+                elif sum(first_rolls[:j+1]) == 10 and len(second_rolls) > 0:
+                    score += 20
+                    for k in range(len(second_rolls)):
+                        if second_rolls[k] != 'X':
+                            score += int(second_rolls[k])
+                        else:
+                            score += 10 + sum(first_rolls[j+1:])
+                            return score
+            for i in range(2):
+                score += max(second_rolls)
     return score
