@@ -1,26 +1,29 @@
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-#include <utility>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
-std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
-    std::string result = "";
+vector<string> reverse_delete(const string& s, const string& c) {
+    string result = "";
     for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    std::string result_reverse = result;
-    std::reverse(result_reverse.begin(), result_reverse.end());
-    return { result, (issame(std::vector<std::string>{result}, std::vector<std::string>{result_reverse}) ? "True" : "False") };
+    string result_reverse = result;
+    reverse(result_reverse.begin(), result_reverse.end());
+    return { result, (issame(vector<string>{result}, vector<string>{result_reverse}) ? "True" : "False") };
 }
 
 int main() {
-    assert(reverse_delete("mamma", "mia") == std::make_pair("", "True"));
+    string input_s, input_c;
+    cin >> input_s >> input_c;
+    vector<string> expected_result;
+    expected_result.push_back("");
+    expected_result.push_back("True");
+    
+    assert(issame(reverse_delete(input_s, input_c), expected_result));
+    
     return 0;
 }

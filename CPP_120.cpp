@@ -2,13 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace std {
+    bool issame(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end());
-    std::reverse(arr.begin(), arr.end());
+vector<int> maximum(vector<int> arr, int k) {
+    sort(arr.begin(), arr.end(), greater<int>());
     arr.resize(k);
     return arr;
 }
