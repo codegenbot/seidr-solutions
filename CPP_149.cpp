@@ -1,15 +1,26 @@
+#include <algorithm>
+using namespace std;
+
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-                     [](const string& a, const string& b){ return (a.length() % 2 == 1 && !b.empty()) || (b.length() % 2 == 0 && !a.empty()); });
-    lst.erase(it, lst.end());
-    
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length())
-                 return a.length() < b.length();
-             else
-                 return a < b;
-         });
+    // Remove strings with odd lengths from the vector
+    lst.erase(remove_if(lst.begin(), lst.end(),
+        [](const string& s){ return s.length() % 2 != 0; }), lst.end());
+
+    // Sort the vector by length and then alphabetically
+    sort(lst.begin(), lst.end(), 
+        [](const string& a, const string& b) {
+            if (a.length() == b.length())
+                return a < b;
+            else
+                return a.length() < b.length();
+        });
 
     return lst;
+}
+
+int main() {
+    vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    bool condition = (result == expected);
+    assert(condition);
 }

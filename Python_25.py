@@ -1,9 +1,11 @@
-```
+```Python
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
+    if n <= 0:
+        return ["Invalid input. Please provide a positive integer."]
     factors = []
     i = 2
     while i * i <= n:
@@ -19,16 +21,3 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
-
-
-def main():
-    try:
-        n = int(input("Enter a number: "))
-        result = factorize(n)
-        print(result)
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
-
-
-if __name__ == "__main__":
-    main()
