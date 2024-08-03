@@ -18,8 +18,8 @@ def factorize(n: int) -> List[int]:
                     n //= i
                     count += 1
                 factors.append([i] * count)
-        if n > 1:
-            factors.append([n])
+    if n > 1:
+        factors.append([n])
     return [
         factor
         for factor in (item for sublist in factors for item in sublist)
