@@ -4,13 +4,7 @@
 #include <iostream>
 
 std::vector<std::string> split_words(const std::string& txt);
-bool assert_equal(std::vector<std::string> a, std::vector<std::string> b);
-
-int main() {
-    assert_equal(split_words(""), std::vector<std::string>{"0"});
-    
-    return 0;
-}
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
@@ -46,6 +40,12 @@ std::vector<std::string> split_words(const std::string& txt) {
     return result;
 }
 
-bool assert_equal(std::vector<std::string> a, std::vector<std::string> b) {
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
+}
+
+int main() {
+    assert_equal(split_words(""), std::vector<std::string>{"0"});
+    
+    return 0;
 }
