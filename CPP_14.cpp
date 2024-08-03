@@ -1,4 +1,5 @@
-vector<string> all_prefixes(string str) {
+#include <string>
+vector<string> b(string str) {
     vector<string> prefixes;
     string prefix = "";
     for (char c : str) {
