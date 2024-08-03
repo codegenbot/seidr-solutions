@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -23,7 +23,10 @@ int bowlingScore(string s) {
                 second += s[i];
                 ++i;
             }
-            score += (stoi(first) + stoi(second));
+            if (second.size() == 1)
+                score += (stoi(first) + stoi(second));
+            else
+                score += (stoi(first) + stoi(second));
         }
     }
     return score;
