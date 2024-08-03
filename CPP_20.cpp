@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers){
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     float sum = 0;
     for (const auto& num : numbers) {
         sum += num;
@@ -26,7 +26,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers){
     return closest_elements;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
