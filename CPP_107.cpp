@@ -1,30 +1,20 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+Here is the completed code:
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         string str = to_string(i);
         bool is_palindrome = true;
         for (int j = 0; j < str.length() / 2; ++j) {
-            if (str[j] != str[str.length() - j - 1]) {
+            if (str[j] != str[str.length() - 1 - j]) {
                 is_palindrome = false;
                 break;
             }
         }
         if (is_palindrome && i % 2 == 0)
-            result[0]++;
-        else if (is_palindrome)
-            result[1]++;
+            even++;
+        else if (is_palindrome && i % 2 != 0)
+            odd++;
     }
-    return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Even: " << res[0] << ", Odd: " << res[1] << endl;
-    return 0;
+    return {even, odd};
 }
