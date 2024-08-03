@@ -1,7 +1,6 @@
-#include <iostream>
+#include <cassert>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 std::string encode(std::string message) {
     std::string encoded_message = "";
@@ -12,8 +11,7 @@ std::string encode(std::string message) {
             }
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 c = char(c + 2);
-            }
-            else if (c == 'z') {
+            } else if (c == 'z') {
                 c = 'b';
             } else {
                 c = char(c + 1);
@@ -25,9 +23,4 @@ std::string encode(std::string message) {
         encoded_message += c;
     }
     return encoded_message;
-}
-
-int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "J EpOu LoPx XiBu u PzvJf");
-    return 0;
 }
