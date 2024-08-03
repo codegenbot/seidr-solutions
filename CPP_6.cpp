@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> parse_nested_parens(std::string paren_string);
 
@@ -24,6 +25,10 @@ std::vector<int> parse_nested_parens(std::string paren_string){
             max_level = std::max(max_level, current_level);
         } else if (c == ')') {
             current_level--;
+        } else if (c == ' ') {
+            levels.push_back(max_level);
+            max_level = 0;
+            current_level = 0;
         }
     }
 
