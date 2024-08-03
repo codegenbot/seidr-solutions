@@ -1,15 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> select_words(string s, int n){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int count = 0;
     for (char c : s) {
         if (c == ' ') {
@@ -32,11 +31,5 @@ vector<string> select_words(string s, int n){
 }
 
 int main() {
-    vector<string> output = select_words("hello world from cpp", 2);
-    vector<string> expected_output = {"world", "cpp"};
-    assert(issame(output, expected_output));
-    
-    cout << "Test passed successfully!" << endl;
-    
-    return 0;
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
