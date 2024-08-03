@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,11 +10,11 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-
-    string result = "";
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    
+    std::string result = "";
     int len = 0;
     for(int i = 0; i < sentence.size(); i++){
         if(sentence[i] == ' '){
@@ -24,8 +25,8 @@ int main() {
         }
     }
     if(isPrime(len)) result += sentence.substr(len - len, len);
-
-    cout << "The words in the sentence are: " << result << endl;
-
+    
+    std::cout << "Words in the sentence with prime length: " << result << std::endl;
+    
     return 0;
 }
