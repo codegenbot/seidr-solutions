@@ -1,12 +1,12 @@
-#include <iostream>
 #include <openssl/evp.h>
+#include <string>
 
-std::string string_to_md5(const std::string& input);
+std::string string_to_md5(const std::string &input);
 
 int main() {
-    // Main function code here
+    // Your main function code here
 }
 
-std::string string_to_md5(const std::string& input) {
-    // Implementation of string_to_md5 function here
+std::string string_to_md5(const std::string &input) {
+    // Your implementation of string_to_md5 function here
 }
