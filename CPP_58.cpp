@@ -1,10 +1,5 @@
-sort(l1.begin(), l1.end());
-sort(l2.begin(), l2.end());
+#include <vector>
 
-vector<int> result;
-set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), back_inserter(result));
-
-result.erase(unique(result.begin(), result.end()), result.end());
-
-return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    // Your existing code here
 }
