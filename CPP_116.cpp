@@ -1,15 +1,24 @@
-bool issame(int a, int b) {
-    int count_a = __builtin_popcount(a);
-    int count_b = __builtin_popcount(b);
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-    if (count_a == count_b) {
-        return a < b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b);
 
-    return count_a < count_b;
+std::vector<int> sort_array(std::vector<int> arr);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), issame);
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+        int countA = __builtin_popcount(a);
+        int countB = __builtin_popcount(b);
+        if (countA == countB) {
+            return a < b;
+        }
+        return countA < countB;
+    });
+
     return arr;
 }
