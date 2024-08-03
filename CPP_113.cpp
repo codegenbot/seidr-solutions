@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -5,7 +6,7 @@
 int count_odd_elements(const std::string& str) {
     int count = 0;
     for (char c : str) {
-        if (isdigit(c) && (c - '0') % 2 != 0) {
+        if (c >= '0' && c <= '9' && (c - '0') % 2 == 1) {
             count++;
         }
     }
@@ -16,8 +17,8 @@ bool issame(const std::vector<int>& counts, const std::vector<std::string>& expe
     if (counts.size() != expected.size()) {
         return false;
     }
-    for (size_t i = 0; i < counts.size(); i++) {
-        if (counts[i] != std::stoi(expected[i].substr(expected[i].find_last_of(' ') + 1))) {
+    for (size_t i = 0; i < counts.size(); ++i) {
+        if (counts[i] != std::stoi(expected[i].substr(expected[i].find("of odd elements ") + 16, 1))) {
             return false;
         }
     }
