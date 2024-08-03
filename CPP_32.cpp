@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -26,6 +25,6 @@ int main() {
     coeffs.push_back(4.0);
     double solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    
+
     return 0;
 }
