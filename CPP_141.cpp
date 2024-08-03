@@ -1,33 +1,31 @@
-int count_digits(string file_name) {
-    int count = 0;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            count++;
-            if (count > 3) return 1; // more than three digits found
-        }
-    }
-    return 0; // no more than three digits found
-}
-
-int check_dot(string file_name) {
-    int dot_count = 0;
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-            if (dot_count > 1) return 1; // more than one dot found
-        }
-    }
-    return 0; // exactly one dot found
-}
-
-int check_extension(string file_name) {
-    int extension_start = file_name.find('.');
-    string extension = file_name.substr(extension_start + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") return 1; // invalid extension
-    return 0; // valid extension
-}
+Here is the completed code:
 
 string file_name_check(string file_name) {
-    if (count_digits(file_name) || check_dot(file_name) || !check_extension(file_name)) return "No";
-    return "Yes";
+    int digit_count = 0;
+    bool has_dot = false;
+    string prefix;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3)
+                return "No";
+        } else if (c == '.') {
+            has_dot = true;
+        } else if (!has_dot) {
+            prefix += c;
+        }
+    }
+
+    if (!prefix.empty() && !isalpha(prefix[0]))
+        return "No";
+
+    size_t dot_pos = file_name.find('.');
+    string suffix = file_name.substr(dot_pos + 1);
+
+    vector<string> valid_suffixes = {"txt", "exe", "dll"};
+    if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end())
+        return "No";
+
+    return has_dot ? "Yes" : "No";
 }
