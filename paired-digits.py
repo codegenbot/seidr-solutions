@@ -1,4 +1,2 @@
 def paired_digits(s):
-    return sum(
-        int(d) for d in s if s.index(d) * 2 + 1 < len(s) and s[s.index(d) + 1] == d
-    )
+    return sum(int(x) for x in s if s[s.index(x)] * 2 == int(s))
