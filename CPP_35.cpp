@@ -4,7 +4,6 @@
 #include <cassert>
 #include <cmath>
 
-// Task description: Complete the function max_element that returns the maximum element from the input vector
 float max_element(const std::vector<float>& l) {
     float max_val = l[0];
     for (size_t i = 1; i < l.size(); i++) {
@@ -13,9 +12,4 @@ float max_element(const std::vector<float>& l) {
         }
     }
     return max_val;
-}
-
-int main() {
-    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
-    return 0;
 }
