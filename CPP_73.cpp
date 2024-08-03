@@ -1,9 +1,9 @@
+#include <iostream>
 #include <vector>
-using namespace std;
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j <= i; j++) {
@@ -12,7 +12,7 @@ int smallest_change(vector<int> arr) {
             else if (arr[j] == arr[n - 1 - i + j])
                 dp[i][j] = dp[i - 1][j - 1];
             else
-                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + 1;
+                dp[i][j] = std::min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]} ) + 1;
         }
     }
     
@@ -20,7 +20,16 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {0, 1};
-    cout << smallest_change(arr) << endl;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+    
+    int result = smallest_change(arr);
+    std::cout << "The smallest number of operations is: " << result << std::endl;
     return 0;
 }
