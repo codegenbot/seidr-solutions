@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -27,7 +28,7 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     // Subtract the black pegs from total white pegs
     white -= black;
 
-    return std::pair<int, int>(white, black);
+    return {white, black};
 }
 
 int main() {
@@ -40,3 +41,4 @@ int main() {
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
+}
