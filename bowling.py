@@ -1,17 +1,15 @@
 ```
-def bowling_score(gutter_balls):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    frame = 1
-    for ball in gutter_balls:
-        if ball == 'X':
-            score += 10 + (10 - roll)
-            roll = 0
-            frame += 1
-        elif ball == '/':
-            score += 10 - roll
-            roll = 0
-            frame += 1
+    for i in range(10):
+        if '/' in frames[i]:
+            strike, spare = map(int, frames[i].split('/'))
+            if i < 9:
+                score += strike + spare
+            else:
+                score += strike * 2 + spare
+        elif frames[i] == 'X':
+            score += 10 + (10 - len(frames[:i].replace('X', ''))) * 1
         else:
-            roll += int(ball)
+            score += int(frames[i])
     return score
