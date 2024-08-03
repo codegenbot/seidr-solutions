@@ -3,34 +3,19 @@
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
-    bool first = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            if (!first) {
-                result[0] = toupper(result[0]);
-            }
-            result += " ";
-            first = false;
-        } else if (c == ' ') {
-            first = true;
-        } else {
-            if (!first) {
-                result[0] = tolower(c);
-            } else {
-                result += c;
-            }
-            first = false;
+    for (const auto& word : str.split("-")) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
         }
+        result += word;
     }
-
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "camelCase: " << kebabToCamel(input) << std::endl;
     return 0;
 }

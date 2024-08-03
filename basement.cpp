@@ -1,12 +1,13 @@
 #include <vector>
-using namespace std;
 
-int basement(vector<int>& arr) {
-    int sum = 0;
-    for (int i = 0; i < arr.size(); ++i) {
-        sum += arr[i];
-        if (sum < 0)
-            return i;
+int basement(const std::vector<int>& vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        int sum = 0;
+        for (int j = 0; j <= i; ++j) {
+            sum += vec[j];
+            if (sum < 0)
+                return i;
+        }
     }
     return -1;
 }
