@@ -1,1 +1,3 @@
-assert (int_to_mini_roman(1000) == "M");
+#include <string>
+
+std::string int_to_mini_roman(int number) {
