@@ -1,3 +1,5 @@
-def rounded_avg(lst):
-    avg = sum(lst) / len(lst)
-    return str(int(round(avg)))
+def rounded_avg(n, m):
+    if n > m:
+        return -1
+    avg = (n + m) // 2
+    return str(round(avg))
