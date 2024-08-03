@@ -7,20 +7,14 @@ bool is_sorted(const std::vector<int>& arr) {
     return std::is_sorted(arr.begin(), arr.end());
 }
 
-bool move_one_ball(const std::vector<int>& arr) {
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (is_sorted(arr)) {
             return true;
         }
-        std::vector<int> arr_copy = arr; // Make a copy of the input vector
-        std::rotate(arr_copy.rbegin(), arr_copy.rbegin() + 1, arr_copy.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
-
-int main() {
-    assert(move_one_ball({}) == true);
-
-    return 0;
-}
+```
