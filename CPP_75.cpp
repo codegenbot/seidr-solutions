@@ -21,18 +21,3 @@ bool is_multiply_prime(int a){
     }
     return false;
 }
-
-int main() {
-    int num;
-    bool result = false;
-
-    std::cout << "Enter a number less than 100: ";
-    std::cin >> num;
-    
-    if(num) {
-        result = is_multiply_prime(num);
-        std::cout << (result ? "true" : "false") << std::endl;
-    }
-
-    return 0;
-}
