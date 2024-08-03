@@ -4,16 +4,16 @@
 
 using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
-}
-
 map<char, int> histogram(const string& str) {
     map<char, int> result;
     for (char c : str) {
-        result[c]++;
+       result[c]++;
     }
     return result;
+}
+
+bool issame(const map<char, int>& a, const map<char, int>& b) {
+    return a == b;
 }
 
 int main() {
