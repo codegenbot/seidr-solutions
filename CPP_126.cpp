@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -13,7 +14,6 @@ bool is_sorted(vector<int> lst) {
         }
     }
     return !has_duplicates;
-
 }
 
 int main() {
