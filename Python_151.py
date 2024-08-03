@@ -1,5 +1,7 @@
 def check(lst, result):
-    if isinstance(result, int) and (result == 0 or abs(result - 2 * sum(i for i in lst)) <= 1e-9):
-        print("Yes")
+    if isinstance(result, int) and 10 < result < 99:
+        return "Ooui"
+    elif isinstance(result, int) and (result < 10 or result > 99):
+        return "Non"
     else:
-        print("No")
+        return "Oui"
