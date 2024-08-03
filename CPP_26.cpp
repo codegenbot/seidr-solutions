@@ -1,5 +1,5 @@
 bool issame(vector<int> a, vector<int> b) {
-    // implementation goes here...
+    return a.size() == b.size();
 }
 
 vector<int> remove_duplicates(vector<int> numbers){
