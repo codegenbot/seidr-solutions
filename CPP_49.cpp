@@ -1,8 +1,7 @@
 #include <iostream>
 
 int modp(int n, int p) {
-    if (p == 1)
-        return 0;
+    if (p == 1) return 0;
     int result = 1;
     n = n % p;
     while (n > 0) {
@@ -16,7 +15,13 @@ int modp(int n, int p) {
 
 int main() {
     int n, p;
-    std::cin >> n >> p;
-    std::cout << modp(n, p) << std::endl;
+    std::cout << "Enter value of n: ";
+    std::cin >> n;
+
+    std::cout << "Enter value of p: ";
+    std::cin >> p;
+
+    std::cout << "Result: " << modp(n, p) << std::endl;
+
     return 0;
 }
