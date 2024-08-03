@@ -1,11 +1,11 @@
-#include <any>
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <any>
 
 using namespace std;
 
-any compare_one(const any& a, const any& b) {
+std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return (any_cast<int>(a) > any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
