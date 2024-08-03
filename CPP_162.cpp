@@ -1,7 +1,7 @@
-#include <iostream>
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
+#include <openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -18,9 +18,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char temp[3];
-        sprintf(temp, "%02x", md5[i]);
-        result += temp;
+        char buff[3];
+        sprintf(buff, "%02x", md5[i]);
+        result += buff;
     }
 
     return result;
