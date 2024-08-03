@@ -1,14 +1,8 @@
 Here is the solution:
 
-def indices_of_substring(text):
-    result = []
-    for i in range(len(text)):
-        if text[i:].startswith(input()):
-            while True:
-                start = i
-                end = i + len(input())
-                if end > len(text) or not text[end:].startswith(input()):
-                    result.append(start)
-                    break
-                i += 1
-    return sorted(result)
+def indices_of_substring(text, target):
+    return [i for i in range(len(text)) if text.startswith(target, i)]
+
+input_text = input()
+target = int(input())
+print(indices_of_substring(input_text, input_text[:target]))
