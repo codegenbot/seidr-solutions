@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -11,7 +10,7 @@ vector<vector<int>> cutVector(vector<int> vec) {
     for (int i = 0; i < n - 1; i++) {
         if (vec[i] == vec[i + 1]) {
             result.push_back({vec[0], vec[i]});
-            return {{}, vector<int>(vec.begin() + i, vec.end())};
+            return {{vec[0]}, vector<int>(vec.begin() + i, vec.end())};
         }
     }
     
