@@ -2,7 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+template <typename T>
+bool issame(std::vector<T> a, std::vector<T> b){
     if(a.size() != b.size()) {
         return false;
     }
