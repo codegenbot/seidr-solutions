@@ -12,3 +12,16 @@ std::vector<int> make_a_pile(int n){
     }
     return stones;
 }
+
+int main(){   
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> pile = make_a_pile(n);
+
+    for (int stone : pile) {
+        std::cout << stone << " ";
+    }
+
+    return 0;
+}
