@@ -25,7 +25,5 @@ std::vector<std::string> words_string(const std::string& str) {
     return result;
 }
 
-int main() {
-    assert(issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
-    return 0;
-}
+assert(issame(words_string("ahmed , gamal"), {"ahmed", "gamal"}));
+```
