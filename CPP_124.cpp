@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cstdio>
 #include <string>
 
 bool valid_date(std::string date) {
@@ -6,7 +8,7 @@ bool valid_date(std::string date) {
     }
 
     int month, day, year;
-    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
+    if (std::sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
         return false;
     }
 
@@ -36,8 +38,6 @@ bool valid_date(std::string date) {
 
     return true;
 }
-
-#include <cassert>
 
 int main() {
     assert(valid_date("04-2003") == false);
