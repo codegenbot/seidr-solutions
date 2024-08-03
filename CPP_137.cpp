@@ -1,35 +1,30 @@
-#include <boost/any.hpp>
+#include <any>
 #include <string>
-#include <cassert>
 #include <algorithm>
-#include <cmath>
+#include <cassert>
 
-std::any compare_one(std::any a, std::any b) {
+using namespace std;
+
+std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
-            return a;
-        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
-            return b;
-        } else {
-            return std::any();
-        }
+        return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
-            return a;
-        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
-            return b;
-        } else {
-            return std::any();
+        return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
+        if (strA.find_first_of(".,") != string::npos) {
+            replace(strA.begin(), strA.end(), ',', '.');
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        float a_float = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float b_float = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        if (a_float > b_float) {
-            return a;
-        } else if (a_float < b_float) {
-            return b;
-        } else {
-            return std::any();
+        if (strB.find_first_of(".,") != string::npos) {
+            replace(strB.begin(), strB.end(), ',', '.');
         }
+        return (stod(strA) > stod(strB)) ? a : b;
     }
+    return std::any("None");
+}
+
+int main() {
+    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+    return 0;
 }
