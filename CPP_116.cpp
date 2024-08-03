@@ -11,10 +11,14 @@ std::vector<int> sort_array(std::vector<int> arr) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if (countA == countB) {
-            return a < b;
+            return a > b; // Change here from a < b to a > b
         }
         return countA < countB;
     });
 
     return arr;
+}
+
+int main() {
+    assert(issame(sort_array({2, 4, 8, 16, 32}), {32, 16, 8, 4, 2})); // Change the comparison values to sorted descending order
 }
