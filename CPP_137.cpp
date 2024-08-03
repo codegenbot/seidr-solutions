@@ -1,30 +1,26 @@
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    double da;
-    std::string sa;
+    double da, db;
+    std::string sa, sb;
 
     try {
         da = boost::any_cast<double>(a);
-        if (boost::any_cast<double>(b) > da) {
-            return b;
-        } else if (da > boost::any_cast<double>(b)) {
-            return a;
-        } else {
-            return boost::any();
-        }
+        db = boost::any_cast<double>(b);
     } catch (...) {
         try {
             sa = boost::any_cast<std::string>(a);
-            if (boost::any_cast<std::string>(b) > sa) {
-                return b;
-            } else if (sa > boost::any_cast<std::string>(b)) {
-                return a;
-            } else {
-                return boost::any();
-            }
+            sb = boost::any_cast<std::string>(b);
         } catch (...) {
-            return boost::any();
+            return a;
         }
+    }
+
+    if (da > db) {
+        return a;
+    } else if (db > da) {
+        return b;
+    } else {
+        return a;
     }
 }
