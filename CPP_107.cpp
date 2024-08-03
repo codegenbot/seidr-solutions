@@ -29,12 +29,12 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-
+    
     std::vector<int> result = even_odd_palindrome(n);
     std::cout << "Even palindromes: " << result[0] << std::endl;
     std::cout << "Odd palindromes: " << result[1] << std::endl;
-
-    assert(is_same(result, even_odd_palindrome(n)));
-
+    
+    assert(is_same(result, even_odd_palindrome(n));
+    
     return 0;
 }
