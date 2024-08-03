@@ -14,8 +14,3 @@ long long double_the_difference(std::vector<int> lst) {
     }
     return sum;
 }
-
-int main() {
-    assert(double_the_difference(lst) == odd_sum);
-    return 0;
-}
