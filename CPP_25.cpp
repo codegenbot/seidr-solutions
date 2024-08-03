@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -25,13 +25,6 @@ vector<int> factorize(int n) {
 }
 
 int main() {
-    // Add test cases to check the factorize function
-    // For example:
-    vector<int> result = factorize(24);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
+    // Add test cases or function calls here
     return 0;
 }
