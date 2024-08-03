@@ -1,9 +1,12 @@
-int count_nums(vector<int> n){
+#include <vector>
+using namespace std;
+
+int count_digits_sum(vector<int> n){
     int count = 0;
     for (int num : n) {
         int sum = 0;
         int temp = abs(num);
-        while (temp != 0) {
+        while (temp > 0) {
             sum += temp % 10;
             temp /= 10;
         }
@@ -12,4 +15,10 @@ int count_nums(vector<int> n){
         }
     }
     return count;
+}
+
+int main() {
+    vector<int> nums = {123, -456, 789};
+    int result = count_digits_sum(nums);
+    return 0;
 }
