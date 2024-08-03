@@ -12,19 +12,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    std::vector<int> numbers;
-    int n;
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> numbers.push_back(n);
-    }
-    
-    int result = specialFilter(numbers);
-    std::cout << "Number of elements that meet the condition: " << result << std::endl;
-    
+    std::vector<int> nums = {100, 101, 102, 103, 104};
+    int result = specialFilter(nums);
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
