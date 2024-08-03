@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <utility>
 
 bool issame(const std::vector<float>& a, const std::pair<float, float>& b) {
     if (a.size() != 2) return false;
@@ -15,7 +14,7 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     float diff = std::abs(numbers[1] - numbers[0]);
     std::pair<float, float> closest_pair = {numbers[0], numbers[1]};
 
-    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+    for (size_t i = 1; i < numbers.size() - 1; ++i) {
         float current_diff = std::abs(numbers[i + 1] - numbers[i]);
         if (current_diff < diff) {
             diff = current_diff;
