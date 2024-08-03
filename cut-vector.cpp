@@ -31,18 +31,11 @@ int main() {
         }
     }
     
-    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
-        cout << "2" << endl;
-        for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << endl;
-        }
-        cout << "0" << endl;
-    } else {
-        cout << "1" << endl;
-        for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << endl;
-        }
+    cout << "2" << endl;
+    for (int i = 0; i <= cut_index; i++) {
+        cout << nums[i] << endl;
     }
-    
+    cout << "0" << endl;
+
     return 0;
 }
