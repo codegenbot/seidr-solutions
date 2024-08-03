@@ -1,5 +1,7 @@
+Here's the modified code:
+
 ```
-from collections import List, Tuple
+from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     min_diff = float('inf')
