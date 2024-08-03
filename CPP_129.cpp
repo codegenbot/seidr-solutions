@@ -1,61 +1,54 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
     vector<int> res;
-    
+
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
+                dp[i][j] = grid[i][j];
+            } else {
+                int min_val = INT_MAX;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        if (i + x >= 0 && i + x < n && j + y >= 0 && j + y < n) {
+                            min_val = min(min_val, dp[i + x][j + y]);
+                        }
+                    }
+                }
+                dp[i][j] = grid[i][j] + min_val;
             }
-            
-            vector<int> path = {grid[i][j]};
-            dfs(grid, i, j, k - 1, &path);
-            res = path;
         }
     }
-    
+
+    int min_idx = -1;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (dp[i][j] == dp[0][0]) {
+                min_idx = i * n + j;
+                break;
+            }
+        }
+    }
+
+    int cur_idx = min_idx;
+    for (int i = 0; i < k; ++i) {
+        res.push_back(grid[cur_idx / n][cur_idx % n]);
+        vector<int> neighbors;
+        if (cur_idx / n > 0) neighbors.push_back(cur_idx - n);
+        if (cur_idx / n < n - 1) neighbors.push_back(cur_idx + n);
+        if (cur_idx % n > 0) neighbors.push_back(cur_idx - 1);
+        if (cur_idx % n < n - 1) neighbors.push_back(cur_idx + 1);
+
+        for (int neighbor : neighbors) {
+            if (neighbor >= 0 && neighbor < n * n) {
+                if (dp[neighbor / n][neighbor % n] == dp[cur_idx / n][cur_idx % n]) {
+                    cur_idx = neighbor;
+                    break;
+                }
+            }
+        }
+    }
+
     return res;
-}
-
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>* path) {
-    int n = grid.size();
-    if (k == 0) {
-        return;
-    }
-    
-    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    random_shuffle(directions.begin(), directions.end());
-    
-    for (auto& dir : directions) {
-        int nx = x + dir.first;
-        int ny = y + dir.second;
-        
-        if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-            path->push_back(grid[nx][ny]);
-            dfs(grid, nx, ny, k - 1, path);
-            if (k == 1) {
-                return;
-            }
-            
-            path->pop_back();
-        }
-    }
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    
-    for (auto& val : res) {
-        cout << val << " ";
-    }
-    cout << endl;
-    
-    return 0;
 }
