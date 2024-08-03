@@ -1,10 +1,10 @@
-n = int(input("Enter number of coefficients: "))
-coefficients = [
-    float(x) for x in input(f"Enter {n} coefficients separated by space: ").split()
-]
-try:
-    result = find_zero(coefficients)
-except ValueError as e:
-    print(e)
-else:
-    print(f"The result is {result}")
+n = int(input("Enter the number of coefficients: "))
+coefficients = []
+for _ in range(n):
+    coefficient = float(input(f"Enter coefficient {i+1}: "))
+    coefficients.append(coefficient)
+if n % 2 != 0:
+    raise ValueError("The number of coefficients must be even")
+a = coefficients[-1]
+b = -sum(coefficients[:-1])
+print(round(-b / (2 * a), 2))
