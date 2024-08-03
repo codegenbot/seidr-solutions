@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 using namespace std;
@@ -17,9 +18,6 @@ vector<int> get_odd_collatz(int n) {
     return collatz_sequence;
 }
 
-int main() {
-    assert(get_odd_collatz(1) == vector<int>({1}));
-    assert(get_odd_collatz(7) == vector<int>({7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1}));
-
-    return 0;
+bool check_equality(vector<int> a, vector<int> b) {
+    return a == b;
 }
