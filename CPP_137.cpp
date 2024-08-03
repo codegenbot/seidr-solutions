@@ -1,7 +1,6 @@
 ```cpp
 #include <boost/any.hpp>
 #include <string>
-#include <limits>
 
 using namespace boost;
 
@@ -39,6 +38,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         float bf = boost::any_cast<float>(b);
         return (std::stof(as) > bf) ? a : ((std::stof(as) < bf) ? b : any("None"));
     } else {
-        throw std::invalid_argument("Invalid input type");
+        throw invalid_argument("Invalid input type");
     }
 }
