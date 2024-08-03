@@ -1,4 +1,4 @@
-string string_to_md5(const string& text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[MD5_DIGEST_LENGTH];
