@@ -1,17 +1,14 @@
-#include <iostream>
+#include <cassert>
 #include <cmath>
+#include <iostream>
 
 double truncate_number(double number) {
     return number - floor(number);
 }
 
-int main() {
-    // Read input
-    double input_number;
-    std::cin >> input_number;
-
-    // Output truncated number
-    std::cout << truncate_number(input_number) << std::endl;
-
+int32_t main() {
+    double input;
+    std::cin >> input;
+    std::cout << truncate_number(input) << std::endl;
     return 0;
 }
