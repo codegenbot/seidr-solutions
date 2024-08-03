@@ -1,7 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
@@ -16,8 +13,6 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q = {1,2,3};
-    int w = 6;
-    cout << boolalpha << will_it_fly(q, w);
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }
