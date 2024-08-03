@@ -2,12 +2,12 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    for (auto num : a) {
+    for(auto num : a) {
         if (num % 2 == 0) {
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 std::vector<int> generate_integers(int start, int end) {
