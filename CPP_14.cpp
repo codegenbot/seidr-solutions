@@ -1,1 +1,1 @@
-auto all_prefixes = b("WWW");
+Replace `auto all_prefixes = b;` with `auto all_prefixes = b("WWW");`.
