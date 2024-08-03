@@ -17,5 +17,5 @@ def is_prime(num):
             return False
     return True
 
-n = int(input("Enter the value of n: "))
+n = int(input("Enter the number: "))
 print(prime_fib(n))
