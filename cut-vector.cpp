@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
 using namespace std;
 
 int main() {
@@ -8,7 +9,7 @@ int main() {
     int num;
 
     while (cin >> num) {
-        nums.push_back(num);        
+        nums.push_back(num);
     }
 
     int n = nums.size();
