@@ -1,16 +1,22 @@
-vector<int> even_odd_palindrome(int n){
-        int even = 0, odd = 0;
-        for(int i = 1; i <= n; ++i){
-            string s = to_string(i);
-            string rev = s;
-            reverse(rev.begin(), rev.end());
-            if(s == rev){
-                if(i % 2 == 0){
-                    even++;
-                } else {
-                    odd++;
-                }
+#include <vector>
+
+std::vector<int> even_odd_palindrome(int n) {
+    int even = 0, odd = 0;
+    for (int i = 1; i <= n; ++i) {
+        std::string num = std::to_string(i);
+        std::string rev_num = num;
+        std::reverse(rev_num.begin(), rev_num.end());
+        if (num == rev_num) {
+            if (i % 2 == 0) {
+                even++;
+            } else {
+                odd++;
             }
         }
-        return {even, odd};
     }
+    return {even, odd};
+}
+
+int main() {
+    // Your main function code here
+}
