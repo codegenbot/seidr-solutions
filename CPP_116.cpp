@@ -15,12 +15,10 @@ std::vector<int> sort_array(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> input = {5, 3, 9, 6, 10};
-    std::vector<int> expected = {3, 5, 6, 9, 10};
-    
-    std::vector<int> result = sort_array(input);
+    std::vector<int> arr = {9, 5, 3, 6, 12};
+    std::vector<int> sorted_arr = sort_array(arr);
+    std::vector<int> expected_output = {3, 5, 6, 9, 12};
+    assert(sorted_arr == expected_output);
 
-    assert(result == expected);
-    
     return 0;
 }
