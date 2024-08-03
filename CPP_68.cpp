@@ -3,7 +3,6 @@
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
-    
     int smallest_even = -1, smallest_index = -1;
     
     for(int i = 0; i < arr.size(); i++){
@@ -14,7 +13,7 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     if(smallest_even != -1){
-        result = {smallest_even, smallest_index};
+        result = { smallest_even, smallest_index };
     }
     
     return result;
@@ -25,18 +24,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 int main(){
-    int num;
-    std::vector<int> input;
-    
-    while (std::cin >> num){
-        input.push_back(num);
-    }
-    
+    std::vector<int> input = {1, 3, 4, 2, 5};
     std::vector<int> result = pluck(input);
-    
-    for (int num : result) {
+
+    for(int num : result) {
         std::cout << num << " ";
     }
-    
     return 0;
 }
