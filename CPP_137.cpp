@@ -1,26 +1,31 @@
-```
-if (a.type() == typeid(int) && b.type() == typeid(int))
-    return boost::any((int)std::max(at<int>(a), at<int>(b)));
-else if (a.type() == typeid(float) && b.type() == typeid(float))
-    return boost::any(std::max(at<float>(a), at<float>(b)));
-else if (a.type() == typeid(double) && b.type() == typeid(double))
-    return boost::any(std::max(at<double>(a), at<double>(b)));
-else if (a.type() == typeid(string) && b.type() == typeid(string))
-{
-    string str1 = boost::any_cast<string>(a);
-    string str2 = boost::any_cast<string>(b);
-    istringstream iss1(str1);
-    double num1;
-    iss1 >> num1;
-    istringstream iss2(str2);
-    double num2;
-    iss2 >> num2;
-    if (num1 > num2)
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    int x = boost::any_cast<int>(a);
+    int y = boost::any_cast<int>(b);
+    if (x > y)
         return a;
-    else if (num1 < num2)
+    else if (y > x)
         return b;
     else
-        return boost::any("None");
+        return "None";
+} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+    float x = boost::any_cast<float>(a);
+    float y = boost::any_cast<float>(b);
+    if (x > y)
+        return a;
+    else if (y > x)
+        return b;
+    else
+        return "None";
+} else if ((a.type() == typeid(string) && b.type() != typeid(int)) ||
+           (b.type() == typeid(string) && a.type() != typeid(int))) {
+    string s1 = boost::any_cast<string>(a);
+    string s2 = boost::any_cast<string>(b);
+    if (stof(s1) > stof(s2))
+        return a;
+    else if (stof(s2) > stof(s1))
+        return b;
+    else
+        return "None";
+} else {
+    return "None";
 }
-else
-    return boost::any("None");
