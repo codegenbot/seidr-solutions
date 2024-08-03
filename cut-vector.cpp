@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     vector<vector<int>> res;
     if (n == 0) return {{}}; 
 
-    int min_diff = numeric_limits<int>::max(), cut_index = 0;
+    int min_diff = INT_MAX, cut_index = 0;
     for (int i = 1; i < n; i++) {
         int diff = abs(nums[i] - nums[i-1]);
         if (diff <= min_diff) {
