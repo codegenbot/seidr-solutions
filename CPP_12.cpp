@@ -1,18 +1,11 @@
+
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-std::string longest(std::vector<std::string> strings) {
-    if (strings.empty()) {
-        return "None";
-    }
-    
-    std::string longestStr = strings[0];
-    for (const std::string& str : strings) {
-        if (str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)) {
-            longestStr = str;
-        }
-    }
-    
-    return longestStr;
+using namespace std;
+
+string longest(vector<string> strings) {
+    return *max_element(strings.begin(), strings.end(), [](const string& a, const string& b) { return a.length() != b.length() ? a.length() < b.length() : a < b; });
 }
