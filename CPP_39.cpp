@@ -1,33 +1,29 @@
-#include <iostream>
+#include <cstdio>
+#include <vector>
 
 using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
-    return true;
-}
-
 int prime_fib(int n) {
-    int fibNum = 0, prevFibNum = 1, count = 0;
-    while (true) {
-        int newFibNum = fibNum + prevFibNum;
-        if (isPrime(newFibNum)) {
-            if (++count == n) return newFibNum;
-            fibNum = prevFibNum;
-            prevFibNum = newFibNum;
-        } else {
-            fibNum = prevFibNum;
-            prevFibNum = newFibNum;
+    vector<int> fib = {0, 1};
+    int i = 2;
+    while (fib.size() <= n) {
+        fib.push_back(fib[i - 1] + fib[i]);
+        i++;
+    }
+    for (int j = fib.size() - 1; j >= 0; j--) {
+        if (isPrime(fib[j])) {
+            return fib[j];
         }
     }
+    return -1;
 }
 
-int main() {
-    for (int i = 1; i <= 5; i++) {
-        cout << prime_fib(i) << endl;
+bool isPrime(int n) {
+    if (n < 2)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
     }
-    return 0;
+    return true;
 }
