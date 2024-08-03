@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -19,7 +19,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     return result;
 }
 
-void main() {
+int main(){
     std::vector<int> input;
     int num;
     std::cout << "Enter numbers (0 to stop): ";
@@ -33,4 +33,6 @@ void main() {
     for(int num : result){
         std::cout << num << " ";
     }
+    
+    return 0;
 }
