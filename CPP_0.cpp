@@ -15,28 +15,14 @@ bool has_close_elements(const vector<float>& numbers, float threshold) {
     return false;
 }
 
-void solveProblem() {
-    vector<float> a;
-    float threshold;
-    int n;
-
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        float num;
-        cin >> num;
-        a.push_back(num);
-    }
-    cout << "Enter the threshold value: ";
-    cin >> threshold;
-
-    bool result = has_close_elements(a, threshold);
-    cout << (result ? "There are close elements." : "No close elements found.") << endl;
+void solve_problem() {
+    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    assert(has_close_elements(a, 0.5f) == true);
+    assert(has_close_elements(a, 0.1f) == false);
 }
 
 int main() {
-    solveProblem();
+    solve_problem();
 
     return 0;
 }
