@@ -11,5 +11,8 @@ def minPath(grid, k):
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and m[ni][nj] not in visited:
                 res.extend(dfs(ni, nj, path + [m[ni][nj]], visited | {m[ni][nj]}))
-        return min(res) if res else None
+        if len(res) > 0:
+            return min(res)
+        else:
+            return None
     return dfs(0, 0, [], set())
