@@ -6,9 +6,11 @@ vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
     
-    for(int i = 0; i < n; i++) {
-        if(i == n - 1 || vec[i] != vec[i+1]) {
-            result.push_back({vec.begin(), vec.begin() + i + 1});
+    for(int i = 0; i < n - 1; i++) {
+        if(abs(vec[i] - vec[i+1]) > (n - i - 1) / 2) {
+            vector<int> leftvec(vec.begin(), vec.begin() + i + 1);
+            vector<int> rightvec(vec.begin() + i, vec.end());
+            result = {{leftvec}, {rightvec}};
             break;
         }
     }
