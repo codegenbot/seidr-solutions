@@ -1,6 +1,17 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    result = sum(sum(divmod(d * 2, 10)) + d for d in card_number[1::2]) + sum(
-        divmod(d, 10) for d in card_number[::2]
+    result = sum(
+        [
+            (
+                card_number[i]
+                if i % 2 == 0
+                else (
+                    card_number[i] * 2
+                    if card_number[i] * 2 > 9
+                    else card_number[i] * 2 - 9
+                )
+            )
+            for i in range(len(card_number))
+        ]
     )
     return result
