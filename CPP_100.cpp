@@ -2,8 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-using namespace std;
-
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
     while(n > 0){
