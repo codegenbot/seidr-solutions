@@ -1,29 +1,26 @@
-#include <vector>
+```cpp
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) return result;
-
-    auto min_max = [](const std::vector<int>& v) {
-        int min_val = *std::min_element(v.begin(), v.end());
-        int max_val = *std::max_element(v.begin(), v.end());
-        return std::make_pair(min_val, max_val);
-    };
-
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
-        auto [min, max] = min_max(lst);
-        result.push_back(min);
-        lst.erase(std::remove_if(lst.begin(), lst.end(),
-            [&](int x) { return x == min; }), lst.end());
-        if (!lst.empty())
-            result.push_back(max);
-        lst.erase(std::remove_if(lst.begin(), lst.end(),
-            [&](int x) { return x == max; }), lst.end());
+        int minVal = *min_element(lst.begin(), lst.end());
+        result.push_back(minVal);
+        lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
+        
+        if (!lst.empty()) {
+            int maxVal = *max_element(lst.begin(), lst.end());
+            result.push_back(maxVal);
+            lst.erase(remove(lst.begin(), lst.end(), maxVal), lst.end());
+        }
     }
     return result;
 }
