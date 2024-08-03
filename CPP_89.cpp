@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 #include <cassert>
 
 std::string encrypt(const std::string& s) {
@@ -8,7 +7,7 @@ std::string encrypt(const std::string& s) {
     for (char c : s) {
         if (std::isalpha(c)) {
             char base = std::islower(c) ? 'a' : 'A';
-            encrypted += (c - base + 4) % 26 + base;
+            encrypted += (c - base + 2 * 2) % 26 + base;
         } else {
             encrypted += c;
         }
@@ -18,5 +17,9 @@ std::string encrypt(const std::string& s) {
 
 int main() {
     assert(encrypt("a") == "e");
+    assert(encrypt("Hello, World!") == "Lipps, Asvph!");
+    assert(encrypt("This is a test 123") == "Vjku ku c vguv 123");
+    assert(encrypt("xyz") == "bcd");
+    std::cout << "All test cases passed." << std::endl;
     return 0;
 }
