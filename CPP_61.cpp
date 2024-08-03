@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -17,7 +18,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string testString = "((()))"; // Input string for testing
-    std::cout << std::boolalpha << correct_bracketing(testString) << std::endl;
+    assert(!correct_bracketing("()()(()())()))()"));
     return 0;
 }
