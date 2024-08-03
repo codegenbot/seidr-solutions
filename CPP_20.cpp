@@ -3,15 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) return false;
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-
-    return true;
-}
+bool issame(const std::vector<float>& a, const std::vector<float>& b);
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) return {0.0f, 0.0f};
@@ -30,8 +22,21 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     return closest_pair;
 }
 
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) return false;
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+
+    return true;
+}
+
 int main() {
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}),
-                  std::vector<float>{2.2f, 3.1f}));  // Corrected argument passing style
+    assert(
+        issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}),
+        std::vector<float>{2.2f, 3.1f})
+    );
+
     return 0;
 }
