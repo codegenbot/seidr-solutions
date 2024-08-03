@@ -18,4 +18,5 @@ bool issame(pair<float, float> a, pair<float, float> b) {
 
     return make_pair(min_num1, min_num2);
 }
-```
+
+assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), make_pair(2.2, 3.1));
