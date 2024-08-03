@@ -3,11 +3,11 @@
 #include <functional>
 #include <cassert>
 
-bool issame(const std::vector<std::vector<int>>& a,const std::vector<std::vector<int>>& b){
+bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x){
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
     for (size_t i = 0; i < lst.size(); ++i) {
         for (size_t j = 0; j < lst[i].size(); ++j) {
