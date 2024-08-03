@@ -1,5 +1,3 @@
-Here is the solution:
-
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -7,7 +5,11 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
-        return all(map(lambda x: x.lower() == 't', expression.split('&')))
-    elif '|' in expression:
-        return any(map(lambda x: x.lower() == 't', expression.split('|')))
+    else:
+        result = True
+        for char in expression:
+            if char == '&':
+                result &= eval('True')
+            elif char == '|':
+                result |= eval('True')
+        return result
