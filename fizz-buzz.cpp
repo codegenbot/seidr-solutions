@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 string fizzBuzz(int x) {
-    if (x % 3 == 0 && x % 5 == 0)
+    if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
         return "Fizz";
@@ -19,4 +18,3 @@ int main() {
     cin >> x;
     cout << fizzBuzz(x) << endl;
     return 0;
-}
