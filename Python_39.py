@@ -12,6 +12,6 @@ def prime_fib(n: int):
     while n > 0:
         a, b = b, a + b
         if is_prime(b):
-            result.append(str(a) + ", " + str(b))
+            result.append(str(a))
             n -= 1
-    return ''.join(result)
+    return ", ".join(result)
