@@ -3,30 +3,27 @@ int main() {
 
     cin >> cents;
 
-    int penniesNeeded = cents;
+    int remainingPennies = cents;
     int nicklesNeeded = 0;
     int dimesNeeded = 0;
     int quartersNeeded = 0;
 
-    while(penniesNeeded >= 25) {
-        penniesNeeded -= 25;
+    while(remainingPennies >= 25) {
+        remainingPennies -= 25;
         quartersNeeded++;
     }
 
-    int remainingCents = penniesNeeded;
-    while(remainingCents >= 10) {
-        remainingCents -= 10;
+    while(remainingPennies >= 10) {
+        remainingPennies -= 10;
         dimesNeeded++;
     }
 
-    while(remainingCents >= 5) {
-        remainingCents -= 5;
+    while(remainingPennies >= 5) {
+        remainingPennies -= 5;
         nicklesNeeded++;
     }
 
-    printCoins(quartersNeeded, nicklesNeeded + (remainingCents / 5), 
-               dimesNeeded + ((remainingCents % 5) / 10), 
-               quartersNeeded + (remainingCents / 25));
+    printCoins(quartersNeeded*25 + dimesNeeded*10 + nicklesNeeded*5, nicklesNeeded, dimesNeeded, quartersNeeded);
 
     return 0;
 }
