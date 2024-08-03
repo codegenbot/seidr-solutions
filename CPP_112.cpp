@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -39,18 +39,22 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::string s, c;
-    std::cout << "Enter string: ";
+    std::cout << "Enter the string: ";
     std::cin >> s;
-    std::cout << "Enter character to delete: ";
+    std::cout << "Enter the character to delete: ";
     std::cin >> c;
     
-    std::vector<std::string> result = reverse_delete(s, c);
+    auto result = reverse_delete(s, c);
+    bool issame_result = issame(result, {"True", "False"});
     
-    if (issame({s}, result)) {
-        std::cout << "Result: Reversed string is the same as original." << std::endl;
+    if (issame_result) {
+        for (auto str : result) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     } else {
-        std::cout << "Result: Reversed string is different from original." << std::endl;
+        std::cout << "Vectors are not the same." << std::endl;
     }
-    
+
     return 0;
 }
