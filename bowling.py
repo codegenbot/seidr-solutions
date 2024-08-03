@@ -1,34 +1,15 @@
-```
-def bowling_score(score):
-    score = score.replace('/', '')
-    total = 0
-    frame = 1
-    while frame <= 10:
-        if len(str(score)) == 0:
-            break
-        if str(score)[0] in 'X':
-            if len(str(score)) > 1 and str(score)[1] == 'X':
-                total += 30
-                score = score[2:]
-            else:
-                total += 10
-                score = score[1:]
-        elif str(score)[0].isdigit():
-            strike = False
-            if len(str(score)) >= 2 and str(score)[1].isdigit() and int(str(score)[0]) + int(str(score)[1]) <= 10:
-                score = score[2:]
-                continue
-            total += int(str(score)[0])
-            if len(str(score)) > 1 and str(score)[1] == 'X':
-                strike = True
-            elif len(str(score)) >= 2 and int(str(score)[0]) + int(str(score)[1]) <= 10:
-                total += int(str(score)[0]) + int(str(score)[1])
-                score = score[2:]
-            else:
-                total += int(str(score)[0])
-                if strike:
-                    score = score[1:]
-                else:
-                    score = score[1:]
-        frame += 1
-    return total
+def bowling_score(game):
+    score = 0
+    roll = 0
+    for frame in game.split("/"):
+        if len(frame) == 1:
+            score += int(frame)
+        elif len(frame) == 2:
+            score += int(frame[0]) + int(frame[1])
+        else:
+            score += 10 + int(frame[0])
+        roll += 1
+        if roll < 10 and (len(frame) == 2 or frame[0] != "X"):
+            if int(frame[0]) + int(frame[1]) >= 10:
+                score += int(frame[0]) + int(frame[1]) - 10
+    return score
