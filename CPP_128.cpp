@@ -1,3 +1,5 @@
+#include <vector>
+
 int prod_signs(vector<int> arr) {
     int sign_product = 1;
     long long sum_of_magnitudes = 0;
