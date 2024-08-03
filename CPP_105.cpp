@@ -1,14 +1,24 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-vector<string> by_length(vector<int> arr) {
-    // Implement the by_length function here
-}
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> result;
 
-bool issame(vector<string> a, vector<string> b) {
-    // Implement the issame function here
-}
+    for (int num : arr) {
+        switch (num) {
+            case 4:
+                result.push_back("Four");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+            // Handle other cases if needed
+        }
+    }
 
-int main() {
-    // Call by_length correctly and use issame as intended
+    return result;
 }
