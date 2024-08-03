@@ -4,12 +4,10 @@
 #include <cassert>
 
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    // Function implementation
     return {s, c};
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    // Function implementation
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a[0] == b[0] && a[1] == b[1]);
 }
 
