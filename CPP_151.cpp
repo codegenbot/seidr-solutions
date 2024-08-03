@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,11 +14,21 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float n;
-    while(std::cin >> n) {
-        lst.push_back(n);
+    float num;
+    
+    // Read input from user
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
+
     long long result = double_the_difference(lst);
-    std::cout << result << std::endl;
+
+    // Print the output
+    if(result > 0) {
+        std::cout << "The sum of squares of all non-negative numbers is: " << result << std::endl;
+    } else {
+        std::cout << "No non-negative numbers were provided." << std::endl;
+    }
+
     return 0;
 }
