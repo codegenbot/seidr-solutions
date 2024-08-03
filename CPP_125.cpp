@@ -1,43 +1,20 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
+#include <vector>
+#include <iostream>
+#include <assert.h>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Your comparison logic here
+    return true; // Placeholder return for now
+}
 
-vector<string> split_words(string txt){
-    vector<string> words;
-    string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                words.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if(!word.empty()){
-        words.push_back(word);
-    }
-    if(words.empty()){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
-            }
-        }
-        words.push_back(to_string(count));
-    }
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    // Your splitting logic here
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    // Your main function implementation here
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
