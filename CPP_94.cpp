@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int skjkasdkd(vector<int> lst){
     int maxPrime = -1;
     for(int num : lst){
