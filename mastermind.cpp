@@ -25,11 +25,10 @@ int main() {
         }
     }
 
-    for (int i = 0; i < guess.size(); ++i) {
-        int currChar = guess[i] - 'A';
-        if (codeFreq[currChar] > 0 && codeFreq[currChar] > guessFreq[currChar]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && codeFreq[guess[i] - 'A'] > 0) {
             whitePegs++;
-            codeFreq[currChar]--;
+            codeFreq[guess[i] - 'A']--;
         }
     }
 
