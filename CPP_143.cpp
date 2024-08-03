@@ -24,11 +24,13 @@ int main() {
         return result;
     }
 
-    string sentence;
+    string input;
     cout << "Enter a sentence: ";
-    getline(cin, sentence);
+    getline(cin, input);
 
-    cout << words_in_sentence(sentence) << endl;
+    string output = words_in_sentence(input);
+
+    cout << "Output: " << output << endl;
 
     return 0;
 }
