@@ -1,9 +1,16 @@
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filtered_strings;
-    for (const string& str : strings) {
-        if (str.find(prefix) == 0) {
-            filtered_strings.push_back(str);
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> filter_by_prefix(vector<string> words, string prefix){
+    vector<string> filtered_words;
+    for(const string& word : words){
+        if(word.substr(0, prefix.size()) == prefix){
+            filtered_words.push_back(word);
         }
     }
-    return filtered_strings;
+    return filtered_words;
 }
