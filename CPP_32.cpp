@@ -1,9 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <iostream>
-
-using namespace std;
 
 double poly(const std::vector<double>& coeffs, double x);
 
@@ -28,8 +25,6 @@ int main() {
     coeffs.push_back(4.0);
     double solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    
-    cout << "Code compiled successfully without errors!" << endl;
     
     return 0;
 }
