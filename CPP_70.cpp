@@ -23,6 +23,7 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
+    // Testing the code
     assert (issame(strange_sort_list({111111}), {111111}));
     
     return 0;
