@@ -1,46 +1,39 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(vector<float> a, vector<float> b);
-vector<float> sort_even(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
-
-vector<float> sort_even(vector<float> l) {
-    vector<float> even_values;
-    vector<float> result;
-
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
 
-    sort(even_values.begin(), even_values.end());
+void sort_even(std::vector<float>& l) {
+    std::vector<float> even_elements;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            even_elements.push_back(l[i]);
+        }
+    }
+    std::sort(even_elements.begin(), even_elements.end());
 
+    std::vector<float> l_prime = l;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_values[even_index]);
+            l_prime[i] = even_elements[even_index];
             even_index++;
-        } else {
-            result.push_back(l[i]);
         }
     }
-
-    return result;
+    l = l_prime;
 }
 
 int main() {
-    vector<float> original_values = {7.2, 2.5, 4.0, 9.1, 6.7, 3.3};
-    vector<float> sorted_values = sort_even(original_values);
-
-    for (int i = 0; i < sorted_values.size(); i++) {
-        std::cout << sorted_values[i] << " ";
-    }
-
+    std::vector<float> v = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(v);
+    assert (issame(v, {-12, 8, 3, 4, 23, 2, 12, 11, 5, -10}));
     return 0;
 }
