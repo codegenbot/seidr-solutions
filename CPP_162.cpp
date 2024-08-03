@@ -20,7 +20,13 @@ std::string string_to_md5(const std::string &input) {
     return std::string(buf);
 }
 
-int main() {
-    execute_md5_hashing();
+int main_program() {
+    std::string input;
+    std::cout << "Enter the string to hash: ";
+    std::cin >> input;
+
+    std::string hashed = string_to_md5(input);
+    std::cout << "MD5 Hash: " << hashed << std::endl;
+
     return 0;
 }
