@@ -1,8 +1,2 @@
-def shopping_list():
-    n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
-    total_price = sum(
-        price - (price * discount / 100) for price, discount in zip(prices, discounts)
-    )
-    return format(total_price, ".1f")
+def shopping_list(price, discount):
+    return sum(p - (p * d / 100) for p, d in zip(price, discount))
