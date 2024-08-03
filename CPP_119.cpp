@@ -1,11 +1,14 @@
-```
-std::string match_parens(std::vector<std::string> lst){
+```cpp
+#include <vector>
+#include <string>
+
+std::string match_parens(std::vector<std::string> lst) {
     int open = 0;
     int close = 0;
 
-    for(auto s : lst){
-        for(char c : s){
-            if(c == '(') open++;
+    for (auto s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
             else close++;
         }
     }
