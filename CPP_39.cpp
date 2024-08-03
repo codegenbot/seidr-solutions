@@ -21,4 +21,3 @@ int main() {
     scanf("%d", &n);
     printf("%d\n", prime_fib(n));
     return 0;
-}
