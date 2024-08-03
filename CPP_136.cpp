@@ -4,13 +4,14 @@
 bool largest_smallest_integers(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
+    
+    int a_max = *max_element(a.begin(), a.end());
+    int a_min = *min_element(a.begin(), a.end());
 
-    int min_a = *min_element(a.begin(), a.end());
-    int min_b = *min_element(b.begin(), b.end());
-    int max_a = *max_element(a.begin(), a.end());
-    int max_b = *max_element(b.begin(), b.end());
+    int b_max = *max_element(b.begin(), b.end());
+    int b_min = *min_element(b.begin(), b.end());
 
-    return (min_a == min_b) && (max_a == max_b);
+    return (a_max == b_max && a_min == b_min);
 }
 
 int main() {
