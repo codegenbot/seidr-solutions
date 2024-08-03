@@ -1,13 +1,12 @@
 #include <vector>
-#include <algorithm>
 
 std::vector<float> sort_even(const std::vector<float>& v) {
-    std::vector<float> sorted;
-    for (float num : v) {
-        if (static_cast<int>(num) % 2 == 0) {
-            sorted.push_back(num);
+    std::vector<float> result;
+    for (size_t i = 0; i < v.size(); ++i) {
+        if (i % 2 == 0) {
+            result.push_back(v[i]);
         }
     }
-    std::sort(sorted.begin(), sorted.end());
-    return sorted;
+    std::sort(result.begin(), result.end());
+    return result;
 }
