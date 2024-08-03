@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <cassert>
+#include <cassert> // Include <cassert> header
 
 float calculate_mean_abs_deviation(const std::vector<float>& numbers) {
     float sum = 0;
