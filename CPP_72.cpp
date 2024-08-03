@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool will_it_fly(vector<int> q, int w) {
-    vector<int> v(q);
-    reverse(v.begin(), v.end());
+bool will_it_fly(std::vector<int> q, int w) {
+    std::vector<int> v(q);
+    std::reverse(v.begin(), v.end());
     if (v != q)
         return false;
     int sum = 0;
@@ -15,12 +15,12 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     int n, w;
-    cin >> n >> w;
-    vector<int> q(n);
-    for (int i = 0; i < n; i++)
-        cin >> q[i];
-    
-    cout << (will_it_fly(q, w) ? "YES" : "NO") << endl;
-
+    std::cout << "Enter number of quails: ";
+    std::cin >> n;
+    std::vector<int> q(n);
+    std::cout << "Enter weights of quails: ";
+    for (int i = 0; i < n; ++i)
+        std::cin >> q[i];
+    std::cout << "Will it fly? " << (will_it_fly(q, w) ? "Yes" : "No") << std::endl;
     return 0;
 }
