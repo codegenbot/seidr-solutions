@@ -14,6 +14,5 @@ int smallest_change(const std::vector<int>& arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
-    // Add more test cases as needed
     return 0;
 }
