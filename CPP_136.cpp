@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst){
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for(int num : lst){
         if(num < 0 && num > largest_negative){
@@ -19,8 +19,8 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main(){
-    auto result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    cout << "Largest negative: " << result[0] << ", Smallest positive: " << result[1] << endl;
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == std::vector<int>{-3, 1});
+    cout << "Test passed successfully!" << endl;
 
     return 0;
 }
