@@ -10,6 +10,6 @@ bool same_chars(std::string s0, std::string s1) {
 }
 
 int main() {
-    assert (same_chars("aabb", "aaccc") == false);
-    // rest of your code
+    assert(same_chars("aabb", "aaccc") == false);
+    return 0;
 }
