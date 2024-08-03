@@ -23,3 +23,5 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
     return a.first == b.first && a.second == b.second;
 }
+
+```
