@@ -1,10 +1,10 @@
-bool issame(vector<string> a,vector<string>b){
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
-}
+```
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -12,19 +12,33 @@ vector<string> select_words(string s, int n) {
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
-        } else if (!word.empty()) {
-            int consonants = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isalpha(ch) || isvowel(ch)) {
-                    continue;
+        } else {
+            if (!word.empty()) {
+                bool has_n_consonants = false;
+                int consonant_count = 0;
+                for (char ch : word) {
+                    if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) {
+                        consonant_count++;
+                    }
                 }
-                consonants++;
+                if (consonant_count == n) {
+                    has_n_consonants = true;
+                }
+                if (has_n_consonants) {
+                    result.push_back(word);
+                }
+                word = "";
             }
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word = "";
         }
     }
     return result;
+}
+
+int main() {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> words = select_words(s, n);
+    for (string w : words) {
+        cout << w << endl;
+    }
 }
