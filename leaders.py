@@ -1,6 +1,12 @@
-Here is the solution:
-
 def leaders(vector):
-    return [vector[i] for i in range(len(vector)-1, -1, -1) if all(x <= vector[i] for x in vector[i+1:])]
+    n = len(vector)
+    leaders_vector = [vector[n - 1]]
 
-print(leaders([int(i) for i in input().split()]))
+    for i in range(n - 2, -1, -1):
+        if vector[i] >= vector[n - 1]:
+            leaders_vector.append(vector[i])
+            break
+        elif i == 0 or vector[i - 1] < vector[i]:
+            leaders_vector.append(vector[i])
+
+    return leaders_vector[::-1]
