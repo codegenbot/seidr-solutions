@@ -17,4 +17,4 @@ def encode(message):
                     result += char
         else:
             result += char
-    return result```
+    return result
