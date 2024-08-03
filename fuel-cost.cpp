@@ -2,16 +2,15 @@
 #include <vector>
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    while (!std::cin.eof()) {
-        std::cin >> n;
+    std::vector<double> nums;
+    double n;
+    while (std::cin >> n) {
         nums.push_back(n);
     }
 
-    int sum = 0;
-    for (int num : nums) {
-        sum += num / 3 - 2;
+    double sum = 0;
+    for (double num : nums) {
+        sum += std::floor(num/3) - 2;
     }
 
     std::cout << sum << std::endl;
