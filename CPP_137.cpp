@@ -1,5 +1,4 @@
 #include <boost/any.hpp>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     double da, db;
@@ -13,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             sa = boost::any_cast<std::string>(a);
             sb = boost::any_cast<std::string>(b);
         } catch (...) {
-            return a; // Return the first value if both are strings
+            return a;
         }
     }
 
@@ -22,6 +21,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (db > da) {
         return b;
     } else {
-        return a; // Return the first value if they are equal
+        return a;
     }
 }
