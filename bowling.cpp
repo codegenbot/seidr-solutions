@@ -1,33 +1,36 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-int bowlingScore(const std::string& input) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentRolls = 0;
     int currentFrame = 1;
-
-    for (char c : input) {
-        if (c == 'X') { // strike
-            score += 10 + 10 + 10;
+    for (char c : s) {
+        if (c == 'X') {
+            score += 30;
             currentFrame++;
-        } else if (c == '/') { // spare
-            score += 10 + 10 - 2;
+        } else if (c == '/') {
+            score += 10 + (currentFrame - 1);
             currentFrame++;
-        } else { // normal roll
-            int roll = c - '0';
-            score += roll;
-            currentRolls++;
-
-            if (currentRolls == 2) {
-                if (currentFrame < 9 && input[currentFrame * 2] != 'X' && input[currentFrame * 2] != '/') {
-                    score -= 2; // subtract 2 from previous frame
+        } else {
+            int strike = false;
+            int spare = false;
+            for (int i = 0; i < 3 && c != '/' && c != 'X'; i++) {
+                if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
+                    int val = c - '0';
+                    if (i == 0) {
+                        score += val;
+                    } else {
+                        score += val + currentFrame * 10;
+                    }
                 }
-                currentFrame++;
-                currentRolls = 0;
+                if (c == 'X') strike = true;
+                if (c == '/') spare = true;
+                c++;
             }
+            if (strike) {
+                score += 30;
+            } else if (spare) {
+                score += 10 + currentFrame * 10;
+            }
+            currentFrame++;
         }
     }
-
     return score;
 }
