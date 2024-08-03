@@ -15,13 +15,13 @@ bool check_if_last_char_is_a_letter(std::string txt) {
 }
 
 int main() {
-    std::string input;
+    std::string txt;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    if(check_if_last_char_is_a_letter(input)) {
-        std::cout << "The last character is a letter." << std::endl;
+    std::cin >> txt;
+    if(check_if_last_char_is_a_letter(txt)) {
+        std::cout << "The last character of the input string is a letter." << std::endl;
     } else {
-        std::cout << "The last character is not a letter." << std::endl;
+        std::cout << "The last character of the input string is not a letter." << std::endl;
     }
     return 0;
 }
