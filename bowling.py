@@ -1,9 +1,16 @@
-def bowling_score(frames):
+```
+def bowling_score(s):
     score = 0
-    for i in range(10):
-        if "/" in frames[i]:
-            first, second = map(int, frames[i].split("/"))
-            score += max(first, 10) + max(second, 10)
-        else:
-            score += int(frames[i])
+    roll = 0
+    for char in s:
+        if char.isdigit():
+            roll += int(char)
+        elif char == '/':
+            if roll < 10:
+                score += 10 - roll
+            else:
+                score += roll
+            roll = 0
+    if roll > 0:
+        score += roll
     return score
