@@ -18,6 +18,6 @@ int main() {
     for (int num : result) {
         std::cout << num << " ";
     }
-
+    
     return 0;
 }
