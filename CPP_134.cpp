@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,13 +14,13 @@ bool check_if_last_char_is_a_letter(std::string txt) {
 }
 
 int main() {
-    std::string txt;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> txt;
-    if(check_if_last_char_is_a_letter(txt)) {
-        std::cout << "The last character of the input string is a letter." << std::endl;
+    std::cin >> input;
+    if(check_if_last_char_is_a_letter(input)) {
+        std::cout << "The last character of the entered string is a letter.\n";
     } else {
-        std::cout << "The last character of the input string is not a letter." << std::endl;
+        std::cout << "The last character of the entered string is not a letter.\n";
     }
     return 0;
 }
