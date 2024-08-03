@@ -6,11 +6,19 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // implementation
+    return a == b;
 }
 
 vector<string> reverse_delete(string s, string c) {
-    // implementation
+    string result = "";
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
+            result += ch;
+        }
+    }
+    string reverse_result = result;
+    reverse(reverse_result.begin(), reverse_result.end());
+    return {result, result == reverse_result ? "True" : "False"};
 }
 
 int main() {
