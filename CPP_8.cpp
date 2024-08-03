@@ -2,10 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 std::vector<int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
     int product = 1;
@@ -14,6 +10,10 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
     return {sum, product};
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
 }
 
 int main() {
