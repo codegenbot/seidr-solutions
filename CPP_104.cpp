@@ -18,6 +18,6 @@ std::unordered_set<int> unique_digits(const std::vector<int>& input) {
 }
 
 int main() {
-    assert(issame(std::vector<int>(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end()), std::vector<int>({31, 135})));
+    assert(issame(std::vector<int>(unique_digits({135, 103, 31}).begin(), unique_digits({135, 103, 31}).end()), std::vector<int>({31, 135}));
     return 0;
 }
