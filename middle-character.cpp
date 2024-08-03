@@ -1,6 +1,14 @@
-```c++
+```
 #include <string>
 using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Middle character(s): " << middleCharacter(str) << endl;
+    return 0;
+}
 
 string middleCharacter(string str) {
     int len = str.length();
@@ -9,12 +17,4 @@ string middleCharacter(string str) {
     } else {
         return str.substr(len / 2, 1);
     }
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Middle character(s): " << middleCharacter(input) << endl;
-    return 0;
 }
