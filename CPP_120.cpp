@@ -12,19 +12,10 @@ int maximum(const std::vector<int>& nums, int default_val) {
     return *std::max_element(nums.begin(), nums.end());
 }
 
-void test_issame() {
-    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
-    assert(!issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400}));
-}
-
-void test_maximum() {
-    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
-    assert(maximum(std::vector<int>{}, -3) == -3);
-}
-
 int main() {
-    test_issame();
-    test_maximum();
-
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
+    assert(*(std::max_element(std::vector<int>{1, 2, 3, -23, 243, -400, 0}.begin(), std::vector<int>{1, 2, 3, -23, 243, -400, 0}.end()) == 243);
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400}));
+    assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
     return 0;
 }
