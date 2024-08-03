@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
-
 #include <algorithm>
-#include <sstream>
 
 string words_in_sentence(string sentence) {
     vector<int> lengths;
@@ -21,10 +19,11 @@ string words_in_sentence(string sentence) {
 vector<string> split(const string& s, const string& delimiter) {
     vector<string> tokens;
     size_t pos = 0;
-    std::stringstream ss(s);
-    while (std::getline(ss, delimiter)) {
-        tokens.push_back(delimiter);
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        tokens.push_back(s.substr(0, pos));
+        s.erase(0, pos + delimiter.length());
     }
+    tokens.push_back(s);
     return tokens;
 }
 
