@@ -1,40 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <cassert>
-
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool are_vectors_equal(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    int even = 0, odd = 0;
+    std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
-        std::string num = std::to_string(i);
-        std::string rev_num = num;
-        std::reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
-            if (i % 2 == 0) {
-                even++;
-            } else {
-                odd++;
-            }
-        }
+        result.push_back(i % 2 == 1 ? i / 2 + 1 : n - i / 2 + 1);
     }
-    return { even, odd };
+    return result;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-
-    std::vector<int> result = even_odd_palindrome(n);
-    std::cout << "Even palindromes: " << result[0] << std::endl;
-    std::cout << "Odd palindromes: " << result[1] << std::endl;
-
-    assert(is_same(result, {0, 1}));
-
+    assert(are_vectors_equal(result, even_odd_palindrome(n)));
     return 0;
 }
