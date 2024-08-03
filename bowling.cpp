@@ -1,16 +1,29 @@
-int bowlingScore(const string& frames) {
-    int score = 0;
-    int roll1, roll2;
+#include <string>
 
-    for (int i = 0; i < 10; i++) {
-        if (frames[i] == '/') {
-            roll1 = frames[i - 1] - '0';
-            roll2 = frames[i + 1] - '0';
-            score += roll1 + roll2;
+int bowlingScore(string s) {
+    int score = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] != '/') {
+            if (isdigit(s[i])) {
+                score += s[i] - '0';
+            } else {
+                score += 10;
+            }
         } else {
-            score += frames[i] - '0';
+            string first, second;
+            int j = i + 1;
+            while (j < 10 && !isdigit(s[j])) {
+                ++j;
+            }
+            for (; i <= j; ++i) {
+                first += s[i];
+            }
+            i = j;
+            while (i < 10 && isdigit(s[i])) {
+                second += s[i];
+                ++i;
+            }
+            score += (stoi(first) + stoi(second));
         }
     }
-
     return score;
-}
