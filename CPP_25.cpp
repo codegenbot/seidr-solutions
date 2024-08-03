@@ -6,7 +6,7 @@ std::vector<int> factorize(int n) {
     return {}; // Placeholder return
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a != b) return false;
     return true;
 }
