@@ -1,6 +1,5 @@
 #include <string>
 using namespace std;
-
 string make_palindrome(string str){
     int n = str.size();
     for (int i = n - 1; i >= 0; i--) {
