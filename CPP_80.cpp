@@ -1,6 +1,6 @@
 #include <string>
 
-bool is_happy(const string& s) {
+bool is_happy(const std::string& s) {
     if(s.length() < 3)
         return false;
     
