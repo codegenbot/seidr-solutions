@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream> // Include for assert
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -30,4 +31,5 @@ std::vector<int> count_up_to(int n) {
     return primes;
 }
 
-assert(is_same(count_up_to(101), std::vector<int>{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97});
+// Fix assert statement and function signatures
+assert(is_same(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
