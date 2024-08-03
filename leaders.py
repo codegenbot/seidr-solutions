@@ -1,6 +1,6 @@
-def leaders(arr):
+def leaders(integers):
     return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x <= arr[i] for x in arr[i + 1 :])
+        i
+        for i in reversed(integers)
+        if all(j <= i for j in integers[integers.index(i) + 1 :])
     ]
