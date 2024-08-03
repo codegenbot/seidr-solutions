@@ -1,8 +1,11 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    std::vector<float> l;
+    // Read input from user
+    for (float x; std::cin >> x;) {
+        l.push_back(x);
+    }
     return *std::max_element(l.begin(), l.end());
 }
