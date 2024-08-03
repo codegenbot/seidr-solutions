@@ -1,31 +1,19 @@
 #include <vector>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> f(int n){
-    vector<int> result(n);
-    for(int i = 0; i < n; i++){
-        if(i % 2 == 0){
-            int fact = 1;
-            for(int j = 1; j <= i; j++){
-                fact *= j;
-            }
-            result[i] = fact;
+std::vector<int> f(int n) {
+    std::vector<int> result(n);
+    int factorial = 1, sum = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) {
+            factorial *= (i + 1);
+            result[i] = factorial;
         } else {
-            int sum = 0;
-            for(int j = 1; j <= i; j++){
-                sum += j;
-            }
+            sum += (i + 1);
             result[i] = sum;
         }
     }
@@ -33,14 +21,6 @@ vector<int> f(int n){
 }
 
 int main() {
-    vector<int> expected = {1, 1, 2, 6, 3};
-    vector<int> computed = f(5);
-    
-    if(issame(expected, computed)){
-        cout << "Test passed" << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
-    
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
