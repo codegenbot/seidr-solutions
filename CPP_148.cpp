@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool compare(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -36,7 +32,7 @@ vector<string> bf(string planet1, string planet2){
 
 int main(){
     vector<string> result = bf("Jupiter", "Makemake");
-    if (compare(result,{})) {
+    if (result.empty()) {
         cout << "Test Passed" << endl;
     } else {
         cout << "Test Failed" << endl;
