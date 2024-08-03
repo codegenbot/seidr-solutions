@@ -1,17 +1,11 @@
 #include <vector>
-#include <cmath>
+using namespace std;
 
-int sum_squares(std::vector<float> lst);
-
-int main() {
-    // Your code here...
-}
-
-int sum_squares(std::vector<float> lst) {
-    int total = 0;
+int sum_squares(vector<float> lst){
+    int result = 0;
     for (float num : lst) {
         int ceil_num = ceil(num);
-        total += pow(ceil_num, 2);
+        result += pow(ceil_num, 2);
     }
-    return total;
+    return result;
 }
