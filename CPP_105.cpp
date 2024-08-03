@@ -14,10 +14,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
+            numbers.push_back(num);
         }
     }
 
@@ -25,20 +25,20 @@ std::vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
 
     vector<string> result;
-    for (string str : numbers) {
-        string temp = "";
-        switch (stoi(str)) {
-            case 1: temp = "One"; break;
-            case 2: temp = "Two"; break;
-            case 3: temp = "Three"; break;
-            case 4: temp = "Four"; break;
-            case 5: temp = "Five"; break;
-            case 6: temp = "Six"; break;
-            case 7: temp = "Seven"; break;
-            case 8: temp = "Eight"; break;
-            case 9: temp = "Nine";
+    for (int num : numbers) {
+        string str = "";
+        switch (num) {
+            case 1: str = "One"; break;
+            case 2: str = "Two"; break;
+            case 3: str = "Three"; break;
+            case 4: str = "Four"; break;
+            case 5: str = "Five"; break;
+            case 6: str = "Six"; break;
+            case 7: str = "Seven"; break;
+            case 8: str = "Eight"; break;
+            case 9: str = "Nine";
         }
-        result.push_back(temp);
+        result.push_back(str);
     }
 
     return result;
