@@ -5,15 +5,17 @@ vector<int> leaders(vector<int>& nums) {
     int n = nums.size();
     vector<int> res;
     
-    for(int i=n-1; i>=0; i--){
-        bool leader = true;
-        for(int j=i+1; j<n; j++){
-            if(nums[j] >= nums[i]){
-                leader = false;
-                break;
-            }
+    if(n == 0) return res;
+    
+    res.push_back(nums[n-1]);
+    
+    for(int i=n-2; i>=0; i--){
+        if(res.back() < nums[i]){
+            res.clear();
+            res.push_back(nums[i]);
+        } else if(res.back() == nums[i]) {
+            res.push_back(nums[i]);
         }
-        if(leader) res.push_back(nums[i]);
     }
     
     return res;
