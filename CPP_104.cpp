@@ -3,8 +3,8 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
+bool unique_digits(std::vector<int> x) {
+    std::vector<int> result;
     for (int num : x) {
         int temp = num;
         bool hasEvenDigit = false;
@@ -19,6 +19,6 @@ vector<int> unique_digits(vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
