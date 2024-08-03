@@ -1,15 +1,5 @@
-```
 #include <vector>
 using namespace std;
-
-int main() {
-    vector<int> nums = {16,17,4,3,5,2};
-    vector<int> res = leaders(nums);
-    for(int i=0; i<res.size(); i++){
-        cout << res[i] << " ";
-    }
-    return 0;
-}
 
 vector<int> leaders(vector<int>& nums) {
     int n = nums.size();
@@ -27,4 +17,13 @@ vector<int> leaders(vector<int>& nums) {
     }
     
     return res;
+}
+
+int main() {
+    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> leadersResult = leaders(nums);
+    for (int leader : leadersResult) {
+        cout << leader << " ";
+    }
+    return 0;
 }
