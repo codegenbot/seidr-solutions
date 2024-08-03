@@ -1,14 +1,19 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+arr = list(map(int, input().split()))
 
-diff = abs(sum(arr) - 2 * sum(arr[:1]))
+total_sum = sum(arr)
+half_sum = total_sum // 2
+running_sum = 0
+idx = 0
 
-for i in range(1, n):
-    new_diff = abs(sum(arr[:i]) - sum(arr[: i + 1]))
-    if new_diff <= diff:
-        diff = new_diff
-    else:
+for i, num in enumerate(arr):
+    running_sum += num
+    if running_sum >= half_sum:
+        idx = i
         break
 
-print(arr[:i])
-print(arr[i:])
+if running_sum - half_sum < half_sum - running_sum + num:
+    idx += 1
+
+print(arr[: idx + 1])
+print(arr[idx + 1 :])
