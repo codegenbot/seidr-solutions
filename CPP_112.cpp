@@ -1,15 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-bool isSame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size())
         return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i])
             return false;
-        }
     }
     return true;
 }
@@ -32,21 +30,6 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string reverseTemp = temp;
     reverse(reverseTemp.begin(), reverseTemp.end());
-    result.push_back(to_string(temp == reverseTemp));
+    result.push_back(to_string(issame({temp}, {reverseTemp})));
     return result;
-}
-
-int main() {
-    string s, c;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Enter a character: ";
-    cin >> c;
-    vector<string> output = reverse_delete(s,c);
-    if(isSame({s},output)) {
-        cout << "The reversed string is the same as the original." << endl;
-    } else {
-        cout << "The reversed string is different from the original." << endl;
-    }
-    return 0;
 }
