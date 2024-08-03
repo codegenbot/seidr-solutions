@@ -1,30 +1,19 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
-        bool found = false;
-        for (int j = 0; j < result.size(); j++) {
-            if (l[i] == result[j]) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(l[i]);
-        }
-    }
-    sort(result.begin(), result.end());
+    vector<int> result(l.begin(), unique_copy(l.begin(), unique_copy(l.end(), l.end())).first);
     return result;
 }
 
 int main() {
-    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result = unique(l);
-    for (int i : result) {
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> output = unique(input);
+    for (int i : output) {
         cout << i << " ";
     }
     return 0;
