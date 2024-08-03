@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
 using namespace std;
 
 int main() {
@@ -11,7 +12,8 @@ int main() {
         cin >> v1[i];
     }
 
-    cin >> n;
+    int n;
+    cin >> n; // Add "int n;" before this line
     vector<double> v2(n);
     for (int i = 0; i < n; ++i) {
         cin >> v2[i];
@@ -19,10 +21,10 @@ int main() {
 
     double sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+        sum += std::pow(v1[i] - v2[i], 2);
     }
 
-    cout << sqrt(sum) << endl;
+    std::cout << std::sqrt(sum) << "\n";
 
     return 0;
 }
