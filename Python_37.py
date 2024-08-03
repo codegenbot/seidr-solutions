@@ -1,3 +1,4 @@
+```Python
 def sort_even(l: list):
     even = sorted([x for i, x in enumerate(l) if i % 2 == 0])
     odd = [x for i, x in enumerate(l) if i % 2 != 0]
