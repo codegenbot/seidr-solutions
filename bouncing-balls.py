@@ -1,16 +1,17 @@
-def calculate_distance(starting_height, first_bounce_height, num_bounces):
-    bounciness_index = first_bounce_height / starting_height
+def calculate_bounciness_index(starting_height, first_bounce_height):
+    return first_bounce_height / starting_height
+
+
+def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
+    bounciness_index = calculate_bounciness_index(starting_height, first_bounce_height)
     total_distance = 0
-    current_height = first_bounce_height
-    for _ in range(num_bounces - 1):
-        current_height *= bounciness_index
-        total_distance += current_height
-    return round(total_distance, 5)
+    for i in range(num_bounces):
+        total_distance += (1 + bounciness_index) ** (i + 1) - 1
+    return total_distance
 
 
-starting_height = float(input())
+start_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
 
-result = calculate_distance(starting_height, first_bounce_height, num_bounces)
-print(result)
+print(calculate_total_distance(start_height, first_bounce_height, num_bounces))
