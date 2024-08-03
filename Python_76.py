@@ -1,2 +1,3 @@
+```
 def is_simple_power(x, n):
-    return round(x ** (1 / n)) == n
+    return x == n ** (x.bit_length() // n.bit_length())
