@@ -1,20 +1,23 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+Here is the solution:
 
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+vector<string> sorted_list_sum(vector<string> lst) {
+    auto it = lst.begin();
+    while (it != lst.end()) {
+        if (it->length() % 2 == 1) {
+            it = lst.erase(it);
+        } else {
+            ++it;
         }
     }
 
-    std::sort(result.begin(), result.end(),
+    std::sort(lst.begin(), lst.end(),
               [](const string& a, const string& b) {
-                  if (a.size() == b.size()) {
-                      return a < b;
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
                   } else {
-                      return a.size() < b.size();
+                      return a < b;
                   }
               });
 
-    return result;
+    return lst;
 }
