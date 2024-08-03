@@ -1,16 +1,18 @@
-if (n == 0 || n == 1) {
+int fibfib(int n) {
+    if (n == 0 || n == 1)
         return 0;
-    } else if (n == 2) {
+    if (n == 2)
         return 1;
-    }
-    
-    int a = 0, b = 0, c = 1, fibfib_num;
+    int a = 0, b = 0, c = 1, d;
     for (int i = 3; i <= n; ++i) {
-        fibfib_num = a + b + c;
+        d = a + b + c;
         a = b;
         b = c;
-        c = fibfib_num;
+        c = d;
     }
-    
-    return fibfib_num;
+    return c;
+}
+
+int main() {
+    assert(fibfib(14) == 927);
 }
