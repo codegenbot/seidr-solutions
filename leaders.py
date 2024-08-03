@@ -1,11 +1,5 @@
-Here is the solution:
+Here is the Python code for the "leaders" problem:
 
 def leaders(a):
-    n = len(a)
-    result = [a[n-1]]
-    
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i+1]:
-            result.append(a[i])
-    
-    return result[::-1]
+    leaders = [a[i] for i in range(len(a)-1, -1, -1) if a[i] >= min(a[i+1:])]
+    return leaders
