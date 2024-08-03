@@ -1,25 +1,19 @@
-Here is the Python code for the problem:
-
 def bowling_score(frames):
     score = 0
-    frame_count = 1
-    for frame in frames:
-        if frame == 'X':
-            score += 30
-            frame_count += 1
-        elif frame == '/':
-            score += 10
-            frame_count += 1
+    roll = 0
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            score += 10 + (10 - int(frame)) * 2
+            roll += 2
         else:
-            if len(frame) > 1:
-                roll1, roll2 = int(frame[0]), int(frame[1])
-                if roll1 + roll2 == 10:
-                    score += 10
-                    frame_count += 1
-                else:
-                    score += roll1 + roll2
-                    frame_count += 1
+            if int(frame[0]) < 10 and str(int(frame[0])) + "/" not in frames[:roll]:
+                score += int(frame[0]) * 2
+                roll += 1
             else:
-                score += int(frame)
-                frame_count += 1
+                if int(frame[0]) == 10:
+                    score += 10 + (int(frame[1:]) or 10) * 2
+                    roll += 2
+                elif str(int(frame[0])) + "/" not in frames[:roll]:
+                    score += sum(map(int, frame))
+                    roll += 1
     return score
