@@ -33,13 +33,9 @@ std::string words_in_sentence(std::string sentence) {
     return result;
 }
 
-void solve_problem() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    std::cout << words_in_sentence(sentence);
-}
-
-int main() {
-    solve_problem();
-    return 0;
-}
+// int main() {
+//     std::string sentence;
+//     std::getline(std::cin, sentence);
+//     std::cout << words_in_sentence(sentence);
+//     return 0;
+// }
