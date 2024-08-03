@@ -1,14 +1,13 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-vector<int> findPair(vector<int>& nums, int target) {
+int findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
+    for (int num : nums) {
+        int complement = target - num;
         if (numMap.count(complement)) {
-            return {complement, nums[i]};
+            return min(num, complement) * 2; // return the two numbers that sum up to the target
         }
-        numMap[nums[i]] = i;
+        numMap[num] = 1;
     }
-    return {};
+    return -1; // or throw an exception as per your requirement
 }
