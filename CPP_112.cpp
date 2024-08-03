@@ -30,7 +30,6 @@ std::vector<string> reverse_delete(string s, string c) {
     reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
-}
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
