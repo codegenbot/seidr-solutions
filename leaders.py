@@ -1,4 +1,8 @@
-Here is the Python code for the problem:
+Here is the solution in Python:
 
-def leaders(input_vector):
-    return [x for x in reversed(input_vector) if all(x >= y for y in input_vector[input_vector.index(x)+1:])]
+def leaders(a):
+    leaders = [a[-1]]
+    for i in range(len(a)-2, -1, -1):
+        if a[i] >= a[i+1]:
+            leaders.append(a[i])
+    return list(reversed(leaders))
