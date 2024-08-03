@@ -2,26 +2,20 @@
 #include <iostream>
 
 bool isSimplePower(int x) {
-    for (int i = 2; i <= x; i++) {
-        int n = 0;
-        while (pow(i, n) <= x) {
-            if (pow(i, n) == x) {
-                return true;
-            }
-            n++;
+    for (int n = 2; n <= x; ++n) {
+        if (is_simple_power(x, n)) {
+            return true;
         }
     }
     return false;
 }
 
+bool is_simple_power(int x, int n){
+    double y = pow(n, ceil(log2(x)));
+    return (y == x);
+}
+
 int main() {
-    int x;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    if (isSimplePower(x)) {
-        std::cout << x << " is a simple power." << std::endl;
-    } else {
-        std::cout << x << " is not a simple power." << std::endl;
-    }
+    std::cout << isSimplePower(81) << std::endl;
     return 0;
 }
