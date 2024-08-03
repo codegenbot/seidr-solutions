@@ -11,25 +11,35 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            string left = s.substr(0, s.find('/'));
-            string right = s.substr(s.find('/'), 2);
-            int totalPins = stoi(left) + stoi(right);
-            score += 10 - totalPins;
+            string rest = s.substr(s.find('/'));
+            int spare = 10 - stoi(rest.substr(0, 1));
+            score += spare;
             s.erase(0, s.find('/') + 1);
-            frame++;
+            while (!s.empty() && s[0] != 'X') {
+                if (s[0] == '/') {
+                    s.erase(0, 1);
+                } else {
+                    int pins = s[0] - '0';
+                    score += pins;
+                    s.erase(0, 1);
+                }
+            }
         } else {
             int pins = c - '0';
             score += pins;
             if (pins < 10) {
-                string rest = s.substr(1);
-                if (!rest.empty() && rest[0] == '/') {
-                    string left2 = rest.substr(0, rest.find('/'));
-                    string right2 = rest.substr(rest.find('/'), 2);
-                    int totalPins2 = stoi(left2) + stoi(right2);
-                    score += 10 - totalPins2;
-                    s.erase(0, rest.find('/') + 1);
-                } else {
+                while (!s.empty() && s[0] != '/' && s[0] != 'X') {
+                    int extraPins = s[0] - '0';
+                    score += extraPins;
                     s.erase(0, 1);
+                }
+                if (!s.empty() && s[0] == '/') {
+                    string rest = s.substr(1);
+                    int spare = 10 - stoi(rest.substr(0, 1));
+                    score += spare;
+                    s.erase(0, s.find('/') + 1);
+                } else {
+                    frame++;
                 }
             } else {
                 frame++;
