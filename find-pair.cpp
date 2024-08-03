@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#include <vector>
+using namespace std;
+
 pair<int, int> findPair(vector<int>& vec, int target) {
     unordered_map<int, int> numIndex;
     
@@ -12,7 +15,7 @@ pair<int, int> findPair(vector<int>& vec, int target) {
         numIndex[vec[i]] = i;
     }
     
-    return {-1, -1}; 
+    return {-1, -1}; // or throw an exception
 }
 
 int main() {
