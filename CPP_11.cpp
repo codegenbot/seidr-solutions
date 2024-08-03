@@ -1,9 +1,8 @@
 #include <string>
-#include <cassert>
+using namespace std;
 
-std::string solve(const std::string& a, const std::string& b) {
+std::string compareStrings(const std::string &a, const std::string &b) {
     std::string result = "";
-    assert(a.size() == b.size());
     for (int i = 0; i < a.size(); i++) {
         if (a[i] == b[i]) {
             result += "0";
@@ -13,3 +12,5 @@ std::string solve(const std::string& a, const std::string& b) {
     }
     return result;
 }
+
+assert(compareStrings("0101", "0000") == "0101");
