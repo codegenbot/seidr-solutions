@@ -1,13 +1,10 @@
+```c++
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
+    if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
+        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
 }
@@ -15,19 +12,19 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const auto& s : strings) {
-        if (issame(split(s, substring), split(substring, substring)) && s.find(substring) != string::npos)
+        if (s.find(substring) != string::npos && issame(split(s, substring), split(substring, substring))) 
             result.push_back(s);
     }
     return result;
 }
 
 vector<string> split(string str, string delimiter) {
-    vector<string> result;
+    vector<string> results;
     size_t pos = 0;
-    while ((pos = str.find(delimiter)) != string::npos) {
-        result.push_back(str.substr(0, pos));
+    while((pos = str.find(delimiter)) != string::npos) {
+        results.push_back(str.substr(0, pos));
         str.erase(0, pos + delimiter.length());
     }
-    result.push_back(str);
-    return result;
+    results.push_back(str);
+    return results;
 }
