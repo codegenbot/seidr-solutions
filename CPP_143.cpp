@@ -5,7 +5,7 @@
 using namespace std;
 
 std::string words_in_sentence(std::string sentence) {
-    std::vector<int> lengths;
+    vector<int> lengths;
     std::string result = "";
     
     for (const auto& word : split(sentence, " ")) {
@@ -19,7 +19,7 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 std::vector<std::string> split(const std::string& s, const std::string& delimiter) {
-    std::vector<std::string> tokens;
+    vector<string> tokens;
     size_t pos = 0;
     while ((pos = s.find(delimiter)) != std::string::npos) {
         tokens.push_back(s.substr(0, pos));
