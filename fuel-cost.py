@@ -1,3 +1,3 @@
 nums = list(map(int, input().split()))
-result = sum([(num // 3 - 2) for num in nums])
-print(result)
+total = sum(max(0, num // 3 - 2) for num in nums)
+print(total)
