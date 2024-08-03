@@ -1,21 +1,13 @@
-map<char, int> histogram(string test) {
+#include <map>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+map<char, int> histogram(const string& str) {
     map<char, int> result;
-    stringstream ss(test);
-    string word;
-    while (ss >> word) {
-        for (char c : word) {
-            result[c]++;
-        }
+    for (char c : str) {
+        result[c]++;
     }
-    int maxCount = 0;
-    for (const auto& pair : result) {
-        maxCount = max(maxCount, pair.second);
-    }
-    map<char, int> mostRepeated;
-    for (const auto& pair : result) {
-        if (pair.second == maxCount) {
-            mostRepeated.insert(pair);
-        }
-    }
-    return mostRepeated;
+    return result;
 }
