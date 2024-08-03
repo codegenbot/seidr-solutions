@@ -6,7 +6,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+std::vector<std::string> find_planets_between(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     int start = -1, end = -1;
@@ -36,6 +36,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert (issame(bf("Jupiter", "Makemake") , {}));
+    assert(issame(find_planets_between("Jupiter", "Earth"), {"Mars", "Saturn", "Uranus"}));
     return 0;
 }
