@@ -1,7 +1,7 @@
 bool issame(vector<string> a, vector<string> b) {
     vector<string> words;
     string word;
-    for (char c : s) {
+    for (char c : a) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
@@ -14,5 +14,5 @@ bool issame(vector<string> a, vector<string> b) {
     if (!word.empty()) {
         words.push_back(word);
     }
-    return words;
+    return words == b;
 }
