@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool compare(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
@@ -36,7 +36,7 @@ vector<string> bf(string planet1, string planet2){
 
 int main(){
     vector<string> result = bf("Jupiter", "Makemake");
-    if (compare(result,{})) {
+    if (issame(result, {})) {
         cout << "Test Passed" << endl;
     } else {
         cout << "Test Failed" << endl;
