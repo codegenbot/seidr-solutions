@@ -10,7 +10,7 @@ std::string spinWords(std::string input) {
         std::string word = input.substr(0, pos);
         
         if (word.length() >= 5) {
-            std::reverse(std::begin(word), std::end(word));
+            std::reverse(word.begin(), word.end());
         }
         
         output += word + " ";
