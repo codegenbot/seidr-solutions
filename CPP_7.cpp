@@ -1,8 +1,9 @@
 bool issame(vector<string> a,vector<string> b){
-    if(a.size()!=b.size())
-        return false;
-    for(int i=0;i<a.size();i++)
-        if(!filter_by_substring({a[i],b[i]},{" "}).size())
+    vector<string> filtered = filter_by_substring(a,"same");
+    for(const auto &str : b){
+        if(find(filtered.begin(),filtered.end(),str) == filtered.end()){
             return false;
+        }
+    }
     return true;
 }
