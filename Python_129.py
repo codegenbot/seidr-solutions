@@ -5,7 +5,7 @@ def minPath(grid, k):
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
     path = []
 
-    def dfs(i, j, current_path, current_sum):
+    def dfs(i, j, current_path, total_sum):
         nonlocal path
         if len(current_path) == k:
             path = current_path[:]
@@ -14,9 +14,10 @@ def minPath(grid, k):
         for di, dj in directions:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                if current_sum + grid[ni][nj] > k:
+                new_sum = total_sum + grid[i][j]
+                if new_sum > k:
                     return
-                dfs(ni, nj, current_path + [grid[i][j]], current_sum + grid[i][j])
+                dfs(ni, nj, current_path + [grid[i][j]], new_sum)
         visited[i][j] = False
 
     for i in range(n):
