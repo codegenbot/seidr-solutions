@@ -1,5 +1,5 @@
 def check(lst, result):
-    if isinstance(result, int) and (result == 0 or lst[1] - lst[0] == 2 * result):
-        print("Good")
+    if isinstance(lst[0], int) and lst[1] == 2*result:
+        print("Test passed")
     else:
-        print("Bad")
+        print("Test failed")
