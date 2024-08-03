@@ -2,11 +2,12 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
-bool check_if_equal(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
+bool issame(const vector<string>& vec1, const vector<string>& vec2) {
+    return vec1 == vec2;
 }
 
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
@@ -20,6 +21,6 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    assert(check_if_equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
