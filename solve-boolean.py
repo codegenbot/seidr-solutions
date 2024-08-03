@@ -1,8 +1,12 @@
-def solve_boolean(expression):
-    result = True if expression == "t" else False
-    for char in expression[1:]:
-        if char == "&":
-            result = result and (expression[0] == "t")
-        elif char == "|":
-            result = result or (expression[0] == "t")
-    return result
+```
+def solve.Boolean(expression):
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid input. Only one of '&', '|' is allowed.")
+    elif '&' in expression:
+        return all(x == 'T' for x in expression.split('&'))
+    else:
+        return any(x == 'T' for x in expression.split('|'))
