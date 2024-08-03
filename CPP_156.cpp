@@ -1,8 +1,13 @@
-string int_to_mini_roman(int number) {
-    vector<pair<int, string>> romans = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-                                         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-                                         {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}};
-    string roman = "";
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::string int_to_mini_roman(int number) {
+    std::vector<std::pair<int, std::string>> romans = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+                                                        {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+                                                        {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+    std::string roman = "";
     for (const auto& p : romans) {
         while (number >= p.first) {
             number -= p.first;
@@ -10,4 +15,16 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+    if(n > 0) {
+        std::cout << "Roman numeral: " << int_to_mini_roman(n) << std::endl;
+    } else {
+        std::cout << "Please enter a positive integer." << std::endl;
+    }
+    return 0;
 }
