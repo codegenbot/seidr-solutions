@@ -1,8 +1,7 @@
 #include <vector>
 #include <cassert>
-#include <iostream>
 
-bool below_threshold(const std::vector<int>& l, int t) {
+bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
@@ -12,11 +11,7 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 8, 4, 10};
-    int threshold = 10;
-    bool result = below_threshold(nums, threshold);
-    
-    std::cout << std::boolalpha << result << std::endl;
-    
+    bool result = below_threshold({1, 8, 4, 10}, 10);
+    // Process the result as needed
     return 0;
 }
