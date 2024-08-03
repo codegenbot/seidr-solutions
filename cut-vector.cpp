@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -17,8 +16,8 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int diff = abs(nums[cutIndex - 1] - nums[cutIndex]);
-    int left = cutIndex - 1, right = cutIndex;
+    int diff = abs(nums[cutIndex] - nums[cutIndex + 1]);
+    int left = cutIndex, right = cutIndex + 1;
 
     for (int i = cutIndex + 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
