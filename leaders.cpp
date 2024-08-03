@@ -19,11 +19,16 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> nums;
+    int num;
+    while(cin >> num) {
+        nums.push_back(num);
+    }
+    
     vector<int> result = findLeaders(nums);
     
-    for (int num : result) {
-        cout << num << " ";
+    for (int i : result) {
+        cout << i << " ";
     }
     
     return 0;
