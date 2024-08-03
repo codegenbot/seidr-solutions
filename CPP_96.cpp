@@ -2,8 +2,6 @@
 #include <cassert>
 using namespace std;
 
-vector<int> count_up_to(int n);
-
 vector<int> count_up_to(int n){
     vector<int> primes;
     if (n >= 2) {
