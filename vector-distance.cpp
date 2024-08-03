@@ -20,8 +20,8 @@ int main() {
         distance += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    distance = sqrt(distance);
-    
+    distance = std::sqrt(distance);
+
     std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
 
     return 0;
