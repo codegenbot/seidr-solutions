@@ -15,6 +15,7 @@ long long double_the_difference(std::vector<int> lst) {
     return sum;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     assert(double_the_difference(lst) == odd_sum);
+    return 0;
 }
