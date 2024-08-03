@@ -4,23 +4,28 @@
 using namespace std;
 
 string compare_one(string a, string b) {
-    if (a > b)
+    if (a > b) {
         return a;
-    else if (b > a)
+    } else if (b > a) {
         return b;
-    else
-        return "Both strings are equal";
+    }
+    return "None";
 }
 
-int main() {
-    // Input from user
-    cout << "Enter two strings: ";
-    string str1, str2;
-    cin >> str1 >> str2;
+string compare_one(float a, int b) {
+    if (a > b) {
+        return to_string(a);
+    } else if (b > a) {
+        return to_string(b);
+    }
+    return "None";
+}
 
-    // Call the function and print the result
-    string result = compare_one(str1, str2);
-    cout << "The comparison result is: " << result << endl;
-
-    return 0;
+string compare_one(int a, float b) {
+    if (a > b) {
+        return to_string(a);
+    } else if (b > a) {
+        return to_string(b);
+    }
+    return "None";
 }
