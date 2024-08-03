@@ -1,11 +1,18 @@
-def solve.Boolean(expression):
-    if expression == 't':
+```
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid operation")
     elif '&' in expression:
-        left, right = expression.split('&')
-        return not (bool(solve.Boolean(left)) and bool(solve.Boolean(right)))
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return bool(solve.Boolean(left)) or bool(solve.Boolean(right))
+        result = True
+        for part in expression.split('&'):
+            result = result and (part == 'T')
+        return result
+    else:
+        result = False
+        for part in expression.split('|'):
+            result = result or (part == 'T')
+        return result
