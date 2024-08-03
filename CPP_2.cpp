@@ -1,14 +1,11 @@
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 double truncate_number(double number) {
     return number - floor(number);
 }
 
 int main() {
-    double input;
-    std::cin >> input;
-    std::cout << truncate_number(input) << std::endl;
+    assert(std::abs(truncate_number(123.456) - 0.456) < 1e-4);
     return 0;
 }
