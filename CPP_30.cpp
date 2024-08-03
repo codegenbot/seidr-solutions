@@ -1,26 +1,24 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(vector<float> a,vector<float>b){
+    return a == b;
 }
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(auto x : l) {
-        if(x > 0.0f)
-            result.push_back(x);
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
     }
-    return result;
-}
-
-int main() {
-    assert(is_same(get_positive({}), {}));
-    return 0;
+    vector<float> sorted = result;
+    std::sort(sorted.begin(), sorted.end());
+    vector<float> unique;
+    for (float num : sorted) {
+        if (!issame(vector<float>{num},unique)) {
+            unique.push_back(num);
+        }
+    }
+    return unique;
 }
