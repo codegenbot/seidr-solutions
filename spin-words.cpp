@@ -1,10 +1,13 @@
+Here's the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
+#include <vector> 
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::vector<std::string> words;
+string spinWords(string str) {
+    vector<string> words;
     int start = 0;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
@@ -13,10 +16,10 @@ std::string spinWords(std::string str) {
         }
     }
 
-    std::string result;
+    string result;
     for (auto word : words) {
         if (word.length() >= 5)
-            result += std::string(word.rbegin(), word.rend()) + " ";
+            result += string(word.rbegin(), word.rend()) + " ";
         else
             result += word + " ";
     }
@@ -25,9 +28,9 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    cout << spinWords("a") << endl;
+    cout << spinWords("this is a test") << endl;
+    cout << spinWords("this is another test") << endl;
+    cout << spinWords("hi") << endl;
     return 0;
 }
