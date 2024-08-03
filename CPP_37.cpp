@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -15,24 +14,21 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> sort_even(const std::vector<float>& v) {
-    std::vector<float> even_nums;
-    for (float num : v) {
-        if (static_cast<int>(num) % 2 == 0) {
-            even_nums.push_back(num);
-        }
-    }
-    std::sort(even_nums.begin(), even_nums.end());
-    return even_nums;
+    std::vector<float> sorted = v;
+    std::sort(sorted.begin(), sorted.end(), [](float a, float b) {
+        return (static_cast<int>(a) % 2 == 0) && (static_cast<int>(b) % 2 == 0) ? a < b : static_cast<int>(a) % 2 < static_cast<int>(b) % 2;
+    });
+    return sorted;
 }
 
 int main() {
-    std::vector<float> test_input = {1.5, 2.4, 3.2, 4.8, 5.6, 6.1, 7.0};
-    std::vector<float> sorted_even = sort_even(test_input);
+    std::vector<float> test1 = {3.0, 2.0, 1.0, 4.0, 5.0};
+    std::vector<float> sorted_test1 = sort_even(test1);
+    // sorted_test1 should be {2.0, 4.0, 1.0, 3.0, 5.0}
 
-    for (float num : sorted_even) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    std::vector<float> test2 = {8.0, 3.0, 6.0, 5.0, 2.0};
+    std::vector<float> sorted_test2 = sort_even(test2);
+    // sorted_test2 should be {2.0, 6.0, 8.0, 3.0, 5.0}
 
     return 0;
 }
