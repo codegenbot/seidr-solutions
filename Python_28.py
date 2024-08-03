@@ -1,5 +1,2 @@
-from pathlib import Path
-
-
-def concatenate(paths: List[Path]) -> str:
-    return ":".join(map(str, paths))
+def concatenate(strings: List[str]) -> str:
+    return ''.join(strings)
