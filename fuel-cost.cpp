@@ -27,7 +27,8 @@ int main() {
         input.push_back(num);
     }
     
-    cout << std::cout << fuelCost(input) << std::endl;
+    cout << std::endl;
+    cout << fuelCost(input) << std::endl;
     
     return 0;
 }
