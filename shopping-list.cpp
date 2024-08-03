@@ -4,7 +4,7 @@
 
 int main() {
     std::vector<float> prices = {10.0, 20.0, 30.0};
-    std::vector<float> discounts = {0.1, 0.15, 0.2};
+    std::vector<float> discounts = {0.1, 0.2, 0.3};
     
     float total_price = 0.0;
     
@@ -12,7 +12,9 @@ int main() {
         total_price += prices[i] * (1 - discounts[i]);
     }
     
-    std::cout << "Total price after discount: " << total_price << std::endl;
+    total_price = round(total_price * 100) / 100.0;
+    
+    std::cout << "Total Price after discount: " << total_price << std::endl;
     
     return 0;
 }
