@@ -12,6 +12,6 @@ vector<int> compare(const vector<int>& game, const vector<int>& guess) {
 }
 
 int main() {
-    assert(compare({8, 5, 3, 7}, {5, 2, 3, 4}) == vector<int>{3, 3, 0, 3});
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == vector<int>{2, 0, 0, 1});
     return 0;
 }
