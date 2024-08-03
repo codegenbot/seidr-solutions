@@ -1,10 +1,11 @@
-int calculateFuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3);
-        if (newPrice < 1) newPrice = 0;
-        else newPrice--;
-        total += newPrice;
+Here is the solution:
+
+int calculateFuelCost(vector<int> vec) {
+    int sum = 0;
+    for (int num : vec) {
+        int result = (num / 3);
+        result = std::floor(result) - 2;
+        sum += result;
     }
-    return total;
+    return sum;
 }
