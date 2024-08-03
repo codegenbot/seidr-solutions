@@ -1,4 +1,4 @@
-```#include <iostream>
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -6,20 +6,23 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == ' ') {
-                i++;
-            }
-            result += toupper(s[i]);
-        } else if (s[i] == ' ') {
+    int convertNext = false;
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '-') {
+            convertNext = true;
+        }
+        if (!convertNext) {
             continue;
         } else {
-            if (!result.empty()) {
-                result += tolower(s[i]);
+            if (s[i] != ' ') {
+                if (result.empty()) {
+                    result += toupper(s[i]);
+                } else {
+                    result += tolower(s[i]);
+                }
             } else {
-                result += toupper(s[i]);
+                convertNext = false;
+                result += ' ';
             }
         }
     }
