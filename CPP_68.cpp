@@ -6,8 +6,6 @@ using namespace std;
 
 vector<int> pluck(vector<int> arr);
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = INT_MAX;
@@ -29,7 +27,7 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(pluck({7, 9, 7, 1}) == {});
     
     return 0;
-} 
+}
