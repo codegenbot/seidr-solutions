@@ -1,33 +1,28 @@
-#include <stdio.h>
-#include <string>
-using namespace std;
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    vector<string> words;
-    int n = 0;
-    for (char c : sentence) {
-        if (c == ' ') {
-            n++;
-        } else {
-            words.push_back(c + "");
+    for(int i=0; i<sentence.size(); i++){
+        if(i > 0 && sentence[i] == ' '){
+            continue;
         }
-    }
-    
-    for (int i = 0; i <= n; i++) {
-        string word = words[i];
-        int len = word.length();
-        bool is_prime = true;
-        for (int j = 2; j * j <= len; j++) {
-            if (len % j == 0) {
-                is_prime = false;
+        int len = 1;
+        for(int j=i+1; j<=sentence.size() && j-i-1 <= 100; j++){
+            if(sentence[j-1] != ' '){
+                len++;
+            } else {
                 break;
             }
         }
-        if (is_prime) {
-            result += word + " ";
+        bool isPrime = true;
+        for(int k=2; k*k <= len; k++){
+            if(len % k == 0){
+                isPrime = false;
+                break;
+            }
         }
+        if(isPrime){
+            result += sentence.substr(i, len) + " ";
+        }
+        i+=len-1;
     }
-    
-    return result.substr(0, result.length() - 1);
+    return result;
 }
