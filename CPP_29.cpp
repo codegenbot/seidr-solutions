@@ -1,16 +1,5 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a,vector<string> b){
-    return a == b;
-}
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(prefix) == 0) {
-            result.push_back(s);
-        }
-    }
-    return result;
+bool issame(vector<string> a, vector<string> b){
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](string s) { 
+        return find(b.begin(), b.end(), s) != b.end(); 
+    });
 }
