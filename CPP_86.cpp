@@ -3,14 +3,14 @@ string anti_shuffle(string s) {
     string word = "";
     for (char c : s) {
         if (c == ' ') {
-            sort(word.begin(), word.end());
+            reverse(word.begin(), word.end());
             result += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
-    sort(word.begin(), word.end());
+    reverse(word.begin(), word.end());
     result += word;
     return result;
 }
