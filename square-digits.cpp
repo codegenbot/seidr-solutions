@@ -1,10 +1,21 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
 string squareDigits(string input) {
     string output = "";
-    for(int i=0; i<input.length(); i++) {
-        int digit = (int)(input[i]-'0');
-        long long squaredDigit = (long long)digit*digit;
-        char c = (char)(squaredDigit + '0');
-        output += c;
+    for (char c : input) {
+        int digit = c - '0';
+        long long square = (long long)digit * digit;
+        output += to_string(square);
     }
     return output;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << "Square digits of " << input << " is " << squareDigits(input) << endl;
+    return 0;
 }
