@@ -12,7 +12,7 @@ def prime_fib(n: int):
         a, b = b, a + b
         if is_prime(b):
             if n == 1:
-                return str(a) + ", " + str(b)
+                return a
             n -= 1
         if n == 0:
-            return str(b)
+            return b
