@@ -8,6 +8,7 @@ int main() {
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
+
     while (pos < text.size()) {
         indices.push_back(static_cast<int>(pos));
         pos = text.find(target, pos + 1);
