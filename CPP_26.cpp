@@ -7,7 +7,7 @@ std::vector<int> remove_duplicates(std::vector<int> vec) {
     return vec;
 }
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> sortedA = a;
     std::vector<int> sortedB = b;
     std::sort(sortedA.begin(), sortedA.end());
@@ -18,7 +18,7 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 int main() {
     std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
     input = remove_duplicates(input);
-    assert(is_same(input, std::vector<int>{1, 4, 5}));
+    assert(issame(input, std::vector<int>{1, 4, 5}));
     
     return 0;
 }
