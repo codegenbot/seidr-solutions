@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -27,8 +26,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
     std::cout << "The closest vowel is: " << get_closest_vowel(input) << std::endl;
-
     return 0;
 }
