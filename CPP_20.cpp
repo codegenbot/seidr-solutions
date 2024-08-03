@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers){
+std::vector<float> find_closest_elements(const std::vector<float>& numbers) {
     // Implementation of find_closest_elements
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     // Implementation of issame
 }
 
