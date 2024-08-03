@@ -7,11 +7,8 @@ double triangle_area(double a, double h) {
 }
 
 int main() {
-    double base, height;
-    std::cin >> base >> height;
-    
-    double area = triangle_area(base, height);
-    std::cout << "Triangle area: " << area << std::endl;
-
+    double a, h;
+    std::cin >> a >> h;
+    std::cout << triangle_area(a, h) << std::endl;
     return 0;
 }
