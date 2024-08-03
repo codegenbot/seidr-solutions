@@ -1,2 +1,4 @@
-def double_the_sum(lst):
-    return (sum(lst) - min(lst)) * 2 if len(set(lst)) == 1 else "There is no difference"
+def double_the_sum_of_squares(lst):
+    return (sum(i for i in lst) ** 2) - sum(
+        i**2 for i in lst if isinstance(i, int) and i > 0
+    )
