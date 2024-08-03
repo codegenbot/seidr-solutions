@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    sort(l.begin() + 2, l.begin() + 3, greater<int>());
+    sort(l.begin() + 2, l.begin() + 3, greater<int>()); // Sort the third element
     return l;
 }
 
