@@ -5,15 +5,12 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<int> values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (auto val : values) {
-        result.push_back(val);
+        if (val.type() == typeid(int)) {
+            result.push_back(any_cast<int>(val));
+        }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 5, 3, 3, 7, 8}), {3, 5, 3, 3, 7, 8}));
-    return 0;
 }
