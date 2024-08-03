@@ -1,7 +1,16 @@
 #include <vector>
-using namespace std;
 
 vector<int> parse_nested_parens(string paren_string);
+
+int main() {
+    vector<int> levels = parse_nested_parens("(( ) (( )) ) ");
+    
+    for (int level : levels) {
+        cout << level << " ";
+    }
+
+    return 0;
+}
 
 vector<int> parse_nested_parens(string paren_string){
     vector<int> levels;
@@ -24,14 +33,4 @@ vector<int> parse_nested_parens(string paren_string){
     levels.push_back(max_level);
 
     return levels;
-}
-
-int main() {
-    vector<int> result = parse_nested_parens("((()) ()())");
-
-    for (int level : result) {
-        cout << level << ' ';
-    }
-
-    return 0;
 }
