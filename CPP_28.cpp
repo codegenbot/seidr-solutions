@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 string concatenate(const vector<string>& strings){
@@ -14,16 +12,14 @@ string concatenate(const vector<string>& strings){
 }
 
 int main() {
+    vector<string> strings;
     int n;
     cin >> n;
-
-    vector<string> strings(n);
-    for (int i = 0; i < n; i++) {
-        cin >> strings[i];
+    for (int i = 0; i < n; ++i) {
+        string input;
+        cin >> input;
+        strings.push_back(input);
     }
-
-    string concatenatedString = concatenate(strings);
-    cout << concatenatedString << endl;
-
+    cout << concatenate(strings) << endl;
     return 0;
 }
