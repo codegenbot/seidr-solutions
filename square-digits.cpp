@@ -1,20 +1,13 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 std::string squareDigits(std::string input) {
     std::string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        int squared = digit * digit;
-        output += to_string(squared);
+    for (int i = 0; i < input.length(); i++) {
+        int digit = (input[i] - '0'); 
+        output += to_string(digit * digit); 
     }
     return output;
-}
-
-int main() {
-    std::cout << squareDigits("17") << std::endl; 
-    std::cout << squareDigits("10983") << std::endl; 
-    return 0;
 }
