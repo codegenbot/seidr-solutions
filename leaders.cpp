@@ -1,6 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -25,10 +24,10 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> leadersVector = leaders(arr);
-    for (int leader : leadersVector) {
-        cout << leader << " ";
+    vector<int> arr = {1, 3, 4, 2}; 
+    vector<int> leadersVec = leaders(arr);
+    for (int leader : leadersVec) {
+        cout << leader << endl; 
     }
     return 0;
 }
