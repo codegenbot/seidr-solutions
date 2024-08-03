@@ -9,12 +9,12 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if (grid[i][j] == 1) {
-                total_water += 1; // Assuming the value in grid is either 0 or 1
+                total_water += grid[i][j];
             }
         }
     }
 
     int max_lowerings = total_water / capacity;
     
-    return max_lowerings + ((total_water % capacity > 0) ? 1 : 0);
+    return max_lowerings + (total_water % capacity > 0);
 }
