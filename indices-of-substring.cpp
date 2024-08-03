@@ -4,6 +4,7 @@
 
 int main() {
     std::string text, target;
+    
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
