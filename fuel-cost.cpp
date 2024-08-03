@@ -1,28 +1,24 @@
-Here is the completed code:
-
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int calculateFuelCost(const std::vector<int>& input) {
+int calculateFuelCost(vector<int>& prices) {
     int total = 0;
-    for (int num : input) {
-        if (num < 1) {
-            // handle error condition, return -1 or throw an exception
-            // assuming it's okay to skip this input
-            continue;
-        }
-        int result = (num / 3) - 2;
-        total += result;
+    for (int price : prices) {
+        total += (price / 3 - 2);
     }
     return total;
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num && num > 0) {
-        input.push_back(num);
+    int numPrices;
+    cin >> numPrices;
+    
+    vector<int> prices(numPrices);
+    for (int i = 0; i < numPrices; ++i) {
+        cin >> prices[i];
     }
-    std::cout << calculateFuelCost(input) << std::endl;
+    
+    cout << calculateFuelCost(prices) << endl;
+    
     return 0;
 }
