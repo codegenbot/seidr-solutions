@@ -1,21 +1,21 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
-std::string encrypt(std::string s){
-    std::string result = "";
-    for(char c : s){
-        if(std::isalpha(c)){
-            char encrypted = 'a' + (c - 'a' + 2 * 2) % 26;
-            result += encrypted;
+std::string encrypt(std::string s) {
+    std::string encrypted = "";
+    for(char c : s) {
+        if(std::isalpha(c)) {
+            char base = std::isupper(c) ? 'A' : 'a';
+            encrypted += (char)((((c - base) + 2 * 2) % 26) + base);
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
 
-int main()
-{
+int main() {
     assert(encrypt("a") == "e");
     return 0;
 }
