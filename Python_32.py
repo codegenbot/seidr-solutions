@@ -1,9 +1,5 @@
-def find_zero():
-    coefficients = list(map(float, input("Enter the coefficients of the polynomial separated by commas: ").split(',')))
-    a = coefficients[-1]
-    b = coefficients[-2]
-    
+def find_zero(xs: list): 
+    n = len(xs) 
+    a = xs[n-1] 
+    b = xs[n-2] 
     return -b / a
-
-zero = find_zero()
-print(f"Zero of the polynomial: {zero}")
