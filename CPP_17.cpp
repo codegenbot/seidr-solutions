@@ -2,14 +2,12 @@
 #include <string>
 #include <cassert>
 
-namespace std {
-    bool issame(vector<int> a, vector<int> b) {
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     int count = 0;
     for (char c : music_string) {
         if (c == 'o') {
