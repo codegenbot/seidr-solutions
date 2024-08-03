@@ -2,7 +2,9 @@
 #include <string>
 #include <cctype>
 
-bool issame(vector<string>, vector<string>);
+bool issame(vector<string> a, vector<string> b) {
+    // Your function implementation
+}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -25,8 +27,4 @@ vector<string> select_words(string s, int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<string>, vector<string>) {
-    // Your function implementation
 }
