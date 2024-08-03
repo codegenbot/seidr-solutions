@@ -1,4 +1,3 @@
-```c++
 bool operator==(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
