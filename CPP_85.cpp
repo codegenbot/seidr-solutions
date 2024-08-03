@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -11,7 +12,16 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst = {4, 4, 6, 8};
-    cout << "Sum of even numbers: " << add(lst) << endl;
+    vector<int> input;
+    cout << "Enter numbers (space separated): ";
+    int num;
+    while(cin >> num) {
+        input.push_back(num);
+        if(cin.peek() != ' ') {
+            break;
+        }
+        cin.ignore();
+    }
+    cout << "Sum of even numbers: " << add(input) << endl;
     return 0;
 }
