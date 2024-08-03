@@ -8,6 +8,7 @@ bool issame(vector<string> a, vector<string> b){
             return false;
         }
     }
+
     return true;
 }
 
@@ -22,4 +23,4 @@ vector<string> sorted_list_sum(vector<string> lst){
     return lst;
 }
 
-assert(issame(sorted_list_sum({"apple", "banana", "kiwi"}), sorted_list_sum({"kiwi", "apple", "banana"})));
+assert(sorted_list_sum({"abc", "de", "fgh", "ijk"}) == sorted_list_sum({"fgh", "ijk", "de", "abc"}));
