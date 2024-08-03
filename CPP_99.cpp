@@ -1,4 +1,4 @@
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
     int rounded_num = static_cast<int>(round(num));
     if (num - rounded_num > 0.5) {
