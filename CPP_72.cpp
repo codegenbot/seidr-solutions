@@ -1,29 +1,39 @@
-#include <string>
+```c++
 #include <vector>
+#include <string>
+#include <algorithm>
 
-bool isPalindrome(std::string s) {
-    std::string rev = s;
-    std::reverse(rev.begin(), rev.end());
-    return s == rev;
-}
+bool main() {
+    bool will_it_fly(vector<int> q, int w) {
+        string str = "";
+        for (int i : q) {
+            str += to_string(i);
+        }
+        
+        if (!isPalindrome(str)) return false;
+        
+        int sum = 0;
+        for (int i : q) {
+            sum += i;
+        }
+        
+        return sum <= w;
+    }
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
-    for (int i : q) {
-        str += std::to_string(i);
+    bool isPalindrome(string s) {
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        return s == rev;
+    }
+
+    vector<int> q;
+    int w;
+    cin >> w;
+    for(int i=0; i<5;i++){
+        int a;
+        cin>>a;
+        q.push_back(a);
     }
     
-    if (!isPalindrome(str)) return false;
-    
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    
-    return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
+    cout << will_it_fly(q, w) << endl;
 }
