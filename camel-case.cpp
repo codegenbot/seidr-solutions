@@ -10,14 +10,16 @@ int main() {
         if (c == '-' || c == ' ') {
             capitalize = true;
         } else if (capitalize) {
-            c = std::toupper(c);
+            c = std::tolower(c);
             capitalize = false;
+        } else if (c == ' ') {
+            capitalize = true;
         } else {
             c = std::tolower(c);
         }
     }
     
-    if (!input.empty() && input[0] != '-' && !std::isupper(input[0])) 
+    if (!input.empty() && (input[0] == ' ' || input[0] == '-')) 
         input[0] = std::toupper(input[0]); // Capitalize the first letter after processing
     
     std::cout << input << std::endl;
