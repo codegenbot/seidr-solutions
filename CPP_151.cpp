@@ -1,14 +1,8 @@
 int main() {
     vector<float> lst;
     long long odd_sum = 0;
-    cout << "Enter numbers separated by space: ";
-    for (char c; cin >> c && c != '\n'; ) {}
-    cin >> noskipws;
-    for (float num; cin >> num;) {
-        lst.push_back(num);
-    }
-    cout << "Sum of squares of positive integer roots: " << double_the_difference(lst) << endl;
-    return 0;
+    cin >> lst;
+    cout << double_the_difference(lst) << endl;
 }
 
 long long double_the_difference(vector<float> lst) {
