@@ -1,11 +1,10 @@
 #include <climits>
-
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if(arr.empty()) return result; 
-
+    if(arr.empty()) return result; // If array is empty, return an empty pair
+    
     int smallestEven = INT_MAX;
     int index = -1;
     
