@@ -36,9 +36,8 @@ int main() {
     int a, b;
     cin >> a >> b;
     cin.ignore();
-    
     cout << gcd(a, b) << endl;
-    
+
     string text, target;
     getline(cin, text);
     getline(cin, target);
