@@ -16,8 +16,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
+std::vector<std::string> all_prefixes(std::string str) {
+    return b(str);
+}
+
 int main() {
-    auto all_prefixes = b; // Function alias assignment
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
