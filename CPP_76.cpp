@@ -1,9 +1,5 @@
-Here's the solution:
+Here is the completed code:
 
 bool is_simple_power(int x, int n) {
-    if (n == 0)
-        return false;
-
-    double y = pow(n, log(x) / log(n));
-    return y == x;
+    return pow(n, log(x)/log(n)) == x;
 }
