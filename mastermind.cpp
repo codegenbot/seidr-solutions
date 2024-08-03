@@ -27,7 +27,7 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     // Subtract the black pegs from total white pegs
     white -= black;
 
-    return std::pair<int, int>(white, black);
+    return {white, black};
 }
 
 int main() {
@@ -36,7 +36,8 @@ int main() {
     std::cin >> code;
     std::cout << "Enter your guess: ";
     std::cin >> guess;
-    std::pair<int, int> result = mastermind(code, guess);
+    auto result = mastermind(code, guess);
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
+}
