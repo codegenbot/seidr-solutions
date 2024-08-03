@@ -1,1 +1,1 @@
-total += (1.0f - (discounts[i] / 100.0f)) * prices[i];
+total += (1.0f - discounts[i] / 100.0f) * prices[i];
