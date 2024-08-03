@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+std::string string_to_md5(const std::string &input);
+
 std::string string_to_md5(const std::string &input) {
     EVP_MD_CTX *ctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(ctx, EVP_md5(), nullptr);
@@ -18,15 +20,4 @@ std::string string_to_md5(const std::string &input) {
     *ptr = '\0';
 
     return std::string(buf);
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the string to compute MD5 hash: ";
-    std::cin >> input;
-
-    std::string md5_hash = string_to_md5(input);
-    std::cout << "MD5 Hash: " << md5_hash << std::endl;
-
-    return 0;
 }
