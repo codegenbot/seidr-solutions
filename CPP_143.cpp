@@ -36,9 +36,9 @@ string words_in_sentence(string sentence){
 }
 
 int main() {
-    string sentence;
+    string input;
     cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    cout << "Result: " << words_in_sentence(sentence) << endl;
+    getline(cin, input);
+    cout << "Words with prime length: " << words_in_sentence(input) << endl;
     return 0;
 }
