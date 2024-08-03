@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1 == v2;
+}
+
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (auto val : values) {
@@ -13,18 +17,6 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
