@@ -13,11 +13,11 @@ bool solveBoolean(string s) {
                 st.pop();
             }
             if (st.empty()) {
-                return true;
+                return false;
             }
         } else {
             st.push(s[i]);
         }
     }
-    return !st.empty();
+    return st.top() == 'T';
 }
