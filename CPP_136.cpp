@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
@@ -5,7 +6,6 @@ bool issame(vector<int> a,vector<int>b){
     }
     return true;
 }
-
 vector<int> largest_smallest_integers(vector<int> lst){
     int max_negative = 0, min_positive = INT_MAX;
     for(int i : lst){
