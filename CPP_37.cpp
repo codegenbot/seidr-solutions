@@ -1,22 +1,27 @@
-void sort_even(std::vector<float> &v) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+void sort_even(std::vector<float>& v) {
     std::vector<float> even_nums;
-    for (auto num : v) {
+    for (const auto& num : v) {
         if (static_cast<int>(num) % 2 == 0) {
             even_nums.push_back(num);
         }
     }
-    std::sort(even_nums.begin(), even_nums.end());
+    std::sort(even_nums.rbegin(), even_nums.rend());
     
-    size_t even_index = 0;
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (static_cast<int>(v[i]) % 2 == 0) {
-            v[i] = even_nums[even_index++];
+    size_t index = 0;
+    for (auto& num : v) {
+        if (static_cast<int>(num) % 2 == 0) {
+            num = even_nums[index++];
         }
     }
 }
 
-bool issame(const std::vector<float> &v1, const std::vector<float> &v2) {
-    return v1 == v2;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
 int main() {
