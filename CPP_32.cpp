@@ -1,22 +1,22 @@
-double find_zero(vector<double> xs){
-    double left = 0;
-    double right = 1;
-    
-    while (right - left > 1e-9) {
-        double mid = (left + right)/2;
-        
-        double f_left = poly(xs, left);
-        double f_right = poly(xs, right);
-        double f_mid = poly(xs, mid);
-        
-        if (f_left * f_mid < 0) {
-            right = mid;
-        } else if (f_mid * f_right < 0) {
-            left = mid;
-        } else {
-            return round(mid, 2);
-        }
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        sum+=xs[i]*pow(x,i);
     }
-    
-    return round(left, 2);
+    return sum;
+}
+
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) // Check if number of coefficients is even
+        return -1; // Return -1 if not
+
+    double x = -xs[1]/xs[3]; // Calculate the zero point using the formula for a quadratic equation
+    return x;
 }
