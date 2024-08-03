@@ -29,7 +29,6 @@ vector<int> parse_nested_parens(string paren_string){
     return result;
 }
 
-int main(){
-    assert(check_equality(parse_nested_parens("(()(())((())))"), {4}));
-    return 0;
-}
+assert(check_equality(parse_nested_parens("(()(())((())))"), {4}));
+
+return 0;
