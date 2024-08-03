@@ -1,9 +1,8 @@
-```cpp
 #include <string>
 #include <cstring>
 
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int len = 0;
     for(int i=2; i<=100; i++){
         if(isPrime(i)){
@@ -12,7 +11,7 @@ string words_in_sentence(string sentence){
                 len++;
                 j += sentence.find_first_of(" ", j);
                 if(len == i) {
-                    result += &sentence[j-1] + " ";
+                    result += sentence.substr(j-1, i) + " ";
                     len = 0;
                     j = 0;
                 }
