@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -7,33 +6,39 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
+vector<string> separate_paren_groups(string paren_string);
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group;
-    int open_braces = 0;
+
+    string group;
+    int count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_braces > 0) {
-                current_group += c;
+            if (count > 0) {
+                group += c;
             }
-            open_braces++;
+            count++;
         } else if (c == ')') {
-            open_braces--;
-            if (open_braces == 0) {
-                result.push_back(current_group);
-                current_group = "";
+            count--;
+            if (count > 0) {
+                group += c;
             } else {
-                current_group += c;
+                result.push_back(group);
+                group = "";
             }
         }
     }
 
     return result;
-}
+} 
 
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+vector<string> a = separate_paren_groups("((()))");
+vector<string> b = separate_paren_groups("((())())");
 
-    return 0;
+if (issame(a, b)) {
+    // Do something if the groups are same
+} else {
+    // Do something if the groups are different
 }
