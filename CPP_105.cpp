@@ -1,16 +1,10 @@
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            result.push_back(to_string(num));
-        }
-    }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    vector<string> output;
-    for (int i = 0; i < result.size(); ++i) {
-        output.push_back(names[stoi(result[i]) - 1]);
-    }
-    return output;
+bool issame(vector<string> a,vector<string>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i)
+        if(a[i] != b[i]) return false;
+    return true;
+}
+
+int main(){
+    assert (issame({vector<string>(by_length({9, 4, 8}))}, {{"Nine", "Eight", "Four"}});
 }
