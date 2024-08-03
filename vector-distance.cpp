@@ -5,7 +5,7 @@
 int main() {
     int n;
     std::cin >> n;
-
+    
     std::vector<float> v1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> v1[i];
