@@ -3,34 +3,34 @@
 #include <string>
 #include <cassert>
 
-int count_odd(const std::string &str) {
+int count_odd_elements(const std::string& str) {
     int count = 0;
     for (char c : str) {
-        if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+        if (c >= '0' && c <= '9' && (c - '0') % 2 == 1) {
             count++;
         }
     }
     return count;
 }
 
-std::vector<int> odd_count(const std::vector<std::string> &input) {
-    std::vector<int> result;
-    for (const auto &str : input) {
-        result.push_back(count_odd(str));
-    }
-    return result;
-}
-
-bool issame(const std::vector<int> &output, const std::vector<std::string> &expected) {
-    if (output.size() != expected.size()) {
+bool issame(const std::vector<int>& counts, const std::vector<std::string>& expected) {
+    if (counts.size() != expected.size()) {
         return false;
     }
-    for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i] != std::stoi(expected[i].substr(expected[i].rfind(' ') + 1))) {
+    for (size_t i = 0; i < counts.size(); ++i) {
+        if (counts[i] != std::stoi(expected[i].substr(expected[i].find("of odd elements ") + 16, 1))) {
             return false;
         }
     }
     return true;
+}
+
+std::vector<int> odd_count(const std::vector<std::string>& input) {
+    std::vector<int> counts;
+    for (const std::string& str : input) {
+        counts.push_back(count_odd_elements(str));
+    }
+    return counts;
 }
 
 void test_issame() {
