@@ -1,6 +1,6 @@
-# include <iostream>
-# include <string>
-# include <vector>
+#include <iostream>
+#include <string>
+#include <vector>
 
 int main() {
     std::string text, target;
@@ -10,10 +10,7 @@ int main() {
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos);
-        if (pos == std::string::npos) {
-            break;
-        }
+        pos = text.find(target, pos + 1);
     }
 
     for (int i = 0; i < indices.size(); ++i) {
