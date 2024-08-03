@@ -1,9 +1,9 @@
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> unique_numbers;
-    for (int number : numbers) {
-        if (find(unique_numbers.begin(), unique_numbers.end(), number) == unique_numbers.end()) {
-            unique_numbers.push_back(number);
+vector<int> remove_duplicates(vector<int> numbers){
+    vector<int> result;
+    for(int i: numbers){
+        if(find(result.begin(), result.end(), i) == result.end()){
+            result.push_back(i);
         }
     }
-    return unique_numbers;
+    return result;
 }
