@@ -1,5 +1,10 @@
 ```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 string file_name_check(string file_name);
+
 string file_name_check(string file_name){
     int dot_pos = file_name.find('.');
     if(dot_pos == string::npos || dot_pos > 0 && !isalpha(file_name[0])){
@@ -13,4 +18,12 @@ string file_name_check(string file_name){
         return "No";
     }
     return "Yes";
+}
+
+int main() {
+    string file_name;
+    cout << "Enter a file name: ";
+    cin >> file_name;
+    cout << file_name_check(file_name) << endl;
+    return 0;
 }
