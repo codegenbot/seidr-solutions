@@ -1,6 +1,5 @@
-int last_space_index = -1;
-for(int i=txt.length()-2; i>=0; i--){
-    if(txt[i] == ' ')
-        last_space_index = i+1;
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    char lastChar = txt.back();
+    return isalpha(lastChar) && !isalnum(lastChar);
 }
-return (last_space_index != txt.length() && isalpha(txt.back()));
