@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cassert>
@@ -16,5 +15,3 @@ std::string solve(std::string s) {
     
     return s;
 }
-
-assert(solve("#ccc") == "#CCC");
