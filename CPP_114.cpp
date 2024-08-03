@@ -1,33 +1,30 @@
+```cpp
 #include <iostream>
 #include <vector>
+using namespace std;
 
-long long minSubArraySum(std::vector<long long> nums) {
+long long minSubArraySum(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        min_sum = std::min(min_sum, sum);
+        min_sum = min(min_sum, sum);
         if (sum > 0) sum = 0;
     }
     return min_sum;
 }
 
 int main() {
+    vector<long long> nums;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<long long> nums(n);
-
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        long long x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        nums.push_back(x);
     }
-
-    long long min_sum = minSubArraySum(nums);
-    if (min_sum == LLONG_MAX)
-        std::cout << "No such subarray exists.\n";
-    else
-        std::cout << "Minimum sum of a subarray is: " << min_sum << "\n";
-
+    long long result = minSubArraySum(nums);
+    cout << "Minimum subarray sum: " << result << endl;
     return 0;
 }
