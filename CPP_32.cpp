@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -16,21 +15,8 @@ double find_zero(const std::vector<double>& xs){
     return -b/a;
 }
 
-int main(){
-    int n;
-    std::cout << "Enter the number of coefficients: ";
-    std::cin >> n;
-
-    std::vector<double> coeffs;
-    for(int i = 0; i < n; i++){
-        double coeff;
-        std::cout << "Enter coefficient " << i << ": ";
-        std::cin >> coeff;
-        coeffs.push_back(coeff);
-    }
-
-    double solution = find_zero(coeffs);
-    std::cout << "Solution: " << solution << std::endl;
-
+int main() {
+    std::vector<double> coeffs = {1, 2, 3}; // example coefficients
+    double solution = poly(coeffs, 2.0); // example x value
     return 0;
 }
