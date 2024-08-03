@@ -1,15 +1,9 @@
 #include <string>
 
-bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
+string words_in_sentence(string sentence);
+
+int main() {
+    // Your main function code here
 }
 
 string words_in_sentence(string sentence) {
@@ -29,8 +23,4 @@ string words_in_sentence(string sentence) {
         result += word;
     }
     return result;
-}
-
-int main() {
-    // Your main function code here
 }
