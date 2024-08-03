@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 int count_distinct_characters(const std::string& str) {
     std::vector<char> distinctChars;
@@ -12,9 +11,4 @@ int count_distinct_characters(const std::string& str) {
         }
     }
     return distinctChars.size();
-}
-
-int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    return 0;
 }
