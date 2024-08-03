@@ -1,13 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include <cmath>
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    string line;
     
-    while (cin >> num) {
+    getline(cin, line);
+    stringstream ss(line);
+    int num;
+    while (ss >> num) {
         nums.push_back(num);
     }
     
@@ -30,23 +34,17 @@ int main() {
     }
     
     if (std::abs(prefix_sum - (sum - prefix_sum)) < std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
+        std::cout << "1" << std::endl;
         for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << " ";
+            std::cout << nums[i] << std::endl;
         }
-        cout << endl;
-        for (int i = cut_index + 1; i < n; i++) {
-            cout << nums[i] << " ";
-        }
-        cout << endl;
+        std::cout << "0" << std::endl;
     } else {
-        for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << " ";
+        std::cout << "1" << std::endl;
+        for (int i = 0; i < cut_index; i++) {
+            std::cout << nums[i] << std::endl;
         }
-        cout << endl;
-        for (int i = cut_index + 1; i < n; i++) {
-            cout << nums[i] << " ";
-        }
-        cout << endl;
+        std::cout << nums[cut_index] << std::endl;
     }
     
     return 0;
