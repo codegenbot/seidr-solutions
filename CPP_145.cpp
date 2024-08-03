@@ -10,7 +10,9 @@ bool issame(std::vector<int> a, std::vector<int> b){
 std::vector<int> order_by_points(std::vector<int> nums){
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
-        int temp_a = std::abs(a), temp_b = std::abs(b);
+        int temp_a = a, temp_b = b;
+        if (a < 0) temp_a = -a;
+        if (b < 0) temp_b = -b;
 
         while (temp_a > 0) {
             sum_a += temp_a % 10;
@@ -32,6 +34,10 @@ std::vector<int> order_by_points(std::vector<int> nums){
     return nums;
 }
 
-assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+int main(){
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
 
-std::cout << "Test passed successfully!" << std::endl;
+    std::cout << "Test passed successfully!" << std::endl;
+
+    return 0;
+}
