@@ -1,17 +1,28 @@
-Here is the solution:
-
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return abs(a)
+    return a
 
-def indices_of_substring(text, target):
+
+def find_indices(text, target):
     indices = []
-    last_index = -1
-    while True:
-        start_index = text.find(target, last_index + 1)
-        if start_index == -1:
+    index = 0
+    while index < len(text):
+        pos = text.find(target, index)
+        if pos != -1:
+            indices.append(pos)
+            index = pos + 1
+        else:
             break
-        indices.append(start_index)
-        last_index = start_index + len(target) - 1
     return indices
+
+
+a = int(input())
+b = int(input())
+
+print(gcd(a, b))
+
+text = input()
+target = input()
+
+print(find_indices(text, target))
