@@ -18,17 +18,9 @@ vector<int> get_odd_collatz(int n) {
     return collatz_sequence;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
-    vector<int> result = get_odd_collatz(1);
-    vector<int> expected = {1};
-    assert(issame(result, expected));
+    assert(get_odd_collatz(1) == vector<int>{1});
+    assert(get_odd_collatz(15) == vector<int>{15, 46, 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1});
+    
     return 0;
 }
