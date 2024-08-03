@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
-#include <boost/conversion.hpp>
+#include <boost/lexical_cast.hpp>
+#include <string>
 
 using namespace boost;
 
@@ -34,18 +35,12 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_string(a)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        try {
-            float af = std::stof(as);
-            float bf = std::stof(bs);
-            if (af > bf)
-                return a;
-            else if (bf > af)
-                return b;
-            else
-                return any("None");
-        } catch (...) {
+        if (std::stof(as) > std::stof(bs))
+            return a;
+        else if (std::stof(bs) > std::stof(as))
+            return b;
+        else
             return any("None");
-        }
     } else {
         return any("None");
     }
