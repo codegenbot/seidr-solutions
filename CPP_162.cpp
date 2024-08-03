@@ -1,5 +1,5 @@
-#include <string>
 #include <openssl/crypto.h>
+#include <string>
 #include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text);
@@ -9,7 +9,7 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS, nullptr);
+    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_DIGESTS, nullptr);
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
