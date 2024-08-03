@@ -1,15 +1,14 @@
-def solve_boolean(expression):
-    def evaluate(expression):
-        if expression == "T":
+```
+def solveBoolean(expression):
+    def evaluate(x, y):
+        if x == 'T':
             return True
-        elif expression == "F":
+        elif x == 'F':
             return False
-        elif len(expression) > 1:
-            a = evaluate(expression[0])
-            b = evaluate(expression[1:])
-            if "&" in expression:
-                return a and b
-            else:
-                return a or b
+        elif x == '|':
+            return lambda: evaluate(y, 'T') or evaluate(y, 'F')
+        elif x == '&':
+            return lambda: evaluate(y, 'T') and evaluate(y, 'F')
 
-    return evaluate(expression)
+    result = eval('lambda: ' + ''.join(map(evaluate, expression)))
+    return str(result())
