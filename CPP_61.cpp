@@ -1,23 +1,19 @@
 #include <iostream>
 #include <string>
+#include <cassert>
+#include <cstdlib>
 
-bool correct_bracketing(const std::string& brackets) {
+int correct_bracketing(std::string brackets) {
     int count = 0;
     for (char c : brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
             if (count == 0) {
-                return false;
+                return -1;
             }
             count--;
         }
     }
     return count == 0;
-}
-
-int main() {
-    std::string testString = "((()))"; 
-    std::cout << std::boolalpha << correct_bracketing(testString) << std::endl;
-    return 0;
 }
