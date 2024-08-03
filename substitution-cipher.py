@@ -1,9 +1,9 @@
-def substitution_cipher(cipher1, cipher2, message):
-    deciphered_message = ""
+```
+def decipher(cipher1, cipher2, message):
+    deciphered = ""
     for char in message:
-        if char in cipher2:
-            index = cipher2.index(char)
-            deciphered_message += cipher1[index]
+        if char in cipher1:
+            deciphered += cipher2[cipher1.index(char)]
         else:
-            deciphered_message += char
-    return deciphered_message
+            deciphered += char
+    return deciphered
