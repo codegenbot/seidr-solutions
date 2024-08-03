@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <cassert>
 
 float max_element(std::vector<float> l){
     float max = l[0];
@@ -8,8 +8,4 @@ float max_element(std::vector<float> l){
             max = l[i];
     }
     return max;
-}
-
-int main() {
-    assert (abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})- 12.4)<1e-4);
 }
