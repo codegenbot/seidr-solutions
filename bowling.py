@@ -1,18 +1,20 @@
-Here is the solution in Python:
-
-def bowling_score(score_str):
+```
+def bowling_score(game):
     score = 0
-    frames = score_str.split('/')
-    for i, frame in enumerate(frames):
-        if len(frame) == 1:
-            score += 10
-        elif int(frame) == 10:
-            score += 10 + (10 - 1)
-        else:
-            first_roll = int(frame[0])
-            second_roll = 10 - first_roll
-            if i < 9 and frames[i+1].startswith(str(first_roll)):
-                score += first_roll * 2 + second_roll
-            else:
-                score += first_roll + second_roll
+    frame = 1
+    for char in game + 'X':
+        if char.isdigit():
+            first_roll = int(char)
+            if frame == 10:
+                if len(game) >= 3 and str(first_roll * 2).endswith(char):
+                    score += first_roll * 2
+                else:
+                    score += first_roll
+            elif game[frame-1].isdigit() or (frame > 1 and game[frame-2].isdigit()):
+                if frame < 10:
+                    if len(game) >= 3 and str(first_roll + int(game[frame-1])).endswith(char):
+                        score += first_roll + int(game[frame-1])
+                    else:
+                        score += first_roll
+            frame += 1
     return score
