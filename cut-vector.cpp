@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,15 +8,9 @@ vector<vector<int>> cutVector(vector<int> vec) {
     
     for(int i = 0; i < n; i++) {
         if(i == n - 1 || vec[i] != vec[i+1]) {
-            vector<int> left = vector<int>();
-            for(int j = 0; j <= i; j++) {
-                left.push_back(vec[j]);
-            }
-            vector<int> right = vector<int>();
-            for(int j = i + 1; j < n; j++) {
-                right.push_back(vec[j]);
-            }
-            result.push_back({left, right});
+            vector<int> leftvec(vec.begin(), vec.begin() + i);
+            vector<int> rightvec(vec.begin() + i, vec.end());
+            result.push_back({leftvec, rightvec});
             break;
         }
     }
@@ -36,13 +29,13 @@ int main() {
     vector<vector<int>> res = cutVector(vec);
     for(auto v : res) {
         for(auto x : v[0]) {
-            std::cout << x << " ";
+            cout << x << " ";
         }
-        std::cout << " ";
+        cout << endl;
         for(auto x : v[1]) {
-            std::cout << x << " ";
+            cout << x << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
     
     return 0;
