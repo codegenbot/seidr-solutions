@@ -13,8 +13,8 @@ string fizzBuzz(int x) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cout << fizzBuzz(n) << endl;
+    int num;
+    cin >> num;
+    cout << fizzBuzz(num) << endl;
     return 0;
 }
