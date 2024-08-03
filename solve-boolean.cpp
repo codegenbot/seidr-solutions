@@ -1,23 +1,34 @@
-#include <string>
-
-bool solveBoolean(const string &expression) {
-    int result = 0;
-
-    for (int i = 0; i < expression.size(); ++i) {
-        if (expression[i] == 'T') {
-            result |= 1;
-        } else if (expression[i] == 'F') {
-            return false;
-        } else if (expression[i] == '&') {
-            int left = result & 1;
-            result >>= 1;
-            result &= -left;
-        } else if (expression[i] == '|') {
-            int left = result & 1;
-            result >>= 1;
-            result |= left;
+bool evaluateBoolean(string expression) {
+    stack<char> st;
+    for (int i = expression.length() - 1; i >= 0; --i) {
+        char c = expression[i];
+        if (c == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+            bool left = st.top() == 'T';
+            st.pop();
+            bool right = st.top() == 'F' || st.top() == '&';
+            st.pop();
+            st.push((left && right) ? '&' : !right);
+        } else if (c == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+            bool left = st.top() == 'T';
+            st.pop();
+            bool right = st.top() == 'F' || st.top() == '|';
+            st.pop();
+            st.push((left || right) ? '|' : !right);
+        } else {
+            st.push(c == 't' ? 'T' : c == 'f' ? 'F' : (c == '&' ? '&' : '|'));
         }
     }
-
-    return result != 0;
+    return st.top() == 'T';
 }
