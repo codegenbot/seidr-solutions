@@ -3,16 +3,17 @@
 #include <map>
 #include <algorithm>
 #include <cassert>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> by_length(std::vector<int> arr);
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::map<int, std::string> num_to_name = {
         {1, "One"},
