@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -6,7 +7,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-5f) {
+        if(std::abs(a[i] - b[i]) > 1e-9f) {
             return false;
         }
     }
@@ -15,19 +16,15 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 int main() {
     std::vector<float> l;
-    float num;
-    while(std::cin >> num) {
-        l.push_back(num);
+    float x;
+    while(std::cin >> x) {
+        l.push_back(x);
     }
     if(l.size() < 2) {
-        std::cout << "Not enough elements to compare.\n";
+        std::cout << "Not enough elements to compare" << std::endl;
     } else {
-        bool same = issame(get_positive(l), get_positive({l[0], l[1]}));
-        if(same) {
-            std::cout << "The first two positive numbers are the same.\n";
-        } else {
-            std::cout << "The first two positive numbers are different.\n";
-        }
+        bool is_same = issame(l, get_positive(l));
+        std::cout << (is_same ? "Same" : "Different") << std::endl;
     }
     return 0;
 }
