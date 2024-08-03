@@ -1,7 +1,7 @@
 #include <cmath>
 #include <cassert>
 
-bool iscuber(int a) {
+bool iscuber(int a){
     int c = (int)cbrt(a);
     return c*c*c == a;
 }
