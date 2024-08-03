@@ -13,4 +13,5 @@ int main(){
 
         return count / total;
     }
+    return 0;
 }
