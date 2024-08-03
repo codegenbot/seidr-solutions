@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int n, m;
@@ -11,8 +10,8 @@ int main() {
             probability += 1.0 / (n * m);
         }
     }
-    
-    std::cout << std::fixed << std::setprecision(9) << probability << std::endl;
-    
+
+    std::cout << probability << std::endl;
+
     return 0;
 }
