@@ -1,30 +1,24 @@
 #include <iostream>
-using namespace std;
-
-double calculateBouncinessIndex(double startHeight, double firstBounceHeight) {
-    return (firstBounceHeight / startHeight);
-}
-
-double calculateTotalDistance(double bouncinessIndex, int numBounces) {
-    return ((1 + bouncinessIndex) * pow((1 - bouncinessIndex), numBounces)) / (1 - pow(bouncinessIndex, 2));
-}
 
 int main() {
-    double startHeight;
-    double firstBounceHeight;
+    double startHeight, firstBounce, bounciness;
     int numBounces;
 
-    cout << "Enter the starting height: ";
-    cin >> startHeight;
-    cout << "Enter the height after the first bounce: ";
-    cin >> firstBounceHeight;
-    cout << "Enter the number of bounces: ";
-    cin >> numBounces;
+    std::cin >> startHeight >> firstBounce >> numBounces;
 
-    double bouncinessIndex = calculateBouncinessIndex(startHeight, firstBounceHeight);
-    double totalDistance = calculateTotalDistance(bouncinessIndex, numBounces);
+    if (startHeight == 0) {
+        std::cout << "Error: Starting height cannot be zero." << std::endl;
+        return 1;
+    }
 
-    cout << fixed << setprecision(6) << "The total distance is: " << totalDistance << endl;
+    bounciness = firstBounce / startHeight;
+
+    double totalDistance = 2.0; // The ball travels twice the starting height after the first bounce
+    for (int i = 1; i < numBounces; ++i) {
+        totalDistance += (bounciness * (startHeight + 2 * totalDistance)) - startHeight;
+    }
+
+    std::cout << std::fixed << std::setprecision(6) << totalDistance << std::endl;
 
     return 0;
 }
