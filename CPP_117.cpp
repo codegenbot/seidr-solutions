@@ -1,9 +1,3 @@
-#include <vector>
-#include <string>
-#include <cctype>
-
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
