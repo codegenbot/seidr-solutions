@@ -26,10 +26,7 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
-    }
-    
-    if(cin.eof()) {
-        cin.clear();
+        if(cin.eof()) break;
     }
     
     vector<int> result = findLeaders(nums);
