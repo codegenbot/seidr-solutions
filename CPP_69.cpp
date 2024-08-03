@@ -19,6 +19,9 @@ int search(const vector<int>& lst) {
 }
 
 int main() {
-    // Test the search function here
+    // Test the search function
+    vector<int> nums = {2, 3, 3, 4, 4, 4};
+    int res = search(nums);
+    
     return 0;
 }
