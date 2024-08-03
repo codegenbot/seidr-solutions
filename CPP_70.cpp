@@ -1,6 +1,5 @@
 #include <vector>
-
-vector<int> rearrangeArray(vector<int>& lst) {
+vector<int> sortListAlternate(vector<int>& lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int start = 0, end = lst.size() - 1;
