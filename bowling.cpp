@@ -1,6 +1,6 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll = 0;
     for (char c : s) {
@@ -15,4 +15,3 @@ int bowlingScore(string s) {
         }
     }
     return score;
-}
