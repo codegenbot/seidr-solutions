@@ -17,7 +17,7 @@ vector<string> select_words(string s, int n) {
                 consonants = 0;
                 word.clear();
             } else {
-                consonsons = 0;
+                consonants = 0;
                 word.clear();
             }
         } else {
@@ -46,6 +46,7 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
+
 }
 
 int main() {
