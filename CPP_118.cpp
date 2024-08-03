@@ -20,15 +20,10 @@ std::string get_closest_vowel(std::string word) {
     while (left > 0 && !isvowel(word[left - 1]))
         --left;
 
-    return left > 0 ? word.substr(left - 1, 1) : "";
+    return left > 0 ? std::string(1, word[left - 1]) : "";
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    
-    std::cout << "The closest vowel is: " << get_closest_vowel(input) << std::endl;
-    
+    std::cout << get_closest_vowel("Hello") << std::endl;
     return 0;
 }
