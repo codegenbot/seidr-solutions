@@ -1,12 +1,15 @@
 ```
-def solve.Boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid input. Only one of '&', '|' is allowed.")
-    elif '&' in expression:
-        return all(x == 'T' for x in expression.split('&'))
-    else:
-        return any(x == 'T' for x in expression.split('|'))
+def solve(input_str):
+    def bool_eval(expression):
+        if expression == 'T':
+            return True
+        elif expression == 'F':
+            return False
+        elif '&' in expression:
+            left, right = expression.split('&')
+            return bool_eval(left) and bool_eval(right)
+        elif '|' in expression:
+            left, right = expression.split('|')
+            return bool_eval(left) or bool_eval(right)
+
+    return bool_eval(input_str)
