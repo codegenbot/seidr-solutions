@@ -9,10 +9,7 @@ int greatest_common_divisor(int a, int b) {
 
 int main() {
     int a, b;
-    std::cout << "Enter two numbers: ";
     std::cin >> a >> b;
-
-    std::cout << "Greatest Common Divisor: " << greatest_common_divisor(a, b) << std::endl;
-
+    std::cout << greatest_common_divisor(a, b);
     return 0;
 }
