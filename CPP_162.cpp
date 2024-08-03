@@ -12,7 +12,7 @@ std::string string_to_md5(const std::string& text) {
 
     EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), nullptr);
-
+    
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
 
     unsigned char digest[EVP_MAX_MD_SIZE];
@@ -21,13 +21,13 @@ std::string string_to_md5(const std::string& text) {
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
 
-    char mdString[33];
+    char mdString[2 * digest_len + 1];
     for (int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i * 2], "%02x", digest[i]);
     }
+    mdString[2 * digest_len] = '\0';
 
     EVP_cleanup();
 
     return std::string(mdString);
 }
-```
