@@ -13,7 +13,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int n = text.length();
     int m = target.length();
-
+    
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
@@ -28,14 +28,15 @@ vector<int> indicesOfSubstring(string text, string target) {
             }
         }
     }
-
+    
     return indices;
 }
 
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore(); // Add cin.ignore(); here to consume the newline character
+    cin.ignore();
+    
     string text, target;
     getline(cin, text);
     getline(cin, target);
