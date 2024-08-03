@@ -1,5 +1,5 @@
-#include <vector>
 #include <cassert>
+#include <vector>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
@@ -13,5 +13,4 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    return 0;
 }
