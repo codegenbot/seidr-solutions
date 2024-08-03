@@ -1,11 +1,11 @@
 #include <vector>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> paths, int num) {
+    #include <vector>
     std::vector<int> result;
     for (const auto &path : paths) {
         for (int i = 0; i < num; ++i) {
