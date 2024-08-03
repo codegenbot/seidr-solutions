@@ -4,7 +4,9 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
+
+    // Read integers until the end of file is reached (EOF)
+    for(int n; std::cin >> n;) {
         nums.push_back(n);
     }
 
