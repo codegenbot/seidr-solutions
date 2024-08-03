@@ -2,15 +2,19 @@
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
-    for group in paren_string.split():
-        level = 0
-        max_level = 0
-        for char in group:
+    def find_max_depth(s):
+        max_depth = 0
+        current_depth = 0
+        for char in s:
             if char == '(':
-                level += 1
+                current_depth += 1
+                max_depth = max(max_depth, current_depth)
             elif char == ')':
-                level -= 1
-            max_level = max(max_level, level)
-        result.append(max_level)
+                current_depth -= 1
+        return max_depth
+
+    result = []
+    groups = paren_string.split()
+    for group in groups:
+        result.append(find_max_depth(group))
     return result
