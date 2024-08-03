@@ -1,7 +1,9 @@
-```
+Here is the Python solution for the problem:
+
 def basement(arr):
+    total = 0
     for i in range(len(arr)):
-        total = sum(arr[:i+1])
+        total += arr[i]
         if total < 0:
             return i
     return -1
