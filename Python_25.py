@@ -1,19 +1,14 @@
-```
-from typing import List
-import math
-
+Here is the completed code:
 
 def factorize(n: int) -> List[int]:
+    i = 2
     factors = []
-    for i in range(2, math.isqrt(n) + 1):
-        if n % i:
-            continue
+    while n > 1:
         count = 0
         while n % i == 0:
-            n //= i
+            n /= i
             count += 1
         if count > 0:
-            factors.append(i * count)
-    if n > 1:
-        factors.append(n)
+            factors.extend([i] * count)
+        i += 1
     return factors
