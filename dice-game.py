@@ -1,2 +1,2 @@
-def getProbability(n, m):
-    return (m - 1) / n
+def roll_dice(n, m):
+    return (n - 1) / (n * m)
