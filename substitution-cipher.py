@@ -1,3 +1,15 @@
-def substitution_cipher(*args):
-    cipher = [c1 for c1, c2 in zip(args[0], args[1]) if c1 != c2]
-    return "".join([c for c in args[2] if c in cipher])
+```
+def decipher(cipher_text1, cipher_text2, text_to_decipher):
+    cipher_map = {}
+    for char in range(len(cipher_text1)):
+        if cipher_text1[char] == cipher_text2[char]:
+            cipher_map[cipher_text1[char]] = cipher_text2[char]
+    
+    deciphered_text = ""
+    for char in text_to_decipher:
+        if char in cipher_map:
+            deciphered_text += cipher_map[char]
+        else:
+            deciphered_text += char
+    
+    return deciphered_text
