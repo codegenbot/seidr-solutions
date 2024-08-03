@@ -1,17 +1,12 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 int fuelCost(vector<int> arr) {
     int sum = 0;
     for (int num : arr) {
-        int result = (num / 3);
-        if (result < 1) {
-            result = 0;
-        } else {
-            result--;
-        }
+        int result = static_cast<int>(floor(double(num) / 3));
+        result = max(0, result - 1);
         sum += result;
     }
     return sum;
@@ -27,7 +22,7 @@ int main() {
         input.push_back(num);
     }
     
-    std::cout << fuelCost(input) << std::endl;
+    cout << fuelCost(input) << std::endl;
     
     return 0;
 }
