@@ -2,17 +2,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
-bool issame_palindrome(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -40,6 +33,8 @@ int main() {
     std::vector<int> result = even_odd_palindrome(n);
     std::cout << "Even palindromes: " << result[0] << std::endl;
     std::cout << "Odd palindromes: " << result[1] << std::endl;
+
+    assert(issame(result, even_odd_palindrome(n)));
 
     return 0;
 }
