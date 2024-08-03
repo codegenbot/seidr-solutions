@@ -1,8 +1,8 @@
-string match_parens(vector<string>& lst) {
+string match_parens(vector<string> lst) {
     int open = 0, close = 0;
-    for (vector<string>::iterator it = lst.begin(); it != lst.end(); ++it) {
-        for (string::iterator c = it->begin(); c != it->end(); ++c) {
-            if (*c == '(') {
+    for (auto it = lst.begin(); it != lst.end(); ++it) {
+        for (char c : *it) {
+            if (c == '(') {
                 open++;
             } else {
                 if (open > 0) {
