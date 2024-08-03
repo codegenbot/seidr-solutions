@@ -17,7 +17,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             strongest = strength;
             strongest_extension = extension;
         } else if (strength == strongest) {
-            if (std::find(extensions.begin(), extensions.end(), extension) < std::find(extensions.begin(), extensions.end(), strongest_extension))
+            if (find(extensions.begin(), extensions.end(), extension) < find(extensions.begin(), extensions.end(), strongest_extension))
                 strongest_extension = extension;
         }
     }

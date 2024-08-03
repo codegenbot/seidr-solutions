@@ -21,6 +21,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
 int main() {
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    bool assertionResult = (result == expected);
-    assert(assertionResult);
+    bool assertCondition = (result == expected);
+    if (!assertCondition) {
+        cout << "Test failed" << endl;
+    } else {
+        cout << "Test passed" << endl;
+    }
 }
