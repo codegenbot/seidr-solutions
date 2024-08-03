@@ -1,28 +1,39 @@
-bool solveBoolean(string expression) {
-    stack<char> ops;
-    stack<bool> vals;
+#include <iostream>
+using namespace std;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 && b2);
-            ops.push('&');
-        } else if (expression[i] == '|') {
-            bool b1 = vals.top();
-            vals.pop();
-            bool b2 = vals.top();
-            vals.pop();
-            vals.push(b1 || b2);
-            ops.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            vals.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            vals.push(false);
+bool solveBoolean(string s) {
+    stack<char> st;
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return false;
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) return true;
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
+    
+    while (!st.empty()) {
+        if (st.top() == '&') return false;
+        if (st.top() == '|') return true;
+        st.pop();
+    }
+    
+    return st.top() == 'T';
+}
 
-    return vals.top();
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
