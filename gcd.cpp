@@ -1,22 +1,4 @@
-#include <iostream>
-#include <vector>
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
-std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> indices;
-    // Implement your logic to find indices of target in text
-    return indices;
-}
-
-int main() {
     int a, b;
     std::cin >> a;
     std::cin >> b;
@@ -30,4 +12,3 @@ int main() {
         std::cout << i << " ";
     }
     return 0;
-}
