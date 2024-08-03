@@ -1,10 +1,22 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+#include <vector>
+#include <string>
+#include <iostream>
+
+bool issame(const std::string& s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+        }
+    }
+    return count == 0;
 }
 
-bool separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string group;
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
+    std::vector<std::string> result;
+    std::string group;
     int count = 0;
 
     for (char c : paren_string) {
@@ -18,11 +30,13 @@ bool separate_paren_groups(string paren_string) {
             if (count > 0) {
                 group += c;
             } else {
-                result.push_back(group);
+                if (issame(group)) {
+                    result.push_back(group);
+                }
                 group = "";
             }
         }
     }
 
-    return issame(result, {"group1", "group2"});
+    return result;
 }
