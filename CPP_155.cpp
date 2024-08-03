@@ -14,7 +14,7 @@ std::vector<int> even_odd_count(int num) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
         } else {
-          counts[1]++;
+            counts[1]++;
         }
     }
     return counts;
