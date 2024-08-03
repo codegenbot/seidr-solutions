@@ -18,6 +18,11 @@ int main() {
     int n, p;
     std::cin >> n >> p;
 
+    if (p == 0) {
+        std::cout << "Undefined" << std::endl;
+        return 0;
+    }
+
     std::cout << modp(n, p) << std::endl;
 
     return 0;
