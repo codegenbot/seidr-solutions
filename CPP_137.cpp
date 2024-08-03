@@ -2,8 +2,11 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 std::any compare_one(const std::any& a, const std::any& b) {
+    assert(a.has_value() && b.has_value());
+
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
