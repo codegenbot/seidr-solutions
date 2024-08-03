@@ -21,7 +21,8 @@ std::vector<int> f(int n) {
                 factorial *= j;
             }
             result[i] = factorial;
-        } else {
+        }
+        else {
             int sum = 0;
             for (int j = 1; j <= i; j++) {
                 sum += j;
