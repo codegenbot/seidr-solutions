@@ -2,8 +2,8 @@
 #include <cassert>
 
 std::vector<int> parse_nested_parens(const std::string& str) {
-    std::vector<int> result;
     int count = 0;
+    std::vector<int> result;
 
     for (char c : str) {
         if (c == '(') {
@@ -11,7 +11,7 @@ std::vector<int> parse_nested_parens(const std::string& str) {
         } else if (c == ')') {
             count--;
             if (count == 0) {
-                result.push_back(0);
+                result.push_back(1);
             }
         }
     }
@@ -24,5 +24,5 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(is_same(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
+    assert(is_same(parse_nested_parens("(()(())((())))"), {4}));
 }
