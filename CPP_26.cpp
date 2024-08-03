@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -24,9 +23,9 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5, 1, 2, 6};
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 3};
     std::vector<int> result = remove_duplicates(numbers);
-    for(int i: result) {
+    for(int i : result) {
         std::cout << i << " ";
     }
     return 0;
