@@ -4,25 +4,25 @@
 
 int main() {
     int n;
-    using namespace std;
-    cin >> n;
-    vector<double> v1(n);
+    std::cin >> n;
+
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v1[i];
+        std::cin >> vec1[i];
     }
 
-    cin >> n;
-    vector<double> v2(n);
+    std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v2[i];
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    cout << sqrt(sum) << endl;
+    double distance = std::sqrt(sum);
+    std::cout << distance << std::endl;
 
     return 0;
 }
