@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -15,9 +16,6 @@ double vectorDistance(int n) {
     
     return sqrt(sum);
 }
-
-#include <iostream>
-#include <iomanip>
 
 int main() {
     int n;
