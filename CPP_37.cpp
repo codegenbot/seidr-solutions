@@ -30,12 +30,13 @@ int main() {
     std::vector<float> result1 = sort_even(test_case1);
     
     // Test cases for issame function
-    std::vector<float> test_vec1 = {1.0f, 2.0f, 3.0f};
-    std::vector<float> test_vec2 = {1.0f, 2.0f, 3.0f};
-    std::vector<float> test_vec3 = {1.0f, 2.0f, 4.0f};
-
-    bool test_result1 = issame(test_vec1, test_vec2); // Expected: true
-    bool test_result2 = issame(test_vec1, test_vec3); // Expected: false
+    std::vector<float> test_case_a = {1.2f, 3.4f, 5.6f};
+    std::vector<float> test_case_b = {1.2f, 3.4f, 5.6f};
+    bool result_a = issame(test_case_a, test_case_b);
+    
+    std::vector<float> test_case_c = {2.3f, 4.5f};
+    std::vector<float> test_case_d = {2.3f, 4.5f, 6.7f};
+    bool result_b = issame(test_case_c, test_case_d);
 
     return 0;
 }
