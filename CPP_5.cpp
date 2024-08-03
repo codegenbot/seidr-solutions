@@ -17,4 +17,3 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimeter){
 }
 
 assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-return 0;
