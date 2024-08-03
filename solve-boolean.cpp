@@ -1,23 +1,23 @@
-Here is the solution:
+#include <string>
 
-bool evaluateBoolean(string s) {
-    stack<char> st;
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            char c1 = st.top();
-            st.pop();
-            char c2 = s[i+1];
-            i++; // move forward to skip the '&' character
-            st.push((c1 == 'T' && c2 == 'T') ? 'T' : 'F');
-        } else if(s[i] == '|') {
-            char c1 = st.top();
-            st.pop();
-            char c2 = s[i+1];
-            i++; // move forward to skip the '|' character
-            st.push((c1 == 'T' || c2 == 'T') ? 'T' : 'F');
-        } else {
-            st.push(s[i]);
+bool solveBoolean(const string &expression) {
+    int result = 0;
+
+    for (int i = 0; i < expression.size(); ++i) {
+        if (expression[i] == 'T') {
+            result |= 1;
+        } else if (expression[i] == 'F') {
+            return false;
+        } else if (expression[i] == '&') {
+            int left = result & 1;
+            result >>= 1;
+            result &= -left;
+        } else if (expression[i] == '|') {
+            int left = result & 1;
+            result >>= 1;
+            result |= left;
         }
     }
-    return st.top() == 'T';
+
+    return result != 0;
 }
