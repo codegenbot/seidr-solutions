@@ -1,4 +1,11 @@
-map<char,int> histogram(string test){
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+map<char, int> histogram(string test);
+
+map<char, int> histogram(string test){
     map<char,int> result;
     string word;
     for(auto c : test){
