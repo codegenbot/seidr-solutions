@@ -8,21 +8,45 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<float>(a)) {
         float af = boost::any_cast<float>(a);
         float bf = boost::any_cast<float>(b);
-        return (af > bf) ? a : ((bf > af) ? b : any("None"));
+        if (af > bf)
+            return a;
+        else if (bf > af)
+            return b;
+        else
+            return any("None");
     } else if (is_any_of<double>(a)) {
         double ad = boost::any_cast<double>(a);
         double bd = boost::any_cast<double>(b);
-        return (ad > bd) ? a : ((bd > ad) ? b : any("None"));
+        if (ad > bd)
+            return a;
+        else if (bd > ad)
+            return b;
+        else
+            return any("None");
     } else if (is_any_of<int>(a)) {
         int ai = boost::any_cast<int>(a);
         int bi = boost::any_cast<int>(b);
-        return (ai > bi) ? a : ((bi > ai) ? b : any("None"));
+        if (ai > bi)
+            return a;
+        else if (bi > ai)
+            return b;
+        else
+            return any("None");
     } else if (is_string(a)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        float af = boost::lexical_cast<float>(as);
-        float bf = boost::lexical_cast<float>(bs);
-        return (af > bf) ? a : ((bf > af) ? b : any("None"));
+        try {
+            float af = boost::lexical_cast<float>(as);
+            float bf = boost::lexical_cast<float>(bs);
+            if (af > bf)
+                return a;
+            else if (bf > af)
+                return b;
+            else
+                return any("None");
+        } catch (...) {
+            return any("Invalid input");
+        }
     } else {
         return any("None");
     }
