@@ -1,7 +1,6 @@
-def leaders(nums):
-    leaders_list = [nums[-1]]
-    for i in range(len(nums) - 2, -1, -1):
-        if nums[i] >= nums[-1]:
-            leaders_list.append(nums[i])
-            nums[-1] = nums[i]
-    return reversed(list(reversed(leaders_list)))
+def leaders(input_vector):
+    return [
+        x
+        for i, x in enumerate(reversed(input_vector))
+        if all(x >= y for y in input_vector[i + 1 :])
+    ]
