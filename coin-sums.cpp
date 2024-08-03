@@ -39,7 +39,7 @@ int main() {
 
     printCoins(quartersNeeded, nicklesNeeded + (remainingCents / 5), 
                dimesNeeded + ((remainingCents % 5) / 10), 
-               remainingCents);
+               quartersNeeded + (remainingCents / 25));
 
     return 0;
 }
