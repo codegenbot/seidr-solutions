@@ -3,14 +3,14 @@ using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    for (int num : nums) {
-        int complement = target - num;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, num};
+            return make_pair(nums[i], complement);
         }
-        numMap[num] = 1;
+        numMap[nums[i]] = i;
     }
-    return {{}, {}};
+    return make_pair(-1, -1); // Return default pair if no solution found
 }
 
 int main() {
