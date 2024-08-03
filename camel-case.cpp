@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
 std::string camelCase(std::string str) {
-    std::vector<std::string> words = {"");
+    std::vector<std::string> words = {""};
     for (char c : str) {
         if (c == '-') {
             words.back() += c;
