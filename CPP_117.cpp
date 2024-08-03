@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,10 +15,10 @@ vector<string> select_words(string s, int n) {
         if (c == ' ') {
             if (consonants == n) {
                 result.push_back(word);
-                consonsons = 0;
+                consonants = 0;
                 word.clear();
             } else {
-                consonsons = 0;
+                consonants = 0;
                 word.clear();
             }
         } else {
@@ -42,7 +42,7 @@ vector<string> select_words(string s, int n) {
         }
     }
 
-    if (consonsons == n) {
+    if (consonants == n) {
         result.push_back(word);
     }
 
