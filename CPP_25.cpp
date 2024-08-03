@@ -3,18 +3,7 @@
 #include <algorithm>
 
 vector<int> factorize(int n);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int value : a) {
-        if (find(b.begin(), b.end(), value) == b.end()) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> factorize(int n) {
     vector<int> factors;
@@ -28,6 +17,18 @@ vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int value : a) {
+        if (find(b.begin(), b.end(), value) == b.end()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
