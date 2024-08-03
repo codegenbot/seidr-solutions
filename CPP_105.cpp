@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <map>
 #include <string>
@@ -24,13 +23,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-int main() {
-    // ...
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
