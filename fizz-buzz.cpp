@@ -18,3 +18,4 @@ int main() {
     cin >> x;
     cout << fizzBuzz(x) << endl;
     return 0;
+}
