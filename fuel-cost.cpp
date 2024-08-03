@@ -1,13 +1,11 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int calculateFuelCost(vector<int> &vec) {
-    int sum = 0;
-    for (auto num : vec) {
-        if (num % 3 != 0) {
-            continue;
-        }
-        int divided = num / 3;
-        sum += --divided;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int newNum = (num / 3 - 2);
+        if (newNum > 0) total += newNum;
     }
-    return sum;
+    return total;
 }
