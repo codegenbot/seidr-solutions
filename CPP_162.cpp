@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 #include <cstring>
-#include "md5.h"
+#include "md5.h" // if needed
 
 std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
