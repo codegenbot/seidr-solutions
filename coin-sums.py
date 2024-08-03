@@ -1,10 +1,12 @@
-Here is the solution:
-
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    p = cents // 25
-    q = (cents % 25) // 10
-    d = (cents % 10) // 5
-    n = cents % 5
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
+    res = [0, 0, 0, 0]
+    for i in range(len(coins)):
+        while cents >= coins[i]:
+            cents -= coins[i]
+            res[i] += 1
+    return res
 
-    return p, q, d, n
+
+cents = int(input())
+print(*coin_sums(cents))
