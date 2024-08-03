@@ -1,3 +1,7 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = str.maketrans(input1, input2)
-    return input3.translate(cipher)
+def substitution_cipher():
+    cipher_map = [c for c1, c2 in zip(input(), input())]
+    message = input()
+    deciphered_message = ''.join([c for c, c_map in zip(message, cipher_map) if c_map.isalpha() else c])
+    return deciphered_message
+
+print(substitution_cipher())
