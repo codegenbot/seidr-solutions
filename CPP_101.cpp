@@ -1,7 +1,6 @@
 #include <cassert>
 #include <vector>
 #include <string>
-#include <iostream>
 #include <sstream>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -27,6 +26,6 @@ std::vector<std::string> words_string(const std::string& str) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed, gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed,gamal"), {"ahmed", "gamal"}));
     return 0;
 }
