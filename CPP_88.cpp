@@ -1,15 +1,17 @@
-vector<int> sort_array(vector<int> array){
-    if(array.empty()) return array;
+#include <algorithm>
 
-    int sum = array[0] + array.back();
-    vector<int> result;
+vector<int> sort_array(vector<int> array) {
+    if (array.empty()) {
+        return array;
+    }
     
-    if(sum % 2 == 1) {
-        result = array;
-        std::sort(result.begin(), result.end());
+    int sum = array[0] + array.back();
+    vector<int> result = array;
+    
+    if (sum % 2 == 1) {
+        sort(result.begin(), result.end());
     } else {
-        result = array;
-        std::sort(result.begin(), result.end(), greater<int>());
+        sort(result.rbegin(), result.rend());
     }
     
     return result;
