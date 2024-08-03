@@ -7,8 +7,8 @@ int prod_signs(const std::vector<int>& arr) {
     int sum_magnitudes = 0;
 
     for (int num : arr) {
-        product *= (num == 0) ? 1 : num / abs(num);
-        sum_magnitudes += abs(num);
+        product *= (num == 0) ? 1 : num / std::abs(num);
+        sum_magnitudes += std::abs(num);
     }
 
     return product * sum_magnitudes;
