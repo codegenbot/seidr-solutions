@@ -12,26 +12,20 @@ int gcd(int a, int b) {
 
 std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
     std::vector<int> indices;
-    int textSize = text.size();
-    int targetSize = target.size();
-    
-    for (int i = 0; i <= textSize - targetSize; ++i) {
-        if (text.substr(i, targetSize) == target) {
+    for (int i = 0; i <= text.length() - target.length(); ++i) {
+        if (text.substr(i, target.length()) == target) {
             indices.push_back(i);
         }
     }
-    
     return indices;
 }
 
 int main() {
     int a, b;
-    std::cin >> a;
-    std::cin >> b;
+    std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    // std::cin.ignore(); // Remove this line
     getline(std::cin, text);
     getline(std::cin, target);
 
