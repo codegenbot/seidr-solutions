@@ -1,3 +1,8 @@
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 std::string string_xor(const std::string &a, const std::string &b) {
     assert(a.size() == b.size());
     
