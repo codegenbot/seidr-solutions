@@ -2,7 +2,7 @@
 #include <algorithm>
 
 int next_smallest(vector<int>& lst) {
-    sort(lst.begin(), lst.end());
+sort(lst.begin(), lst.end());
     int count = 0;
     for (int i = 1; i < lst.size(); ++i) {
         if (lst[i] != lst[i - 1]) {
