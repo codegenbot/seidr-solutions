@@ -12,7 +12,7 @@ float mean_abs_deviation(const std::vector<float>& numbers) {
     for (float num : numbers) {
         deviation_sum += std::abs(num - mean);
     }
-    float mean_abs_deviation = deviation_sum / numbers.size();
+    float mean_abs_deviation_result = deviation_sum / numbers.size();
 
-    return mean_abs_deviation;
+    return mean_abs_deviation_result;
 }
