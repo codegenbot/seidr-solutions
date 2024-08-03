@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (std::cin >> n) {
+
+    while ((cin >> n) && !cin.eof()) {
         nums.push_back(n);
     }
 
@@ -15,7 +16,7 @@ int main() {
         sum += (num / 3) - 2;
     }
 
-    std::cout << sum << std::endl;
+    cout << sum << endl;
 
     return 0;
 }
