@@ -13,10 +13,7 @@ int maximum(const std::vector<int>& nums, int default_val) {
 }
 
 int main() {
-    // Test case for issame function
     assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
-    
-    // Test case for maximum function
     assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
 
     return 0;
