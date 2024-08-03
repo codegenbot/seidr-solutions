@@ -1,13 +1,10 @@
-def decipher_cipher(cipher_text1, cipher_text2, text_to_decipher):
-    cipher = {}
-    for i in range(len(cipher_text1)):
-        cipher[cipher_text1[i]] = cipher_text2[i]
-
-    deciphered_text = ""
-    for char in text_to_decipher:
-        if char in cipher:
-            deciphered_text += cipher[char]
+```
+def substitution_cipher(cipher_text1, cipher_text2, text):
+    deciphered = ""
+    for char in text:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            deciphered += cipher_text2[index]
         else:
-            deciphered_text += char
-
-    return deciphered_text
+            deciphered += char
+    return deciphered
