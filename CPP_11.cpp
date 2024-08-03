@@ -16,10 +16,6 @@ std::string compareStrings(const std::string &a, const std::string &b) {
     assert(a.size() == b.size());
     
     std::string result = string_xor(a, b);
+    
     return result;
-}
-
-int main() {
-    assert (string_xor("0101", "0000") == "0101");
-    return 0;
 }
