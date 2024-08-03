@@ -1,27 +1,35 @@
-#include <iostream>
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
+#include <algorithm>
+#include <cmath>
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == b.type()) {
-        if (a.type() == typeid(int)) {
-            return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
-        } else if (a.type() == typeid(float)) {
-            return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
-        } else if (a.type() == typeid(std::string)) {
-            float a_float = std::stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
-            float b_float = std::stof(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
-            return a_float > b_float ? a : b;
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+            return a;
+        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
+            return b;
+        } else {
+            return std::any();
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+            return a;
+        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
+            return b;
+        } else {
+            return std::any();
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        float a_float = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float b_float = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        if (a_float > b_float) {
+            return a;
+        } else if (a_float < b_float) {
+            return b;
+        } else {
+            return std::any();
         }
     }
-    return "None";
-}
-
-int main() {
-    assert (boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
-    assert (boost::any_cast<int>(compare_one(1, 2)) == 2);
-    assert (boost::any_cast<float>(compare_one(1.5f, 1.2f)) == 1.5f);
-    
-    return 0;
 }
