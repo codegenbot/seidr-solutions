@@ -1,6 +1,5 @@
-Here is the completed code:
+Here is the solution:
 
 bool is_simple_power(int x, int n) {
-    double y = pow(n, ceil(log(x) / log(n)));
-    return y == x;
+    return pow(n, ceil(log2(x))) == x;
 }
