@@ -1,7 +1,4 @@
 #include <boost/any.hpp>
-#include <string>
-#include <stdexcept>
-
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -20,7 +17,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int ai = boost::any_cast<int>(a);
         float bf = boost::any_cast<float>(b);
-        return (ai > bf) ? a : ((ai < bf) ? b : boost::any(typeid(std::string)));
+        return (ai > bf) ? a : ((ai < bf) ? b : boost::any(typeid(int)));
     } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         int ai = boost::any_cast<int>(a);
         std::string bs = boost::any_cast<std::string>(b);
