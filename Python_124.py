@@ -11,14 +11,10 @@ def valid_date(date):
         return False
     if int_month < 1 or int_month > 12:
         return False
-    days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
-    if int_month == 2 and (int_day < 1 or int_day > days_in_month[int_month-1]):
+    if (int_month in [1,3,5,7,8,10,12] and int_day > 31) or \
+       (int_month in [4,6,9,11] and int_day > 30) or \
+       (int_month == 2 and int_day > 29):
         return False
-    elif int_month in [1,3,5,7,8,10,12] and (int_day < 1 or int_day > 31):
+    if len(year) < 4:
         return False
-    elif int_month in [4,6,9,11] and (int_day < 1 or int_day > 30):
-        return False
-    elif int_month == 2 and (int_day < 1 or int_day > 29):
-        return False
-    else:
-        return True
+    return True
