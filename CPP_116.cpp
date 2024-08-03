@@ -1,9 +1,10 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <bitset>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
