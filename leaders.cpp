@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -20,21 +20,12 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
+    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> result = findLeaders(nums);
+    
+    for (int num : result) {
+        cout << num << " ";
     }
-
-    vector<int> leaders = findLeaders(nums);
-
-    for (int leader : leaders) {
-        cout << leader << " ";
-    }
-    cout << endl;
-
+    
     return 0;
 }
