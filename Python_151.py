@@ -1,8 +1,7 @@
 def check(lst, result):
-    print("Input List:", lst)
-    if isinstance(result, int) and result > 0:
-        print("The difference is positive.")
-    elif isinstance(result, int) and result < 0:
-        print("The difference is negative.")
+    if isinstance(lst[0], int) and len(lst) > 1:
+        return "Input is valid"
+    elif result == abs(sum(i for i in lst) - min(lst)) * 2:
+        return "The double the difference of the list is correct"
     else:
-        print("It's zero.")
+        return "The double the difference of the list is incorrect"
