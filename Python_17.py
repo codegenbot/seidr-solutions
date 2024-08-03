@@ -1,7 +1,5 @@
 ```python
 def parse_music(music_string: str) -> List[int]:
-    '''
-    ''
     music_list = []
     i = 0
     while i < len(music_string):
