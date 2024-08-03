@@ -1,7 +1,9 @@
+```
 def double_the_difference(lst):
     return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
 
-check = input("Enter a list of numbers separated by space: ")
-lst = [int(x) for x in check.split()]
-odd_sum = sum(i for i in lst if i % 2 != 0)
-print(double_the_difference(lst) * 2 == odd_sum)
+input_list = input().split()
+odd_sum = sum(int(i) for i in input_list if int(i) % 2 != 0)
+expected_result = 2 * odd_sum
+
+print(double_the_difference(input_list))
