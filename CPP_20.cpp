@@ -14,3 +14,8 @@ pair<float, float> findClosestElements(vector<float> numbers) {
     }
     return {closest_elements.first, closest_elements.second};
 }
+
+int main() {
+    assert(issame(findClosestElements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
+}
