@@ -1,8 +1,8 @@
-```
-#include <bits/stdc++.h>
-using namespace std;
-#define ll long long int
-int sum_squares(vector<float> lst){
+#include <cmath>
+#include <vector>
+#include <cassert>
+
+int sum_squares(std::vector<float> lst){
     int result = 0;
     for(float num : lst) {
         int ceil_num = ceil(num);
@@ -10,8 +10,8 @@ int sum_squares(vector<float> lst){
     }
     return result;
 }
+
 int main() {
-    vector<float> numbers = {1.5, 3.2, 4.8};
-    cout << "Sum of squares is: " << sum_squares(numbers) << endl;
+    assert(sum_squares({-1,1,0})==2);
     return 0;
 }
