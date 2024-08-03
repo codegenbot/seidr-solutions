@@ -1,27 +1,27 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] != '/') {
-            if (isdigit(s[i])) {
-                score += s[i] - '0';
-            } else {
-                score += 10;
-            }
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (s[i] == '/') {
+            int left = s[i-1] - '0';
+            int right = s[i+1] - '0';
+            score += left + right;
         } else {
-            string first, second;
-            int j = i + 1;
-            while (j < 10 && !isdigit(s[j])) {
-                ++j;
+            int count = s[i] - '0';
+            for (int j = 0; j < count; j++) {
+                if (i == 9) {
+                    score += 10;
+                } else if (s[i+1] == 'X') {
+                    score += 10 + 10;
+                    break;
+                } else if (s[i+1] == '/') {
+                    int left = s[i+2] - '0';
+                    int right = s[i+3] - '0';
+                    score += 10 + left + right;
+                    break;
+                }
             }
-            for (; i <= j; ++i) {
-                first += s[i];
-            }
-            i = j;
-            while (i < 10 && isdigit(s[i])) {
-                second += s[i];
-                ++i;
-            }
-            score += (stoi(first) + stoi(second));
         }
     }
     return score;
