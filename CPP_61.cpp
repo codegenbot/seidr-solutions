@@ -17,7 +17,7 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string testString = "((()))"; // Input string for testing
+    std::string testString = "((()))"; 
     std::cout << std::boolalpha << correct_bracketing(testString) << std::endl;
     return 0;
 }
