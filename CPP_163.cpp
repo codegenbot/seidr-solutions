@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector> // Include vector header
 
 std::vector<int> generate_integers(int start, int end);
 
