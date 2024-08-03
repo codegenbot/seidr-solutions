@@ -1,29 +1,34 @@
 #include <vector>
 #include <string>
+using namespace std;
 
-int masterMind(string code, string guess) {
+int mastermindCode(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
+    
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
 
-    vector<vector<int>> codeIndex(6, vector<int>(4));
-    for (int i = 0; i < 4; ++i)
-        codeIndex[code[i] - '0' - 1][i]++;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i])
+    for (int i = 0; i < 4; i++) {
+        if (codeVector[i] == guessVector[i]) {
             blackPegs++;
-        else {
-            int index = codeIndex[guess[i] - '0' - 1][i];
-            whitePegs += min(index, 1);
+            codeVector[i] = '-';
+            guessVector[i] = '-';
         }
     }
 
-    for (int i = 0; i < 6; ++i)
-        if (codeIndex[i].size() > blackPegs) {
-            int j = 0;
-            while (j < 4 && codeIndex[i][j] > 1 - blackPegs) j++;
-            whitePegs += max(0, j);
+    for (int i = 0; i < 4; i++) {
+        bool found = false;
+        for (int j = 0; j < 4; j++) {
+            if (guessVector[j] == codeVector[i] && codeVector[i] != '-') {
+                whitePegs++;
+                codeVector[i] = '-';
+                guessVector[j] = '-';
+                found = true;
+                break;
+            }
         }
+    }
 
-    return blackPegs + whitePegs;
+    return make_pair(blackPegs, whitePegs).second;
 }
