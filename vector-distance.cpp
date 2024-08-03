@@ -20,10 +20,10 @@ int main() {
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += pow(vec1[i] - vec2[i], 2.0);
     }
 
-    cout << sqrt(sum) << endl;
+    cout << fixed << sqrt(static_cast<double>(sum)) << endl;
 
     return 0;
 }
