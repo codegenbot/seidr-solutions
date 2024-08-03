@@ -2,6 +2,9 @@
 #include <string>
 #include <cassert>
 
+// Declare function before using it
+std::vector<std::string> b(std::string str);
+
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix = "";
@@ -17,7 +20,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    auto all_prefixes = b;
+    auto all_prefixes = b; // Function alias assignment
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
