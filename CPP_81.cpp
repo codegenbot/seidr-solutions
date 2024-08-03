@@ -28,14 +28,17 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (g > 0.7)
             grade = "D";
         else
-            grade = "E";
+            grade = "F";
         letter_grades.push_back(grade);
     }
     return letter_grades;
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
+    std::vector<float> grades = {3.5, 2.8};
     std::vector<std::string> result = numerical_letter_grade(grades);
+    for (const auto& grade : result) {
+        std::cout << grade << " ";
+    }
     return 0;
 }
