@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -17,14 +16,9 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-    std::cout << "Enter numbers separated by spaces (e.g., 1 2 3 4 5): ";
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
+    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
     input = remove_duplicates(input);
     assert(is_same(input, std::vector<int>{1, 4, 5}));
-    
+
     return 0;
 }
