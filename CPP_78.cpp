@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-int hex_key(const std::string& num){
+int hex_key(const std::string &num){
     int count = 0;
     std::string primes = "2357BD";
     
@@ -14,8 +15,9 @@ int hex_key(const std::string& num){
     return count;
 }
 
-int main(){
+int main() {
     assert(hex_key("") == 0);
-  
+    // Add more test cases here
+    
     return 0;
 }
