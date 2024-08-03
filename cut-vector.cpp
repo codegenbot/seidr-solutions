@@ -8,9 +8,15 @@ vector<vector<int>> cutVector(vector<int> vec) {
     
     for(int i = 0; i < n; i++) {
         if(i == n - 1 || vec[i] != vec[i+1]) {
-            vector<int> leftvec(vec.begin(), vec.begin() + i + 1);
-            vector<int> rightvec(vec.begin() + i, vec.end());
-            result.push_back({leftvec, rightvec});
+            vector<int> left = vector<int>();
+            for(int j = 0; j <= i; j++) {
+                left.push_back(vec[j]);
+            }
+            vector<int> right = vector<int>();
+            for(int j = i + 1; j < n; j++) {
+                right.push_back(vec[j]);
+            }
+            result.push_back({left, right});
             break;
         }
     }
