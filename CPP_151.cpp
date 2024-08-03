@@ -11,9 +11,6 @@ long long double_the_difference(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
-    std::vector<int> lst = {1, 3, 5, 7, 9};
-    long long odd_sum = 165LL;
-    assert(double_the_difference(lst) == odd_sum);
-    return 0;
-}
+std::vector<int> lst = {1, 3, 5, 7, 9};
+long long odd_sum = 165LL;
+assert(double_the_difference(lst) == odd_sum);
