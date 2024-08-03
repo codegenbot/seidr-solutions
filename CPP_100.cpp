@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <cassert>
+
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
     while(n > 0){
