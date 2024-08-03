@@ -1,12 +1,14 @@
-int next_smallest(vector<int> lst) {
-    vector<int> v = lst;
-    if(v.size() < 2) return -1; // Return None (or -1 in this case)
-    sort(v.begin(), v.end());
-    for(int i=0; i<v.size()-1; i++) {
-        if(v[i] != v[i+1]) {
-            if(i == v.size() - 2) return v[i+1];
-            else return v[i];
+#include <vector>
+#include <algorithm>
+
+int next_smallest(std::vector<int> lst) {
+    if (lst.size() < 2) return -1; 
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+    for (int i = 0; i < sorted_lst.size() - 1; i++) {
+        if (sorted_lst[i] != sorted_lst[i + 1]) {
+            return *std::next(std::find(lst.begin(), lst.end(), sorted_lst[i + 1])) == sorted_lst[0] ? sorted_lst[i + 1] : -1;
         }
     }
-    return -1; // Return None (or -1 in this case)
+    return -1; 
 }
