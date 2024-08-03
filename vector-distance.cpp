@@ -7,14 +7,14 @@
 int main() {
     int n;
     if (!(std::cin >> n) || n <= 0) {
-        std::cerr << "Invalid input for dimensions of vectors" << std::endl;
+        std::cerr << "Invalid input for vector dimensions." << std::endl;
         return 1;
     }
 
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         if (!(std::cin >> vec1[i])) {
-            std::cerr << "Invalid input for vector 1" << std::endl;
+            std::cerr << "Invalid input for vector elements." << std::endl;
             return 1;
         }
     }
@@ -22,7 +22,7 @@ int main() {
     std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         if (!(std::cin >> vec2[i])) {
-            std::cerr << "Invalid input for vector 2" << std::endl;
+            std::cerr << "Invalid input for vector elements." << std::endl;
             return 1;
         }
     }
@@ -35,6 +35,6 @@ int main() {
     double distance = std::sqrt(sum);
 
     std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
-
+    
     return 0;
 }
