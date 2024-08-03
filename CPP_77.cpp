@@ -1,16 +1,18 @@
+```cpp
+#include<iostream>
+using namespace std;
+
 bool iscuber(int a){
     int c = (int)cbrt(a);
     return c*c*c == a;
 }
 
-#include<iostream>
-using namespace std;
-
-int main() {
+int main(){
     int n;
-    cin >> n;
+    cout<<"Enter number: ";
+    cin>>n;
     if(iscuber(n))
-        cout << "YES";
+        cout<<n<<" is a perfect cube.";
     else
-        cout << "NO";
+        cout<<n<<" is not a perfect cube.";
 }
