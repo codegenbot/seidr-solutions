@@ -1,38 +1,39 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
+std::string toCamelCase(const std::string& s) {
+    std::string result;
+    size_t pos = 0;
+
+    while (pos < s.length()) {
+        // Find the next space or dash
+        size_t nextSpaceOrDash = s.find(' ', pos);
+        if (nextSpaceOrDash == std::string::npos) {
+            nextSpaceOrDash = s.find('-', pos);
+        }
+
+        if (nextSpaceOrDash != std::string::npos) {
+            // Add the current word to the result
+            for (size_t i = pos; i < nextSpaceOrDash; ++i) {
+                result += toupper(s[i]);
             }
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
+            result.push_back(' ');
+            pos = nextSpaceOrDash + 1;
         } else {
-            if (!firstWord) {
-                result += c;
-            } else {
-                result += c;
-                firstWord = false;
+            // Add the remaining words to the result
+            for (size_t i = pos; i < s.length(); ++i) {
+                result += tolower(s[i]);
             }
+            break;
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
