@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <set>
+#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
