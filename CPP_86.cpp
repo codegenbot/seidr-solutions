@@ -19,6 +19,9 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    // Add test cases with assert statements here
+    // Sample test cases using assert
+    assert(anti_shuffle("fedcba") == "abcdef");
+    assert(anti_shuffle("bya i ekscwiaosjo") == "a abceiijkoosswy");
+
     return 0;
 }
