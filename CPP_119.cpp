@@ -1,14 +1,19 @@
-int balance = 0;
-for (const string& s : lst) {
-    for (char c : s) {
-        if (c == '(') {
-            balance++;
-        } else {
-            if (balance == 0) {
-                return "No";
+#include <string>
+#include <vector>
+
+std::string match_parens(const std::vector<std::string>& lst) {
+    int balance = 0;
+    for (const std::string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                balance++;
+            } else {
+                if (balance == 0) {
+                    return "No";
+                }
+                balance--;
             }
-            balance--;
         }
     }
+    return (balance == 0) ? "Yes" : "No";
 }
-return (balance == 0) ? "Yes" : "No";
