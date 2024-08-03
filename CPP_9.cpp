@@ -28,6 +28,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-std::cout << "Test Passed!";
-return 0;
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    std::cout << "Test Passed!";
+    return 0;
+}
