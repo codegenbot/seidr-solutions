@@ -1,7 +1,6 @@
 #include <vector>
-using namespace std;
 
-int count_non_zero_digit_sums(vector<int> n){
+int count_nums(std::vector<int> n){
     int count = 0;
     for (int num : n) {
         int sum = 0;
@@ -18,8 +17,7 @@ int count_non_zero_digit_sums(vector<int> n){
 }
 
 int main() {
-    // Input code based on the contest rules
-
-    // Call the modified function
-    return 0;
+    std::vector<int> nums = {123, -456, 789, 0, -12, 345};
+    int result = count_nums(nums);
+    return result;
 }
