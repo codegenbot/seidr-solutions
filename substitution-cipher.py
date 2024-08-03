@@ -1,10 +1,11 @@
-```
-def substitution_cipher(cipher1, cipher2, message):
-    deciphered_message = ""
-    for char in message:
-        if char in cipher1:
-            index = cipher1.index(char)
-            deciphered_message += cipher2[index]
-        else:
-            deciphered_message += char
-    return deciphered_message
+def substitution_cipher(cipher_map, message):
+    return "".join(
+        [cipher_map[i] if i < len(cipher_map) else "" for i in range(len(message))]
+    )
+
+
+# test cases
+print(substitution_cipher("hello", "helo"))  # output: hello
+print(substitution_cipher("jhj", "jjj"))  # output: jjj
+print(substitution_cipher("azaz", "aazz"))  # output: zzaa
+print(substitution_cipher("elle", "eeeee"))  # output: eeeee
