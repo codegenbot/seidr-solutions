@@ -1,10 +1,14 @@
-```
-def substitution_cipher(cipher_text1, cipher_text2, text):
+def substitution_cipher(cipher1, cipher2, message):
+    mapping = {}
+    for char in range(len(cipher1)):
+        if cipher1[char] != cipher2[char]:
+            mapping[cipher1[char]] = cipher2[char]
+
     result = ""
-    for char in text:
-        if char in cipher_text1:
-            index = cipher_text1.index(char)
-            result += cipher_text2[index]
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
+
     return result
