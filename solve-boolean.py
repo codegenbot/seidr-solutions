@@ -1,14 +1,16 @@
-def solve(input_str):
-    stack = []
-    for char in input_str + "&":
-        if char == "t":
-            stack.append(True)
-        elif char == "f":
-            stack.append(False)
-        elif char == "|":
-            b1, b2 = stack.pop(), stack.pop()
-            stack.append(b1 or b2)
-        elif char == "&":
-            b1, b2 = stack.pop(), stack.pop()
-            stack.append(b1 and b2)
-    return stack[0]
+```
+def solve_boolean(s):
+    if s == 'T':
+        return True
+    elif s == 'F':
+        return False
+    elif '&' in s and '|' in s:
+        raise ValueError('Invalid input')
+    else:
+        result = True if s[0] == 'T' else False
+        for i in range(1, len(s)):
+            if s[i] == '&':
+                result &= eval(s[i+1])
+            elif s[i] == '|':
+                result |= eval(s[i+1])
+        return result
