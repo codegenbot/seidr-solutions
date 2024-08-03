@@ -1,12 +1,9 @@
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    min_diff = float("inf")
-    closest_pair = ()
-
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            diff = abs(numbers[i] - numbers[j])
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (numbers[i], numbers[j])
-
-    return closest_pair
+    numbers.sort()
+    closest = min(
+        (abs(num1 - num2), (num1, num2))
+        for num1 in numbers
+        for num2 in numbers
+        if num1 < num2
+    )
+    return closest[1]
