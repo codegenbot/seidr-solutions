@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -20,14 +20,10 @@ std::vector<int> even_odd_palindrome(int n) {
     return { even, odd };
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-
-    std::vector<int> result = even_odd_palindrome(n);
-    std::cout << "Even palindromes: " << result[0] << std::endl;
-    std::cout << "Odd palindromes: " << result[1] << std::endl;
-
-    return 0;
+    assert(issame(even_odd_palindrome(1), {0, 1}));
 }
