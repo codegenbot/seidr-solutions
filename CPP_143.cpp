@@ -1,18 +1,15 @@
+
+#include <iostream>
 #include <string>
+#include <cmath>
 
 bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
     }
     return true;
 }
-
-std::string words_in_sentence(std::string sentence);
 
 std::string words_in_sentence(std::string sentence) {
     std::string result = "";
@@ -34,5 +31,9 @@ std::string words_in_sentence(std::string sentence) {
 }
 
 int main() {
-    // Your main function code here
+    std::string input_sentence;
+    std::getline(std::cin, input_sentence);
+    std::string output = words_in_sentence(input_sentence);
+    std::cout << output << std::endl;
+    return 0;
 }
