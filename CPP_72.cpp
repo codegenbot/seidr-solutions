@@ -1,16 +1,12 @@
-int sum = 0;
+bool will_it_fly(std::vector<int> q, int w) {
+    int sum = 0;
     for (int num : q) {
         sum += num;
     }
     
-    if (sum <= w) {
-        vector<int> reversed_q = q;
-        reverse(reversed_q.begin(), reversed_q.end());
-        
-        if (q == reversed_q) {
-            return true;
-        }
+    if (sum <= w && std::equal(q.begin(), q.end(), q.rbegin())) {
+        return true;
+    } else {
+        return false;
     }
-    
-    return false;
 }
