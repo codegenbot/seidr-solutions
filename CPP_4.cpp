@@ -8,7 +8,7 @@ float mean_absolute_deviation(const std::vector<float>& numbers) {
         sum += num;
     }
     float mean = sum / numbers.size();
-    
+
     float mad = 0;
     for (float num : numbers) {
         mad += std::abs(num - mean);
