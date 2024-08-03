@@ -2,39 +2,33 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string words[1000]; // Assuming no more than 1000 words
-    size_t pos = 0;
-    size_t lastPos = 0;
-    while ((pos = test.find(" ")) != string::npos) {
-        words[lastPos] = test.substr(0, pos);
-        test.erase(0, pos + 1);
-        lastPos++;
-    }
-    if (!test.empty()) {
-        words[lastPos] = test;
-    }
-
-    for (const auto& word : words) {
-        size_t count = 0;
-        char letter = word[0];
-        for (size_t i = 0; i < word.size(); ++i) {
-            if (word[i] == letter) {
-                count++;
-            } else {
-                break;
+    string word;
+    for (char c : test) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                ++result[word[0]];
+                word.clear();
             }
-        }
-        if (result.find(letter) == result.end() || count > result[letter]) {
-            result.clear();
-            for (size_t i = 0; i < count; ++i) {
-                result[letter]++;
-            }
-        } else if (count == result[letter]) {
-            for (size_t i = 0; i < count; ++i) {
-                result[letter]++;
-            }
+        } else {
+            word += c;
         }
     }
 
-    return result;
+    if (!word.empty()) {
+        ++result[word[0]];
+    }
+
+    map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxCountMap.clear();
+            maxCountMap[it->first] = it->second;
+        } else if (it->second == maxCount) {
+            maxCountMap[it->first] = it->second;
+        }
+    }
+
+    return maxCountMap;
 }
