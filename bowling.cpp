@@ -3,40 +3,37 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> frames;
-    
+    bool spare = false;
+    bool strike = false;
+
     for (char c : s) {
         if (c == 'X') {
-            score += 10 + (roll * 10);
-            roll = 0;
-            frames.push_back(10);
+            strike = true;
+            score += 10;
         } else if (c == '/') {
-            frames.push_back(10 - roll);
-            roll = 0;
-        } else if (isdigit(c)) {
-            int val = c - '0';
-            if (val + roll <= 10) {
-                roll += val;
-            } else {
-                score += 10 + (roll * 10);
-                roll = val;
-                frames.push_back(10);
+            spare = true;
+            score += 5;
+        } else if (c >= '1' && c <= '9') {
+            int frameScore = c - '0';
+            if (!strike) {
+                score += frameScore;
             }
+            strike = false;
+            spare = false;
+        } else {
+            continue;
         }
     }
-    
-    for (int i = 0; i < frames.size(); i++) {
-        if (frames[i] == 2) {
-            if (i != frames.size() - 1) {
-                score += 12;
-            } else {
-                score += 2 + (roll * 10);
-            }
-        } else if (frames[i] > 2) {
-            score += 3 * (frames[i]);
-        }
+
+    // last two frames
+    if (spare) {
+        score += 5;
+    } else {
+        score += 10;
     }
-    
+    if (!strike && !spare) {
+        score += 2;
+    }
+
     return score;
 }
