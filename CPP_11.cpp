@@ -5,7 +5,7 @@ using namespace std;
 
 std::string string_xor(const std::string &a, const std::string &b) {
     assert(a.size() == b.size());
-
+    
     std::string result = "";
     for (int i = 0; i < a.size(); i++) {
         if (a[i] == b[i]) {
@@ -19,7 +19,7 @@ std::string string_xor(const std::string &a, const std::string &b) {
 
 std::string compareStrings(const std::string &a, const std::string &b) {
     assert(a.size() == b.size());
-
+    
     std::string result = "";
     for (int i = 0; i < a.size(); i++) {
         if (a[i] == b[i]) {
