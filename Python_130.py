@@ -2,11 +2,12 @@ def tri(n):
     if n == 0:
         return [3]
     elif n == 1:
-        return [3]
-    elif n == 2:
-        return [3, 2]
+        return [1, 3]
     else:
-        trib = [3, 2]
-        for i in range(2, n):
-            trib.append(trib[i - 1] + trib[i - 2] + (i + 1) / 2)
-        return trib
+        seq = [1, 3, 2]
+        for i in range(3, n + 1):
+            if i % 2 == 0:
+                seq.append(int((i / 2) + 1))
+            else:
+                seq.append(seq[i - 1] + seq[i - 2] + (seq[i - 3] if i >= 4 else 3))
+        return seq
