@@ -1,3 +1,6 @@
+Here is the modified code with the missing namespace declaration:
+
+```cpp
 using namespace std;
 
 int gcd(int a, int b) {
