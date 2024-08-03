@@ -1,4 +1,7 @@
-int correct_bracketing(string brackets) {
+#include <iostream>
+#include <string>
+
+bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for (char c : brackets) {
         if (c == '(') {
@@ -14,7 +17,7 @@ int correct_bracketing(string brackets) {
 }
 
 int main() {
-    string inputString = "(()())";
-    cout << correct_bracketing(inputString);
+    std::string testString = "((()))"; // Input string for testing
+    std::cout << std::boolalpha << correct_bracketing(testString) << std::endl;
     return 0;
 }
