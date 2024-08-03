@@ -40,3 +40,4 @@ int main() {
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
+}
