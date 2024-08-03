@@ -1,11 +1,11 @@
-#include <vector> // Add this line
+#include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Update function signature
-    return a == b; // Compare vectors using ==
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 bool separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result; // Use std::vector and std::string
+    std::vector<std::string> result;
     std::string group;
     int count = 0;
 
@@ -26,5 +26,5 @@ bool separate_paren_groups(std::string paren_string) {
         }
     }
 
-    return issame(result, {"group1", "group2"}); // Compare with correct values
+    return issame(result, {"group1", "group2"});
 }
