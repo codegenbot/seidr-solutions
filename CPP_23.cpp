@@ -1,3 +1,8 @@
-int myStrlen(string str){
-    return str.length();
+#include <string>
+
+int main() {
+    std::string s;
+    cin >> s;
+    cout << s.length();
+    return 0;
 }
