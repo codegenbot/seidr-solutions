@@ -2,37 +2,38 @@
 #include <string>
 #include <vector>
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
     bool hasWhitespace = false;
     bool hasComma = false;
     
-    for(char c : txt){
-        if(c == ' '){
+    for (char c : txt) {
+        if (c == ' ') {
             hasWhitespace = true;
             result.push_back(word);
             word = "";
-        } 
-        else if(c == ','){
+        } else if (c == ',') {
             hasComma = true;
             result.push_back(word);
             word = "";
-        } 
-        else {
+        } else {
             word += c;
         }
     }
     
-    if(hasWhitespace || hasComma){
-        if(word != ""){
+    if (hasWhitespace || hasComma) {
+        if (word != "") {
             result.push_back(word);
         }
-    } 
-    else {
+    } else {
         int oddCount = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 oddCount++;
             }
         }
@@ -40,8 +41,4 @@ std::vector<std::string> split_words(std::string txt) {
     }
     
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
 }
