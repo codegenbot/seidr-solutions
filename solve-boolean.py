@@ -3,9 +3,9 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
+        return all(part.lower() == 't' for part in expression.split('&'))
     elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+        return any(part.lower() == 't' for part in expression.split('|'))
