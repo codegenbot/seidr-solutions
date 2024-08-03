@@ -12,14 +12,19 @@ vector<string> by_length(vector<int> arr) {
                                      {4, "Four"}, {5, "Five"}, {6, "Six"},
                                      {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     vector<string> result;
+    
     for (int num : arr) {
         if (num >= 1 && num <= 9)
             result.push_back(numberNames[num]);
     }
-    sort(result.begin(), result.end(), [](string a, string b) {
-        return a.length() < b.length();
-    });
+    
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             return a.size() < b.size();
+         });
+    
     reverse(result.begin(), result.end());
+    
     return result;
 }
 
