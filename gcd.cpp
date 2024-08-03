@@ -1,25 +1,19 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    int indices[1000000];
-    int count = 0;
-    for(int i = 0; i <= text.length() - target.length(); i++) {
-        bool isTarget = true;
-        for(int j = 0; j < target.length(); j++) {
-            if(text[i+j] != target[j]) {
-                isTarget = false;
-                break;
-            }
-        }
-        if(isTarget) {
-            indices[count++] = i;
+vector<int> findIndices(const string& text, const string& target) {
+    vector<int> result;
+    int start = 0;
+    
+    while(start + target.size() <= text.size()) {
+        if(text.substr(start, target.size()) == target) {
+            result.push_back(start);
+            start += min(target.size(), start + target.size());
+        } else {
+            start++;
         }
     }
-    std::vector<int> result(count);
-    for(int i = 0; i < count; i++) {
-        result[i] = indices[i];
-    }
+    
     return result;
 }
 
@@ -33,16 +27,14 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << "\n";
-    
-    std::string text, target;
-    std::cin >> text >> target;
-    for(auto i : indicesOfSubstring(text, target)) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    
+    int n1, n2;
+    cin >> n1 >> n2;
+    cout << gcd(n1, n2) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> indices = findIndices(text, target);
+    for (int i : indices)
+        cout << i << " ";
     return 0;
 }
