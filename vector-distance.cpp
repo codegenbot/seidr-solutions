@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -22,8 +23,7 @@ int main() {
     }
     
     float distance = std::sqrt(sum);
-    std::cout.precision(16);
-    std::cout << distance << std::endl;
-    
+    std::cout << std::setprecision(15) << distance << std::endl;
+
     return 0;
 }
