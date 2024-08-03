@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -38,15 +39,18 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::string s, c;
-    std::cout << "Enter the string: ";
+    std::cout << "Enter string: ";
     std::cin >> s;
-    std::cout << "Enter the character to delete: ";
+    std::cout << "Enter character to delete: ";
     std::cin >> c;
+    
     std::vector<std::string> result = reverse_delete(s, c);
-    if (issame({"", "True"}, result)) {
-        std::cout << "The reversed string is a palindrome." << std::endl;
+    
+    if (issame({s}, result)) {
+        std::cout << "Result: Reversed string is the same as original." << std::endl;
     } else {
-        std::cout << "The reversed string is not a palindrome." << std::endl;
+        std::cout << "Result: Reversed string is different from original." << std::endl;
     }
+    
     return 0;
 }
