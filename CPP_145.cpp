@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int>& a, std::vector<int>& b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -29,4 +29,8 @@ std::vector<int> order_by_points(std::vector<int> nums){
     });
 
     return nums;
+}
+
+int main(){
+    return 0;
 }
