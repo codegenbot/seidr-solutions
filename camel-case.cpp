@@ -16,7 +16,7 @@ std::string kebabToCamel(const std::string& str) {
     std::string result;
     for (size_t i = 0; i < words.size(); ++i) {
         if (!result.empty()) {
-            result += words[i].substr(0, 1).toupper() + words[i].substr(1);
+            result += words[i].substr(0, 1) + words.substr(1);
         } else {
             result = words[i];
         }
