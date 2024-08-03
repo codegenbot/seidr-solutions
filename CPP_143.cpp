@@ -9,22 +9,26 @@ bool isPrime(int n){
     return true;
 
 int main() {
+    string words_in_sentence(string sentence){
+        string result = "";
+        int len = 0;
+        for(int i = 0; i < sentence.size(); i++){
+            if(sentence[i] == ' '){
+                if(isPrime(len)) result += sentence.substr(len - (i + 1), i - len) + " ";
+                len = 0;
+            }else{
+                len++;
+            }
+        }
+        if(isPrime(len)) result += sentence.substr(len - len, len);
+        return result;
+    }
+
     string sentence;
     cout << "Enter a sentence: ";
     getline(cin, sentence);
 
-    string result = "";
-    int len = 0;
-    for(int i = 0; i < sentence.size(); i++){
-        if(sentence[i] == ' '){
-            if(isPrime(len)) result += sentence.substr(len - (i + 1), i - len) + " ";
-            len = 0;
-        }else{
-            len++;
-        }
-    }
-    if(isPrime(len)) result += sentence.substr(len - len, len);
-    cout << "Words in the sentence: " << result << endl;
+    cout << words_in_sentence(sentence) << endl;
 
     return 0;
 }
