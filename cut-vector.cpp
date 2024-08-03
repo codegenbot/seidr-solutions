@@ -1,3 +1,4 @@
+````
 #include <vector>
 #include <limits>
 #include <cmath>
@@ -21,3 +22,4 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     res.push_back(vector<int>(nums.begin() + cut_index, nums.end()));
     return res;
 }
+```
