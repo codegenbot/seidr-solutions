@@ -1,8 +1,7 @@
-```cpp
 #include <string>
 
-std::string flip_case(std::string str){
-    std::string result = "";
+string flip_case(string str){
+    string result = "";
     for(char c : str){
         if(c >= 'a' && c <= 'z'){
             result += toupper(c);
