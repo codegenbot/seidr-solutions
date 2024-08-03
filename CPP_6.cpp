@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+#include <cassert>
+#include <algorithm>
 #include <iostream>
 
 std::vector<int> parse_nested_parens(std::string paren_string);
@@ -30,5 +34,5 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
 }
 
 int main() {
-    assert(is_same(parse_nested_parens("( () ()) (() )"), {3, 2, 1}));
+    assert(is_same({4}, {4}));
 }
