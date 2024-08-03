@@ -19,4 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == reverse_result ? "True" : "False"};
 }
 
-assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"", "True"}));
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
+}
