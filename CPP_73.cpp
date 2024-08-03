@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -21,7 +21,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {0, 1};
-    cout << smallest_change(arr) << endl;
+    vector<int> coins = {1, 2, 5};
+    cout << "Smallest change: " << smallest_change(coins) << endl;
     return 0;
 }
