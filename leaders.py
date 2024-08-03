@@ -1,9 +1,4 @@
-def leaders(vector):
-    n = len(vector)
-    result = [vector[n - 1]]
-
-    for i in range(n - 2, -1, -1):
-        if vector[i] >= vector[i + 1]:
-            result.append(vector[i])
-
-    return list(reversed(result))
+def leaders(a):
+    return [
+        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+    ]
