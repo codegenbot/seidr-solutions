@@ -2,9 +2,6 @@
 #include <string>
 #include <cassert>
 
-// Declare function before using it
-std::vector<std::string> b(std::string str);
-
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix = "";
@@ -21,6 +18,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     auto all_prefixes = b; // Function alias assignment
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"})); // Fix for redefinition issue and vector initialization
     return 0;
 }
