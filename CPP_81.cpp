@@ -3,7 +3,6 @@
 #include <string>
 
 using namespace std;
-
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
@@ -23,18 +22,15 @@ vector<string> numerical_letter_grade(vector<float> grades) {
     }
     return letter_grades;
 }
-
 int main() {
     vector<string> result = numerical_letter_grade({0, 0.7});
     for (const string& grade : result) {
         cout << grade << " ";
     }
-
     vector<string> result2 = numerical_letter_grade({3.8, 2.5, 1.1, 3.0, 4.0});
     cout << "\n";
     for (const string& grade : result2) {
         cout << grade << " ";
     }
-
     return 0;
 }
