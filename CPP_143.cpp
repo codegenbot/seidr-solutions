@@ -1,14 +1,16 @@
+#include <iostream>
 #include <string>
 
-string words_in_sentence(string sentence);
+std::string words_in_sentence(std::string sentence);
 
 int main() {
-    // Your main function code here
+    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
 
-string words_in_sentence(string sentence) {
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for (char c : sentence) {
         if (c == ' ') {
             if (is_prime(word.length())) {
