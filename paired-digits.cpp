@@ -1,12 +1,21 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-int pairedDigits(string str) {
+int pairedDigits(const std::string& input) {
     int sum = 0;
-    for (int i = 0; i < str.length() - 1; i++) {
-        if (str[i] == str[i + 1]) {
-            sum += str[i] - '0';
+    for (int i = 0; i < input.length() - 1; i++) {
+        if (input[i] == input[i + 1]) {
+            sum += input[i] - '0';
         }
     }
     return sum;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> input;
+    std::cout << "The sum of the paired digits is: " << pairedDigits(input) << std::endl;
+    return 0;
 }
