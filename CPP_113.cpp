@@ -1,5 +1,5 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 int odd_count(const std::initializer_list<std::string>& strings){
     int count = 0;
@@ -25,6 +25,8 @@ bool issame(int result, const std::initializer_list<std::string>& expected_outpu
 }
 
 int main() {
-    assert(issame(3, {"abc", "def", "ghi", "123", "456"}));
+    assert(issame(3, {"123", "345", "789"}) == true);
+    assert(odd_count({"abc", "123", "def", "456"}) == 4);
+  
     return 0;
 }
