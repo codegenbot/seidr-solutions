@@ -1,16 +1,32 @@
 ```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result = result and (expression[expression.index(char) + 1] == 'T')
-            elif char == '|':
-                result = result or (expression[expression.index(char) + 1] == 'T')
-        return result
+    def boolean_operator(operator, a, b):
+        if operator == '&':
+            return a and b
+        elif operator == '|':
+            return a or b
+        else:
+            raise ValueError("Invalid operator")
+
+    result = True
+    i = 0
+    while i < len(expression):
+        if expression[i] in ['T', 't']:
+            result = True
+        elif expression[i] in ['F', 'f']:
+            result = False
+        elif expression[i] == '&':
+            i += 1
+            a = (expression[i] == 'T') or (expression[i] == 't')
+            i += 1
+            b = (expression[i] == 'T') or (expression[i] == 't')
+            result = boolean_operator('&', a, b)
+        elif expression[i] == '|':
+            i += 1
+            a = (expression[i] == 'T') or (expression[i] == 't')
+            i += 1
+            b = (expression[i] == 'T') or (expression[i] == 't')
+            result = boolean_operator('|', a, b)
+        i += 1
+
+    return result
