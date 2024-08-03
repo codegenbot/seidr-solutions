@@ -1,19 +1,16 @@
-Here is the Python solution for the problem:
-
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-
-print(solve_boolean('t'))  # True
-print(solve_boolean('f'))  # False
-print(solve_boolean('f&f'))  # False
-print(solve_boolean('f&t'))  # False
-print(solve_boolean('t&f'))  # False
+    stack = []
+    for char in expression[::-1]:
+        if char == "T":
+            stack.append(True)
+        elif char == "F":
+            stack.append(False)
+        elif char == "|":
+            b2 = stack.pop()
+            b1 = stack.pop()
+            stack.append(b1 or b2)
+        elif char == "&":
+            b2 = stack.pop()
+            b1 = stack.pop()
+            stack.append(b1 and b2)
+    return stack[0]
