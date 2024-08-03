@@ -1,8 +1,6 @@
 #include <algorithm>
 #include <string>
 
-using namespace std;
-
 string solve(string s){
     bool hasLetter = false;
     for (char &c : s) {
