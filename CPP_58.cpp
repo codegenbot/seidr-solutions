@@ -1,7 +1,7 @@
 #include <algorithm>
-#include <cassert>
 #include <vector>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -16,6 +16,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert(common({4, 3, 2, 8}, {}) == vector<int>{});
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     return 0;
 }
