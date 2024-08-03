@@ -4,21 +4,19 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    string result = "";
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = "";
     for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string resultReverse = result;
-    reverse(resultReverse.begin(), resultReverse.end());
+    std::string resultReverse = result;
+    std::reverse(resultReverse.begin(), resultReverse.end());
     return {result, result == resultReverse ? "True" : "False"};
 }
 
