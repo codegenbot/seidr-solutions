@@ -18,4 +18,7 @@ float calculate_mean_abs_deviation(const std::vector<float>& numbers) {
     return mean_abs_deviation;
 }
 
-assert(std::abs(calculate_mean_abs_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+int main() {
+    assert (std::abs(calculate_mean_abs_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0/5.0) < 1e-4);
+    return 0;
+}
