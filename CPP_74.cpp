@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -9,13 +10,13 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 int main() {
-    vector<string> list1 = {"apple", "banana", "cherry"};
-    vector<string> list2 = {"orange", "pear"};
+    vector<string> list1 = {"apple", "banana", "orange"};
+    vector<string> list2 = {"grapes", "kiwi"};
 
     vector<string> result = total_match(list1, list2);
 
     assert(issame(result, list2));
-    
+
     return 0;
 }
 
