@@ -23,6 +23,5 @@ void solve_problem() {
 
 int main() {
     solve_problem();
-
     return 0;
 }
