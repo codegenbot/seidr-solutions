@@ -9,7 +9,7 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     for(int i = 0; i < a.size(); i++){
         if(a[i] % 2 == 0){
             return true;
