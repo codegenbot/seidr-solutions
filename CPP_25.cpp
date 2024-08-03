@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
@@ -11,4 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+int main(){
+    assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
+    return 0;
+}
