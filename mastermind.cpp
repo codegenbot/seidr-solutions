@@ -2,31 +2,25 @@
 #include <iostream>
 #include <string>
 
-int countWhitePegs(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
-    for (char c : code) {
-        if (std::count(guess.begin(), guess.end(), c) > 0 && &c != &guess[std::distance(guess.begin(), std::find(guess.begin(), guess.end(), c))] ) {
-            whitePegs++;
-        }
-    }
-    return whitePegs;
-}
+int mastermind(std::string code, std::string guess) {
+    int white = 0;
+    int black = 0;
 
-int countBlackPegs(const std::string& code, const std::string& guess) {
-    int blackPegs = 0;
-    for (size_t i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
+            black++;
         }
     }
-    return blackPegs;
-}
 
-int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
-    int whitePegs = countWhitePegs(code, guess);
-    int blackPegs = countBlackPegs(code, guess);
-    std::cout << whitePegs << "\n" << blackPegs << "\n";
-    return 0;
+    for (char c : guess) {
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
+            }
+        }
+        white += (count > 1 ? 1 : 0);
+    }
+
+    return black + white - black;
 }
