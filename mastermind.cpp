@@ -23,14 +23,9 @@ int main() {
         } else {
             codeFreq[code[i] - 'A']++;
             guessFreq[guess[i] - 'A']++;
-        }
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (codeFreq[code[i] - 'A'] > 0) {
-            whitePegs += min(codeFreq[code[i] - 'A'], guessFreq[guess[i] - 'A']);
-            codeFreq[code[i] - 'A'] = max(0, codeFreq[code[i] - 'A'] - guessFreq[guess[i] - 'A']);
-            guessFreq[guess[i] - 'A'] = max(0, guessFreq[guess[i] - 'A'] - codeFreq[code[i] - 'A']);
+            if (codeFreq[code[i] - 'A'] <= 0 || guessFreq[guess[i] - 'A'] <= 0) {
+                whitePegs++;
+            }
         }
     }
 
