@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
