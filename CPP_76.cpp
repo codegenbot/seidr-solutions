@@ -1,28 +1,20 @@
-#include <cmath>
-#include <iostream>
-
-bool is_simple_power(int x, int n) {
-    if (x <= 0 || n <= 0) {
-        std::cout << "Invalid input. Please enter positive integers." << std::endl;
-        return false;
+bool isSimplePower(int x, int n) {
+    for (int i = 1; i <= n; i++) {
+        if (pow(i, n) == x)
+            return true;
     }
-    
-    double y = pow(n, ceil(log2(x)));
-    return (y == x);
+    return false;
 }
 
 int main() {
     int x, n;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    std::cout << "Enter the base: ";
-    std::cin >> n;
-    
-    if (is_simple_power(x, n)) {
-        std::cout << x << " is a simple power of " << n << "." << std::endl;
-    } else {
-        std::cout << x << " is not a simple power of " << n << "." << std::endl;
-    }
-    
+    cout << "Enter a number: ";
+    cin >> x;
+    cout << "Enter the power: ";
+    cin >> n;
+    if (isSimplePower(x, n))
+        cout << x << " is a simple power of " << n;
+    else
+        cout << x << " is not a simple power of " << n;
     return 0;
 }
