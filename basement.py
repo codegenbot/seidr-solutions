@@ -1,6 +1,9 @@
-```
-def basement(arr):
-    for i in range(len(arr)):
-        if sum(arr[:i+1]) < 0:
+Here is the Python solution:
+
+def basement_index(nums):
+    total = 0
+    for i, num in enumerate(nums):
+        total += num
+        if total < 0:
             return i
     return -1
