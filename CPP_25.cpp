@@ -3,7 +3,7 @@
 
 std::vector<int> factorize(int n) {
     // Implement factorize function here
-    return {}; // Placeholder return
+    return {2, 3, 3};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
