@@ -13,12 +13,20 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
     return result;
 }
 
-bool issame_vectors(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame_vectors(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({10}), {10, 10}));
 
     return 0;
 }
