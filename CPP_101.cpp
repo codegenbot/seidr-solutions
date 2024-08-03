@@ -1,10 +1,8 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,23 +14,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> words_string(const string& s) {
-    vector<string> words;
-    string word;
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return words;
+std::vector<std::string> words_string(const std::string& str) {
+    // Implement function to split string into words based on delimiter
+    // and return a vector of strings
 }
 
 int main() {
