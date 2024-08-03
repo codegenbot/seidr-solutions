@@ -1,4 +1,3 @@
-_
 _ = int(input())
 digits = list(map(int, input().split()))
 
