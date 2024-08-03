@@ -1,13 +1,12 @@
-x = float(input("Enter the value of x: "))
-y = float(input("Enter the value of y: "))
+n = int(input("Enter number of coefficients: "))
+coefficients = []
+for _ in range(n):
+    coefficient = float(input(f"Enter coefficient {i+1}: "))
+    coefficients.append(coefficient)
 
-
-def find_zero(xs):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[-1]
-    b = -sum(x for x in xs[:-1])
-    return round(-b / (2 * a), 2)
-
-
-print(find_zero([x, y]))
+try:
+    result = find_zero(coefficients)
+except ValueError as e:
+    print(e)
+else:
+    print(f"The zero is at x = {result}")
