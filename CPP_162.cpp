@@ -23,8 +23,10 @@ std::string string_to_md5(const std::string &input) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
+    
     std::string md5Hash = string_to_md5(input);
     std::cout << "MD5 Hash: " << md5Hash << std::endl;
+    
     return 0;
 }
