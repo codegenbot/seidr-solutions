@@ -1,6 +1,7 @@
+#include <cassert>
 #include <vector>
 
-bool checkIfSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
     
@@ -12,8 +13,22 @@ bool checkIfSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+std::vector<int> largest_smallest_integers(std::vector<int> nums) {
+    int smallest = INT_MAX;
+    int largest = INT_MIN;
+    
+    for(int num : nums) {
+        smallest = std::min(smallest, num);
+        largest = std::max(largest, num);
+    }
+    
+    return {smallest, largest};
+}
+
 int main() {
-    assert(checkIfSame({-6, -4, -4, -3, -100, 1}, {-3, 1}));
+    assert(issame({-6, -4, -4, -3, -100, 1}, {-3, 1}));
+    
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
     
     return 0;
 }
