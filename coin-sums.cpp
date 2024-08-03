@@ -1,11 +1,3 @@
-```c++
-void printCoins(int quarters, int nickles, int dimes, int pennies) {
-    cout << quarters << endl;
-    cout << nickles << endl;
-    cout << dimes << endl;
-    cout << pennies << endl;
-}
-
 int main() {
     int cents;
 
@@ -32,8 +24,12 @@ int main() {
         nicklesNeeded++;
     }
 
-    printCoins(quartersNeeded, nicklesNeeded + (remainingCents / 5), 
-               dimesNeeded + ((remainingCents % 5) / 2), penniesNeeded);
+    while(remainingCents > 0) {
+        penniesNeeded = remainingCents;
+        remainingCents = 0;
+    }
+
+    printCoins(quartersNeeded, nicklesNeeded, dimesNeeded, penniesNeeded);
 
     return 0;
 }

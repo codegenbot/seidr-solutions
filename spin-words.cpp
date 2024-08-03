@@ -1,3 +1,5 @@
+Here is the completed code:
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,30 +8,24 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength;
-    
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i + 1] == ' ') {
-            wordLength = i - result.length();
-            
-            if (wordLength >= 5) {
-                string reversedWord = "";
-                
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += str[result.length() + j];
-                }
-                
-                result += reversedWord;
-            } else {
-                result += str.substr(result.length(), wordLength);
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ' ') {
+            word += str[i];
+        } else {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            
-            if (i < str.length()) {
-                result += ' ';
-            }
+            result += word + " ";
+            word = "";
         }
     }
-    
+
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
     return result;
 }
 
