@@ -1,17 +1,25 @@
-Here is the Python solution:
+Here is the Python code for the problem:
 
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for bowl in game:
-        if bowl == 'X':
-            score += 10 + (10 - frame) * 10
-            frame = 1
-        elif bowl == '/':
-            score += 10 + int(bowl[1]) * 10 - 5
-            frame = 1
+    frame_count = 1
+    for frame in frames:
+        if frame == 'X':
+            score += 30
+            frame_count += 1
+        elif frame == '/':
+            score += 10
+            frame_count += 1
         else:
-            score += int(bowl)
-        if frame < 10:
-            frame += 1
+            if len(frame) > 1:
+                roll1, roll2 = int(frame[0]), int(frame[1])
+                if roll1 + roll2 == 10:
+                    score += 10
+                    frame_count += 1
+                else:
+                    score += roll1 + roll2
+                    frame_count += 1
+            else:
+                score += int(frame)
+                frame_count += 1
     return score
