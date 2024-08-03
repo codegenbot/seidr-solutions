@@ -1,12 +1,15 @@
 string result = "";
-    int start = 0;
-    for (int i = 0; i <= s.length(); ++i) {
-        if (i == s.length() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
+    string word = "";
+    for (char c : s) {
+        if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + (i == s.length() ? "" : " ");
-            start = i + 1;
+            result += word + ' ';
+            word = "";
+        } else {
+            word += c;
         }
     }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
