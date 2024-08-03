@@ -1,11 +1,11 @@
-#include <cassert>
 #include <iostream>
 #include <vector>
+#include <cassert>
 #include <climits>
 
 using namespace std;
 
-vector<int> largest_smallest_integers(vector<int> lst){
+vector<int> largest_smallest_integers(const vector<int>& lst){
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for(int num : lst){
         if(num < 0 && num > largest_negative){
@@ -18,7 +18,7 @@ vector<int> largest_smallest_integers(vector<int> lst){
     return {largest_negative, smallest_positive};
 }
 
-int main_Function(){
+int main(){
     assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == vector<int>{-3, 1});
     cout << "Test passed successfully!" << endl;
 
