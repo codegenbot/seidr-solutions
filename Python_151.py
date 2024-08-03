@@ -1,1 +1,2 @@
+```
 check(double_the_difference, [input("Enter a list of numbers (space-separated): ")])
