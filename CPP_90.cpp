@@ -7,7 +7,7 @@ int next_smallest(std::vector<int> lst) {
     std::sort(sorted_lst.begin(), sorted_lst.end());
     for (int i = 0; i < sorted_lst.size() - 1; i++) {
         if (sorted_lst[i] != sorted_lst[i + 1]) {
-            return *std::next(std::find(lst.begin(), lst.end(), sorted_lst[i + 1]), lst.end()) == sorted_lst.end() ? -1 : *std::next(std::find(lst.begin(), lst.end(), sorted_lst[i + 1]), lst.end());
+            return *std::next(std::find(lst.begin(), lst.end(), sorted_lst[i + 1])) == sorted_lst[0] ? sorted_lst[i + 1] : -1;
         }
     }
     return -1; 
