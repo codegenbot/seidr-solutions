@@ -6,22 +6,20 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalizeNext = true;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
             i++;
             while (i < s.length() && s[i] == ' ') {
                 i++;
             }
-            capitalizeNext = true;
+            result += toupper(s[i]);
         } else if (s[i] == ' ') {
             continue;
         } else {
-            if (capitalizeNext) {
-                result += toupper(s[i]);
-                capitalizeNext = false;
-            } else {
+            if (!result.empty()) {
                 result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
             }
         }
     }
