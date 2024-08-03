@@ -1,5 +1,6 @@
-def calculate_diff(lst):
-    average = sum(i for i in lst) / len(lst)
-    return abs(sum(i**2 for i in lst if isinstance(i, int)) - 2 * average ** 2)
+def main():
+    lst = input("Enter a list of numbers (space separated): ").split()
+    print(double_the_difference(lst))
 
-result = calculate_diff([1, 3, 5])
+def double_the_difference(lst):
+    return sum(i**2 for i in map(int, filter(str.isdigit, lst)) if int(i) % 2 != 0)
