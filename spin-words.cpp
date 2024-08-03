@@ -14,8 +14,7 @@ string spinWords(string str) {
             else
                 result += str.substr(i - length, length);
             length = 0;
-            if (i < str.length())
-                result += " ";
+            result += " ";
         } else {
             length++;
         }
