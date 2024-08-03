@@ -1,17 +1,16 @@
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    
-    vector<vector<int>> dp(rows, vector<int>(cols, INT_MAX));
+    int m = grid.size();
+    int n = grid[0].size();
+
+    vector<vector<int>> dp(m, vector<int>(n, INT_MAX));
     dp[0][0] = grid[0][0];
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
             if (i > 0) {
                 dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
             }
@@ -21,20 +20,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
 
-    vector<int> path;
-    int i = rows - 1, j = cols - 1;
-    path.push_back(grid[i][j]);
-
-    while (i > 0 || j > 0) {
-        if (i > 0 && dp[i][j] - grid[i][j] == dp[i - 1][j]) {
-            i--;
-        } else {
-            j--;
-        }
-        path.push_back(grid[i][j]);
+    int target = grid[m - 1][n - 1] + k;
+    if (dp[m - 1][n - 1] <= target) {
+        return {0, 0};
     }
 
-    reverse(path.begin(), path.end());
-    
+    vector<int> path;
+    int r = m - 1, c = n - 1;
+    while (r > 0 || c > 0) {
+        path.push_back(r * n + c);
+        if (r > 0 && dp[r - 1][c] + grid[r][c] < dp[r][c]) {
+            --r;
+        } else {
+            --c;
+        }
+    }
+    path.push_back(0);
+
     return path;
 }
