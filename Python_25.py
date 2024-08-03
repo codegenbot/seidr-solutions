@@ -1,14 +1,13 @@
-def find_prime_numbers():
-    n = int(input("Enter a number: "))
-    prime_numbers = [2]
-
-    for i in range(3, n + 1):
-        is_prime = True
-        for j in range(2, math.isqrt(i) + 1):
-            if i % j == 0:
-                is_prime = False
-                break
-        if is_prime:
-            prime_numbers.append(i)
-
-    return prime_numbers
+def find_max_value():
+    max_value = float("-inf")
+    while True:
+        user_input = input("Enter a number (or 'q' to quit): ")
+        if user_input.lower() == "q":
+            break
+        try:
+            num = int(user_input)
+            if num > max_value:
+                max_value = num
+        except ValueError:
+            print("Invalid input. Please enter a valid number or 'q' to quit.")
+    return max_value
