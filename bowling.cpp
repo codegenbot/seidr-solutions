@@ -1,27 +1,16 @@
-int bowlingScore(string input) {
+int bowlingScore(const string& frames) {
     int score = 0;
-    bool bonusTurn = false;
-    
-    for (int i = 0; i < 10; ++i) {
-        if (input[i] == 'X' || (input[i] >= '1' && input[i] <= '9')) {
-            int currentTurn = stoi(input.substr(i, 2));
-            if (currentTurn == 10) {
-                score += 10 + ((input.substr(0, i)).find('/') != string::npos ? 10 : 0);
-                bonusTurn = true;
-            } else if (bonusTurn) {
-                bonusTurn = false;
-            }
-            score += currentTurn;
+    int roll1, roll2;
+
+    for (int i = 0; i < 10; i++) {
+        if (frames[i] == '/') {
+            roll1 = frames[i - 1] - '0';
+            roll2 = frames[i + 1] - '0';
+            score += roll1 + roll2;
         } else {
-            int currentTurn = input[i] - '0';
-            if (currentTurn + (input[++i] - '0') == 10) {
-                score += 10;
-                bonusTurn = true;
-            } else {
-                score += currentTurn;
-            }
+            score += frames[i] - '0';
         }
     }
-    
+
     return score;
 }
