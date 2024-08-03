@@ -9,8 +9,8 @@ double poly(const vector<double>& coeffs, double x) {
     return result;
 }
 
-double find_zero(const vector<double>& xs) {
+double find_zero(const vector<double>& xs){
     double a = poly(xs, 1.0);
     double b = poly(xs, 0.0);
-    return -b / a;
+    return -b/a;
 }
