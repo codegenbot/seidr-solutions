@@ -1,13 +1,14 @@
-def maxProfit(prices):
-    if len(prices) < 2:
-        return 0
-    min_price = prices[0]
-    max_profit = 0
-    for price in prices:
-        if price < min_price:
-            min_price = price
+def find_max_sum_of_subarray(arr):
+    max_sum = arr[0]
+    current_sum = arr[0]
+
+    for num in arr[1:]:
+        if current_sum < 0:
+            current_sum = num
         else:
-            profit = price - min_price
-            if profit > max_profit:
-                max_profit = profit
-    return max_profit
+            current_sum += num
+        
+        if current_sum > max_sum:
+            max_sum = current_sum
+
+    return max_sum
