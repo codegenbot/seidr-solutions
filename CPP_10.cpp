@@ -2,18 +2,15 @@
 using namespace std;
 
 bool is_palindrome(string str) {
-    int i = 0, j = str.size() - 1;
-    while (i < j) {
-        if (str[i] != str[j]) {
+    for (int i = 0; i < str.size() / 2; i++) {
+        if (str[i] != str[str.size() - i - 1]) {
             return false;
         }
-        i++;
-        j--;
     }
     return true;
 }
 
-string make_palindrome(string str){
+string make_palindrome(string str) {
     int n = str.size();
     for (int i = n - 1; i >= 0; i--) {
         if (is_palindrome(str.substr(i))) {
