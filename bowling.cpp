@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,8 +12,11 @@ int bowlingScore(string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            int prevPins = stoi(s.substr(0, s.find('/')) - '0');
-            score += 10 - prevPins;
+            string left = s.substr(0, s.find('/'));
+            string right = s.substr(s.find('/') + 1);
+            int leftPins = stoi(left) - 1;
+            int rightPins = stoi(right);
+            score += 10 - leftPins;
             frame++;
             s.erase(0, s.find('/') + 1);
         } else {
@@ -21,8 +25,11 @@ int bowlingScore(string s) {
             if (pins < 10) {
                 s.erase(0, 1);
                 if (!s.empty() && s[0] == '/') {
-                    int prevPins = stoi(s.substr(0, s.find('/')) - '0');
-                    score += 10 - prevPins;
+                    string left = s.substr(0, s.find('/'));
+                    string right = s.substr(s.find('/') + 1);
+                    int leftPins = stoi(left) - 1;
+                    int rightPins = stoi(right);
+                    score += 10 - leftPins;
                     frame++;
                     s.erase(0, s.find('/') + 1);
                 }
