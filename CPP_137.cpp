@@ -1,4 +1,3 @@
-```
 #include <boost/any.hpp>
 #include <boost/lexical_cast.hpp>
 #include <string>
@@ -21,7 +20,8 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_string(a)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        double af = stod(as), bf = stod(bs);
+        float af = boost::lexical_cast<float>(as);
+        float bf = boost::lexical_cast<float>(bs);
         return (af > bf) ? a : ((bf > af) ? b : any("None"));
     } else {
         return any("None");
