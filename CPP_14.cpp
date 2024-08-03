@@ -1,5 +1,6 @@
 #include <vector>
-#include <cassert> // Added for assert
+#include <string>
+#include <cassert>
 
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
@@ -11,8 +12,8 @@ std::vector<std::string> b(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> other) {
+    return a == other;
 }
 
 int main() {
