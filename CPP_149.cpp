@@ -1,7 +1,9 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<cassert>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> sorted_lst = lst;
