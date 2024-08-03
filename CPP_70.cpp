@@ -1,6 +1,6 @@
 ```cpp
 #include <algorithm>
-#include <assert>
+#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -10,7 +10,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<std::vector<int>> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int minVal = *min_element(lst.begin(), lst.end());
