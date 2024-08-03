@@ -1,6 +1,6 @@
 #include <vector>
 
-int count_nums(vector<int> v) {
+int count_nums(std::vector<int> v) {
     int count = 0;
     for (int num : v) {
         if (num >= 0) {
@@ -13,7 +13,7 @@ int count_nums(vector<int> v) {
                 count++;
             }
         } else {
-            num = -num; // convert to positive
+            num = -num; 
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
