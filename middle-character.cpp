@@ -1,11 +1,8 @@
-#include <string>
-using namespace std;
-
 string middleCharacter(string str) {
-    int length = str.length();
-    if (length % 2 == 0) {
-        return string(1, str.substr(length / 2 - 1, 1)[0]) + str.substr(length / 2 - 1, 1);
+    int len = str.length();
+    if (len % 2 == 0) {
+        return str.substr(len / 2 - 1, 2);
     } else {
-        return string(1, str.substr(length / 2, 1)[0]);
+        return str.substr(len / 2, 1);
     }
 }
