@@ -1,10 +1,11 @@
-Here's the completed code:
-
-bool is_simple_power(int x, int n) {
-    if (n == 0)
+bool isSimplePower(int x, int n){
+    double y = pow(n, ceil(log2(x)));
+    if(y == x) {
+        for(int i = 1; ;i++){
+            if(pow(n, i) != x) break;
+        }
+        return true;
+    } else {
         return false;
-
-    double res = pow(n, round(log(x) / log(n)));
-
-    return res == x;
+    }
 }
