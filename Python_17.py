@@ -1,4 +1,4 @@
-Here is the modified code without the blank lines at the beginning and end:
+Here is the modified code:
 
 ```python
 def parse_music(music_string: str) -> list:
