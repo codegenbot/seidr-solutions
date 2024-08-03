@@ -1,22 +1,17 @@
-Here is the completed code:
-
-```cpp
+#include <stdio.h>
 #include <vector>
-
 using namespace std;
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int current = n;
-    
-    while (current > 0) {
-        pile.push_back(current);
-        if (current % 2 == 1) {
-            current += 2;
+    int level = 1;
+    for (int i = 0; i < n; i++) {
+        if (level % 2 == 0) {
+            pile.push_back(level * 2);
         } else {
-            current += 1;
+            pile.push_back(2 * level - 1);
         }
+        level++;
     }
-    
     return pile;
 }
