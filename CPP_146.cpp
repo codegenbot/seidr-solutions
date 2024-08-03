@@ -13,6 +13,8 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    // add your test cases here
+    int nums[] = {12, 34, 56};
+    vector<int> vec(nums, nums + sizeof(nums) / sizeof(nums[0]));
+    cout << specialFilter(vec) << endl;
     return 0;
 }
