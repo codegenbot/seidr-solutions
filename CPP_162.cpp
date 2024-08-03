@@ -1,3 +1,4 @@
+```cpp
 string text) {
     if (text.empty()) return "";
 
