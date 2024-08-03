@@ -14,4 +14,4 @@ def prime_fib(n: int):
         if is_prime(b):
             result.append(str(a))
             n -= 1
-    return ", ".join(result)
+    return ', '.join(result)
