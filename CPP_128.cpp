@@ -1,4 +1,7 @@
-int prod_signs(const std::vector<int>& arr) {
+#include <vector>
+#include <cassert>
+
+int prod_signs(vector<int> arr) {
     if (arr.empty()) {
         return -32768;
     }
@@ -16,9 +19,4 @@ int prod_signs(const std::vector<int>& arr) {
     }
 
     return product * sum;
-}
-
-int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    return 0;
 }
