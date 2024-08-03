@@ -10,7 +10,7 @@ int main() {
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos += target.length(); // Update pos by the length of target to handle overlapping targets
+        pos += target.length(); // Update post by target's length to handle overlapping targets
     }
 
     for (int i : indices) {
