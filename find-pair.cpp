@@ -16,7 +16,7 @@ pair<int, int> findPair(vector<int>& vec, int target) {
         numIndex[vec[i]] = i;
     }
     
-    return {-1, -1}; // or throw an exception
+    return {-1, -1};
 }
 
 int main() {
@@ -33,3 +33,4 @@ int main() {
         cout << "No two sum" << endl;
     }
     return 0;
+}
