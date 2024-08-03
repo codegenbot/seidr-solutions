@@ -19,4 +19,3 @@ vector<int> leaders(vector<int>& arr) {
     }
     reverse(leaders.begin(), leaders.end());
     return leaders;
-}
