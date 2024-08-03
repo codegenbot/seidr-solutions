@@ -1,30 +1,27 @@
-bool solveBoolean(string booleanExpression) {
-    stack<char> operationStack;
-    bool currentResult = (booleanExpression[0] == 't');
+string solveBoolean(string booleanExpression) {
+    stack<char> expression;
     
-    for(int i=1; i<booleanExpression.size(); i++) {
+    for(int i = 0; i < booleanExpression.size(); i++) {
         if(booleanExpression[i] == '&') {
-            while(!operationStack.empty() && operationStack.top() == '&') {
-                operationStack.pop();
+            while(!expression.empty() && expression.top() == '&') {
+                expression.pop();
             }
-            if(operationStack.empty()) {
-                currentResult &= (booleanExpression[i-1] == 't');
-            } else {
-                currentResult = false;
+            expression.push('&');
+        } else if (booleanExpression[i] == '|') {
+            while(!expression.empty()) {
+                expression.pop();
             }
-        } else if(booleanExpression[i] == '|') {
-            while(!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
-            }
-            if(operationStack.empty()) {
-                currentResult |= (booleanExpression[i-1] == 't');
-            } else {
-                currentResult = false;
-            }
+            expression.push('|');
         } else {
-            operationStack.push(booleanExpression[i]);
+            expression.push(booleanExpression[i]);
         }
     }
     
-    return currentResult;
+    string result = "";
+    while(!expression.empty()) {
+        result += expression.top();
+        expression.pop();
+    }
+    
+    return (result == "T") ? "True" : (result == "F") ? "False" : "";
 }
