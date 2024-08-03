@@ -1,10 +1,14 @@
 #include <cassert>
-#include <cstring>
 
-int testFunction(const char* str){
-    return strlen(str);
+int strlen(const char* str){
+    int length = 0;
+    while(*str != '\0'){
+        length++;
+        str++;
+    }
+    return length;
 }
 
 int main(){
-    assert(testFunction("asdasnakj") == 9);
+    assert(strlen("asdasnakj") == 9);
 }
