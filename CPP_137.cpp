@@ -1,29 +1,27 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
+#include <boost/any.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) != boost::any_cast<string>(b))
-            return (boost::any_cast<string>(a) > boost::any_cast<string>(b)) ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (stod(b.convert_to<string>().c_str()) > a.convert_to<string>().c_str())
+            return b;
         else
             return "None";
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        if (stod(a.convert_to<string>().c_str()) < stod(b.convert_to<string>().c_str()))
+            return b;
+        else
+            return "None";
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (lexicographical_compare(a.convert_to<string>().begin(), a.convert_to<string>().end(),
+                                    b.convert_to<string>().begin(), b.convert_to<string>().end()))
+            return b;
+        else
+            return "None";
+    } else {
+        return "None";
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > static_cast<double>(boost::any_cast<int>(b))) ? a : boost::any(b);
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (static_cast<double>(boost::any_cast<int>(a)) > boost::any_cast<float>(b)) ? a : b;
-    }
-    return "None";
 }
