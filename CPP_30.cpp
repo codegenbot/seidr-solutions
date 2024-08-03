@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 
@@ -12,12 +13,5 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
-    vector<float> unique_result;
-    for (float num : result) {
-        if (!issame(unique_result, vector<float>{num})) {
-            unique_result.push_back(num);
-        }
-    }
-    return unique_result;
+    return result;
 }
