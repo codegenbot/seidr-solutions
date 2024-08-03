@@ -5,11 +5,8 @@ int main() {
     std::vector<int> nums;
     int n;
 
-    while (!std::cin.eof()) {
-        std::cin >> n;
-        if (!std::cin.eof()) {
-            nums.push_back(n);
-        }
+    while (std::cin >> n) {
+        nums.push_back(n);
     }
 
     int sum = 0;
