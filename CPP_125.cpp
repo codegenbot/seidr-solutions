@@ -4,13 +4,14 @@
 #include <cassert>
 #include <sstream>
 
+using namespace std;
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
-    // Splitting logic using stringstream
     std::stringstream ss(txt);
     std::string word;
     while (ss >> word) {
