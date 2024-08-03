@@ -7,7 +7,7 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max(); // INT_MAX is deprecated, use this instead
     for (int i = 1; i < n; i++) {
         if (nums[i] - nums[0] == nums[n-1] - nums[i]) {
             res[0].clear(); res[1].clear();
