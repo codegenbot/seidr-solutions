@@ -1,33 +1,16 @@
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
-    string word = "";
-    int count = 0;
-    for (char c : s) {
-        if (c != ' ') {
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                count = 0;
-                word = "";
-            } else {
-                count++;
-            }
-            word += c;
-        } else {
-            if (count == n) {
-                result.push_back(word);
-            }
-            count = 0;
-            word = "";
-        }
-    }
-    
-    if (count == n) {
-        result.push_back(word);
-    }
-    
-    return result;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
 }
