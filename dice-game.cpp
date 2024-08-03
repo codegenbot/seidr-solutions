@@ -1,21 +1,12 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double diceGame(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= min(i, m); j++) {
-            if (i > j) {
-                total -= 1.0 / (n * m);
-            }
-        }
+double probability(int n, int m) {
+    if (n == 1 || m == 1) return 0;
+    if (n > m) {
+        double result = (m - 1.0) / (n + m - 2.0);
+        return result;
+    } else {
+        double result = (n - 1.0) / (n + m - 2.0);
+        return result;
     }
-    return total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
-    return 0;
 }
