@@ -6,12 +6,12 @@
 
 using namespace std;
 
-bool areEqual(vector<string> a, vector<string> b){
+bool areEqual(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> bf(string planet1, string planet2){
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = { "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" };
     vector<string> result;
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
@@ -34,7 +34,7 @@ vector<string> bf(string planet1, string planet2){
     return result;
 }
 
-int main(){
+int main() {
     vector<string> result = bf("Jupiter", "Makemake");
     if (areEqual(result, {})) {
         cout << "Test Passed" << endl;
