@@ -7,21 +7,34 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == 'X') {
-            strike = true;
-            continue;
+            score += 10;
+            if (currentFrame < 9) {
+                strike = true;
+                continue;
+            }
         }
-        if (isdigit(c)) {
+        else if(c == '/') {
+            if (!strike) {
+                score += 10 - ('0' - c);
+            } else {
+                strike = false;
+            }
+        }
+        else if (isdigit(c)) {
             int pins = c - '0';
             if (!strike) {
                 score += pins;
                 if (currentFrame < 10 && s[currentFrame*2-1] == '/') {
                     currentFrame++;
                 }
-            } else {
+            } 
+            else {
                 strike = false;
                 score += 10 + pins;
             }
         }
+        currentFrame++;
     }
 
     return score;
+}
