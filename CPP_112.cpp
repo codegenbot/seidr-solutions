@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -9,6 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
             return false;
     }
     return true;
+}
 
 std::vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -30,6 +32,7 @@ std::vector<string> reverse_delete(string s, string c) {
     reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
+}
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
