@@ -20,7 +20,8 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (is_string(a)) {
         std::string as = boost::any_cast<std::string>(a);
         std::string bs = boost::any_cast<std::string>(b);
-        float af = stof(as), bf = stof(bs);
+        float af = std::stof(as);
+        float bf = std::stof(bs);
         return (af > bf) ? a : ((bf > af) ? b : any("None"));
     } else {
         return any("None");
