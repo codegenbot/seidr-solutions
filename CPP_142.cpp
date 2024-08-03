@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 int sum_squares(vector<int> lst){
     int total = 0;
