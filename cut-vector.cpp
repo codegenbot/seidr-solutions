@@ -1,63 +1,52 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
-
-        for (int j = 0; j <= i; j++) {
-            sumLeft += vec[j];
+pair<vector<int>, vector<int>> cutVector(vector<int> &nums) {
+    int min_diff = INT_MAX;
+    pair<int, int> split_pos;
+    
+    for(int i=1; i<nums.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for(int j=0; j<i; j++) 
+            left_sum += nums[j];
+            
+        for(int j=i; j<nums.size(); j++)
+            right_sum += nums[j];
+        
+        if(left_sum == right_sum) {
+            return {{nums[0]}, {nums[i-1], nums[i]}};
         }
-
-        for (int k = i + 1; k < vec.size(); k++) {
-            sumRight += vec[k];
-        }
-
-        int diff = abs(sumLeft - sumRight);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+        
+        int diff = abs(left_sum - right_sum);
+        if(diff < min_diff) {
+            min_diff = diff;
+            split_pos.first = i-1;
+            split_pos.second = i;
         }
     }
 
-    std::vector<int> left, right;
-
-    for (int i = 0; i <= pos; i++) {
-        left.push_back(vec[i]);
-    }
-
-    for (int i = pos + 1; i < vec.size(); i++) {
-        right.push_back(vec[i]);
-    }
-
-    return {left, right};
+    return {{}, {nums[0]}};
 }
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
+    vector<int> nums(n+1);
+    for(int i=0; i<=n; i++)
+        cin >> nums[i];
 
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
-    }
+    pair<vector<int>, vector<int>> res = cutVector(nums);
 
-    auto result = cutVector(vec);
+    cout << "[";
+    for(auto num : res.first) 
+        cout << num << " ";
+    cout << "] [";
 
-    std::cout << "[";
-    for (const auto& x : result.first) {
-        std::cout << x << " ";
-    }
-    std::cout << "]" << std::endl;
+    for(auto num : res.second) 
+        cout << num << " ";
 
-    std::cout << "[";
-    for (const auto& x : result.second) {
-        std::cout << x << " ";
-    }
-    std::cout << "0]" << std::endl;
-
+    cout << "]" << endl;
+    
     return 0;
 }
