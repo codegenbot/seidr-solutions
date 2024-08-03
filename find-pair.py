@@ -7,4 +7,7 @@ def find_pair(n, nums):
         seen.add(num)
 
 
-print(find_pair(int(input())), [int(x) for x in input().split()], int(input()))
+# Read input from user
+n = int(input())
+nums = list(map(int, input().split()))
+print(find_pair(n, nums))
