@@ -5,7 +5,7 @@ std::string make_palindrome(std::string str){
     for (int i = n - 1; i >= 0; i--) {
         if (is_palindrome(str.substr(i))) {
             std::string prefix = str.substr(0, i);
-            reverse(prefix.begin(), prefix.end());
+            std::reverse(prefix.begin(), prefix.end());
             return str + prefix;
         }
     }
