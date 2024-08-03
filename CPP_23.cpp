@@ -1,7 +1,5 @@
 #include <string>
 
-int main() {
-    std::string str = "asdasnakj";
-    assert(str.length() == 10); 
-    return 0;
+int strlen(string str){
+    return str.length();
 }
