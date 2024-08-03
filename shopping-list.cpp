@@ -1,27 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> discounts(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> discounts[i];
-    }
-
     std::vector<float> prices(n);
+    std::vector<float> discounts(n);
+
     for (int i = 0; i < n; ++i) {
         std::cin >> prices[i];
     }
 
-    float total = 0.0f;
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (1.0f - discounts[i] / 100.0f);
+        std::cin >> discounts[i];
     }
 
-    std::cout << std::fixed << std::setprecision(2) << total << "\n";
+    float total = 0.0f;
+    
+    for (int i = 0; i < n; ++i) {
+        total += prices[i] - (discounts[i] / 100.0f) * prices[i];
+    }
+
+    std::cout << total << std::endl;
 
     return 0;
 }
