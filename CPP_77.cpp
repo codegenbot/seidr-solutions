@@ -8,13 +8,14 @@ bool iscuber(int a) {
 }
 
 int main() {
+    using namespace std;
     int num;
-    std::cin >> num;
+    cin >> num;
     
     if (iscuber(num)) {
-        std::cout << num << " is a perfect cube." << std::endl;
+        cout << num << " is a perfect cube." << endl;
     } else {
-        std::cout << num << " is not a perfect cube." << std::endl;
+        cout << num << " is not a perfect cube." << endl;
     }
     
     return 0;
