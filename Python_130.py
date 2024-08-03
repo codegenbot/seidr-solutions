@@ -1,16 +1,13 @@
 def tri(n):
     if n == 0:
-        return []
-    elif n == 1:
         return [3]
-    elif n == 2:
-        return [3, 2]
+    elif n == 1:
+        return [1, 3]
     else:
-        sequence = [3, 2]
-        for i in range(3, n + 1):
-            if i % 2 == 0:
-                sequence.append(1 + i // 2)
+        sequence = [1, 3]
+        for _ in range(2, n + 1):
+            if _ % 2 == 0:
+                sequence.append(int((sequence[-1] + sequence[-2]) / 2))
             else:
-                a, b = sequence[-2], sequence[-1]
-                sequence.append(a + b + 1)
-    return sequence
+                sequence.append(sequence[-1] + sequence[-2] + sequence[-3])
+        return sequence
