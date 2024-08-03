@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,18 +5,19 @@ std::string kebabToCamel(const std::string& str) {
     size_t start = 0, end;
 
     while ((end = str.find(' ')) != std::string::npos) {
-        if (start != end) {
+        size_t length = end - start;
+        if (length > 0) {
             result += char(std::toupper(str[start]));
             result += str.substr(start + 1, end - start - 1);
         }
         start = end + 1;
     }
 
-    if (start != str.size()) {
-        if (!result.empty()) {
+    if (start < str.size()) {
+        size_t length = str.size() - start;
+        if (length > 0) {
             result += char(std::toupper(str[start]));
-        } else {
-            result = std::string(1, std::toupper(str[start])) + str.substr(start + 1);
+            result += str.substr(start + 1);
         }
     }
 
@@ -25,9 +25,9 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << kebabToCamel(str) << std::endl;
+    std::string result = "";
+    while (std::cin >> std::ws >> result) {
+        std::cout << kebabToCamel(result) << std::endl;
     }
     return 0;
 }
