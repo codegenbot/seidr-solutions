@@ -1,7 +1,8 @@
 #include <vector>
+#include <cassert>
 #include <cmath>
 
-float max_element(const vector<float>& l){
+float max_element(const vector<float>& l) {
     float max = l[0];
     for (float num : l) {
         if (num > max) {
