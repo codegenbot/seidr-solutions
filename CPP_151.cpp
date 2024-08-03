@@ -1,28 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
-int main() {
-    vector<float> lst;
+long long double_the_difference(vector<float> lst) {
     long long odd_sum = 0;
-    
-    cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    string input;
-    while (true) {
-        cin >> input;
-        if (input == "stop") break;
-        
-        float x = stof(input);
-        if (x > 0 && floor(x) == x) { 
-            if (x % 2 != 0) { 
-                odd_sum += pow(x, 2);
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                odd_sum += pow(num, 2);
             }
         }
     }
-    
-    cout << "The sum of squares of all odd positive integers is: " << odd_sum << endl;
-    
-    return 0;
+    return odd_sum;
 }
