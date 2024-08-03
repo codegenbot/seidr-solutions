@@ -1,34 +1,37 @@
-```cpp
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int dot_count = 0, digit_count = 0;
+    bool valid = true;
+
+    for(int i = 0; i < file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+            if(dot_count > 1) {
+                valid = false;
+                break;
+            }
+        } else if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3) {
+                valid = false;
+                break;
+            }
+        } else if((file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
+            valid = false;
+            break;
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    bool has_dot = false;
-    string before_dot, after_dot;
-
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos != string::npos) {
-        before_dot = file_name.substr(0, dot_pos);
-        after_dot = file_name.substr(dot_pos + 1);
-
-        has_dot = true;
-    }
-
-    if (!before_dot.empty() && isalpha(before_dot[0])) {
-        if (digit_count > 3 || !has_dot || after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
-            return "No";
+    if(valid){
+        string extension = "";
+        for(int i = file_name.length() - 1; i >= 0; i--){
+            if(file_name[i] == '.')
+                break;
+            extension = file_name[i]+extension;
         }
-    } else {
-        return "No";
+
+        if(extension != "txt" && extension != "exe" && extension != "dll")
+            valid = false;
     }
 
-    return "Yes";
+    return valid ? "Yes" : "No";
 }
