@@ -1,43 +1,35 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
-    bool inWord = false;
+    string currentWord = "";
+    int consonantCount = 0;
 
     for (char c : s) {
-        if (isalpha(c)) {
-            if (!inWord) {
-                inWord = true;
-                word += tolower(c);
-            } else {
-                word += tolower(c);
+        if (c == ' ') {
+            if (consonantCount == n) {
+                result.push_back(currentWord);
             }
+            currentWord = "";
+            consonantCount = 0;
+        } else if (!isalpha(c)) {
+            continue; // skip non-alphabetic characters
         } else {
-            if (inWord) {
-                int consonants = 0;
-                for (char w : word) {
-                    if (!(w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u')) {
-                        consonants++;
-                    }
-                }
-                if (consonants == n) {
-                    result.push_back(word);
-                }
-                inWord = false;
-                word = "";
+            char ch = tolower(c);
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
+                consonantCount++;
             }
+            currentWord += c;
         }
     }
 
-    if (inWord) {
-        int consonants = 0;
-        for (char w : word) {
-            if (!(w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u')) {
-                consonants++;
-            }
-        }
-        if (consonants == n) {
-            result.push_back(word);
-        }
+    // process the last word
+    if (consonantCount == n) {
+        result.push_back(currentWord);
     }
 
     return result;
