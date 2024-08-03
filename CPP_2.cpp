@@ -7,7 +7,10 @@ double truncate_number(double number) {
 }
 
 int main() {
-    assert(fabs(truncate_number(123.456) - 0.456) < 1e-4);
+    double input_number;
+    std::cin >> input_number;
+    double truncated = truncate_number(input_number);
+    std::cout << truncated << std::endl;
 
     return 0;
 }
