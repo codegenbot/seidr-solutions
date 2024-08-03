@@ -5,7 +5,7 @@ int is_bored(string S) {
         if (S[pos] == '!' || S[pos] == '?' || S[pos] == '.') {
             count++;
         }
-        pos += 1; // skip the 'I' and look for the next sentence
+        pos++;
     }
     return count;
 }
