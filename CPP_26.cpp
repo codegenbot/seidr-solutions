@@ -1,14 +1,44 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end()),
-                         uniqueNumbers.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> remove_duplicates(std::vector<int> numbers){
+    std::vector<int> uniqueNumbers;
+    for(int i = 0; i < numbers.size(); i++){
+        bool found = false;
+        for(int j = 0; j < uniqueNumbers.size(); j++){
+            if(uniqueNumbers[j] == numbers[i]){
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            uniqueNumbers.push_back(numbers[i]);
+        }
+    }
     return uniqueNumbers;
 }
 
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == {1, 2, 3, 4, 5});
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++){
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        numbers.push_back(num);
+    }
+    std::vector<int> uniqueNumbers = remove_duplicates(numbers);
+    std::cout << "Unique Numbers: ";
+    for(int i = 0; i < uniqueNumbers.size(); i++){
+        std::cout << uniqueNumbers[i] << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
