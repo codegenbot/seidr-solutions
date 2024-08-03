@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <string>
-
-using namespace std; // Add this line to resolve the 'string' error
+using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
