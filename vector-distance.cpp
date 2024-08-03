@@ -2,39 +2,29 @@
 #include <vector>
 #include <iomanip>
 #include <cmath>
-#include <stdexcept>
 
 int main() {
-    int n;
-    if (!(std::cin >> n) || n <= 0) {
-        std::cerr << "Invalid input for vector dimensions." << std::endl;
-        return 1;
-    }
+    long double n;
+    std::cin >> n;
 
-    std::vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        if (!(std::cin >> vec1[i])) {
-            std::cerr << "Invalid input for vector elements." << std::endl;
-            return 1;
-        }
+    std::vector<long double> vec1(n);
+    for (long double i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
     }
     
-    std::vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        if (!(std::cin >> vec2[i])) {
-            std::cerr << "Invalid input for vector elements." << std::endl;
-            return 1;
-        }
+    std::vector<long double> vec2(n);
+    for (long double i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    long double sum = 0.0;
+    for (long double i = 0; i < n; ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double distance = std::sqrt(sum);
+    long double distance = std::sqrt(sum);
 
-    std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
-    
+    std::cout << std::fixed << std::setprecision(21) << distance << std::endl;
+
     return 0;
 }
