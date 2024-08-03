@@ -1,6 +1,8 @@
+#include <algorithm>
+#include <vector>
+#include <cassert>
+
 bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -16,7 +18,4 @@ std::vector<int> custom_sort(std::vector<int> arr) {
     return arr;
 }
 
-int main() {
-    assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    return 0;
-}
+assert(issame(custom_sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
