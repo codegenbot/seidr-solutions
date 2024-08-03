@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,17 +18,16 @@ int main() {
 
     cin >> cents;
 
-    int penniesNeeded = cents;
+    int remainingCents = cents;
+    int quartersNeeded = 0;
     int nicklesNeeded = 0;
     int dimesNeeded = 0;
-    int quartersNeeded = 0;
 
-    while(penniesNeeded >= 25) {
-        penniesNeeded -= 25;
+    while(remainingCents >= 25) {
+        remainingCents -= 25;
         quartersNeeded++;
     }
 
-    int remainingCents = penniesNeeded;
     while(remainingCents >= 10) {
         remainingCents -= 10;
         dimesNeeded++;
@@ -39,8 +39,8 @@ int main() {
     }
 
     printCoins(quartersNeeded, nicklesNeeded + (remainingCents / 5), 
-               dimesNeeded + ((remainingCents % 5) / 10), 
-               quartersNeeded + (remainingCents / 25));
+           dimesNeeded + ((remainingCents % 5) / 10), 
+           quartersNeeded + (remainingCents / 25));
 
     return 0;
 }
