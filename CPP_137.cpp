@@ -1,30 +1,40 @@
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
-
-boost::any compare_one(const boost::any& a, const boost::any& b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a : b;
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
+        }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<float>(b)) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strA.find_first_of(".,") != string::npos) {
-            replace(strA.begin(), strA.end(), ',', '.');
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
         }
-        if (strB.find_first_of(".,") != string::npos) {
-            replace(strB.begin(), strB.end(), ',', '.');
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
+        if (strA.find_first_of(".,") != std::string::npos) {
+            std::replace(strA.begin(), strA.end(), ',', '.');
         }
-        return (stod(strA) > stod(strB)) ? a : b;
+        if (strB.find_first_of(".,") != std::string::npos) {
+            std::replace(strB.begin(), strB.end(), ',', '.');
+        }
+        if (std::stod(strA) > std::stod(strB)) {
+            return a;
+        } else if (std::stod(strA) < std::stod(strB)) {
+            return b;
+        }
     }
-    return boost::any("None");
+
+    return std::string("None");
 }
 
 int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
