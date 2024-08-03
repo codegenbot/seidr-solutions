@@ -5,24 +5,37 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
-    int min_diff = INT_MAX;
-    int pos = -1;
     
-    for(int i = 0; i < n; i++) {
-        if(i == n - 1 || vec[i] != vec[i+1]) {
-            int diff = abs((i==n-1) ? vec[i] : vec[i]-vec[i+1]);
-            if(diff < min_diff) {
-                min_diff = diff;
-                pos = i;
+    for(int i = 0; i < n - 1; i++) {
+        if(abs(vec[i] - vec[i+1]) > abs(vec[0] - vec[n-1])) {
+            vector<int> left;
+            vector<int> right;
+            
+            for(int j = 0; j <= i; j++) {
+                left.push_back(vec[j]);
             }
+            for(int k = i + 1; k < n; k++) {
+                right.push_back(vec[k]);
+            }
+            
+            result.push_back(left);
+            result.push_back(right);
+            break;
         }
+    } else {
+        vector<int> left;
+        vector<int> right;
+        
+        for(int j = 0; j < n - 1; j++) {
+            left.push_back(vec[j]);
+        }
+        right.push_back(vec[n-1]);
+        
+        result.push_back(left);
+        result.push_back(right);
     }
     
-    vector<vector<int>> res;
-    res.push_back({&vec[0], 0, pos});
-    res.push_back({&vec[pos+(i==n-1)], pos+1, n});
-    
-    return res;
+    return result;
 }
 
 int main() {
