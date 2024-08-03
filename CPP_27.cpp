@@ -20,4 +20,4 @@ int main() {
     std::getline(std::cin, input);
     assert(flip_case(input) == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
-}
+} 
