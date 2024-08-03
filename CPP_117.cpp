@@ -9,7 +9,7 @@ bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> select_words(string s, int n){
+vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     int count = 0;
@@ -33,14 +33,7 @@ vector<string> select_words(string s, int n){
     return result;
 }
 
-int main() {
-    vector<string> output = select_words("hello world from cpp", 2);
-    vector<string> expected_output = {"world", "cpp"};
-    assert(issame(output, expected_output));
-
-    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-
-    cout << "All tests passed successfully!" << endl;
-
+int main(){
+    assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
     return 0;
 }
