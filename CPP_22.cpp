@@ -3,7 +3,7 @@
 #include <any>
 #include <cassert>
 
-std::vector<int> filter_integers(std::list<std::any> values) {
+std::vector<int> filter_integers(std::list<std::any> values){
     std::vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
@@ -13,11 +13,11 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
 int main() {
-    assert(issame(filter_integers({std::any(3), std::any('c'), std::any(3), std::any(3), std::any('a'), std::any('b')}), {3, 3, 3}));
+    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), std::vector<int>{3, 3, 3}));
     return 0;
 }
