@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         float snow_added = snow_fall_rate;
         float snow_melted = snow_on_ground * snow_melt_rate;
-        snow_on_ground = snow_on_ground + snow_added - snow_melted;
+        snow_on_ground += snow_added - snow_melted;
     }
 
     cout << fixed << setprecision(14) << snow_on_ground << '\n';
