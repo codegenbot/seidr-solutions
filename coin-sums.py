@@ -1,4 +1,5 @@
-```
+Here is the solution:
+
 def coin_sums(cents):
     quarters = cents // 25
     cents %= 25
