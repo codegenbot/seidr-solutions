@@ -1,27 +1,20 @@
 Here is the solution:
 
-void camel_case(string s) {
+string camelCase(string s) {
     string result = "";
-    bool capitalizeNext = true;
-
-    for (int i = 0; i < s.size(); i++) {
+    bool capitalNext = true;
+    
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
+            i++; // skip the next character
+            capitalNext = true;
+        } else if (capitalNext) {
             result += toupper(s[i]);
-            capitalizeNext = false;
+            capitalNext = false;
         } else {
             result += tolower(s[i]);
         }
     }
-
-    cout << result << endl;
-}
-
-int main() {
-    string s;
-    while (cin >> s) {
-        camel_case(s);
-    }
-    return 0;
+    
+    return result;
 }
