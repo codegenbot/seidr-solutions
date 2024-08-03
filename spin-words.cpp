@@ -1,43 +1,33 @@
+Here is the solution:
+
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
-    std::string word;
+using namespace std;
 
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            result += word + " ";
-            word.clear();
-        } else {
-            word += sentence[i];
+string spinWords(string input) {
+    string output = "";
+    int start = 0;
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            string word = input.substr(start, i - start);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            output += word + " ";
+            start = i + 1;
         }
     }
-
-    result += word;
-
-    for (int i = 0; i < result.length(); i++) {
-        if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
-            int j = i;
-            while (j > 0 && ((result[j] >= 'a' && result[j] <= 'z') || (result[j] >= 'A' && result[j] <= 'Z'))) {
-                j--;
-            }
-            if (j < i) {
-                std::string temp = result.substr(j + 1, i - j - 1);
-                for (int k = temp.length() - 1; k >= 0; k--) {
-                    result.replace(i - temp.length(), temp.length(), 1, temp[k]);
-                }
-            }
-        }
-    }
-
-    return result;
+    return output;
 }
 
 int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
-    std::cout << spinWords(sentence) << std::endl;
+    // Your test cases here
+    cout << spinWords("a") << endl;  // a
+    cout << spinWords("this is a test") << endl;  // this is a test
+    cout << spinWords("this is another test") << endl;  // this is rehtona test
+    cout << spinWords("hi") << endl;  // hi
+
     return 0;
 }
