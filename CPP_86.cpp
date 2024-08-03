@@ -1,5 +1,8 @@
 #include <algorithm>
+#include <iostream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -20,7 +23,11 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string input = "lshfufe fe obret";
-    string output = anti_shuffle(input);
+    string test_case = "pemogrma test cpp cmotest";
+    string result = anti_shuffle(test_case);
+    cout << result << endl;
+
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+
     return 0;
 }
