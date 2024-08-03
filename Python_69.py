@@ -1,6 +1,7 @@
 ```
 def search():
-    lst = [int(x) for x in input("Enter a list of numbers (separated by space): ").split()]
+    lst = input("Enter a list of numbers (separated by space): ")
+    lst = [int(x) for x in lst.split()]
     max_num = -1
     freq_dict = {}
     for num in lst:
