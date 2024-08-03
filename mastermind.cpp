@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -36,7 +37,8 @@ int main() {
     std::cin >> code;
     std::cout << "Enter your guess: ";
     std::cin >> guess;
-    std::pair<int, int> result = mastermind(code, guess);
+    auto result = mastermind(code, guess);
     std::cout << "White pegs: " << result.first << "\n";
     std::cout << "Black pegs: " << result.second << "\n";
     return 0;
+}
