@@ -5,14 +5,14 @@
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix = "";
-    for (const char& c : str) {
+    for (char c : str) {
         prefix += c;
         prefixes.push_back(prefix);
     }
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
