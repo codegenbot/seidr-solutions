@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -13,5 +12,3 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     }
     return true;
 }
-
-std::vector<float> sort_even(const std::vector<float>& v);
