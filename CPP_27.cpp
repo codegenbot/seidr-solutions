@@ -15,8 +15,8 @@ int main(){
     std::string input_str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input_str);
-
+    
     assert(flip_case(input_str) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
+    
     return 0;
 }
