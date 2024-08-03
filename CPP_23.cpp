@@ -1,9 +1,8 @@
-```c
 #include <string>
 
 int main() {
     std::string s;
     cin >> s;
-    cout << s.length();
+    assert(s.length() == 9);
     return 0;
 }
