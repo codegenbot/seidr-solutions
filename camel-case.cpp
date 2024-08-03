@@ -1,26 +1,25 @@
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words;
     size_t start = 0, end;
 
     while ((end = str.find(' ')) != std::string::npos) {
-        words.push_back(str.substr(start, end - start));
+        if (start != end) {
+            result += char(std::toupper(str[start]));
+            result += str.substr(start + 1, end - start - 1);
+        }
         start = end + 1;
     }
 
-    words.push_back(str.substr(start));
-
-    std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
+    if (start != str.size()) {
         if (!result.empty()) {
-            result += char(std::toupper(words[i][0]));
-            result += words[i].substr(1);
+            result += char(std::toupper(str[start]));
         } else {
-            result = words[i];
+            result = std::string(1, std::toupper(str[start]));
         }
+        result += str.substr(start + 1);
     }
 
     return result;
