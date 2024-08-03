@@ -1,8 +1,13 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <string>
 
-bool issame(vector<string> a,vector<string> b){
-    return a==b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -24,4 +29,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
     });
 
     return result;
+}
+
+int main() {
+    vector<string> test1 = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> test2 = {"cc", "dd", "aaaa", "bbbb"};
+    assert(sorted_list_sum(test1) == test2);
+    
+    // Test your function with different inputs here
+    return 0;
 }
