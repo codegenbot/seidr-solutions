@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::string longest(std::vector<std::string> strings) {
     if (strings.empty()) {
