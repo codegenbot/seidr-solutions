@@ -25,4 +25,4 @@ std::string string_to_md5(const std::string& text) {
     return std::string(mdString);
 }
 
-// Add the following flags when compiling: -lssl -lcrypto
+// Compiler command with OpenSSL library linking: g++ your_code.cpp -o your_executable -lssl -lcrypto
