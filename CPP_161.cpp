@@ -3,7 +3,7 @@ using namespace std;
 
 string solve(string s);
 
-string solve(string s){
+string solve(string s) {
     bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
