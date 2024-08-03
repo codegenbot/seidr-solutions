@@ -1,32 +1,30 @@
-Here is the completed code:
+#include <vector>
 
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        if (num > 0) {
-            int sum = 0;
-            bool isNegative = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (digit == 5 || digit == 0) continue;
-                if (isNegative) sum -= digit;
-                else sum += digit;
+    for (int num : n) {
+        if (num >= 0) {
+            int sum_digits = 0;
+            while (num > 0) {
+                sum_digits += num % 10;
                 num /= 10;
-                if (num < 0) isNegative = true;
             }
-            if (sum > 0) count++;
+            if (sum_digits > 0) count++;
         } else {
-            int sum = 0;
-            bool isNegative = true;
-            while (num != 0) {
-                int digit = abs(num) % 10;
+            num = -num; // convert to positive
+            int sum_digits = 0;
+            bool has_negative_digit = false;
+            while (num > 0) {
+                int digit = num % 10;
+                if (digit < 0) {
+                    has_negative_digit = true;
+                    digit = -digit;
+                }
+                sum_digits += digit;
                 num /= 10;
-                if (digit == 5 || digit == 0) continue;
-                if (isNegative) sum -= digit;
-                else sum += digit;
-                if (num < 0) isNegative = false;
             }
-            if (sum > 0) count++;
+            if (has_negative_digit || sum_digits > 0) count++;
         }
     }
     return count;
+}
