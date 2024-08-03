@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include <vector>
 
 int gcd(int a, int b) {
@@ -22,8 +23,11 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
+    std::cin >> a;
+    std::cin >> b;
     std::cout << gcd(a, b) << std::endl;
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::string text, target;
     getline(std::cin, text);
