@@ -1,11 +1,17 @@
+```
 def encode(message):
-    result = ""
+    encoded_message = ''
     for char in message:
-        if char.isalpha() or char.isspace():
-            if char.isupper():
-                result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
+        if char.isalpha():
+            if char.lower() == 'a' or char.lower() == 'e' or char.lower() == 'i' or char.lower() == 'o' or char.lower() == 'u':
+                if char.isupper():
+                    encoded_message += chr((ord(char) - 65 + 2) % 26 + 65)
+                else:
+                    encoded_message += chr((ord(char) - 97 + 2) % 26 + 97)
+            elif char.isupper():
+                encoded_message += char.lower()
             else:
-                result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
+                encoded_message += char.upper()
         else:
-            result += char
-    return result
+            encoded_message += char
+    return encoded_message
