@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-using namespace std;
+#include <string>
+#include <vector>
 
 int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = -1;
