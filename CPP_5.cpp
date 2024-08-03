@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,5 +24,5 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter) {
     return result;
 }
 
-assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+assert(std::issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
 return 0;
