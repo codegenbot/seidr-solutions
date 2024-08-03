@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
 #include <vector>
 using namespace std;
 
