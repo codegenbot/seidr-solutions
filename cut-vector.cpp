@@ -1,10 +1,15 @@
+
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 int main() {
-    int n, cutIndex;
+    int n;
     std::cin >> n;
+
+    int cutIndex;
     std::cin >> cutIndex;
+    cutIndex--; // Decrement cutIndex to match vector indexing
 
     std::vector<int> nums(n);
 
@@ -17,7 +22,7 @@ int main() {
 
     for (int i = cutIndex + 1; i < n; ++i) {
         int newDiff = abs(nums[i] - nums[i - 1]);
-        if (newDiff < diff) {
+        if (newDiff < diff || (newDiff == diff && abs(i - cutIndex) < abs(right - left))) {
             diff = newDiff;
             left = i - 1;
             right = i;
