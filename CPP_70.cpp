@@ -20,8 +20,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
     return result;
 }
 
-#include <cassert>
-
 int main() {
     assert (issame(vector<int>(strange_sort_vector({111111})) , vector<int>({111111})));
     return 0;
