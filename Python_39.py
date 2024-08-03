@@ -1,9 +1,4 @@
-def main():
-    n = int(input("Enter an integer: "))
-    print(prime_fib(n))
-
-
-def prime_fib(n):
+def prime_fib(n: int):
     a, b = 2, 1
     count = 0
     while True:
@@ -21,7 +16,3 @@ def is_prime(num: int):
         if num % i == 0:
             return False
     return True
-
-
-if __name__ == "__main__":
-    main()
