@@ -1,10 +1,4 @@
+Here is the solution:
+
 def dice_game(n, m):
-    total_outcomes = n * m
-    favorable_outcomes = 0
-
-    for i in range(m, n * m):
-        if math.floor((i + 1) / n) == math.floor(i / m):
-            continue
-        favorable_outcomes += 1
-
-    return favorable_outcomes / total_outcomes
+    return (n-1)/n if n > m else (m-1)/m if n < m else 0.5
