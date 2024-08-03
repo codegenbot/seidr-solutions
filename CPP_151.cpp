@@ -1,18 +1,23 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0) {
-            sum += pow(num, 2);
-        }
-    }
-    return sum;
-}
-
 int main() {
-    std::vector<float> lst = {1.5, -3.5, 4.25, -6.75};
-    long long odd_sum = double_the_difference(lst);
-    return 0;
+    vector<float> lst;
+    long long odd_sum = 0;
+
+    cout << "Enter numbers (type 'q' to quit):" << endl;
+    while (true) {
+        string numStr;
+        cin >> numStr;
+        if (numStr == "q") break;
+
+        float num = stof(numStr);
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                odd_sum += pow(num, 2);
+            }
+        }
+
+    }
+    cout << "The sum of the squares of the odd numbers is: " << odd_sum << endl;
 }
