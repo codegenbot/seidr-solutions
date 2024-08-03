@@ -1,15 +1,26 @@
+```
 def bowling_score(frames):
     score = 0
-    frame = 1
-    for char in frames:
-        if char.isdigit():
-            score += int(char)
-            if frame < 10 and (score >= 10 or (frame == 9 and score >= 8)):
-                return "Invalid input"
-        elif char == "/":
-            score += 10 - int(frames[frames.index(char) - 1])
-            frame += 1
+    for i in range(10):
+        if '/' in frames[i*2:i*2+2]:
+            strike = False
+            spare = False
+            if frames[i*2] == 'X':
+                strike = True
+            elif frames[i*2:i*2+2].count('/') == 1:
+                spare = True
+            if not strike and not spare:
+                score += int(frames[i*2:i*2+1])
+            else:
+                if strike:
+                    score += 10 + int(frames[(i+1)*2:(i+2)*2]) + int(frames[(i+2)*2:(i+3)*2])
+                elif spare:
+                    score += 10 + int(frames[(i+1)*2:(i+2)*2])
         else:
-            score += 10
-            frame += 1
+            if frames[i*2] == 'X':
+                strike = True
+            else:
+                first_roll = int(frames[i*2:i*2+1])
+                second_roll = int(frames[i*2+1:i*2+2])
+                score += first_roll + second_roll
     return score
