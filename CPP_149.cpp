@@ -1,15 +1,5 @@
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst){
@@ -22,5 +12,3 @@ vector<string> sorted_list_sum(vector<string> lst){
     });
     return lst;
 }
-
-assert(sorted_list_sum({"abc", "de", "fgh", "ijk"}) == sorted_list_sum({"fgh", "ijk", "de", "abc"}));
