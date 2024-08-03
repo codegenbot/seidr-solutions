@@ -7,7 +7,7 @@ int bowlingScore(string s) {
             score += 30;
         } else if (s[i] == '/') {
             int left = s[i-1] - '0';
-            int right = s[i+1] - '0';
+            int right = s[i+1] - '0' - 5;
             score += left + right;
         } else {
             int count = s[i] - '0';
@@ -19,7 +19,7 @@ int bowlingScore(string s) {
                     break;
                 } else if (s[i+1] == '/') {
                     int left = s[i+2] - '0';
-                    int right = s[i+3] - '0';
+                    int right = s[i+3] - '0' - 5;
                     score += 10 + left + right;
                     break;
                 }
@@ -27,3 +27,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
