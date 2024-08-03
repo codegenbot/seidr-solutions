@@ -1,14 +1,15 @@
-def substitution_cipher(cipher_text1, cipher_text2, text_to_decipher):
-    deciphered_text = ""
-    for char in text_to_decipher:
-        if char.isalpha():
-            index = ord(char.upper()) - ord("A")
-            deciphered_char = chr(
-                ord(cipher_text1[index].upper()) + (ord(char.upper()) - ord("A")) % 26
-            )
-            deciphered_text += (
-                deciphered_char.lower() if char.islower() else deciphered_char
-            )
+```
+def decipher_cipher(cipher1, cipher2, message):
+    mapping = {}
+    for char in range(len(cipher1)):
+        if cipher1[char] != cipher2[char]:
+            mapping[cipher1[char]] = cipher2[char]
+    
+    result = ""
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
         else:
-            deciphered_text += char
-    return deciphered_text
+            result += char
+    
+    return result
