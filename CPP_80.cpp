@@ -1,12 +1,17 @@
-void test_happy_strings() {
-    assert(is_happy("iopaxioi") == false);
-    assert(is_happy("abcde") == true);
-    assert(is_happy("aabbcdef") == false);
-    assert(is_happy("abab") == false);
-}
+#include <iostream>
+#include <string>
+#include <cassert>
 
-int main() {
-    test_happy_strings();
+bool is_happy(const std::string& s) {
+    if(s.length() < 3) {
+        return false;
+    }
 
-    return 0;
+    for(int i = 0; i < s.length() - 2; i++) {
+        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]) {
+            return false;
+        }
+    }
+
+    return true;
 }
