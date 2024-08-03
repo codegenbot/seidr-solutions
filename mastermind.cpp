@@ -8,17 +8,18 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for(int i = 0; i < 6; i++) {
-        int countCode = 0, countGuess = 0;
-        for(int j = 0; j < 4; j++) {
-            if(code[j] == i+'0' && ++countCode > 1) break;
-            if(guess[j] == i+'0' && ++countGuess > 1) break;
-        }
-        black -= countCode - 1;
-        black -= countGuess - 1;
+    map<char, int> codeCount, guessCount;
+
+    for(int i = 0; i < 4; i++) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
     }
 
-    white = 4 - black;
+    for(int i = 0; i < 6; i++) {
+        if(codeCount.count(i+'A') && codeCount[i+'A'] > 0 && guessCount[i+'A'] > codeCount[i+'A']) {
+            white += (codeCount[i+'A'] - guessCount[i+'A']);
+        }
+    }
 
     return make_pair(white, black).second;
 }
