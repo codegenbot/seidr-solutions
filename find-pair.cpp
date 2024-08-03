@@ -1,27 +1,24 @@
-Here is the solution in C++:
-
-```cpp
 #include <vector>
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.count(complement)) {
-            return make_pair(complement, nums[i]);
+    for (int num : nums) {
+        int complement = target - num;
+        if (numMap.find(complement) != numMap.end()) {
+            return {complement, num};
         }
-        numMap[nums[i]] = i;
+        numMap[num] = 1;
     }
-    return make_pair(0, 0);
+    return {{}, {}};
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int& x : nums) {
-        cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
     int target;
     cin >> target;
