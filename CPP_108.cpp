@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,6 +24,6 @@ int count_nums(vector<int> v) {
 
 int main() {
     vector<int> v = {1, -2, 3};
-    cout << count_nums(v);
+    cout << count_nums(v) << endl;
     return 0;
 }
