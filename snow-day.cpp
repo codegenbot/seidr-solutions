@@ -20,5 +20,6 @@ int main() {
     float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
     cin >> initialSnow >> rateOfSnowfall >> proportionOfMeltingPerHour;
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour);
-    cout << fixed << setprecision(10) << result << endl;
+    cout << fixed << std::setprecision(10) << result << endl;
     return 0;
+}
