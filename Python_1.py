@@ -1,5 +1,7 @@
+```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
-    from typing import List
     result = []
     temp = ''
     count = 0
