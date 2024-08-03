@@ -4,25 +4,19 @@
 #include <sstream>
 
 std::string camelCase(std::string str) {
-    std::vector<std::string> words;
     std::stringstream ss(str);
     std::string word;
 
+    std::string result = "";
+    bool capitalizeNextWord = true;
+    
     while (ss >> word) {
-        words.push_back(word);
-    }
-
-    for(int i = 0; i < words.size(); i++) {
-        if(i > 0)
-            words[i][0] = toupper((char)words[i][0]);
-    }
-
-    std::string result;
-    for(int i = 0; i < words.size(); i++) {
-        if(i == 0)
-            result += words[i];
-        else {
-            result += toupper((char)words[i][0]) + std::string(words[i].erase(0,1));
+        if(capitalizeNextWord) {
+            result += toupper(word[0]) + word.substr(1);
+            capitalizeNextWord = false;
+        } else {
+            result += word;
+            capitalizeNextWord = true;
         }
     }
 
