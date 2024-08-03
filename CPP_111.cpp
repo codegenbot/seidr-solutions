@@ -5,13 +5,6 @@
 
 using namespace std;
 
-map<char, int> histogram(string test);
-
-int main() {
-    assert(histogram("a") == map<char, int>{{'a', 1}});
-    return 0;
-}
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
@@ -31,5 +24,17 @@ map<char, int> histogram(string test) {
             maxCountLetters[entry.first] = entry.second;
         }
     }
+    assert(maxCountLetters == map<char, int>{{'a', 1}});
     return maxCountLetters;
+}
+
+int main() {
+    cout << "Enter a string: ";
+    string input;
+    cin >> input;
+    map<char, int> result = histogram(input);
+    for (const auto& entry : result) {
+        cout << entry.first << ": " << entry.second << endl;
+    }
+    return 0;
 }
