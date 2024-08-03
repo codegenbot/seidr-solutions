@@ -24,5 +24,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if len(stack) > 0:
         for _ in range(len(stack)):
             group += stack.pop()
-        groups.append(group + ')')  
+        groups.append(group + ')')  # add closing parenthesis
+    
     return [group + ')' if i != len(groups) - 1 else group for i, group in enumerate(groups)]
