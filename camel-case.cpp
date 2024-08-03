@@ -10,10 +10,8 @@ int main() {
         if (c == '-' || c == ' ') {
             capitalize = true;
         } else if (capitalize) {
-            c = std::tolower(c);
+            c = std::toupper(c);
             capitalize = false;
-        } else if (c == ' ') {
-            capitalize = true;
         } else {
             c = std::tolower(c);
         }
