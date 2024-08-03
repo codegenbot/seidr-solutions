@@ -3,6 +3,20 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<float> sort_even(const std::vector<float>& v);
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<float> sort_even(const std::vector<float>& v) {
     std::vector<float> even_sorted;
     for (float num : v) {
@@ -17,13 +31,9 @@ std::vector<float> sort_even(const std::vector<float>& v) {
 int main() {
     std::vector<float> numbers = {2.5, 3, 4.2, 6, 7.5, 8, 9.1};
     std::vector<float> sorted_even_numbers = sort_even(numbers);
+    std::vector<float> expected_sorted_even_numbers = {2.0, 4.0, 6.0, 8.0};
     
-    // Test the sorted even numbers
-    std::vector<float> expected_sorted_even = {2.0, 4.2, 6.0, 8.0};
-    assert(sorted_even_numbers.size() == expected_sorted_even.size());
-    for (size_t i = 0; i < sorted_even_numbers.size(); ++i) {
-        assert(sorted_even_numbers[i] == expected_sorted_even[i]);
-    }
+    assert(issame(sorted_even_numbers, expected_sorted_even_numbers));
 
     return 0;
 }
