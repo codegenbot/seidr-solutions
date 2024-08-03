@@ -2,8 +2,7 @@ import math
 
 def find_zero(xs: list):
     if len(xs) < 4:
-        return "Input list must have at least 4 elements"
-
+        return None
     a = xs[0]
     b = xs[1]
     c = xs[2]
