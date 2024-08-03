@@ -8,9 +8,9 @@ int main() {
     std::cin >> n >> m;
 
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                probability += 1.0 / static_cast<double>(n * m);
+        for (int j=1; j<=m; ++j){
+            if (i > j){
+                probability += 1.0 / (n * m);                
             }
         }
     }
