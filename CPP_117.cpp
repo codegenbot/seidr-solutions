@@ -1,20 +1,32 @@
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
+    string word;
+    bool isConsonant = false;
+
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-                count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-                result.push_back(word);
+            if (isConsonant) {
+                if (word.length() == n) {
+                    result.push_back(word);
+                }
+                isConsonant = false;
+                word.clear();
             }
-            word = "";
-        } else if (isalpha(c)) {
-            word += tolower(c);
+        } else {
+            if (!isSpace(c)) {
+                isConsonant = true;
+                word += tolower(c);
+            }
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-        count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+
+    if (isConsonant && word.length() == n) {
         result.push_back(word);
     }
+
     return result;
+}
+
+bool isSpace(char c) {
+    return c == ' ';
 }
