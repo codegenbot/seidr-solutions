@@ -1,49 +1,58 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
-    
-    for (int i = 1; i < n; ++i) {
-        if ((v[i] - v[0]) <= (n - i)*(v[n-1] - v[0])) {
-            res.push_back({v.begin(), v.end()});
-            return {{}, {v.begin(), v.end()}};
+vector<vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    int index = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
         }
     }
-    
-    vector<int> left(v.begin(), v.begin());
-    vector<int> right(v.begin() + 1, v.end());
-    res = {{left},{right}};
-    return res;
+
+    vector<vector<int>> result(2);
+    result[0].reserve(index + 1);
+    for (int i = 0; i <= index; i++) {
+        result[0].push_back(vec[i]);
+    }
+    result[1].reserve(vec.size() - index - 1);
+    for (int i = index + 1; i < vec.size(); i++) {
+        result[1].push_back(vec[i]);
+    }
+
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) cin >> x;
+    vector<int> vec(n);
+    for (auto &x : vec) {
+        cin >> x;
+    }
+    vector<vector<int>> res = cutVector(vec);
 
     cout << "[";
-    for (int i = 0; i < v.size(); ++i) {
-        if (i > 0) cout << ", ";
-        cout << v[i];
+    for (int i = 0; i < res[0].size(); i++) {
+        cout << res[0][i];
+        if (i < res[0].size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "]\n";
-
-    vector<vector<int>> res = cutVector(v);
+    cout << "]" << endl;
     cout << "[";
-    for (auto &x : res[0]) {
-        if (res[0].size() > 1 || i++ > 0) cout << ", ";
-        cout << x;
+    for (int i = 0; i < res[1].size(); i++) {
+        cout << res[1][i];
+        if (i < res[1].size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "], [";
-    i = 0;
-    for (auto &x : res[1]) {
-        if (res[1].size() > 1 || i++ > 0) cout << ", ";
-        cout << x;
-    }
-    cout << "]\n";
+    cout << "]" << endl;
 
     return 0;
 }

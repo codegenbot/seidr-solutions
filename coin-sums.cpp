@@ -5,28 +5,20 @@ int main() {
     int cents;
     cin >> cents;
 
-    int pennies = 0, nickels = 0, dimes = 0, quarters = 0;
+    vector<int> coinValues = {25, 10, 5, 1}; // values of quarters, dimes, nickles, pennies in cents
 
-    while (cents > 0) {
-        if (cents >= 25) {
-            cents -= 25;
-            quarters++;
-        } else if (cents >= 10) {
-            cents -= 10;
-            dimes++;
-        } else if (cents >= 5) {
-            cents -= 5;
-            nickels++;
-        } else {
-            cents--;
-            pennies++;
-        }
-    }
+    int quarterCount = cents / 25;
+    cents %= 25;
+    int dimeCount = cents / 10;
+    cents %= 10;
+    int nickelCount = cents / 5;
+    cents %= 5;
+    int pennyCount = cents;
 
-    cout << pennies << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << quarters << endl;
+    cout << quarterCount << endl;
+    cout << dimeCount << endl;
+    cout << nickelCount << endl;
+    cout << pennyCount << endl;
 
     return 0;
 }
