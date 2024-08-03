@@ -1,16 +1,18 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
 
-vector<string> split_words(string txt){
+vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 words.push_back(word);
                 word = "";
             }
@@ -18,26 +20,22 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if (!word.empty()) {
         words.push_back(word);
     }
-    if(words.empty()){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+    if (words.size() == 1 && words[0].find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
+        int oddCount = 0;
+        for (char c : words[0]) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddCount++;
             }
         }
-        words.push_back(to_string(count));
+        words[0] = to_string(oddCount);
     }
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    // Your main function implementation here
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
