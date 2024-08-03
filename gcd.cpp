@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -25,7 +26,7 @@ int main() {
     std::cin.ignore();
     std::getline(std::cin, text);
     std::getline(std::cin, target);
-  
+
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
