@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-using namespace std;
 
 std::vector<int> factorize(int n) {
     // Implement factorize function here
@@ -8,8 +7,7 @@ std::vector<int> factorize(int n) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a != b) return false;
-    return true;
+    return a == b;
 }
 
 int contest_main() {
