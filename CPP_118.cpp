@@ -10,7 +10,7 @@ std::string get_closest_vowel(std::string word) {
             while (left < word.length() && !isalpha(word[left])) left++;
             for (; left < word.length(); left++) {
                 if (isvowel(word[left])) {
-                    result = word.substr(left, 1);
+                    result = std::string(1, word[left]);
                     return result;
                 }
             }
