@@ -2,12 +2,13 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x){
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
+    
     for (size_t i = 0; i < lst.size(); ++i) {
         for (size_t j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
@@ -15,16 +16,18 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
             }
         }
     }
-    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
+    
+    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b) {
         if (a[0] == b[0]) {
             return a[1] > b[1];
         }
         return a[0] < b[0];
     });
+    
     return result;
 }
 
-int main(){
+int main() {
     std::vector<std::vector<int>> result = get_row({{}, {1}, {1, 2, 3}}, 3);
     std::vector<std::vector<int>> expected = {{2, 2}};
     assert(issame(result[0], expected[0]));
