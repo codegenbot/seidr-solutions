@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // Implementation of the method
 }
 
 vector<int> unique_digits(vector<int> x) {
@@ -24,8 +24,4 @@ vector<int> unique_digits(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    // Main function block
 }
