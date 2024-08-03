@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,7 +9,7 @@ int main() {
 }
 
 string longest(vector<string> strings){
-    if(strings.empty()) return "Input vector is empty.";
+    if(strings.empty()) return "Error: Input vector is empty";
     string longest = strings[0];
     for(string s : strings){
         if(s.length() > longest.length())
