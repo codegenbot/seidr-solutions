@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     bool hasLetters = false;
