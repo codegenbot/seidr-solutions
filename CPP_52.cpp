@@ -1,19 +1,40 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
-using namespace std;
+bool below_threshold(std::vector<int> l, int t);
 
-bool below_threshold(vector<int> l, int t) {
+int main() {
+    std::vector<int> l;
+    int n, t;
+    
+    // Read the number of elements.
+    std::cin >> n;
+
+    // Read each element.
+    for(int i = 0; i < n; ++i) {
+        int x;
+        std::cin >> x;
+        l.push_back(x);
+    }
+
+    // Read the threshold value.
+    std::cin >> t;
+
+    if (below_threshold(l, t)) {
+        std::cout << "All numbers are below the threshold." << std::endl;
+    } else {
+        std::cout << "At least one number is not below the threshold." << std::endl;
+    }
+
+    return 0;
+}
+
+bool below_threshold(std::vector<int> l, int t) {
     for (int i : l) {
         if (i >= t) {
             return false;
         }
     }
     return true;
-
-}
-
-int main() {
-    assert(not(below_threshold({1, 8, 4, 10}, 10)));
-    return 0;
 }
