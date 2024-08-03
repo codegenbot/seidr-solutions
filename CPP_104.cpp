@@ -3,7 +3,7 @@
 #include <unordered_set>
 #include <cassert>
 
-bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
+bool issame(const std::unordered_set<int>& a, const std::unordered_set<int>& b) {
     for (int digit : b) {
         if (a.count(digit)) {
             return true;
@@ -17,6 +17,6 @@ std::unordered_set<int> unique_digits(const std::vector<int>& input) {
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), unique_digits({31, 135})));
     return 0;
 }
