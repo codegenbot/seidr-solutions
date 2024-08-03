@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -40,12 +41,14 @@ int main() {
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "[";
+
     for (int i = 0; i < result.first.size(); i++) {
         cout << result.first[i];
         if (i < result.first.size() - 1) {
             cout << " ";
         }
     }
+
     cout << "] [";
     for (int i = 0; i < result.second.size(); i++) {
         cout << result.second[i];
