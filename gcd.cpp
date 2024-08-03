@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+    // Add your code here to read inputs and call functions
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
