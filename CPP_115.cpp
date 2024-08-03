@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -14,4 +13,3 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     }
     
     return buckets_needed;
-}
