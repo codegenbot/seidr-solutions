@@ -1,10 +1,9 @@
-```Python
 def sort_third(l: list):
-    return [
-        (
-            x
-            if j % 3 != 0
-            else sorted([y for y in l[:j // 3 * 3 + (j % 3) * 3 : (j + 1) // 3 * 3] + l[(j + 1) // 3 * 3 :]])[::-1][k]
+    result = []
+    i = 0
+    while i < len(l):
+        result.append(
+            x if i % 3 != 0 else sorted([y for y in l[i:] if (l.index(y) + 1) % 3 == 0])[0]
         )
-        for k, j, x in enumerate(l)
-    ]
+        i += 1
+    return tuple(result)
