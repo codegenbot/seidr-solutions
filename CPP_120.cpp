@@ -19,12 +19,12 @@ void test_issame() {
 
 void test_maximum() {
     assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
-    assert(maximum(std::vector<int>{}, -1) == -1);
+    assert(maximum(std::vector<int>{}, -3) == -3);
 }
 
 int main() {
     test_issame();
     test_maximum();
-    
+
     return 0;
 }
