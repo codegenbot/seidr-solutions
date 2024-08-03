@@ -1,32 +1,40 @@
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    queue<pair<vector<int>, int>> q;
-    q.push({{0, 0}, 0});
+    int rows = grid.size();
+    int cols = grid[0].size();
     
-    vector<vector<int>> dir = {{0, 1}, {1, 0}};
-    
-    while (!q.empty()) {
-        auto curr = q.front();
-        q.pop();
-        
-        if (curr.first[0] == grid.size() - 1 && curr.first[1] == grid[0].size() - 1) {
-            if (curr.second <= k && (result.empty() || curr.second < result.size())) {
-                result = curr.first;
+    vector<vector<int>> dp(rows, vector<int>(cols, INT_MAX));
+    dp[0][0] = grid[0][0];
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (i > 0) {
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
             }
-            continue;
-        }
-        
-        for (vector<int>& d : dir) {
-            int next_x = curr.first[0] + d[0];
-            int next_y = curr.first[1] + d[1];
-            
-            if (next_x < grid.size() && next_y < grid[0].size()) {
-                vector<int> next = {next_x, next_y};
-                int next_cost = curr.second + (issame(curr.first, next) ? 0 : 1);
-                q.push({next, next_cost});
+            if (j > 0) {
+                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
             }
         }
     }
+
+    vector<int> path;
+    int i = rows - 1, j = cols - 1;
+    path.push_back(grid[i][j]);
+
+    while (i > 0 || j > 0) {
+        if (i > 0 && dp[i][j] - grid[i][j] == dp[i - 1][j]) {
+            i--;
+        } else {
+            j--;
+        }
+        path.push_back(grid[i][j]);
+    }
+
+    reverse(path.begin(), path.end());
     
-    return result;
+    return path;
 }
