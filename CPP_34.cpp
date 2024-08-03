@@ -2,8 +2,13 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> removeDuplicates(std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end());
-    nums.erase(std::unique(nums.begin(), nums.end()), nums.end());
-    return nums;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+std::vector<int> fixCode(){
+    std::vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    std::sort(l.begin(), l.end());
+    l.erase(std::unique(l.begin(), l.end()), l.end());
+    return l;
 }
