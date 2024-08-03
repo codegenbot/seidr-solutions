@@ -2,11 +2,20 @@
 #include <vector>
 using namespace std;
 
+int main() {
+    vector<int> arr = {1, 3, 4, 2}; 
+    vector<int> leadersVec = leaders(arr);
+    for (int leader : leadersVec) {
+        cout << leader << endl; 
+    }
+    return 0;
+}
+
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = 0; i < n; i++) {
         bool isLeader = true;
         for (int j = i + 1; j < n; j++) {
             if (arr[j] >= arr[i]) {
@@ -21,13 +30,4 @@ vector<int> leaders(vector<int>& arr) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 3, 4, 2}; 
-    vector<int> leadersVec = leaders(arr);
-    for (int leader : leadersVec) {
-        cout << leader << endl; 
-    }
-    return 0;
 }
