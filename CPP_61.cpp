@@ -16,9 +16,6 @@ bool correct_bracketing(const std::string& brackets) {
     return count == 0;
 }
 
-/**
- * Function signature
- */
 int main() {
     std::string testString = "((()))"; // Input string for testing
     std::cout << std::boolalpha << correct_bracketing(testString) << std::endl;
