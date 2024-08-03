@@ -1,20 +1,13 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-vector<int> count_up_to(int n); // Forward declaration
+vector<int> count_up_to(int n);
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(count_up_to(101), std::vector<int>{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
-    
-    return 0;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<int> count_up_to(int n) {
@@ -41,4 +34,10 @@ vector<int> count_up_to(int n) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(count_up_to(101), vector<int>{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+    
+    return 0;
 }
