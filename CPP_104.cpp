@@ -1,20 +1,12 @@
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for (int num : x) {
-        int temp = num;
-        bool hasEvenDigit = false;
-        while (temp > 0) {
-            int digit = temp % 10;
-            if (digit % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
+bool issame(int n) {
+    unordered_set<int> digits;
+    while (n > 0) {
+        int digit = n % 10;
+        if (digits.count(digit)) {
+            return true;
         }
-        if (!hasEvenDigit) {
-            result.push_back(num);
-        }
+        digits.insert(digit);
+        n /= 10;
     }
-    sort(result.begin(), result.end());
-    return result;
+    return false;
 }
