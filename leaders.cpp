@@ -1,15 +1,24 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-vector<int> leaders(vector<int> vec) {
-    vector<int> result;
-    int n = vec.size();
-    result.push_back(vec[n-1]);
+#include <vector>
+
+std::vector<int> leaders(const std::vector<int>& v) {
+    int n = v.size();
+    std::vector<int> result;
     
-    for(int i=n-2; i>=0; i--) {
-        if(vec[i] >= vec[i+1]) {
-            result.push_back(vec[i]);
+    for (int i = 0; i < n; i++) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (v[j] >= v[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        
+        if (isLeader) {
+            result.push_back(v[i]);
         }
     }
+    
     return result;
 }
