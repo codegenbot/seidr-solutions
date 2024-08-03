@@ -1,12 +1,21 @@
-#include <vector>
 #include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<pair<int, int>> pairs;
-    for (int num : arr) {
-        int ones = __builtin_popcount(num);
-        pairs.push_back({ones, num});
+vector<int> sort_array(vector<int> arr) {
+    vector<int> result = arr;
+    sort(result.begin(), result.end(), [](int a, int b) {
+        if (countBits(a) == countBits(b)) {
+            return a < b;
+        }
+        return countBits(a) < countBits(b);
+    });
+    return result;
+}
+
+int countBits(int n) {
+    int count = 0;
+    while (n > 0) {
+        n &= n - 1;
+        count++;
     }
-    sort(pairs.begin(), pairs.end());
-    return vector<int>(pairs.begin(), pairs.end()).first;
+    return count;
 }
