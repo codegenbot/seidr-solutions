@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,7 +39,6 @@ int main() {
     string input;
     cout << "Enter a sentence: ";
     getline(cin, input);
-    string output = words_in_sentence(input);
-    cout << "Words with prime length: " << output << endl;
+    cout << "Words with prime length: " << words_in_sentence(input) << endl;
     return 0;
 }
