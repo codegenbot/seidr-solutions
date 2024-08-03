@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int hours;
@@ -6,11 +7,13 @@ int main() {
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melting_rate;
 
     for (int i = 0; i < hours; ++i) {
-        float remaining_snow = snow_on_ground + snow_fall_rate - snow_on_ground * snow_melting_rate;
-        snow_on_ground = remaining_snow + (1 - snow_melting_rate) * (snow_fall_rate - snow_on_ground * snow_melting_rate);
+        float snow_fall = snow_fall_rate;
+        float snow_melt = snow_on_ground * snow_melting_rate;
+        float remaining_snow = snow_on_ground + snow_fall - snow_melt;
+        snow_on_ground = remaining_snow >= 0 ? remaining_snow : 0;
     }
 
-    std::cout << snow_on_ground << std::endl;
+    std::cout << std::fixed << std::setprecision(10) << snow_on_ground << std::endl;
 
     return 0;
 }
