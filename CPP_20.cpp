@@ -8,15 +8,12 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         if (std::abs(a[i] - b[i]) > 1e-6) return false;
     }
     return true;
-
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     std::vector<std::pair<float, float>> result;
     if (numbers.size() < 2) {
-        for(int i = 0; i < numbers.size(); i++) {
-            result.push_back({numbers[i], numbers[i]});
-        }
+        result.push_back({numbers[0], numbers[0]});
         return result;
     }
 
