@@ -1,28 +1,32 @@
+#include <openssl/evp.h>
 #include <iostream>
 #include <string>
-#include <cassert>
-#include <openssl/evp.h>
 
-std::string string_to_md5(const std::string& text) {
-    if (text.empty()) {
-        return "None";
+std::string string_to_md5(const std::string &input) {
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_md5(), nullptr);
+    EVP_DigestUpdate(ctx, input.c_str(), input.length());
+    unsigned char hash[EVP_MD_size(EVP_md5())];
+    EVP_DigestFinal_ex(ctx, hash, nullptr);
+    EVP_MD_CTX_free(ctx);
+
+    char buf[2 * EVP_MD_size(EVP_md5()) + 1];
+    char *ptr = buf;
+    for (int i = 0; i < EVP_MD_size(EVP_md5()); ++i) {
+        ptr += sprintf(ptr, "%02x", hash[i]);
     }
+    *ptr = '\0';
 
-    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit(mdctx, EVP_md5());
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-
-    unsigned char digest[EVP_MAX_MD_SIZE];
-    unsigned int digest_len;
-    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
-    EVP_MD_CTX_free(mdctx);
-
-    char mdString[33];
-    for (unsigned int i = 0; i < digest_len; i++) {
-        sprintf(&mdString[i*2], "%02x", digest[i]);
-    }
-
-    return std::string(mdString);
+    return std::string(buf);
 }
 
-// Add the following flags when compiling: -lssl -lcrypto
+int main() {
+    std::string input;
+    std::cout << "Enter the string to hash: ";
+    std::cin >> input;
+
+    std::string hashed = string_to_md5(input);
+    std::cout << "MD5 Hash: " << hashed << std::endl;
+
+    return 0;
+}
