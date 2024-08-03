@@ -21,14 +21,14 @@ std::string string_to_md5(const std::string& text) {
     EVP_MD_CTX_free(mdctx);
 
     char mdString[33];
-    for(unsigned int i = 0; i < digest_len; i++) {
+    for (unsigned int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i*2], "%02x", digest[i]);
     }
 
     return std::string(mdString);
 }
 
-int main_custom_name() {
+int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
 
     return 0;
