@@ -1,10 +1,10 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 string spinWords(string str) {
-    string result = "";
+    string result = " ";
     int length = 0;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == ' ') {
@@ -14,19 +14,19 @@ string spinWords(string str) {
             else
                 result += str.substr(i - length, length);
             length = 0;
-            if (i < str.length())
-                result += " ";
+            result += " ";
         } else {
             length++;
         }
     }
-    return result;
+    return result.substr(1, result.length() - 2);
 }
 
 int main() {
     string s;
     cout << "Enter a sentence: ";
-    cin >> s;
+    if (!(cin >> ws).get()) break;
+    getline(cin, s);
     cout << spinWords(s) << endl;
     return 0;
 }
