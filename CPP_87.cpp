@@ -28,6 +28,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    assert(issues_same(get_row({std::vector<int>(), std::vector<int>{1}, std::vector<int>{1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
+    assert(issues_same(get_row({std::vector<int>(), std::vector<int>({1}), std::vector<int>({1, 2, 3})}, 3), std::vector<std::vector<int>>({std::vector<int>({2, 2})}));
     return 0;
 }
