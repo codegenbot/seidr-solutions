@@ -7,10 +7,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    do {
-        cin >> num;
+    while (cin >> num) {
         nums.push_back(num);
-    } while (cin.peek() != '\n');
+    }
     
     int n = nums.size();
     int sum = 0;
