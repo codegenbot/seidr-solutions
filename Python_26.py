@@ -1,7 +1,7 @@
 ```
 from typing import Set, List
 
-def remove_duplicates(numbers: List[int]) -> list[int]:
+def remove_duplicates(numbers: list[int]) -> list[int]:
     seen: Set[int] = set()
     result: list[int] = []
     for num in numbers:
