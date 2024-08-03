@@ -1,5 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
+
 using namespace std;
 
 std::vector<std::string> all_prefixes(const std::string& str) {
@@ -10,7 +13,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
