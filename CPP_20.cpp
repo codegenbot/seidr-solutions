@@ -28,5 +28,4 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 int main() {
     assert(issame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}));
     std::vector<float> closest = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
-    return 0;
 }
