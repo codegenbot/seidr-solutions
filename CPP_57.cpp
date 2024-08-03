@@ -1,11 +1,11 @@
 #include <vector>
 #include <cassert>
-#include <cstddef> // Add include for size_t
+#include <cstddef>
 
 bool monotonic(const std::vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
-    for (std::size_t i = 1; i < l.size(); ++i) { // Declare size_t i
+    for (std::size_t i = 1; i < l.size(); ++i) {
         if (l[i] > l[i - 1]) {
             decreasing = false;
         } else if (l[i] < l[i - 1]) {
