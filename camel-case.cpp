@@ -16,10 +16,7 @@ int main() {
             c = std::tolower(c);
         }
     }
-    
-    if (!input.empty())
-        input[0] = std::toupper(input[0]); // Capitalize the first letter
-    
+
     std::cout << input << std::endl;
     
     return 0;
