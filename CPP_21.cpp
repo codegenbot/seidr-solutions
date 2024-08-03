@@ -5,6 +5,7 @@
 
 using namespace std;
 
+bool issame(vector<float> a, vector<float> b);
 vector<float> rescale_to_unit(vector<float> numbers);
 
 vector<float> rescale_to_unit(vector<float> numbers) {
