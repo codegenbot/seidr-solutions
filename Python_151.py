@@ -1,6 +1,11 @@
+```
 def double_the_difference(lst):
     return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
 
-user_input = [1, 3, 4, 5, 6]
-result = double_the_difference(user_input)
-print(result)
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    num = int(input(f"Enter element {i+1}: "))
+    lst.append(num)
+
+print(double_the_difference(lst))
