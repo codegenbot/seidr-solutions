@@ -21,4 +21,3 @@ int main() {
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour);
     cout << fixed << setprecision(10) << result << endl;
     return 0;
-}
