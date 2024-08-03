@@ -1,6 +1,6 @@
-#include <algorithm>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::string& a, const std::string& b) {
     return a == b;
