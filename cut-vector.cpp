@@ -7,7 +7,7 @@ int main() {
     vector<int> nums;
     int num, n;
     
-    cin >> n;
+    cin >> n; // read the number of elements
     
     for (int i = 0; i < n; i++) {
         cin >> num;
@@ -42,7 +42,7 @@ int main() {
         for (int i = 0; i < cut_index; i++) {
             cout << nums[i] << endl;
         }
-        cout << nums[i] << endl;
+        cout << nums[i] << endl; // Update this line
     }
     
     return 0;
