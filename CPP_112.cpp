@@ -2,8 +2,8 @@
 #include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    vector<string> result;
-    string temp = "";
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -17,7 +17,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
+    std::string rev = temp;
     reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
