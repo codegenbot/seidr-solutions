@@ -1,4 +1,3 @@
-```
 def count_up_to(n):
     def is_prime(k):
         if k < 2:
@@ -9,7 +8,7 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n):
+    for i in range(2, n+1): 
         if is_prime(i):
-            result.append(i)
-    return result
+            result.append(str(i)) 
+    return ' -> '.join(result)
