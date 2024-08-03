@@ -1,4 +1,5 @@
 import math
 
-def find_zero(a: int, b: int, c: int, d: int):
-    return round((-b + math.sqrt(b * b - 3 * a * c)) / (3 * a), 2)
+def find_zero(xs: list):
+    a, b, c = xs
+    return round((-b + math.sqrt(b * b - 4 * a * c)) / (2 * a), 2)
