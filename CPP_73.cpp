@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <iostream>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
