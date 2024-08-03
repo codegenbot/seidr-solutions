@@ -4,17 +4,18 @@
 using namespace std;
 
 int main() {
-    int n = 16;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
+    vector<int> digits(16);
+    
+    for (int i = 0; i < 16; i++) {
         cin >> digits[i];
     }
     
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-            int doubled = digits[i] * 2;
-            sum += (doubled > 9) ? (doubled - 9) : doubled;
+    
+    for (int i = 0; i < 16; i++) {
+        if ((i + 1) % 2 == 0) {
+            digits[i] *= 2;
+            sum += (digits[i] > 9) ? (digits[i] - 9) : digits[i];
         } else {
             sum += digits[i];
         }
