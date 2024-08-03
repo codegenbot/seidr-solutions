@@ -38,7 +38,7 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin.ignore(); // Ignore the newline after reading integer input
+    cin.ignore();
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
