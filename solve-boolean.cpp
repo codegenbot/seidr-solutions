@@ -1,20 +1,17 @@
-#include <string>
-
-bool solveBoolean(string s) {
-    bool result = (s == "t");
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            result = (left == "t" && right == "t") ? true : false;
-            break;
-        }
-        else if (s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i + 1);
-            result = (left == "t" || right == "t") ? true : false;
-            break;
+string solveBoolean(string s) {
+    if (s == "T") return "True";
+    if (s == "F") return "False";
+    for (int i = 0; i < s.size(); i++) {
+        char c = s[i];
+        if (c == '|') {
+            string t = s.substr(0, i);
+            string f = s.substr(i + 1);
+            return t + ((t == "T" && f == "F") || (t == "F" && f == "T")) ? "True" : "False";
+        } else if (c == '&') {
+            string t = s.substr(0, i);
+            string f = s.substr(i + 1);
+            return t + ((t == "T" && f == "T") || (t == "F" && f == "F")) ? "True" : "False";
         }
     }
-    return result;
+    return s;
 }
