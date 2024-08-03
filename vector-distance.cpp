@@ -1,28 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-using namespace std;
 
 int main() {
     int n;
-    cin >> n;
-    vector<float> v1(n);
+    std::cin >> n;
+
+    std::vector<float> v1(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v1[i];
+        std::cin >> v1[i];
     }
 
-    cin >> n;
-    vector<float> v2(n);
+    std::cin >> n;
+    std::vector<float> v2(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v2[i];
+        std::cin >> v2[i];
     }
 
     float sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(v1[i] - v2[i], 2);
+        sum += std::pow(v1[i] - v2[i], 2);
     }
 
-    cout << sqrt(sum) << endl;
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
