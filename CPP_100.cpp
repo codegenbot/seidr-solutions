@@ -1,38 +1,24 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> make_a_pile(int n);
+std::vector<int> make_a_pile(int n){
+    std::vector<int> stones;
+    for(int i = 0; i < n; ++i){
+        stones.push_back(n + 2 * i);
+    }
+    return stones;
+}
 
 int main(){
     int n;
     std::cin >> n;
 
-    std::vector<int> result = make_a_pile(n);
+    assert(issame(make_a_pile(n), std::vector<int>({n, n+2, n+4, n+6, n+8, n+10, n+12, n+14}));
 
-    for(int i=0; i<result.size(); i++){
-        std::cout << result[i] << " ";
-    }
-
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-   
     return 0;
-}
-
-std::vector<int> make_a_pile(int n){
-    std::vector<int> stones;
-    stones.push_back(n);
-    for(int i=1; i<n; i++){
-        if(n % 2 == 0){
-            n += 2;
-        } else {
-            n += 1;
-        }
-        stones.push_back(n);
-    }
-    return stones;
 }
