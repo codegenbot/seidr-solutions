@@ -3,11 +3,11 @@
 #include <variant>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<std::variant<int, char>> values) {
+std::vector<int> filter_integers(std::vector<std::variant<int, char>> values){
     std::vector<int> result;
     
     for (auto val : values) {
