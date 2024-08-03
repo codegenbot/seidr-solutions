@@ -3,10 +3,9 @@
 #include <unordered_set>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::unordered_set<int> set_a(a.begin(), a.end());
+bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
     for (int digit : b) {
-        if (set_a.count(digit) == 0) {
+        if (a.count(digit) == 0) {
             return false;
         }
     }
