@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+#include <algorithm>
+
 string words_in_sentence(string sentence) {
     vector<int> lengths;
     string result = "";
