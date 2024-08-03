@@ -1,8 +1,19 @@
 #include <vector>
 #include <cassert>
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 std::vector<int> f(int n) {
