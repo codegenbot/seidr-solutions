@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool areEqual(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> eat(int number, int need, int remaining) {
     int totalEatenCarrots = number + min(need, remaining);
     int carrotsLeft = max(0, remaining - need);
@@ -11,6 +15,6 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(issame(eat(4, 5, 1), {5, 0}));
+    assert(areEqual(eat(4, 5, 1), {5, 0}));
     return 0;
 }
