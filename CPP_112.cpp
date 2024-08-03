@@ -1,13 +1,20 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+```cpp
+bool isPalindrome(vector<string> s) {
+    string temp = "";
+    for (int i = 0; i < s.size(); i++) {
+        temp += s[i];
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+    bool result = false;
+    int start = 0, end = temp.length() - 1;
+    while (start < end) {
+        if (temp[start] != temp[end]) {
+            result = false;
+            break;
         }
+        start++;
+        end--;
     }
-    return true;
+    return result;
 }
 
 vector<string> reverse_delete(string s, string c) {
@@ -24,20 +31,6 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
         }
     }
-    string temp = "";
-    for (int i = 0; i < result.size(); i++) {
-        temp += result[i];
-    }
-    bool isPalindrome = false;
-    int start = 0, end = temp.length() - 1;
-    while (start < end) {
-        if (temp[start] != temp[end]) {
-            isPalindrome = false;
-            break;
-        }
-        start++;
-        end--;
-    }
-    result.push_back(isPalindrome ? "True" : "False");
+    result.push_back(isPalindrome(result) ? "True" : "False");
     return result;
 }
