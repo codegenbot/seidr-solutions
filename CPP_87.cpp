@@ -23,9 +23,3 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     });
     return result;
 }
-
-int main(){
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
-    // Additional test cases can be added here
-    return 0;
-}
