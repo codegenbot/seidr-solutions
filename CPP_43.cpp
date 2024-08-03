@@ -1,19 +1,33 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-bool pairs_sum_to_zero(const std::vector<int>& l) {
-    for (int i = 0; i < l.size(); ++i) {
-        for (int j = i + 1; j < l.size(); ++j) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
+bool pairs_sum_to_zero(std::vector<int>& l) {
+    sort(l.begin(), l.end());
+    int left = 0;
+    int right = l.size() - 1;
+    
+    while (left < right) {
+        if (l[left] + l[right] == 0) {
+            return true;
+        } else if (l[left] + l[right] < 0) {
+            left++;
+        } else {
+            right--;
         }
     }
+    
     return false;
 }
 
 int main() {
-    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-    // Add more test cases
+    std::vector<int> l = {3, -2, 1, -1, -3};
+    
+    if (pairs_sum_to_zero(l)) {
+        std::cout << "There exist two elements whose sum is zero." << std::endl;
+    } else {
+        std::cout << "No two elements have a sum of zero." << std::endl;
+    }
+    
     return 0;
 }
