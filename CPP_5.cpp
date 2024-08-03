@@ -1,11 +1,11 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
+bool issame(int a, int b){
+    return a == b;
+}
 
-vector<int> intersperse(vector<int> numbers, int delimiter){
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
+    std::vector<int> result;
     for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
         if(i != numbers.size() - 1){
@@ -15,12 +15,13 @@ vector<int> intersperse(vector<int> numbers, int delimiter){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert (issame(intersperse({2, 2, 2}, 2),{2, 2, 2, 2, 2}));
+    std::vector<int> numbers = {1, 2, 3, 4};
+    int delimiter = 0;
+    std::vector<int> result = intersperse(numbers, delimiter);
+    for(int num : result){
+        std::cout << num << " ";
+    }
     
     return 0;
 }
