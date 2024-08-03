@@ -25,6 +25,6 @@ int main() {
         cin >> discounts[i];
     }
     double result = totalShoppingTripPrice(prices, discounts);
-    std::cout << std::fixed << std::setprecision(1) << result << endl;
+    std::cout << fixed << setprecision(1) << result << endl;
     return 0;
 }
