@@ -8,12 +8,9 @@ def decode_cyclic(s: str):
                 result += group[1]
                 s = s[3:]
             else:
-                for i in range(len(group)):
-                    if group[i] != group[(i+1)%3]:
-                        result += group[i]
-                        break
-                s = s[3:]
+                result += s[0]
+                s = s[1:]
         else:
             result += s[0]
             s = s[1:]
-    return result
+    print(result)
