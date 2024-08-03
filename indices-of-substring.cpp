@@ -1,2 +1,2 @@
-int pos = 0;
+int pos;
 pos += target.empty() ? 1 : target.length();
