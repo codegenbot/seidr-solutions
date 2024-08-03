@@ -14,7 +14,7 @@ int maximum(const std::vector<int>& nums, int default_val) {
 
 int main() {
     assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
-    assert(issame(std::vector<int>{maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0)}, std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
+    assert(issame(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{1, 2, 3, -23, 243, -400, 0}));
 
     return 0;
 }
