@@ -25,24 +25,16 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        if (prefix_sum >= half_sum) {
+        if (std::abs(2 * prefix_sum - sum) <= std::abs(2 * prefix_sum - sum + 2 * nums[i])) {
             cut_index = i;
-            break;
         }
     }
     
-    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index]))) {
-        cout << "2" << endl;
-        for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << endl;
-        }
-        cout << "0" << endl;
-    } else {
-        cout << "1" << endl;
-        for (int i = 0; i <= cut_index; i++) {
-            cout << nums[i] << endl;
-        }
+    cout << "2" << endl;
+    for (int i = 0; i <= cut_index; i++) {
+        cout << nums[i] << endl;
     }
-    
+    cout << "0" << endl;
+
     return 0;
 }
