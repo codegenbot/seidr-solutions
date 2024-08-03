@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -17,7 +18,7 @@ string get_closest_vowel(string word) {
         }
         left = right;
     }
-
+    
     while (left > 0 && !isvowel(word[left - 1]))
         --left;
 
