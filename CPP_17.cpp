@@ -1,10 +1,12 @@
 #include <vector>
+#include <string>
 
-vector<int> parse_music(string music_string);
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-vector<int> parse_music(string music_string){
-    vector<int> beats;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
@@ -16,11 +18,9 @@ vector<int> parse_music(string music_string){
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 2;
+        } else if (music_string[i] == '|') {
+            i++;
         }
     }
     return beats;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
