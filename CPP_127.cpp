@@ -1,19 +1,3 @@
-#include <string>
-#include <algorithm>
-#include <utility>
-
-bool is_prime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
 std::string intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
     int start1 = interval1.first;
     int end1 = interval1.second;
