@@ -1,20 +1,34 @@
 #include <vector>
+#include <cmath>
 #include <cassert>
-#include <algorithm>
 
-bool issame(vector<float> a, vector<float> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    
-    return a == b;
-}
+using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
-    // Implement find_closest_elements
+    vector<float> closest;
+    float min_diff = numeric_limits<float>::max();
+
+    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+        float diff = abs(numbers[i] - numbers[i + 1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest = {numbers[i], numbers[i + 1]};
+        }
+    }
+
+    return closest;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
 
 int main() {
