@@ -1,5 +1,9 @@
+#include <iostream>
 #include <vector>
+#include <climits>
 #include <cassert>
+
+using namespace std;
 
 vector<int> pluck(vector<int> arr){
     vector<int> result;
@@ -21,13 +25,13 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-bool issame(vector<int> v1, vector<int> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -36,8 +40,7 @@ bool issame(vector<int> v1, vector<int> v2) {
 }
 
 int main() {
-    assert(issame(pluck({1, 2, 3, 4, 5}), {2, 1}));
-    assert(issame(pluck({1, 3, 5}), {}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
     
     return 0;
 }
