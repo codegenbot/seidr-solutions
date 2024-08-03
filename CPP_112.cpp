@@ -22,7 +22,3 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back((temp == rev) ? "True" : "False");
     return result;
 }
-
-bool same(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
