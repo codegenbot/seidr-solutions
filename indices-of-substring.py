@@ -1,6 +1,4 @@
 def indices_of_substring(text, target):
-    if not target:
-        return [0]
     indices = []
     start = 0
     while True:
@@ -8,7 +6,7 @@ def indices_of_substring(text, target):
         if start == -1:
             break
         indices.append(start)
-        start += 1
+        start += len(target)  # Update to move past the current target
     return indices
 
 text = input()
