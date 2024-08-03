@@ -1,14 +1,10 @@
 #include <iostream>
 #include <cstring>
-
-size_t str_length(const std::string& str) {
-    return str.length();
-}
+#include <cassert>
 
 int main() {
     assert(strlen("asdasnakj") == 9);
-
-    // Add your main code here
-
+    std::string str = "Example string";
+    std::cout << str.length() << std::endl;
     return 0;
 }
