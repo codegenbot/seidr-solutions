@@ -16,8 +16,8 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> select_words(string s, int n) {
     vector<string> words;
     string word = "";
-    for (int i = 0, cnt = 0; i < s.size(); ++i) {
-        if (s[i] == ' ') {
+    for (int i = 0, cnt = 0; i <= s.size(); ++i) {
+        if (i == s.size() || s[i] == ' ') {
             if (cnt >= n) words.push_back(word);
             word = "";
             cnt++;
@@ -25,7 +25,6 @@ vector<string> select_words(string s, int n) {
             word += s[i];
         }
     }
-    if (cnt >= n) words.push_back(word);
     return words;
 }
 
