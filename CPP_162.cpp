@@ -1,5 +1,3 @@
-int main();
-
 #include <openssl/evp.h>
 #include <iostream>
 #include <string>
