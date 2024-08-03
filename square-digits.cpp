@@ -1,10 +1,12 @@
-#include <string>
+Here is the solution:
 
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+string squareDigits(long int N) {
+    string res = "";
+    while(N > 0) {
+        long int digit = N % 10;
+        N /= 10;
+        res += to_string(digit * digit);
     }
-    return output;
+    reverse(res.begin(), res.end());
+    return res;
 }
