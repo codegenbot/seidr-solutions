@@ -1,6 +1,5 @@
 #include <string>
-
-string longest(vector<string> strings);
+using namespace std;
 
 string longest(vector<string> strings) {
     if (strings.empty()) {
