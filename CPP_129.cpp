@@ -1,39 +1,55 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
-    vector<int> res(k);
+    vector<int> res;
     
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (k == 1) {
                 dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
             } else {
-                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
+                int min_val = INT_MAX;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        if (0 <= i + x && i + x < n && 0 <= j + y && j + y < n) {
+                            min_val = min(min_val, dp[i + x][j + y]);
+                        }
+                    }
+                }
+                dp[i][j] = grid[i][j] + min_val;
             }
         }
     }
     
-    int min_val = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] == dp[n-1][n-1]) {
-                res[k-1] = grid[i][j];
-                k--;
-                if (k > 0) {
-                    min_val = min(min_val, i + j);
+    int max_val = INT_MIN;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (dp[i][j] > max_val) {
+                max_val = dp[i][j];
+                res.clear();
+                int idx = 0;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        if (0 <= i + x && i + x < n && 0 <= j + y && j + y < n) {
+                            while (idx < k && dp[i + x][j + y] == max_val) {
+                                res.push_back(grid[i + x][j + y]);
+                                idx++;
+                                if (i + x > 0 || j + y > 0) {
+                                    i += x; 
+                                    j += y;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
-    
-    int idx = n - 1;
-    for (int i = k; i > 0; i--) {
-        res[k-i] = grid[idx--][idx--];
     }
     
     return res;
