@@ -20,9 +20,9 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{4, 5}, std::vector<int>{4, 5}));
-    assert(issame(std::vector<int>{5, 0}, std::vector<int>{5, 0}));
-    assert(issame(std::vector<int>{0, 6}, std::vector<int>{0, 6}));
+    assert(issame(even_odd_count(45), std::vector<int>{4, 5}));
+    assert(issame(even_odd_count(50), std::vector<int>{5, 0}));
+    assert(issame(even_odd_count(60), std::vector<int>{0, 6}));
     
     return 0;
 }
