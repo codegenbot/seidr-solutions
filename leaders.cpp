@@ -11,6 +11,6 @@ vector<int> leaders(vector<int>& arr) {
             max_right = arr[i];
         }
     }
-    std::reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
 }
