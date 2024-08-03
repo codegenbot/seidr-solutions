@@ -1,7 +1,5 @@
-def rounded_avg():
-    n = int(input("Enter the first number: "))
-    m = int(input("Enter the second number: "))
+def rounded_avg(n, m):
     if n > m:
-        return -1
-    avg = (n + m) // 2
-    return str(avg)
+        return "Invalid input: n should not be greater than m"
+    avg = (n + m) / 2
+    return str(int(avg)).zfill(1)
