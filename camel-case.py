@@ -1,7 +1,6 @@
-Here is the Python code to solve the camel-case problem:
+Here is the completed code:
 
-def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split('-'))
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.split(' ')) if '-' not in s else s.replace('-', ' ').title()
 
-s = input()
-print(kebab_to_camel(s))
+print(camel_case(input()))
