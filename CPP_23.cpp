@@ -7,4 +7,4 @@ int testFunction(const char* str){
 
 int main(){
     assert(testFunction("asdasnakj") == 9);
-}
+}  
