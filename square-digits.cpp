@@ -14,10 +14,7 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    std::cout << squareDigits("0") << std::endl; 
-    std::cout << squareDigits("1") << std::endl; 
-    std::cout << squareDigits("2") << std::endl; 
-    std::cout << squareDigits("3") << std::endl; 
-    std::cout << squareDigits("4") << std::endl; 
+    std::cout << squareDigits("17") << std::endl; 
+    std::cout << squareDigits("10983") << std::endl; 
     return 0;
 }
