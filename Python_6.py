@@ -1,3 +1,8 @@
+```
+input_string = "(a(b)(c)d(e(f)))"  
+result = parse_nested_parens(input_string)  
+print(result)  
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
     for group in paren_string.split():
@@ -9,7 +14,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 level -= 1
         result.append(level)
     return result
-
-input_string = "(a(b)(c)d(e(f)))"
-result = parse_nested_parens(input_string)
-print(result)
