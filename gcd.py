@@ -1,30 +1,33 @@
+```
 def gcd(m, n):
-    while n:
-        m, n = n, m % n
-    return abs(m)
+    while math.gcd(m, n) != 1:
+        m = math.gcd(m, n)
+        n //= m
+    return m
 
-
-def find_indices(text, target):
-    indices = []
-    start_index = 0
-    while start_index < len(text):
-        pos = text.find(target, start_index)
-        if pos != -1:
-            indices.append(pos)
-            start_index = pos + 1
-        else:
+def indices_of_substring(text, target):
+    result = []
+    i = 0
+    while True:
+        pos = text.find(target, i)
+        if pos == -1:
             break
-    return indices
+        result.append(pos)
+        i = pos + 1
+    return result
 
+# test cases
+print(gcd(1, 1))
+print(indices_of_substring("banana", "ana"))
 
-def main():
-    m = int(input())
-    n = int(input())
-    print(gcd(m, n))
+print(gcd(4, 400000))
+print(indices_of_substring("hello world hello hello", "hello"))
 
+print(gcd(54, 24))
+print(indices_of_substring("abcde abcde abcde", "abcde"))
 
-m = int(input())
-n = int(input())
-print(find_indices(input(), input()))
+print(gcd(4200, 3528))
+print(indices_of_substring("abcdefghijklmnopqrstuvwxyz", "abc"))
 
-main()
+print(gcd(820000, 63550))
+print(indices_of_substring("a" * 100000, "a" * 25))
