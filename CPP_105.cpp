@@ -3,7 +3,6 @@
 #include <map>
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
@@ -34,7 +33,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    std::sort(filtered.begin(), filtered.end(), std::greater<int>());
+    std::sort(filtered.begin(), filtered.end());
+    std::reverse(filtered.begin(), filtered.end());
 
     for (int num : filtered) {
         result.push_back(num_to_name[num]);
@@ -43,7 +43,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
-}
+assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
