@@ -1,3 +1,9 @@
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a[0].compare(b[0]) == 0 && a[1].compare(b[1]) == 0;
+}
+
 vector<string> reverse_delete(string s, string c) {
     string result = "";
     for (char ch : s) {
