@@ -7,7 +7,7 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(time(NULL));
+    srand(time(nullptr));
     int x = rand() % 1000;
     int y = rand() % 1000;
 
