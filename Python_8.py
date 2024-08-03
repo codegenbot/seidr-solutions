@@ -1,4 +1,8 @@
-Here is the problem: Given a list of integers, calculate and return the sum and product of all numbers in the list.
+Here is the problem: 
+
+Sum Product of Numbers
+
+Given a list of integers, calculate and return the sum and product of all numbers in the list.
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not numbers:
