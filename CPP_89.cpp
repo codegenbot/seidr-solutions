@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <cctype>
 
 std::string encrypt(const std::string& s) {
@@ -14,9 +13,4 @@ std::string encrypt(const std::string& s) {
         }
     }
     return encrypted;
-}
-
-int main() {
-    assert(encrypt("a") == "e");
-    return 0;
-}
+} 
