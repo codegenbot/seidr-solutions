@@ -4,19 +4,14 @@
 
 using namespace std;
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a,vector<int> b){
     return a == b;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.end());
+    vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
-    for(int i = 0; i < k-1; i++){
-        if(result[i] != result[k-1]){
-            return vector<int>(1,result[k-1]);
-        }
-    }
-    return vector<int>();
+    return result;
 }
 
 int main() {
