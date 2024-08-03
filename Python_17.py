@@ -5,9 +5,10 @@ def parse_music(music_string: str) -> List[int]:
     i = 0
     while i < len(music_string):
         if music_string[i] == '.':
+            note = '..|'
             i += 3
         else:
             note = music_string[i:i+2]
             i += 2
-            result.append(beats_per_note[note])
+        result.append(beats_per_note[note])
     return result
