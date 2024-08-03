@@ -1,5 +1,6 @@
-#include <cmath>
+#include <iostream>
 #include <vector>
+#include <cmath>
 
 double euclideanDistance(const std::vector<double>& vec1, const std::vector<double>& vec2) {
     double sum = 0.0;
@@ -10,6 +11,10 @@ double euclideanDistance(const std::vector<double>& vec1, const std::vector<doub
 }
 
 int main() {
-    // Add test cases here
+    std::vector<double> vec1 = {1.0, 2.0, 3.0};
+    std::vector<double> vec2 = {4.0, 5.0, 6.0};
+
+    std::cout << euclideanDistance(vec1, vec2) << std::endl;
+
     return 0;
 }
