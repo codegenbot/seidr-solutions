@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -16,9 +17,16 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    int n;
+    std::cin >> n;
+    std::vector<int> input(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> input[i];
+    }
+    
     input = remove_duplicates(input);
-    assert(is_same(input, std::vector<int>(1, 4, 5)));
+    assert(is_same(input, std::vector<int>{1, 4, 5}));
     
     return 0;
 }
