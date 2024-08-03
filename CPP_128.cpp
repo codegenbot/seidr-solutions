@@ -1,4 +1,7 @@
-int prod_signs(vector<int> arr) {
+#include <vector>
+#include <cmath>
+
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long sum = 0;
 
@@ -6,7 +9,7 @@ int prod_signs(vector<int> arr) {
 
     for (int num : arr) {
         product *= ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
-        sum += abs(num);
+        sum += std::abs(num);
     }
 
     return product * sum;
