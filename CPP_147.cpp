@@ -1,4 +1,8 @@
-vector<int> a(n);
+#include <vector>
+#include <cassert>
+
+int get_matrix_triples(int n) {
+    std::vector<int> a(n);
     for (int i = 0; i < n; i++) {
         a[i] = i * i - i + 1;
     }
@@ -16,3 +20,5 @@ vector<int> a(n);
 
     return count;
 }
+
+int main();
