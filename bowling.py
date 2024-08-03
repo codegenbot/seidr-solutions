@@ -1,23 +1,29 @@
 ```
-def bowling_score(score):
-    frames = score.split('/')
-    total_score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            total_score += 30
-        elif frames[i].isdigit():
-            strike = int(frames[i])
-            if i < len(frames) - 1 and frames[i+1].isdigit():
-                spare = int(frames[i+1])
-                total_score += strike + spare
+def bowling_score(s):
+    score = 0
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit() and s[i+1].isdigit():
+            if int(s[i]) + int(s[i+1]) == 10:
+                if frame < 9:
+                    score += 10
+                else:
+                    if s[i-1].isdigit() and s[i-1] != 'X':
+                        score += 10
+                    elif i > 0 and s[i-2].isdigit() and int(s[i-2]) + int(s[i-1]) == 10:
+                        score += 20
             else:
-                total_score += strike
-        else:
-            frame = [int(x) for x in frames[i]]
-            if sum(frame) == 10:
-                total_score += sum(frame)
-            elif len(frame) > 1 and sum(frame) < 10:
-                total_score += 10 + sum(frame[1:])
+                if frame < 9:
+                    score += int(s[i]) + int(s[i+1])
+                else:
+                    if i > 0 and s[i-1].isdigit() and int(s[i-1]) + int(s[i]) == 10:
+                        score += 20
+        elif s[i] == 'X':
+            score += 10
+            frame += 1
+        elif s[i] == '/':
+            if i > 0 and s[i-1].isdigit():
+                score += 10 - int(s[i-1])
             else:
-                total_score += sum(frame)
-    return total_score
+                score += 10
+    return score
