@@ -13,7 +13,7 @@ int main() {
     int sum = 0;
     
     for (int i = 15; i >= 0; i--) {
-        if ((15 - i) % 2 == 0) {
+        if ((i % 2) != 0) {
             digits[i] *= 2;
             sum += (digits[i] > 9) ? (digits[i] - 9) : digits[i];
         } else {
