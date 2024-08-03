@@ -3,18 +3,27 @@
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    if (total > remaining) {
-        return {total, 0};
+    vector<int> result;
+    
+    if (need > remaining) {
+        result.push_back(number + remaining);
+        result.push_back(0);
     } else {
-        return {total, remaining - need};
+        result.push_back(number + need);
+        result.push_back(remaining - need);
     }
+    
+    return result;
 }
 
 int main() {
-    cout << "{11, " << eat(5, 6, 10)[1] << "}" << endl;
-    cout << "{12, " << eat(4, 8, 9)[1] << "}" << endl;
-    cout << "{11, " << eat(1, 10, 10)[1] << "}" << endl;
-    cout << "{7, " << eat(2, 11, 5)[1] << "}" << endl;
+    int number, need, remaining;
+    cin >> number >> need >> remaining;
+
+    vector<int> result = eat(number, need, remaining);
+
+    cout << "Total eaten: " << result[0] << endl;
+    cout << "Carrots left: " << result[1] << endl;
+
     return 0;
 }
