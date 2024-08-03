@@ -18,6 +18,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(split("ahmed,gamal", ','), split("ahmed,gamal", ',')));
+    assert(issame(split("ahmed,gamal", ','), {"ahmed", "gamal"}));
     return 0;
 }
