@@ -28,11 +28,9 @@ std::vector<float> sort_even(const std::vector<float>& v) {
 }
 
 int main() {
-    // Add test cases to verify the correctness of functions
     std::vector<float> test_input = {3.0, 5.0, 2.0, 1.0, 4.0};
     std::vector<float> result = sort_even(test_input);
 
-    // Output the sorted even numbers
     for (float num : result) {
         std::cout << num << " ";
     }
