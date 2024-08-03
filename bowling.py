@@ -1,15 +1,14 @@
 ```
-def bowling_score(bowling):
+def bowling_score(game):
     score = 0
-    roll = 0
-    for i in range(10):
-        if '/' in str(bowling)[i*2:i*2+2]:
-            first, second = map(int, str(bowling)[i*2:i*2+2].split('/'))
-            if first == 10:
-                score += 10 + sum(str(bowling)[(i+1)*2:(i+1)*2+2])
-            else:
-                score += first + second
-        elif str(bowling)[i*2:i*2+1] != 'X':
-            score += int(str(bowling)[i*2:i*2+1]) * 10
-        roll += 1
+    roll = []
+    for i in range(1, len(game)+1):
+        if game[i-1] == 'X':
+            score += 10 + (10 - sum(map(int, roll))) if roll else 10
+            roll = []
+        elif game[i-1] == '/':
+            score += 10 + (10 - sum(map(int, roll)))
+            roll = []
+        else:
+            roll.append(game[i-1])
     return score
