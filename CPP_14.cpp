@@ -20,4 +20,4 @@ int main() {
     auto all_prefixes = b; 
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
-}  
+}
