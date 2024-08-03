@@ -1,3 +1,20 @@
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size())return false;
+    for(int i=0;i<a.size();i++){
+        int counta = 0, countb = 0;
+        for(char c : a[i]){
+            if(!ispunct(c) && !isalpha(c) || isvowel(c))continue;
+            counta++;
+        }
+        for(char c : b[i]){
+            if(!ispunct(c) && !isalpha(c) || isvowel(c))continue;
+            countb++;
+        }
+        if(counta!=countb)return false;
+    }
+    return true;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -19,8 +36,4 @@ vector<string> select_words(string s, int n) {
         }
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Your implementation here
 }
