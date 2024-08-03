@@ -20,7 +20,6 @@ namespace std {
         return sorted_array;
     }
 }
-
 int main() {
     assert(std::issame(std::sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
