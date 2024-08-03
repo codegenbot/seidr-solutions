@@ -1,4 +1,6 @@
 def increment_list(l):
     return [x + 1 for x in l]
 
-check(increment_list)
+input_list = list(map(int, input().split()))
+result_list = increment_list(input_list)
+print(result_list)
