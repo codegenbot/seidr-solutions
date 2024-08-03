@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -9,7 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
     return 0;
 }
 
@@ -24,7 +23,7 @@ vector<string> by_length(vector<int> arr) {
     }
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             return a.size() < b.size();
+             return a.length() < b.length();
          });
     reverse(result.begin(), result.end());
     return result;
