@@ -3,10 +3,16 @@
 
 using namespace std;
 
-vector<string> bf(string planet1, string planet2);
-
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
+}
+
+vector<string> bf(string planet1, string planet2);
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+
+    return 0;
 }
 
 vector<string> bf(string planet1, string planet2) {
