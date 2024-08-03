@@ -1,14 +1,12 @@
-Here is the modified code:
-
-```cpp
-#include <vector>
 #include <iostream>
-#include <cstdlib>
+#include <vector>
 
-int add_elements(vector<int> arr, int k) {
+using namespace std;
+
+int add_elements(vector<int> arr,int k){
     int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if (to_string(arr[i]).size() <= 2) {
+    for(int i=0; i<k; i++){
+        if(log10(arr[i]) < 2) {
             sum += arr[i];
         }
     }
@@ -16,8 +14,6 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    int arr[] = {1};
-    int k = 1;
-    cout << "Sum: " << add_elements(vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), k) << endl;
+    assert (add_elements({1}, 1) == 1);
     return 0;
 }
