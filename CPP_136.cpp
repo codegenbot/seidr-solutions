@@ -1,14 +1,16 @@
-vector<int> largest_smallest_integers(vector<int> lst) {
-    int maxNeg = 0;
-    int minPos = INT_MAX;
-
-    for (int num : lst) {
-        if (num < 0 && num > maxNeg) {
-            maxNeg = num;
-        } else if (num > 0 && num < minPos) {
-            minPos = num;
-        }
+```cpp
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
-
-    return {(maxNeg > 0) ? 0 : maxNeg, (minPos < 1) ? 0 : minPos};
+    return true;
+}
+vector<int> largest_smallest_integers(vector<int> lst){
+    int max_negative = 0, min_positive = INT_MAX;
+    for(int i : lst){
+        if(i < 0 && i > max_negative) max_negative = i;
+        else if(i > 0 && i < min_positive) min_positive = i;
+    }
+    return {(max_negative > 0) ? max_negative : 0, (min_positive < INT_MAX) ? min_positive : 0};
 }
