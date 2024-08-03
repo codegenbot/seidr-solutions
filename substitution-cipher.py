@@ -1,9 +1,4 @@
-def substitution_cipher(cipher, message):
-    return "".join([cipher[i] if i < len(cipher) else "" for i in range(len(message))])
-
-
-cipher1 = input()
-cipher2 = input()
-message = input()
-
-print(substitution_cipher(cipher2, cipher1))
+def substitution_cipher(input1, input2, input3):
+    cipher = {c: d for c, d in zip(input1, input2)}
+    output = "".join([cipher.get(c, c) for c in input3])
+    return output
