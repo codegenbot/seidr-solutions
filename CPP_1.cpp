@@ -1,17 +1,12 @@
-#include <vector>
-#include <string>
-#include <cassert>
+#include <vector> // Add this line
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Update function signature
+    return a == b; // Compare vectors using ==
 }
 
-vector<string> separate_paren_groups(string paren_string);
-
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    
-    string group;
+bool separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result; // Use std::vector and std::string
+    std::string group;
     int count = 0;
 
     for (char c : paren_string) {
@@ -31,14 +26,5 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
 
-    return result;
-} 
-
-vector<string> a = separate_paren_groups("((()))");
-vector<string> b = separate_paren_groups("((())())");
-
-if (issame(a, b)) {
-    // Do something if the groups are same
-} else {
-    // Do something if the groups are different
-} 
+    return issame(result, {"group1", "group2"}); // Compare with correct values
+}
