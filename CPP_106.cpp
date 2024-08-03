@@ -1,17 +1,5 @@
 #include <vector>
-
-bool issame(const std::vector<int>& arr) {
-    if (arr.empty()) {
-        return false;
-    }
-    int first = arr[0];
-    for (int i = 1; i < arr.size(); ++i) {
-        if (arr[i] != first) {
-            return false;
-        }
-    }
-    return true;
-}
+#include <cassert>
 
 std::vector<int> f(int n) {
     std::vector<int> res;
@@ -27,4 +15,8 @@ std::vector<int> f(int n) {
         }
     }
     return res;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
