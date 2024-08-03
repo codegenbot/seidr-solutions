@@ -1,6 +1,10 @@
-int smallest_change(vector<int> arr) {
+```cpp
+#include <vector>
+#include <algorithm>
+
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     
     for (int i = 0; i < n; i++) {
         dp[i][i] = 0;
