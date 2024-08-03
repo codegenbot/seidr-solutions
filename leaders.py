@@ -1,2 +1,10 @@
+Here is the solution:
+
 def leaders(arr):
-    return [x for x in arr[::-1] if all(x >= y for y in arr[arr.index(x) + 1 :])]
+    n = len(arr)
+    result = [arr[-1]]
+    for i in range(n-2, -1, -1):
+        if arr[i] >= arr[-1]:
+            result.append(arr[i])
+            arr[-1] = arr[i]
+    return list(reversed(result))
