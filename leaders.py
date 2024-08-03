@@ -1,4 +1,4 @@
-Here is the Python code for the problem:
+Here is the Python solution for the problem:
 
-def leaders(vector):
-    return [v for i, v in enumerate(reversed(vector)) if all(v >= vector[i+1:])]
+def leaders(arr):
+    return [x for x in reversed(arr) if all(x >= y for y in arr[arr.index(x)+1:])]
