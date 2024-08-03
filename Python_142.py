@@ -1,4 +1,4 @@
-lst = list(map(int, input("Enter space-separated numbers: ").split()))
+```
 def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
