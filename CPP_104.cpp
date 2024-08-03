@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 #include <cassert>
 
 bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
@@ -12,11 +12,11 @@ bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::unordered_set<int> unique_digits(const std::vector<int>& input) {
+std::unordered_set<int> unique_digits(std::vector<int> input) {
     return std::unordered_set<int>(input.begin(), input.end());
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>({31, 135})));
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
