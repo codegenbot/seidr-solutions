@@ -4,26 +4,22 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> get_odd_collatz(int num) {
+vector<int> get_odd_collatz(int n) {
     vector<int> collatz_sequence;
-    collatz_sequence.push_back(num);
-
-    while (num != 1) {
-        if (num % 2 == 0) {
-            num /= 2;
+    while (n != 1) {
+        collatz_sequence.push_back(n);
+        if (n % 2 == 0) {
+            n = n / 2;
         } else {
-            num = 3 * num + 1;
-        }
-        if (num % 2 != 0) {
-            collatz_sequence.push_back(num);
+            n = 3 * n + 1;
         }
     }
-
+    collatz_sequence.push_back(1);
     return collatz_sequence;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
