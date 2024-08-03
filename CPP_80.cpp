@@ -1,9 +1,13 @@
-bool is_happy(const string& s){
-    if(s.length() < 3){
-        return false;
-    }
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool is_happy(const string& s) {
+    if(s.length() < 3) return false;
     
-    for(int i = 0; i < s.length() - 2; i++){
+    for(int i = 0; i < s.length() - 2; ++i){
         if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]){
             return false;
         }
@@ -13,7 +17,7 @@ bool is_happy(const string& s){
 }
 
 int main() {
-    assert (is_happy("iopaxioi") == false);
+    assert(is_happy("iopaxioi") == false);
     
     return 0;
 }
