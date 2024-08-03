@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <unordered_map>
 #include <iostream>
@@ -17,7 +16,7 @@ pair<int, int> findPair(vector<int>& vec, int target) {
         numIndex[vec[i]] = i;
     }
     
-    return {-1, -1}; 
+    return {-1, -1};
 }
 
 int main() {
@@ -35,4 +34,3 @@ int main() {
     }
     return 0;
 }
-```

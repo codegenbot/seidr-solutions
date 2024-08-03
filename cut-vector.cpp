@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -8,8 +11,14 @@ vector<vector<int>> cutVector(vector<int> vec) {
     
     for(int i = 0; i < n; i++) {
         if(i == n - 1 || vec[i] != vec[i+1]) {
-            result.push_back({{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}});
-            break;
+            if(i > 0) {
+                result.push_back({{},{vec.begin(), vec.begin() + i}});
+            }
+            if(i < n - 1) {
+                result.push_back({{vec.begin() + i, vec.end()}});
+            } else {
+                result.push_back({{vec.begin() + i, vec.end()}});
+            }
         }
     }
     
@@ -26,10 +35,16 @@ int main() {
     
     vector<vector<int>> res = cutVector(vec);
     for(auto v : res) {
-        for(auto x : v) {
+        for(auto x : v[0]) {
             cout << x << " ";
         }
         cout << endl;
+        if(v.size() > 1) {
+            for(auto x : v[1]) {
+                cout << x << " ";
+            }
+            cout << endl;
+        }
     }
     
     return 0;
