@@ -1,12 +1,8 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-string squareDigits(string input) {
-    string output = "";
-    for (int i = 0; i < input.length(); i++) {
-        int digit = (input[i] - '0'); // convert character to integer
-        output += to_string(digit * digit); // square the digit and concatenate
+string squareDigits(string n) {
+    string res = "";
+    for(int i=0; i<n.length(); i++){
+        int num = (int)(n[i] - '0'); // convert char to integer
+        res += to_string(num * num); // concatenate squared digit
     }
-    return output;
+    return res;
 }
