@@ -15,7 +15,4 @@ string longest(vector<string> strings){
     return longest_str;
 }
 
-int main(){
-    // Main function implementation here (if needed)
-    return 0;
-}
+```
