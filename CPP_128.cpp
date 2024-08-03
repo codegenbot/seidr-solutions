@@ -16,13 +16,13 @@ int prod_signs(const std::vector<int>& arr) {
         } else if (num < 0) {
             product *= -1;
         }
-        sum += std::abs(num);
+        sum += abs(num);
     }
 
     return product * sum;
 }
 
 int main() {
-    assert(prod_signs(std::vector<int>{-1, 1, 1, 0}) == 0);
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
