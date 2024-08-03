@@ -6,20 +6,15 @@ vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
     
-    for(int i = 0; i < n; i++) {
-        if(i == n - 1 || vec[i] != vec[i+1]) {
-            vector<int> left, right;
-            for(int j = 0; j <= i; j++) {
-                left.push_back(vec[j]);
-            }
-            for(int j = i+1; j < n; j++) {
-                right.push_back(vec[j]);
-            }
-            result.push_back(left);
-            result.push_back(right);
+    for(int i = 0; i < n-1; i++) {
+        if(abs(vec[i] - vec[i+1]) > abs(vec[0] - vec.back())) {
+            result.push_back({vector<int>(vec.begin(), vec.begin() + i+1)});
             break;
         }
     }
+    
+    // Add the remaining elements as another subvector
+    result.push_back({vector<int>(vec.begin() + i, vec.end())});
     
     return result;
 }
