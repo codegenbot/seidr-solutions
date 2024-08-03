@@ -1,12 +1,10 @@
-```
 def minPath(grid, k):
     n = len(grid)
     res = []
 
     def dfs(i, j, path):
         if len(path) == k:
-            if len(path) > 0:
-                res.append(sorted([t[0] for t in path]))
+            res.append(sorted([t[0] for t in path]))
             return
 
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
