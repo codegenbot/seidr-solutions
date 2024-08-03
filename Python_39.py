@@ -1,12 +1,13 @@
-def prime_fib():
+```
+def prime_fib(n):
     a, b = 2, 3
     count = 1
     while True:
         if is_prime(b):
-            print(f"The {count}th prime number in the Fibonacci sequence is: {b}")
-            return
+            if count == n:
+                return b
+            count += 1
         a, b = b, a + b
-
 
 def is_prime(num):
     if num < 2:
@@ -16,6 +17,5 @@ def is_prime(num):
             return False
     return True
 
-
 n = int(input("Enter the value of n: "))
-prime_fib(n)
+print(prime_fib(n))
