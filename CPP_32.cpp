@@ -1,16 +1,13 @@
+
+// Include necessary headers
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-double poly(const vector<double>& coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
-
-double find_zero(const vector<double>& xs){
-    double a = poly(xs, 1.0);
-    double b = poly(xs, 0.0);
-    return -b/a;
+double find_zero(const vector<double>& xs) {
+    // Initialize coefficients vector
+    vector<double> coeffs = {1, -2, 1}; // Example coefficients: x^2 - 2x + 1
+    double a = poly(coeffs, 1);
+    double b = poly(coeffs, 0);
+    return -b / a;
 }
