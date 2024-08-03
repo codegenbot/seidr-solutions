@@ -1,15 +1,18 @@
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
+    for (auto num : nums) {
+        bool has_positive_sum = false;
         if (num < 0) {
-            num = -num; // convert negative to positive
+            num = -num; // make it positive to calculate signed digits
         }
-        int sum = 0;
         while (num > 0) {
-            sum += num % 10;
+            int digit = num % 10;
+            if (digit != 0 || num / 10 == 0) { // first non-zero digit or only one digit
+                has_positive_sum = true;
+            }
             num /= 10;
         }
-        if (sum > 0) {
+        if (has_positive_sum) {
             count++;
         }
     }
