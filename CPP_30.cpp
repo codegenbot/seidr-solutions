@@ -12,6 +12,5 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
         }
     }
-    sort(result.begin(),result.end());
     return result;
 }
