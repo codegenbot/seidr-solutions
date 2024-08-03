@@ -21,12 +21,14 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> a = {2, 3};
-    std::vector<int> b = {2, 3};
-    assert(issame_cpp(a, b));
+    std::vector<int> test_a = { 2, 3 };
+    std::vector<int> test_b = { 2, 3 };
+    
+    std::vector<int> result_counts = even_odd_count(1234);
 
-    std::vector<int> counts = even_odd_count(12345);
-    std::cout << "Even count: " << counts[0] << ", Odd count: " << counts[1] << std::endl;
+    std::cout << "issame_cpp test: " << (issame_cpp(test_a, test_b) ? "Passed" : "Failed") << std::endl;
+    std::cout << "Even count: " << result_counts[0] << std::endl;
+    std::cout << "Odd count: " << result_counts[1] << std::endl;
 
     return 0;
 }
