@@ -1,12 +1,12 @@
+```cpp
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -16,10 +16,12 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
     for (const auto& value : values) {
         try {
             int val = boost::any_cast<int>(value);
-            if(value.type() == typeid(int)) {
+            if (val.good()) {
                 result.push_back(val);
             }
-        } catch(const boost::bad_any_cast&) {}
+        } catch(const boost::bad_any_cast&) {
+            // skip non-int values
+        }
     }
     return result;
 }
