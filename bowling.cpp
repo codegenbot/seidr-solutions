@@ -1,24 +1,27 @@
-Here is the solution:
-
-int bowlingScore(string str) {
+int bowlingScore(string input) {
     int score = 0;
-    bool prevFrameWasStrike = false;
-    for (char c : str) {
-        if (c == 'X') {
-            score += 10 + (prevFrameWasStrike ? 10 : 20);
-            prevFrameWasStrike = true;
-        } else if (c == '/') {
-            int restOfFrame = 10 - ((str[str.size() - 1] - '0') + (str[str.size() - 2] - '0'));
-            score += 10 + restOfFrame / 2;
-            prevFrameWasStrike = false;
-        } else if (isdigit(c)) {
-            int pins = c - '0';
-            if (prevFrameWasStrike) {
-                score += pins;
-            } else {
-                score += pins * 2;
+    bool bonusTurn = false;
+    
+    for (int i = 0; i < 10; ++i) {
+        if (input[i] == 'X' || (input[i] >= '1' && input[i] <= '9')) {
+            int currentTurn = stoi(input.substr(i, 2));
+            if (currentTurn == 10) {
+                score += 10 + ((input.substr(0, i)).find('/') != string::npos ? 10 : 0);
+                bonusTurn = true;
+            } else if (bonusTurn) {
+                bonusTurn = false;
             }
-            prevFrameWasStrike = false;
+            score += currentTurn;
+        } else {
+            int currentTurn = input[i] - '0';
+            if (currentTurn + (input[++i] - '0') == 10) {
+                score += 10;
+                bonusTurn = true;
+            } else {
+                score += currentTurn;
+            }
         }
     }
+    
     return score;
+}
