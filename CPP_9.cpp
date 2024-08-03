@@ -5,17 +5,22 @@
 
 using namespace std;
 
-std::vector<int> rolling_max(std::vector<int> numbers) {
-    std::vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+vector<int> rolling_max(const vector<int>& numbers) {
+    vector<int> result;
     int max_val = INT_MIN;
     for (int i = 0; i < numbers.size(); ++i) {
-        max_val = std::max(max_val, numbers[i]);
+        max_val = max(max_val, numbers[i]);
         result.push_back(max_val);
     }
     return result;
 }
 
 int main() {
-    assert(rolling_max({3, 2, 3, 100, 3}) == std::vector<int>{3, 3, 3, 100, 100});
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    
     return 0;
 }
