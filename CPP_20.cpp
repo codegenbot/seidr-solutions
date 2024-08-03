@@ -1,4 +1,8 @@
-vector<float> find_closest_elements(vector<float> numbers) {
+bool issame(pair<float, float> a, pair<float, float> b) {
+    return a.first == b.first && a.second == b.second;
+}
+
+pair<float, float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> closest = {numbers[0], numbers[1]};
