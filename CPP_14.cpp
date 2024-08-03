@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> b(const std::string& str) {
+std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix = "";
     for (char c : str) {
