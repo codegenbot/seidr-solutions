@@ -1,18 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-std::vector<std::string> issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return {"False"};
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return {"False"};
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return {"True"};
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -26,13 +30,23 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string revTemp = temp;
-    std::reverse(revTemp.begin(), revTemp.end());
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
     result.push_back((temp == revTemp) ? "True" : "False");
     return result;
 }
 
 int main() {
-    std::cout << issame(reverse_delete("abc", "b"), {"ac", "True"}) << std::endl;
+    vector<string> res = reverse_delete("hello", "o");
+    for (string str : res) {
+        cout << str << endl;
+    }
+    vector<string> vec1 = {"a", "b", "c"};
+    vector<string> vec2 = {"a", "b", "c"};
+    if (issame(vec1, vec2)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
     return 0;
 }
