@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <cassert>
 
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
