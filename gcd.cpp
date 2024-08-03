@@ -12,7 +12,7 @@ int gcd(int a, int b) {
 
 std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
     std::vector<int> indices;
-    
+    // Implement your logic to find indices of target in text
     return indices;
 }
 
@@ -23,9 +23,9 @@ int main() {
     std::cout << gcd(a, b) << std::endl;
 
     std::string text, target;
-    std::cin.ignore();
-    getline(std::cin, text);
-    getline(std::cin, target);
+    std::cin.ignore(); // Add this line
+    getline(std::cin, text); // Use getline() to read the full line
+    getline(std::cin, target); // Use getline() to read the full line
 
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
