@@ -1,20 +1,20 @@
+#include <iostream>
+using namespace std;
+
 #include <string>
 #include <cassert>
 
-using namespace std; 
-
-string change_base(int x, int base){
-    string result = "";
+std::string change_base(int x, int base){
+    std::string result = "";
     while(x > 0){
-        result = to_string(x % base) + result;
+        result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
 }
 
 int main(){
-    int x = 123;   
-    assert(change_base(x, x + 1) == to_string(x));
-    
+    int x = 10;
+    assert (change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
