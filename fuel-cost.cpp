@@ -3,9 +3,12 @@
 
 int main() {
     std::vector<int> nums;
-    int n;
+    int numCount;
+    std::cin >> numCount;
 
-    while (std::cin >> n) {
+    for (int i = 0; i < numCount; ++i) {
+        int n;
+        std::cin >> n;
         nums.push_back(n);
     }
 
