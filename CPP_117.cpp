@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
@@ -12,27 +5,17 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            bool has_n_consonants = false;
-            int consonant_count = 0;
+            int consonants = 0;
             for (char ch : word) {
-                if (!isvowel(ch)) {
-                    consonant_count++;
-                    if (consonant_count == n) {
-                        has_n_consonants = true;
-                        break;
-                    }
+                if (!ispunct(ch) && !isspace(ch) && !isvowel(ch)) {
+                    consonants++;
                 }
             }
-            if (has_n_consonants) {
+            if (consonants == n) {
                 result.push_back(word);
             }
             word = "";
         }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
