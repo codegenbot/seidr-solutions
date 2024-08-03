@@ -5,10 +5,6 @@
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
-    if (nums.empty()) {
-        return {}; // return an empty vector if input is empty
-    }
-
     vector<int> leaders;
     int n = nums.size();
     int maxRight = nums[n-1];
