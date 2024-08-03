@@ -1,5 +1,7 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 double totalShoppingTripPrice(vector<float> prices, vector<float> discounts) {
@@ -25,6 +27,6 @@ int main() {
         cin >> discounts[i];
     }
     double result = totalShoppingTripPrice(prices, discounts);
-    std::cout << fixed << setprecision(1) << result << endl;
+    cout << fixed << setprecision(1) << result << endl;
     return 0;
 }
