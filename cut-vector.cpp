@@ -24,8 +24,8 @@ vector<vector<int>> cutVector(vector<int> vec) {
         }
     }
     
-    result.push_back({vec.begin(), vec.begin() + cutIndex});
-    return {result[0], {vec.begin() + cutIndex, vec.end()}};
+    result.push_back({vec[0], vec[cutIndex]});
+    return {{vec.begin(), vec.begin() + cutIndex}, {vec.begin() + cutIndex, vec.end()}};
 }
 
 int main() {
@@ -43,12 +43,12 @@ int main() {
         cout << num << " ";
     }
     cout << "]\n";
-
+    
     cout << "[";
     for (auto it = result[1].begin(); it != result[1].end(); ++it) {
         cout << *it << " ";
     }
     cout << "]\n";
-
+    
     return 0;
 }
