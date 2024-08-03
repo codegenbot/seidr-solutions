@@ -1,6 +1,5 @@
-```
-"""
-def find_zero(xs: list):
+````
+def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
     a = xs[0]
@@ -9,4 +8,3 @@ def find_zero(xs: list):
         coeff = xs[i]
         b += -coeff / math.factorial(i)
     return -b / a
-"""
