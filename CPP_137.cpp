@@ -1,26 +1,20 @@
-#include <boost/any_cast.hpp>
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    double da, db;
-    string sa, sb;
-
-    try {
-        da = boost::any_cast<double>(a);
-        db = boost::any_cast<double>(b);
-    } catch (...) {
-        try {
-            sa = boost::any_cast<string>(a);
-            sb = boost::any_cast<string>(b);
-        } catch (...) {
-            return "None";
-        }
-    }
-
-    if (da > db) {
-        return a;
-    } else if (db > da) {
+    if (is_same<type_of<a>, int>::value && is_same<type_of<b>, float>::value) {
         return b;
-    } else {
-        return "None";
+    } else if (is_same<type_of<a>, float>::value && is_same<type_of<b>, string>::value) {
+        return max((float)a, (string)b);
+    } else if (is_same<type_of<a>, int>::value && is_same<type_of<b>, string>::value) {
+        return b;
+    } else if (is_same<type_of<a>, float>::value && is_same<type_of<b>, int>::value) {
+        return boost::any((float)a > (int)b ? a : b);
+    } else if (is_same<type_of<a>, string>::value && is_same<type_of<b>, string>::value) {
+        return max(a, b);
     }
+    return "None";
 }
