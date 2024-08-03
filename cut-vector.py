@@ -1,18 +1,13 @@
-def cut_vector(lst):
-    min_diff = float("inf")
-    cut_index = -1
+Here is the Python code to solve the problem:
 
-    for i in range(1, len(lst)):
-        left_sum = sum(lst[:i])
-        right_sum = sum(lst[i:])
-
-        if left_sum == right_sum:
-            return [lst[:i], lst[i:]]
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
-            cut_index = i
-
-    if cut_index != -1:
-        return [lst[: cut_index + 1], lst[cut_index + 1 :]]
-
-    return None
+def cut_vector(vector):
+    min_diff = float('inf')
+    split_idx = 0
+    for i in range(1, len(vector)):
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
+            split_idx = i
+    return vector[:split_idx], vector[split_idx:]
