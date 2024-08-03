@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the assert header
 using namespace std;
 
 std::string longest(std::vector<std::string> strings) {
@@ -19,6 +19,6 @@ std::string longest(std::vector<std::string> strings) {
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz"); // Ensure correct namespace for assert
     return 0;
 }
