@@ -1,4 +1,3 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = {c: d for c, d in zip(input1, input2)}
-    output = "".join([cipher.get(c, c) for c in input3])
-    return output
+def substitution_cipher(cipher1, cipher2, message):
+    cipher_map = {cipher1[i]: cipher2[i] for i in range(len(cipher1))}
+    return "".join([cipher_map.get(char, char) for char in message])
