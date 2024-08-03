@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string s) {
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
     int frame = 1;
     for (char c : s) {
@@ -9,8 +11,9 @@ int bowlingScore(std::string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
-            score += leftPins;
+            string left = s.substr(0, s.find('/'));
+            int nonStrikePins = stoi(left);
+            score += 10 - nonStrikePins;
             frame++;
             s.erase(0, s.find('/') + 1);
         } else {
@@ -19,8 +22,9 @@ int bowlingScore(std::string s) {
             if (pins < 10) {
                 s.erase(0, 1);
                 if (!s.empty() && s[0] == '/') {
-                    int leftPins = 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/'), 2)));
-                    score += leftPins;
+                    string left = s.substr(0, s.find('/'));
+                    int nonStrikePins = stoi(left);
+                    score += 10 - nonStrikePins;
                     frame++;
                     s.erase(0, s.find('/') + 1);
                 }
@@ -30,3 +34,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
