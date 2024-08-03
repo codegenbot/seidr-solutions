@@ -1,13 +1,13 @@
-```
-def bowling_score(input_str):
+Here is the solution:
+
+def bowling_score(game):
+    frames = game.split('/')
     score = 0
-    frame = 1
-    for i in range(0, len(input_str), 2):
-        if input_str[i] == 'X':
-            score += 10 + (10 - int(input_str[i+1]) if i < len(input_str) - 1 else 10)
-        elif input_str[i] == '/':
-            score += 10 - int(input_str[i+1])
+    for i in range(len(frames)):
+        if len(frames[i]) == 1:
+            score += 1
+        elif len(frames[i]) == 2:
+            score += int(frames[i])
         else:
-            score += 10 - int(input_str[i])
-        frame -= 1
+            score += int(frames[i][0]) + int(frames[i][1])
     return score
