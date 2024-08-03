@@ -13,6 +13,7 @@ bool is_sorted(vector<int> lst) {
         }
     }
     return !has_duplicates;
+
 }
 
 int main() {
