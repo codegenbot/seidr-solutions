@@ -1,6 +1,10 @@
 def process_numbers(numbers, delimiter):
-    result = [str(num) for num in numbers]
-    return delimiter.join(result)
+    result = []
+    for num in numbers[:-1]:
+        result.extend([num, delimiter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
 
 # Call the function
 numbers = [1, 2, 3, 4, 5]
