@@ -17,27 +17,29 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if (strA < strB) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
         string strA = boost::any_cast<string>(a);
-        if (strA > to_string(boost::any_cast<int>(b))) {
+        int numB = boost::any_cast<int>(b);
+        if (strA > to_string(numB)) {
             return a;
-        } else if (strA < to_string(boost::any_cast<int>(b))) {
+        } else if (strA < to_string(numB)) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else if (a.type() != typeid(string) && b.type() == typeid(string)) {
+        int numA = boost::any_cast<int>(a);
         string strB = boost::any_cast<string>(b);
-        if (to_string(boost::any_cast<int>(a)) > strB) {
+        if (to_string(numA) > strB) {
             return a;
-        } else if (to_string(boost::any_cast<int>(a)) < strB) {
+        } else if (to_string(numA) < strB) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any((string)"None");
         }
     } else {
-        return boost::any("None");
+        return boost::any((string)"None");
     }
 }
