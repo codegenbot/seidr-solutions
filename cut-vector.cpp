@@ -8,7 +8,7 @@ vector<vector<int>> cutVector(vector<int> vec) {
     
     for(int i = 0; i < n; i++) {
         if(i == n - 1 || vec[i] != vec[i+1]) {
-            result.push_back({{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}});
+            result.push_back({vec.begin() + i, vec.begin() + (i+1)});
             break;
         }
     }
