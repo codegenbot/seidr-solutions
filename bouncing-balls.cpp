@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
-
 using namespace std;
+
+#include <cmath> 
+#include <iomanip>
 
 int main() {
     double startHeight, heightAfterFirstBounce;
@@ -13,6 +13,7 @@ int main() {
     // Calculate bounciness index
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
+    // Calculate total distance traveled
     cout << fixed << setprecision(4);
     cout << bouncinessIndex << endl;
     double totalDistance = 0.0;
