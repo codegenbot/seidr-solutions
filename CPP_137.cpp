@@ -9,7 +9,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (int)b > a.convert_to<int>() ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b.convert_to<int>() ? a : boost::any("None");
+        return (float)a > b.convert_to<int>() ? a : boost::any((int)b);
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         return a.convert_to<std::string>() > b.convert_to<std::string>() ? a : boost::any("None");
