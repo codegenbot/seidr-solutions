@@ -26,8 +26,8 @@ std::string string_to_md5(const std::string& text) {
 }
 
 int main() {
-    std::string result = string_to_md5("password");
-    assert(result == "5f4dcc3b5aa765d61d8327deb882cf99");
-
+    std::string input;
+    std::cin >> input;
+    std::cout << string_to_md5(input) << std::endl;
     return 0;
 }
