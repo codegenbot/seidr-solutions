@@ -1,17 +1,14 @@
-#include <string>
-#include <vector>
-#include <iostream>
-#include <assert.h>
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b; // Compare vectors directly
+    return a == b;
 }
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
-    
-    if(txt.empty()) {
-        words.push_back("0");
+    // Splitting logic using stringstream
+    std::stringstream ss(txt);
+    std::string word;
+    while (ss >> word) {
+        words.push_back(word);
     }
     return words;
 }
