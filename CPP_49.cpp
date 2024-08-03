@@ -3,7 +3,12 @@
 // Function signature
 int modp(int n, int p);
 
-int main();
+int main() {
+    int n, p;
+    std::cin >> n >> p;
+    std::cout << modp(n, p);
+    return 0;
+}
 
 int modp(int n, int p) {
     if (p == 1)
@@ -17,11 +22,4 @@ int modp(int n, int p) {
         n = (n * n) % p;
     }
     return result;
-}
-
-int main() {
-    int n, p;
-    std::cin >> n >> p;
-    std::cout << modp(n, p);
-    return 0;
 }
