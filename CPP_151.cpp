@@ -13,10 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float input;
-    while(std::cin >> input) {
-        lst.push_back(input);
+    std::vector<float> lst; 
+    for(int i = 1; i <= 10; i++) {
+        lst.push_back(i + 0.5f); // add your code to fill the vector with values
     }
 
     int odd_sum = 0; 
