@@ -1,25 +1,34 @@
+#include <vector>
 #include <cassert>
-#include <initializer_list>
+#include <string>
 
-int odd_count(const std::initializer_list<int>& numbers){
+int odd_count(const std::vector<std::string>& strings) {
     int count = 0;
-    for (int num : numbers) {
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit % 2 != 0) {
+    for (const std::string& str : strings) {
+        for (char c : str) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
                 count++;
             }
-            num /= 10;
         }
     }
     return count;
 }
 
-bool issame(int result, const std::initializer_list<int>& expected_output){
-    return result == *expected_output.begin() && expected_output.size() == 1;
+bool issame(int result, const std::vector<std::string>& expected_output) {
+    int i = 0;
+    for (const std::string& str : expected_output) {
+        if (str.find(std::to_string(result)) == std::string::npos) {
+            return false;
+        }
+        i++;
+    }
+    return i == expected_output.size();
 }
 
 int main() {
-    assert(issame(odd_count({271, 137, 314}), {4}));
+    assert(issame(3, {"123", "345", "789"}) == true);
+    assert(odd_count({"abc", "123", "def", "456"}) == 4);
+    assert(issame(odd_count({"271", "137", "314"}), {"3"}) == true);
+
     return 0;
 }
