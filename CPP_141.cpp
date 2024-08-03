@@ -1,37 +1,33 @@
-string file_name_check(string file_name){
-    int dot_count = 0, digit_count = 0;
-    bool valid = true;
+int count_digits(string file_name) {
+    int count = 0;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            count++;
+            if (count > 3) return 1; // more than three digits found
+        }
+    }
+    return 0; // no more than three digits found
+}
 
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] == '.'){
+int check_dot(string file_name) {
+    int dot_count = 0;
+    for (char c : file_name) {
+        if (c == '.') {
             dot_count++;
-            if(dot_count > 1) {
-                valid = false;
-                break;
-            }
-        } else if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) {
-                valid = false;
-                break;
-            }
-        } else if((file_name[i] < 'a' || file_name[i] > 'z') && (file_name[i] < 'A' || file_name[i] > 'Z')){
-            valid = false;
-            break;
+            if (dot_count > 1) return 1; // more than one dot found
         }
     }
+    return 0; // exactly one dot found
+}
 
-    if(valid){
-        string extension = "";
-        for(int i = file_name.length() - 1; i >= 0; i--){
-            if(file_name[i] == '.')
-                break;
-            extension = file_name[i]+extension;
-        }
+int check_extension(string file_name) {
+    int extension_start = file_name.find('.');
+    string extension = file_name.substr(extension_start + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") return 1; // invalid extension
+    return 0; // valid extension
+}
 
-        if(extension != "txt" && extension != "exe" && extension != "dll")
-            valid = false;
-    }
-
-    return valid ? "Yes" : "No";
+string file_name_check(string file_name) {
+    if (count_digits(file_name) || check_dot(file_name) || !check_extension(file_name)) return "No";
+    return "Yes";
 }
