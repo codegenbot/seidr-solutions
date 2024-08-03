@@ -1,23 +1,29 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
 
-string kebabToCamel(string s) {
-    string result = "";
-    int start = 0;
+std::string camelCase(std::string str) {
+    std::string result = "";
+    bool firstWord = true;
     
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || s[i] == ' ') {
-            string word = s.substr(start, i - start);
-            if (!result.empty()) {
-                result += char(toupper(word[0]));
-                result += word.substr(1).substr(1);
-            } else {
-                result = word;
+    for (char c : str) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(str[str.find(c) + 1]));
             }
-            start = i + 1;
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (!firstWord) {
+                result += c;
+            } else {
+                result += tolower(c);
+            }
+            firstWord = false;
         }
     }
     
@@ -25,9 +31,8 @@ string kebabToCamel(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter the kebab-case string: ";
-    getline(cin, s);
-    cout << "The camelCase string is: " << kebabToCamel(s) << endl;
+    std::string str;
+    std::cin >> str;
+    std::cout << camelCase(str) << std::endl;
     return 0;
 }
