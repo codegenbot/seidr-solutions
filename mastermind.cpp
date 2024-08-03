@@ -21,15 +21,15 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
+            codeFreq[code[i] - '0']++;
+            guessFreq[guess[i] - '0']++;
         }
     }
 
     for (int i = 0; i < 4; ++i) {
-        if (guess[i] - 'A' >= 0 && guess[i] - 'A' < 6 && codeFreq[guess[i] - 'A'] > 0) {
+        if (codeFreq[guess[i] - '0'] > 0) {
             whitePegs++;
-            codeFreq[guess[i] - 'A']--;
+            codeFreq[guess[i] - '0']--;
         }
     }
 
