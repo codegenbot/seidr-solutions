@@ -1,19 +1,23 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+void remove_duplicates(std::vector<int>& vec) {
+    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
 }
 
-std::vector<int> remove_duplicates(std::vector<int> input) {
-    std::sort(input.begin(), input.end());
-    input.erase(std::unique(input.begin(), input.end()), input.end());
-    return input;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> sortedA = a;
+    std::vector<int> sortedB = b;
+    std::sort(sortedA.begin(), sortedA.end());
+    std::sort(sortedB.begin(), sortedB.end());
+    return sortedA == sortedB;
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    std::vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    remove_duplicates(input);
+    assert(issame(input, std::vector<int>{1, 4, 5}));
+    
     return 0;
 }
