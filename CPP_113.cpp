@@ -1,14 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <string>
 #include <cassert>
 
-int odd_count(const std::initializer_list<std::string>& strings){
-    // your implementation to count odd elements in strings
+int count_odd(const std::string &str) {
+    int count = 0;
+    for (char c : str) {
+        if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
 }
 
-bool issame(int result, const std::initializer_list<std::string>& expected_output){
-    // your implementation to compare result with expected_output
+std::vector<int> odd_count(const std::vector<std::string> &input) {
+    std::vector<int> result;
+    for (const auto &str : input) {
+        result.push_back(count_odd(str));
+    }
+    return result;
 }
 
-void test_issame(){
+bool issame(const std::vector<int> &output, const std::vector<std::string> &expected) {
+    if (output.size() != expected.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < output.size(); ++i) {
+        if (output[i] != std::stoi(expected[i].substr(expected[i].rfind(' ') + 1))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void test_issame() {
     assert(issame(odd_count({"271", "137", "314"}), {
         "the number of odd elements 2 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
@@ -16,7 +41,7 @@ void test_issame(){
     }));
 }
 
-int main(){
+int main() {
     test_issame();
     return 0;
 }
