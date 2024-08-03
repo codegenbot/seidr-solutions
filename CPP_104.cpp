@@ -3,16 +3,16 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::unordered_set<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     for (int digit : b) {
-        if (a.count(digit) == 0) {
+        if (std::find(a.begin(), a.end(), digit) == a.end()) {
             return false;
         }
     }
     return true;
 }
 
-std::unordered_set<int> unique_digits(std::vector<int> input) {
+std::unordered_set<int> unique_digits(const std::vector<int>& input) {
     return std::unordered_set<int>(input.begin(), input.end());
 }
 
