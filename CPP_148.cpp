@@ -1,9 +1,8 @@
-```cpp
+#include <algorithm>
 #include <vector>
-#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<string> bf(string planet1, string planet2) {
@@ -35,8 +34,4 @@ std::vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Makemake") == {});
 }
