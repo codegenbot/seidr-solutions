@@ -1,22 +1,15 @@
-#include <iostream>
-#include <algorithm>
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+std::string intersection(const std::pair<int, int>& interval1, const std::pair<int, int>& interval2) {
+    int start1 = interval1.first;
+    int end1 = interval1.second;
+    int start2 = interval2.first;
+    int end2 = interval2.second;
+    
+    if (start1 > end1 || start2 > end2) {
+        return "INVALID INTERVAL";
     }
-    return true;
-}
-
-struct Interval {
-    int start;
-    int end;
-};
-
-std::string findPrimeIntersection(const Interval& interval1, const Interval& interval2) {
-    int intersection_start = std::max(interval1.start, interval2.start);
-    int intersection_end = std::min(interval1.end, interval2.end);
+    
+    int intersection_start = std::max(start1, start2);
+    int intersection_end = std::min(end1, end2);
     
     if (intersection_start > intersection_end) {
         return "NO";
@@ -29,12 +22,4 @@ std::string findPrimeIntersection(const Interval& interval1, const Interval& int
     } else {
         return "NO";
     }
-}
-
-int main() {
-    assert(findPrimeIntersection({-2, -2}, {-3, -2}) == "NO");
-    
-    // Add more test cases here
-    
-    return 0;
 }
