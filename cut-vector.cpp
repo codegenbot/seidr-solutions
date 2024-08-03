@@ -1,44 +1,35 @@
-#include <iostream>
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
+vector<vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
+    vector<vector<int>> result;
     
-    for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size() || abs(v[i] - v[i-1]) < minDiff) {
-            minDiff = abs(v[i] - v[i-1]);
-            cutIndex = i;
+    for(int i = 0; i < n; i++) {
+        if(i == n - 1 || vec[i] != vec[i+1]) {
+            result.push_back({vec, 0, i});
+            break;
         }
     }
     
-    vector<int> leftVec(v.begin(), v.begin() + cutIndex);
-    vector<int> rightVec(v.begin() + cutIndex, v.end());
-    
-    return make_pair(leftVec, rightVec);
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
+    vector<int> vec(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "left: ";
-    for (const auto &x : result.first) {
-        cout << x << " ";
+    vector<vector<int>> res = cutVector(vec);
+    for(auto v : res) {
+        for(auto x : v) {
+            cout << x << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-    
-    cout << "right: ";
-    for (const auto &x : result.second) {
-        cout << x << " ";
-    }
-    cout << endl;
     
     return 0;
+}
