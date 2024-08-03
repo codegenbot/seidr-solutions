@@ -1,39 +1,46 @@
-#include <iostream>
-using namespace std;
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(string booleanExpression) {
+    stack<char> operatorStack;
+    for (char c : booleanExpression) {
+        if (c == '&' || c == '|') {
+            while (!operatorStack.empty() && operatorStack.top() != '(') {
+                if (operatorStack.top() == '&') {
+                    operatorStack.pop();
+                    cout << "True" << endl;
+                    return true;
+                } else if (operatorStack.top() == '|') {
+                    operatorStack.pop();
+                    cout << "False" << endl;
+                    return false;
+                }
             }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            operatorStack.push(c);
+        } else if (c == '(') {
+            operatorStack.push(c);
+        } else if (c == ')') {
+            while (!operatorStack.empty() && operatorStack.top() != '(') {
+                if (operatorStack.top() == '&') {
+                    operatorStack.pop();
+                    cout << "True" << endl;
+                    return true;
+                } else if (operatorStack.top() == '|') {
+                    operatorStack.pop();
+                    cout << "False" << endl;
+                    return false;
+                }
             }
-            if (st.empty()) return true;
-            st.push('|');
-        } else {
-            st.push(s[i]);
+            operatorStack.pop();
         }
     }
-    
-    while (!st.empty()) {
-        if (st.top() == '&') return false;
-        if (st.top() == '|') return true;
-        st.pop();
+    while (!operatorStack.empty()) {
+        if (operatorStack.top() == '&') {
+            operatorStack.pop();
+            cout << "True" << endl;
+            return true;
+        } else if (operatorStack.top() == '|') {
+            operatorStack.pop();
+            cout << "False" << endl;
+            return false;
+        }
     }
-    
-    return st.top() == 'T';
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    return false;
 }
