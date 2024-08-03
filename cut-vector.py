@@ -1,13 +1,15 @@
-Here is the Python solution for the problem:
-
-def cut_vector(vector):
-    min_diff = float('inf')
+def cut_vector(nums):
+    min_diff = float("inf")
     split_index = 0
-    
-    for i in range(1, len(vector)):
-        diff = abs(sum(vector[:i]) - sum(vector[i:]))
-        if diff < min_diff:
-            min_diff = diff
+    left_sum = sum(nums[:1])
+
+    for i in range(1, len(nums)):
+        right_sum = sum(nums[i:])
+
+        if abs(left_sum - right_sum) < min_diff:
+            min_diff = abs(left_sum - right_sum)
             split_index = i
-            
-    return vector[:split_index], vector[split_index:]
+
+        left_sum += nums[i]
+
+    return nums[: split_index + 1], nums[split_index:]
