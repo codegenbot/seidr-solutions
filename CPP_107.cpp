@@ -4,10 +4,8 @@
 #include <algorithm>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -36,7 +34,7 @@ int main() {
     std::cout << "Even palindromes: " << result[0] << std::endl;
     std::cout << "Odd palindromes: " << result[1] << std::endl;
 
-    assert(std::issame(result, even_odd_palindrome(n)));
+    assert (issame(result, even_odd_palindrome(n)));
 
     return 0;
 }
