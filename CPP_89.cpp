@@ -1,12 +1,23 @@
-string encrypt(string s){
-    string encrypted = "";
-    for(char c : s) {
-        if(isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            encrypted += (char)((((c - base) + 2 * 2) % 26) + base);
+#include <iostream>
+#include <string>
+
+std::string encrypt(std::string s) {
+    std::string result = "";
+    for (char c : s) {
+        if (std::isalpha(c)) {
+            char encrypted = 'a' + (c - 'a' + 2 * 2) % 26;
+            result += encrypted;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
+}
+
+int main() {
+    std::cout << "Enter a string to encrypt: ";
+    std::string input;
+    std::cin >> input;
+    std::cout << "Encrypted string: " << encrypt(input) << std::endl;
+    return 0;
 }
