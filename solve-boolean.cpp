@@ -1,28 +1,32 @@
-#include <string>
-using namespace std;
-
 bool solveBoolean(string s) {
-    bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'f') {
-            result = false;
-            break;
-        } else if (s[i] == '&') {
-            result &= true;
-        } else if (s[i] == '|') {
-            result |= true;
+    stack<char> st;
+    for (char c : s) {
+        if (c == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            }
+        } else if (c == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+        } else {
+            st.push(c);
         }
     }
-    return result;
-}
-
-int main() {
-    // Test cases
-    cout << boolalpha << solveBoolean("t") << endl;  // Output: True
-    cout << boolalpha << solveBoolean("f") << endl;  // Output: False
-    cout << boolalpha << solveBoolean("f&f") << endl;  // Output: False
-    cout << boolalpha << solveBoolean("f&t") << endl;  // Output: False
-    cout << boolalpha << solveBoolean("t&f") << endl;  // Output: False
-
-    return 0;
+    while (!st.empty()) {
+        if (st.top() == '&') {
+            st.pop();
+            return false;
+        } else if (st.top() == '|') {
+            st.pop();
+            return true;
+        }
+    }
+    return st.top() == 'T';
 }
