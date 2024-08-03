@@ -38,8 +38,8 @@ int main() {
     string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
+    for (int idx : result) {
+        cout << idx << " ";
     }
     cout << endl;
 
