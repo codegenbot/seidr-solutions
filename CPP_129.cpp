@@ -1,28 +1,32 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    map<vector<int>, int> dist;
-    queue<vector<int>> q;
-    q.push({0, 0, 0});
-    dist[{0, 0}] = 0;
+    vector<int> result;
+    queue<pair<vector<int>, int>> q;
+    q.push({{0, 0}, 0});
+    
+    vector<vector<int>> dir = {{0, 1}, {1, 0}};
+    
     while (!q.empty()) {
-        vector<int> curr = q.front();
+        auto curr = q.front();
         q.pop();
-        int x = curr[0], y = curr[1], steps = curr[2];
-        if (x == grid.size() - 1 && y == grid[0].size() - 1) {
-            if (steps <= k)
-                return true;
+        
+        if (curr.first[0] == grid.size() - 1 && curr.first[1] == grid[0].size() - 1) {
+            if (curr.second <= k && (result.empty() || curr.second < result.size())) {
+                result = curr.first;
+            }
             continue;
         }
-        vector<vector<int>> dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-        for (const auto &dir : dirs) {
-            int nx = x + dir[0], ny = y + dir[1];
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                int newSteps = steps + grid[nx][ny];
-                if (newSteps <= k && (dist.find({nx, ny}) == dist.end() || dist[{nx, ny}] > newSteps)) {
-                    dist[{nx, ny}] = newSteps;
-                    q.push({nx, ny, newSteps});
-                }
+        
+        for (vector<int>& d : dir) {
+            int next_x = curr.first[0] + d[0];
+            int next_y = curr.first[1] + d[1];
+            
+            if (next_x < grid.size() && next_y < grid[0].size()) {
+                vector<int> next = {next_x, next_y};
+                int next_cost = curr.second + (issame(curr.first, next) ? 0 : 1);
+                q.push({next, next_cost});
             }
         }
     }
-    return false;
+    
+    return result;
 }
