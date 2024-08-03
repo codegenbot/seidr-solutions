@@ -1,15 +1,24 @@
-Here is the completed code:
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
-    result.erase(std::remove_if(result.begin(), result.end(),
-        [](const string& s) { return s.length() % 2 != 0; }), result.end());
-    std::sort(result.begin(), result.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
+    // Remove strings with odd lengths
+    vector<string> result;
+    for (const string& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
+        }
+    }
+
+    // Sort the resulting vector by length and then alphabetically
+    sort(result.begin(), result.end(), [](const string& a, const string& b) {
+        if (a.length() != b.length()) {
             return a.length() < b.length();
-        });
+        } else {
+            return a < b;
+        }
+    });
+
     return result;
+}
+
+bool issame(vector<string> a,vector<string> b){
+    return a==b;
 }
