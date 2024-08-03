@@ -1,46 +1,20 @@
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<float>(a)) {
-        float af = boost::any_cast<float>(a);
-        float bf = boost::any_cast<float>(b);
-        if (af > bf)
-            return a;
-        else if (bf > af)
-            return b;
-        else
-            return any("None");
-    } else if (is_any_of<double>(a)) {
-        double ad = boost::any_cast<double>(a);
-        double bd = boost::any_cast<double>(b);
-        if (ad > bd)
-            return a;
-        else if (bd > ad)
-            return b;
-        else
-            return any("None");
-    } else if (is_any_of<int>(a)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        if (ai > bi)
-            return a;
-        else if (bi > ai)
-            return b;
-        else
-            return any("None");
-    } else if (is_string(a)) {
-        string as = boost::any_cast<string>(a);
-        string bs = boost::any_cast<string>(b);
-        if (stof(as) > stof(bs))
-            return a;
-        else if (stof(bs) > stof(as))
-            return b;
-        else
-            return any("None");
-    } else {
-        return any("None");
+    if (is_same<type_of<a>, int>::value && is_same<type_of<b>, float>::value) {
+        return b;
+    } else if (is_same<type_of<a>, float>::value && is_same<type_of<b>, string>::value) {
+        return max((float)a, (string)b);
+    } else if (is_same<type_of<a>, int>::value && is_same<type_of<b>, string>::value) {
+        return b;
+    } else if (is_same<type_of<a>, float>::value && is_same<type_of<b>, int>::value) {
+        return boost::any((float)a > (int)b ? a : b);
+    } else if (is_same<type_of<a>, string>::value && is_same<type_of<b>, string>::value) {
+        return max(a, b);
     }
+    return "None";
 }
