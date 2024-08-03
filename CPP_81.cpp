@@ -30,5 +30,11 @@ int main() {
         cout << grade << " ";
     }
 
+    vector<string> result2 = numerical_letter_grade({3.8, 2.5, 1.1, 3.0, 4.0});
+    cout << "\n";
+    for (const string& grade : result2) {
+        cout << grade << " ";
+    }
+
     return 0;
 }
