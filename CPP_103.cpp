@@ -13,7 +13,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
 
-    int avg = round(sum / static_cast<double>(m - n + 1));
+    int avg = std::round(sum / (m - n + 1.0));
 
     std::string binary_avg = "";
     while (avg > 0) {
@@ -21,7 +21,7 @@ std::string rounded_avg(int n, int m) {
         avg /= 2;
     }
 
-    if (binary_avg.empty()) {
+    if (binary_avg == "") {
         binary_avg = "0";
     }
 
@@ -30,6 +30,5 @@ std::string rounded_avg(int n, int m) {
 
 int main() {
     assert (rounded_avg(5, 5) == "101");
-
     return 0;
 }
