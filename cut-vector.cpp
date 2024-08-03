@@ -29,11 +29,11 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         if (i == left) {
-            std::cout << std::endl;
-        } else if (i != right) {
+            std::cout << "\n";
+        } else if (i == right) {
             std::cout << nums[i] << " ";
         } else {
-            std::cout << nums[i] << std::endl;
+            std::cout << nums[i] << " ";
         }
     }
 
