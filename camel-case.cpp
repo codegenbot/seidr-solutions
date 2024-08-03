@@ -6,7 +6,7 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool capitalizeNextLetter = true;
+    int capitalizeNext = 1;
     
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
@@ -14,15 +14,15 @@ string camelCase(string s) {
             while (i < s.length() && s[i] == ' ') {
                 i++;
             }
-            capitalizeNextLetter = true;
+            capitalizeNext = 1;
         } else if (s[i] == ' ') {
-            continue;
+            capitalizeNext = 1;
         } else {
-            if (capitalizeNextLetter) {
-                result += toupper(s[i]);
-                capitalizeNextLetter = false;
-            } else {
+            if (!capitalizeNext) {
                 result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+                capitalizeNext = 0;
             }
         }
     }
