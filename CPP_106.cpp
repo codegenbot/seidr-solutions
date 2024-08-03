@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,8 +12,8 @@ bool issame(std::std::vector<int> a, std::std::vector<int> b) {
     return true;
 }
 
-std::std::vector<int> f(int n) {
-    std::std::vector<int> result(n);
+std::vector<int> f(int n) {
+    std::vector<int> result(n);
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
             int factorial = 1;
