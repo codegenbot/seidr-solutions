@@ -1,5 +1,3 @@
-#include <string>
-
 int is_bored(string S) {
     int count = 0;
     for (int i = 0; i < S.length(); ++i) {
