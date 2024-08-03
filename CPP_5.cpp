@@ -3,18 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b); 
-vector<int> intersperse(vector<int> numbers, int delimeter);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); ++i){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
@@ -31,4 +20,14 @@ int main(){
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     
     return 0;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
