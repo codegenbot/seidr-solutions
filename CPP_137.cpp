@@ -5,6 +5,7 @@
 
 using namespace std;
 using std::any_cast;
+using std::any;
 
 any compare_one(const any& a, const any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
