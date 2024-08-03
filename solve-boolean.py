@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -8,8 +7,10 @@ def solve_boolean(expression):
         raise ValueError("Invalid expression")
     else:
         result = True
-        for op, val in zip(['&', '|'], [expression.replace('&', 'False&').replace('|', 'False|'), expression.replace('&', 'True&').replace('|', 'True|')]):
-            if eval(val):
-                result = eval(val)
-                break
+        for char in expression:
+            if char == '&':
+                result &= (expression[0] == 'T')
+            elif char == '|':
+                result |= (expression[0] == 'T')
+            expression = expression[1:]
         return result
