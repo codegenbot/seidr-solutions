@@ -1,21 +1,21 @@
-#include <vector>
 #include <cassert>
-
-std::vector<int> generate_integers(int start, int end) {
-    std::vector<int> result;
-    for(int i = start; i <= end; i++){
-        result.push_back(i);
-    }
-    return result;
-}
+#include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] % 2 == 0) {
+    for (auto num : a) {
+        if (num % 2 == 0) {
             return true;
         }
     }
     return false;
+}
+
+std::vector<int> generate_integers(int start, int end) {
+    std::vector<int> result;
+    for (int i = start; i <= end; i++) {
+        result.push_back(i);
+    }
+    return result;
 }
 
 int main() {
