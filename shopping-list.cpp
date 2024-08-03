@@ -13,11 +13,11 @@ int main() {
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
-        prices[i] *= (1 - discounts[i] * 0.01);
     }
 
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
+        prices[i] *= (1 - discounts[i] * 0.01);
         total += prices[i];
     }
 
