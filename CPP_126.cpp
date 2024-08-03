@@ -24,10 +24,12 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst(n);
+    std::vector<int> lst;
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> lst[i];
+        int x;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> x;
+        lst.push_back(x);
     }
 
     if(is_sorted(lst))
