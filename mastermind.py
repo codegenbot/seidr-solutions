@@ -1,10 +1,10 @@
-Here is the Python solution:
-
 def mastermind(code, guess):
-    count = [0, 0]
-    for i in range(4):
-        if code[i] == guess[i]:
-            count[1] += 1
-        elif str(guess[i]) in str(code):
-            count[0] += 1
-    return tuple(count)
+    code_counts = collections.Counter(code)
+    guess_counts = collections.Counter(guess)
+
+    black_pegs = sum(
+        min(count, counts)
+        for count, counts in zip(guess_counts.values(), code_counts.values())
+    )
+    white_pegs = 4 - black_pegs
+    return str(white_pegs), str(black_pegs)
