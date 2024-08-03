@@ -1,3 +1,4 @@
+```python
 from typing import List, Tuple
 
 
@@ -10,7 +11,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         total_sum += num
         product *= num
     return total_sum, product
-
 
 numbers = [int(num) for num in input("Enter numbers (space-separated): ").split()]
 result_sum, result_product = sum_product(numbers)
