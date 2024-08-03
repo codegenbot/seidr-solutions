@@ -31,7 +31,7 @@ int main() {
         }
     }
     
-    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index + 1])) {
+    if (std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[cut_index] - (sum - prefix_sum + nums[cut_index+1])) {
         cout << "2" << endl;
         for (int i = 0; i <= cut_index; i++) {
             cout << nums[i] << endl;
