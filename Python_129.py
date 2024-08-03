@@ -25,7 +25,7 @@ def minPath(grid, k):
         for j in range(N):
             visited[i][j] = False
             path_ = dfs(i, j, k)
-            if not min_path or path_ < min_path:
+            if not min_path or len(path_) < len(min_path):
                 min_path = path_
     
     return min_path
