@@ -3,7 +3,7 @@
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int result = 0;
-    for (const auto& well : grid) {
+    for (std::vector<int> well : grid) {
         int water = 0;
         for (int unit : well) {
             if (unit == 1) {
