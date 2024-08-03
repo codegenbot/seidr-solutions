@@ -7,24 +7,12 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-template <typename ForwardIt>
-ForwardIt unique(ForwardIt first, ForwardIt last) {
-    if (first == last) return last;
-    
-    ForwardIt result = first;
-    while (++first != last) {
-        if (!(*result == *first) && ++result != first) {
-            *result = std::move(*first);
-        }
-    }
-    return ++result;
-}
-
 int main(){
     std::vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
     
+    l.erase(std::unique(l.begin(), l.end()), l.end());
+
     assert(issame(l, {0, 2, 3, 5, 9, 123}));
     
     return 0;
