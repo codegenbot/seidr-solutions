@@ -1,10 +1,5 @@
-#include <iostream>
 #include <string>
 #include <vector>
-#include <utility> // for pair
-#include <cassert>
-
-using namespace std;
 
 string int_to_mini_romank(int number){
     vector<pair<int, string>> roman_numerals = {
@@ -23,10 +18,4 @@ string int_to_mini_romank(int number){
     }
     
     return result;
-}
-
-int main() {
-    assert(int_to_mini_romank(1000) == "m");
-    
-    return 0;
 }
