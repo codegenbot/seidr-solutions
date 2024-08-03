@@ -1,10 +1,20 @@
-Here is the solution:
+```c++
+#include <string>
+using namespace std;
 
-string middleCharacter(string s) {
-    int length = s.length();
-    if (length % 2 == 0) {
-        return s.substr(length / 2 - 1, 2);
+string middleCharacter(string str) {
+    int len = str.length();
+    if (len % 2 == 0) {
+        return str.substr(len / 2 - 1, 2);
     } else {
-        return s.substr(length / 2, 1);
+        return str.substr(len / 2, 1);
     }
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << "Middle character(s): " << middleCharacter(input) << endl;
+    return 0;
 }
