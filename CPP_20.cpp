@@ -1,10 +1,8 @@
-
 #include <vector>
 #include <cassert>
 
 std::vector<float> find_closest_elements(std::vector<float> arr) {
     // Implement the logic to find closest elements in the array
-  return {arr[2], arr[3]};
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
