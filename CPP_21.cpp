@@ -15,7 +15,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+    return a == b; // Check if vectors a and b are equal
 }
 
 int main() {
