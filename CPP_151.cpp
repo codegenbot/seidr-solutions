@@ -23,6 +23,6 @@ int main() {
     long long odd_sum = double_the_difference(lst); // assuming 'odd_sum' is calculated elsewhere
 
     assert(double_the_difference(lst) == odd_sum);
-    
+
     return 0;
 }
