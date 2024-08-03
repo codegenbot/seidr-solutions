@@ -1,3 +1,6 @@
+#include <vector>
+#include <iostream>
+#include <string>
 #include <sstream>
 
 std::string camelCase(std::string str) {
@@ -11,15 +14,15 @@ std::string camelCase(std::string str) {
 
     for(int i = 0; i < words.size(); i++) {
         if(i > 0)
-            words[i][0] = toupper(words[i][0]);
+            words[i][0] = toupper((char)words[i][0]);
     }
 
     std::string result;
     for(int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if(i < words.size() - 1) {
-            result += " ";
-        }
+        if(i > 0)
+            result += toupper((char)words[i][0]) + words[i].substr(1);
+        else
+            result += words[i];
     }
 
     return result;
