@@ -1,6 +1,3 @@
-n = int(input())
-s = 0
-for i in range(n):
-    x = int(input())
-    s += max(x // 3 - 2, 0)
-print(s)
+nums = list(map(int, input().split()))
+result = sum(map(lambda x: x // 3 - 2, nums))
+print(result)
