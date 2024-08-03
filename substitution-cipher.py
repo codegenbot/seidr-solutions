@@ -1,9 +1,13 @@
-def substitution_cipher(s1, s2, message):
-    cipher = {c: d for c, d in zip(s1, s2)}
+```
+def substitution_cipher(cipher, text):
     result = ""
-    for char in message:
-        if char in cipher:
-            result += cipher[char]
+    for char in text:
+        if char.isalpha():
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(cipher[ord(char) - ascii_offset]) - ascii_offset))
         else:
             result += char
     return result
+
+cipher1, cipher2, text = input().split()
+print(substitution_cipher(cipher1, text))
