@@ -24,9 +24,9 @@ bool issame(int result, const std::initializer_list<std::string>& expected_outpu
     return i == expected_output.size();
 }
 
-int main() {
+int main {
     assert(issame(3, {"abc", "def", "ghi", "123", "456"}));
     assert(issame(odd_count({"271", "137", "314"}), { "true" });
-    
+
     return 0;
 }
