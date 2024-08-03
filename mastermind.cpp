@@ -4,30 +4,36 @@
 
 using namespace std;
 
-int mastermind(string code, string guess) {
-    int blackPegs = 0;
+int countWhitePegs(const string& code, const string& guess) {
     int whitePegs = 0;
-
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
-
-    for (int i = 0; i < 4; i++) {
-        if (codeArray[i] == guessArray[i]) {
-            blackPegs++;
-            codeArray[i] = '\0';
-            guessArray[i] = '\0';
-        }
-    }
-
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (codeArray[j] == guessArray[i] && codeArray[j] != '\0') {
+    for (char c : code) {
+        for (char g : guess) {
+            if (c == g && c != g) {
                 whitePegs++;
-                codeArray[j] = '\0';
                 break;
             }
         }
     }
+    return whitePegs;
+}
 
-    return make_pair(whitePegs, blackPegs).second;
+int countBlackPegs(const string& code, const string& guess) {
+    int blackPegs = 0;
+    for (char c : code) {
+        if (c == guess[0]) {
+            blackPegs++;
+            break;
+        }
+    }
+    return blackPegs;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int whitePegs = countWhitePegs(code, guess);
+    int blackPegs = countBlackPegs(code, guess);
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
+    return 0;
 }
