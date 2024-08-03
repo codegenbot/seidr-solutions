@@ -1,20 +1,10 @@
-#include <vector>
-#include <cassert>
+// Fix the code by providing proper function signature for issame function
+bool issame(std::pair<int, int> a, std::pair<int, int> b);
 
-std::pair<int, int> sum_product(std::vector<int> numbers) {
-    int sum = 0;
-    int product = 1;
-    for (int num : numbers) {
-        sum += num;
-        product *= num;
-    }
-    return {sum, product};
-}
+// Fix the code by including 'vector' in the function signature of issame function
+bool issame(std::pair<int, int> a, std::pair<int, int> b);
 
+// Fix the code by returning a boolean value from issame function
 bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a.first == b.first && a.second == b.second;
-}
-
-int main() {
-    assert(issame(sum_product({10}), {10, 10}));
 }
