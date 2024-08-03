@@ -1,25 +1,26 @@
+Here is the completed code:
+
+```cpp
 int smallest_change(vector<int> arr) {
-    int left = 0, right = arr.size() - 1;
-    int changes = 0;
-
-    while (left < right) {
-        if (arr[left] != arr[right]) {
-            changes++;
-            for (int i = 0; i < arr.size(); i++) {
-                if (i == left || i == right) continue;
-                if (arr[i] == arr[right]) {
-                    swap(arr[i], arr[left]);
-                    break;
-                }
-                else if (arr[i] == arr[left]) {
-                    swap(arr[i], arr[right]);
-                    break;
-                }
-            }
-        }
-        left++;
-        right--;
+    int n = arr.size();
+    string str = "";
+    for (int i : arr) {
+        str += to_string(i);
     }
-
+    
+    int left = 0, right = n - 1;
+    int changes = 0;
+    
+    while (left < right) {
+        if (str[left] != str[right]) {
+            changes++;
+            if (str[left] == str[right-1])
+                right--;
+            else
+                left++;
+        } else
+            left++, right--;
+    }
+    
     return changes;
 }
