@@ -1,10 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
 #include <algorithm>
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
+}
+
+std::vector<std::string> by_length(std::vector<int> arr);
+
+int main() {
+    std::vector<int> arr = {3, 5, 1, 7, 5, 2};
+    std::vector<std::string> result = by_length(arr);
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    return 0;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr){
@@ -30,9 +42,4 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     return result;
-}
-
-int main() {
-    // Your testing code can go here
-    return 0;
 }
