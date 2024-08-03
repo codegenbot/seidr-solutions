@@ -7,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_array(const std::vector<int>& array) {
-    std::vector<int> sortedArray = array;
+    std::vector<int> sortedArray = array; // Make a copy to avoid modifying the input
     
     if(sortedArray.empty()) return sortedArray;
     
