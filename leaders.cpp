@@ -2,7 +2,6 @@
 #include <climits>
 #include <algorithm>
 #include <iostream>
-#include <sstream>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
@@ -24,14 +23,12 @@ vector<int> findLeaders(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    string line;
-    
-    getline(cin, line);
-    istringstream iss(line);
-    
     int num;
-    while (iss >> num) {
+    
+    while (cin >> num) {
         nums.push_back(num);
+        
+        if (cin.peek() == '\n') break;  // Break the loop if newline is encountered
     }
     
     vector<int> result = findLeaders(nums);
