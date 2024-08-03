@@ -1,10 +1,8 @@
 #include <vector>
 #include <numeric>
 
-namespace std {
-    using vector;
-    using int;
-}
+using std::vector;
+using std::int;
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
