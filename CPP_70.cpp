@@ -2,9 +2,6 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -13,9 +10,9 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     if (lst.empty()) return result;
 
     auto min_max = [](const std::vector<int>& v) {
-        int min_val = *min_element(v.begin(), v.end());
-        int max_val = *max_element(v.begin(), v.end());
-        return make_pair(min_val, max_val);
+        int min_val = *std::min_element(v.begin(), v.end());
+        int max_val = *std::max_element(v.begin(), v.end());
+        return std::make_pair(min_val, max_val);
     };
 
     while (!lst.empty()) {
