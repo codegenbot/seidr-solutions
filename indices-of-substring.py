@@ -8,7 +8,6 @@ def indices_of_substring(text, target):
         i += 1
     return indices
 
-
 text = input().strip()
 target = input().strip()
 result = indices_of_substring(text, target)
