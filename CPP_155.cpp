@@ -1,9 +1,8 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <iostream>
 
-bool issame_cpp(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a[0] == b[0] && a[1] == b[1];
 }
 
@@ -21,12 +20,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> a = {2, 3};
-    std::vector<int> b = {2, 3};
-    assert(issame_cpp(a, b));
-
-    std::vector<int> counts = even_odd_count(12345);
-    std::cout << "Even count: " << counts[0] << ", Odd count: " << counts[1] << std::endl;
-
+    // Add your test cases here if needed
     return 0;
 }
