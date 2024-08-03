@@ -1,10 +1,12 @@
 #include <string>
 #include <algorithm>
+#include <cassert>
 
-std::string circular_shift(int x, int shift){
-    std::string num_str = std::to_string(x);
+using namespace std;
+
+string circular_shift(int x, int shift){
+    string num_str = to_string(x);
     int n = num_str.size();
-    
     shift %= n;
     
     if (shift == 0) {
@@ -12,15 +14,16 @@ std::string circular_shift(int x, int shift){
     }
     
     if (shift > n) {
-        std::reverse(num_str.begin(), num_str.end());
+        reverse(num_str.begin(), num_str.end());
         return num_str;
     }
     
-    std::string shifted_num = num_str.substr(n - shift) + num_str.substr(0, n - shift);
+    string shifted_num = num_str.substr(n - shift) + num_str.substr(0, n - shift);
     return shifted_num;
 }
 
-int main() {
+int main(){
     assert(circular_shift(11, 101) == "11");
+
     return 0;
 }
