@@ -21,22 +21,4 @@ bool valid_date(const std::string& date) {
     return true;
 }
 
-int main() {
-    while(true) {
-        std::string input;
-        std::cout << "Enter a date (MM-DD-YYYY format) or 'quit' to exit: ";
-        std::cin >> input;
-
-        if (input == "quit") {
-            break;
-        } else {
-            if (valid_date(input)) {
-                std::cout << "Valid date!" << std::endl;
-            } else {
-                std::cout << "Invalid date!" << std::endl;
-            }
-        }
-    }
-
-    return 0;
-}
+int main() { assert(valid_date("04-2003") == false && valid_date("02-2020") == true && valid_date("13-2020") == false && valid_date("06-2000") == true && valid_date("15-2022") == false); return 0; }
