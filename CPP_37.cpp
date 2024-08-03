@@ -5,7 +5,11 @@
 
 void sort_even(std::vector<float>& v) {
     std::sort(v.begin(), v.end(), [](float a, float b) {
-        return ((int)a % 2 == 0 && (int)b % 2 == 0) ? a > b : (int)a % 2 < (int)b % 2;
+        if ((int)a % 2 == 0 && (int)b % 2 == 0) {
+            return a > b;
+        } else {
+            return (int)a % 2 < (int)b % 2;
+        }
     });
 }
 
