@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <string>
 #include <cassert>
@@ -36,6 +37,6 @@ vector<string> words_string(const string& s) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), vector<string>{"ahmed", "gamal"}));
     return 0;
 }
