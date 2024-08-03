@@ -1,5 +1,5 @@
-def find_max_min_average(lst):
-    min_value = min(lst)
-    max_value = max(lst)
-    average = sum(lst) / len(lst)
-    return [min_value, max_value, average]
+def find_even_index(arr):
+    for i in range(len(arr)):
+        if sum(arr[:i]) == sum(arr[i+1:]):
+            return i
+    return -1
