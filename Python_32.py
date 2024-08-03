@@ -6,6 +6,9 @@ def find_zero(xs: list):
         if xs[i] != 0:
             return -xs[0] / xs[i]
 
-coefficients = list(map(float, input("Enter the coefficients separated by space: ").split()))
+
+coefficients = list(
+    map(float, input("Enter the coefficients separated by space: ").split())
+)
 result = find_zero(coefficients)
 print("Result:", result)
