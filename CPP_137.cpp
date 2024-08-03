@@ -25,7 +25,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (strA > to_string(bInt)) {
             return a;
         } else if (strA < to_string(bInt)) {
-            return boost::any(bInt);
+            return boost::any(b);
         } else {
             return boost::any("None");
         }
@@ -35,7 +35,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (to_string(aInt) > strB) {
             return a;
         } else if (to_string(aInt) < strB) {
-            return boost::any(strB);
+            return boost::any(b);
         } else {
             return boost::any("None");
         }
