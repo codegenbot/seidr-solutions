@@ -6,7 +6,7 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == k:
             nonlocal res
-            res = sorted(set(path))
+            res = sorted(path)
             return True
 
         visited[i][j] = True
