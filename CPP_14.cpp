@@ -5,12 +5,10 @@
 std::vector<std::string> b(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix = "";
-    
     for (char c : str) {
         prefix += c;
         prefixes.push_back(prefix);
     }
-    
     return prefixes;
 }
 
