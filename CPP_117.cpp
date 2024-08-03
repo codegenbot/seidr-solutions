@@ -7,34 +7,27 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
+    string word;
     int consonants = 0;
 
     for (char c : s) {
         if (c == ' ') {
-            if (consonants == n) {
+            if (consonants == n)
                 result.push_back(word);
-            }
-            word = "";
+            word.clear();
             consonants = 0;
-        } else {
-            bool isVowel = false;
-            for (char v : "aeiouAEIOU") {
-                if (c == v) {
-                    isVowel = true;
-                    break;
-                }
-            }
-            if (!isVowel) {
+        } else if (!isalpha(c)) continue; // ignore non-alphabets
+        else {
+            char ch = tolower(c);
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u')
                 consonants++;
-            }
             word += c;
         }
     }
 
-    if (consonants == n) {
+    // check for the last word
+    if (consonants == n)
         result.push_back(word);
-    }
 
     return result;
 }
@@ -42,9 +35,9 @@ vector<string> select_words(string s, int n) {
 int main() {
     string s = "Mary had a little lamb";
     int n = 4;
-    vector<string> words = select_words(s, n);
-
-    for (string word : words) {
-        cout << word << endl;
+    vector<string> res = select_words(s, n);
+    for (auto &str : res) {
+        cout << str << endl;
     }
+    return 0;
 }
