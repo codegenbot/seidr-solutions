@@ -2,15 +2,7 @@
 #include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<float> sort_even(const std::vector<float>& v) {
@@ -26,7 +18,7 @@ std::vector<float> sort_even(const std::vector<float>& v) {
 
 int main() {
     // Test cases for sort_even function
-    std::vector<float> test_case1 = {3.2f, 5.5f, 2.4f, 7.8f, 4.1f};
+    std::vector<float> test_case1 = {3.2, 5.5, 2.4, 7.8, 4.1};
     std::vector<float> result1 = sort_even(test_case1);
     // Add more test cases and validations here
 
