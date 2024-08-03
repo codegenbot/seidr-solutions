@@ -23,4 +23,5 @@ int smallest_change(vector<int> arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
+    // ... rest of the code
 }
