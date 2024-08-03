@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
@@ -12,4 +11,3 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
         }
     }
     return result;
-}
