@@ -13,7 +13,6 @@ int specialFilter(vector<int> nums) {
 
 int main() {
     assert(specialFilter({}) == 0);
-    vector<int> nums = {12, 15, 18, 21};
-    cout << specialFilter(nums) << endl; // Output: 4
+    // add your test cases here
     return 0;
 }
