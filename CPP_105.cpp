@@ -18,7 +18,7 @@ vector<string> by_length(vector<int> arr) {
         switch (num) {
             case 1: str = "One"; break;
             case 2: str = "Two"; break;
-            case 3: str = "Three"; break;
+            case 3: str = str = "Three"; break;
             case 4: str = "Four"; break;
             case 5: str = "Five"; break;
             case 6: str = "Six"; break;
@@ -33,5 +33,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), vector<string>{ "Nine", "Eight", "Four" }));
+    return 0;
 }
