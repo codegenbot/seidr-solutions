@@ -1,17 +1,14 @@
-#include <cassert>
-
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
+    if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         bool found = false;
-        for(const auto& s : b) {
-            if(a[i] == s)
+        for(const auto& s : a[i]) {
+            if(contains(b[i], s)) {
                 found = true;
+                break;
+            }
         }
-        if(!found)
-            return false;
+        if(!found) return false;
     }
     return true;
 }
@@ -19,19 +16,25 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const auto& s : strings) {
-        if (s.find(substring) != string::npos && issame(split(s, substring), split(substring, substring)))
+        if(issame(split(s, ' '), split(substring, ' ')))
             result.push_back(s);
     }
     return result;
 }
 
-vector<string> split(string str, string sep) {
+vector<string> split(string str, char delimiter) {
     vector<string> tokens;
-    size_t pos = 0;
-    while((pos = str.find(sep)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + sep.length());
+    string token;
+    istringstream tokenStream(str);
+    while (getline(tokenStream, token, delimiter)) {
+        tokens.push_back(token);
     }
-    tokens.push_back(str);
     return tokens;
+}
+
+bool contains(const string& str, const string& substr) {
+    size_t found = str.find(substr);
+    if (found != string::npos)
+        return true;
+    return false;
 }
