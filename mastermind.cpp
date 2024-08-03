@@ -1,40 +1,29 @@
-int numWhitePegs(const string& code, const string& guess) {
-    int white = 0;
+#include <vector>
+#include <string>
+
+int masterMind(string code, string guess) {
+    int blackPegs = 0;
+    int whitePegs = 0;
+
+    vector<vector<int>> codeIndex(6, vector<int>(4));
+    for (int i = 0; i < 4; ++i)
+        codeIndex[code[i] - '0' - 1][i]++;
+
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            white++;
+        if (code[i] == guess[i])
+            blackPegs++;
+        else {
+            int index = codeIndex[guess[i] - '0' - 1][i];
+            whitePegs += min(index, 1);
         }
     }
-    return white;
-}
 
-int numBlackPegs(const string& code, const string& guess) {
-    int black = 0;
-    int codes[6] = {0}; // Counting the occurrences of each character in the code
-    for (char c : code) {
-        codes[c - 'A']++;
-    }
-    
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            codes[guess[i] - 'A']--;
-        } else if (codes[guess[i] - 'A'] > 0) {
-            black++;
-            codes[guess[i] - 'A']--;
+    for (int i = 0; i < 6; ++i)
+        if (codeIndex[i].size() > blackPegs) {
+            int j = 0;
+            while (j < 4 && codeIndex[i][j] > 1 - blackPegs) j++;
+            whitePegs += max(0, j);
         }
-    }
-    
-    for (int i = 0; i < 6; ++i) {
-        black += codes[i];
-    }
-    
-    return black;
-}
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << numWhitePegs(code, guess) << endl;
-    cout << numBlackPegs(code, guess) << endl;
-    return 0;
+    return blackPegs + whitePegs;
 }
