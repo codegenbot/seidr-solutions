@@ -1,2 +1,5 @@
 def check(lst, result):
-    print(f"The sum of the squares is {result}.")
+    if isinstance(result, int) and (result == 0 or lst[1] - lst[0] == result):
+        print("Good job! Your function is working correctly.")
+    else:
+        print("There seems to be a mistake in your code.")
