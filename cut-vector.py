@@ -1,19 +1,11 @@
 n = int(input())
-arr = list(map(int, input().split()))
-
-total_sum = sum(arr)
-half_sum = total_sum // 2
-running_sum = 0
+v = list(map(int, input().split()))
+diff = float("inf")
 idx = 0
-
-for i, num in enumerate(arr):
-    running_sum += num
-    if running_sum >= half_sum:
+for i in range(1, n):
+    new_diff = abs(sum(v[:i]) - sum(v[i:]))
+    if new_diff < diff:
+        diff = new_diff
         idx = i
-        break
-
-if running_sum - half_sum < half_sum - running_sum + num:
-    idx += 1
-
-print(arr[: idx + 1])
-print(arr[idx + 1 :])
+print(*v[:idx])
+print(*v[idx:])
