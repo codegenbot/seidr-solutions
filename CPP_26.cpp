@@ -1,14 +1,14 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end()),
-                         uniqueNumbers.end());
-    return uniqueNumbers;
+```c++
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == {1, 2, 3, 4, 5});
-    return 0;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
+    for (int num : numbers) {
+        if (find(result.begin(), result.end(), num) == result.end()) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
