@@ -12,6 +12,6 @@ int add(vector<int> lst){
 
 int main() {
     vector<int> lst = {4, 4, 6, 8};
-    cout << add(lst) << endl;
+    cout << "Sum of even numbers in the list is: " << add(lst) << endl;
     return 0;
 }
