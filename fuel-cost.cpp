@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    
     int n;
     while (std::cin >> n || !std::cin.eof()) {
         if (std::cin.fail()) {
