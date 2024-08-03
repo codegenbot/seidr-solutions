@@ -1,6 +1,4 @@
-Here is the problem: 
-
-Write a function that calculates the sum and product of all elements in a list of integers. If the input list is empty, the function should return (0, 1). The function should take a list of integers as input and return a tuple containing the sum and product of these numbers.
+Here is the problem: Given a list of integers, calculate and return the sum and product of all numbers in the list.
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if not numbers:
