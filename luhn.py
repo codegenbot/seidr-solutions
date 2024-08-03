@@ -1,9 +1,11 @@
-Here is the solution:
+Here is the Python solution:
 
-def luhn(card_number):
-    card_num = list(map(int, card_number))
-    for i in range(1, len(card_num), 2):
-        card_num[i] *= 2
-        if card_num[i] > 9:
-            card_num[i] -= 9
-    return sum(card_num)
+def luhn(card):
+    sum = 0
+    for i, num in enumerate(reversed(str(card))):
+        if (i % 2) == 1:
+            num = str(int(num) * 2)
+            if len(num) > 1:
+                num = str((int(num[0]) + int(num[1])))
+        sum += int(num)
+    return sum
