@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for (char c : brackets) {
@@ -14,10 +11,4 @@ bool correct_bracketing(const std::string& brackets) {
         }
     }
     return count == 0;
-}
-
-int main() {
-    std::string input = "<><<>>";
-    std::cout << std::boolalpha << correct_bracketing(input) << std::endl;
-    return 0;
 }
