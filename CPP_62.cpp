@@ -2,19 +2,15 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b){
+bool issame(const std::std::vector<float>& a, const std::std::vector<float>& b){
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> derivative(const std::vector<float>& xs){
-    std::vector<float> result;
-    for(size_t i = 1; i < xs.size(); i++){
+std::std::vector<float> derivative(const std::std::vector<float>& xs){
+    std::std::vector<float> result;
+    for(int i = 1; i < xs.size(); i++){
         result.push_back(xs[i] * i);
     }
     return result;
 }
-
-int main() {
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
-    return 0;
-}
+```
