@@ -1,11 +1,13 @@
-```
-def sum_of_odd_numbers_in_range():
-    start = int(input("Enter the start of the range: "))
-    end = int(input("Enter the end of the range: "))
-
-    total_sum = 0
-    for num in range(start, end + 1):
-        if num % 2 != 0:
-            total_sum += num
-
-    return total_sum
+def maxProfit(prices):
+    if len(prices) < 2:
+        return 0
+    min_price = prices[0]
+    max_profit = 0
+    for price in prices:
+        if price < min_price:
+            min_price = price
+        else:
+            profit = price - min_price
+            if profit > max_profit:
+                max_profit = profit
+    return max_profit
