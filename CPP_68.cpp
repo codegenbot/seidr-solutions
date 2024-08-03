@@ -13,14 +13,13 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     if(smallest_even != -1){
-        result.push_back(smallest_even);
-        result.push_back(smallest_index);
+        result = { smallest_even, smallest_index };
     }
     
     return result;
 }
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
