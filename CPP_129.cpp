@@ -1,31 +1,54 @@
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<vector<int>> dp(n, vector<int>(n, INT_MAX));
     vector<int> res;
+
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                dfs(grid, visited, i, j, k, &res);
+            if (k == 1) {
+                dp[i][j] = grid[i][j];
+            } else {
+                int min_val = INT_MAX;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        if (i + x >= 0 && i + x < n && j + y >= 0 && j + y < n) {
+                            min_val = min(min_val, dp[i + x][j + y]);
+                        }
+                    }
+                }
+                dp[i][j] = grid[i][j] + min_val;
             }
         }
     }
-    return res;
-}
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
-    (*res).push_back(grid[x][y]);
-    visited[x][y] = true;
-    if (k > 1) {
-        for (int dx : {-1, 0, 1}) {
-            for (int dy : {-1, 0, 1}) {
-                int nx = x + dx, ny = y + dy;
-                if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size() && !visited[nx][ny]) {
-                    dfs(grid, visited, nx, ny, k - 1, res);
-                    if ((*res).size() == k) return;
+    int min_idx = -1;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (dp[i][j] == dp[0][0]) {
+                min_idx = i * n + j;
+                break;
+            }
+        }
+    }
+
+    int cur_idx = min_idx;
+    for (int i = 0; i < k; ++i) {
+        res.push_back(grid[cur_idx / n][cur_idx % n]);
+        vector<int> neighbors;
+        if (cur_idx / n > 0) neighbors.push_back(cur_idx - n);
+        if (cur_idx / n < n - 1) neighbors.push_back(cur_idx + n);
+        if (cur_idx % n > 0) neighbors.push_back(cur_idx - 1);
+        if (cur_idx % n < n - 1) neighbors.push_back(cur_idx + 1);
+
+        for (int neighbor : neighbors) {
+            if (neighbor >= 0 && neighbor < n * n) {
+                if (dp[neighbor / n][neighbor % n] == dp[cur_idx / n][cur_idx % n]) {
+                    cur_idx = neighbor;
+                    break;
                 }
             }
         }
     }
-    (*res).pop_back();
-    visited[x][y] = false;
+
+    return res;
 }
