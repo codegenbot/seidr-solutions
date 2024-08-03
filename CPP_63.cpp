@@ -1,3 +1,4 @@
+
 int fibfib(int n) {
     if (n == 0 || n == 1) {
         return 0;
@@ -14,12 +15,4 @@ int fibfib(int n) {
     }
 
     return c;
-}
-
-#include <iostream>
-#include <cassert>
-
-int main() {
-    // Add test cases here
-    return 0;
 }
