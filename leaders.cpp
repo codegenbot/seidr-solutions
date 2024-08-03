@@ -22,8 +22,12 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     vector<int> nums;
     int num;
+    
     while (cin >> num) {
         nums.push_back(num);
     }
