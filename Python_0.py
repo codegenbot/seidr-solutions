@@ -1,3 +1,4 @@
-numbers = [5, 10, 15, 20]
-threshold = 3
-print(check_numbers(numbers, threshold))
+numbers = [4, 6, 1, 7, 10]
+threshold = 2
+
+check_numbers(numbers, threshold)
