@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cstring>
 
@@ -12,7 +11,7 @@ std::string words_in_sentence(std::string sentence){
                 len++;
                 j += sentence.find_first_of(" ", j);
                 if(len == i) {
-                    result += &sentence[j-1] + " ";
+                    result += sentence.substr(j-1, i) + " ";
                     len = 0;
                     j = 0;
                 }
