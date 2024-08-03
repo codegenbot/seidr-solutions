@@ -1,18 +1,23 @@
+```cpp
 #include <vector>
-#include <iostream> // Add this line
+#include <iostream>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> result;
+    int minDiff = INT_MAX;
+    int pos = -1;
     
     for(int i = 0; i < n - 1; i++) {
-        if(vec[i] != vec[i+1]) {
-            result.push_back({{&vec[0], &vec[i]}});
-            break;
+        if(abs(vec[i] - vec[i+1]) < minDiff) {
+            minDiff = abs(vec[i] - vec[i+1]);
+            pos = i + 1;
         }
     }
-    result.push_back({{&vec[0], &vec[n-1]}});
+    
+    result.push_back({vec, 0, pos});
+    result.push_back({{vec.begin() + pos}, (pos) , n});
     
     return result;
 }
@@ -27,17 +32,10 @@ int main() {
     
     vector<vector<int>> res = cutVector(vec);
     for(auto v : res) {
-        auto start = v[0].front();
-        auto end = *v[1].end();
-        cout << "[" ;
-        for(int x : std::vector<int>(v[0]+v[0].begin(), v[1])) {
+        for(auto x : v) {
             cout << x << " ";
         }
-        cout << "] [";
-        for(auto it = start+1; it != end ; ++it) {
-            cout << *it << " ";
-        }
-        cout << "]" << endl;
+        cout << endl;
     }
     
     return 0;
