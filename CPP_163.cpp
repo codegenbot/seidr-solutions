@@ -1,7 +1,15 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> generate_integers(int start, int end) {
+    std::vector<int> result;
+    for(int i = start; i <= end; i++){
+        result.push_back(i);
+    }
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) { // Added a space between vector<int>
     for(int i = 0; i < a.size(); i++) {
         if(a[i] % 2 == 0) {
             return true;
@@ -11,9 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    // Declare the generate_integers function or include necessary headers
-    
     assert(issame(generate_integers(17, 89), std::vector<int>()) == true);
-    
     return 0;
 }
