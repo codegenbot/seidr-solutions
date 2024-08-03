@@ -1,20 +1,48 @@
 #include <boost/any.hpp>
+#include <string>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > b.convert_to<int>() ? a : boost::any("None");
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return b.convert_to<string>() > a.convert_to<string>() ? b : (boost::any)"None";
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        int i = boost::any_cast<int>(a);
-        return i > stoi(s) ? a : (boost::any)"None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string s = boost::any_cast<string>(a);
-        int i = boost::any_cast<int>(b);
-        return stoi(s) > i ? a : (boost::any)"None";
+    if (is_any_of<float>(a)) {
+        float af = boost::any_cast<float>(a);
+        float bf = boost::any_cast<float>(b);
+        if (af > bf)
+            return a;
+        else if (bf > af)
+            return b;
+        else
+            return boost::any(string("Equal"));
+    } else if (is_any_of<double>(a)) {
+        double ad = boost::any_cast<double>(a);
+        double bd = boost::any_cast<double>(b);
+        if (ad > bd)
+            return a;
+        else if (bd > ad)
+            return b;
+        else
+            return boost::any(string("Equal"));
+    } else if (is_any_of<int>(a)) {
+        int ai = boost::any_cast<int>(a);
+        int bi = boost::any_cast<int>(b);
+        if (ai > bi)
+            return a;
+        else if (bi > ai)
+            return b;
+        else
+            return boost::any(string("Equal"));
+    } else if (is_string(a)) {
+        string as = boost::any_cast<string>(a);
+        string bs = boost::any_cast<string>(b);
+        double af = stof(as);
+        double bf = stof(bs);
+        if (af > bf)
+            return a;
+        else if (bf > af)
+            return b;
+        else
+            return boost::any(string("Equal"));
+    } else {
+        return boost::any(string("Invalid Type"));
     }
-    return boost::any("None");
 }
