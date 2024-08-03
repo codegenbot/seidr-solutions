@@ -5,7 +5,7 @@ std::vector<int> eat(int a, int b, int c) {
     return {a + b, b - c};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
