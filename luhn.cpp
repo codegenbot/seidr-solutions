@@ -13,9 +13,9 @@ int main() {
     int sum = 0;
     
     for (int i = 0; i < 16; i++) {
-        if (i % 2 == 0) {
+        if (i % 2 != 0) {
             digits[i] *= 2;
-            sum += (digits[i] > 9) ? (digits[i] - 9) : digits[i];
+            sum += (digits[i] >= 10) ? (digits[i] - 9) : digits[i];
         } else {
             sum += digits[i];
         }
