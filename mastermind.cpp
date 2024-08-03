@@ -1,22 +1,35 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++;
+int countWhitePegs(string mastermindCode, string guess) {
+    int whitePegs = 0;
+    for (int i = 0; i < 4; i++) {
+        if (mastermindCode[i] == guess[i]) {
+            whitePegs++;
         }
     }
+    return whitePegs;
+}
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && code.find(d) != code.nfind(d)) {
-                white++;
+int countBlackPegs(string mastermindCode, string guess) {
+    int blackPegs = 0;
+    for (int i = 0; i < 4; i++) {
+        bool correctColor = false;
+        for (int j = 0; j < 4; j++) {
+            if (mastermindCode[j] == guess[i]) {
+                correctColor = true;
                 break;
             }
         }
+        if (correctColor) {
+            blackPegs++;
+            mastermindCode.erase(remove(mastermindCode.begin(), mastermindCode.end(), guess[i]), mastermindCode.end());
+        }
     }
+    return blackPegs;
+}
 
-    return {black, white};
+int main() {
+    string mastermindCode, guess;
+    cin >> mastermindCode >> guess;
+    cout << countWhitePegs(mastermindCode, guess) << endl;
+    cout << countBlackPegs(mastermindCode, guess) << endl;
+    return 0;
 }
