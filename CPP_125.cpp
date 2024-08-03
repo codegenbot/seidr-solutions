@@ -6,8 +6,8 @@
 std::vector<std::string> split_words(std::string txt);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return a == b;
 }
 
