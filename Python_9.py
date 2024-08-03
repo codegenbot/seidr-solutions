@@ -10,5 +10,4 @@ def rolling_max(numbers: List[int]) -> List[int]:
 
 if __name__ == "__main__":
     numbers = list(map(int, input().split()))
-    output = rolling_max(numbers)
-    print(output)
+    print(rolling_max(numbers))
