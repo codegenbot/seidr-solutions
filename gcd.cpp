@@ -35,8 +35,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     int a, b;
     cin >> a >> b;
-    cin.ignore();
-
+    cin.ignore(); // Add cin.ignore(); here if there are any issues with reading target string
+    
     string text, target;
     getline(cin, text);
     getline(cin, target);
