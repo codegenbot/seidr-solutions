@@ -6,8 +6,8 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<long double> vec1(n);
-    std::vector<long double> vec2(n);
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -22,7 +22,7 @@ int main() {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    long double distance = std::sqrt(sum);
+    double distance = std::sqrt(sum);
     std::cout << distance << std::endl;
 
     return 0;
