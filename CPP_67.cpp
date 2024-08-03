@@ -1,6 +1,7 @@
-int fruit_distribution(string s, int n){
-    int apples, oranges, mangoes;
+#include <cstdio>
+
+int fruit_distribution(std::string s, int n) {
+    int apples = 0, oranges = 0;
     sscanf(s.c_str(), "%d apples and %d oranges", &apples, &oranges);
-    mangoes = n - apples - oranges;
-    return mangoes;
+    return n - apples - oranges;
 }
