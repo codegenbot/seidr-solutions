@@ -17,10 +17,10 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-        distance += pow(vec1[i] - vec2[i], 2);
+        distance += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    distance = sqrt(distance);
+    distance = std::sqrt(distance);
     
     std::cout << std::fixed << std::setprecision(17) << distance << std::endl;
 
