@@ -6,7 +6,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != to_string(reverse(str))) return false;
+    if (str != toString(reverse(str))) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -14,15 +14,10 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-vector<int> reverse(vector<string> v) {
+vector<int> reverse(vector<int> v) {
     vector<int> result;
-    for (string s : v) {
-        result.push_back(stoi(s));
+    for (int i = v.size() - 1; i >= 0; --i) {
+        result.push_back(v[i]);
     }
     return result;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    return 0;
 }
