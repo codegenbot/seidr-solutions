@@ -20,4 +20,6 @@ void main() {
     vector<int> filtered = filter_integers({3, 'c', 3, 3, 'a', 'b'});
   
     assert(filtered == expected);
+    
+    return;
 }
