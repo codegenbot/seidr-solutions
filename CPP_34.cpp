@@ -12,8 +12,7 @@ int main(){
     std::sort(l.begin(), l.end());
     l.erase(std::unique(l.begin(), l.end()), l.end());
     
-    std::vector<int> uniqueVector = {0, 2, 3, 5, 9, 123};
-    assert(issame(l, uniqueVector));
+    assert(issame(l, {0, 2, 3, 5, 9, 123}));
     
     return 0;
 }
