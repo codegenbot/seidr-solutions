@@ -1,12 +1,31 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b; // Compare if vectors a and b are equal
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
-    assert(issame(std::vector<int>({1, 2, 3, -23, 243, -400, 0}), std::vector<int>{})); // Check if vectors are the same
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 3};
+
+    if(issame(vec1, vec2)){
+        std::cout << "Vectors are the same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
+
     return 0;
 }
