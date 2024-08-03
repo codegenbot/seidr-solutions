@@ -1,15 +1,19 @@
-int isPrime(int n) {
+#include <cmath>
+#include <string> // Include the <string> header for using string data type
+
+bool is_prime(int n) {
     if (n <= 1) {
-        return 0;
+        return false;
     }
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i <= sqrt(n); i++) {
         if (n % i == 0) {
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
-bool prime_length(string str){
-    return isPrime(str.length());
+bool prime_length(std::string str) { // Specify std::string for string data type
+    int length = str.length();
+    return is_prime(length);
 }
