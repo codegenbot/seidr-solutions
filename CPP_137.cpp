@@ -22,9 +22,9 @@ string compare_one(float a, int b) {
 }
 
 string compare_one(int a, float b) {
-    if (a > b) {
+    if ((float)a > b) {
         return to_string(a);
-    } else if (b > a) {
+    } else if (b > (float)a) {
         return to_string(b);
     }
     return "None";
