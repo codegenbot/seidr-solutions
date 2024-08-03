@@ -16,20 +16,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    vector<string> input;
-    string str;
-
-    cout << "Enter strings (enter 'done' to finish input):\n";
-    while (cin >> str && str != "done") {
-        input.push_back(str);
-    }
-
-    vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
-
-    assert(sorted_list_sum(input) == expected_output);
-
-    cout << "Input sorted successfully!\n";
-
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
