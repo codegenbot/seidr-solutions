@@ -1,4 +1,7 @@
-Here is the completed code:
+Here is the solution:
 
-def roll_higher(n, m):
-    return (n - 1) / (n * m - n - m + 1) if n > m else (m - 1) / (n * m - n - m + 1)
+```
+def dice_game(n, m):
+    total_rolls = n * m
+    peter_wins = sum(min(i, j) < i - j for i in range(1, n+1) for j in range(1, m+1))
+    return peter_wins / total_rolls
