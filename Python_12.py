@@ -1,5 +1,6 @@
-```python
-def longest(strings: list[str]) -> str | None:
+```
+```
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     max_length = 0
@@ -9,3 +10,4 @@ def longest(strings: list[str]) -> str | None:
             max_length = len(s)
             longest_str = s
     return longest_str
+```
