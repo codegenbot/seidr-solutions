@@ -1,27 +1,19 @@
-def bowling_score(rolls):
-    frames = []
-    roll_index = 0
-    for frame in range(1, 11):
-        if len(rolls[roll_index:].split("/")) >= (10 - frame + 1):
-            rolls_to_add = rolls[roll_index:].split("/")[:2]
+def bowling_score(s):
+    score = 0
+    frames = [
+        list(map(int, frame.split("/"))) + [10] if "/" in frame else [int(frame)] * 2
+        for frame in s.split()
+    ]
+    for i, frame in enumerate(frames):
+        if len(frame) == 1:
+            score += 10
+        elif sum(frame[:2]) == 10:
+            score += sum(frame)
+        elif sum(frame) < 10:
+            score += sum(frame)
         else:
-            rolls_to_add = rolls[roll_index:].split("/")
-            roll_index += len(rolls_to_add) - 1
-        if len(rolls_to_add) == 1:
-            frames.append([int(rolls_to_add[0])])
-        elif len(rolls_to_add) == 2:
-            if int(rolls_to_add[0]) + int(rolls_to_add[1]) == 10:
-                frames.append([int(rolls_to_add[0]), int(rolls_to_add[1])])
+            if i < 9 and frames[i + 1][0] == 10:
+                score += frame[0] + 10
             else:
-                frames.append([int(rolls_to_add[0]), 10 - int(rolls_to_add[0])])
-        roll_index += len(rolls_to_add)
-    score = sum(
-        (
-            sum(frame)
-            if len(frame) == 2
-            else frame[0]
-            + (10 if len(frames) < 10 and frames[-1][0] == 10 else frame[1])
-        )
-        for frame in frames
-    )
+                score += sum(frame[:2])
     return score
