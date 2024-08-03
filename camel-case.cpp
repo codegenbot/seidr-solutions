@@ -1,37 +1,37 @@
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
 
-string camelCase(string s) {
-    string result = "";
-    bool capitalizeNext = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++;
-            while (i < s.length() && s[i] == ' ') {
-                i++;
-            }
-            capitalizeNext = true;
-        } else if (s[i] == ' ') {
-            continue;
-        } else {
-            if (capitalizeNext) {
-                result += toupper(s[i]);
-                capitalizeNext = false;
-            } else {
-                result += tolower(s[i]);
-            }
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    std::stringstream ss(str);
+    std::string word;
+
+    while (ss >> word) {
+        words.push_back(word);
+    }
+
+    for(int i = 0; i < words.size(); i++) {
+        if(i > 0)
+            words[i][0] = toupper(words[i][0]);
+    }
+
+    std::string result;
+    for(int i = 0; i < words.size(); i++) {
+        result += words[i];
+        if(i < words.size() - 1) {
+            result += " ";
         }
     }
+
     return result;
 }
 
 int main() {
-    string s;
-    while (true) {
-        cout << "Enter a string in kebab-case: ";
-        cin >> s;
-        cout << "The camelCase version is: " << camelCase(s) << endl;
-    }
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
+
     return 0;
 }
