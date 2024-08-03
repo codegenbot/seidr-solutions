@@ -1,10 +1,25 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Function implementation
+bool issame(int x, int y){
+    return x == y;
 }
 
-std::vector<int> make_a_pile(int n) {
+std::vector<int> make_a_pile(int n);
+
+int main(){
+    int n;
+    std::cin >> n;
+
+    std::vector<int> result = make_a_pile(n);
+
+    assert(issame(result.back(), 22));
+
+    return 0;
+}
+
+std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
     stones.push_back(n);
     for(int i=1; i<n; i++){
