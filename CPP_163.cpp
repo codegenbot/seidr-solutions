@@ -1,6 +1,8 @@
 #include <cassert>
 #include <vector>
 
+using namespace std;
+
 bool issame(std::vector<int> a, std::vector<int> b){
     for(int num : a){
         if(num % 2 == 0){
