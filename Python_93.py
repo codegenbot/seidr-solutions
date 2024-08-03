@@ -5,20 +5,20 @@ def encode(message):
         if char.isalpha():
             if char.lower() in 'aeiou':
                 if char.lower() == 'a':
-                    result += 'c'
+                    result += '1'
                 elif char.lower() == 'e':
-                    result += 'g'
+                    result += '3'
                 elif char.lower() == 'i':
-                    result += 'k'
+                    result += '!'
                 elif char.lower() == 'o':
-                    result += 'q'
+                    result += '0'
                 elif char.lower() == 'u':
-                    result += 'y'
+                    result += '\'\''
             else:
                 if char.islower():
-                    result += chr(ord(char) - 32)
+                    result += chr(ord(char) + 3).upper()
                 else:
-                    result += chr(ord(char) + 32)
+                    result += chr(ord(char) - 3).lower()
         else:
             result += char
     return result
