@@ -5,22 +5,22 @@
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> vec1(n);
+    std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
-    std::vector<float> vec2(n); // Typo fixed here
+    std::vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
-    float sum = 0.0f;
+    double sum = 0.0;
     for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    float result = sqrt(sum);
+    double result = sqrt(sum);
     std::cout << result << std::endl;
 
     return 0;
