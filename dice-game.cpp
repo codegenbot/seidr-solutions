@@ -5,7 +5,11 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    return (n - 1) / total;
+    double count = 0.0;
+    for(int i = 1; i <= n - 1; i++) {
+        count += (n-i)*m/n/m;
+    }
+    return count;
 }
 
 int main() {
