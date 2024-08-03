@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
 #include <sstream>
 
 std::string camelCase(std::string str) {
