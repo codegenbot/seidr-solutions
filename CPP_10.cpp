@@ -1,8 +1,8 @@
 #include <string>
 #include <algorithm>
 
-bool is_palindrome(const std::string& str){
-    return str == std::string(str.rbegin(), str.rend());
+bool is_palindrome(const std::string& str) {
+    return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
 }
 
 std::string make_palindrome(std::string str){
