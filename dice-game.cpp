@@ -1,4 +1,4 @@
-```
+````
 double getProbability(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
@@ -9,3 +9,4 @@ double getProbability(int n, int m) {
 
     return p;
 }
+```
