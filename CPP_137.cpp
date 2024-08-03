@@ -10,9 +10,9 @@ std::any compare_one(const std::any& a, const std::any& b) {
         return (any_cast<int>(a) > any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return (any_cast<float>(a) > any_cast<float>(b)) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        string strA = any_cast<std::string>(a);
+        string strB = any_cast<std::string>(b);
         if (strA.find_first_of(".,") != string::npos) {
             replace(strA.begin(), strA.end(), ',', '.');
         }
@@ -25,6 +25,6 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
