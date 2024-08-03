@@ -1,12 +1,3 @@
-#include <iostream>
-#include <cmath>
-
 bool iscuber(int a) {
-    int root = round(cbrt(abs(a)));
-    return a == root * root * root;
-}
-
-int main() {
-    assert (iscuber(1729) == false);
-    return 0;
+    return cbrt(a) == round(cbrt(a));
 }
