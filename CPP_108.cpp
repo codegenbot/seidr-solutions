@@ -1,16 +1,16 @@
-int count_nums(vector<int> n){
+#include <vector>
+#include <cmath>
+
+int count_nums(std::vector<int> n){
     int count = 0;
     for (int num : n) {
-        int sum = 0;
-        int temp = abs(num);
-        while (temp != 0) {
-            sum += temp % 10;
-            temp /= 10;
+        int sum_digits = 0;
+        int num_abs = std::abs(num);
+        while (num_abs > 0) {
+            sum_digits += num_abs % 10;
+            num_abs /= 10;
         }
-        if (num < 0) {
-            sum *= -1;
-        }
-        if (sum > 0) {
+        if (sum_digits > 0) {
             count++;
         }
     }
