@@ -1,4 +1,4 @@
-def leaders(a):
+def leaders(arr):
     return [
-        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+        arr[i] for i in range(len(arr) - 1, -1, -1) if all(arr[i] >= x for x in arr[:i])
     ]
