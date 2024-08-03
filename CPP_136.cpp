@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> largest_smallest_integers(const vector<int>& lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for(int num : lst){
         if(num < 0 && num > largest_negative){
