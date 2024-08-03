@@ -1,16 +1,15 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
 double getProbability(int n, int m) {
-    double p = 0;
-    for (int i = m + 1; i <= n; i++) {
-        p += 1.0 / n * 1.0 / m;
-    }
-    return p;
+    double total = pow(n + m, 2);
+    double peterWins = (n * m) - ((n / (n + m)) * (n * m));
+    return 2.0 * peterWins / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(5) << getProbability(n, m) << endl;
+    cout << fixed << setprecision(1) << getProbability(n, m) << endl;
     return 0;
 }
