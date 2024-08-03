@@ -1,15 +1,22 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) {
-        return result;
-    }
-    int min_val = *min_element(lst.begin(), lst.end());
+    if (lst.empty()) return result;
+
+    auto min_max = [](const vector<int>& v) {
+        int min_val = *min_element(v.begin(), v.end());
+        int max_val = *max_element(v.begin(), v.end());
+        return make_pair(min_val, max_val);
+    };
+
     while (!lst.empty()) {
-        result.push_back(min_val);
-        auto it = std::remove_if(lst.begin(), lst.end(), [min_val](int x) { return x == min_val; });
-        lst.erase(it, lst.end());
-        if (lst.empty()) break;
-        min_val = *max_element(lst.begin(), lst.end());
+        auto [min, max] = min_max(lst);
+        result.push_back(min);
+        lst.erase(std::remove_if(lst.begin(), lst.end(),
+            [&](int x) { return x == min; }), lst.end());
+        if (!lst.empty())
+            result.push_back(max);
+        lst.erase(std::remove_if(lst.begin(), lst.end(),
+            [&](int x) { return x == max; }), lst.end());
     }
     return result;
 }
