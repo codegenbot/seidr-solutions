@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 bool issame(const std::vector<int>& stones){
     for(int i=0; i<stones.size()-1; i++){
         if(stones[i] != stones[i+1]){
