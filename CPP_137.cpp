@@ -1,12 +1,12 @@
-#include <any>
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
 #include <cassert>
-#include <type_traits>
 
 using namespace std;
+using boost::any_cast;
 
-any compare_one(const any& a, const any& b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return (any_cast<int>(a) > any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
@@ -22,7 +22,7 @@ any compare_one(const any& a, const any& b) {
         }
         return (stod(strA) > stod(strB)) ? a : b;
     }
-    return any("None");
+    return boost::any("None");
 }
 
 int main() {
