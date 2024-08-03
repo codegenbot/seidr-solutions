@@ -1,9 +1,9 @@
 using namespace std;
 vector<string> by_length(vector<int> arr) {
-    vector<string> nums;
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            nums.push_back(to_string(num));
+            nums.push_back(num);
         }
     }
     sort(nums.begin(), nums.end());
