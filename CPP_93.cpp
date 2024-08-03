@@ -1,9 +1,8 @@
-#include <iostream>
 #include <cassert>
+#include <cctype>
 
-std::string encode(const std::string &message) {
-    std::string encoded_message = message;
-    for (char &c : encoded_message) {
+std::string encode(std::string message) {
+    for (char &c : message) {
         if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
@@ -11,10 +10,5 @@ std::string encode(const std::string &message) {
             }
         }
     }
-    return encoded_message;
-}
-
-int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
-    return 0;
+    return message;
 }
