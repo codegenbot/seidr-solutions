@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 vector<int> incr_list(const vector<int>& l) {
     vector<int> result = l;
