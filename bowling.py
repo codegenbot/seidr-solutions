@@ -1,27 +1,37 @@
+Here is the Python solution for the bowling problem:
+
 ```
-def bowling(score):
-    score = score.replace('/', '')
-    frames = [int(x) for x in re.split('(\d+)', score)]
-    total_score = 0
+def bowling_score(gutter):
+    score = 0
     roll = 0
-    while len(frames) > 1:
-        if frames[0] == 10: # strike
-            total_score += 10 + frames[roll+2]
-            frames = frames[1:]
-            roll += 1
-        elif frames[0] + frames[1] >= 10: # spare
-            total_score += 10 + frames[roll+3]
-            frames = frames[2:]
-            roll += 2
-        else:
-            if frames[0] == 1 and len(frames) > 4 and frames[1] == 1 and frames[2] == 1: # special case for X/X/X
-                total_score += 10 + frames[roll+4]
-                frames = frames[3:]
-                roll += 4
+    prev_rolls = [0, 0]
+    for char in gutter:
+        if char.isdigit():
+            if len(prev_rolls) < 2:
+                prev_rolls.append(int(char))
             else:
-                total_score += sum(frames[:2])
-                frames = frames[2:]
-                roll += 2
-    if len(frames) == 1: # last frame, only one or two rolls
-        total_score += frames[0]
-    return total_score
+                if len(prev_rolls) == 2 and (prev_rolls[0] + prev_rolls[1]) == 10:
+                    score += 10
+                elif roll >= 1:
+                    score += min(prev_rolls[0], prev_rolls[1]) * 2
+                else:
+                    score += sum(prev_rolls)
+                prev_rolls = [int(char)]
+        else:
+            if char == 'X':
+                score += 10
+                prev_rolls = [10]
+            elif char == '-':
+                score += sum(prev_rolls)
+                prev_rolls = [0, 0]
+            else:
+                prev_rolls[roll % 2] = int(char)
+        roll += 1
+    if len(prev_rolls) > 0:
+        if len(prev_rolls) < 2:
+            score += sum(prev_rolls)
+        elif sum(prev_rolls) == 10:
+            score += 10
+        else:
+            score += min(prev_rolls[0], prev_rolls[1]) * 2
+    return score
