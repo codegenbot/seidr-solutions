@@ -23,10 +23,8 @@ int bowlingScore(string s) {
                 second += s[i];
                 ++i;
             }
-            if (second.size() == 1)
-                score += (stoi(first) + stoi(second));
-            else
-                score += (stoi(first) + stoi(second));
+            score += (stoi(first) + stoi(second));
         }
     }
     return score;
+}
