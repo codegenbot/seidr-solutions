@@ -16,6 +16,6 @@ int main() {
     for (int i = 0; i < static_cast<int>(indices.size()); ++i) {
         std::cout << indices[i] << " ";
     }
-
-    return 0;
+    
+   return 0;
 }
