@@ -1,3 +1,7 @@
-def leaders(a):
-    leader = [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= min(a[i + 1 :])]
-    return leader
+def leaders(arr):
+    leaders_list = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            leaders_list.append(arr[i])
+            arr.pop()
+    return list(reversed(leaders_list))
