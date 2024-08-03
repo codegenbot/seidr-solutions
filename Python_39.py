@@ -9,9 +9,10 @@ def prime_fib(n: int):
 
     a, b = 0, 1
     result = []
-    while n > 0:
+    while True:
         a, b = b, a + b
         if is_prime(b):
             result.append(str(a))
             n -= 1
-    return ', '.join(result)
+        if n == 0:
+            return ", ".join(result)
