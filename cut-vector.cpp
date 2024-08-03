@@ -25,9 +25,8 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        if (std::abs(2 * prefix_sum - sum) < std::abs(2 * prefix_sum - sum - 2 * nums[i])) {
+        if (std::abs(2 * prefix_sum - sum) <= std::abs(2 * prefix_sum - sum - 2 * nums[i]) && std::abs(prefix_sum - (sum - prefix_sum)) <= std::abs(prefix_sum - nums[i] - (sum - prefix_sum + nums[i]))) {
             cut_index = i;
-            break;
         }
     }
     
