@@ -4,8 +4,10 @@
 using namespace std;
 
 string compare_one(string a, string b) {
-    if (a > b)
+    if (a > b) {
         return a;
-    else
+    } else if (b > a) {
         return b;
+    }
+    return "None";
 }
