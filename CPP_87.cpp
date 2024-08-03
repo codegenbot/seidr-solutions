@@ -7,7 +7,7 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
+std::vector<std::vector<int>> get_row_cpp87(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
     for (size_t i = 0; i < lst.size(); ++i) {
         for (size_t j = 0; j < lst[i].size(); ++j) {
@@ -26,6 +26,6 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
 }
 
 int main() {
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
+    assert(issame(get_row_cpp87({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
     return 0;
 }
