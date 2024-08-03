@@ -18,14 +18,11 @@ std::string camelCase(std::string str) {
     }
 
     std::string result;
-    bool firstWord = true;
-
     for(int i = 0; i < words.size(); i++) {
-        if(firstWord) {
+        if(i == 0) {
             result += words[i];
-            firstWord = false;
         } else {
-            result += toupper(words[i][0]) + std::string(1,words[i].erase(0,1));
+            result += toupper(words[i][0]) + tolower(std::string(words[i].erase(0,1)));
         }
     }
 
