@@ -1,5 +1,5 @@
+```
 #include <string>
-#include <iostream>
 
 std::string words_in_sentence(std::string sentence){
     std::string result = "";
@@ -9,9 +9,9 @@ std::string words_in_sentence(std::string sentence){
             int j = 0;
             while(j < sentence.length()){
                 len++;
-                j += (sentence.find_first_of(" ", j) - j);
+                j += strlen(&sentence[j]);
                 if(len == i) {
-                    result += sentence.substr(j-1, i) + " ";
+                    result += &sentence[j-1] + " ";
                     len = 0;
                     j = 0;
                 }
