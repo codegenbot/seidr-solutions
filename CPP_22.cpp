@@ -1,4 +1,5 @@
-bool operator== (const vector<int>& a, const vector<int>& b) {
+```c++
+bool operator==(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
@@ -14,6 +15,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(isame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}) ,{3, 3, 3}));
+    assert(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}) == {3, 3, 3});
     return 0;
 }
