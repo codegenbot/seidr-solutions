@@ -32,9 +32,26 @@ vector<string> split_words(string txt) {
     return words;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    vector<string> a = split_words("apple, banana, cherry");
-    vector<string> b = split_words("orange mango");
-    issame(a, b);
+    // Correct the issame call
+    vector<string> v1 = {"apple", "banana", "cherry"};
+    vector<string> v2 = {"apple", "banana", "cherry"};
+
+    if (issame(v1, v2)) {
+        // Do something
+    }
+
     return 0;
 }
