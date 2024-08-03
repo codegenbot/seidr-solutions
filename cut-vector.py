@@ -1,18 +1,13 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
-
-total_sum = sum(vec)
+arr = [int(input()) for _ in range(n)]
+total_sum = sum(arr)
 left_sum = 0
-min_diff = float("inf")
-cut_idx = -1
+right_sum = total_sum
 
 for i in range(n):
-    left_sum += vec[i]
-    right_sum = total_sum - left_sum
-    curr_diff = abs(left_sum - right_sum)
-    if curr_diff < min_diff or (curr_diff == min_diff and vec[i] == vec[i + 1]):
-        min_diff = curr_diff
-        cut_idx = i
-
-print(vec[: cut_idx + 1])
-print(vec[cut_idx + 1 :])
+    left_sum += arr[i]
+    right_sum -= arr[i]
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(total_sum / 2):
+        print(arr[: i + 1])
+        print(arr[i + 1 :])
+        break
