@@ -21,11 +21,10 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << std::endl;
 
-    std::cin.ignore();
+    std::cin.ignore(); // Ignore newline character left in the input stream
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
-
+    std::getline(std::cin, text); // Read the text string
+    std::getline(std::cin, target); // Read the target string
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
