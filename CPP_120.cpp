@@ -1,4 +1,3 @@
-```c++
 bool issame(vector<int> a, vector<int> b) {
     // your implementation
 }
