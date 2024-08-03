@@ -12,29 +12,24 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    int n;
     std::vector<float> lst;
+    int n;
+    float x;
 
     // Read input from user
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of elements in the list: ";
     std::cin >> n;
     
     for (int i = 0; i < n; i++) {
-        float num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        std::cin >> x;
+        lst.push_back(x);
     }
 
-    // Call the function
+    // Calculate and print the result
     long long result = double_the_difference(lst);
 
-    // Print output to user
-    if (result > 0) {
-        std::cout << "The difference is: " << result << std::endl;
-    } else {
-        std::cout << "No difference" << std::endl;
-    }
+    std::cout << "The doubled difference is: " << result << std::endl;
 
     return 0;
 }
