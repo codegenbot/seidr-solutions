@@ -3,10 +3,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool move_one_ball(std::vector<int>& arr) {
+bool is_sorted(const std::vector<int>& arr) {
+    return std::is_sorted(arr.begin(), arr.end());
+}
+
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        if (std::is_sorted(arr.begin(), arr.end())) {
+        if (is_sorted(arr)) {
             return true;
         }
         std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
@@ -15,7 +19,8 @@ bool move_one_ball(std::vector<int>& arr) {
 }
 
 int main() {
+    // Test cases
     assert(move_one_ball({}) == true);
-    // Add more test cases here
+
     return 0;
 }
