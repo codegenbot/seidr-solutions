@@ -11,7 +11,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> paths, int num) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
