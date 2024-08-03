@@ -1,9 +1,9 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
 
-bool issame(int x, int y){
-    return x == y;
+bool issame(int a, int b){
+    return a == b;
 }
 
 std::vector<int> make_a_pile(int n);
@@ -14,10 +14,12 @@ int main(){
 
     std::vector<int> result = make_a_pile(n);
 
-    assert(issame(result.back(), 22));
+    for(int i=0; i<result.size(); i++){
+        std::cout << result[i] << " ";
+    }
 
     assert(issame(make_a_pile(8).back(), 22));
-
+   
     return 0;
 }
 
