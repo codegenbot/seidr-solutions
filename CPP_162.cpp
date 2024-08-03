@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
@@ -8,14 +9,17 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "MD5: " << string_to_md5(input) << std::endl;
+    
+    std::string result = string_to_md5(input);
+    std::cout << "MD5 hash: " << result << std::endl;
+
     return 0;
 }
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
-    unsigned char md5[MD5_DIGEST_LENGTH];
+    unsigned char md5[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
     const char* ptr = text.c_str();
@@ -26,7 +30,7 @@ std::string string_to_md5(std::string text) {
     MD5_Final(md5, &ctx);
 
     std::string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    for (int i = 0; i < 16; i++) {
         sprintf(result + strlen(result), "%02x", md5[i]);
     }
 
