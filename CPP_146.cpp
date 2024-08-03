@@ -13,10 +13,17 @@ int specialFilter(std::vector<int> nums){
 
 int main() {
     std::vector<int> input;
-    int num;
-    std::cout << "Enter numbers (enter -1 to stop): ";
-    while((std::cin >> num) && num != -1)
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
         input.push_back(num);
+    }
+    
     int result = specialFilter(input);
     std::cout << "The result is: " << result << std::endl;
     return 0;
