@@ -1,29 +1,28 @@
-```cpp
-#include <iostream>
 #include <vector>
-
-using namespace std;
 
 int count_nums(vector<int> v) {
     int count = 0;
     for (int num : v) {
-        bool has_positive_sum = false;
-        int sign = (num < 0) ? -1 : 1;
-        num *= sign;
-        while (num != 0) {
-            if (num % 10 > 0) {
-                has_positive_sum = true;
-                break;
+        if (num >= 0) {
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
             }
-            num /= 10;
+            if (sum > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // convert to positive
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
         }
-        if (has_positive_sum) count++;
     }
     return count;
-}
-
-int main() {
-    vector<int> v = {1, -2, 3};
-    cout << "The number of positive sums is: " << count_nums(v) << endl;
-    return 0;
 }
