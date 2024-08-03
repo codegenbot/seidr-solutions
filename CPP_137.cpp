@@ -5,11 +5,11 @@
 
 using namespace std;
 
-std::any compare_one(const std::any& a, const std::any& b) {
+any compare_one(const any& a, const any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (std::any_cast<int>(a) > std::any_cast<int>(b)) ? a : b;
+        return (any_cast<int>(a) > any_cast<int>(b)) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (std::any_cast<float>(a) > std::any_cast<float>(b)) ? a : b;
+        return (any_cast<float>(a) > any_cast<float>(b)) ? a : b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string strA = any_cast<string>(a);
         string strB = any_cast<string>(b);
@@ -21,7 +21,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
         }
         return (stod(strA) > stod(strB)) ? a : b;
     }
-    return std::any("None");
+    return any("None");
 }
 
 int main() {
