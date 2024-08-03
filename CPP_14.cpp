@@ -3,21 +3,16 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
-    std::string prefix;
-    for (char c : str) {
-        prefix += c;
-        prefixes.push_back(prefix);
+    for (size_t i = 1; i <= str.size(); ++i) {
+        prefixes.push_back(str.substr(0, i));
     }
     return prefixes;
 }
 
-int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
