@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <bitset>
-#include <iomanip>
-#include <sstream>
 #include <string>
 
 string string_to_md5(string text) {
