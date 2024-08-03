@@ -14,7 +14,7 @@ std::string camelCase(std::string str) {
 
     for(int i = 0; i < words.size(); i++) {
         if(i > 0)
-            words[i][0] = toupper(words[i][0]);
+            words[i][0] = toupper((char)words[i][0]);
     }
 
     std::string result;
@@ -22,6 +22,8 @@ std::string camelCase(std::string str) {
         result += words[i];
         if(i < words.size() - 1) {
             result += " ";
+        } else {
+            result[0] = tolower((char)result[0]);
         }
     }
 
