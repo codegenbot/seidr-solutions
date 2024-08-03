@@ -2,11 +2,11 @@
 #include <vector>
 #include <string>
 
-bool issame(int n, const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(int n, std::vector<std::string> a, std::vector<std::string> b) {
     return n == a.size() && a == b;
 }
 
-int odd_count(const std::vector<std::string>& vec) {
+int odd_count(std::vector<std::string> vec) {
     int count = 0;
     for (const auto &str : vec) {
         for (char c : str) {
