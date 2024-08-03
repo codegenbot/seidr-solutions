@@ -1,24 +1,13 @@
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> words;
-    std::string word;
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-    return words;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    return true;
 }
 
 assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
