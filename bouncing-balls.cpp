@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cmath>
-#include <iomanip>
-
 using namespace std;
+
+#include <cmath> // for pow and log2
+#include <iomanip> // for setprecision
 
 int main() {
     double startHeight, heightAfterFirstBounce;
@@ -15,6 +15,7 @@ int main() {
 
     cout << fixed << setprecision(4);
     cout << bouncinessIndex << endl;
+    
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         totalDistance += pow(bouncinessIndex, -i*0.5) * startHeight;
