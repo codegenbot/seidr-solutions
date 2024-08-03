@@ -11,7 +11,7 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     for (size_t i = 0; i < lst.size(); ++i) {
         for (size_t j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                result.push_back({static_cast<int>(i), static_cast<int>(j)});
+                result.emplace_back(std::vector<int>{static_cast<int>(i), static_cast<int>(j)});
             }
         }
     }
@@ -24,8 +24,8 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
     return result;
 }
 
-int main_custom(){
-    std::vector<std::vector<int>> result = get_row(std::vector<int>(), 3);
+int main(){
+    std::vector<std::vector<int>> result = get_row({{}, {1}, {1, 2, 3}}, 3);
     std::vector<std::vector<int>> expected = {{2, 2}};
     assert(issame(result, expected));
     return 0;
