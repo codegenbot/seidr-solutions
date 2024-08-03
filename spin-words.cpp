@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -11,7 +10,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (length >= 5)
                 for (int j = length - 1; j >= 0; j--)
-                    result += str[i-length+j];
+                    result += str[i - j];
             else
                 result += str.substr(i - length, length);
             length = 0;
@@ -22,7 +21,7 @@ string spinWords(string str) {
     }
     if (length >= 5)
         for (int i = length - 1; i >= 0; i--)
-            result += str[i-length+i];
+            result += str[i];
     else
         result += str;
     return result;
