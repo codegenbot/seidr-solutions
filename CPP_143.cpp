@@ -1,5 +1,4 @@
 #include <string>
-#include <cmath>
 
 std::string words_in_sentence(std::string sentence){
     std::string result = "";
@@ -9,7 +8,7 @@ std::string words_in_sentence(std::string sentence){
             int j = 0;
             while(j < sentence.length()){
                 len++;
-                j += j + strlen(&sentence[j]);
+                j += strlen(&sentence[j]);
                 if(len == i) {
                     result += &sentence[j-1] + " ";
                     len = 0;
