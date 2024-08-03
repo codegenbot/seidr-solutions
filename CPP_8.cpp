@@ -1,7 +1,18 @@
-int sum = 0;
-int product = 1;
-for (int num : numbers) {
-    sum += num;
-    product *= num;
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+std::pair<int, int> sum_product(std::vector<int> numbers) {
+    int sum = 0;
+    int product = 1;
+    for (int num : numbers) {
+        sum += num;
+        product *= num;
+    }
+    return {sum, product};
 }
-return {sum, product};
+
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+    return a.first == b.first && a.second == b.second;
+}
