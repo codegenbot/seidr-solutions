@@ -8,7 +8,10 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "MD5 hash: " << string_to_md5(input) << std::endl;
+    
+    std::string result = string_to_md5(input);
+    std::cout << "MD5 of the entered string is: " << result << std::endl;
+    
     return 0;
 }
 
