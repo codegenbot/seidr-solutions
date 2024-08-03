@@ -1,7 +1,12 @@
-int n = l.size();
-bool increasing = true, decreasing = true;
-for (int i = 1; i < n; ++i) {
-    if (l[i] < l[i - 1]) increasing = false;
-    if (l[i] > l[i - 1]) decreasing = false;
+bool monotonic(const std::vector<int>& l) {
+    bool increasing = true, decreasing = true;
+    for (size_t i = 1; i < l.size(); ++i) {
+        if (l[i] < l[i - 1]) {
+            increasing = false;
+        }
+        if (l[i] > l[i - 1]) {
+            decreasing = false;
+        }
+    }
+    return increasing || decreasing;
 }
-return increasing || decreasing;
