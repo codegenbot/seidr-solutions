@@ -1,4 +1,4 @@
-```
 import re
+
 def words_string(s):
-    return re.split('[ ,]+', s)
+    return re.split(r'\s*,*\s*', s)
