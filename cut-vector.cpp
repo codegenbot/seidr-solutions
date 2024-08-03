@@ -1,54 +1,49 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    vector<vector<int>> result;
+vector<vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
-    for (int i = 0; i < n - 1; i++) {
-        if (vec[i] == vec[i + 1]) {
-            result.push_back({vec[0], vec[i]});
-            return {{}, vec.begin() + i, vec.end()};
+    for (int i = 1; i <= v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        
+        for (int k = i; k < v.size(); k++) {
+            right_sum += v[k];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    
-    for (int i = 0; i < n - 1; i++) {
-        if (abs(vec[i] - vec[i + 1]) < minDiff) {
-            minDiff = abs(vec[i] - vec[i + 1]);
-            cutIndex = i;
-        }
-    }
-    
-    result.push_back({vec[0], vec[cutIndex]});
-    return {{}, vec.begin() + cutIndex, vec.end()};
+    return {{vector<int>(v.begin(), v.begin() + cut_index)}, {vector<int>(v.begin() + cut_index, v.end())}};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for (auto &i : vec) {
-        cin >> i;
+    
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
     
-    vector<vector<int>> result = cutVector(vec);
+    vector<vector<int>> result = cutVector(v);
     
-    cout << "[";
-    for (const auto &num : *result[0].begin()) {
-        cout << num << " ";
+    for (const auto& subv : result) {
+        for (int num : subv) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-    cout << "]\n";
-    
-    cout << "[";
-    for (auto it = result[1]->begin(); it != result[1]->end(); ++it) {
-        cout << *it << " ";
-    }
-    cout << "]\n";
     
     return 0;
 }
