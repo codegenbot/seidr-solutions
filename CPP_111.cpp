@@ -2,29 +2,39 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string str = test;
-    for (char c : str) {
-        if (!isalpha(c)) continue; // Ignore non-alphabets
-
-        char letter = tolower(c); // Convert to lowercase
-        if (result.find(letter) == result.end())
-            result[letter] = 1; // First occurrence, count is 1
-        else
-            result[letter]++;
+    string words[1000]; // Assuming no more than 1000 words
+    size_t pos = 0;
+    size_t lastPos = 0;
+    while ((pos = test.find(" ")) != string::npos) {
+        words[lastPos] = test.substr(0, pos);
+        test.erase(0, pos + 1);
+        lastPos++;
+    }
+    if (!test.empty()) {
+        words[lastPos] = test;
     }
 
-    map<char, int> maxCountMap;
-    int maxCount = 0;
-
-    for (auto& pair : result) {
-        if (pair.second > maxCount)
-            maxCount = pair.second;
+    for (const auto& word : words) {
+        size_t count = 0;
+        char letter = word[0];
+        for (size_t i = 0; i < word.size(); ++i) {
+            if (word[i] == letter) {
+                count++;
+            } else {
+                break;
+            }
+        }
+        if (result.find(letter) == result.end() || count > result[letter]) {
+            result.clear();
+            for (size_t i = 0; i < count; ++i) {
+                result[letter]++;
+            }
+        } else if (count == result[letter]) {
+            for (size_t i = 0; i < count; ++i) {
+                result[letter]++;
+            }
+        }
     }
 
-    for (auto& pair : result) {
-        if (pair.second == maxCount)
-            maxCountMap[pair.first] = pair.second;
-    }
-
-    return maxCountMap;
+    return result;
 }
