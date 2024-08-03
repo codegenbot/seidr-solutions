@@ -18,10 +18,11 @@ int main() {
     
     float sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += std::pow(vec2[i] - vec1[i], 2); // Corrected the order of subtraction
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
     
     float distance = std::sqrt(sum);
+    std::cout.precision(16);
     std::cout << distance << std::endl;
     
     return 0;
