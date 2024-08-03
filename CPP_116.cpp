@@ -11,7 +11,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
         int countA = __builtin_popcount(a);
         int countB = __builtin_popcount(b);
         if (countA == countB) {
-            return a < b;
+            return a > b; // Change from a < b to a > b for sorting in descending order
         }
         return countA < countB;
     });
