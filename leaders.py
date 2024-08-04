@@ -1,12 +1,6 @@
-```
-def leaders(a):
-    n = len(a)
-    max_right = a[n-1]
-    leaders = [max_right]
-
-    for i in range(n - 2, -1, -1):
-        if a[i] >= max_right:
-            leaders.insert(0, a[i])
-            max_right = a[i]
-
-    return leaders
+def leaders(arr):
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if all(x <= arr[i] for x in arr[i + 1 :])
+    ]
