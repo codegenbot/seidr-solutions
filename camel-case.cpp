@@ -25,7 +25,7 @@ std::string toCamelCase(const std::string& s) {
     result.push_back(' ');
 
     // Recursive call
-    return result + toCamelCase(s.substr(s.find(' ') + 1));
+    return std::string(result) + toCamelCase(s.substr(s.find(' ') + 1));
 }
 
 int main() {
