@@ -1,19 +1,26 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = INT_MIN;
-    int smallest_positive = INT_MAX;
+vector<int> largest_smallest_integers(vector<int> lst){
+    int largest_negative = 0;
+    int smallest_positive = 0;
+    
+    bool largest_negative_set = false;
+    bool smallest_positive_set = false;
     
     for (int num : lst) {
-        if (num < 0 && num > largest_negative) {
+        if (num < 0 && (!largest_negative_set || num > largest_negative)) {
             largest_negative = num;
-        } else if (num > 0 && num < smallest_positive) {
+            largest_negative_set = true;
+        } else if (num > 0 && (!smallest_positive_set || num < smallest_positive)) {
             smallest_positive = num;
+            smallest_positive_set = true;
         }
     }
     
@@ -21,10 +28,10 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
 }
 
 int main(){
-    std::vector<int> input = {-3, 5, -2, 7, 1};
-    std::vector<int> expected_output = {-3, 1};
+    vector<int> input = {-3, 5, -2, 7, 1};
+    vector<int> expected_output = {-3, 1};
     
-    assert(is_same(largest_smallest_integers(input), expected_output));
+    assert(issame(largest_smallest_integers(input), expected_output));
     
     return 0;
 }
