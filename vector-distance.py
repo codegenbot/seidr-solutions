@@ -1,7 +1,7 @@
 n = int(input())
-v1 = list(map(float, input().split()))
+vector1 = list(map(float, input().split()))
 n = int(input())
-v2 = list(map(float, input().split()))
+vector2 = list(map(float, input().split()))
 
-result = math.sqrt(sum((x - y) ** 2 for x, y in zip(v1, v2)))
-print(result)
+distance = math.sqrt(sum((x - y) ** 2 for x, y in zip(vector1, vector2)))
+print(distance)
