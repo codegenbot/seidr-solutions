@@ -1,13 +1,15 @@
-#include <iostream>
+#include <string>
 #include <vector>
-#include <cassert>
-#include <climits>
+#include <iostream>
+#include <cctype>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
-    std::string strongest_extension = "";
+using namespace std;
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
     int max_strength = INT_MIN;
     
-    for (const std::string& ext : extensions) {
+    for (const string& ext : extensions) {
         int CAP = 0, SM = 0;
         for (char c : ext) {
             if (isupper(c)) {
@@ -28,7 +30,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     
     return 0;
 }
