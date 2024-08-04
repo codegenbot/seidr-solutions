@@ -45,7 +45,7 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert_equal(split_words(""), {"0"});
+    assert_equal(split_words(""), std::vector<std::string>{"0"});
 
     return 0;
 }
