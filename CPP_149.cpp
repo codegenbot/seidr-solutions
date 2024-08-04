@@ -1,13 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
 bool are_same(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
 vector<string> sorted_list_sum(const vector<string>& input_lst) {
-    // Implement the logic to sort and sum the input list
+    vector<string> result = input_lst;
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
