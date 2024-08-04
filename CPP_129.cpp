@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
-
-using namespace std;
+#include <cassert>
+#include <algorithm>
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     std::vector<int> result;
@@ -11,15 +11,19 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
-    std::vector<std::vector<int>> grid = {{1, 3}, {3, 2}};
-    int k = 4;
-    
-    std::vector<int> result = minPath(grid, k);
-    
-    for (int val : result) {
-        cout << val << " ";
+    std::vector<int> expectedResult{1, 3, 1, 3, 1, 3, 1, 3, 1, 3};
+    std::vector<int> result = minPath({{1, 3}, {3, 2}}, 10);
+
+    if (issame(result, expectedResult)){
+        std::cout << "The result matches the expected result." << std::endl;
+    } else {
+        std::cout << "The result does not match the expected result." << std::endl;
     }
-    
+
     return 0;
 }
