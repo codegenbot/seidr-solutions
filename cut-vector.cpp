@@ -9,21 +9,21 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-    if (cin.fail()) {
-        cerr << "Input error\n";
-        return 1;
-    }
     int sum = 0;
     for (int num : nums) {
         sum += num;
     }
     int target = sum / 2;
     int prefixSum = 0;
-    int idx = 0;
+    int idx = -1;
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
-            idx = i;
+            if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[i]))) {
+                idx = i;
+            } else {
+                idx = i - 1;
+            }
             break;
         }
     }
@@ -36,4 +36,4 @@ int main() {
         cout << num << endl;
     }
     return 0;
-}  
+}
