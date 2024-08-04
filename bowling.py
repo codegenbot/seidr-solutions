@@ -1,25 +1,26 @@
 ```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if s[i] == 'X':
-            if i < 9:
-                score += 30
+    frame_index = 0
+    for _ in range(10):
+        if frames[frame_index] == 'X':
+            score += 30
+            frame_index += 1
+        elif frames[frame_index: frame_index + 2].endswith('/'):
+            first_roll, second_roll = map(int, frames[frame_index: frame_index + 2].split('/'))
+            score += first_roll + second_roll
+            frame_index += 2
+        else:
+            first_roll = int(frames[frame_index])
+            if first_roll == 10:
+                score += 10 + int(frames[frame_index + 1: frame_index + 3].split('/')[0]) + int(frames[frame_index + 1: frame_index + 3].split('/')[1])
+                frame_index += 3
             else:
-                score += 10 + max(int(s[10]) if len(s) > 10 else 0, int(s[11]) if len(s) > 11 else 0)
-        elif s[i].isdigit():
-            roll = [int(x) for x in str(s[i])]
-            if len(roll) == 1:
-                score += roll[0]
-            elif len(roll) == 2:
-                score += sum(roll)
-            else:
-                raise ValueError("Invalid input")
-        elif s[i] == '/':
-            first_roll = int(s[:i].split('/')[0])
-            second_roll = 10 - first_roll
-            if i < 9:
-                score += first_roll + second_roll
-            else:
-                score += first_roll + second_roll
+                score += first_roll
+                second_roll = int(frames[frame_index + 1])
+                if second_roll + first_roll == 10:
+                    score += 10
+                else:
+                    score += second_roll
+                frame_index += 2
     return score
