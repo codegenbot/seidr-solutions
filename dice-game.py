@@ -1,3 +1,9 @@
 n = int(input())
 m = int(input())
-print(round(sum(1 / (n * m) * (i // n) for i in range(n, n * m)), 2))
+probability = 0.0
+for i in range(1, n + 1):
+    for j in range(1, m):
+        probability += 1 / (n * m)
+if n > m:
+    probability += (n - m) / (n * m)
+print(probability)
