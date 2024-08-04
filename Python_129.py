@@ -3,10 +3,10 @@ def minPath(grid, k):
     directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
     def dfs(x, y, path, path_sum):
-        if path_sum > k:
+        if path_sum >= k:
             return [float("inf")]
 
-        min_path = [path]
+        min_path = [float("inf")]
 
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
@@ -19,11 +19,11 @@ def minPath(grid, k):
 
         return min_path
 
-    min_path = []
+    min_path = [float("inf")]
 
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [grid[i][j]], grid[i][j])
             min_path = min(min_path, path, key=len)
 
-    return min_path[0][1:]
+    return min_path[1:]
