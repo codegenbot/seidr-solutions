@@ -3,7 +3,7 @@
 #include <cmath>
 
 int main() {
-    size_t n;
+    size_t n; 
     std::vector<double> vec1, vec2;
     double val;
 
