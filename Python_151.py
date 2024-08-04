@@ -5,5 +5,9 @@ def double_the_difference(lst):
         else 0
     )
 
-result = double_the_difference([3, 5, 7, -2, 9])
-print(result)
+def check():
+    lst = [3, 5, 7, -2, 9]
+    result = double_the_difference(lst)
+    print(result)
+
+check()
