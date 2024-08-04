@@ -1,15 +1,6 @@
 n = int(input())
 digits = list(map(int, input().split()))
-
-total = 0
-for i in range(n):
-    if i % 2 == 1:
-        doubled_digit = digits[i] * 2
-        if doubled_digit > 9:
-            total += doubled_digit - 9
-        else:
-            total += doubled_digit
-    else:
-        total += digits[i]
-
-print(total)
+result = sum(
+    [(x * 2 - 9) if x * 2 > 9 else x * 2 for i, x in enumerate(digits) if i % 2 == 1]
+) + sum([x for i, x in enumerate(digits) if i % 2 == 0])
+print(result)
