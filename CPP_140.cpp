@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
@@ -22,9 +24,6 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    assert(fix_spaces("Hello   world") == "Hello--world");
-    assert(fix_spaces("I  love  coding") == "I_love--coding");
-    assert(fix_spaces("Multiple    spaces  are      here") == "Multiple--spaces--are---here");
-    
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
