@@ -1,3 +1,3 @@
 n, m = map(int, input().split())
-probability = sum((n-i)*(m-j) for i in range(n) for j in range(m) if i > j) / (n*m)
-print('{:.8f}'.format(probability))
+prob = sum((i/n) * ((i-1)/m) for i in range(2, n+1))
+print('{:.8f}'.format(prob))
