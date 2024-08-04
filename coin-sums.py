@@ -1,15 +1,31 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = []
-
-    for coin in coins:
-        count = cents // coin
-        if count > 0:
-            result.append(count)
-            cents %= coin
-
-    return *result
+    return (
+        min([sum([coins[i] // c for c in coins[: i + 1]]) for i in range(len(coins))])
+        if cents > 0
+        else [0, 0, 0, 0]
+    )
 
 
 cents = int(input())
-print(*coin_sums(cents))
+penny = dimes = nickels = quarters = 0
+
+if cents <= 25:
+    quarters = cents // 25
+    cents %= 25
+elif cents <= 225:
+    quarters = 9
+    dimes = (cents - 225) // 10
+    cents %= 10
+elif cents <= 125:
+    dimes = 22
+    nickels = (cents - 125) // 5
+    cents %= 5
+else:
+    nickels = 24
+    penny = cents
+
+print(quarters)
+print(nickels)
+print(dimes)
+print(penny)
