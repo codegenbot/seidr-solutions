@@ -8,7 +8,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
         return b;
     } else {
-        return "None";
+        return boost::any("None");
     }
 } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
     if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
@@ -16,7 +16,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
         return b;
     } else {
-        return "None";
+        return boost::any("None");
     }
 } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     float numA = std::stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
@@ -26,8 +26,8 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (numA < numB) {
         return b;
     } else {
-        return "None";
+        return boost::any("None");
     }
 } else {
-    return "None";
+    return boost::any("None");
 }
