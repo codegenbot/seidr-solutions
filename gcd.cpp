@@ -36,8 +36,7 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin.ignore();  // This is just for consuming the newline after reading integers
-
+    cin.ignore();
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
