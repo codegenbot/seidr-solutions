@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return std::is_permutation(vec1.begin(), vec1.end(), vec2.begin(), vec2.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::is_permutation(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
