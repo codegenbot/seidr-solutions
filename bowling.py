@@ -1,25 +1,28 @@
-```
-def bowling_score(s):
+def bowling_score(game):
     score = 0
-    for i in range(10):
-        if s[i] == 'X':
-            if i < 9:
-                score += 30
+    roll = [int(x) for x in re.findall(r"\d", game)]
+    frame = 0
+    while len(roll) > 0:
+        if roll[0] == 10:
+            score += 10
+            del roll[0]
+            continue
+        elif roll[0:2].count(str(10)) > 0:
+            if roll[0:2][0] == "1":
+                score += 10 + roll[2]
+                del roll[:3]
             else:
-                score += 10 + max(int(s[10]) if len(s) > 10 else 0, int(s[11]) if len(s) > 11 else 0)
-        elif s[i].isdigit():
-            roll = [int(x) for x in str(s[i])]
-            if len(roll) == 1:
-                score += roll[0]
-            elif len(roll) == 2:
-                score += sum(roll)
+                score += sum(map(int, roll[0:2]))
+                del roll[:2]
+        elif roll[0] + roll[1] >= 10:
+            if roll[0] > 9:
+                score += 10
+                del roll[0]
             else:
-                raise ValueError("Invalid input")
-        elif s[i] == '/':
-            first_roll = int(s[:i].split('/')[0])
-            second_roll = 10 - first_roll
-            if i < 9:
-                score += first_roll + second_roll
-            else:
-                score += first_roll + second_roll
+                score += roll[0] + roll[1]
+                del roll[:2]
+        else:
+            score += sum(map(int, roll[0:2]))
+            del roll[:2]
+        frame += 1
     return score
