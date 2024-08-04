@@ -32,7 +32,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    cin >> a >> b; cin.ignore();
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
