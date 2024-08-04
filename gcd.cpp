@@ -41,7 +41,7 @@ int main() {
     string text, target;
     cout << "Enter text and target string separated by a space: ";
     getline(cin, text);
-    cin >> target;
+    getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
