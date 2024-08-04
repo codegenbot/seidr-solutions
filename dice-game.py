@@ -1,3 +1,2 @@
-n = int(input())
-m = int(input())
-print(max(0, min(n-1, m) / n)
+n, m = int(input()), int(input())
+print(f"{(n-1)/n:.2f}" if n < m else f"{m/n:.2f}")
