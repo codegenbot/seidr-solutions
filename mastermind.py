@@ -1,10 +1,13 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    code_count = collections.Counter(code)
-    guess_count = collections.Counter(guess)
-    
-    black_pegs = sum((code_count & guess_count).values())
-    white_pegs = 4 - black_pegs
-    
-    return white_pegs, black_pegs
+    code_count = [0] * 6
+    for c in code:
+        code_count[ord(c) - ord("B")] += 1
+
+    white_pegs = sum(
+        min(count, guess.count(c))
+        for c, count in zip(map(chr, range(ord("B"), ord("G") + 1)), code_count)
+    )
+
+    black_pegs = len([c for c in code if code.index(c) == guess.index(c)])
+
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
