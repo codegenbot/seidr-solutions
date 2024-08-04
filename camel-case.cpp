@@ -2,30 +2,46 @@
 #include <string>
 
 std::string toCamelCase(const std::string& s) {
-    if (s.empty()) {
-        return "";
-    }
-
-    int idx = 0;
-    while ((idx = s.find('-', idx)) != std::string::npos) {
-        s[idx] = ' ';
-        ++idx;
-    }
-
+    std::string result;
     size_t pos = 0;
 
-    // First word
-    for (size_t i = pos; i < s.find(' ', pos); ++i) {
-        if (pos == 0) {
-            result += tolower(s[i]);
+    while (pos < s.length()) {
+        // Find the next space or dash
+        size_t nextSpaceOrDash = s.find(' ', pos);
+        if (nextSpaceOrDash == std::string::npos) {
+            nextSpaceOrDash = s.find('-', pos);
+        }
+
+        if (nextSpaceOrDash != std::string::npos) {
+            // Add the current word to the result
+            for (size_t i = pos; i < nextSpaceOrDash; ++i) {
+                char c = s[i];
+                if (c == '-') {
+                    continue;
+                } else if (i == 0 || s[i-1] == '-') {
+                    result += toupper(c);
+                } else {
+                    result += tolower(c);
+                }
+            }
+            pos = nextSpaceOrDash + 1;
         } else {
-            result += toupper(s[i]);
+            // Add the remaining words to the result
+            for (size_t i = pos; i < s.length(); ++i) {
+                char c = s[i];
+                if (c == '-') {
+                    continue;
+                } else if (i == 0 || s[i-1] == '-') {
+                    result += toupper(c);
+                } else {
+                    result += tolower(c);
+                }
+            }
+            break;
         }
     }
-    result.push_back(' ');
 
-    // Recursive call
-    return result + toCamelCase(s.substr(s.find(' ') + 1));
+    return result;
 }
 
 int main() {
