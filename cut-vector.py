@@ -1,13 +1,13 @@
-Here is the solution:
+Here is the solution in Python:
 
-def cut_vector(vector):
+def cut_vector(lst):
+    if len(lst) == 1:
+        return [lst], []
     min_diff = float('inf')
-    split_index = 0
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        diff = abs(left_sum - right_sum)
+    split_index = -1
+    for i in range(1, len(lst)):
+        diff = abs(np.mean(lst[:i]) - np.mean(lst[i:]))
         if diff < min_diff:
             min_diff = diff
             split_index = i
-    return vector[:split_index], vector[split_index:]
+    return [lst[:split_index]], [lst[split_index:]]
