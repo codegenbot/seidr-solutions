@@ -3,28 +3,27 @@
 #include <cmath>
 
 int main() {
-    size_t n; 
-    std::vector<double> vec1, vec2;
-    double val;
-
+    int n;
     std::cin >> n;
-    for (size_t i = 0; i < n; ++i) {
-        std::cin >> val;
-        vec1.push_back(val);
+
+    std::vector<double> vec1(n), vec2(n);
+
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
     }
 
-    for (size_t i = 0; i < n; ++i) {
-        std::cin >> val;
-        vec2.push_back(val);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
     double result = sqrt(sum);
+    std::cout.precision(17);
     std::cout << result << std::endl;
 
     return 0;
-}
+}  
