@@ -36,7 +36,6 @@ int main() {
     cout << gcd(a, b) << endl;
 
     cin >> ws;
-    string text, target;
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
