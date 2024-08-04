@@ -1,27 +1,17 @@
-def bowling_score(bowls):
+def bowling(input_str):
     score = 0
-    frame = 1
-    bowl_index = 0
-    while frame <= 10:
-        if bowls[bowl_index] == "X":
-            score += 10 + (
-                10
-                if bowls[bowl_index + 2] == "X"
-                else (
-                    int(bowls[bowl_index + 1]) if bowls[bowl_index + 1] != "/" else 10
-                )
-            )
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == "/":
-            score += 10
-            score += 10 if bowls[bowl_index + 2] == "X" else int(bowls[bowl_index + 2])
-            bowl_index += 2
-        else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
-        frame += 1
+    frames = input_str.split("/")
+    for frame in frames:
+        for i in range(len(frame)):
+            if frame[i] == "X":
+                score += 10
+            elif frame[i] == "-":
+                score += 0
+            else:
+                score += int(frame[i])
+
     return score
 
 
-bowls = input()
-print(bowling_score(bowls))
+input_str = input()
+print(bowling(input_str))
