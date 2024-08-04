@@ -1,9 +1,6 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <string>
-#include <iostream> // for endl
+#include <iostream>
 
 using namespace std;
 
@@ -42,4 +39,5 @@ int main() {
     vector<int> result = findIndices(text, target);
     for (int i : result)
         cout << i << " ";
+    return 0;
 }
