@@ -1,17 +1,9 @@
-```
 def coin_sums(cents):
-    quarters = cents // 25
-    remaining_cents = cents % 25
-    dimes = remaining_cents // 10
-    remaining_cents %= 10
-    nickles = remaining_cents // 5
-    remaining_cents %= 5
-    pennies = remaining_cents
-    return quarters, nickles, dimes, pennies
-
-cents = int(input())
-quarters, nickles, dimes, pennies = coin_sums(cents)
-print(quarters)
-print(nickles)
-print(dimes)
-print(pennies)
+    coins = [25, 10, 5, 1]
+    results = []
+    for i in range(len(coins) + 1):
+        if cents < sum(coins[:i]):
+            break
+        num_coins = int(math.floor((cents - sum(coins[: i - 1])) / coins[i - 1]))
+        results.extend([num_coins] * i)
+    return " ".join(map(str, results))
