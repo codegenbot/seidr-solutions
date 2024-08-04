@@ -2,10 +2,10 @@ def add(x: int, y: int) -> int:
     return x + y
 
 try:
-    x = int(input("Enter first integer: "))
-    y = int(input("Enter second integer: "))
+    x = int(input())
+    y = int(input())
 except ValueError:
-    print("Please provide integer inputs only.")
+    print("Please provide two integer inputs.")
 else:
     result = add(x, y)
     print(result)
