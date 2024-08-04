@@ -1,6 +1,7 @@
-```
-def spin_words(sentence):
-    words = sentence.split()
+Here is the completed code:
+
+def spin_words(input_str):
+    words = input_str.split()
     result = []
     for word in words:
         if len(word) >= 5:
