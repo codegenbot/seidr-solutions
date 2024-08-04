@@ -9,7 +9,7 @@ vector<int> findIndices(string text, string target) {
     
     while ((pos = text.find(target)) != string::npos) {
         indices.push_back(pos);
-        text.erase(0, pos + 1); // erase the found substring
+        text.erase(0, pos + target.length()); // erase the found substring
     }
     
     return indices;
@@ -22,7 +22,7 @@ int main() {
     getline(cin, s);
     vector<int> result = findIndices(s, s.substr(0, n));
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
     std::cout << std::endl;
     return 0;
