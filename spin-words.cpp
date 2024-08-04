@@ -28,3 +28,4 @@ int main() {
     std::getline(std::cin, input);
     std::cout << spinWords(input) << std::endl;
     return 0;
+}
