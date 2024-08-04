@@ -1,9 +1,8 @@
-def add(x: int, y: int) -> int:
-    return x + y
+# Read input from user
+x, y = map(int, input().split())
 
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
-
+# Call the function with user input
 result = add(x, y)
 
+# Print the result
 print(result)
