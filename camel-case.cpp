@@ -6,35 +6,37 @@ std::string camelCase(std::string str) {
     std::string result = "";
     bool firstWord = true;
     bool inWord = false;
-    
+
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
                 result += char(toupper(c));
-                inWord = true;
-            } else {
-                inWord = false;
             }
             firstWord = false;
+            inWord = true;
         } else if (c == ' ') {
-            if (!inWord) {
-                result += c;
-            } else {
+            if (!firstWord) {
+                if (!inWord) {
+                    result.push_back(' ');
+                }
                 result += char(toupper(c));
-                inWord = false;
             }
             firstWord = true;
+            inWord = false;
         } else {
-            if (!firstWord || !inWord) {
+            if (!firstWord) {
                 result += tolower(c);
-                inWord = true;
             } else {
-                result += c;
+                if (c != ' ') {
+                    result += toupper(c);
+                } else {
+                    result.push_back(' ');
+                }
             }
             firstWord = false;
         }
     }
-    
+
     return result;
 }
 
