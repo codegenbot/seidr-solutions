@@ -6,7 +6,7 @@ def minPath(grid, k):
         if path_sum > k:
             return [float("inf")]
 
-        min_path = [float("inf"]
+        min_path = [float("inf")]
 
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
