@@ -32,13 +32,13 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 
 int main() {
     int a, b;
-    cout << "Enter two integers separated by space: ";
+    cout << "Enter two integers for gcd function:";
     cin >> a >> b;
     cin.ignore();
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cout << "Enter text string and target string separated by space: ";
+    cout << "Enter text string and target string for indicesOfSubstring function:";
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
