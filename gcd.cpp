@@ -34,10 +34,9 @@ int main() {
     int a, b;
     cout << "Enter two integers separated by a space: ";
     cin >> a >> b;
-    cin.ignore(); // Add this line to clear the newline character in the input buffer
-
     cout << gcd(a, b) << endl;
 
+    cin.ignore(); // Clear the newline character from the input buffer
     string text, target;
     cout << "Enter text and target string separated by a space: ";
     getline(cin, text);
