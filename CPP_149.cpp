@@ -5,12 +5,13 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+    auto filtered_lst = lst;
+    filtered_lst.erase(remove_if(filtered_lst.begin(), filtered_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), filtered_lst.end());
+    sort(filtered_lst.begin(), filtered_lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return lst;
+    return filtered_lst;
 }
