@@ -28,7 +28,7 @@ int main() {
     int a, b;
     std::cin >> a;
     std::cin >> b;
-    
+
     std::string text, target;
     getline(std::cin, text);
     getline(std::cin, target);
