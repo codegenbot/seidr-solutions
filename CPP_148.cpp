@@ -7,8 +7,8 @@ using namespace std;
 
 vector<string> bf(string planet1, string planet2);
 
-int main() {
-    assert(bf("Jupiter", "Makemake") == vector<string>{});
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -37,4 +37,8 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
 }
