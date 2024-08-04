@@ -1,8 +1,10 @@
+Here is the solution:
+
 def fuel_cost():
     n = int(input())
-    result = 0
+    total = 0
     for _ in range(n):
         num = int(input())
-        new_num = (num // 3) - 2
-        result += new_num
-    return result
+        result = (num // 3) - 2
+        total += max(0, result)
+    print(total)
