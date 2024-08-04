@@ -1,13 +1,11 @@
-def count_pegs(code, guess):
-    code_count = [0] * 6
-    for i in range(4):
-        code_count[ord(code[i]) - 65] += 1
+def mastermind(code, guess):
     white = 0
     black = 0
+
     for i in range(4):
-        if guess[i] == code[i]:
+        if code[i] == guess[i]:
             black += 1
-        elif code_count[ord(guess[i]) - 65] > 0:
-            code_count[ord(guess[i]) - 65] -= 1
+        elif str(code[i]) in str(guess) and str(guess[i]).count(str(code[i])) > 0:
             white += 1
-    return str(black) + "\n" + str(white)
+
+    return "{}\n{}".format(white, black)
