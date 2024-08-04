@@ -1,35 +1,31 @@
-```
-def bowling_score(bowling_string):
+Here is the solution:
+
+def bowling_score(bowling_input):
     score = 0
-    frame_count = 0
-    for i in range(0, len(bowling_string), 2):
-        if bowling_string[i:i+1].isdigit():
-            strike = False
-            if bowling_string[i:i+2] == '10':
-                score += 10
-                frame_count += 1
-                continue
-            else:
-                frame_score = int(bowling_string[i:i+2])
-                if i+3 < len(bowling_string):
-                    next_ball = bowling_string[i+3]
-                    if next_ball.isdigit():
-                        score += frame_score + int(next_ball)
-                        frame_count += 1
-                    elif next_ball == 'X':
-                        strike = True
+    frame_number = 1
+    for i in range(0, len(bowling_input), 2):
+        if bowling_input[i:i+2] == "X":
+            score += 10 + (10 - int(bowling_input[i-1])) if frame_number < 9 else 25
+            frame_number += 1
+        elif bowling_input[i:i+2].isdigit():
+            strike = int(bowling_input[i:i+2])
+            score += strike
+            if frame_number == 10:
+                return score
+            if strike == 10:
+                for j in range(i+2, len(bowling_input), 2):
+                    if bowling_input[j:j+2] != "X":
+                        score += int(bowling_input[j:j+2])
                     else:
-                        non_strike_frame_score = int(next_ball) + int(bowling_string[i+4:i+6])
-                        score += frame_score + non_strike_frame_score
-                        frame_count += 2
-                else:
-                    score += frame_score
-                    frame_count += 1
-        elif bowling_string[i] == 'X':
-            if frame_count < 9 and i+3 < len(bowling_string):
-                score += 10
-                frame_count += 1
-            else:
-                score += 10
-                frame_count += 1
-        return score
+                        score += strike + 10 - int(bowling_input[i-1])
+                        return score
+            frame_number += 1
+        else:
+            first_roll, second_roll = int(bowling_input[i]), int(bowling_input[i+1])
+            if first_roll + second_roll == 10:
+                score += first_roll
+                frame_number += 1
+            elif first_roll > 0 and second_roll > 0:
+                score += first_roll + second_roll
+                frame_number += 1
+    return score
