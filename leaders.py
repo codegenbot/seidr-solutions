@@ -1,2 +1,11 @@
 def leaders(input):
-    return [max(input[i:]) for i in range(len(input))]
+    output = []
+    for i in range(len(input) - 1, -1, -1):
+        is_leader = True
+        for j in range(i - 1, -1, -1):
+            if input[j] >= input[i]:
+                is_leader = False
+                break
+        if is_leader:
+            output.append(input[i])
+    return list(reversed(output))
