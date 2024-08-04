@@ -20,7 +20,7 @@ std::string string_to_md5(const std::string &text) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int) digest[i]);
     }
 
-    mdString[32] = '\0'; // Added to properly null terminate the output string
+    mdString[32] = '\0'; // Add null terminator
 
-    return std::string(mdString);
+    return std::string(mdString); // Convert char array to string
 }
