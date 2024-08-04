@@ -6,7 +6,7 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<double> vec1(n), vec2(n);
+    std::vector<float> vec1(n), vec2(n);
 
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -16,12 +16,12 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    float sum = 0.0f;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    double result = sqrt(sum);
+    float result = sqrt(sum);
     std::cout.precision(17);
     std::cout << result << std::endl;
 
