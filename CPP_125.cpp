@@ -6,7 +6,16 @@
 std::vector<std::string> split_words(std::string input) {
     std::vector<std::string> words;
     
-    // Code to split input into words and store in 'words' vector
+    int pos = 0;
+    while (pos < input.size()) {
+        std::string word;
+        while (pos < input.size() && input[pos] != ' ') {
+            word += input[pos];
+            pos++;
+        }
+        words.push_back(word);
+        pos++;
+    }
     
     return words;
 }
