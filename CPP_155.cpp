@@ -3,11 +3,7 @@
 #include <cassert>
 #include <cmath>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> even_odd_count(int num) {
+std::vector<int> get_even_odd_count(int num) {
     std::vector<int> counts(2, 0);
     std::string numStr = std::to_string(std::abs(num));
     for (char c : numStr) {
@@ -20,8 +16,7 @@ std::vector<int> even_odd_count(int num) {
     return counts;
 }
 
-int main(){
-    std::vector<int> result = even_odd_count(0);
+void main() {
+    std::vector<int> result = get_even_odd_count(0);
     std::cout << result[0] << " " << result[1] << std::endl;
-    return 0;
 }
