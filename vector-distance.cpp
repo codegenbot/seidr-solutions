@@ -16,12 +16,13 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = sqrt(sum);
+    long double result = sqrt(sum);
+    std::cout.precision(17);
     std::cout << result << std::endl;
 
     return 0;
