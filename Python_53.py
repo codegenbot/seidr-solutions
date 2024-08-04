@@ -4,8 +4,12 @@ def add(x: int, y: int) -> int:
 try:
     x = int(input())
     y = int(input())
-except ValueError:
-    print("Please provide two integer inputs.")
-else:
-    result = add(x, y)
-    print(result)
+    
+    if type(x) == int and type(y) == int:
+        result = add(x, y)
+        print(result)
+    else:
+        raise ValueError("Inputs must be integers")
+    
+except ValueError as e:
+    print(e)
