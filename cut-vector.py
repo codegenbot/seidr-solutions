@@ -1,18 +1,15 @@
 n = int(input())
-a = []
-for i in range(n):
-    a.append(int(input()))
+arr = [int(input()) for _ in range(n)]
 
-if sum(a) % 2 == 0:
-    s = sum(a) // 2
-else:
-    s = sum(a) // 2 + 1
+diff = abs(sum(arr) / 2)
+result = []
+for i in range(1, n):
+    left_sum = sum(arr[:i])
+    right_sum = sum(arr[i:])
+    if abs(left_sum - right_sum) <= diff:
+        result = [arr[:i], arr[i:]]
+        diff = abs(left_sum - right_sum)
 
-sum1 = 0
-for i in range(n):
-    sum1 += a[i]
-    if sum1 >= s:
-        break
-
-print(*a[: i + 1])
-print(*a[i + 1 :])
+for subvector in result:
+    print(*subvector)
+print(0)
