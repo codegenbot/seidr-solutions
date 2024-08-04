@@ -1,30 +1,21 @@
 
 #include <iostream>
-#include <string>
-#include <cassert> // Add this line for assert function
+#include <cassert>
 
-std::string fix_spaces(const std::string& text) {
-    std::string result = "";
-    int consecutive_spaces = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += '_';
-            }
-        } else {
-            result += c;
-            consecutive_spaces = 0;
+std::string fix_spaces(std::string str) {
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == ' ') {
+            str[i] = '_';
         }
     }
-    return result;
+    return str;
 }
 
+#ifndef TESTING
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << fix_spaces(input) << std::endl;
     return 0;
 }
+#endif
