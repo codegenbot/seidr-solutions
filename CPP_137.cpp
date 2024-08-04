@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <cassert>
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b);
 
