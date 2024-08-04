@@ -20,5 +20,5 @@ std::string string_to_md5(const std::string &text) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return mdString;
+    return std::string(mdString); // Convert char array to string explicitly
 }
