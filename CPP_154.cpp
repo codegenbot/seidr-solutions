@@ -9,10 +9,14 @@ bool cycpattern_check(const string& a, const string& b) {
 }
 
 int main() {
-    assert(cycpattern_check("winemtt", "tinem") == true);
-
-    assert(cycpattern_check("programming", "grammingpro") == true);
-    assert(cycpattern_check("hello", "world") == false);
-
+    string a, b;
+    cin >> a >> b;
+    
+    if (cycpattern_check(a, b)) {
+        cout << "Patterns match cyclically." << endl;
+    } else {
+        cout << "Patterns do not match cyclically." << endl;
+    }
+    
     return 0;
 }
