@@ -22,7 +22,7 @@ vector<string> sorted_list_sum(const vector<string>& input_lst) {
     return {to_string(sum)};
 }
 
-int main() {
+void new_main() {
     int n;
     cin >> n;
     vector<string> input_lst(n);
@@ -37,6 +37,9 @@ int main() {
     }
 
     assert(are_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+}
 
+int main() {
+    new_main();
     return 0;
 }
