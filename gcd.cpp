@@ -38,9 +38,8 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cout << "Enter text: ";
+    cout << "Enter text and target string separated by a space: ";
     getline(cin, text);
-    cout << "Enter target string: ";
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
