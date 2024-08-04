@@ -1,7 +1,6 @@
-def basement(indexes):
-    total = 0
-    for i, x in enumerate(indexes):
-        total += x
+def basement(nums):
+    for i in range(len(nums)):
+        total = sum(nums[: i + 1])
         if total < 0:
             return i
     return -1
