@@ -1,24 +1,29 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string camelCase(std::string str) {
     std::string result = "";
+    bool firstWord = true;
     
     for (char c : str) {
         if (c == '-') {
-            result += char(toupper(c));
-        } else if (c == ' ') {
-            if (!result.empty()) {
-                result.push_back(' ');
-            }
-        } else {
-            if (result.empty() || result.back() != ' ') {
-                result += tolower(c);
-            } else {
+            if (!firstWord) {
                 result += std::toupper(c);
             }
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += ' ';
+            }
+            firstWord = true;
+        } else {
+            if (!firstWord) {
+                result += c;
+            } else {
+                result += std::tolower(c);
+            }
+            firstWord = false;
         }
     }
     
