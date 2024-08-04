@@ -1,3 +1,4 @@
+```cpp
 // Here is the solution:
 
 string spinWords(string str) {
