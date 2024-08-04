@@ -1,20 +1,8 @@
-Here is the solution for the problem:
-
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+    def bool_map(char):
+        return char == 'T'
 
-# For example,
-print(solve_boolean('t'))  # Output: True
-print(solve_boolean('f'))  # Output: False
-print(solve_boolean('f&f'))  # Output: False
-print(solve_boolean('f&t'))  # Output: False
-print(solve_boolean('t&f'))  # Output: False
+    for op in ['|', '&']:
+        expression = expression.replace(op, lambda x: '(' + x.group().replace(op, str(bool_map(x.group()[0])) + ' and ') + ')' if op == '&' else '(' + x.group().replace(op, str(bool_map(x.group()[0])) + ' or ') + ')')
+
+    return bool_map(expression)
