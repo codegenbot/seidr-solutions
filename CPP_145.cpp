@@ -1,11 +1,11 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> points) {
-   // Define the logic to order the points as required
+std::vector<int> order_by_points(std::vector<int> points) {
+    // Define the logic to order the points as required
 }
 
 int main() {
