@@ -9,7 +9,5 @@ std::vector<int> eat(int x, int y, int z) {
     return {x + y, z};
 }
 
-int main() {
-    assert(issame(eat(4, 5, 1), {5, 1}));
-    return 0;
-}
+assert(issame(eat(4, 5, 1), {5, 1}));
+return 0;
