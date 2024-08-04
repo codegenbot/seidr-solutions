@@ -2,39 +2,37 @@
 def bowling_score(bowling):
     score = 0
     frame = 1
-    in_play = False
-    spare = False
-    strike = False
-    
-    for i in range(len(bowling)):
-        if bowling[i] == 'X':
-            strike = True
-            continue
-        
-        if bowling[i].isdigit():
-            if not in_play:
-                score += int(bowling[i-1])
-                if frame < 9 and (bowling[i-2].isdigit() or bowling[i-2] == '/'):
-                    in_play = True
+    for i in range(0, len(bowling), 2):
+        if bowling[i].isdigit() and bowling[i+1].isdigit():
+            strikes = int(bowling[i])
+            if strikes == 10:
+                if frame < 9:
+                    score += 30
                 else:
-                    frame += 1
-            elif strike and not spare:
-                score += 10 + int(bowling[i])
-                strike = False
-                in_play = False
-                frame += 1
+                    score += 10 + int(bowling[i+2]) + int(bowling[i+3])
             else:
-                if bowling[i] == '/':
-                    score += 10 - int(bowling[i-1])
-                    spare = True
-                    continue
-                
-                if spare and not strike:
-                    score += 10 + int(bowling[i])
-                    spare = False
-                    in_play = False
-                    frame += 1
-                
-                score += int(bowling[i])
-    
+                for j in range(1, min(int(bowling[i]), int(bowling[i+1])) + 1):
+                    score += j
+                if strikes < 5:
+                    frame -= 1
+        elif bowling[i] == 'X':
+            score += 10
+            if frame < 9:
+                score += 30
+            else:
+                score += 10
+            frame -= 1
+        elif bowling[i].isdigit() and bowling[i+1] in '/-X':
+            for j in range(1, int(bowling[i]) + 1):
+                score += j
+            if bowling[i+1] == 'X':
+                score += 10
+                if frame < 9:
+                    score += 30
+                else:
+                    score += 10
+            elif bowling[i+1] in '/-':
+                for j in range(1, int(bowling[i+2]) + 1):
+                    score += j
+            frame -= 1
     return score
