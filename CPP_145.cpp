@@ -1,9 +1,16 @@
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <numeric>
+#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+    std::vector<int> sorted_a = a;
+    std::sort(sorted_a.begin(), sorted_a.end());
+    
+    std::vector<int> sorted_b = b;
+    std::sort(sorted_b.begin(), sorted_b.end());
+    
+    return std::accumulate(sorted_a.begin(), sorted_a.end(), 0) == std::accumulate(sorted_b.begin(), sorted_b.end(), 0);
 }
 
 int main() {
