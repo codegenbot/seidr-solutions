@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
 std::vector<int> generate_integers(int a, int b){
     std::vector<int> result;
     for(int i = a; i <= b; i++){
@@ -6,4 +10,8 @@ std::vector<int> generate_integers(int a, int b){
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
