@@ -1,3 +1,5 @@
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
+
 bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
