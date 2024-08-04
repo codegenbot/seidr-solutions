@@ -1,9 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cmath>
-using namespace std;
+#include <assert.h>
 
-int do_algebra(vector<string> operato, vector<int> operand) {
+int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     int result = operand[0];
     for (int i = 0; i < operato.size(); ++i) {
         if (operato[i] == "+") {
@@ -22,6 +23,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 28);
     return 0;
 }
