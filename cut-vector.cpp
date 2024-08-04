@@ -5,13 +5,13 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-
+    
     int n;
     while (cin >> n) {
         if (cin.eof()) break; // Check for end of file before pushing
         nums.push_back(n);
     }
-
+    
     int sum = 0;
     for (int num : nums) {
         sum += num;
