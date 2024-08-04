@@ -8,7 +8,9 @@ int main() {
     int n;
     while (!cin.eof()) {
         cin >> n;
-        nums.push_back(n);
+        if (!cin.eof()) {
+            nums.push_back(n);
+        }
     }
     int sum = 0;
     for (int num : nums) {
