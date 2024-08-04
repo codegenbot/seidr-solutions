@@ -22,8 +22,9 @@ std::string fix_spaces(const std::string& text) {
 }
 
 int main() {
-    assert(fix_spaces("Hello   World") == "Hello_World");
-    assert(fix_spaces("Nice day     today") == "Nice_day-today");
+    assert(fix_spaces("Hello   world") == "Hello--world");
+    assert(fix_spaces("I  love  coding") == "I_love--coding");
+    assert(fix_spaces("Multiple    spaces  are      here") == "Multiple--spaces--are---here");
     
     return 0;
 }
