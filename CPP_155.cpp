@@ -1,23 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <string>
 #include <cmath>
 
-std::vector<int> get_even_odd_count(int num) {
-    std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
-    for (char c : numStr) {
-        if ((c - '0') % 2 == 0) {
-            counts[0]++;
-        } else {
-            counts[1]++;
-        }
-    }
-    return counts;
+std::vector<int> even_odd_count(int n) {
+    return {n/2, (n+1)/2};
 }
 
-void main() {
-    std::vector<int> result = get_even_odd_count(0);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main(){
+    std::vector<int> result = even_odd_count(0);
     std::cout << result[0] << " " << result[1] << std::endl;
+    assert(issame(even_odd_count(0) , {1, 0}));
+    return 0;
 }
