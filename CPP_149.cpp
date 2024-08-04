@@ -21,7 +21,7 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
     return sorted_lst;
 }
 
-bool run_test() {
+bool run_tests() {
     return is_same_lists(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"});
 }
 
@@ -39,7 +39,7 @@ int main() {
         cout << str << endl;
     }
 
-    assert(run_test());
+    assert(run_tests());
 
     return 0;
 }
