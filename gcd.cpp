@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -32,8 +32,8 @@ int gcd(int a, int b) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-    cout << gcd(num1, num2) << "\n";
-    
+    cout << gcd(num1, num2) << endl;
+
     string text, target;
     cin >> text >> target;
     vector<int> result = findIndices(text, target);
