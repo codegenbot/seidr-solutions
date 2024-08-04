@@ -1,6 +1,9 @@
-
 #include <vector>
 #include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> tri(int n);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
