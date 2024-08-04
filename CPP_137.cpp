@@ -3,7 +3,7 @@
 
 std::any compare_one(const std::string& s1, const std::string& s2) {
     // Add your implementation for compare_one function
-    return std::string("1");
+    return s1;
 }
 
 int main() {
