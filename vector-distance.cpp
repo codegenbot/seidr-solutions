@@ -1,16 +1,14 @@
-```cpp
 #include <iostream>
 #include <iomanip>
-#include <vector>
 using namespace std;
 
 double vectorDistance(int n) {
-    vector<float> v1(n);
+    float v1[n];
     for (int i = 0; i < n; i++) {
         cin >> v1[i];
     }
     
-    vector<float> v2(n);
+    float v2[n];
     for (int i = 0; i < n; i++) {
         cin >> v2[i];
     }
