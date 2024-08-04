@@ -1,3 +1,3 @@
-numbers = list(map(int, input().split()))
-result = sum([(num // 3 - 2) for num in numbers])
-print(result)
+n = int(input())
+total = sum((x // 3 - 2) for x in map(int, input().split()))
+print(total)
