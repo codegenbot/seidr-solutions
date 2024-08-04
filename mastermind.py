@@ -1,20 +1,12 @@
 def mastermind(code, guess):
-    code = list(code)
-    guess = list(guess)
-    white_pegs = 0
-    black_pegs = 0
-
+    white = 0
+    black = 0
     for i in range(4):
-        if guess[i] == code[i]:
-            black_pegs += 1
-            code[i] = ""
-            guess[i] = ""
-
-    for i in range(4):
-        for j in range(4):
-            if code[j] == guess[i] and code[j] != "" and guess[i] != "":
-                white_pegs += 1
-                code[j] = ""
-                guess[i] = ""
-
-    return str(black_pegs) + "\n" + str(white_pegs)
+        if code[i] == guess[i]:
+            black += 1
+        else:
+            correct_color = sum(x == code[i] for x in guess)
+            white += correct_color - (
+                black if code[i] in guess[:i] or code[i] in guess[i + 1 :] else 0
+            )
+    return str(white) + "\n" + str(black)
