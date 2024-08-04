@@ -1,39 +1,36 @@
-```
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
+std::string toCamelCase(const std::string& s) {
+    if (s.empty()) {
+        return "";
+    }
+
+    int idx = 0;
+    while ((idx = s.find('-', idx)) != std::string::npos) {
+        s[idx] = ' ';
+        ++idx;
+    }
+
+    size_t pos = 0;
+
+    // First word
+    for (size_t i = pos; i < s.find(' ', pos); ++i) {
+        if (pos == 0) {
+            result += tolower(s[i]);
         } else {
-            if (!firstWord) {
-                result += c;
-            } else {
-                result += c;
-                firstWord = false;
-            }
+            result += toupper(s[i]);
         }
     }
-    
-    return result;
+    result.push_back(' ');
+
+    // Recursive call
+    return result + toCamelCase(s.substr(s.find(' ') + 1));
 }
 
 int main() {
-    std::string str;
-    while (std::getline(std::cin, str)) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cin >> input;
+    std::cout << toCamelCase(input) << std::endl;
     return 0;
 }
