@@ -15,15 +15,11 @@ int main() {
     }
     int target = sum / 2;
     int prefixSum = 0;
-    int idx = -1;
+    int idx = 0;
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum >= target) {
-            if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[i]))) {
-                idx = i;
-            } else {
-                idx = i - 1;
-            }
+            idx = i;
             break;
         }
     }
