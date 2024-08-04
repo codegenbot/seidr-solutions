@@ -1,17 +1,13 @@
-def solveBoolean(expression):
+def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid operation")
     elif '&' in expression:
-        operands = expression.split('&')
-        for operand in operands:
-            if operand != 'f':
-                return False
-        return False
+        parts = expression.split('&')
+        return all(solve_boolean(part.strip()) for part in parts)
     elif '|' in expression:
-        operands = expression.split('|')
-        for operand in operands:
-            if operand != 'f':
-                return True
-        return False
+        parts = expression.split('|')
+        return any(solve_boolean(part.strip()) for part in parts)
