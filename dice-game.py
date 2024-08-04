@@ -1,8 +1,3 @@
-n = int(input())
-m = int(input())
-result = 0
-for i in range(1, n + 1):
-    for j in range(1, m):
-        if i > j:
-            result += 1
-print(round(result / (n * m), 2))
+n, m = int(input()), int(input())
+prob = sum([1/(n*m) * i for i in range(n+1, n*m+1)])
+print("{:.2f}".format(prob))
