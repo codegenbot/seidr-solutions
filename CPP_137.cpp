@@ -28,6 +28,6 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == ""); // Add appropriate comparison value
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == ""); // Add appropriate comparison value
     return 0;
 }
