@@ -1,8 +1,19 @@
 def solve_boolean(expression):
-    def bool_map(char):
-        return char == 'T'
-
-    for op in ['|', '&']:
-        expression = expression.replace(op, lambda x: '(' + x.group().replace(op, str(bool_map(x.group()[0])) + ' and ') + ')' if op == '&' else '(' + x.group().replace(op, str(bool_map(x.group()[0])) + ' or ') + ')')
-
-    return bool_map(expression)
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression:
+        operands = expression.split('&')
+        for operand in operands:
+            if 'T' in operand or 't' in operand:
+                return True
+            elif 'F' in operand or 'f' in operand:
+                return False
+    elif '|' in expression:
+        operands = expression.split('|')
+        for operand in operands:
+            if 'T' in operand or 't' in operand:
+                return True
+            elif 'F' in operand or 'f' in operand:
+                return True
