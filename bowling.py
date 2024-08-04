@@ -8,6 +8,6 @@ def bowling_score(frames):
         else:
             frame_score = 0
             for j in range(int(frames[i])):
-                frame_score += 10
+                frame_score += 10 - int(j)
             score += frame_score
     return score
