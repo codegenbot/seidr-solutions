@@ -1,23 +1,26 @@
-Here is the solution:
-
-def bowling_score(bowling_string):
+```
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(bowling_string), 2):
-        if bowling_string[i].isdigit():
+    for i in range(0, len(frames), 2):
+        if frames[i].isdigit() and frames[i+1].isdigit():
             strike = False
-            if i < len(bowling_string) - 1 and bowling_string[i + 1] == '/':
-                score += int(bowling_string[i]) * 10
-                frame += 1
-            else:
-                score += int(bowling_string[i:i+2])
-        elif bowling_string[i] == 'X':
+            spare = False
+            frame_score = int(frames[i]) + int(frames[i+1])
+            if i < 9:
+                if i == 8:
+                    next_frame = frames[18]
+                    if next_frame.isdigit():
+                        score += int(next_frame)
+                    else:
+                        strike = True
+                elif i > 0 and (frames[i-2].isdigit() or frames[i-1].isdigit()):
+                    spare = True
+            if not strike and not spare:
+                score += frame_score
+        elif frames[i] == 'X':
+            score += 10 + int(frames[i+1])
             strike = True
-            if i < len(bowling_string) - 1 and bowling_string[i + 1] == '/':
-                score += 10 * (10 - frame)
-                frame += 1
-            else:
-                score += 10 + int(bowling_string[i+2:i+4])
-        elif bowling_string[i] == '-':
-            continue
+        elif frames[i] == '/':
+            score += 10 - int(frames[i-1])
+            spare = True
     return score
