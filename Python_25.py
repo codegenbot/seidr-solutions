@@ -9,6 +9,7 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
+# Read input from user
 n = int(input("Enter a number: "))
 result = factorize(n)
 print(result)
