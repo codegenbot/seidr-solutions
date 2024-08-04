@@ -1,2 +1,2 @@
-def roll_dice(n, m):
-    return (n - m) / (n + m - 2) if n > m else 0.5
+def prob(p, c):
+    return (p - 1) / c if p > c else 0 if p == c else 0 if p < c else 0.0
