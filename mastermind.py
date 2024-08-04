@@ -3,8 +3,8 @@ def mastermind(code, guess):
     black = sum(
         [
             c1 == c2 and i < j
-            for i, (c1, _) in enumerate(guess)
-            for j, (_, c2) in enumerate(code)
-        ]
+            for i, c1 in enumerate(code)
+            for j, c2 in enumerate(guess)
+        ].count(True)
     )
-    return str(white), str(black)
+    return str(black), str(white)

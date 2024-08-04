@@ -1,11 +1,6 @@
-def leaders(input):
-    result = []
-    for i in range(len(input)-1,-1,-1):
-        flag = True
-        for j in range(i-1,-1,-1):
-            if input[j] >= input[i]:
-                flag = False
-                break
-        if flag:
-            result.append(input[i])
-    return list(reversed(result))
+def leaders(a):
+    n = len(a)
+    leaders_list = [
+        a[i] for i in range(n - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+    ]
+    return leaders_list
