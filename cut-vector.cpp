@@ -6,10 +6,10 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n || !cin.eof()) {
+    while (cin >> n && !cin.eof()) {
         nums.push_back(n);
     }
-    if (cin.fail()) {
+    if (cin.fail() && !cin.eof()) {
         cerr << "Input error\n";
         return 1;
     }
