@@ -36,3 +36,4 @@ int main() {
     std::cin >> input;
     std::cout << "The equivalent camelCase is: " << kebabToCamel(input) << std::endl;
     return 0;
+}
