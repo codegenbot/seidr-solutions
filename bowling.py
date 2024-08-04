@@ -1,19 +1,11 @@
-```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit():
-            balls_in_frame = int(s[i])
+    for i, frame in enumerate(frames.split("/")):
+        if len(frame) == 1:
+            score += 10 + (10 - 1 if i < 9 else 0)
+        elif frame[0] == "X":
+            score += 10 + sum(int(x) for x in frames[i + 1 : i + 3].lstrip())
         else:
-            balls_in_frame = 10
-        if s[i+1] == 'X':
-            score += 10 + (10 - (frame-1))
-            frame += 1
-        elif s[i+1].isdigit():
-            score += int(s[i+1]) + (10 - balls_in_frame)
-            frame += 1
-        else:
-            score += sum(map(int, [s[i], s[i+1]])) + (10 - balls_in_frame)
-            frame += 1
+            strike, spare = int(frame[0]), int(frame[1])
+            score += strike + spare
     return score
