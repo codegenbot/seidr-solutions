@@ -1,13 +1,13 @@
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        for op in '|&':
-            if op in expression:
-                left, right = expression.split(op)
-                return solve_boolean(left) and op == '&' or solve_boolean(left) or op == '|'
-        return True
+        for op, b in re.findall(r'(T|F)|(&|\\|)T|(&|\\|)F', expression):
+            if op == '&':
+                return bool(int(b))
+            elif op == '|':
+                return not bool(int(b))
