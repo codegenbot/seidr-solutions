@@ -1,10 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <string>
 #include <cassert>
-using string = std::basic_string<char>;
 
-bool issame(std::vector<string> a, std::vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,10 +16,10 @@ bool issame(std::vector<string> a, std::vector<string> b) {
     return true;
 }
 
-int sorted_list_sum(const std::vector<string>& lst) {
-    std::vector<string> sorted_lst(lst);
+int sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<std::string> sorted_lst(lst);
     
-    std::sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
+    std::sort(sorted_lst.begin(), sorted_lst.end(), [](const std::string& a, const std::string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
@@ -27,7 +27,7 @@ int sorted_list_sum(const std::vector<string>& lst) {
     });
 
     int sum = 0;
-    for (const string& s : sorted_lst) {
+    for (const std::string& s : sorted_lst) {
         sum += std::stoi(s);
     }
 
@@ -35,8 +35,7 @@ int sorted_list_sum(const std::vector<string>& lst) {
 }
 
 int main() {
-    std::vector<string> test_lst = { "10", "3", "27" };
-    assert(sorted_list_sum(test_lst) == 130);
-
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    
     return 0;
 }
