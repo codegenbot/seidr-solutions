@@ -1,8 +1,9 @@
-def leaders(nums):
-    leaders_list = [nums[-1]]
-    for i in range(len(nums) - 2, -1, -1):
-        if nums[i] >= nums[-1]:
-            leaders_list.append(nums[i])
-        else:
-            break
-    return reversed(leaders_list)
+def leaders(vector):
+    n = len(vector)
+    result = [vector[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if vector[i] >= vector[i + 1]:
+            result.insert(0, vector[i])
+
+    return result
