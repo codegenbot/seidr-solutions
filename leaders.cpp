@@ -25,10 +25,11 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (true) {
+        if (!(cin >> num)) {
+            break;
+        }
         nums.push_back(num);
-        
-        if (cin.peek() == '\n') break;  // Break the loop if newline is encountered
     }
     
     vector<int> result = findLeaders(nums);
