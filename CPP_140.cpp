@@ -1,19 +1,21 @@
-string result = "";
-    int consecutive_spaces = 0;
-    for (char c : text) {
+#include <cassert>
+#include <string>
+
+std::string fix_spaces(const std::string& str) {
+    std::string result;
+    for (char c : str) {
         if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
-            } else {
-                result += '_';
-            }
+            result += '_';
         } else {
             result += c;
-            consecutive_spaces = 0;
         }
     }
     return result;
 }
+
+#ifdef TESTING
+int main() {
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
+}
+#endif
