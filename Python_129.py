@@ -13,11 +13,7 @@ def minPath(grid, k):
             (curr_i, curr_j + 1),
             (curr_i, curr_j - 1),
         ]
-        neighbors = [
-            (ni, nj)
-            for ni, nj in neighbors
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]
-        ]
+        neighbors = [(ni, nj) for ni, nj in neighbors if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]]
         neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
 
         for ni, nj in neighbors:
