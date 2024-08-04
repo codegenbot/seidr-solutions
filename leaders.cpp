@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <climits>
 #include <algorithm>
@@ -29,7 +28,6 @@ int main() {
     
     vector<int> nums;
     int num;
-    
     string line;
     getline(cin, line);
     stringstream ss(line);
@@ -45,4 +43,4 @@ int main() {
     }
     
     return 0;
-} 
+}
