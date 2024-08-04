@@ -1,11 +1,4 @@
-def leaders(input_vector):
-    leaders_vector = []
-    max_right = input_vector[-1]
-    leaders_vector.append(max_right)
+Here is the solution:
 
-    for i in range(len(input_vector) - 2, -1, -1):
-        if input_vector[i] >= max_right:
-            leaders_vector.insert(0, input_vector[i])
-            max_right = input_vector[i]
-
-    return leaders_vector
+def leaders(vector):
+    return [vector[i] for i in range(len(vector)-1, -1, -1) if all(x <= vector[i] for x in vector[i+1:])]
