@@ -1,9 +1,16 @@
-def get_pegs(code, guess):
-    black_pegs = 0
-    white_pegs = 0
+Here is the solution:
+
+def mastermind(code, guess):
+    white = 0
+    black = 0
+    
     for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif str(guess[i]) in code:
-            white_pegs += 1
-    return f"{black_pegs}\n{4 - black_pegs}"
+        if guess[i] == code[i]:
+            black += 1
+        else:
+            for j in range(4):
+                if guess[j] == code[i]:
+                    white += 1
+                    break
+
+    return str(black) + '\n' + str(white)
