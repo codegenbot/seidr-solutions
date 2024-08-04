@@ -35,8 +35,7 @@ int main() {
         cout << str << endl;
     }
 
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), expected));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
