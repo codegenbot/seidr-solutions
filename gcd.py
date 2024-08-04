@@ -1,11 +1,11 @@
-Here is the Python solution for the problem:
+Here is the solution:
 
-def gcd(m, n):
-    while n != 0:
-        m, n = n, m % n
-    return abs(m)
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
-text = int(input())
-target = int(input())
+n = int(input())
+m = int(input())
 
-print(gcd(text, target))
+print(gcd(n,m))
