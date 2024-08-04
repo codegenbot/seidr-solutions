@@ -29,11 +29,11 @@ std::vector<std::string> split_words(const std::string& txt) {
         result.push_back(word);
     }
 
-    if (result.size() == 1 && std::islower(result[0][0])) {
+    if (result.size() == 1 && islower(result[0][0])) {
         int count = 0;
 
         for (char c : result[0]) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
