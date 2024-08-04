@@ -6,7 +6,7 @@ def calculate_total_distance(bounciness_index, num_bounces):
     total_distance = 0
     current_height = 1.0
     for _ in range(num_bounces):
-        total_distance += abs(current_height - 1)
+        total_distance += abs(current_height - 1.0)
         current_height *= bounciness_index
     return total_distance
 
