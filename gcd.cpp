@@ -27,10 +27,11 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
 int main() {
     int a, b;
     std::cin >> a >> b;
-    std::string text, target;
     std::cin.ignore();
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    
+    std::string text, target;
+    getline(std::cin, text);
+    getline(std::cin, target);
 
     int result_gcd = gcd(a, b);
     std::cout << result_gcd << std::endl;
