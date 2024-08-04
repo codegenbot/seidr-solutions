@@ -1,41 +1,38 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
 
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return (a == b);
 }
 
-int sorted_list_sum(const std::vector<std::string> &lst) {
-    std::vector<std::string> sorted_lst(lst);
-    
-    std::sort(sorted_lst.begin(), sorted_lst.end(), [](const std::string &a, const std::string &b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> sorted_lst = lst;
+    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), sorted_lst.end());
+    sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-
-    int sum = 0;
-    for (const std::string &s : sorted_lst) {
-        sum += std::stoi(s);
-    }
-
-    return sum;
+    return sorted_lst;
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    int n;
+    cin >> n;
+    vector<string> input_lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> input_lst[i];
+    }
+
+    vector<string> result = sorted_list_sum(input_lst);
+
+    for (const auto& str : result) {
+        cout << str << endl;
+    }
 
     return 0;
 }
