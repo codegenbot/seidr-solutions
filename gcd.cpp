@@ -31,6 +31,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
+    cin.ignore(); // Consuming newline character
     int a, b;
     cout << "Enter two integers separated by a space: ";
     cin >> a >> b;
@@ -38,7 +39,7 @@ int main() {
 
     string text, target;
     cout << "Enter text and target string separated by a space: ";
-    cin >> ws;
+    cin.ignore();
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
