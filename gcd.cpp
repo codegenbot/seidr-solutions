@@ -36,9 +36,8 @@ int main() {
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
-    cin.ignore(); // Clear the newline character from the input buffer
     string text, target;
-    cout << "Enter text and target string separated by a space: ";
+    cin.ignore(); // Added line to clear the newline character from the input buffer
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
