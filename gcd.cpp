@@ -35,7 +35,6 @@ int main() {
     cout << "Enter two integers separated by a space: ";
     cin >> a >> b;
     cin.ignore();
-    
     cout << gcd(a, b) << endl;
 
     string text, target;
