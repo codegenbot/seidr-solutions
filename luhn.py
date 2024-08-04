@@ -2,13 +2,13 @@ n = int(input())
 digits = list(map(int, input().split()))
 
 total = 0
-for i in range(n):
+for i in range(0, 16):
     if i % 2 == 1:
-        doubled = digits[i] * 2
-        if doubled > 9:
-            total += doubled - 9
+        double = digits[i] * 2
+        if double > 9:
+            total += double - 9
         else:
-            total += doubled
+            total += double
     else:
         total += digits[i]
 
