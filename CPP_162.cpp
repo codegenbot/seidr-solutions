@@ -1,7 +1,8 @@
-#include <iostream>
 #include <string>
+
+extern "C" {
 #include <openssl/evp.h>
-#include <cassert>
+}
 
 std::string string_to_md5(const std::string &text) {
     if (text.empty()) {
@@ -22,6 +23,3 @@ std::string string_to_md5(const std::string &text) {
 
     return std::string(mdString);
 }
-
-// Compile command
-// g++ filename.cpp -o outputname -lssl -lcrypto
