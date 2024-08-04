@@ -29,7 +29,7 @@ int main(){
 
     assert(is_same(output, expected_output));
 
-    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1});
 
     return 0;
 }
