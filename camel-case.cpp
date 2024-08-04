@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -8,19 +9,19 @@ std::string camelCase(std::string str) {
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += toupper(c + 1);
+                result += char(toupper(c));
             }
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += toupper(c + 1);
+                result += char(toupper(c));
             }
             firstWord = true;
         } else {
             if (!firstWord) {
                 result += c;
             } else {
-                result += char(toupper(c));
+                result += c;
                 firstWord = false;
             }
         }
