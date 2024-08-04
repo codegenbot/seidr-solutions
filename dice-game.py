@@ -1,5 +1,2 @@
-def getProbability(n, m):
-    if n < 1 or m < 1:
-        return "Invalid input"
-
-    return (m - 1) / (n * m)
+def roll_dice(n, m):
+    return (n - m) / (n + m - 2) if n > m else 0.5
