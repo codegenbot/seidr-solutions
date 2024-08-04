@@ -1,4 +1,4 @@
-Here is the Python solution for the problem:
+Here is the solution for the problem:
 
 def solve_boolean(expression):
     if expression == 'T':
@@ -12,8 +12,5 @@ def solve_boolean(expression):
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
 
-print(solve_boolean('t'))  # True
-print(solve_boolean('f'))  # False
-print(solve_boolean('f&f'))  # False
-print(solve_boolean('f&t'))  # False
-print(solve_boolean('t&f'))  # False
+expression = input()
+print(solve_boolean(expression))
