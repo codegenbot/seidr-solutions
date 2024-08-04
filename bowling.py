@@ -1,50 +1,19 @@
-```
-def bowling_score(frames):
+def bowling_score(rolls):
     score = 0
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            frame = int(frames[i])
-            if frame == 10:
-                score += 10 + next_frames_score(i)
-                continue
-            elif frame < 10:
-                score += frame
-                continue
-            else:
-                return "Invalid input"
-        elif frames[i] == 'X':
-            score += 10 + next_frames_score(i)
-            continue
-        else:
-            strikes = 0
-            for j in range(i+1, len(frames)):
-                if frames[j].isdigit():
-                    frame = int(frames[j])
-                    if frame < 10:
-                        break
-                    else:
-                        strikes += 1
-                elif frames[j] == 'X':
-                    strikes += 1
-                    break
-                else:
-                    return "Invalid input"
-            score += 10 + strikes*frame
-    return score
+    roll_index = 0
 
-def next_frames_score(i):
-    score = 0
-    for j in range(i+1, len()):
-        if frames[j].isdigit():
-            frame = int(frames[j])
-            if frame < 10:
-                score += frame
-                break
+    for frame in range(1, 11):
+        if rolls[roll_index] != "-":
+            if "/" in rolls[roll_index]:
+                strikes, spares = map(int, rolls[roll_index].split("/"))
+                score += [10, 10 + 10 - 1][strikes == 2]
             else:
-                return "Invalid input"
-        elif frames[j] == 'X':
-            score += 10 + next_frames_score(j)
-            return score
+                for i in range(1, 3):
+                    if i < 2 or rolls[roll_index] != "X" * i:
+                        score += min(int(rolls[roll_index][:i]), 10)
+                        roll_index += 1
         else:
-            return "Invalid input"
+            if frame < 10:
+                score += 10 + bowling_score(rolls[roll_index + 1 :])
+                break
     return score
