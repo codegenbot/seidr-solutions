@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::any compare_one(const std::string& s1, const std::string& s2) {
-    return std::make_any<std::string>(s1 + s2);
+    return std::any(s1 + s2);
 }
 
 int main() {
