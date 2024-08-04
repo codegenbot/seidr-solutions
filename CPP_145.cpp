@@ -1,24 +1,28 @@
-bool issame(vector<int>& a, vector<int>& b){
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums){
-    sort(nums.begin(), nums.end(), [&](int& a, int& b) {
-        int sumA = 0, sumB = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
+std::vector<int> order_by_points(const std::vector<int>& nums){
+    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
         while (a > 0) {
-            sumA += a % 10;
+            sum_a += a % 10;
             a /= 10;
         }
         while (b > 0) {
-            sumB += b % 10;
+            sum_b += b % 10;
             b /= 10;
         }
-        if (sumA == sumB) {
-            return a < b;
-        }
-        return sumA < sumB;
+        if (sum_a == sum_b) return false;
+        return sum_a < sum_b;
     });
     return nums;
 }
