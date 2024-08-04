@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 
 int main() {
     std::vector<double> vec1, vec2;
@@ -9,10 +8,9 @@ int main() {
 
     while (std::cin >> val) {
         vec1.push_back(val);
+        if (std::cin.get() == '\n') break; // Stop reading when newline is encountered
     }
-
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
+   
     while (std::cin >> val) {
         vec2.push_back(val);
     }
