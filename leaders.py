@@ -1,11 +1,6 @@
 def leaders(input):
-    output = []
-    for i in range(len(input) - 1, -1, -1):
-        is_leader = True
-        for j in range(i - 1, -1, -1):
-            if input[j] >= input[i]:
-                is_leader = False
-                break
-        if is_leader:
-            output.append(input[i])
-    return list(reversed(output))
+    result = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i + 1]:
+            result.insert(0, input[i])
+    return result
