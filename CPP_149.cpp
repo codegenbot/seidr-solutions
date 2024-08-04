@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <string>
+
 using string = std::basic_string<char>;
 
 bool issame(std::vector<string> a, std::vector<string> b) {
@@ -18,7 +20,7 @@ bool issame(std::vector<string> a, std::vector<string> b) {
 
 int sorted_list_sum(const std::vector<string>& lst) {
     std::vector<string> sorted_lst(lst);
-    
+
     std::sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -33,10 +35,10 @@ int sorted_list_sum(const std::vector<string>& lst) {
 
     return sum;
 }
-
+  
 int main() {
-    std::vector<string> test_lst = { "10", "3", "27" };
-    assert(sorted_list_sum(test_lst) == 130);
-
+    std::vector<string> lst = {"12", "3", "456", "78"};
+    assert(sorted_list_sum(lst) == 339);
+    
     return 0;
 }
