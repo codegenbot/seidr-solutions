@@ -5,10 +5,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> vec1{1, 2, 3};
-    std::vector<int> vec2{1, 2, 3};
-    
-    bool result = issame(vec1, vec2);
-    
-    return 0;
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = {1, 2, 3};
+
+    if (issame(v1, v2)) {
+        return true;
+    } else {
+        return false;
+    }
 }
