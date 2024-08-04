@@ -1,23 +1,24 @@
-#include <any>
-#include <string>
+#include <any> 
+
+using namespace std;
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+        if (any_cast<int>(a) > any_cast<int>(b)) {
             return a;
-        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
+        } else if (any_cast<int>(a) < any_cast<int>(b)) {
             return b;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+        if (any_cast<float>(a) > any_cast<float>(b)) {
             return a;
-        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
+        } else if (any_cast<float>(a) < any_cast<float>(b)) {
             return b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stof(any_cast<string>(a)) > stof(any_cast<string>(b))) {
             return a;
-        } else if (std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))) {
+        } else if (stof(any_cast<string>(a)) < stof(any_cast<string>(b))) {
             return b;
         }
     }
