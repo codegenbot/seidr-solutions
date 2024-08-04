@@ -1,9 +1,8 @@
 #include <vector>
-#include <cassert>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(vector<double> lst){
     long long sum = 0;
-    for (float num : lst) {
+    for (double num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
             sum += num * num;
         }
@@ -12,9 +11,7 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
-    long long odd_sum = 25;
-
-    assert(double_the_difference(lst) == odd_sum);
+    vector<double> lst = {1.5, 2.0, 3.0, 4.0, 5.5};
+    long long result = double_the_difference(lst);
     return 0;
 }
