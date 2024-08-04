@@ -1,11 +1,11 @@
-def solveBoolean(inputStr):
-    if inputStr == 'T':
+def solveBoolean(expression):
+    if expression == "T":
         return True
-    elif inputStr == 'F':
+    elif expression == "F":
         return False
-    elif '&' in inputStr:
-        a, b = map(solveBoolean, inputStr.split('&'))
-        return a and b
-    elif '|' in inputStr:
-        a, b = map(solveBoolean, inputStr.split('|'))
-        return a or b
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solveBoolean(left) and solveBoolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solveBoolean(left) or solveBoolean(right)
