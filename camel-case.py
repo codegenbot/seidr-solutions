@@ -1,4 +1,7 @@
-Here is the Python solution for the problem:
-
 def kebab_to_camel(s):
-    return ''.join(word.capitalize() if i > 0 else word.lower() for i, word in enumerate(s.split('-'))).replace('-', ' ').replace(' ', '')
+    s = s.replace("-", " ").replace(" ", "")
+    return "".join(word.capitalize() for word in s.split()) if s else ""
+
+
+input_str = input()
+print(kebab_to_camel(input_str))
