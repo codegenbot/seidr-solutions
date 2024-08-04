@@ -1,11 +1,28 @@
-bool are_same(const vector<string>& a, const vector<string>& b) {
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool is_same_lists(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
-vector<string> sorted_list_sum(const vector<string>& input_lst) {
-    vector<string> result = input_lst;
-    sort(result.begin(), result.end());
-    return result;
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> sorted_lst = lst;
+    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s){ return s.length() % 2 != 0; }), sorted_lst.end());
+    sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
+    });
+    return sorted_lst;
+}
+
+bool run_test() {
+    return is_same_lists(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"});
 }
 
 int main() {
@@ -22,7 +39,7 @@ int main() {
         cout << str << endl;
     }
 
-    assert(are_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+    assert(run_test());
 
     return 0;
 }
