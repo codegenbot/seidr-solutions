@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string toCamelCase(const std::string& s) {
     std::string result;
     size_t pos = 0;
@@ -42,11 +39,4 @@ std::string toCamelCase(const std::string& s) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << toCamelCase(input) << std::endl;
-    return 0;
 }
