@@ -1,9 +1,4 @@
-def leaders(vector):
-    n = len(vector)
-    result = [vector[n - 1]]
+Here is the Python solution for the problem:
 
-    for i in range(n - 2, -1, -1):
-        if vector[i] >= vector[i + 1]:
-            result.insert(0, vector[i])
-
-    return result
+def leaders(input_list):
+    return [i for i in reversed(input_list) if all(i >= j for j in input_list[input_list.index(i)+1:])]
