@@ -1,18 +1,17 @@
-
 #include <iostream>
 #include <vector>
-#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string input;
-    getline(cin, input);
-    stringstream ss(input);
     int n;
-    while (ss >> n) {
+    int numCount = 0;
+    const int MAX_NUMS = 10; // assuming a maximum of 10 numbers
+    for (int i = 0; i < MAX_NUMS; ++i) {
+        cin >> n;
         nums.push_back(n);
+        numCount++;
     }
     int sum = 0;
     for (int num : nums) {
