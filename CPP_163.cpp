@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> generate_integers(int start, int end, const std::vector<int>& vec = {}) {
+std::vector<int> generate_integers(int start, int end) {
     std::vector<int> result;
     for (int i = start; i <= end; ++i) {
         result.push_back(i);
@@ -9,6 +9,14 @@ std::vector<int> generate_integers(int start, int end, const std::vector<int>& v
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     return a == b;
+}
+
+int main() {
+    assert(issame(generate_integers(17, 89), {}));
+    return 0;
 }
