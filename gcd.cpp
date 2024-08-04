@@ -31,13 +31,12 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    cin.ignore();
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
+    cin >> ws;
     string text, target;
-    cin.ignore();
     getline(cin, text);
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
