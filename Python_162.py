@@ -2,4 +2,6 @@ import hashlib
 
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode('utf-8')).hexdigest() if text else None
+    if text is None:
+        return None
+    return hashlib.md5(text.encode()).hexdigest()
