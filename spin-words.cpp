@@ -1,16 +1,40 @@
-```c++
-string spinWords(string str) {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void spinWords() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    
     string result = "";
-    size_t pos = 0;
-    while ((pos = str.find(" ")) != string::npos) {
-        size_t wordLen = str.substr(0, pos).length();
-        if (wordLen >= 5)
-            for (int i = wordLen - 1; i >= 0; --i)
-                result += str.substr(pos+i, 1);
-        else
-            result += str.substr(0, pos);
-        str.erase(0, pos + 1);
+    string temp = "";
+    
+    for (char c : str) {
+        if (c == ' ') {
+            if (temp.length() >= 5)
+                for (int i = temp.length()-1; i >= 0; --i)
+                    result += temp[i];
+            else
+                result += temp;
+            temp = "";
+        } else {
+            temp += c;
+        }
     }
-    result += str;
-    return result;
+    
+    // Add the last word to the result, if it's 5 letters or more
+    if (temp.length() >= 5)
+        for (int i = temp.length()-1; i >= 0; --i)
+            result += temp[i];
+    else
+        result += temp;
+    
+    cout << "Spinned string: " << result << endl;
+}
+
+int main() {
+    spinWords();
+    return 0;
 }
