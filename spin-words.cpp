@@ -6,7 +6,7 @@ string spinWords(string str) {
         size_t wordLen = str.substr(0, pos).length();
         if (wordLen >= 5)
             for (int i = wordLen - 1; i >= 0; --i)
-                result += str[pos+i];
+                result += str[pos-i-1];
         else
             result += str.substr(0, pos);
         str.erase(0, pos + 1);
