@@ -1,31 +1,11 @@
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            strike = False
-            spare = False
-            parts = [int(x) for x in re.findall(r"\d", frames[i * 2 : i * 2 + 2])]
-            if len(parts) == 1:
-                score += 10
-                strike = True
-            elif len(parts) == 2 and sum(parts) == 10:
-                score += 10
-                spare = True
-            else:
-                score += parts[0] + parts[1]
-        else:
-            if frames[i * 2 : i * 2 + 2] == "X":
-                score += 10
-                strike = True
-            elif "/" in frames[i * 2 + 1 :]:
-                spare = True
-                parts = [int(x) for x in re.findall(r"\d", frames[i * 2 : i * 2 + 3])]
-                score += sum(parts)
-            else:
-                parts = [int(x) for x in re.findall(r"\d", frames[i * 2 : i * 2 + 2])]
-                score += sum(parts)
-        if strike and i < 9:
-            score += bowling_score(frames[10:])
-        elif spare and i < 9:
-            score += bowling_score(frames[11:])
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit():
+            a = int(s[i])
+            b = int(s[i + 1]) if s[i + 1].isdigit() else 10 - a
+            score += a + b
+            if a + b == 10:
+                frame += 1
     return score
