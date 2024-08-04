@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 std::string squareDigits(std::string input) {
     std::string output = "";
     for (int i = 0; i < input.length(); i++) {
