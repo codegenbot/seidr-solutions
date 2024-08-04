@@ -27,6 +27,4 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-int main() {
-    assert(issame(tri(1), std::vector<int>{1, 3}));
-}
+assert(issame(tri(1), std::vector<int>{1, 3});
