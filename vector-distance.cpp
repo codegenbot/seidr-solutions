@@ -5,6 +5,7 @@
 int main() {
     int n;
     std::cin >> n;
+
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
@@ -21,6 +22,7 @@ int main() {
     }
 
     double result = sqrt(sum);
+    std::cout.precision(17);
     std::cout << result << std::endl;
 
     return 0;
