@@ -7,4 +7,4 @@ print(result)
 def check():
     return double_the_difference([3, 5, 7, -2, 9]) == 328
 
-print(check())
+check()
