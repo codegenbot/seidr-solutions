@@ -9,7 +9,7 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-    if (nums.empty() || cin.bad()) {
+    if (cin.fail()) {
         cerr << "Input error\n";
         return 1;
     }
