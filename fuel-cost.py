@@ -1,7 +1,2 @@
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        x = int(input())
-        total += (x // 3) - 2
-    return total
+def fuel_cost(arr):
+    return sum((i // 3) - 2 for i in arr)
