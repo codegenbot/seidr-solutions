@@ -10,13 +10,13 @@ bool issame(vector<string> a, vector<string> b) {
         
         for (int i = 0; i < planets.size(); ++i) {
             if (planets[i] == planet1) {
-                start = i
+                start = i;
             }
             if (planets[i] == planet2) {
                 end = i;
             }
         }
-    
+        
         if (start == -1 || end == -1) {
             return result;
         }
