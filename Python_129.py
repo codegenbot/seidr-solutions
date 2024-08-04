@@ -13,13 +13,17 @@ def minPath(grid, k):
             (curr_i, curr_j + 1),
             (curr_i, curr_j - 1),
         ]
-        neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x) if 0 <= x[0] < N and 0 <= x[1] < N else (float('inf'), x))
+        neighbors = [
+            (ni, nj)
+            for ni, nj in neighbors
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]
+        ]
+        neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
 
         for ni, nj in neighbors:
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                res = dfs(ni, nj, path + [grid[ni][nj]])
-                if res:
-                    return res
+            res = dfs(ni, nj, path + [grid[ni][nj]])
+            if res:
+                return res
 
         visited[curr_i][curr_j] = False
 
