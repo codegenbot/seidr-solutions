@@ -1,4 +1,8 @@
-def leaders(arr):
-    return [
-        arr[i] for i in range(len(arr) - 1, -1, -1) if all(arr[i] >= x for x in arr[:i])
-    ]
+def leaders(nums):
+    leaders_list = [nums[-1]]
+    for i in range(len(nums) - 2, -1, -1):
+        if nums[i] >= nums[-1]:
+            leaders_list.append(nums[i])
+        else:
+            break
+    return reversed(leaders_list)
