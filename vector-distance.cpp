@@ -1,7 +1,8 @@
-#include <iostream>
-#include <iomanip>
 #include <vector>
 using namespace std;
+
+#include <iostream>
+#include <iomanip>
 
 double vectorDistance(int n) {
     float v1[n];
