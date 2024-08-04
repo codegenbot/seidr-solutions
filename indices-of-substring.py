@@ -1,13 +1,4 @@
-Here is the solution to the problem:
+Here is the solution:
 
-```
 def indices_of_substring(text):
-    result = []
-    index = 0
-    while index < len(text):
-        pos = text.find(input(), index)
-        if pos == -1:
-            break
-        result.append(pos)
-        index = pos + 1
-    return result
+    return [i for i in range(len(text)) if text.startswith("target", i)]
