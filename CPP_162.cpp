@@ -10,7 +10,7 @@ std::string string_to_md5(const std::string &text) {
 
     unsigned char digest[16];
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
+    EVP_DigestInit(mdctx, EVP_md5());
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, NULL);
     EVP_MD_CTX_free(mdctx);
@@ -20,5 +20,5 @@ std::string string_to_md5(const std::string &text) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return std::string(mdString, 32);
+    return std::string(mdString);
 }
