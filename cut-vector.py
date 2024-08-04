@@ -1,12 +1,17 @@
-def cut_vector(nums):
-    min_diff = float("inf")
+Here is the solution:
+
+def cut_vector(input_vector):
+    min_diff = float('inf')
     split_index = -1
-
-    for i in range(len(nums) - 1):
-        diff = abs(np.mean(nums[: i + 1]) - np.mean(nums[i + 1 :]))
-
+    
+    for i in range(1, len(input_vector)):
+        left_sum = sum(input_vector[:i])
+        right_sum = sum(input_vector[i:])
+        
+        diff = abs(left_sum - right_sum)
+        
         if diff < min_diff:
             min_diff = diff
             split_index = i
-
-    return nums[: split_index + 1], nums[split_index + 1 :]
+            
+    return input_vector[:split_index], input_vector[split_index:]
