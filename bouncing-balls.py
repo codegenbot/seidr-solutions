@@ -1,11 +1,14 @@
-starting_height = float(input())
-first_bounce_height = float(input())
-bounces = int(input())
+```
+def calculate_bounciness():
+    height_start = float(input())
+    height_first_bounce = float(input())
+    bounces = int(input())
 
-bounciness_index = first_bounce_height / starting_height
+    if height_start == 0:
+        return "Error: Height cannot be zero"
 
-total_distance = 0
-for _ in range(bounces):
-    total_distance += bounciness_index ** (_ + 1)
+    bounciness_index = (height_first_bounce / height_start)
 
-print(round(total_distance, 4))
+    total_distance = 2 * ((1 + bounciness_index) ** bounces - 1) / ((1 + bounciness_index) - 1)
+
+    return str(format(total_distance, ".4f"))
