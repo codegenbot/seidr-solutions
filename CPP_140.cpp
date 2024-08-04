@@ -1,6 +1,7 @@
+
 #include <iostream>
 #include <string>
-#include <cassert> // Add this header for assert function
+#include <cassert> // Add this line for assert function
 
 std::string fix_spaces(const std::string& text) {
     std::string result = "";
