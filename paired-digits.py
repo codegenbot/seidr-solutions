@@ -1,2 +1,5 @@
+Here is the Python solution for the problem:
+
 def paired_digits(s):
-    return sum(int(digit) for digit in s if s[s.index(digit) + 1] == digit)
+    return sum(int(d) for d in s if s[i+1] == d)
+for i in range(len(s)-1):
