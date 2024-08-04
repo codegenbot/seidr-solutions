@@ -11,7 +11,11 @@ def minPath(grid, k):
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and grid[nx][ny] < path[-1]:
-                min_path = min(min_path, dfs(nx, ny, path + [grid[nx][ny]], path_sum + grid[nx][ny]), key=len)
+                min_path = min(
+                    min_path,
+                    dfs(nx, ny, path + [grid[nx][ny]], path_sum + grid[nx][ny]),
+                    key=len,
+                )
 
         return min_path
 
