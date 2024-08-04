@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -26,18 +26,16 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cin.ignore();
+    std::cin >> a;
+    std::cin >> b;
+    std::cin >> std::ws;
     
     std::string text, target;
     getline(std::cin, text);
     getline(std::cin, target);
 
-    int result_gcd = gcd(a, b);
-    std::cout << result_gcd << std::endl;
-
-    std::vector<int> result_substring = findIndicesOfSubstring(text, target);
-    for (int i : result_substring) {
+    std::vector<int> result = findIndicesOfSubstring(text, target);
+    for (int i : result) {
         std::cout << i << " ";
     }
     return 0;
