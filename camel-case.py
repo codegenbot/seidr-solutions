@@ -1,2 +1,13 @@
 def camel_case(input_string):
-    return input_string.replace("-", " ").replace(" ", lambda x: x.group().capitalize())
+    result = ""
+    for word in input_string.split():
+        if "-" in word:
+            result += word.capitalize()
+        else:
+            result += word
+        result += " "
+    return result.strip()
+
+
+input_string = input()
+print(camel_case(input_string))
