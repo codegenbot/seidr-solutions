@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n && !cin.eof()) {
+    while (cin.good()) {
+        cin >> n;
         nums.push_back(n);
     }
     int sum = 0;
