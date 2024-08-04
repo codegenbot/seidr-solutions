@@ -8,10 +8,6 @@ int main() {
 
     while (std::cin >> val) {
         vec1.push_back(val);
-        if (std::cin.get() == '\n') break; // Stop reading when newline is encountered
-    }
-   
-    while (std::cin >> val) {
         vec2.push_back(val);
     }
 
