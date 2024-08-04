@@ -1,4 +1,8 @@
+#include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
+#include <cassert>
 
 std::string solve(std::string s){
     int n = s.length();
@@ -20,4 +24,9 @@ std::string solve(std::string s){
     }
     
     return s;
+}
+
+int main(){
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
