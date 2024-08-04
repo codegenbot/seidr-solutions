@@ -9,19 +9,21 @@ std::string camelCase(std::string str) {
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += char(toupper(c));
+                result += toupper(c);
             }
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += " ";
+                result += toupper(c);
+            } else {
+                result += c;
             }
             firstWord = true;
         } else {
             if (!firstWord) {
-                result += c;
-            } else {
                 result += tolower(c);
+            } else {
+                result += c;
             }
             firstWord = false;
         }
