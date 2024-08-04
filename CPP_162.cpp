@@ -1,19 +1,14 @@
 #include <iostream>
 #include <string>
-#include <openssl/evp.h>
-#include <cassert>
+#include <openssl/md5.h>
 
 std::string string_to_md5(const std::string &text) {
     if (text.empty()) {
         return "None";
     }
 
-    unsigned char digest[16];
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit(mdctx, EVP_md5());
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, NULL);
-    EVP_MD_CTX_free(mdctx);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char *)text.c_str(), text.length(), digest);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
@@ -23,12 +18,7 @@ std::string string_to_md5(const std::string &text) {
     return mdString;
 }
 
-int test_main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
-}
-
 int main() {
-    std::cout << string_to_md5("password") << std::endl;
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
