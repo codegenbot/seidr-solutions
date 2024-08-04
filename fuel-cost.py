@@ -1,10 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
-def fuel_cost():
-    n = int(input())
-    total = 0
-    for _ in range(n):
-        num = int(input())
-        result = (num // 3) - 2
-        total += max(0, result)
-    print(total)
+def fuel_cost(vector):
+    return sum((x//3)-2 for x in vector)
