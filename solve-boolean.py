@@ -1,19 +1,12 @@
-Here is the completed code:
-
-def solveBoolean(input_str):
+def solve.Boolean(input_str):
     if input_str == 'T':
         return True
     elif input_str == 'F':
         return False
     elif '&' in input_str:
-        inputs = input_str.split('&')
-        for inp in inputs:
-            if inp != 'T':
-                return False
-        return True
+        left, right = input_str.split('&')
+        return (bool(solve.Boolean(left)), bool(solve.Boolean(right)))\
+                [-int(bool(solve.Boolean(left)) and bool(simplify.right))]
     elif '|' in input_str:
-        inputs = input_str.split('|')
-        for inp in inputs:
-            if inp == 'T':
-                return True
-        return False
+        left, right = input_str.split('|')
+        return not (not bool(solve.Boolean(left)) and not bool(solve.Boolean(right)))
