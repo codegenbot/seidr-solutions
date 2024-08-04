@@ -1,34 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> split_words(const std::string& str) {
-    std::vector<std::string> words;
-    std::string word;
-    
-    for (const char& c : str) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                words.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-
-    return words;
+    // Implement the split_words function
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 int main() {
-    issame(split_words(""), std::vector<std::string>{"0"});
+    assert_equal(split_words(""), std::vector<std::string>{"0"});
 
     return 0;
 }
