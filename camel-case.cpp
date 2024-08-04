@@ -9,7 +9,7 @@ std::string camelCase(std::string str) {
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += char(toupper(c));
+                result += std::toupper(c);
             }
             firstWord = false;
         } else if (c == ' ') {
@@ -19,9 +19,9 @@ std::string camelCase(std::string str) {
             firstWord = true;
         } else {
             if (!firstWord) {
-                result += toupper(c);
+                result += c;
             } else {
-                result += tolower(c);
+                result += std::tolower(c);
             }
             firstWord = false;
         }
