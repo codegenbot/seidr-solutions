@@ -1,30 +1,20 @@
 #include <iostream>
 #include <string>
 
-std::string zeroExtendToCamel() const {
-    if (temp.empty()) return temp;
-    if (isupper(temp[0]))
-        return temp;
-    return std::string(1, toupper(temp[0])) + std::string(temp).substr(1);
-}
-
 std::string kebabToCamel(const std::string& s) {
-    std::string result = "";
-    std::string temp = "";
+    std::string result;
+    bool capitalizeNext = true;
 
-    for (char c : s + " ") {
-        if (c == '-' || c == ' ') {
-            if (!temp.empty()) {
-                result += zeroExtendToCamel();
-                temp = "";
-            }
+    for (char c : s) {
+        if (c == '-') {
+            result += ' '; // Add space to separate words
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += std::toupper(c);
+            capitalizeNext = false;
         } else {
-            temp += c;
+            result += c;
         }
-    }
-
-    if (!temp.empty()) {
-        result += zeroExtendToCamel();
     }
 
     return result;
