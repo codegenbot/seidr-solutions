@@ -1,21 +1,17 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
-cut_idx = 0
+v = [int(input()) for _ in range(n)]
+total_sum = sum(v)
+half_sum = total_sum // 2
+prefix_sum = 0
+best_diff = float("inf")
+best_idx = -1
 
 for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_idx = i
+    prefix_sum += v[i]
+    diff = abs(total_sum - 2 * prefix_sum)
+    if diff < best_diff or (diff == best_diff and best_idx < 0):
+        best_diff = diff
+        best_idx = i
 
-subvector1 = arr[: cut_idx + 1]
-subvector2 = arr[cut_idx + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(v[: best_idx + 1])
+print(v[best_idx + 1 :])
