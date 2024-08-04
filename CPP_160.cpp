@@ -1,4 +1,8 @@
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cmath>
+#include <assert.h>
 
 int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
     int result = operand[0];
@@ -16,4 +20,9 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 28);
+    return 0;
 }
