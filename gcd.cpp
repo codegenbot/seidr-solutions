@@ -36,13 +36,11 @@ int main() {
     cin >> a;
     cout << "Enter the second integer: ";
     cin >> b;
-
     cout << gcd(a, b) << endl;
-
-    cin.ignore();
 
     string text, target;
     cout << "Enter the text string: ";
+    cin.ignore(); // clear the newline character
     getline(cin, text);
     cout << "Enter the target string: ";
     getline(cin, target);
