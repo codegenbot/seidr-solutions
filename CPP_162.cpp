@@ -1,7 +1,3 @@
-extern "C" {
-#include <openssl/evp.h>
-}
-
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
