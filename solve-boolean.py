@@ -1,5 +1,3 @@
-Here is the solution for the problem:
-
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -11,6 +9,3 @@ def solve_boolean(expression):
     elif '|' in expression:
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
-
-expression = input()
-print(solve_boolean(expression))
