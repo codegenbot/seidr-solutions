@@ -3,10 +3,12 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
 std::vector<std::string> split_words(const std::string& txt);
 bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
+
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
@@ -40,10 +42,6 @@ std::vector<std::string> split_words(const std::string& txt) {
     }
 
     return result;
-}
-
-bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
 }
 
 int main() {
