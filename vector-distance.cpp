@@ -12,7 +12,7 @@ int main() {
     }
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-   
+
     while (std::cin >> val) {
         vec2.push_back(val);
     }
