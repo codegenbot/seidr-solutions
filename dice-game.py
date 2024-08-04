@@ -1,3 +1,7 @@
-n, m = map(int, input().split())
-prob = sum((i/n) * ((i-1)/m) for i in range(2, n+1))
-print('{:.8f}'.format(prob))
+n = int(input())
+m = int(input())
+print(
+    round(
+        sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (n * m), 8
+    )
+)
