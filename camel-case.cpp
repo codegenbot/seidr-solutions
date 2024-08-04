@@ -8,16 +8,12 @@ std::string camelCase(std::string str) {
     
     for (char c : str) {
         if (c == '-') {
-            if (!firstWord) {
-                result += std::toupper(c);
-            }
+            result += ' ';
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                if(result.back() != '-' && !result.empty()) {
-                    result += c;
-                }
-            } 
+                result += std::toupper(c);
+            }
             firstWord = true;
         } else {
             if (!firstWord) {
