@@ -1,25 +1,19 @@
-Here is the Python code for the problem:
-
 ```
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
     return abs(a)
 
 def indices_of_substring(text, target):
     result = []
-    start = 0
-    while True:
-        pos = text.find(target, start)
+    pos = 0
+    while pos < len(text):
+        pos = text.find(target, pos)
         if pos == -1:
             break
         result.append(pos + 1)
-        start = pos + 1
+        pos += 1
     return result
 
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+print(gcd(int(input()), int(input())))
+print(indices_of_substring(input(), input()))
