@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame_v(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
@@ -35,7 +35,7 @@ int main() {
         cout << str << endl;
     }
 
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame_v(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
