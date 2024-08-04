@@ -1,21 +1,22 @@
 #include <string>
+
 std::string solve(std::string s){
     int n = s.length();
     bool hasLetter = false;
     
     for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
+        if(std::isalpha(s[i])){
             hasLetter = true;
-            if(islower(s[i])){
-                s[i] = toupper(s[i]);
+            if(std::islower(s[i])){
+                s[i] = std::toupper(s[i]);
             } else {
-                s[i] = tolower(s[i]);
+                s[i] = std::tolower(s[i]);
             }
         }
     }
     
     if(!hasLetter){
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     
     return s;
