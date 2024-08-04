@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-std::vector<int> generate_integers(int a, int b) {
+std::vector<int> generate_integers(int n, int val) {
     return {};
 }
 
