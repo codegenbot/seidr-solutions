@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <cassert>
 #include <algorithm>
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
