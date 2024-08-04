@@ -6,12 +6,9 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (!cin.eof()) {
+        cin >> n;
         nums.push_back(n);
-    }
-    if (cin.fail()) {
-        cerr << "Input error\n";
-        return 1;
     }
     int sum = 0;
     for (int num : nums) {
