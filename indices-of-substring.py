@@ -1,6 +1,7 @@
 text = input()
 target = input()
 
-indices = [idx for idx, _ in enumerate(text) if text[idx:idx + len(target)] == target]
+indices = [i for i in range(len(text)) if text.find(target, i) == i]
 
-print(*indices)
+for idx in indices:
+    print(idx, end=" ")
