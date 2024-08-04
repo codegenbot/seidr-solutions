@@ -1,3 +1,4 @@
+n = int(input())
 v = list(map(int, input().split()))
 
 total_sum = sum(v)
