@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string str) {
     std::string result = "";
@@ -10,16 +11,20 @@ std::string camelCase(std::string str) {
         if (c == '-') {
             if (!firstWord) {
                 result += std::toupper(c);
+            } else {
+                result += c;
             }
             firstWord = false;
         } else if (c == ' ') {
             if (!firstWord) {
-                result += ' ';
+                result += c;
+            } else {
+                result += std::tolower(c);
+                firstWord = true;
             }
-            firstWord = true;
         } else {
             if (!firstWord) {
-                result += c;
+                result += std::toupper(c);
             } else {
                 result += std::tolower(c);
             }
@@ -33,7 +38,8 @@ std::string camelCase(std::string str) {
 int main() {
     std::string str;
     while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+        std::cout << camelCase(str) << " ";
     }
+    std::cout << std::endl;
     return 0;
 }
