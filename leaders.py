@@ -1,6 +1,9 @@
-def leaders(a):
-    return [
-        a[i]
-        for i in range(len(a) - 1, -1, -1)
-        if all(a[i] >= a[j] for j in range(i + 1, len(a)))
-    ]
+def leaders(nums):
+    n = len(nums)
+    result = [nums[n-1]]
+    
+    for i in range(n-2, -1, -1):
+        if nums[i] >= nums[i+1]:
+            result.append(nums[i])
+    
+    return reversed(result)
