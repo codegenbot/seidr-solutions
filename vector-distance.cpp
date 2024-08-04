@@ -22,7 +22,7 @@ int main() {
     }
 
     double result = std::sqrt(sum);
-    std::cout << std::fixed << result << std::endl;
+    std::cout << std::fixed << result << "\n";
 
     return 0;
 }
