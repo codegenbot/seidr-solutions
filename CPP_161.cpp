@@ -1,4 +1,6 @@
-string solve(string s){
+#include <string>
+#include <algorithm>
+std::string solve(std::string s){
     int n = s.length();
     bool hasLetter = false;
     
