@@ -1,4 +1,4 @@
-def leaders(v):
+def leaders(input):
     return [
-        v[i] for i in range(len(v) - 1, -1, -1) if all(x <= v[i] for x in v[i + 1 :])
+        x for x in reversed(input) if all(y <= x for y in input[input.index(x) + 1 :])
     ]
