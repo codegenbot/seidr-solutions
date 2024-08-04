@@ -1,13 +1,21 @@
-```
-def bowling_score(game):
+def bowling_score(s):
     score = 0
-    roll = 0
-    for frame in game.split('/'):
-        if len(frame) == 1: # strike
-            score += 10 + next((int(x) for x in game[game.index(frame)+1:].split('/')[0] if x.isdigit()), 0) + next((int(x) for x in game[game.index(frame)+1:].split('/')[1:] if x.isdigit()), 0)
-        elif len(frame) == 2: # spare
-            score += 10 + int(frame[0])
-            roll = int(frame[1])
+    roll = []
+    for char in s:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == "/":
+            if len(roll) < 2:
+                return "Invalid input"
+            score += sum(roll)
+            roll = []
+        elif char.lower() == "x":
+            score += 10 + sum(roll)
+            roll = []
         else:
-            score += sum(int(x) for x in frame)
+            if len(roll) > 1:
+                score += sum(roll)
+                roll = []
+    if len(roll) > 0:
+        score += sum(roll)
     return score
