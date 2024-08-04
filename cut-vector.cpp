@@ -9,7 +9,7 @@ int main() {
     while (cin >> n && !cin.eof()) {
         nums.push_back(n);
     }
-    if (!cin.eof()) {
+    if (cin.fail()) {
         cerr << "Invalid input." << endl;
         return 1;
     }
