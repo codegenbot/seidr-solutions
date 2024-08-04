@@ -1,8 +1,9 @@
-Here is the Python solution:
-
-def luhn(card):
-    card = list(map(int, card.split()))
-    result = sum((i+1) % 2 * (10 - (x % 10)) for i, x in enumerate(card))
-    return result if result % 10 == 0 else 'Invalid'
-card = input().split()
-print(luhn(' '.join(card)))
+def luhn(card_number):
+    card_number = [int(x) for x in str(card_number).split()]
+    result = sum(
+        [
+            x if i % 2 == 0 else x * 2 > 9 and x * 2 - 9 or x * 2
+            for i, x in enumerate(card_number)
+        ]
+    )
+    return result
