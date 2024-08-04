@@ -1,23 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <limits>
 
 int main() {
-    int n;
-    std::cin >> n;
+    std::vector<double> vec1, vec2;
+    double val;
 
-    std::vector<double> vec1(n), vec2(n);
-
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+    while (std::cin >> val) {
+        vec1.push_back(val);
     }
 
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+   
+    while (std::cin >> val) {
+        vec2.push_back(val);
     }
 
     double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (size_t i = 0; i < vec1.size(); ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
