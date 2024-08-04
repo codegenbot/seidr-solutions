@@ -1,6 +1,6 @@
 #include <string>
 
-string squareDigits(std::string n) {
+string squareDigits(string n) {
     string res = "";
     for(int i=0; i<n.length(); i++){
         int num = (int)(n[i] - '0'); 
