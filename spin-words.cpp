@@ -1,31 +1,15 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-
-std::string spinWords(std::string input) {
-    std::string output = "";
-    std::size_t pos = 0;
-    
-    while ((pos = input.find(" ")) != std::string::npos) {
-        std::string word = input.substr(0, pos);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        
-        output += word + " ";
-        input.erase(0, pos + 1);
+string spinWords(string str) {
+    string result = "";
+    size_t pos = 0;
+    while ((pos = str.find(" ")) != string::npos) {
+        size_t wordLen = str.substr(0, pos).length();
+        if (wordLen >= 5)
+            for (int i = wordLen - 1; i >= 0; --i)
+                result += str[pos+i];
+        else
+            result += str.substr(0, pos);
+        str.erase(0, pos + 1);
     }
-    
-    output += input;
-    
-    return output;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << spinWords(input) << std::endl;
-    return 0;
+    result += str;
+    return result;
 }

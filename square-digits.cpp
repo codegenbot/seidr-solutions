@@ -1,15 +1,10 @@
-```
-#include <vector>
-#include <iostream>
 #include <string>
 
-using namespace std;
-
-std::string squareDigits(std::string input) {
-    std::string output = "";
-    for (int i = 0; i < input.length(); i++) {
-        int digit = (input[i] - '0'); 
-        output += to_string(digit * digit); 
+string squareDigits(string n) {
+    string res = "";
+    for(int i=0; i<n.length(); i++){
+        int num = (int)(n[i] - '0'); 
+        res += to_string(num * num); 
     }
-    return output;
+    return res;
 }
