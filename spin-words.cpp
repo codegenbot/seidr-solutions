@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -13,7 +14,8 @@ string spinWords(string str) {
             else
                 result += temp;
             temp = "";
-        } else {
+        } 
+        else {
             temp += c;
         }
     }
