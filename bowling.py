@@ -1,40 +1,31 @@
 ```
-def bowling_score(bowling):
+def bowling_game(frames):
     score = 0
-    frame = 1
-    in_play = False
-    spare = False
-    strike = False
-    
-    for i in range(len(bowling)):
-        if bowling[i] == 'X':
-            strike = True
-            continue
-        
-        if bowling[i].isdigit():
-            if not in_play:
-                score += int(bowling[i-1])
-                if frame < 9 and (bowling[i-2].isdigit() or bowling[i-2] == '/'):
-                    in_play = True
-                else:
-                    frame += 1
-            elif strike and not spare:
-                score += 10 + int(bowling[i])
-                strike = False
-                in_play = False
-                frame += 1
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            if i < 8:
+                score += 30
             else:
-                if bowling[i] == '/':
-                    score += 10 - int(bowling[i-1])
-                    spare = True
-                    continue
-                
-                if spare and not strike:
-                    score += 10 + int(bowling[i])
-                    spare = False
-                    in_play = False
-                    frame += 1
-                
-                score += int(bowling[i])
-    
+                score += 10 + (10 - (i % 2)) * 10
+        elif frames[i:i+2] == 'XX':
+            score += 20
+        elif frames[i].isdigit():
+            first_roll = int(frames[i])
+            if i < 8 and frames[i+1].isdigit():
+                second_roll = int(frames[i+1])
+                if first_roll + second_roll >= 10:
+                    score += 10 + (10 - (first_roll + second_roll)) * 10
+                else:
+                    score += first_roll + second_roll
+            elif i < 8 and frames[i+1] == 'X':
+                score += first_roll + 10
+            else:
+                score += first_roll
+        else:
+            if i > 0 and frames[i-1].isdigit():
+                first_roll = int(frames[i-1])
+                if first_roll >= 10:
+                    score += 10 + (10 - first_roll) * 10
+                else:
+                    score += first_roll
     return score
