@@ -17,7 +17,7 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
         return a.length() < b.length();
     });
     return lst;
-} 
+}
 
 int main() {
     // Main function implementation
