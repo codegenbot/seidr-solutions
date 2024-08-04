@@ -5,23 +5,31 @@
 std::string camelCase(std::string str) {
     std::string result = "";
     bool firstWord = true;
+    bool inWord = false;
     
     for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
-                result += std::toupper(c);
+                result += char(toupper(c));
+                inWord = true;
+            } else {
+                inWord = false;
             }
             firstWord = false;
         } else if (c == ' ') {
-            if (!firstWord) {
-                result += ' ';
+            if (!inWord) {
+                result += c;
+            } else {
+                result += char(toupper(c));
+                inWord = false;
             }
             firstWord = true;
         } else {
-            if (!firstWord) {
-                result += c;
+            if (!firstWord || !inWord) {
+                result += tolower(c);
+                inWord = true;
             } else {
-                result += std::tolower(c);
+                result += c;
             }
             firstWord = false;
         }
