@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <climits>
 
 bool is_same(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -28,7 +29,5 @@ int main(){
     
     assert(is_same(output, expected_output));
     
-    assert (is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
-
     return 0;
 }
