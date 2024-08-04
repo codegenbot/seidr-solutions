@@ -1,11 +1,2 @@
-```
-def leaders(input):
-    input = [int(i) for i in input.split()]
-    output = []
-    max_right = input[-1]
-    output.append(max_right)
-    for i in range(len(input)-2, -1, -1):
-        if input[i] >= max_right:
-            max_right = input[i]
-            output.insert(0, max_right)
-    return str(output)[1:-1].replace(', ', ' ').replace('[', '').replace(']', '')
+def leaders(arr):
+    return [x for x in arr[::-1][:-1, -1] + [arr[-1]]]
