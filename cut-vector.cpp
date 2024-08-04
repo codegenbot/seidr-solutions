@@ -6,14 +6,15 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n && !cin.eof()) {
+    while (!cin.eof()) {
+        cin >> n;
+        if (cin.fail()) break;
         nums.push_back(n);
     }
     if (cin.fail()) {
-        cerr << "Invalid input." << endl;
+        cerr << "Input error\n";
         return 1;
     }
-
     int sum = 0;
     for (int num : nums) {
         sum += num;
