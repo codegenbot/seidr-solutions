@@ -22,8 +22,8 @@ int main() {
     getline(cin, s);
     vector<int> result = findIndices(s, s.substr(0, n));
     for (int i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
-    std::cout << std::endl;
+    cout << std::endl;
     return 0;
 }
