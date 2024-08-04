@@ -1,12 +1,13 @@
-def cut_vector(lst):
+def cut_vector(nums):
+    left = 0
     min_diff = float("inf")
     split_idx = -1
 
-    for i in range(1, len(lst)):
-        diff = abs(np.mean(lst[:i]) - np.mean(lst[i:]))
+    for i in range(1, len(nums)):
+        diff = abs(sum(nums[:i]) - sum(nums[i:]))
 
-        if diff < min_diff:
+        if diff <= min_diff:
             min_diff = diff
             split_idx = i
 
-    return lst[:split_idx], lst[split_idx:]
+    return nums[:split_idx], nums[split_idx:]
