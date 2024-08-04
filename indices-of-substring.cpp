@@ -1,3 +1,4 @@
+````
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,7 +9,7 @@ vector<int> findIndices(string text, string target) {
     
     while ((pos = text.find(target)) != string::npos) {
         indices.push_back(pos);
-        text.erase(0, pos + 1); // erase the found substring
+        text.erase(0, pos + 1); 
     }
     
     return indices;
@@ -26,3 +27,4 @@ int main() {
     cout << endl;
     return 0;
 }
+```
