@@ -32,6 +32,8 @@ int main() {
         for (int num : subvec2) {
             cout << num << endl;
         }
+    } else {
+        cout << "Invalid index for splitting vector." << endl;
     }
     return 0;
 }
