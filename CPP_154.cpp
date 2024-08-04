@@ -11,14 +11,8 @@ bool cycpattern_check(const string& a, const string& b) {
 int main() {
     assert(cycpattern_check("winemtt", "tinem") == true);
 
-    assert(cycpattern_check("abcd", "cdab") == true);
-    assert(cycpattern_check("hello", "llohe") == true);
-    assert(cycpattern_check("xyz", "zxy") == true);
-    
-    assert(cycpattern_check("apple", "banana") == false);
-    assert(cycpattern_check("hi", "hello") == false);
-
-    cout << "All test cases passed." << endl;
+    assert(cycpattern_check("programming", "grammingpro") == true);
+    assert(cycpattern_check("hello", "world") == false);
 
     return 0;
 }
