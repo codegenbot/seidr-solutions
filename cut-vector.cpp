@@ -1,17 +1,8 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (cin >> n) { // Check for cin validity before reading integer
         nums.push_back(n);
-    }
-    if (cin.fail()) {
-        cerr << "Invalid input." << endl;
-        return 1;
     }
 
     int sum = 0;
