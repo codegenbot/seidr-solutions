@@ -1,16 +1,15 @@
-Here is the Python solution:
+Here's the Python solution for the problem:
 
-def solveBoolean(expression):
-    stack = []
-    for char in expression:
-        if char == '&':
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-        elif char == '|':
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-        else:
-            stack.append(char == 'T')
-    return bool(stack[0])
+def solveBoolean(input_str):
+    if input_str == 'T':
+        return True
+    elif input_str == 'F':
+        return False
+    elif '&' in input_str:
+        a, b = input_str.split('&')
+        return bool(a) and bool(b)
+    elif '|' in input_str:
+        a, b = input_str.split('|')
+        return bool(a) or bool(b)
+
+print(solveBoolean(input('Enter a Boolean expression: ')))
