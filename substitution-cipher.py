@@ -1,9 +1,13 @@
-```
-def substitution_cipher(cipher_map, message):
-    return "".join([cipher_map[i] if i < len(cipher_map) else "" for i in range(len(message))])
+def substitution_cipher(cipher, message):
+    result = ""
+    for char in message:
+        if char.isalpha():
+            index = ord(char.lower()) - 97 if char.islower() else ord(char.lower()) - 65
+            result += cipher[index % len(cipher)]
+        else:
+            result += char
+    return result
 
-# test cases
-print(substitution_cipher("a", "a", "a"))  # a
-print(substitution_cipher("j", "h", "jhjj"))  # hh
-print(substitution_cipher("a", "z", "aza"))   # zzz
-print(substitution_cipher("e", "l", "eeeeeeeeee"))  # llllllllll
+
+cipher1, cipher2, message = input().split()
+print(substitution_cipher(cipher1, message))
