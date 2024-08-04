@@ -13,15 +13,12 @@ int main() {
     }
 
     for (int i = 0; i < n; ++i) {
-        double temp;
-        std::cin >> temp;
-        std::cin.ignore(); // Ignore the comma separating values
-        vec2[i] = temp;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     double result = sqrt(sum);
