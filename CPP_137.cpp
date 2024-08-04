@@ -1,4 +1,10 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
+#include <boost/any.hpp>
+#include <string>
+
+using namespace boost;
+
+boost::any compare_one(const boost::any& a, const boost::any& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
         } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
@@ -17,5 +23,5 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
             return b;
         }
     }
-    return "None";
+    return boost::any();
 }
