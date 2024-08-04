@@ -1,9 +1,9 @@
 n = int(input())
-price_list = list(map(float, input().split()))
-discount_list = list(map(float, input().split()))
+prices = list(map(float, input().split()))
+discounts = list(map(float, input().split()))
 
-total_price = 0.0
-for i in range(n):
-    total_price += price_list[i] * (1 - discount_list[i] / 100)
+total_price = sum(
+    price * (1 - discount / 100) for price, discount in zip(prices, discounts)
+)
 
-print("{:.1f}".format(total_price))
+print(total_price)
