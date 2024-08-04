@@ -31,14 +31,17 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    int a, b;
+    string text;
     cout << "Enter two integers separated by a space: ";
-    cin >> a >> b;
+    getline(cin, text);
+    int spacePos = text.find(' ');
+    int a = stoi(text.substr(0, spacePos));
+    int b = stoi(text.substr(spacePos + 1));
     cout << gcd(a, b) << endl;
 
-    string text, target;
     cout << "Enter text and target string separated by a space: ";
     getline(cin, text);
+    string target;
     getline(cin, target);
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
