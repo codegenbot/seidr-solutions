@@ -1,24 +1,13 @@
-```
+Here is the Python code to solve the problem:
+
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
-    return abs(a)
+    return a
 
-def indices_of_substring(text, target):
-    result = []
-    current_index = 0
-    while current_index < len(text):
-        position = text.find(target, current_index)
-        if position == -1:
-            break
-        result.append(position)
-        current_index = position + 1
-    return result
-
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+def find_indices(text, target):
+    indices = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+    return indices
