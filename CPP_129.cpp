@@ -1,6 +1,6 @@
-#include <vector>
-#include <iostream>
 
+#include <vector>
+#include <cassert>
 using namespace std;
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
@@ -12,14 +12,6 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{1, 3}, {3, 2}};
-    int k = 4;
-    
-    std::vector<int> result = minPath(grid, k);
-    
-    for (int val : result) {
-        cout << val << " ";
-    }
-    
+    minPath({{1, 3}, {3, 2}}, 10);
     return 0;
 }
