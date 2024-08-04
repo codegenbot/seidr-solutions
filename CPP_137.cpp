@@ -1,31 +1,27 @@
 #include <any>
 #include <string>
-#include <cassert>
+
+using namespace std;
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+        if (any_cast<int>(a) > any_cast<int>(b)) {
             return a;
-        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
+        } else if (any_cast<int>(a) < any_cast<int>(b)) {
             return b;
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+        if (any_cast<float>(a) > any_cast<float>(b)) {
             return a;
-        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
+        } else if (any_cast<float>(a) < any_cast<float>(b)) {
             return b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stod(any_cast<string>(a)) > stod(any_cast<string>(b))) {
             return a;
-        } else if (std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))) {
+        } else if (stod(any_cast<string>(a)) < stod(any_cast<string>(b))) {
             return b;
         }
     }
     return std::any();
-}
-
-int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
-    return 0;
 }
