@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool is_same_lists(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
@@ -35,7 +35,8 @@ int main() {
         cout << str << endl;
     }
 
-    assert(is_same_lists(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), expected));
 
     return 0;
 }
