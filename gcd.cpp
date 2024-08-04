@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <iostream>
@@ -37,3 +38,4 @@ int main() {
     for(int i : indices)
         cout << i << " ";
     return 0;
+}
