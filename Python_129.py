@@ -22,7 +22,7 @@ def minPath(grid, k):
                 return res
 
         visited[curr_i][curr_j] = False
-
+    
     for i in range(N):
         for j in range(N):
             path = dfs(i, j, [grid[i][j]])
