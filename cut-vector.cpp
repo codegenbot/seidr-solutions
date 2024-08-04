@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (cin >> n && cin.good()) {
         nums.push_back(n);
     }
     int sum = 0;
@@ -23,17 +23,13 @@ int main() {
             break;
         }
     }
-    if (idx >= 0 && idx < nums.size()) {
-        vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
-        vector<int> subvec2(nums.begin() + idx + 1, nums.end());
-        for (int num : subvec1) {
-            cout << num << endl;
-        }
-        for (int num : subvec2) {
-            cout << num << endl;
-        }
-    } else {
-        cout << "Invalid index for splitting vector." << endl;
+    vector<int> subvec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvec2(nums.begin() + idx + 1, nums.end());
+    for (int num : subvec1) {
+        cout << num << endl;
+    }
+    for (int num : subvec2) {
+        cout << num << endl;
     }
     return 0;
 }
