@@ -1,33 +1,42 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
-bool are_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool are_same(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
-std::vector<std::string> sorted_list_sum(const std::vector<std::string>& input_lst) {
-    std::vector<std::string> result = input_lst;
-    std::sort(result.begin(), result.end());
-    return result;
+vector<string> sorted_list_sum(const vector<string>& input_lst) {
+    vector<string> sorted_list = input_lst;
+    sort(sorted_list.begin(), sorted_list.end());
+
+    int sum = 0;
+    for (const auto& str : sorted_list) {
+        sum += stoi(str);
+    }
+
+    return {to_string(sum)};
 }
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<std::string> input_lst(n);
+    cin >> n;
+    vector<string> input_lst(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> input_lst[i];
+        cin >> input_lst[i];
     }
 
-    std::vector<std::string> result = sorted_list_sum(input_lst);
+    vector<string> result = sorted_list_sum(input_lst);
 
     for (const auto& str : result) {
-        std::cout << str << std::endl;
+        cout << str << endl;
     }
 
-    assert(are_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
+    assert(are_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
 
     return 0;
 }
