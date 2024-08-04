@@ -1,30 +1,50 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame = 0
-    for roll in frames:
-        if roll.isdigit():
-            if len(roll) > 1 and roll[0] == 'X':
-                score += 30
-                frame += 1
-            elif roll[0] == 'X':
-                score += 10 + int(roll[1:])
-                frame += 1
-            else:
-                score += int(roll)
-        else:
-            if roll == '-':
+    for i in range(len(frames)):
+        if frames[i].isdigit():
+            frame = int(frames[i])
+            if frame == 10:
+                score += 10 + next_frames_score(i)
                 continue
-            elif roll == 'X':
-                score += 10
-                frame += 1
+            elif frame < 10:
+                score += frame
+                continue
             else:
-                first_roll = int(roll.split('/')[0])
-                second_roll = int(roll.split('/')[1])
-                if first_roll + second_roll == 10:
-                    score += 10 + int(min(roll))
-                    frame += 1
-                elif first_roll > 0 and second_roll > 0:
-                    score += first_roll + second_roll
-                    frame += 1
+                return "Invalid input"
+        elif frames[i] == 'X':
+            score += 10 + next_frames_score(i)
+            continue
+        else:
+            strikes = 0
+            for j in range(i+1, len(frames)):
+                if frames[j].isdigit():
+                    frame = int(frames[j])
+                    if frame < 10:
+                        break
+                    else:
+                        strikes += 1
+                elif frames[j] == 'X':
+                    strikes += 1
+                    break
+                else:
+                    return "Invalid input"
+            score += 10 + strikes*frame
+    return score
+
+def next_frames_score(i):
+    score = 0
+    for j in range(i+1, len()):
+        if frames[j].isdigit():
+            frame = int(frames[j])
+            if frame < 10:
+                score += frame
+                break
+            else:
+                return "Invalid input"
+        elif frames[j] == 'X':
+            score += 10 + next_frames_score(j)
+            return score
+        else:
+            return "Invalid input"
     return score
