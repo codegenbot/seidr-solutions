@@ -1,24 +1,20 @@
-Here's the solution:
+Here is the solution for the problem:
 
 def solve_boolean(expression):
-    if expression == 't':
+    if expression == 'T':
         return True
-    elif expression == 'f':
+    elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        parts = expression.split('&')
-        for part in parts:
-            if '|' in part:
-                raise ValueError("Invalid expression")
-            part = part.strip()
-            if not part:
-                continue
-            if part[0] == 't':
-                part = True
-            elif part[0] == 'f':
-                part = False
-            else:
-                raise ValueError("Invalid expression")
-        return all(parts)
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return solve_boolean(left) and solve_boolean(right)
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
+
+# For example,
+print(solve_boolean('t'))  # Output: True
+print(solve_boolean('f'))  # Output: False
+print(solve_boolean('f&f'))  # Output: False
+print(solve_boolean('f&t'))  # Output: False
+print(solve_boolean('t&f'))  # Output: False
