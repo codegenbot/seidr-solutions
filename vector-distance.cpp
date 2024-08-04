@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 int main() {
     int n;
     std::cin >> n;
@@ -22,7 +18,8 @@ int main() {
     }
 
     double result = sqrt(sum);
-    std::cout << result << std::endl;
+    std::cout.precision(17);
+    std::cout << std::fixed << result << std::endl;
 
     return 0;
 }
