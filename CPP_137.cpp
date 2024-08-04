@@ -1,8 +1,9 @@
+// Include necessary headers
 #include <boost/any.hpp>
+#include <cassert>
 #include <string>
 
-using namespace boost;
-
+// Function signature
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
@@ -23,5 +24,10 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     }
-    return boost::any();
+    return boost::any{}; // Return empty boost::any if no conditions are met
+}
+
+int main() {
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == ""); // Add appropriate comparison value
+    return 0;
 }
