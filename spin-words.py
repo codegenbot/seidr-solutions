@@ -1,7 +1,7 @@
-Here's the Python solution:
+Here's the solution:
 
-def spin_words(input_string):
-    words = input_string.split()
+def spin_words(s):
+    words = s.split()
     result = []
     for word in words:
         if len(word) >= 5:
