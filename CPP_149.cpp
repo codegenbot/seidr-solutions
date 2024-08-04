@@ -9,15 +9,15 @@ bool are_same(const vector<string>& a, const vector<string>& b) {
 }
 
 vector<string> sorted_list_sum(const vector<string>& input_lst) {
-    vector<string> sorted_list = input_lst;
-    sort(sorted_list.begin(), sorted_list.end());
+    vector<string> sorted_input_lst = input_lst;
+    sort(sorted_input_lst.begin(), sorted_input_lst.end());
 
-    int sum = 0;
-    for (const auto& str : sorted_list) {
-        sum += stoi(str);
+    string sum_str = "";
+    for (const auto& str : sorted_input_lst) {
+        sum_str += str;
     }
 
-    return {to_string(sum)};
+    return {sum_str};
 }
 
 int main() {
