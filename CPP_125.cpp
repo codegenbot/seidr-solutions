@@ -4,9 +4,9 @@
 #include <iostream>
 
 std::vector<std::string> split_words(const std::string& txt);
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -45,7 +45,7 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert(is_same(split_words(""), std::vector<std::string>{"0"}));
+    assert_equal(split_words(""), {"0"});
 
     return 0;
 }
