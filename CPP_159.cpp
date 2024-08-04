@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
