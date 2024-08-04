@@ -1,18 +1,11 @@
-```
-def solve_boolean(expression):
-    if expression == 't':
+def solveBoolean(inputStr):
+    if inputStr == 'T':
         return True
-    elif expression == 'f':
+    elif inputStr == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= eval('True' if next_char == 't' else 'False')
-            elif char == '|':
-                result |= eval('True' if next_char == 't' else 'False')
-            next_char = char
-
-    return result
+    elif '&' in inputStr:
+        a, b = map(solveBoolean, inputStr.split('&'))
+        return a and b
+    elif '|' in inputStr:
+        a, b = map(solveBoolean, inputStr.split('|'))
+        return a or b
