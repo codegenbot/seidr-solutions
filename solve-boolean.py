@@ -1,23 +1,23 @@
-def solve_boolean(expression):
-    if expression == "T":
+def solveBoolean(input):
+    if input == "T":
         return True
-    elif expression == "F":
+    elif input == "F":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    result = True
-    for char in expression:
-        if char == "&":
-            result &= evaluate(char)
-        elif char == "|":
-            result |= evaluate(char)
-    return result
-
-
-def evaluate(expression):
-    if "T" in expression or "t" in expression:
-        return True
-    elif "F" in expression or "f" in expression:
-        return False
-    else:
-        raise ValueError("Invalid expression")
+    elif "&" in input and "|" in input:
+        a, op, b = input.split(op)
+        a = a.strip() == "T"
+        b = b.strip() == "T"
+        if op == "&":
+            return a and b
+        else:
+            return a or b
+    elif "&" in input:
+        a, b = input.split("&")
+        a = a.strip() == "T"
+        b = b.strip() == "T"
+        return a and b
+    elif "|" in input:
+        a, b = input.split("|")
+        a = a.strip() == "T"
+        b = b.strip() == "T"
+        return a or b
