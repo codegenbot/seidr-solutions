@@ -26,18 +26,23 @@ std::vector<int> findIndicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     int a, b;
-    std::cin >> a;
-    std::cin >> b;
-
-    std::cin >> std::ws;
+    if (!(std::cin >> a) || !(std::cin >> b)) {
+        std::cerr << "Input error";
+        return 1;
+    }
+    
+    std::cin.ignore();
     
     std::string text, target;
-    getline(std::cin, text);
-    getline(std::cin, target);
+    if (!getline(std::cin, text) || !getline(std::cin, target)) {
+        std::cerr << "Input error";
+        return 1;
+    }
 
     std::vector<int> result = findIndicesOfSubstring(text, target);
     for (int i : result) {
         std::cout << i << " ";
     }
+    
     return 0;
 }
