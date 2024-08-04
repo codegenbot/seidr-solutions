@@ -1,11 +1,9 @@
-Here is a Python solution for the problem:
-
 def fizz_buzz(x):
     if x % 15 == 0:
-        return 'FizzBuzz'
+        return "FizzBuzz"
     elif x % 3 == 0:
-        return 'Fizz'
+        return "Fizz"
     elif x % 5 == 0:
-        return 'Buzz'
+        return "Buzz"
     else:
         return str(x)
