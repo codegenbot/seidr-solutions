@@ -1,15 +1,11 @@
-Here is the Python code to solve the problem:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == 'T':
         return True
-    elif expression == 'F':
+    elif input_str == 'F':
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-
-print(solve_boolean(input()))
+    elif '&' in input_str and '|' in input_str:
+        return eval(input_str.replace('True', '1').replace('False', '0'))
+    elif '&' in input_str:
+        return all(eval(x) for x in input_str.split('&'))
+    elif '|' in input_str:
+        return any(eval(x) for x in input_str.split('|'))
