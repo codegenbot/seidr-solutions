@@ -1,16 +1,18 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = std::min(total, remaining);
+    return {eaten, std::max(0, remaining - eaten)};
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
-    std::vector<int> v1 = {1, 2, 3};
-    std::vector<int> v2 = {1, 2, 3};
-
-    if (issame(v1, v2)) {
-        return true;
-    } else {
-        return false;
-    }
+int solveProblem() {
+    assert(issame(eat(4, 5, 1), std::vector<int>{5, 0}));
+    return 0;
 }
