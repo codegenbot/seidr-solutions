@@ -1,17 +1,19 @@
-def solveBoolean(inputString):
-    def boolOp(op, a, b):
-        if op == '|':
-            return a or b
-        elif op == '&':
-            return a and b
+def solveBoolean(input_str):
+    def evaluate(expression):
+        if expression == "T":
+            return True
+        elif expression == "F":
+            return False
+        elif len(expression) > 1:
+            a = expression[0]
+            b = expression[1:]
+            if expression[0] == "&" and not all([c in ["&", "|"] for c in b]):
+                return a == "&"
+            elif expression[0] == "|" and not any([c in ["&", "|"] for c in b]):
+                return a == "|"
+            else:
+                return evaluate(a) and evaluate(b)
         else:
-            raise Exception("Invalid operator")
+            return expression[0]
 
-    result = True if inputString == 't' else False
-    
-    for i in range(len(inputString) - 1):
-        op = inputString[i]
-        left = result
-        result = boolOp(op, left, inputString[i+1] == 't')
-    
-    return result
+    return evaluate(input_str)
