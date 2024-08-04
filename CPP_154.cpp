@@ -1,7 +1,3 @@
-int len1 = a.length();
-    int len2 = b.length();
-    if (len1 != len2) return false;
-    
-    string combined = a + a;
-    return combined.find(b) != string::npos;
+bool cycpattern_check(const string& a, const string& b) {
+    return (a.size() == b.size() && (a + a).find(b) != string::npos);
 }
