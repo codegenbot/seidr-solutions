@@ -7,3 +7,10 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
+
+
+cipher1 = input()
+cipher2 = input()
+message = input()
+
+print(substitution_cipher(cipher1, cipher2, message))
