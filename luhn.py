@@ -1,10 +1,4 @@
 def luhn(card):
-    total = 0
-    for i in range(len(card) - 1):
-        digit = int(card[i])
-        if (i) % 2 == 1:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        total += digit
-    return total + card[-1]
+    card = [int(x) for x in card[1:]]
+    double_even = [(card[i] * 2) % 10 if i % 2 else card[i] for i in range(len(card))]
+    return sum(double_even)
