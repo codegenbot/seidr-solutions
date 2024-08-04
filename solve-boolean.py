@@ -1,19 +1,11 @@
-Here is the Python solution for the problem:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == 'T':
         return True
-    elif expression == 'F':
+    elif input_str == 'F':
         return False
-    elif '&' in expression:
-        ops = expression.split('&')
-        result = bool(eval(ops[0]))
-        for op in ops[1:]:
-            result &= bool(eval(op))
-        return result
-    elif '|' in expression:
-        ops = expression.split('|')
-        result = bool(eval(ops[0]))
-        for op in ops[1:]:
-            result |= bool(eval(op))
-        return result
+    elif '&' in input_str and '|' in input_str:
+        return eval(input_str.replace('True', '1').replace('False', '0'))
+    elif '&' in input_str:
+        return all(eval(x) for x in input_str.split('&'))
+    elif '|' in input_str:
+        return any(eval(x) for x in input_str.split('|'))
