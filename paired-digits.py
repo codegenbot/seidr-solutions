@@ -1,6 +1,2 @@
-def paired_digits(digits):
-    return sum(
-        int(digit)
-        for digit in digits
-        if digits[digits.index(digit)] * 10 + int(digit) == int(digits[0] + digit)
-    )
+def paired_digits(s):
+    return sum(int(x) for x in s if s[s.index(x) + 1] == x)
