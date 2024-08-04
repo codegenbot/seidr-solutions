@@ -1,13 +1,7 @@
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-void spinWords() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    
+string spinWords(string str) {
     string result = "";
     string temp = "";
     
@@ -31,10 +25,13 @@ void spinWords() {
     else
         result += temp;
     
-    cout << "Spinned string: " << result << endl;
+    return result;
 }
 
 int main() {
-    spinWords();
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "Result: " << spinWords(input) << endl;
     return 0;
 }
