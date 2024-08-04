@@ -22,7 +22,3 @@ std::string string_to_md5(const std::string &text) {
 
     return std::string(mdString);
 }
-
-/*
-Compilation command: g++ your_file.cpp -o output_file -lssl -lcrypto
-*/
