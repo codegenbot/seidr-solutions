@@ -1,7 +1,9 @@
+
 #include <vector>
 #include <climits>
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
@@ -28,9 +30,12 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    string line;
+    getline(cin, line);
+    stringstream ss(line);
+
+    while (ss >> num) {
         nums.push_back(num);
-        if (cin.eof()) break; // Add this line to check for end of input
     }
     
     vector<int> result = findLeaders(nums);
@@ -40,4 +45,4 @@ int main() {
     }
     
     return 0;
-}
+} 
