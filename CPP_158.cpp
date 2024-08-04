@@ -1,4 +1,4 @@
-#include <string>
+#include <iostream>
 #include <vector>
 #include <set>
 #include <cassert>
@@ -20,7 +20,7 @@ string find_max(vector<string> words){
     return max_word;
 }
 
-int main() {
+int main(){
     assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
