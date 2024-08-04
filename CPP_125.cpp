@@ -29,11 +29,11 @@ std::vector<std::string> split_words(const std::string& txt) {
         result.push_back(word);
     }
 
-    if (result.size() == 1 && std::islower(result[0][0])) {
+    if (result.size() == 1 && std::all_of(result[0].begin(), result[0].end(), ::islower)) {
         int count = 0;
 
         for (char c : result[0]) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+            if ((c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -45,7 +45,7 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert_equal(split_words(""), {"0"});
+    assert_equal(split_words(""), std::vector<std::string>{"0"});
 
     return 0;
 }
