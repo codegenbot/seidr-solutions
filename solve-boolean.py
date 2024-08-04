@@ -1,24 +1,12 @@
-```
-def solve(input_str):
-    if input_str == 't':
+def solve.Boolean(input_str):
+    if input_str == 'T':
         return True
-    elif input_str == 'f':
+    elif input_str == 'F':
         return False
-    elif '&' in input_str and '|' in input_str:
-        raise ValueError("Invalid expression")
     elif '&' in input_str:
-        result = True
-        for op, bit in zip(['&'], input_str.split('&')):
-            if op == '&':
-                result &= (bit == 't')
-            else:
-                raise ValueError("Invalid expression")
-        return result
+        left, right = input_str.split('&')
+        return (bool(solve.Boolean(left)), bool(solve.Boolean(right)))\
+                [-int(bool(solve.Boolean(left)) and bool(simplify.right))]
     elif '|' in input_str:
-        result = False
-        for op, bit in zip(['|'], input_str.split('|')):
-            if op == '|':
-                result |= (bit == 't')
-            else:
-                raise ValueError("Invalid expression")
-        return result
+        left, right = input_str.split('|')
+        return not (not bool(solve.Boolean(left)) and not bool(solve.Boolean(right)))
