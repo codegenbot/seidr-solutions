@@ -7,10 +7,7 @@ def mastermind(code, guess):
     for i in range(4):
         if guess[i] == code[i]:
             black += 1
-        else:
-            for j in range(4):
-                if guess[j] == code[i]:
-                    white += 1
-                    break
-
+        elif guess.count(code[i]) > 0:
+            white += 1
+            
     return str(black) + '\n' + str(white)
