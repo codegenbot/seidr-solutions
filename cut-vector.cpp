@@ -1,10 +1,14 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) { // Check for cin validity before reading integer
+    while (cin >> n) {
         nums.push_back(n);
     }
-
     int sum = 0;
     for (int num : nums) {
         sum += num;
