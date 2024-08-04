@@ -1,51 +1,31 @@
 #include <vector>
 #include <string>
-#include <cassert>
-#include <iostream>
 
-std::vector<std::string> split_words(const std::string& txt);
-bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
-bool assert_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-std::vector<std::string> split_words(const std::string& txt) {
-    std::vector<std::string> result;
-    std::string word = "";
-
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
+std::vector<std::string> split_words(const std::string& str) {
+    std::vector<std::string> words;
+    std::string word;
+    for (char c : str) {
+        if (c == ' ') {
             if (!word.empty()) {
-                result.push_back(word);
-                word = "";
+                words.push_back(word);
+                word.clear();
             }
         } else {
             word += c;
         }
     }
-
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
+    return words;
+}
 
-    if (result.size() == 1 && std::all_of(result[0].begin(), result[0].end(), ::islower)) {
-        int count = 0;
-
-        for (char c : result[0]) {
-            if ((c - 'a') % 2 == 1) {
-                count++;
-            }
-        }
-
-        result[0] = std::to_string(count);
-    }
-
-    return result;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert_equal(split_words(""), std::vector<std::string>{"0"});
+    issame(split_words(""), std::vector<std::string>{"0"});
 
     return 0;
 }
