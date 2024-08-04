@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -5,26 +6,30 @@
 std::string camelCase(std::string str) {
     std::string result = "";
     bool firstWord = true;
-    
+    bool prevWasDashOrSpace = false;
+
     for (char c : str) {
         if (c == '-') {
-            result += ' ';
-            firstWord = false;
+            prevWasDashOrSpace = true;
         } else if (c == ' ') {
-            if (!firstWord) {
-                result += std::toupper(c);
+            if (!prevWasDashOrSpace && !firstWord) {
+                result += char(toupper(c));
             }
-            firstWord = true;
+            firstWord = false;
+            prevWasDashOrSpace = false;
         } else {
             if (!firstWord) {
-                result += std::toupper(c);
-            } else {
+                result += c;
+            } else if (prevWasDashOrSpace || c == ' ') {
                 result += tolower(c);
+            } else {
+                result += toupper(c);
             }
             firstWord = false;
+            prevWasDashOrSpace = false;
         }
     }
-    
+
     return result;
 }
 
