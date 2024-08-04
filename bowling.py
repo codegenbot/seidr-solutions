@@ -1,17 +1,35 @@
 ```
-def bowling_score(gutter_balls):
-    frames = [list(frame) for frame in gutter_balls.split('/')]
+def bowling_score(bowling_string):
     score = 0
-    roll = 1
-    while roll <= 10:
-        if len(frames[roll - 1]) == 2 and frames[roll - 1][0] != 'X':
-            score += 10
-        elif len(frames[roll - 1]) >= 1 and frames[roll - 1][0] != 'X':
-            score += int(frames[roll - 1][0])
-            if len(frames[roll - 1]) > 1:
-                score += int(frames[roll - 1][1])
-        else:
-            roll_score = sum(map(int, frames[roll - 1]))
-            score += roll_score
-        roll += 1
-    return score
+    frame_count = 0
+    for i in range(0, len(bowling_string), 2):
+        if bowling_string[i:i+1].isdigit():
+            strike = False
+            if bowling_string[i:i+2] == '10':
+                score += 10
+                frame_count += 1
+                continue
+            else:
+                frame_score = int(bowling_string[i:i+2])
+                if i+3 < len(bowling_string):
+                    next_ball = bowling_string[i+3]
+                    if next_ball.isdigit():
+                        score += frame_score + int(next_ball)
+                        frame_count += 1
+                    elif next_ball == 'X':
+                        strike = True
+                    else:
+                        non_strike_frame_score = int(next_ball) + int(bowling_string[i+4:i+6])
+                        score += frame_score + non_strike_frame_score
+                        frame_count += 2
+                else:
+                    score += frame_score
+                    frame_count += 1
+        elif bowling_string[i] == 'X':
+            if frame_count < 9 and i+3 < len(bowling_string):
+                score += 10
+                frame_count += 1
+            else:
+                score += 10
+                frame_count += 1
+        return score
