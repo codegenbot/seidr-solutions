@@ -5,13 +5,10 @@ def minPath(grid, k):
     visited = {start}
 
     while len(path) < k:
-        i, j = min(
-            (i, j)
-            for (x, y) in visited
-            for i, j in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1))
-            if 0 <= i < n and 0 <= j < n and (i, j) not in visited
-        )
-        visited.add((i, j))
-        path.append(grid[i][j])
+        i, j = visited.pop()
+        for x, y in [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]:
+            if 0 <= x < n and 0 <= y < n and (x, y) not in visited:
+                visited.add((x, y))
+                path.append(grid[x][y])
 
     return path
