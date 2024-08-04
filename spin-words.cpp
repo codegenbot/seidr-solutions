@@ -1,5 +1,4 @@
-// Here is the solution:
-
+```cpp
 string spinWords(string str) {
     string result = "";
     size_t pos = 0;
