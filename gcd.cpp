@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Function to find greatest common divisor
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
 }
@@ -20,11 +19,10 @@ int main() {
     cin >> target;
     vector<int> indices;
 
-    // Finding all occurrences of target in text
     size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1);  // Search for next occurrence starting after current position
+        pos = text.find(target, pos + 1);
     }
 
     for (int idx : indices) {
