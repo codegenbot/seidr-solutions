@@ -1,13 +1,10 @@
-def substitution_cipher(cipher, message):
-    result = ""
-    for char in message:
-        if char.isalpha():
-            index = ord(char.lower()) - 97 if char.islower() else ord(char.lower()) - 65
-            result += cipher[index % len(cipher)]
+```
+def substitution_cipher(cipher_text1, cipher_text2, text):
+    deciphered_text = ""
+    for char in text:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            deciphered_text += cipher_text2[index]
         else:
-            result += char
-    return result
-
-
-cipher1, cipher2, message = input().split()
-print(substitution_cipher(cipher1, message))
+            deciphered_text += char
+    return deciphered_text
