@@ -31,18 +31,15 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    string text;
-    getline(cin, text);
-    int pos = text.find(' ');
-    int a = stoi(text.substr(0, pos));
-    int b = stoi(text.substr(pos+1));
-
+    cin.ignore();
+    int a, b;
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
+    string text, target;
+    cin.ignore();
     getline(cin, text);
-    string target;
     getline(cin, target);
-
     vector<int> result = indicesOfSubstring(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
