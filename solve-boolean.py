@@ -1,15 +1,17 @@
-Here's the Python solution for the problem:
+def solve_boolean(s):
+    def evaluate(expression):
+        if expression == 'T':
+            return True
+        elif expression == 'F':
+            return False
+        elif '&' in expression and '|' in expression:
+            left, right = expression.split('&')
+            return evaluate(left) and evaluate(right)
+        elif '&' in expression:
+            left, right = expression.split('&')
+            return evaluate(left) and evaluate(right)
+        elif '|' in expression:
+            left, right = expression.split('|')
+            return evaluate(left) or evaluate(right)
 
-def solveBoolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        a, b = input_str.split('&')
-        return bool(a) and bool(b)
-    elif '|' in input_str:
-        a, b = input_str.split('|')
-        return bool(a) or bool(b)
-
-print(solveBoolean(input('Enter a Boolean expression: ')))
+    return evaluate(s)
