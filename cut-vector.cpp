@@ -6,12 +6,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    int numCount = 0;
-    const int MAX_NUMS = 10; // assuming a maximum of 10 numbers
-    for (int i = 0; i < MAX_NUMS; ++i) {
-        cin >> n;
+    while (cin >> n && !cin.eof()) {
         nums.push_back(n);
-        numCount++;
     }
     int sum = 0;
     for (int num : nums) {
