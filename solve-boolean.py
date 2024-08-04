@@ -1,13 +1,16 @@
-def solve_boolean(expression):
-    if expression == "t":
+```
+def solveBoolean(expression):
+    if expression == 'T':
         return True
-    elif expression == "f":
+    elif expression == 'F':
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid operation")
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return not (bool(left) and bool(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return bool(left) or bool(right)
+    elif '&' in expression and '|' in expression:
+        raise ValueError('Invalid expression')
+    else:
+        result = True
+        for char in expression:
+            if char == '&':
+                result = result and (expression[expression.index(char)+1] == 'T')
+            elif char == '|':
+                result = result or (expression[expression.index(char)+1] == 'T')
+        return result
