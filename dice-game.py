@@ -1,3 +1,4 @@
 n = int(input())
 m = int(input())
-print(f'{(n-1) * (m-1) / (n * m):.8f}')
+probability = sum((n - i) / (n * m) for i in range(1, n))
+print('{:.8f}'.format(probability))
