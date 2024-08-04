@@ -1,10 +1,7 @@
 n = int(input())
-vector1 = list(map(float, input().split()))
+vec1 = list(map(float, input().split()))
 n = int(input())
-vector2 = list(map(float, input().split()))
+vec2 = list(map(float, input().split()))
 
-distance = 0
-for i in range(len(vector1)):
-    distance += (vector1[i] - vector2[i]) ** 2
-distance = math.sqrt(distance)
+distance = math.sqrt(sum((vec1[i] - vec2[i])**2 for i in range(len(vec1))))
 print(distance)
