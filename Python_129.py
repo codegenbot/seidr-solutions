@@ -4,7 +4,7 @@ def minPath(grid, k):
 
     def dfs(x, y, path, path_sum):
         if path_sum >= k:
-            return path
+            return [float("inf")]
 
         min_path = [float("inf")]
 
