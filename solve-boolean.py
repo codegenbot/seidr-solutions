@@ -1,4 +1,4 @@
-Here is the Python solution for the problem:
+Here is the Python code to solve the problem:
 
 def solve_boolean(expression):
     if expression == 'T':
@@ -6,14 +6,10 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression:
-        ops = expression.split('&')
-        result = bool(eval(ops[0]))
-        for op in ops[1:]:
-            result &= bool(eval(op))
-        return result
+        left, right = expression.split('&')
+        return solve_boolean(left) and solve_boolean(right)
     elif '|' in expression:
-        ops = expression.split('|')
-        result = bool(eval(ops[0]))
-        for op in ops[1:]:
-            result |= bool(eval(op))
-        return result
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
+
+print(solve_boolean(input()))
