@@ -13,26 +13,15 @@ string toCamelCase(string str) {
             while (i < str.length() && str[i] == ' ') {
                 i++;
             }
-            if (result.length() > 0) {
-                result[0] = tolower(str[i]);
-            } else {
-                result += toupper(str[i]);
-            }
+            result += toupper(str[i]);
         } else if (str[i] == ' ') {
-            if (result.length() > 0) {
-                result[0] = tolower(str[i+1]);
-            } else {
-                result += toupper(str[i+1]);
-            }
             i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
+            continue;
         } else {
             if (result.length() > 0) {
                 result[0] = tolower(str[i]);
             } else {
-                result += toupper(str[i]);
+                result += tolower(str[i]);
             }
         }
     }
