@@ -4,25 +4,25 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount;
-    map<char, int> guessCount;
-
+    int codeCount[6] = {0};
     for (char c : code) {
-        codeCount[c]++;
-    }
-    for (char c : guess) {
-        guessCount[c]++;
+        codeCount[c - 'A']++;
     }
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeCount[code[i]]--;
-            guessCount[guess[i]]--;
-            if (codeCount[code[i]] >= 0 && guessCount[guess[i]] >= 0) white++;
+            codeCount[guess[i] - 'A']--;
         }
     }
 
-    return white + black;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && codeCount[guess[i] - 'A'] > 0) {
+            white++;
+            codeCount[guess[i] - 'A']--;
+        }
+    }
+
+    return black + white;
 }
