@@ -6,7 +6,7 @@ using namespace std;
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     float total = 0.0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i] * 0.01);
+        total += prices[i] * (1 - discounts[i] / 100.0);
     }
     return total;
 }
@@ -24,7 +24,7 @@ int main() {
         cin >> discounts[i];
         discounts[i] = 100 - discounts[i];
     }
-
+  
     float result = calculateTotalPrice(prices, discounts);
     cout << result << endl;
 
