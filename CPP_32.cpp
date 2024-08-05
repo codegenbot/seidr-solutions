@@ -18,10 +18,8 @@ bool find_zero(const std::vector<double>& coeffs){
 }
 
 int main(){
-    std::vector<double> coeffs = {1.0, -2.0, 1.0}; 
-    coeffs.push_back(3.0);
-    bool solution;
-    solution = find_zero(coeffs);
+    std::vector<double> coeffs = {1.0, -2.0, 1.0};
+    bool solution = find_zero(coeffs);
     assert(solution);
     return 0;
 }
