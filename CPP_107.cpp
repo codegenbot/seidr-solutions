@@ -6,14 +6,15 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> res;
-    for (int i = 0; i < n/2; ++i) {
-        res.push_back(i);
+    if (n % 2 == 0) {
+        std::vector<int> palindrome(n / 2, 1);
+        palindrome.push_back(0);
+        return palindrome;
+    } else {
+        std::vector<int> palindrome((n + 1) / 2, 1);
+        palindrome.push_back(0);
+        return palindrome;
     }
-    for (int i = n/2; i >= 0; --i) {
-        res.push_back(i);
-    }
-    return res;
 }
 
 int main() {
