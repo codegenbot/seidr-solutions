@@ -5,20 +5,19 @@
 
 using namespace std;
 
-bool solve(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> sortedArr = arr;
-    sort(sortedArr.begin(), sortedArr.end());
-    for (int i = 0; i < n; ++i) {
-        if (arr == sortedArr) {
-            return true;
+bool solve(initializer_list<int> arr) {
+    vector<int> balls(arr);
+    int n = balls.size();
+    for (int i = 0; !is_sorted(balls.begin(), balls.end()); ++i) {
+        rotate(balls.rbegin(), balls.rbegin() + 1, balls.rend());
+        if (i == n - 1) {
+            return false;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return false;
+    return true;
 }
 
-int main() {
+int main(){
     assert(solve({1, 2, 3, 4}) == true);
     assert(solve({3, 4, 1, 2}) == false);
 
