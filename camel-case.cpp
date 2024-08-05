@@ -1,35 +1,35 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == '-') {
-            words.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
-    }
+using namespace std;
 
-    std::string result;
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += std::string(1, char(toupper(word[0])));
-            result.erase(0, 1);
+string kebabToCamel(string str) {
+    string result = "";
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '-') {
+            i++;
+            while (i < str.length() && str[i] == ' ') {
+                i++;
+            }
+            result += toupper(str[i]);
+        } else if (str[i] == ' ') {
+            continue;
         } else {
-            result = word;
+            if (!result.empty()) {
+                result += tolower(str[i]);
+            } else {
+                result += toupper(str[i]);
+            }
         }
     }
     return result;
 }
 
 int main() {
-    int t;
-    std::cin >> t;
-    while (t--) {
-        std::string s;
-        std::cin >> s;
-        std::cout << camelCase(s) << std::endl;  // use std::cout and std::endl
-    }
+    string str;
+    cout << "Enter a string in kebab-case: ";
+    cin >> str;
+    cout << "The camelCase equivalent is: " << kebabToCamel(str) << endl;
     return 0;
 }
