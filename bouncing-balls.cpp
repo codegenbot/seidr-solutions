@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 int main() {
@@ -16,4 +16,3 @@ int main() {
     cout << fixed << totalDistance;
 
     return 0;
-}
