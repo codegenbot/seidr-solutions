@@ -1,36 +1,34 @@
-#include <boost/any.hpp>
-#include <boost/type_index.hpp>
+#include <iostream>
 #include <string>
-using namespace std;
 
-boost::any compare(boost::any a, boost::any b){
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-            return a;
-        } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-            return b;
+std::string compareAny(const std::any& a, const std::any& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
+            return std::to_string(std::any_cast<int>(a));
+        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
+            return std::to_string(std::any_cast<int>(b));
         } else {
-            return string("None");
+            return "None";
         }
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-            return a;
-        } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-            return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
+            return std::to_string(std::any_cast<float>(a));
+        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
+            return std::to_string(std::any_cast<float>(b));
         } else {
-            return string("None");
+            return "None";
         }
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        float a_float = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
-        float b_float = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
-        if(a_float > b_float){
-            return a;
-        } else if(a_float < b_float){
-            return b;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        float a_float = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
+        float b_float = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
+        if (a_float > b_float) {
+            return std::to_string(a_float);
+        } else if (a_float < b_float) {
+            return std::to_string(b_float);
         } else {
-            return string("None");
+            return "None";
         }
     } else {
-        return string("None");
+        return "None";
     }
 }
