@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> generate_integers(int a, int b) {
     std::vector<int> result;
