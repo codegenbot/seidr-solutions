@@ -3,14 +3,14 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c){
     std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
+    for(char ch : s){
+        if(c.find(ch) == std::string::npos){
             result += ch;
         }
     }
@@ -20,6 +20,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    // Add your code for input and function calls here
+    // Add your code to test the functions here
     return 0;
 }
