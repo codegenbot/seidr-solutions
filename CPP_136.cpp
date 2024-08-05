@@ -15,14 +15,10 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
         }
     }
     
-    result[0] = max_neg == INT_MIN ? 0 : max_neg;
-    result[1] = min_pos == INT_MAX ? 0 : min_pos;
+    result[0] = (max_neg == INT_MIN) ? 0 : max_neg;
+    result[1] = (min_pos == INT_MAX) ? 0 : min_pos;
     
     return result;
-}
-
-bool is_same(std::vector<int> a, std::vector<int> b){
-    return a == b;
 }
 
 int main() {
