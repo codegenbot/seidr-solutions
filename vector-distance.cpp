@@ -19,7 +19,7 @@ int main() {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    double distance = std::sqrt(sum);
+    double distance = std::sqrt(sum); // Corrected calculation
     std::cout << distance << std::endl;
 
     return 0;
