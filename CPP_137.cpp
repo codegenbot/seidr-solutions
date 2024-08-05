@@ -3,8 +3,13 @@
 #include <cassert>
 #include <boost/any.hpp>
 
-std::string compare_one(const std::string& a, const std::string& b) {
-    return (a == b) ? a : "None";
+std::string compare_one(const boost::any& a, const boost::any& b) {
+    if (a.type() == b.type()) {
+        if (a.type() == typeid(std::string)) {
+            return boost::any_cast<std::string>(a) == boost::any_cast<std::string>(b) ? boost::any_cast<std::string>(a) : "None";
+        }
+    }
+    return "None";
 }
 
 int main() {
