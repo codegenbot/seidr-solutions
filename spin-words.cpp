@@ -1,7 +1,3 @@
-```c++
-#include <iostream>
-#include <string>
-
 std::string spinWords(std::string str) {
     std::string result = str;
     int wordStart = 0;
@@ -15,9 +11,4 @@ std::string spinWords(std::string str) {
         }
     }
     return result;
-}
-
-int main() {
-    std::cout << spinWords("this is another test") << std::endl;
-    return 0;
 }
