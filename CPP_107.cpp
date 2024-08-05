@@ -10,6 +10,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    assert(is_same(even_odd_palindrome(1), std::vector<int>{0, 1}));
+    assert(is_same(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
