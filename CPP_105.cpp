@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
@@ -31,15 +32,8 @@ bool is_same(std::vector<std::string> a, std::vector<std::string> b)
     return a == b;
 }
 
-int main() {
-    std::vector<std::string> vec1 = by_length({4, 9, 8});
-    std::vector<std::string> vec2 = by_length({8, 4, 9});
-    
-    if (is_same(vec1, vec2)) {
-        std::cout << "Vectors are the same\n";
-    } else {
-        std::cout << "Vectors are different\n";
-    }
-
+int main()
+{
+    assert(is_same(by_length(std::vector<int>{9, 4, 8}), std::vector<std::string>{"Nine", "Eight", "Four"}));
     return 0;
 }
