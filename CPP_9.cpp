@@ -18,12 +18,12 @@ vector<int> rolling_max(vector<int> numbers) {
     return result;
 }
 
-void solve_problem() {
+void solve() {
     vector<int> output = rolling_max({3, 2, 3, 100, 3});
     assert(output == vector<int>({3, 3, 3, 100, 100}));
 }
 
 int main() {
-    solve_problem();
+    solve();
     return 0;
 }
