@@ -16,4 +16,4 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 assert(issame(sum_product({10}), {10, 10}));
-return 0;
+```
