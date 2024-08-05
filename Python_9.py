@@ -1,7 +1,9 @@
-from typing import List
+from typing import List, Tuple
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
+    if not isinstance(numbers, list):
+        return "Invalid input. Please provide a list of integers."
     max_numbers = []
     current_max = float("-inf")
     for num in numbers:
