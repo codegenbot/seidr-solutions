@@ -1,3 +1,4 @@
+```cpp
 double probability(int n, int m) {
     if (n < m) {
         return 0;
