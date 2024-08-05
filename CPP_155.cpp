@@ -1,14 +1,27 @@
-int even_odd_count(int n) {
-    int even = 0, odd = 0;
+#include <vector>
+#include <cassert>
+
+std::vector<int> even_odd_count(int n) {
+    std::vector<int> result(2, 0);
+    if (n % 2 == 0)
+        result[0] = 1;
+    else
+        result[1] = 1;
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     
-    while (n != 0) {
-        if (n % 2 == 0)
-            even++;
-        else
-            odd++;
-        
-        n /= 10;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     
-    return even > odd ? 1 : 0;
+    return true;
+}
+
+int main() {
+    assert(issame(even_odd_count(0), {1, 0}));
+    
+    return 0;
 }
