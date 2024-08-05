@@ -1,14 +1,12 @@
-#include <cassert>
+#include <iostream>
 
-extern "C" {
-    int fib(int n) {
-        if (n <= 1)
-            return n;
-        return fib(n - 1) + fib(n - 2);
-    }
+int fib(int n) {
+    if(n <= 1)
+        return n;
+    return fib(n-1) + fib(n-2);
+}
 
-    int main() {
-        assert(fib(12) == 144);
-        return 0;
-    }
+int main() {
+    std::cout << fib(12) << std::endl;
+    return 0;
 }
