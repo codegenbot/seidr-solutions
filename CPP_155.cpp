@@ -1,18 +1,14 @@
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
+int even_odd_count(int n) {
+    int even = 0, odd = 0;
     
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+    while (n != 0) {
+        if (n % 2 == 0)
+            even++;
+        else
+            odd++;
+        
+        n /= 10;
     }
     
-    return true;
-}
-
-int main() {
-    assert(issame({1, 0}, {1, 0}));
-    
-    return 0;
+    return even > odd ? 1 : 0;
 }
