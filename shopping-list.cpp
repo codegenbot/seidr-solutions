@@ -22,10 +22,11 @@ int main() {
     vector<float> discounts(n);
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
+        discounts[i] = 100 - discounts[i];
     }
-  
+
     float result = calculateTotalPrice(prices, discounts);
     cout << result << endl;
 
     return 0;
-}  
+}
