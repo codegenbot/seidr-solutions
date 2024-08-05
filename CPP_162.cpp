@@ -13,7 +13,7 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX *context = EVP_MD_CTX_new();
+    EVP_MD_CTX* context = EVP_MD_CTX_new();
     OpenSSL_add_all_algorithms();
     OPENSSL_config(NULL);
     EVP_DigestInit_ex(context, EVP_md5(), NULL);
