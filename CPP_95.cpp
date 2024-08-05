@@ -1,22 +1,19 @@
 #include <unordered_map>
-#include <cassert>
 #include <cctype>
-#include <algorithm>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
 
-    bool hasLower = true, hasUpper = true;
-
+    bool isLower = true, isUpper = true;
     for(auto const& pair : dict) {
         for(char c : pair.first) {
             if(std::islower(c)) {
-                hasUpper = false;
+                isUpper = false;
             } else if(std::isupper(c)) {
-                hasLower = false;
+                isLower = false;
             }
         }
     }
 
-    return hasLower || hasUpper;
+    return isLower || isUpper;
 }
