@@ -1,29 +1,32 @@
-def calculate_bowling_score(input_string):
+def bowling(input_str):
     score = 0
     frame = 1
-    i = 0
-    while frame <= 10:
-        if input_string[i] == "X":
+    balls = list(input_str.replace("X", "10").replace("/", "10"))
+
+    for i in range(len(balls)):
+        if balls[i] == "10":
             score += 10
-            score += calculate_strike_bonus(input_string, i)
-            i += 1
-        elif input_string[i] == "/":
-            score += 10 - int(input_string[i - 1])
-            i += 1
+            if balls[i + 2].isdigit():  # not spare or strike in the next frame
+                score += int(balls[i + 1]) + int(balls[i + 2])
+            else:
+                if balls[i + 2] == "X":
+                    score += 10
+                else:
+                    score += 10
+                    if balls[i + 3].isdigit():
+                        score += int(balls[i + 3])
         else:
-            score += int(input_string[i])
-        i += 1
-        frame += 1
+            if balls[i] != "/":
+                score += int(balls[i])
+            if balls[i] == "/":
+                score += 10 - int(balls[i - 1])
+        if frame < 10:
+            if balls[i] == "X" or balls[i] == "/":
+                frame += 1
+
     return score
 
 
-def calculate_strike_bonus(input_string, i):
-    if input_string[i + 2] == "X":
-        return 20
-    elif input_string[i + 2] == "/":
-        return 10
-    return int(input_string[i + 1]) + int(input_string[i + 2])
-
-
-input_string = input()
-print(calculate_bowling_score(input_string))
+# Read input from user
+input_str = input().strip()
+print(bowling(input_str))
