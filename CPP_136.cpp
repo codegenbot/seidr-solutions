@@ -16,15 +16,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> largest_smallest_integer(std::vector<int> lst){
+std::vector<int> largest_smallest_integer(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
     int max_neg = INT_MIN;
     int min_pos = INT_MAX;
     
-    for(int num : lst){
-        if(num < 0 && num > max_neg){
+    for (int num : lst) {
+        if (num < 0 && num > max_neg) {
             max_neg = num;
-        } else if(num > 0 && num < min_pos){
+        } else if (num > 0 && num < min_pos) {
             min_pos = num;
         }
     }
