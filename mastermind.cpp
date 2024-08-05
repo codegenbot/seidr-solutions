@@ -14,18 +14,15 @@ int mastermind(string code, string guess) {
     // Count correct colors in correct places (black pegs)
     int codeCount[6] = {0};
     for (char c : code) {
-        codeCount[c - 'A']++;
+        codeCount[c - '0']++;
     }
 
-    for (int j = 0; j < 4; ++j) {
-        if (code[j] == guess[j]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             black++;
-        } else {
-            int count = codeCount[guess[j] - 'A'];
-            if (count > 0) {
-                black++;
-                codeCount[guess[j] - 'A']--;
-            }
+        } else if (codeCount[guess[i] - '0'] > 0) {
+            black++;
+            codeCount[guess[i] - '0]--;
         }
     }
 
