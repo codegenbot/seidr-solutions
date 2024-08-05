@@ -1,7 +1,11 @@
+```cpp
 double diceGame(int n, int m) {
-    double sum = 0;
-    for(int i=1; i<=n-1; i++) {
-        sum += (1.0 / m);
+    double totalPossibilities = n * m;
+    double winningRolls = (m - 1.0);
+    
+    for(int i = 2; i < n; i++) {
+        winningRolls += i;
     }
-    return sum;
+    
+    return winningRolls / totalPossibilities;
 }
