@@ -15,7 +15,7 @@ string toCamelCase(string str) {
             }
             result += toupper(str[i]);
         } else if (str[i] == ' ') {
-            continue;
+            i++;
         } else {
             if (result.length() > 0) {
                 result[0] = tolower(str[i]);
@@ -31,7 +31,7 @@ int main() {
     string str;
     while (true) {
         cin >> str;
-        getline(cin, str);
+        getline(cin, str); 
         cout << toCamelCase(str) << endl;
     }
     return 0;
