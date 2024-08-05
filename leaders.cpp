@@ -2,8 +2,9 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
     int n = arr.size();
+    vector<int> result;
+    
     for(int i=n-1; i>=0; i--) {
         bool flag = true;
         for(int j=i+1; j<n; j++) {
@@ -12,10 +13,9 @@ vector<int> leaders(vector<int>& arr) {
                 break;
             }
         }
-        if(flag) {
-            result.push_back(arr[i]);
-        }
+        
+        if(flag) result.push_back(arr[i]);
     }
-    reverse(result.begin(), result.end());
+    
     return result;
 }
