@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
@@ -21,4 +21,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+int main() {
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    std::cout << "Test Passed!\n";
+    return 0;
 }
