@@ -2,11 +2,7 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> largest_smallest_integers(std::vector<int> lst) {
+std::vector<int> largest_smallest_integer(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
     int max_neg = INT_MIN;
     int min_pos = INT_MAX;
@@ -25,13 +21,11 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     return result;
 }
 
-int main(){
-    std::vector<int> input = {5, -2, 9, -7, 3};
-    std::vector<int> expected_output = { -2, 3 };
+int main() {
+    std::vector<int> input = {-6, -4, -4, -3, -100, 1};
+    std::vector<int> expected_output = {-100, 1};
     
-    std::vector<int> output = largest_smallest_integers(input);
+    assert(largest_smallest_integer(input) == expected_output);
     
-    assert(issame(output, expected_output));
-
     return 0;
 }
