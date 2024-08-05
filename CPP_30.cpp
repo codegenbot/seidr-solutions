@@ -16,6 +16,7 @@ std::vector<float> get_positive(const std::vector<float>& input) {
     return result;
 }
 
+/* 
 int main() {
     // Test the get_positive function
     std::vector<float> test_vec = {1.5, -2.3, 3.7, -4.1, 5.2};
@@ -27,3 +28,4 @@ int main() {
 
     return 0;
 }
+*/
