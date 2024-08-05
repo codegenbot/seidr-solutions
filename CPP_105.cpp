@@ -4,6 +4,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 std::vector<std::string> by_length(std::vector<int> arr) {
     // Function implementation remains the same
 }
@@ -11,8 +13,6 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
-
-using namespace std;
 
 int main() {
     std::vector<std::string> vec1 = by_length({1, 9, 4});
