@@ -11,7 +11,7 @@ bool solve(vector<int>& arr) {
         if (is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        rotate(arr.begin(), arr.begin() + 1, arr.end());
     }
     return false;
 }
