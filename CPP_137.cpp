@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
+#include <any>
 #include <cassert>
-#include <boost/any.hpp>
 
 std::string compare_one(const std::string& a, const std::string& b) {
     return (a == b) ? a : "None";
@@ -10,7 +10,8 @@ std::string compare_one(const std::string& a, const std::string& b) {
 int main() {
     std::string result = compare_one("1", "1");
 
-    assert(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(result == "1");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), "1")) == "None");
 
     return 0;
 }
