@@ -7,11 +7,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
-    
-    result.push_back(0);
-    if (n > 0)
-        result.push_back(1);
-
+    // Add your logic to generate even_odd_palindrome here
     return result;
 }
 
