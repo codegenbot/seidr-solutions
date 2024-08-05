@@ -19,6 +19,6 @@ std::vector<int> pluck(std::vector<int> arr) {
     if (smallest_even == -1) {
         return {};
     } else {
-        return { smallest_even };
+        return {smallest_even};
     }
 }
