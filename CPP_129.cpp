@@ -7,7 +7,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    std::sort(grid.begin(), grid.end());
+    std::sort(grid.begin(), grid.end(), [](const auto& a, const auto& b) {
+        return a[0] < b[0]; 
+    });
     return grid.at(k);
 }
 
