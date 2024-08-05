@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
