@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -6,6 +5,7 @@ string get_closest_vowel(string word);
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
+    // Add more test cases here
 
     return 0;
 }
@@ -18,5 +18,5 @@ string get_closest_vowel(string word) {
             return string(1, word[i]);
         }
     }
-    return "y";
+    return "y"; // Return 'y' if no other vowels found
 }
