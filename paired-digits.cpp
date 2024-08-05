@@ -1,6 +1,9 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
     
     int sum = 0;
     for (int i = 0; i < s.size() - 1; ++i) {
@@ -9,7 +12,7 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    std::cout << sum << std::endl;
     
     return 0;
 }
