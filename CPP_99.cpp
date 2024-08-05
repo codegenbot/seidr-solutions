@@ -1,10 +1,13 @@
+#include <iostream>
 #include <cmath>
-#include <cassert>
 
 int closestInteger(double num) {
-    return static_cast<int>(round(num));
+    return lround(num);
 }
 
 int main() {
-    assert (closestInteger(0) == 0);
+    double num;
+    std::cin >> num;
+    std::cout << closestInteger(num);
+    return 0;
 }
