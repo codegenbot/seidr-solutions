@@ -1,30 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <limits>
-
-using namespace std;
-
-vector<int> findLeaders(const vector<int>& nums) {
+vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
-    int maxRight = numeric_limits<int>::min();
-    for (int i = nums.size() - 1; i >= 0; i--) {
+    int maxRight = nums.back();
+    
+    leaders.push_back(maxRight);
+    
+    for (int i = nums.size() - 2; i >= 0; i--) {
         if (nums[i] >= maxRight) {
-            leaders.push_back(nums[i]);
             maxRight = nums[i];
+            leaders.push_back(maxRight);
         }
     }
+    
     reverse(leaders.begin(), leaders.end());
+    
     return leaders;
-}
-
-int main() {
-    vector<int> input = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(input);
-    
-    for (int leader : result) {
-        cout << leader << " ";
-    }
-    
-    return 0;
 }
