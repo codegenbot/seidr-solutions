@@ -6,17 +6,15 @@ def solve_boolean(expression):
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    elif '&' in expression:
+    else:
         result = True
-        for term in expression.split('&'):
-            if not solve_boolean(term):
+        for char in expression:
+            if char == '&':
+                result &= True
+            elif char == '|':
+                result |= True
+            elif char == 'T':
+                result &= True
+            elif char == 'F':
                 result = False
-                break
-        return result
-    elif '|' in expression:
-        result = False
-        for term in expression.split('|'):
-            if solve_boolean(term):
-                result = True
-                break
         return result
