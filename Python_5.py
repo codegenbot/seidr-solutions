@@ -1,3 +1,5 @@
-numbers = list(map(int, input().split()))
-delimiter = int(input())
-print(intersperse(numbers, delimiter))
+from typing import List
+
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    return sum([[num, delimiter] for num in numbers], [])[:-1]
