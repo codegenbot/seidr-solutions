@@ -1,19 +1,16 @@
 #include <vector>
 #include <cassert>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> res;
-    for (int i = 0; i < n/2; ++i) {
-        res.push_back(i);
+    std::vector<int> result(n);
+    for (int i = 0; i < n; ++i) {
+        result[i] = i % 2;
     }
-    for (int i = n/2; i >= 0; --i) {
-        res.push_back(i);
-    }
-    return res;
+    return result;
 }
 
 int main() {
