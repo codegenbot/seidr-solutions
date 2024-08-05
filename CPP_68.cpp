@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> pluck(std::vector<int> arr);
 
-void main(){
+void main(){  // Changed return type to void
     assert(issame(pluck({7, 9, 7, 1}), {}));
 }
 
