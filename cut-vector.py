@@ -1,24 +1,21 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
+total_sum = sum(nums)
 half_sum = total_sum // 2
-prefix_sum = 0
-idx = -1
 
-for i in range(n):
-    prefix_sum += a[i]
-    if prefix_sum >= half_sum:
-        idx = i
-        break
+prefix_sums = [0]
+for num in nums:
+    prefix_sums.append(prefix_sums[-1] + num)
 
-if prefix_sum == half_sum:
-    print(a[: idx + 1])
-    print(a[idx + 1 :])
-else:
-    if abs(prefix_sum - half_sum) < abs(prefix_sum - a[idx] - half_sum):
-        print(a[: idx + 1])
-        print(a[idx + 1 :])
-    else:
-        print(a[:idx])
-        print(a[idx:])
+best_diff = float("inf")
+best_idx = -1
+
+for i in range(1, n):
+    diff = abs(prefix_sums[i] - (total_sum - prefix_sums[i]))
+    if diff < best_diff:
+        best_diff = diff
+        best_idx = i
+
+print(nums[:best_idx])
+print(nums[best_idx:])
