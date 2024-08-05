@@ -1,26 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
 bool move_one_ball(const vector<int>& arr) {
     int n = arr.size();
+    vector<int> temp = arr; // Create a copy of the input array
     for (int i = 0; i < n; ++i) {
-        vector<int> arr_copy = arr;
-        rotate(arr_copy.begin(), arr_copy.begin() + 1, arr_copy.end());
-        
-        if (is_sorted(arr_copy.begin(), arr_copy.end())) {
+        if (is_sorted(temp.begin(), temp.end())) { // Check the sorted condition on the copy
             return true;
         }
+        rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend()); // Rotate the copy
     }
     return false;
-}
-
-int main() {
-    assert(move_one_ball({1, 2, 3, 4}) == true);
-    assert(move_one_ball({3, 4, 1, 2}) == false);
-
-    return 0;
 }
