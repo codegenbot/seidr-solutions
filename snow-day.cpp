@@ -1,7 +1,7 @@
-```
 #include <iostream>
-#include <iomanip>
 using namespace std;
+
+#include <iomanip>
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
@@ -13,7 +13,6 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
         // Calculate how much snow melts per hour and subtract it from the total
         if (proportionOfSnowMeltingPerHour > 0) {
             totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
-            initialSnow = totalSnow; // Update the amount of initial snow for next hour
         }
     }
     
