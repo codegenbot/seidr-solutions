@@ -27,6 +27,6 @@ int main() {
         cin >> discount;
     }
     double result = shoppingList(prices, discounts);
-    std::cout << std::fixed << std::setprecision(1) << result << std::endl;
+    std::cout << fixed << setprecision(1) << result << endl;
     return 0;
 }
