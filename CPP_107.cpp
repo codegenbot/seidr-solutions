@@ -1,9 +1,12 @@
-// Correct the function name to is_same
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
 bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-// Change vector to std::vector and separate the arguments with a comma
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> count(2, 0);
     for (int i = 1; i <= n; ++i) {
@@ -20,16 +23,8 @@ std::vector<int> even_odd_palindrome(int n) {
     }
     return count;
 }
-
-// Correct the function name to is_same and separate the arguments with commas
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+  
+int main() {
+    assert(is_same(even_odd_palindrome(1), {0, 1}));
+    return 0;
 }
-
-// Correct the function name to is_same
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-// Change assert to include the <cassert> header
-#include <cassert>
