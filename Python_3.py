@@ -6,7 +6,6 @@ def below_zero(operations):
             return True
     return False
 
-
 # Read input from user
 operations = list(map(int, input().split()))
 
