@@ -3,18 +3,14 @@ v = [int(input()) for _ in range(n)]
 
 total_sum = sum(v)
 half_sum = total_sum // 2
+
 current_sum = 0
-idx = 0
-
-for i, num in enumerate(v):
-    current_sum += num
+for i in range(n):
+    current_sum += v[i]
     if current_sum >= half_sum:
-        idx = i
-        break
-
-if current_sum - half_sum < half_sum - (current_sum - num):
-    print(v[: idx + 1])
-    print(v[idx + 1 :])
-else:
-    print(v[:idx])
-    print(v[idx:])
+        if current_sum == half_sum or abs(current_sum - half_sum) < abs(
+            current_sum - v[i] - half_sum
+        ):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+            break
