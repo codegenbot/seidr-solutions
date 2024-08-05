@@ -1,5 +1,5 @@
 from typing import List
-
+from itertools import chain
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    return sum([[num, delimiter] for num in numbers], [])[:-1]
+    return list(chain.from_iterable(zip(numbers, [delimiter] * len(numbers)))[:-1]
