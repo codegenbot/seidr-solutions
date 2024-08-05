@@ -1,4 +1,7 @@
 #include <algorithm>
+#include <vector>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -9,7 +12,9 @@ string spinWords(string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                for(int j = word.length()-1; j>=0; j--) {
+                    result += word[j];
+                }
             }
             result += word + " ";
             word = "";
@@ -19,7 +24,9 @@ string spinWords(string str) {
     }
 
     if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
+        for(int j = word.length()-1; j>=0; j--) {
+            result += word[j];
+        }
     }
     result += word;
 
@@ -32,3 +39,4 @@ int main() {
     getline(cin, str);
     cout << spinWords(str) << endl;
     return 0;
+}
