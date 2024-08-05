@@ -1,18 +1,18 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> is_same(const std::vector<int>& a, const std::vector<int>& b){
+bool is_same(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()) {
-        return {0};
+        return false;
     }
       
     for(size_t i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
-            return {0};
+            return false;
         }
     }
 
-    return {1};
+    return true;
 }
 
 std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
@@ -27,7 +27,7 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
 }
 
 int main(){
-    assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}) == std::vector<int>({1}));
+    assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     
     return 0;
 }
