@@ -1,12 +1,8 @@
-#include <vector>
-
-int basementIndex(const std::vector<int>& vec) {
+int basement(const vector<int>& v) {
     int sum = 0;
-    for (size_t i = 0; i < vec.size(); ++i) {
-        sum += vec[i];
-        if (sum < 0) {
-            return static_cast<int>(i);
-        }
+    for (int i = 0; i < v.size(); ++i) {
+        sum += v[i];
+        if (sum < 0) return i;
     }
-    return -1; // or any other default value you want to return
+    return -1; // or some default value, if no such index is found
 }
