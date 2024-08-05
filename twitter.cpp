@@ -4,10 +4,10 @@
 using namespace std;
 
 string validateTweet(string tweet) {
-    if(tweet.empty()) {
+    if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if(tweet.length() > 140) {
+    if (tweet.length() > 140) {
         return "Too many characters";
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
@@ -15,7 +15,7 @@ string validateTweet(string tweet) {
 
 int main() {
     string tweet;
-    cout << "Enter a tweet: ";
+    cout << "Enter your tweet: ";
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
