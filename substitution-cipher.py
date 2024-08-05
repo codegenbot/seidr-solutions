@@ -1,7 +1,10 @@
-def substitution_cipher():
-    cipher_map = [c for c1, c2 in zip(input(), input())]
-    message = input()
-    return "".join([c if c in cipher_map else " " for c in message])
-
-
-print(substitution_cipher())
+```
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    result = ""
+    for char in message:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            result += cipher_text2[index]
+        else:
+            result += char
+    return result
