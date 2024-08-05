@@ -1,13 +1,13 @@
 #include <vector>
-using namespace std;
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> indices;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> indices;
     int textLen = text.length();
     int targetLen = target.length();
     
