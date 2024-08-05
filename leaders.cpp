@@ -1,13 +1,18 @@
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(const std::vector<int>& nums) {
-    int rightmost = nums.back();
-    std::vector<int> leaders;
-    for (int i = static_cast<int>(nums.size()) - 2; i >= 0; --i) {
-        if (nums[i] >= rightmost) {
-            leaders.push_back(nums[i]);
-            rightmost = nums[i];
+vector<int> leaders(vector<int>& arr) {
+    vector<int> res;
+    int n = arr.size();
+    for (int i = n - 1; i >= 0; i--) {
+        bool is_leader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                is_leader = false;
+                break;
+            }
         }
+        if (is_leader) res.push_back(arr[i]);
     }
-    return leaders;
+    return res;
 }
