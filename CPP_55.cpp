@@ -6,8 +6,4 @@ int fib(int n) {
     return fib(n-1) + fib(n-2);
 }
 
-int main() {
-    return 0;
-}
-
 assert(fib(12) == 144);
