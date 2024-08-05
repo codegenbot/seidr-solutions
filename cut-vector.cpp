@@ -1,49 +1,42 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res;
-    
-    if (n == 0) {
-        res.push_back({});
-        res.push_back({});
-        return res;
-    }
-    
-    for (int i = 1; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; j++) {
-            leftSum += v[j];
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    for (int i = 0; i < v.size(); i++) {
+        int left_sum = accumulate(v.begin(), v.begin() + i, 0);
+        int right_sum = accumulate(v.begin() + i, v.end(), 0);
+        if (left_sum == right_sum) {
+            return {{}, {v.begin(), v.end()}};
         }
-        for (int j = i; j < n; j++) {
-            rightSum += v[j];
-        }
-        
-        if (leftSum == rightSum) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
-            return res;
-        } else if (abs(leftSum - rightSum) < abs(leftSum - rightSum - v[i])) {
-            res.push_back({v.begin(), v.begin() + i});
-            res.push_back({v.begin() + i, v.end()});
-            return res;
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    
-    res.push_back({{1}});
-    res.push_back(v);
-    return res;
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
+    return {left, right};
 }
 
 int main() {
-    vector<int> v = {1};
-    vector<vector<int>> result = cutVector(v);
-    for (auto &vec : result) {
-        for (int num : vec) {
-            cout << num << " ";
-        }
-        cout << endl;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (auto &x : v) {
+        cin >> x;
     }
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "[";
+    for (auto i : result.first) {
+        cout << i << " ";
+    }
+    cout << "] [" << "[";
+    for (auto i : result.second) {
+        cout << i << " ";
+    }
+    cout << "]";
     return 0;
 }
