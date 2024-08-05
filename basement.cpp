@@ -2,9 +2,9 @@
 #include <vector>
 
 int basement(std::vector<int> nums) {
-    int sum = 0;
-    int i; // declare i here
-    for (i = 0; i < nums.size(); ++i) {
+    int sum = nums[0];
+    int i;
+    for (i = 1; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
             return i;
