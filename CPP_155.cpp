@@ -4,7 +4,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> count_even_odd_digits(int num) {
+std::vector<int> solve(int num) {
     std::vector<int> counts(2, 0);
     std::string num_str = std::to_string(std::abs(num));
     
