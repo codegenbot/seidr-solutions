@@ -1,4 +1,11 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    return (sum(numbers), 1) if len(numbers) == 0 else (1, 1) if 0 in numbers else (eval('*'.join(map(str, numbers))), 0
+    sum_result = sum(numbers) if numbers else 0
+    product_result = 1
+    for num in numbers:
+        product_result *= num
+    return sum_result, product_result
+
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+print(sum_product(numbers))
