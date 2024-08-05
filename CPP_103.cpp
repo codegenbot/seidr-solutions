@@ -3,6 +3,8 @@
 #include <cassert>
 
 std::string calculate_binary_avg(int n, int m) {
+    int rounded_avg;
+
     if (n > m) {
         return "-1";
     }
@@ -12,7 +14,7 @@ std::string calculate_binary_avg(int n, int m) {
         sum += i;
     }
 
-    int rounded_avg = std::round((double)sum / (m - n + 1));
+    rounded_avg = std::round((double)sum / (m - n + 1));
 
     std::string binary_avg = "";
     while (rounded_avg > 0) {
