@@ -1,35 +1,35 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == '-') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
+        }
+    }
 
-string toCamelCase(string str) {
-    string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
-            result += toupper(str[i]);
-        } else if (str[i] == ' ') {
-            continue;
+    std::string result;
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += std::string(1, char(toupper(word[0])));
+            result.erase(0, 1);
         } else {
-            if (result.length() > 0) {
-                result[0] = tolower(str[i]);
-            } else {
-                result += tolower(str[i]);
-            }
+            result = word;
         }
     }
     return result;
 }
 
 int main() {
-    string str;
-    while (cin >> str) {
-        cout << toCamelCase(str) << endl;
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        cout << camelCase(s) << endl;
     }
     return 0;
 }
