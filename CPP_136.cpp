@@ -27,7 +27,7 @@ std::vector<int> largest_smallest_integer(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input = {5, -2, 9, -7, 3};
-    std::vector<int> expected_output = { -2, 3 };
+    std::vector<int> expected_output = { -2, 3};
     
     std::vector<int> output = largest_smallest_integer(input);
     
