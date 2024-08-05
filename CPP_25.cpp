@@ -2,14 +2,8 @@
 
 vector<int> factorize(int n);
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
 
 vector<int> factorize(int n){
@@ -21,4 +15,11 @@ vector<int> factorize(int n){
         }
     }
     return factors;
+}
+
+int main() {
+    // Main function usage example
+    int num = 60;
+    vector<int> factors = factorize(num);
+    return 0;
 }
