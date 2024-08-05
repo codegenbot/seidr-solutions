@@ -1,8 +1,7 @@
 #include <vector>
-
-bool issame(int a) {
-    return a % 2 == 0;
-}
+#include <string>
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result = {0, 0};
@@ -19,4 +18,8 @@ std::vector<int> even_odd_palindrome(int n) {
         }
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
