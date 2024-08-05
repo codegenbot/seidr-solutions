@@ -4,13 +4,6 @@
 
 int is_bored(std::string S);
 
-int main() {
-    std::string input_text;
-    std::getline(std::cin, input_text);
-    
-    assert(is_bored(input_text) == 0);
-}
-
 int is_bored(std::string S){
     int count = 0;
     bool is_boredom = false;
@@ -24,3 +17,5 @@ int is_bored(std::string S){
     }
     return count;
 }
+
+assert (is_bored("You and I are going for a walk") == 0);
