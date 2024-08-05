@@ -5,8 +5,6 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> array);
-
 vector<int> sort_array(vector<int> array){
     if(array.empty()) return array;
 
