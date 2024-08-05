@@ -8,8 +8,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-#include <string>
-
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
