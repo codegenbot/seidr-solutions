@@ -1,10 +1,7 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(std::vector<float>{}, std::vector<float>{}));
+template<typename T>
+bool issame(std::vector<T> a, std::vector<T> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
