@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <sstream>
+#include <openssl/md5.h>
+#include <openssl/evp.h>
+#include <assert.h>
 
 using namespace std;
 
@@ -11,20 +12,17 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.length());
-    MD5_Final(digest, &ctx);
+    EVP_Digest(text.c_str(), text.length(), digest, NULL, EVP_md5(), NULL);
 
-    stringstream ss;
+    char mdString[33];
     for (int i = 0; i < 16; i++) {
-        ss << hex << setw(2) << setfill('0') << (int)digest[i];
+        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return ss.str();
+    return string(mdString);
 }
 
-int main() {
+int contest_main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
