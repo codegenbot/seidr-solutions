@@ -12,7 +12,7 @@ string string_to_md5(const string& text) {
 
     unsigned char digest[MD5_DIGEST_LENGTH];
     MD5_CTX context;
-    MD5_Init_ex(&context);
+    MD5_Init(&context);
     MD5_Update(&context, text.c_str(), text.length());
     MD5_Final(digest, &context);
 
