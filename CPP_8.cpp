@@ -7,7 +7,8 @@ bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
 }
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
-    int sum = 0, product = 1;
+    int sum = 0;
+    int product = 1;
     for (int num : numbers) {
         sum += num;
         product *= num;
