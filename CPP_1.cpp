@@ -1,23 +1,43 @@
-bool issame(const vector<string>& vec1, const vector<string>& vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
-    }
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-    for (size_t i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) {
-            return false;
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
+    int open_braces = 0;
+
+    for (char c : paren_string) {   
+        if (c == '(') {
+            open_braces++;
+            if (open_braces > 1) {
+                current_group += c;
+            }
+        } else if (c == ')') {
+            open_braces--;
+            if (open_braces == 0) {
+                result.push_back(current_group);
+                current_group.clear();
+            } else {
+                current_group += c;
+            }
+        } else if (open_braces > 0) {
+            current_group += c;
         }
     }
 
-    return true;
+    return result;
 }
 
-vector<string> separate_paren_groups(string paren_string);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 int main() {
-    // Your main function code here
-}
-
-vector<string> separate_paren_groups(string paren_string) {
-    // Your separate_paren_groups function code here
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))") , vector<string>{"()", "(())", "(()())"}));
+    
+    return 0;
 }
