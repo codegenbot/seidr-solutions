@@ -36,17 +36,17 @@ int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (auto &x : v) {
+    for (auto& x : v) {
         cin >> x;
     }
     pair<vector<int>, vector<int>> res = cutVector(v);
     cout << "Left: ";
-    for (const auto &x : res.first) {
+    for (const auto& x : res.first) {
         cout << x << " ";
     }
     cout << endl;
     cout << "Right: ";
-    for (const auto &x : res.second) {
+    for (const auto& x : res.second) {
         cout << x << " ";
     }
     return 0;
