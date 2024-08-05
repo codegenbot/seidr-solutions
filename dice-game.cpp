@@ -1,5 +1,7 @@
 double diceGame(int n, int m) {
-    double totalOutcomes = (long long)n * m;
-    double outcomesWherePeterWins = (n - 1) * m;
-    return outcomesWherePeterWins / totalOutcomes;
+    double sum = 0;
+    for(int i=1; i<=n-1; i++) {
+        sum += (1.0 / m);
+    }
+    return sum;
 }
