@@ -15,3 +15,11 @@ string toCamelCase(string str) {
     }
     return result;
 }
+
+int main() {
+    string str;
+    while (cin >> str) {
+        cout << toCamelCase(str) << endl;
+    }
+    return 0;
+}
