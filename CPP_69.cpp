@@ -1,20 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-int search(const std::vector<int>& lst) {
-    int maxFreq = -1;
+int search(std::vector<int> lst) {
+    int result = -1;
     for (int num : lst) {
-        int freq = std::count(lst.begin(), lst.end(), num);
-        if (freq > maxFreq) {
-            maxFreq = freq;
+        if (num > 0 && num <= lst.size()) {
+            int count = 0;
+            for (int n : lst) {
+                if (n == num) {
+                    count++;
+                }
+            }
+            if (count >= num && num > result) {
+                result = num;
+            }
         }
     }
-    if (maxFreq > 0) {
-        return maxFreq;
-    }
-    return -1;
+    return result;
 }
 
 int main() {
