@@ -15,9 +15,8 @@ int bowlingScore(string s) {
             lastRoll = true;
         } else {
             int thisFrameScore = 0;
-            for (int j = i; j < s.size(); j++) {
-                if (s[j] == '/') break;
-                thisFrameScore += (s[j] - '0');
+            for (int j = i; s[j] != '/' && j < s.size(); j++) {
+                thisFrameScore = thisFrameScore * 10 + (s[j] - '0');
             }
             score += thisFrameScore;
             lastRoll = false;
