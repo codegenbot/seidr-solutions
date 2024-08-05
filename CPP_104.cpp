@@ -2,12 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b){
+        if(a.size() != b.size()) return false;
+        for(int i = 0; i < a.size(); i++){
+            if(a[i] != b[i]) return false;
+        }
+        return true;
     }
-    return true;
 }
 
 std::vector<int> unique_digits(std::vector<int> x){
