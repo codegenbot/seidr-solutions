@@ -1,8 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
-#include <boost/algorithm/string.hpp>
-
 using namespace std;
 using namespace boost;
 
@@ -25,6 +23,7 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
     boost::replace_all(boost::any_cast<string>(a), ",", ".");
     boost::replace_all(boost::any_cast<string>(b), ",", ".");
+    
     float a_float = stof(boost::any_cast<string>(a));
     float b_float = stof(boost::any_cast<string>(b));
     if(a_float > b_float){
