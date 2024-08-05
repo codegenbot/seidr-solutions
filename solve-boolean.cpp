@@ -1,23 +1,28 @@
-std::string solveBoolean(std::string s) {
+```cpp
+bool solveBoolean(string s) {
     stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '&') {
+    bool lastWasOperator = false;
+    for (char c : s) {
+        if (c == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return "False";
-            char c = st.top(); st.pop();
-            if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
-                return "False";
+            if (st.empty()) return false;
+            char top = st.top(); st.pop();
+            if ((top == 'T' || top == 't') && (c == 'F' || c == 'f'))
+                return false;
+            lastWasOperator = true;
         } else {
-            st.push(s[i]);
+            st.push(c);
+            lastWasOperator = false;
         }
     }
     while (!st.empty()) {
         char c = st.top(); st.pop();
-        if ((c == 'T' || c == 't') && (s.size() % 2 != 0)) 
-            return "True";
-        if ((c == 'F' || c == 'f') && (s.size() % 2 != 1)) 
-            return "False";
+        if ((c == 'T' || c == 't') && !lastWasOperator) 
+            return true;
+        if ((c == 'F' || c == 'f') && lastWasOperator) 
+            return false;
     }
-    return "True";
+    return true;
+}
