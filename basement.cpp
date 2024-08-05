@@ -2,7 +2,7 @@
 #include <vector>
 
 int basement(std::vector<int> nums) {
-    int sum = nums[0];
+    int sum = nums[0]; // update initialization here
     int i; // declare i here
     for (i = 1; i < nums.size(); ++i) {
         sum += nums[i];
