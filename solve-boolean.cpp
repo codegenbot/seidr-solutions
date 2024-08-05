@@ -1,14 +1,13 @@
 bool solveBoolean(std::string expression) {
     bool result = true;
     for(int i=0; i<expression.length(); i++){
-        if(expression[i] == '&') {
-            result &= (i==0 || expression[i-1] != '|');
-        } else if(expression[i] == '|') {
-            result |= (i==0 || expression[i-1] != '&');
-        } else if(expression[i] == 'T')
+        if(expression[i] == '|') {
             result = true;
-        else
-            result = false;
+        } else if(expression[i] == '&') {
+            result &= (expression[i+1] == 'T');
+        } else if(expression[i] != 'T' && expression[i] != 'F'){
+            return false;
+        }
     }
     return result;
 }
