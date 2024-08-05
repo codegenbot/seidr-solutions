@@ -8,7 +8,9 @@ using namespace std;
 
 vector<string> select_words(const string& s, int n);
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
 
 vector<string> select_words(const string& s, int n) {
     vector<string> result;
