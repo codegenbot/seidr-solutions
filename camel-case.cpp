@@ -14,7 +14,7 @@ std::string camelCase(std::string str) {
     std::string result;
     for (const auto& word : words) {
         if (!result.empty()) {
-            result += std::string(1, char(toupper(word[0])));
+            result += std::string(1, char(std::toupper(word[0])));
             result.erase(0, 1);
         } else {
             result = word;
@@ -27,7 +27,7 @@ int main() {
     int t;
     std::cin >> t;
     while (t--) {
-        std::string s; 
+        std::string s;
         std::cin >> s;
         std::cout << camelCase(s) << std::endl;
     }
