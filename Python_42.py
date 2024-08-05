@@ -1,12 +1,9 @@
 def check(func):
-    if func([1, 2, 3]) == [2, 3, 4]:
-        print("Correct")
+    sample_list = [1, 2, 3]
+    result = func(sample_list)
+    if result == [2, 3, 4]:
+        print("Function passed the check.")
     else:
-        print("Incorrect")
-
-
-def increment_list(l):
-    return [x + 1 for x in l]
-
+        print("Function failed the check.")
 
 check(increment_list)
