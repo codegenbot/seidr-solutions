@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool std::issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
+std::vector<int> std::unique_digits(std::vector<int> x){
     std::vector<int> result;
     for(auto num : x){
         std::vector<int> digits;
