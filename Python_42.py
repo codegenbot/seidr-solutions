@@ -1,8 +1,12 @@
 def check(func):
-    def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
-        if all(isinstance(x, int) for x in result):
-            return result
-        else:
-            return "Error: List should only contain integers."
-    return wrapper
+    if func([1, 2, 3]) == [2, 3, 4]:
+        print("Correct")
+    else:
+        print("Incorrect")
+
+
+def increment_list(l):
+    return [x + 1 for x in l]
+
+
+check(increment_list)
