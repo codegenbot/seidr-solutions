@@ -2,14 +2,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [&](int a, int b){
+    std::sort(nums.begin(), nums.end(), [](int a, int b){
         int sum_a = std::abs(a), sum_b = std::abs(b);
         while (sum_a >= 10) sum_a = sum_a / 10 + sum_a % 10;
         while (sum_b >= 10) sum_b = sum_b / 10 + sum_b % 10;
