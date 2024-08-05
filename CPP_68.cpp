@@ -5,8 +5,6 @@ bool issamevec(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr);
-
 std::vector<int> pluck(std::vector<int> arr){
     int smallest_even = -1;
     int smallest_even_index = -1;
