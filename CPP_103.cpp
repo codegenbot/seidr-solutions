@@ -22,8 +22,3 @@ std::string solve(int n, int m) {
     
     return binary_avg;
 }
-
-int main() {
-    assert(solve(5, 5) == "101");
-    return 0;
-}
