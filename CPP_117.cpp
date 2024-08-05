@@ -6,8 +6,6 @@
 
 using namespace std;
 
-vector<string> select_words(const string& s, int n);
-
 vector<string> select_words(const string& s, int n) {
     vector<string> result;
     string word = "";
