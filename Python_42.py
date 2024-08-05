@@ -1,5 +1,2 @@
-def check(func):
-    l = [1, 2, 3, 4]
-    return func(l)
-
-check(increment_list)
+def increment_list(l):
+    return [x + 1 for x in l]
