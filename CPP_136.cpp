@@ -1,22 +1,8 @@
-#include <vector>
-#include <climits>
-#include <cassert>
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<int> a, vector<int> b){ // add space after vector<int>
+    return a == b;
 }
 
-vector<int> largest_smallest_integer(vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     vector<int> result = {0, 0};
     int max_neg = INT_MIN;
     int min_pos = INT_MAX;
@@ -35,13 +21,7 @@ vector<int> largest_smallest_integer(vector<int> lst){
     return result;
 }
 
-int main() {
-    vector<int> input = {4, -2, 7, -1, 8, -5};
-    vector<int> output = largest_smallest_integer(input);
-    
-    vector<int> expected_output = {-1, 4};
-
-    assert(issame(output, expected_output));
-
+int main(){
+    assert (issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1})); // correct function call syntax
     return 0;
 }
