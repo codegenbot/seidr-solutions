@@ -12,9 +12,6 @@ bool is_prime(long long n){
     return true;
 }
 
-int main() {
-    long long num;
-    cin >> num;
-    cout << (is_prime(num) ? "true" : "false") << endl;
-    return 0;
-}
+long long num;
+cin >> num;
+cout << (is_prime(num) ? "true" : "false") << endl;
