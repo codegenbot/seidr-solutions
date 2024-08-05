@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool solve(vector<int>& arr) {
+int move_one_ball(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (is_sorted(arr.begin(), arr.end())) {
@@ -17,8 +17,11 @@ bool solve(vector<int>& arr) {
 }
 
 int main() {
-    assert(solve({1, 2, 3, 4}) == true);
-    assert(solve({3, 4, 1, 2}) == false);
+    vector<int> test1 = {1, 2, 3, 4};
+    vector<int> test2 = {3, 4, 1, 2};
+
+    assert(move_one_ball(test1) == true);
+    assert(move_one_ball(test2) == false);
 
     return 0;
 }
