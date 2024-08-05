@@ -15,5 +15,5 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    return result;
+    return vector<int>(result.rbegin(), result.rend());
 }
