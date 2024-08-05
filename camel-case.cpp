@@ -9,24 +9,17 @@ string kebabToCamel(string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
             i++;
-            while (i < str.length() && str[i] == ' ') {
+            while (i + 1 < str.length() && str[i] == ' ') {
                 i++;
-            }
-            if (!result.empty()) {
-                result[0] = tolower(result[0]);
             }
             result += toupper(str[i]);
         } else if (str[i] == ' ') {
+            continue;
+        } else {
             if (!result.empty()) {
                 result[0] = tolower(result[0]);
             }
-            result += " ";
-        } else {
-            if (i == 0) {
-                result += tolower(str[i]);
-            } else {
-                result += toupper(str[i]);
-            }
+            result += str[i];
         }
     }
     return result;
