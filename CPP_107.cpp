@@ -1,14 +1,14 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> count{0, 0};
+    std::vector<int> count(2, 0);
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
         std::string rev_num = num;
@@ -23,16 +23,8 @@ std::vector<int> even_odd_palindrome(int n) {
     }
     return count;
 }
-
+  
 int main() {
-    std::vector<int> expected = {0, 1};
-    std::vector<int> result = even_odd_palindrome(1);
-
-    if (issame(result, expected)) {
-        std::cout << "Test passed!" << std::endl;
-    } else {
-        std::cout << "Test failed!" << std::endl;
-    }
-
+    assert(is_same(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
