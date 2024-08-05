@@ -11,10 +11,10 @@ vector<int> generate_integers(int a, int b) {
 }
 
 bool issame(vector<int> vec1, vector<int> vec2) {
-    return vec1 == vec2;
+    return (vec1 == vec2);
 }
 
 int main() {
-    // Your main function logic here
+    // Main function logic here
     return 0;
 }
