@@ -11,7 +11,7 @@ int can_arrange(std::vector<int> arr){
     return maxIndex;
 }
 
-int main(){
-    assert (can_arrange(std::vector<int>{}) == -1);
+int main() {
+    assert(can_arrange({}) == -1);
     return 0;
 }
