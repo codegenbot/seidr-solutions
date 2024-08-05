@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cassert>
 #include <cmath>
+
+using namespace std;
 
 int closestInteger(double num) {
     return lround(num);
@@ -7,7 +10,7 @@ int closestInteger(double num) {
 
 int main() {
     double num;
-    std::cin >> num;
-    std::cout << closestInteger(num);
+    cin >> num;
+    cout << closestInteger(num);
     return 0;
 }
