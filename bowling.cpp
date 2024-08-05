@@ -1,21 +1,21 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int currentRolls = 0;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == '/'){
-            currentRolls = (i-1)/2+1;
-            score += 10 - currentRolls;
-            i++;
-        }
-        else if(s[i] == 'X' || s[i] == '-' ){
-            currentRolls++;
-            score += 10;
-        }
-        else{
-            int val = s[i]-48; // subtract 48 to get the value of the digit
-            currentRolls++;
-            score += val;
+    int currentRoll = 0;
+    int rollCount = 0;
+
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            score += 10 + currentRoll;
+            currentRoll = 0;
+            rollCount++;
+        } else if (input[i] == '/') {
+            score += 10 - currentRoll;
+            currentRoll = 0;
+            rollCount++;
+        } else {
+            currentRoll++;
         }
     }
+
     return score;
 }
