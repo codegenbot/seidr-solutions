@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> f(int n) {
+std::vector<int> f(int n){
     std::vector<int> result(n);
     result[0] = 1;
     int sum = 0;
@@ -25,6 +25,6 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    // Your main function logic here
+    // Your test cases can be placed here
     return 0;
 }
