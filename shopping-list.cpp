@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <iomanip>
 
 using namespace std;
@@ -24,3 +24,4 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(&price[0], &discount[0], n) << endl;
     return 0;
+}
