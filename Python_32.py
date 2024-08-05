@@ -7,5 +7,6 @@ def find_zero():
         a, b = xs[-i] + a, a + b
     return -a / b
 
+
 result = find_zero()
 print(result)
