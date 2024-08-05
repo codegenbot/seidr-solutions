@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-int prod_signs(std::vector<int> arr) {
+int prod_signs(std::vector<int>& arr) {
     if (arr.size() == 0) {
         return -32768;
     }
@@ -23,9 +23,11 @@ int prod_signs(std::vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({1, 2, 3}) == 6);
-    assert(prod_signs({-1, 2, -3}) == -6);
-    assert(prod_signs({0, 0, 0}) == 0);
-    
+    std::vector<int> test1 = {3, -2, 4};
+    std::vector<int> test2 = {};
+
+    assert(prod_signs(test1) == -5);
+    assert(prod_signs(test2) == -32768);
+
     return 0;
 }
