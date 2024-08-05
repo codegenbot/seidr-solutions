@@ -11,13 +11,13 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
     
-    int pennies = cents / 1;
+    int pennies = cents / 1; // reset the variable name
     cents %= 1; // Reset cents since we've used some as pennies
 
     cout << quarters << endl;
     cout << dimes << endl;
-    cout << pennies / 5 << endl;
-    cout << pennies % 5 << endl;
+    cout << pennies / 5 << endl; // convert pennies to nickels
+    cout << pennies % 5 << endl; // the remaining pennies after conversion
 
     return 0;
 }
