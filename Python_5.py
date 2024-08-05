@@ -5,6 +5,7 @@ def complete_code(numbers, delimeter):
     result.pop()
     return result
 
+# Call the function with the required inputs
 numbers = [1, 2, 3]
 delimeter = "/"
 output = complete_code(numbers, delimeter)
