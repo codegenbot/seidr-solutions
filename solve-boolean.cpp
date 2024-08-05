@@ -5,10 +5,10 @@ string solveBoolean(string s) {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if (st.empty()) return "False";
+            if (st.empty()) return "True";
             char c = st.top(); st.pop();
             if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
-                return "False";
+                return "True";
         } else {
             st.push(s[i]);
         }
@@ -20,4 +20,5 @@ string solveBoolean(string s) {
         if ((c == 'F' || c == 'f') && (s.size() % 2 != 1)) 
             return "False";
     }
-    return "True";
+    return s.size() % 2 == 0 ? "True" : "False";
+}
