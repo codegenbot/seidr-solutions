@@ -1,3 +1,6 @@
+#include <string>
+#include <cmath>
+
 std::string calculate_binary_avg(int n, int m) {
     if (n > m) {
         return "-1";
