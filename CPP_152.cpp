@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame({1, 2, 3, 5}, {1, 2, 3, 5}) == true);
-    assert(issame({1, 2, 3, 5}, {1, 2, 3, 4}) == false);
+    assert(!issame({1, 2, 3, 5}, {1, 2, 3, 4}));
     std::cout << "Test Passed!\n";
     return 0;
 }
