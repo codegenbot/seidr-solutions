@@ -24,7 +24,7 @@ vector<string> select_words(const string& s, int n) {
     vector<string> result;
     string word = "";
     int consonant_count = 0;
-
+    
     for (char c : s) {
         if (c == ' ') {
             if (consonant_count == n) {
@@ -39,11 +39,11 @@ vector<string> select_words(const string& s, int n) {
             word += c;
         }
     }
-
+    
     if (!word.empty() && consonant_count == n) {
         result.push_back(word);
     }
-
+    
     return result;
 }
 
