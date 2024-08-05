@@ -1,11 +1,5 @@
 double diceGame(int n, int m) {
     double totalOutcomes = n * m;
-    double petersWins = (n - m);
+    double peterWins = (n - 1) * (m);
     
-    if(m > n) {
-        double temp = m;
-        m = n;
-        n = temp;
-    }
-    
-    return petersWins / totalOutcomes;
+    return 1.0 - (peterWins / totalOutcomes);
