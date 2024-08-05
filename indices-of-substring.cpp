@@ -7,13 +7,17 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
     
-    std::cin.ignore();
-
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    if (target.empty()) {
+        for (int i = 0; i <= text.size(); ++i) {
+            indices.push_back(i);
+        }
+    } else {
+        size_t pos = text.find(target, 0);
+        while (pos != std::string::npos) {
+            indices.push_back(pos);
+            pos = text.find(target, pos + 1);
+        }
     }
     
     for (int idx : indices) {
