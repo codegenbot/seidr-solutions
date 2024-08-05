@@ -3,9 +3,9 @@
 
 int basement(std::vector<int> nums) {
     int sum = 0;
-    int i = 1;
-    for (i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
+    int i = 1; // initialize i as 1
+    for (i = 1; i <= nums.size(); ++i) {
+        sum += nums[i - 1]; // access nums with i - 1
         if (sum < 0) {
             return i;
         }
