@@ -1,16 +1,27 @@
 #include <vector>
+#include <cassert>
 #include <cmath>
 
-double poly(const vector<double>& coefficients, double x) {
+double poly(const vector<double>& coeffs, double x){
     double result = 0.0;
-    for (size_t i = 0; i < coefficients.size(); ++i) {
-        result += coefficients[i] * pow(x, i);
+    for(int i=0; i<coeffs.size(); i++){
+        result += coeffs[i] * pow(x, i);
     }
-    return result;    
-} 
+    return result;
+}
 
-double find_zero(const vector<double>& coeffs) {
+double find_zero(const vector<double>& coeffs){
     double a = coeffs[0];
     double b = coeffs[1];
-    return -b / a;
+    return -b/a;
+}
+
+int main() {
+    vector<double> coeffs = {1, -3, 2};
+    double solution;
+    
+    solution = find_zero(coeffs);
+    assert(abs(poly(coeffs, solution))< 1e-3);
+
+    return 0;
 }
