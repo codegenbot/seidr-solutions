@@ -1,27 +1,24 @@
-```cpp
+```
 bool solveBoolean(string s) {
     stack<char> st;
-    bool lastWasOperator = false;
-    for (char c : s) {
-        if (c == '&') {
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
             if (st.empty()) return false;
-            char top = st.top(); st.pop();
-            if ((top == 'T' || top == 't') && (c == 'F' || c == 'f'))
+            char c = st.top(); st.pop();
+            if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
                 return false;
-            lastWasOperator = true;
         } else {
-            st.push(c);
-            lastWasOperator = false;
+            st.push(s[i]);
         }
     }
     while (!st.empty()) {
         char c = st.top(); st.pop();
-        if ((c == 'T' || c == 't') && !lastWasOperator) 
+        if ((c == 'T' || c == 't') && (s.size() % 2 != 0)) 
             return true;
-        if ((c == 'F' || c == 'f') && lastWasOperator) 
+        if ((c == 'F' || c == 'f') && (s.size() % 2 != 1)) 
             return false;
     }
     return true;
