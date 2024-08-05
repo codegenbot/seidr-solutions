@@ -4,10 +4,6 @@
 
 std::string calculate_binary_avg(int n, int m);
 
-int main() {
-    assert(calculate_binary_avg(5, 5) == "101");
-}
-
 std::string calculate_binary_avg(int n, int m) {
     int rounded_avg;
 
@@ -29,4 +25,8 @@ std::string calculate_binary_avg(int n, int m) {
     }
 
     return binary_avg;
+}
+
+int main() {
+    assert(calculate_binary_avg(5, 5) == "101");
 }
