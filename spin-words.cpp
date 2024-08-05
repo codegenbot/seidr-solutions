@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -35,4 +32,3 @@ int main() {
     getline(cin, str);
     cout << spinWords(str) << endl;
     return 0;
-}
