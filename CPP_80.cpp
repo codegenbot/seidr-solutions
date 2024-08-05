@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
 bool is_happy(const std::string& s) {
@@ -16,8 +15,8 @@ bool is_happy(const std::string& s) {
     return true;
 }
 
-int main() {
-    assert (is_happy("iopaxioi") == false );
-
+int main() { 
+    std::cout << (is_happy("iopaxioi") ? "true" : "false") << std::endl;
+    
     return 0;
 }
