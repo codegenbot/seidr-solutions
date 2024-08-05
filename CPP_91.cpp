@@ -1,8 +1,7 @@
-#include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
-int is_bored(std::string S){
+int is_bored(std::string S) {
     int count = 0;
     bool is_boredom = false;
     for (int i = 0; i < S.length(); ++i) {
@@ -16,8 +15,7 @@ int is_bored(std::string S){
     return count;
 }
 
-int main() {
-    std::cout << is_bored("You and I are going for a walk") << std::endl;
+// Remove duplicate main() function definition
+// Only one main() function is allowed per program
 
-    return 0;
-}
+assert(is_bored("You and I are going for a walk") == 0);
