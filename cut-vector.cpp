@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <numeric>
-
 int main() {
     std::vector<int> nums;
     int n;
