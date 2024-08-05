@@ -1,3 +1,6 @@
+#ifndef SOLUTION
+#define SOLUTION
+
 #include <vector>
 #include <cmath>
 #include <cassert>
@@ -23,3 +26,5 @@ int main(){
     
     return 0;
 }
+
+#endif
