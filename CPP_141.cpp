@@ -1,23 +1,26 @@
-int digit_count = 0;
-    int dot_count = 0;
-    int dot_index = -1;
-    for (int i = 0; i < file_name.size(); i++) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
-            digit_count++;
-        } else if (file_name[i] == '.') {
-            dot_count++;
-            dot_index = i;
+bool is_valid_extension(const string& extension) {
+    return extension == "txt" || extension == "exe" || extension == "dll";
+}
+
+string file_name_check(string file_name) {
+    int count_digits = 0;
+    int dot_index = file_name.find('.');
+    if (dot_index == string::npos || dot_index == 0 || dot_index == file_name.size() - 1) {
+        return "No";
+    }
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            count_digits++;
         }
     }
-    
-    if (digit_count > 3 || dot_count != 1 || dot_index == 0 || dot_index == file_name.size() - 1) {
-        return "No";
-    }
-    
+
+    string name_before_dot = file_name.substr(0, dot_index);
     string extension = file_name.substr(dot_index + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+
+    if (count_digits > 3 || !isalpha(name_before_dot[0]) || !is_valid_extension(extension)) {
         return "No";
     }
-    
+
     return "Yes";
 }
