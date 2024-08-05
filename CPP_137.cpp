@@ -1,34 +1,16 @@
 #include <iostream>
 #include <string>
+#include <boost/any.hpp>
+#include <cassert>
 
-std::string compareAny(const std::any& a, const std::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (std::any_cast<int>(a) > std::any_cast<int>(b)) {
-            return std::to_string(std::any_cast<int>(a));
-        } else if (std::any_cast<int>(a) < std::any_cast<int>(b)) {
-            return std::to_string(std::any_cast<int>(b));
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (std::any_cast<float>(a) > std::any_cast<float>(b)) {
-            return std::to_string(std::any_cast<float>(a));
-        } else if (std::any_cast<float>(a) < std::any_cast<float>(b)) {
-            return std::to_string(std::any_cast<float>(b));
-        } else {
-            return "None";
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        float a_float = std::stof(std::any_cast<std::string>(a).replace(std::any_cast<std::string>(a).find(','), 1, "."));
-        float b_float = std::stof(std::any_cast<std::string>(b).replace(std::any_cast<std::string>(b).find(','), 1, "."));
-        if (a_float > b_float) {
-            return std::to_string(a_float);
-        } else if (a_float < b_float) {
-            return std::to_string(b_float);
-        } else {
-            return "None";
-        }
-    } else {
-        return "None";
-    }
+boost::any compare_one(const boost::any& a, int b) {
+    return (b == 1) ? a : "None";
+}
+
+int main() {
+    boost::any result = compare_one("1", 1);
+
+    assert(boost::any_cast<std::string>(result) == "1");
+
+    return 0;
 }
