@@ -1,16 +1,27 @@
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-        }
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int pos = 0;
+    while ((pos = text.find(target)) != string::npos) {
+        indices.push_back(pos);
+        pos += target.size();
     }
+    return indices;
+}
 
-    return result;
+int main() {
+    // Your code to read input from user and print output
+    // For example:
+    string text, target;
+    cout << "Enter the text: ";
+    cin >> text;
+    cout << "Enter the target: ";
+    cin >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
