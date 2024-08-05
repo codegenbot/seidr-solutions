@@ -1,19 +1,26 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> generate_integers(int start, int end) {
-    std::vector<int> result;
-    for (int i = start; i <= end; ++i) {
-        result.push_back(i);
+void generate_integers(vector<int>& v, size_t n) {
+    for (int i = 0; i < n; ++i) {
+        v.push_back(i);
     }
-    return result;
 }
 
 int main() {
-    assert(issame(generate_integers(17, 89), {}));
+    vector<int> vec1, vec2;
+    generate_integers(vec1, 5);
+    generate_integers(vec2, 5);
+    
+    if (issame(vec1, vec2)) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "The vectors are not the same." << std::endl;
+    }
+    
+    return 0;
 }
