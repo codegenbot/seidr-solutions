@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
@@ -19,7 +20,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
     return {result, (result == reverse_result) ? "True" : "False"};
 }
 
-int main() {
-    // Add your code to test the functions here
+int main(){
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"", "True"}));
     return 0;
 }
