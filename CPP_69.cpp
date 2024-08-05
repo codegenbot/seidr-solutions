@@ -1,4 +1,7 @@
-int maxFreq = -1;
+#include <vector>
+
+int search(const std::vector<int>& lst) {
+    int maxFreq = -1;
     for (int num : lst) {
         int freq = 0;
         for (int elem : lst) {
@@ -6,7 +9,7 @@ int maxFreq = -1;
                 freq++;
             }
         }
-        if (num > freq && freq > maxFreq) {
+        if (num == freq && freq > maxFreq) {
             maxFreq = freq;
         }
     }
