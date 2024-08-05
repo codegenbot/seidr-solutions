@@ -22,18 +22,9 @@ std::pair<int, int> mastermind(string code, string guess) {
                 break;
             }
         }
-        if (!found) white++;
-    }
-
-    // Count the remaining correct colors in wrong positions
-    for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j]) {
-                count++;
-            }
+        if (!found) {
+            white++;
         }
-        white += count - black;
     }
 
     return std::make_pair(white, black);
