@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
@@ -23,11 +24,15 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 int main() {
     std::vector<int> nums;
     int num;
-    char nonNumeric;
-    
+    std::string input;
+    std::istringstream iss;
+
     std::cout << "Enter numbers separated by spaces, end with non-numeric input:" << std::endl;
     
-    while (std::cin >> num) {
+    std::getline(std::cin, input);
+    iss.str(input);
+    
+    while (iss >> num) {
         nums.push_back(num);
     }
 
