@@ -16,16 +16,15 @@ int mastermind(string code, string guess) {
     for (char c : code) {
         codeCount[c - '0']++;
     }
+
     for (int j = 0; j < 4; ++j) {
         if (code[j] == guess[j]) {
             black++;
         } else {
-            for (int k = 0; k < 6; ++k) {
-                if (codeCount[k] && code[k] == guess[j]) {
-                    codeCount[k]--;
-                    black++;
-                    break;
-                }
+            int count = codeCount[guess[j] - '0'];
+            if (count > 0) {
+                black++;
+                codeCount[guess[j] - '0']--;
             }
         }
     }
