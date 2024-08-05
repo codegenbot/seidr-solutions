@@ -11,11 +11,10 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* context = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(context, EVP_md5(), NULL);
-    EVP_DigestUpdate(context, text.c_str(), text.length());
-    EVP_DigestFinal_ex(context, digest, NULL);
-    EVP_MD_CTX_free(context);
+    MD5_CTX context;
+    MD5_Init_ex(&context);
+    MD5_Update(&context, text.c_str(), text.length());
+    MD5_Final(digest, &context);
 
     char mdString[33];
     for (int i = 0; i < 16; i++) {
