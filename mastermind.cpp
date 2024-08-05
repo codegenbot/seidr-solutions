@@ -1,37 +1,31 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
+#include <vector>
+using namespace std;
+
+int mastermind(string code, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+    
+    // Count the number of correct colors in wrong places (white pegs)
+    for(int i=0; i<4; i++){
+        int count = 0;
+        for(int j=0; j<4; j++){
+            if(code[i] == guess[j] && code[i] != guess[i]){
+                whitePegs++;
+                break;
+            }
         }
     }
-    return count;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
-
-    for (char c : guessArray) {
-        if (find(codeArray.begin(), codeArray.end(), c) != codeArray.end()) {
-            count++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), c), codeArray.end());
+    
+    // Count the number of correct colors in correct places (black pegs)
+    for(int i=0; i<4; i++){
+        int count = 0;
+        for(int j=0; j<4; j++){
+            if(code[i] == guess[i]){
+                blackPegs++;
+                break;
+            }
         }
     }
-
-    return count;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-
-    cout << white << endl;
-    cout << black << endl;
-
-    return 0;
+    
+    return blackPegs + whitePegs;
 }
