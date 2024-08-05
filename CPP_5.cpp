@@ -30,6 +30,6 @@ vector<int> intersperse(vector<int> numbers, int delimiter) {
 
 int main() {
     assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
+
     return 0;
 }
