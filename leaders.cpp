@@ -1,15 +1,21 @@
 #include <vector>
-using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int max_right = arr.back();
-    for (int i = arr.size() - 1; i >= 0; i--) {
-        if (arr[i] >= max_right) {
-            max_right = arr[i];
-            result.push_back(max_right);
+std::vector<int> leaders(const std::vector<int>& arr) {
+    int n = arr.size();
+    vector<int> leadersVec;
+    
+    for (int i = 0; i < n; ++i) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) {
+            leadersVec.push_back(arr[i]);
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    
+    return leadersVec;
 }
