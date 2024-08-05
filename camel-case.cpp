@@ -2,26 +2,30 @@
 #include <string>
 
 std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> parts = {""};
-    for (int i = 0; i <= str.size(); ++i) {
-        if ((i == str.size() || str[i] == '-') && parts.back().size() > 0) {
-            parts.back().back() = toupper(parts.back().back());
-            parts.push_back("");
-        } else if (str[i] != '-') {
-            parts.back() += tolower(str[i]);
+    std::vector<std::string> words = {""};
+    for (char c : str) {
+        if (c == '-') {
+            words.back() += " ";
+            words.push_back("");
+        } else {
+            words.back() += c;
         }
     }
-    return std::string("#").append(std::accumulate(parts.begin(), parts.end(), std::string()), 
-                        [](const std::string& a, const std::string& b) { return a + std::string(1).toupper() + b; });
+    std::string result = "";
+    for (const auto& word : words) {
+        if (!word.empty()) {
+            if (!result.empty())
+                result += char(std::toupper(word[0]));
+            result += word.substr(1);
+        }
+    }
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    while (n--) {
-        string str;
-        cin >> str;
-        cout << kebabToCamel(str) << endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "CamelCase version: " << kebabToCamel(input) << "\n";
     return 0;
 }
