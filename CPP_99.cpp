@@ -11,6 +11,6 @@ int main() {
     std::cin >> num;
     int result = closest_integer(num);
     std::cout << result;
-    assert (closest_integer(num) == result);
+    assert(closest_integer(num) == result);
     return 0;
 }
