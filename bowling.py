@@ -1,51 +1,12 @@
-def bowling_score(bowls):
+def bowling(input_str):
     score = 0
-    frame = 1
-    bowl_index = 0
-    while frame <= 10:
-        if bowls[bowl_index] == "X":
-            score += 10
-            score += get_strike_bonus(bowls, bowl_index)
-            bowl_index += 1
-        elif bowls[bowl_index] == "/":
-            score += 10 - int(bowls[bowl_index - 1])
-            score += get_spare_bonus(bowls, bowl_index)
-            bowl_index += 1
-        else:
-            score += int(bowls[bowl_index])
-        if bowls[bowl_index] != "X":
-            bowl_index += 1
-        frame += 1
+    frames = input_str.split("/")
+    for frame in frames:
+        for i in range(len(frame)):
+            if frame[i] == "X":
+                score += 10
+            elif frame[i] == "-":
+                score += 0
+            else:
+                score += int(frame[i])
     return score
-
-
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    bonus += 10
-    if bowls[index + 1] == "X":
-        bonus += 10
-        if bowls[index + 2] == "X":
-            bonus += 10
-        else:
-            bonus += int(bowls[index + 2])
-    else:
-        bonus += int(bowls[index + 1])
-        if bowls[index + 2] == "/":
-            bonus += 10 - int(bowls[index + 1])
-        else:
-            bonus += int(bowls[index + 2])
-    return bonus
-
-
-def get_spare_bonus(bowls, index):
-    bonus = 0
-    bonus += 10
-    if bowls[index + 1] == "X":
-        bonus += 10
-    else:
-        bonus += int(bowls[index + 1])
-    return bonus
-
-
-bowls = input()
-print(bowling_score(bowls))
