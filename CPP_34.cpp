@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <cassert>
+#include <vector>
 
 std::vector<int> removeDuplicates(std::vector<int> l) {
     std::sort(l.begin(), l.end());
