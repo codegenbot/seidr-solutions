@@ -1,15 +1,21 @@
-if(dict.empty()) return false;
+#include <unordered_map>
+#include <string>
+#include <cassert>
+#include <cctype>
 
-bool isLower = true, isUpper = true;
-for(auto const& pair : dict) {
-    for(char c : pair.first) {
-        if(islower(c)) {
-            isUpper = false;
-        } else if(isupper(c)) {
-            isLower = false;
+bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
+    if (dict.size() == 0) return false;
+
+    bool hasLower = true, hasUpper = true;
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        for (char c : it->first) {
+            if (std::islower(c)) {
+                hasLower = false;
+            } else if (std::isupper(c)) {
+                hasUpper = false;
+            }
         }
     }
-}
 
-return isLower || isUpper;
+    return !hasLower && !hasUpper;
 }
