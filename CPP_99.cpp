@@ -6,7 +6,8 @@ int closestInteger(double num) {
 
 int main() {
     double num;
-    cin >> num;
-    cout << closestInteger(num);
+    std::cin >> num;
+    int result = closestInteger(num);
+    std::cout << result;
     return 0;
 }
