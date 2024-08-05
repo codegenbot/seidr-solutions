@@ -14,4 +14,4 @@ int is_bored(std::string S){
     return count;
 }
 
-assert (is_bored("You and I are going for a walk") == 0);
+assert(is_bored("You and I are going for a walk") == 0);
