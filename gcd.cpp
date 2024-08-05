@@ -8,7 +8,7 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     int textLen = text.length();
     int targetLen = target.length();
