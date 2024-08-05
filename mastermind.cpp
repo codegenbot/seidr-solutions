@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-#include <pair>
 
 std::pair<int, int> mastermind(string code, string guess) {
     int white = 0;
