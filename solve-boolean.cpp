@@ -1,12 +1,15 @@
 bool solveBoolean(std::string expression) {
     bool result = true;
     for(int i=0; i<expression.length(); i++){
-        if(expression[i] == '|') {
-            result = true;
-        } else if(expression[i] == '&') {
-            result &= (expression[i+1] == 'T');
-        } else if(expression[i] != 'T' && expression[i] != 'F'){
-            return false;
+        if(expression[i] == 'T') result = true;
+        else if(expression[i] == 'F') result = false;
+        else if(expression[i] == '&') {
+            while(i+1 < expression.length() && expression[i+1] == '&') i++;
+            while(i+1 < expression.length() && expression[i+1] == '|') i++;
+        }
+        else if(expression[i] == '|') {
+            while(i+1 < expression.length() && expression[i+1] == '|') i++;
+            while(i+1 < expression.length() && expression[i+1] == '&') i++;
         }
     }
     return result;
