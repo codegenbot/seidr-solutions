@@ -16,7 +16,7 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    double sum = 0.0; // update data type to double
     for (int i = 0; i < n; ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
