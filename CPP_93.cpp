@@ -13,3 +13,8 @@ string encode(string message){
     }
     return message;
 }
+
+int main() {
+    // Test the encode function if needed
+    return 0;
+}
