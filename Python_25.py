@@ -1,13 +1,3 @@
-from typing import List
-
-def factorize(n: int) -> List[int]:
-    n = int(input("Enter the number to factorize: "))
-    factors = []
-    divisor = 2
-    while n > 1:
-        if n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        else:
-            divisor += 1
-    return factors
+n = int(input("Enter a number: "))
+result = factorize(n)
+print(result)
