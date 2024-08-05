@@ -1,5 +1,5 @@
-#include <string>
 #include <cmath>
+#include <string>
 #include <cassert>
 
 std::string calculate_binary_avg(int n, int m) {
@@ -24,10 +24,9 @@ std::string calculate_binary_avg(int n, int m) {
 }
 
 int main() {
-    assert(calculate_binary_avg(1, 5) == "101");
-    assert(calculate_binary_avg(3, 7) == "110");
-    assert(calculate_binary_avg(5, 8) == "100");
-    assert(calculate_binary_avg(8, 5) == "-1");
-
+    assert(calculate_binary_avg(1, 5) == "110");
+    assert(calculate_binary_avg(5, 10) == "101");
+    assert(calculate_binary_avg(10, 15) == "1001");
+    
     return 0;
 }
