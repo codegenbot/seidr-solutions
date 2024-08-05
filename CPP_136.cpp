@@ -26,6 +26,9 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
+    std::vector<int> input = {-6, -4, -4, -3, -100, 1};
+    std::vector<int> expected_output = {-100, -3};
+    
     assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, -3}));
     
     return 0;
