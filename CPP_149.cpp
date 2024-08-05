@@ -20,6 +20,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
-
-return 0;
+int main(){
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
+}
