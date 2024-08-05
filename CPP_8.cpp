@@ -2,8 +2,8 @@
 #include <utility>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    return a.first == b.first && a.second == b.second;
 }
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
@@ -17,6 +17,6 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{10, 10}, sum_product({10})));
+    assert(issame(sum_product({10}), {10, 10}));
     return 0;
 }
