@@ -9,10 +9,10 @@ int main() {
     }
 
     int sum = 0;
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 15; i >= 0; --i) {
         if (i % 2 == 0) {
             int doubled = digits[i] * 2;
-            sum += (doubled > 9) ? doubled - 9 : doubled;
+            sum += (doubled >= 10) ? doubled - 9 : doubled;
         } else {
             sum += digits[i];
         }
