@@ -4,7 +4,7 @@
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text);
+    std::getline(std::cin, text); // Use getline to read full input line including spaces
     std::cin >> target;
     
     std::vector<int> indices;
