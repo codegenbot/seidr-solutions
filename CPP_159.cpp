@@ -7,6 +7,6 @@ std::vector<int> eat(int number, int remaining, int need){
     return std::vector<int>{totalEaten, carrotsLeft};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
