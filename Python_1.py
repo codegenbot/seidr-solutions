@@ -11,5 +11,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ""
     if temp:
-        result.append(temp)
+        result.append(temp)  # Append the last group of parentheses
     return result
