@@ -15,4 +15,4 @@ int main() {
     cout << setprecision(15) << snow_on_ground << '\n';
 
     return 0;
-}
+}      
