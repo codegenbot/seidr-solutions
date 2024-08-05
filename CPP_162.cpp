@@ -1,4 +1,4 @@
-int main2() {
+int fixed_main() {
     string input;
     cin >> input;
     cout << string_to_md5(input) << endl;
