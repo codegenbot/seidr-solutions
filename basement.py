@@ -1,7 +1,8 @@
-def basement(indexes):
-    total_sum = 0
-    for i in range(len(indexes)):
-        total_sum += indexes[i]
-        if total_sum < 0:
+Here is a possible solution in Python:
+
+def basement(arr):
+    for i in range(len(arr)):
+        total = sum(arr[:i+1])
+        if total < 0:
             return i
     return -1
