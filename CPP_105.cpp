@@ -1,9 +1,15 @@
+#include <map>
+#include <algorithm>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
-    // Function implementation remains the same
+    std::sort(arr.begin(), arr.end(), [](int a, int b) { return std::to_string(a).size() < std::to_string(b).size(); });
+    for (const int &num : arr) {
+        result.push_back(std::to_string(num));
+    }
     return result;
 }
 
