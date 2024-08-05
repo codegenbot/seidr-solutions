@@ -3,18 +3,24 @@
 #include <string>
 
 int gcd(int a, int b) {
-    if (b == 0)
+    if (b == 0) {
         return a;
+    }
     return gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    if (target.empty()) {
+        return indices;
     }
+
+    for (size_t i = 0; i <= text.length() - target.length(); ++i) {
+        if (text.substr(i, target.length()) == target) {
+            indices.push_back(i);
+        }
+    }
+
     return indices;
 }
 
