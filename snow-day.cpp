@@ -8,8 +8,10 @@ int main() {
     float snow_on_ground, snow_fall_rate, snow_melt_rate;
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
+    float total_snow;
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate + 0.0000000000005);
+        total_snow = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate);
+        snow_on_ground = total_snow;
     }
 
     cout << fixed << setprecision(15) << snow_on_ground << '\n';
