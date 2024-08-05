@@ -1,34 +1,37 @@
-#include <vector>
-#include <iostream>
-#include <string>
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
 
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
+    vector<char> guessArray(guess.begin(), guess.end());
 
-    for (char c : code) {
-        if (guess.find(c) != string::npos) {
-            if (code.find(c) == guess.find(c)) {
-                black++;
-            } else {
-                white++;
-            }
+    for (char c : guessArray) {
+        if (find(codeArray.begin(), codeArray.end(), c) != codeArray.end()) {
+            count++;
+            codeArray.erase(remove(codeArray.begin(), codeArray.end(), c), codeArray.end());
         }
     }
 
-    return {black, white};
+    return count;
 }
 
 int main() {
     string code, guess;
-    cout << "Enter the Mastermind code: ";
-    cin >> code;
-    cout << "Enter the guess: ";
-    cin >> guess;
+    cin >> code >> guess;
 
-    int result[] = mastermind(code, guess);
-    cout << result[0] << endl;  // black pegs
-    cout << result[1] << endl;  // white pegs
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+
+    cout << white << endl;
+    cout << black << endl;
 
     return 0;
 }
