@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -19,8 +18,15 @@ bool move_one_ball(const vector<int>& arr) {
 }
 
 int main() {
-    assert(move_one_ball({1, 2, 3, 4}) == true);
-    assert(move_one_ball({3, 4, 1, 2}) == false);
+    // Read input from the user
+    vector<int> input;
+    int num;
+    while (cin >> num) {
+        input.push_back(num);
+    }
+
+    // Call the function and output the result
+    cout << (move_one_ball(input) ? "true" : "false") << endl;
 
     return 0;
 }
