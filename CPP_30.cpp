@@ -1,7 +1,7 @@
-#include <vector> // Add this line to include the vector header
+#include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) { // Fix the function signature by qualifying vector with std::
-    // Add your implementation here
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
