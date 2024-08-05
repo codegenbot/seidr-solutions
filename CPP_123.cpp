@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-vector<int> issame(int n) {
+vector<int> is_same(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 1) {
