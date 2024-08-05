@@ -11,7 +11,7 @@ int main() {
     int dimes = cents / 10;
     cents %= 10;
     
-    int pennies = cents / 1; // Change from 5 to 1
+    int pennies = cents / 1; // Use more than one penny for small amounts
     cents %= 1; // Reset cents since we've used some as pennies
 
     cout << quarters << endl;
