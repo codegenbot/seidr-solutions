@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 #include <cmath>
 
@@ -23,7 +22,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << std::fixed << std::setprecision(13) << distance << std::endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
