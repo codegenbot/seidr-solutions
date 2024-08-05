@@ -14,7 +14,7 @@ int can_arrange(std::vector<int> arr){
     return maxIndex;
 }
 
-void solve(){
+int main(){
     std::vector<int> arr;
     int n, input;
     
@@ -26,9 +26,6 @@ void solve(){
     
     int result = can_arrange(arr);
     std::cout << result << std::endl;
-}
-
-int main(){
-    solve();
+    
     return 0;
 }
