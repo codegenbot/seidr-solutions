@@ -9,6 +9,10 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
+    // int n;
+    // while (cin >> n) {
+    //     nums.push_back(n);
+    // }
     int sum = 0;
     for (int num : nums) {
         sum += num;
