@@ -1,4 +1,5 @@
-def find_zero(xs):
+def find_zero():
+    xs = list(map(int, input().split()))
     n = len(xs) - 1
     a = xs[-1]
     b = xs[-2] + a
@@ -6,7 +7,5 @@ def find_zero(xs):
         a, b = xs[-i] + a, a + b
     return -a / b
 
-# Example usage
-input_list = [1, 2, 3, 4, 5]  # Input list provided by the contest
-result = find_zero(input_list)
+result = find_zero()
 print(result)
