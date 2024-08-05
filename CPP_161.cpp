@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 std::string solve(std::string s){
     int n = s.length();
@@ -13,7 +12,7 @@ std::string solve(std::string s){
         }
     }
     if(!hasLetter){
-        std::reverse(s.begin(), s.end());
+        reverse(s.begin(), s.end());
     }
     return s;
 }
