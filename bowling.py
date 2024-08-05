@@ -1,32 +1,23 @@
-def bowling_score(bowls):
-    score = 0
-    frame = 1
-    bowl_index = 0
-
+def bowling_score(s):
+    frames = []
+    i = 0
     for _ in range(10):
-        if bowls[bowl_index] == "X":
-            score += 10
-            score += sum(
-                map(
-                    lambda x: 10 if x == "X" else (int(x) if x.isdigit() else 0),
-                    bowls[bowl_index + 1 : bowl_index + 3],
-                )
-            )
-            bowl_index += 1
-        elif bowls[bowl_index + 1] == "/":
-            score += 10
-            score += (
-                10
-                if bowls[bowl_index + 2] == "X"
-                else (
-                    int(bowls[bowl_index + 2]) if bowls[bowl_index + 2].isdigit() else 0
-                )
-            )
-            bowl_index += 2
+        if s[i] == "X":
+            frames.append(10)
+            i += 1
         else:
-            score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            bowl_index += 2
+            if s[i + 1] == "/":
+                frames.append(10)
+            else:
+                frames.append(int(s[i]))
+                i += 1
+            if s[i] == "X":
+                frames[-1] += 10
+            else:
+                frames[-1] += int(s[i])
+        i += 1
+    return sum(frames)
 
-        frame += 1
 
-    return score
+s = input()
+print(bowling_score(s))
