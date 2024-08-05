@@ -1,10 +1,5 @@
-def increment_list(l):
-    return [x + 1 for x in l]
-
-
 def check(func):
-    result = func([1, 2, 3])
-    return result
-
+    for i in range(5):
+        assert func([i]) == [i + 1]
 
 check(increment_list)
