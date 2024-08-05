@@ -29,7 +29,7 @@ vector<int> largest_smallest_integer(const vector<int>& lst) {
 
 int main() {
     vector<int> input = {5, -2, 9, -7, 3};
-    vector<int> expected_output = { -2, 3};
+    vector<int> expected_output = { -2, 3 };
     
     vector<int> output = largest_smallest_integer(input);
     
