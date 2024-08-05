@@ -14,7 +14,8 @@ std::vector<int> solve(int n) {
                 factorial *= j;
             }
             result[i] = factorial;
-        } else {
+        }
+        else {
             int sum = 0;
             for (int j = 1; j <= i; ++j) {
                 sum += j;
@@ -30,7 +31,6 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::vector<int> res = f(5);
-    assert(issame(res, {0, 1, 2, 6, 24}));
+    assert(issame(f(5), solve(5)));
     return 0;
 }
