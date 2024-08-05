@@ -25,7 +25,7 @@ int main() {
     std::vector<int> input = {-6, -4, -4, -3, -100, 1};
     std::vector<int> expected_output = {-100, 1};
     
-    assert(largest_smallest_integer(input) == expected_output);
+    assert (largest_smallest_integer(input) == expected_output);
     
     return 0;
 }
