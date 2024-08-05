@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,6 +19,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 
 int main() {
     assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-
+    
     return 0;
 }
