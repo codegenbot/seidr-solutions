@@ -1,11 +1,12 @@
 #include <boost/any.hpp>
 #include <iostream>
 #include <string>
+#include <boost/any.hpp>
 #include <cassert>
 #include <string_view>
 
 boost::any compare_one(const boost::any& a, int b) {
-    return (b == 1) ? a : boost::any("None");
+    return (b == 1) ? a : "None";
 }
 
 int main() {
