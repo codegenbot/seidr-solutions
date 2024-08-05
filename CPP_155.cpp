@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     
     for (size_t i = 0; i < a.size(); ++i) {
@@ -12,8 +11,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int compareVectors() {
-    assert(issame({1, 0}, {1, 0}));
+std::vector<int> even_odd_count(int n) {
+    return {n % 2, n / 2};
+}
+
+int main() {
+    assert(issame(even_odd_count(0) , {1, 0}));
     
     return 0;
 }
