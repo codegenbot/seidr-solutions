@@ -7,9 +7,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    std::vector<int> result;
     std::sort(grid.begin(), grid.end());
-    result = grid[k];
+    std::vector<int> result = grid[k];
     return result;
 }
 
