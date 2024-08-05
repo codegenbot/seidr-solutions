@@ -1,10 +1,3 @@
-int main(){
-    std::vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
-    long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 35);
-    return 0;
-}
-
 #include <vector>
 #include <cassert>
 #include <cmath>
@@ -17,4 +10,11 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
+}
+
+int main(){
+    std::vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == 35);
+    return 0;
 }
