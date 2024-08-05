@@ -16,4 +16,3 @@ int main() {
     cout << fixed << totalDistance;
 
     return 0;
-}
