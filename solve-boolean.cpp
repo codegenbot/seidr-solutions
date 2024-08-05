@@ -1,45 +1,38 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-bool solveBoolean(string s) {
-    bool result = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') {
-            return true;
-        } else if (s[i] == 'F') {
-            return false;
-        } else if (s[i] == '&') {
-            result &= evaluate(s, i + 1);
-        } else if (s[i] == '|') {
-            result |= evaluate(s, i + 1);
-        }
-        i++;
-    }
-    return result;
-}
-
-bool evaluate(string s, int &i) {
-    bool result = true;
-    while (i < s.length()) {
-        if (s[i] == 'T') {
-            return true;
-        } else if (s[i] == 'F') {
-            return false;
-        } else if (s[i] == '&') {
-            i++;
-            result &= evaluate(s, i);
-        } else if (s[i] == '|') {
-            i++;
-            result |= evaluate(s, i);
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.size(); i++) {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() != '&') {
+                s.pop();
+            }
+            if (s.empty()) {
+                return "True";
+            } else {
+                s.pop();
+            }
+        } else if (expression[i] == '&') {
+            s.push('&');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            while (!s.empty() && s.top() != '|') {
+                s.pop();
+            }
+            if (s.empty()) {
+                return "True";
+            } else {
+                s.pop();
+            }
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            return "False";
         }
     }
-    return result;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False");
-    return 0;
+    if (s.empty()) {
+        return "True";
+    } else {
+        return "False";
+    }
 }
