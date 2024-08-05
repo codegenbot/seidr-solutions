@@ -1,22 +1,16 @@
-int bowlingScore(const string& input) {
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 0;
-    for (char c : input) {
-        if (c == 'X') {
-            score += 30;
-            currentFrame++;
-        } else if (c == '/') {
-            score += 10 - (int)(input[currentFrame].str() - '0');
-            currentFrame++;
-        } else {
-            int spare = int(c - '0');
-            if (currentFrame < 9) {
-                // If it's not the last frame and we have a spare, calculate for the next frame
-                score += spare + 10;
-            } else {
-                // If it's the last frame and we have a spare, just add the spare
-                score += spare;
-            }
+    bool inFrame = false;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '/') {
+            inFrame = true;
+        } else if(inFrame) {
+            inFrame = false;
+            if(s[i-1] != 'X') score += (s[i-1]-'0');
         }
     }
     return score;
