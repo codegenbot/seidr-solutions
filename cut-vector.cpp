@@ -1,15 +1,22 @@
 #include <vector>
 #include <iostream>
-#include <numeric> 
+#include <ostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
     for (int i = 1; i <= v.size(); ++i) {
-        int sumLeft = accumulate(v.begin(), v.begin() + i, 0);
-        int sumRight = accumulate(v.begin() + i, v.end(), 0);
+        int sumLeft = 0, sumRight = 0;
+        
+        for (int j = 0; j < i; ++j) {
+            sumLeft += v[j];
+        }
+        
+        for (int j = i; j < v.size(); ++j) {
+            sumRight += v[j];
+        }
         
         int diff = abs(sumLeft - sumRight);
         
