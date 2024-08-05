@@ -1,42 +1,46 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 0; i < v.size(); i++) {
-        int left_sum = accumulate(v.begin(), v.begin() + i, 0);
-        int right_sum = accumulate(v.begin() + i, v.end(), 0);
-        if (left_sum == right_sum) {
-            return {{}, {v.begin(), v.end()}};
-        }
-        int diff = abs(left_sum - right_sum);
+    pair<vector<int>, vector<int>> result;
+    
+    for (int i = 1; i <= vec.size(); i++) {
+        vector<int> left(vec.begin(), vec.begin() + i);
+        vector<int> right(vec.begin() + i, vec.end());
+        
+        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
+        
         if (diff < min_diff) {
             min_diff = diff;
-            cut_index = i;
+            result = make_pair(left, right);
         }
     }
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    return {left, right};
+    
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
-    for (auto &x : v) {
-        cin >> x;
+
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (auto i : result.first) {
-        cout << i << " ";
+
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+
+    cout << "Left: ";
+    for (int num : res.first) {
+        cout << num << " ";
     }
-    cout << "] [" << "[";
-    for (auto i : result.second) {
-        cout << i << " ";
+    cout << endl;
+
+    cout << "Right: ";
+    for (int num : res.second) {
+        cout << num << " ";
     }
-    cout << "]";
+    cout << endl;
     return 0;
 }
