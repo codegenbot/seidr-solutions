@@ -1,5 +1,5 @@
 #include <vector>
- 
+
 int luhn(const std::vector<int>& input) {
     int sum = 0;
     bool alternate = false;
