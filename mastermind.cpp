@@ -1,6 +1,7 @@
 #include <string>
+#include <vector>
 
-std::pair<int, int> mastermind(string code, string guess) {
+std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -15,13 +16,16 @@ std::pair<int, int> mastermind(string code, string guess) {
 
     // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        int correctColor = 0;
+        bool found = false;
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
-                correctColor++;
+                found = true;
+                code[j] = ' ';
+                break;
             }
         }
-        white += correctColor - black;
+        if (!found)
+            white++;
     }
 
     return std::make_pair(white, black);
