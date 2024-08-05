@@ -1,4 +1,9 @@
-int start1 = interval1[0];
+#include <vector>
+#include <string>
+using namespace std;
+
+string intersection(vector<int> interval1, vector<int> interval2) {
+    int start1 = interval1[0];
     int end1 = interval1[1];
     int start2 = interval2[0];
     int end2 = interval2[1];
