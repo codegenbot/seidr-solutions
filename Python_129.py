@@ -14,7 +14,7 @@ def minPath(grid, k):
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
                 new_path = dfs(nx, ny, path + [grid[nx][ny]])
-                if new_path is not None and (min_path is None or len(new_path) < len(min_path)):
+                if new_path and (not min_path or len(new_path) < len(min_path)):
                     min_path = new_path
 
         visited.remove((x, y))
