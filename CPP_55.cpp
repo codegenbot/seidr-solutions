@@ -5,6 +5,7 @@ int fib(int n) {
 }
 
 int main() {
-    assert (fib(12) == 144);
+    assert(fib(12) == 144);
+    // Add more test cases as needed
     return 0;
 }
