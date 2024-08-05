@@ -1,14 +1,21 @@
-int luhn(vector<int> nums) {
+int luhn(int n) {
     int sum = 0;
-    bool alternate = false;
+    bool addDigit = false;
+    
     for (int i = 0; i < 16; ++i) {
-        if (alternate) {
-            int n = nums[i] * 2;
-            sum += (n > 9 ? n - 9 : n);
-        } else {
-            sum += nums[i];
+        int digit = n % 10;
+        n /= 10;
+        
+        if (addDigit) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
-        alternate = !alternate;
+        
+        sum += digit;
+        addDigit = !addDigit;
     }
+    
     return sum;
 }
