@@ -3,15 +3,14 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
+    count_open = 0
     for char in paren_string:
+        temp += char
         if char == "(":
-            temp += char
+            count_open += 1
         elif char == ")":
-            temp += char
-            result.append(temp)
-            temp = ""
+            count_open -= 1
+            if count_open == 0:
+                result.append(temp)
+                temp = ""
     return result
-
-input_string = input("Enter the string of parentheses: ")
-output = separate_paren_groups(input_string)
-print(output)
