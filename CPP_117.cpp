@@ -1,35 +1,17 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
 }
 
-std::vector<std::string> select_words(std::string words, int index){
-    std::vector<std::string> result;
-    std::string temp = "";
-    for (char c : words) {
-        if (c == ' ') {
-            if (!temp.empty()) {
-                if (index > 0) {
-                    index--;
-                } else {
-                    result.push_back(temp);
-                }
-                temp.clear();
-            }
-        } else {
-            temp += c;
-        }
-    }
-    if (!temp.empty() && index == 0) {
-        result.push_back(temp);
-    }
-    return result;
+std::vector<std::string> select_words(const std::string& sentence, int index){
+    std::vector<std::string> words;
+    // Implement logic to extract words from the sentence based on the given index
+    return words;
 }
 
 int main(){
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
+    assert(issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
 }
