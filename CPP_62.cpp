@@ -3,14 +3,9 @@
 
 std::vector<float> derivative(const std::vector<float>& v){
     std::vector<float> result;
-    if (v.size() <= 1) {
-        return result;
-    }
-    
     for (size_t i = 1; i < v.size(); ++i) {
-        result.push_back(v[i] - v[i - 1]);
+        result.push_back(v[i] - v[i-1]);
     }
-    
     return result;
 }
 
