@@ -19,8 +19,19 @@ bool move_one_ball(const vector<int>& arr) {
 }
 
 int main() {
-    assert(move_one_ball({1, 2, 3, 4}) == true);
-    assert(move_one_ball({3, 4, 1, 2}) == false);
+    // Read input from user
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    // Process the input
+    bool result = move_one_ball(arr);
+
+    // Output the result
+    cout << (result ? "true" : "false") << endl;
 
     return 0;
 }
