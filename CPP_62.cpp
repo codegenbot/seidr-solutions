@@ -12,7 +12,7 @@ std::vector<float> derivative(const std::vector<float>& v){
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b){
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
