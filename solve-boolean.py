@@ -1,11 +1,11 @@
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == "t":
         return True
-    elif expression == "F":
+    elif expression == "f":
         return False
     elif "&" in expression:
-        operands = expression.split("&")
-        return all(solve_boolean(op) for op in operands)
+        left, right = expression.split("&")
+        return not (bool(solve_boolean(left)) and bool(solve_boolean(right)))
     elif "|" in expression:
-        operands = expression.split("|")
-        return any(solve_boolean(op) for op in operands)
+        left, right = expression.split("|")
+        return bool(solve_boolean(left)) or bool(solve_boolean(right))
