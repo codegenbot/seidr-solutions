@@ -1,16 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
 #include <cmath>
 
-using namespace std;
-
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
     
@@ -19,23 +16,23 @@ int main() {
     int idx = -1;
     
     for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
+        int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
         
-        if (abs(left_sum - right_sum) < diff) {
-            diff = abs(left_sum - right_sum);
+        if (std::abs(left_sum - right_sum) < diff) {
+            diff = std::abs(left_sum - right_sum);
             idx = i;
         }
     }
     
     for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << endl;
+    std::cout << std::endl;
     
     for (int i = idx; i < n; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
