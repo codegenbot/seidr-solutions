@@ -1,22 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <climits>
 #include <cassert>
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
-    std::vector<int> result = {0, 0};
-    int max_neg = INT_MIN;
-    int min_pos = INT_MAX;
+    std::vector<int> result = {INT_MIN, INT_MAX};
     
     for(int num : lst) {
-        if(num < 0 && num > max_neg) {
-            max_neg = num;
-        } else if(num > 0 && num < min_pos) {
-            min_pos = num;
+        if(num < 0 && num > result[0]) {
+            result[0] = num;
+        } else if(num > 0 && num < result[1]) {
+            result[1] = num;
         }
     }
-    
-    result[0] = max_neg == INT_MIN ? 0 : max_neg;
-    result[1] = min_pos == INT_MAX ? 0 : min_pos;
     
     return result;
 }
