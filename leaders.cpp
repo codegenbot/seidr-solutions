@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -18,8 +19,7 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    // Rightmost element is always a leader
-    leaders.push_back(arr[n-1]);
+    leaders.push_back(arr[n-1]); // The rightmost element is always a leader.
     
     return leaders;
 }
