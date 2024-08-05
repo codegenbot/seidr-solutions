@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize(n: int) -> List[int]:
     n = int(input("Enter the number to factorize: "))
     factors = []
