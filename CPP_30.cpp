@@ -1,6 +1,6 @@
-#include <vector> // Add this line to include the vector header
+#include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) { // Fix the function signature by qualifying vector with std::
+bool issame(std::vector<float> a, std::vector<float> b) {
     // Add your implementation here
 }
 
