@@ -1,7 +1,5 @@
-def complete_code(numbers, delimiter):
-    result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
-    return result
+from typing import List
+from itertools import chain
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    return list(chain.from_iterable(zip(numbers, [delimiter] * len(numbers)))[:-1]
