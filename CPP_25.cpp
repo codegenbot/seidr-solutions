@@ -1,9 +1,12 @@
 #include <vector>
 
-vector<int> factorize(int n);
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
+bool issame(vector<int> factors){
+    for(int i = 0; i < factors.size() - 1; i++){
+        if(factors[i] != factors[i+1]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> factorize(int n){
@@ -17,9 +20,16 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    // Main function usage example
-    int num = 60;
-    vector<int> factors = factorize(num);
+int main(){
+    int n;
+    cin >> n;
+    vector<int> result = factorize(n);
+    
+    if(issame(result)){
+        cout << "All prime factors are same" << endl;
+    } else{
+        cout << "All prime factors are not same" << endl;
+    }
+    
     return 0;
 }
