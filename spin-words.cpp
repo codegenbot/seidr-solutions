@@ -1,37 +1,19 @@
-#include <vector>
-#include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            word += str[i];
-        }
+    int wordLength;
+    char *token = strtok((char*)str.c_str(), " ");
+    while(token != NULL){
+        wordLength = strlen(token);
+        if(wordLength >= 5)
+            for(int i = wordLength - 1; i >= 0; --i)
+                result += token[i];
+        else
+            result += token;
+        result += " ";
+        token = strtok(NULL, " ");
     }
-
-    if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
-    }
-    result += word;
-
-    return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
+    return result.substr(0, result.length() - 1);
 }
