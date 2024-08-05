@@ -21,11 +21,15 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     return result;
 }
 
+bool is_same(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 int main() {
     std::vector<int> input = {-6, -4, -4, -3, -100, 1};
     std::vector<int> expected_output = {-100, -3};
     
-    assert(largest_smallest_integers(input) == expected_output);
+    assert(is_same(largest_smallest_integers(input), expected_output));
     
     return 0;
 }
