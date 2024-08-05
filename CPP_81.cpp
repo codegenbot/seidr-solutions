@@ -4,7 +4,7 @@ using namespace std;
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b); 
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
