@@ -12,4 +12,3 @@ int fuelCost(std::vector<int>& nums) {
         sum += result;
     }
     return sum;
-}
