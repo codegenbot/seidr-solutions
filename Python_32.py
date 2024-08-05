@@ -1,10 +1,10 @@
 def find_zero(xs: list):
     n = len(xs) - 1
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients should be even.")
     a = xs[-1]
     b = xs[-2]
     return -a / b
 
-if __name__ == "__main__":
-    xs = list(map(int, input().split()))
-    result = find_zero(xs)
-    print(result)
+coefficients = list(map(float, input("Enter the list of coefficients separated by space: ").split()))
+print(find_zero(coefficients))
