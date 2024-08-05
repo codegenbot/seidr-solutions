@@ -1,29 +1,46 @@
 #include <vector>
+#include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> pluck(std::vector<int> arr) {
-    int smallest_even = -1;
-    int smallest_even_index = -1;
-
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && (smallest_even == -1 || arr[i] < smallest_even || (arr[i] == smallest_even && i < smallest_even_index))) {
-            smallest_even = arr[i];
-            smallest_even_index = i;
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-
-    if (smallest_even == -1) {
-        return {};
-    } else {
-        return {smallest_even, smallest_even_index};
-    }
+    return true;
 }
 
+vector<int> pluck(vector<int> arr);
+
 int main() {
-    assert (issame(pluck({7, 9, 7, 1}) , {}));
+    // Test cases for pluck function
+    assert(issame(pluck({1, 3, 2, 5, 4}), {2, 2}));
+    assert(issame(pluck({5, 7, 9, 11, 13}), {}));
+    assert(issame(pluck({2, 4, 6, 8, 10}), {2, 0}));
+
     return 0;
+}
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
+    int smallest_even = INT_MAX;
+    int smallest_index = INT_MAX;
+    
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
+            smallest_even = arr[i];
+            smallest_index = i;
+        }
+    }
+    
+    if (smallest_even != INT_MAX) {
+        result.push_back(smallest_even);
+        result.push_back(smallest_index);
+    }
+    
+    return result;
 }
