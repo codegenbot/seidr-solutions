@@ -6,23 +6,30 @@
 
 using namespace std;
 
-bool move_one_ball(vector<int>& arr) {
+bool move_one_ball(const vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
+        vector<int> arr_copy = arr;
+        rotate(arr_copy.begin(), arr_copy.begin() + 1, arr_copy.end());
+
+        if (is_sorted(arr_copy.begin(), arr_copy.end())) {
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
 
 int main() {
-    vector<int> arr1 = {1, 2, 3, 4};
-    vector<int> arr2 = {3, 4, 1, 2};
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
 
-    assert(move_one_ball(arr1) == true);
-    assert(move_one_ball(arr2) == false);
+    bool result = move_one_ball(arr);
+
+    cout << (result ? "true" : "false") << endl;
 
     return 0;
 }
