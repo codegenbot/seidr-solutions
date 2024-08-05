@@ -1,7 +1,7 @@
 #include <unordered_map>
 #include <cassert>
 #include <cctype>
-#include <algorithm> 
+#include <algorithm>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
