@@ -1,5 +1,10 @@
-def basement(arr):
-    for i in range(len(arr)):
-        if sum(arr[: i + 1]) < 0:
-            return i
-    return -1
+Here is a Python solution for the problem:
+
+def basement(vector):
+    total = 0
+    index = 0
+    while True:
+        total += vector[index]
+        if total < 0:
+            return index
+        index += 1
