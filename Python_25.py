@@ -11,6 +11,16 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(input())
-result = factorize(n)
-print(result)
+inputs = []
+while True:
+    try:
+        line = input()
+        if not line:
+            break
+        inputs.append(int(line))
+    except EOFError:
+        break
+
+for n in inputs:
+    result = factorize(n)
+    print(result)
