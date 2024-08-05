@@ -5,21 +5,20 @@
 
 using namespace std;
 
-bool solve(initializer_list<int> arr) {
-    vector<int> balls(arr);
-    int n = balls.size();
+bool solve(vector<int>& arr) {
+    int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        if (is_sorted(balls.begin(), balls.end())) {
+        if (is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        rotate(balls.rbegin(), balls.rbegin() + 1, balls.rend());
+        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
 
 int main() {
-    assert(solve({1, 2, 3, 4}) == true);
-    assert(solve({3, 4, 1, 2}) == false);
+    assert(solve(vector<int>{1, 2, 3, 4}) == true);
+    assert(solve(vector<int>{3, 4, 1, 2}) == false);
 
     return 0;
 }
