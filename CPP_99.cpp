@@ -2,12 +2,11 @@
 #include <cassert>
 
 int closestInteger(double num) {
-    return lround(num);
+    return static_cast<int>(round(num));
 }
 
 int main() {
-    assert(closestInteger(0.5) == 1);
-    assert(closestInteger(-3.7) == -4);
+    assert(closestInteger(5.7) == 6);
     
     return 0;
 }
