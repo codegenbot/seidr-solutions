@@ -1,31 +1,27 @@
+
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-int can_arrange(std::vector<int> arr);
-
-int can_arrange(std::vector<int> arr){
-    int maxIndex = -1;
-    for(int i = 1; i < arr.size(); i++){
-        if(arr[i] < arr[i-1]){
-            maxIndex = i - 1;
+int can_arrange(std::vector<int> arr) {
+    std::vector<int> uniqueElements;
+    
+    for(int i = 0; i < arr.size(); i++){
+        if(std::count(arr.begin(), arr.end(), arr[i]) == 1){
+            uniqueElements.push_back(arr[i]);
         }
     }
-    return maxIndex;
-}
-
-int main(){
-    std::vector<int> arr;
-    int n, input;
     
-    std::cin >> n;
-    for(int i = 0; i < n; i++){
-        std::cin >> input;
-        arr.push_back(input);
+    int j = 0;
+    for(int i = 0; i < arr.size(); i++){
+        if(std::count(arr.begin(), arr.end(), arr[i]) > 1){
+            arr[j++] = arr[i];
+        }
     }
     
-    int result = can_arrange(arr);
-    std::cout << result << std::endl;
+    for(int i = 0; i < uniqueElements.size(); i++){
+        arr[j++] = uniqueElements[i];
+    }
     
-    return 0;
+    return arr;
 }
