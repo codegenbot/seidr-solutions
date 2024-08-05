@@ -23,3 +23,6 @@ def minPath(grid, k):
             path = dfs(i, j, [grid[i][j]])
             if path and len(path) >= k:
                 return path
+
+# Test the function with the given sample test case
+print(minPath([[1, 3], [3, 2]], 10))
