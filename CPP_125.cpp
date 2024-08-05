@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
 
-vector<string> split_words(string txt);
-
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -31,10 +31,6 @@ vector<string> split_words(string txt){
         result.push_back(to_string(oddCount));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
 
 int main(){
