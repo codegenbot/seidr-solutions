@@ -7,9 +7,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == "(" or char == ")":
             temp += char
         else:
-            if temp:
+            if len(temp) > 0:
                 result.append(temp)
                 temp = ""
-    if temp:
-        result.append(temp)  # Append the last group of parentheses
+    if len(temp) > 0:
+        result.append(temp)
     return result
