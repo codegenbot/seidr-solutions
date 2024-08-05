@@ -17,4 +17,4 @@ int main() {
     double odd_sum = double_the_difference(lst);
     assert(odd_sum == 35);
     return 0;
-}
+}  
