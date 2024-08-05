@@ -11,7 +11,7 @@ int main() {
     int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = (cents / 1);
+    int pennies = (cents);
 
     cout << quarters << endl;
     cout << nickles << endl;
