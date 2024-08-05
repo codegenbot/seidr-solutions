@@ -3,11 +3,7 @@
 #include <cassert>
 
 bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
@@ -29,6 +25,6 @@ std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, 
 }
 
 int main() {
-    assert(isEqual(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    assert(isEqual(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}) == true);
     return 0;
 }
