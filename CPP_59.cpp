@@ -24,9 +24,8 @@ int largest_prime_factor(int n) {
     return maxPrime;
 }
 
+// Test the function with a test case
 int main() {
-    int n;
-    std::cin >> n;
-    std::cout << largest_prime_factor(n) << std::endl;
+    assert(largest_prime_factor(13195) == 29);
     return 0;
 }
