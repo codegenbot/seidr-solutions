@@ -5,9 +5,9 @@ bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
         return false;
     }
-
-    double result = std::log(x) / std::log(n);
-    return std::abs(result - round(result)) < 1e-9;
+    
+    double result = std::log(static_cast<double>(x)) / std::log(static_cast<double>(n));
+    return (result == static_cast<int>(result));
 }
 
 int main() {
