@@ -7,13 +7,13 @@ int bowlingScore(string s) {
         if (s[i] == '/') {
             string firstPart = s.substr(0, i);
             string secondPart = s.substr(i + 1);
-            int firstPin = stoi(firstPart);
-            int secondPin = stoi(secondPart);
-            if (firstPin + secondPin == 10) {
+            int firstPins = stoi(firstPart);
+            int secondPins = stoi(secondPart);
+            if (firstPins + secondPins == 10) {
                 score += 10;
                 currentFrame++;
             } else {
-                score += firstPin + secondPin;
+                score += firstPins + secondPins;
                 currentFrame++;
             }
         } else if (s[i] == 'X') {
