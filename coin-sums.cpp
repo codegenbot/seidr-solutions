@@ -9,8 +9,8 @@ int main() {
     cents %= 25;
 
     int pennies = cents; 
-
     int total_cents = quarters * 25 + pennies; 
+
     int dimes = (total_cents - pennies) / 10;
     pennies = (total_cents - pennies) % 10;
 
