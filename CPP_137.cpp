@@ -26,6 +26,7 @@ std::any max_value(const std::any& a, const std::any& b) {
 }
 
 int main() {
+    // Example usage
     std::any a = 10;
     std::any b = 20;
     std::any result = max_value(a, b);
