@@ -1,7 +1,5 @@
-#include <iostream>
+#include <iostream> // Include the iostream header
 #include <cmath>
-
-using namespace std;
 
 int closestInteger(double num) {
     return lround(num);
@@ -9,7 +7,8 @@ int closestInteger(double num) {
 
 int main() {
     double num;
-    cin >> num;
-    cout << closestInteger(num);
+    std::cin >> num;
+    int result = closestInteger(num);
+    std::cout << result;
     return 0;
 }
