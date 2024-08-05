@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +10,7 @@ bool move_one_ball(const vector<int>& arr) {
     for (int i = 0; i < n; ++i) {
         vector<int> arr_copy = arr;
         rotate(arr_copy.begin(), arr_copy.begin() + 1, arr_copy.end());
-
+        
         if (is_sorted(arr_copy.begin(), arr_copy.end())) {
             return true;
         }
@@ -20,16 +19,8 @@ bool move_one_ball(const vector<int>& arr) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
-
-    bool result = move_one_ball(arr);
-
-    cout << (result ? "true" : "false") << endl;
+    assert(move_one_ball({1, 2, 3, 4}) == true);
+    assert(move_one_ball({3, 4, 1, 2}) == false);
 
     return 0;
 }
