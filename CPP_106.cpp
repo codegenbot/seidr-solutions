@@ -21,7 +21,8 @@ std::vector<int> f(int n) {
     return solve(n);
 }
 
-void main() {
+int main() {
     std::vector<int> res = f(5);
     assert(issame(res, {0, 1, 2, 6, 24}));
+    return 0;
 }
