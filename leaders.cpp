@@ -5,16 +5,15 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    int lastLeaderIndex = -1;
-    
     for(int i=n-1; i>=0; i--){
-        if(i < lastLeaderIndex){
-            leaders.clear();
-            break;
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++){
+            if(arr[j] >= arr[i]){
+                isLeader = false;
+                break;
+            }
         }
-        
-        if(lastLeaderIndex == -1 || arr[i] >= arr[lastLeaderIndex]){
-            lastLeaderIndex = i;
+        if(isLeader) {
             leaders.push_back(arr[i]);
         }
     }
