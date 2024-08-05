@@ -1,5 +1,5 @@
 #include <cmath>
 
 int closestInteger(double num) {
-    return lround(num);
+    return static_cast<int>(round(num));
 }
