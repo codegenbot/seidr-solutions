@@ -1,19 +1,14 @@
-```
 def solve_boolean(expression):
-    def evaluate_expression(expression):
-        operators = {'|': lambda a, b: a or b, '&': lambda a, b: a and b}
-        values = {'T': True, 'F': False}
-
-        stack = []
-        for char in expression:
-            if char in operators:
-                right = stack.pop()
-                left = stack.pop()
-                operator = operators[char]
-                stack.append(operator(left, right))
-            elif char in values:
-                stack.append(values[char])
-
-        return stack[0]
+    def evaluate_expression(s):
+        while "|" in s:
+            left, right = s.split("|", 1)
+            if "&" in left:
+                left = "(" + left + ")"
+            if "&" in right:
+                right = "(" + right + ")"
+            s = left + " | " + right
+        return eval(
+            'eval("T" if {} else "F")'.format(s.replace("&", "&").replace("|", "|"))
+        )
 
     return evaluate_expression(expression)
