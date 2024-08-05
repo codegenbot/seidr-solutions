@@ -1,11 +1,13 @@
 #include <string>
+#include <bitset>
+#include <cassert>
 
-std::string calculate_binary_avg(int num1, int num2) {
-    int average = (num1 + num2) / 2;
-    std::string binary_avg = std::bitset<sizeof(average) * CHAR_BIT>(average).to_string();
-    return binary_avg;
+std::string calculate_binary_avg(int a, int b) {
+    int avg = (a + b) / 2;
+    return std::bitset<sizeof(int)*8>(avg).to_string();
 }
 
 int main() {
-    std::string rounded_avg = calculate_binary_avg(5, 5);
+    std::string binary_avg = calculate_binary_avg(5, 5);
+    assert(binary_avg == "00000000000000000000000000000101");
 }
