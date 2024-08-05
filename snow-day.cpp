@@ -3,7 +3,7 @@
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
+    double totalSnow = 0;
     
     // Calculate the amount of snow that will fall during each hour
     for (int i = 0; i < hours; i++) {
@@ -11,7 +11,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
         
         // Calculate how much snow melts per hour and subtract it from the total
         if (proportionOfSnowMeltingPerHour > 0) {
-            totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0; // Convert proportion to percentage and then to a decimal
+            totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
         }
     }
     
@@ -24,7 +24,7 @@ int main() {
 
     cin >> hours >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
 
-    cout << fixed << setprecision(2) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
 
     return 0;
 }
