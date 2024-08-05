@@ -1,3 +1,4 @@
+```
 int luhn(vector<int> card) {
     int sum = 0;
     for(int i = card.size() - 1; i >= 0; --i) {
