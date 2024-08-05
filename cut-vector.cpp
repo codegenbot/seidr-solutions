@@ -16,7 +16,7 @@ int main() {
         int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
         int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
         int current_diff = abs(left_sum - right_sum);
-        if (current_diff < diff || (current_diff == diff && idx < i)) {
+        if (current_diff < diff) {
             diff = current_diff;
             idx = i;
         }
