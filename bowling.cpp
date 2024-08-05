@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -7,17 +7,23 @@ int bowlingScore(string s) {
         if (s[i] == '/') {
             string firstPart = s.substr(0, i);
             string secondPart = s.substr(i + 1);
-            int firstPins = stoi(firstPart.substr(0, firstPart.find('/')));
-            int secondPins = stoi(secondPart);
-            score += firstPins + secondPins;
-            currentFrame++;
+            int firstPin = stoi(firstPart);
+            int secondPin = stoi(secondPart);
+            if (firstPin + secondPin == 10) {
+                score += 10;
+                currentFrame++;
+            } else {
+                score += firstPin + secondPin;
+                currentFrame++;
+            }
         } else if (s[i] == 'X') {
-            score += 10;
+            score += 30;
             currentFrame++;
         } else if (s[i] == ' ') {
             i++; // skip the space
         } else {
-            int pins = stoi(s.substr(i));
+            string part = s.substr(i);
+            int pins = stoi(part);
             if (pins < 10) {
                 score += pins;
                 currentFrame++;
@@ -28,3 +34,4 @@ int bowlingScore(string s) {
         }
     }
     return score;
+}
