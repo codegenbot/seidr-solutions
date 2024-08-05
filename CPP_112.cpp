@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
 #include <algorithm>
 #include <cassert>
@@ -17,7 +17,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
     }
     std::string reverse_result = result;
     std::reverse(reverse_result.begin(), reverse_result.end());
-    return {result, (result == reverse_result ? "True" : "False")};
+    return {result, (result == reverse_result) ? "True" : "False"};
 }
 
 int main(){
