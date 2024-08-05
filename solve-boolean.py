@@ -1,27 +1,25 @@
-def solve.Boolean(expression):
-    def or_(a, b):
-        return a or b
+Here is the solution:
 
-    def and_(a, b):
-        return a and b
-
+def solve_boolean(expression):
     if expression == 't':
         return True
     elif expression == 'f':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     else:
-        result = expression[0]
-        for i in range(1, len(expression)):
-            if expression[i] in ['|', '&']:
-                operator = expression[i]
-                expression = expression[:i].replace('T', str(True)).replace('F', str(False))
-                break
-        for char in expression:
-            if char not in ['|', '&']:
-                other = char == 'T'
-                expression = expression.replace(char, '')
-                if operator == '|':
-                    result = or_(result, other)
-                elif operator == '&':
-                    result = and_(result, other)
-        return result
+        def evaluate_expression(expression):
+            stack = []
+            for char in reversed(expression):
+                if char == '&':
+                    a = stack.pop()
+                    b = stack.pop()
+                    stack.append(a and b)
+                elif char == '|':
+                    a = stack.pop()
+                    b = stack.pop()
+                    stack.append(a or b)
+                else:
+                    stack.append(char == 't')
+            return stack[0]
+        return evaluate_expression(expression)
