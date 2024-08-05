@@ -1,35 +1,27 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= sentence.size(); ++i) {
-        if (i == sentence.size() || sentence[i] == ' ') {
-            words.push_back(sentence.substr(start, i - start));
-            start = i + 1;
-        }
+std::string spinWords(std::string str) {
+    std::istringstream iss(str);
+    std::string word;
+    std::stringstream result;
+
+    while (iss >> word) {
+        if (word.length() >= 5)
+            result << std::string(word.rbegin(), word.rend()) << " ";
+        else
+            result << word << " ";
     }
 
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (words[i].size() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
-        }
-    }
-
-    std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
-        result += words[i];
-        if (i < words.size() - 1) {
-            result += ' ';
-        }
-    }
-
-    return result;
+    return result.str();
 }
 
 int main() {
-    // Example usage
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
     std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+
     return 0;
 }
