@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
 using namespace std;
 
 bool issame(std::vector<int> vec1, std::vector<int> vec2){
@@ -8,6 +9,11 @@ bool issame(std::vector<int> vec1, std::vector<int> vec2){
 }
 
 std::vector<int> even_odd_palindrome(int n);
+
+int main() {
+    std::vector<int> result = even_odd_palindrome(10);
+    return 0;
+}
 
 std::vector<int> even_odd_palindrome(int n){
     std::vector<int> count{0, 0};
