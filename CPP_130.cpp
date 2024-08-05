@@ -1,7 +1,4 @@
 #include <vector>
-#include <cassert>
-
-std::vector<int> tri(int n);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
