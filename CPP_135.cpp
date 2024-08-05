@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int can_arrange(vector<int> arr){
     int largestIndex = -1;
