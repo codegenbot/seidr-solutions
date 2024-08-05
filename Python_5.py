@@ -1,6 +1,5 @@
-def process_numbers(numbers, delimiter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimiter])
-    result.pop()
-    return result
+from typing import List
+from itertools import chain
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    return list(chain.from_iterable(zip(numbers, [delimiter] * len(numbers)))[:-1]
