@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
