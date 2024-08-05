@@ -2,10 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b);
-
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x);
-
 bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
     return a == b;
 }
