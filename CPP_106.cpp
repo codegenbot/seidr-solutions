@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -22,7 +22,7 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-    std::vector<int> res = f(5);
-    assert(issame(res, std::vector<int>{0, 1, 2, 6, 24}));
-    return 0;
+  std::vector<int> res = f(5);
+  assert(issame(res, {0, 1, 2, 6, 24}));
+  return 0;
 }
