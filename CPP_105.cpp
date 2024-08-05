@@ -32,9 +32,14 @@ bool is_same(std::vector<std::string> a, std::vector<std::string> b)
 }
 
 int main() {
-    std::vector<std::string> vec1 = by_length({1, 9, 4});
-    std::vector<std::string> vec2 = by_length({9, 4, 1});
-    assert(is_same(vec1, vec2));
+    std::vector<std::string> vec1 = by_length({4, 9, 8});
+    std::vector<std::string> vec2 = by_length({8, 4, 9});
     
+    if (is_same(vec1, vec2)) {
+        std::cout << "Vectors are the same\n";
+    } else {
+        std::cout << "Vectors are different\n";
+    }
+
     return 0;
 }

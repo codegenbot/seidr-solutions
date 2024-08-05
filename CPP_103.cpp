@@ -14,11 +14,12 @@ std::string calculate_binary_avg(int n, int m) {
         sum += i;
     }
 
-    int avg = std::round((double)sum / (m - n + 1));
+    int rounded_avg = calculate_binary_avg(5, 5);
+
     std::string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
-        avg /= 2;
+    while (rounded_avg > 0) {
+        binary_avg = std::to_string(rounded_avg % 2) + binary_avg;
+        rounded_avg /= 2;
     }
 
     return binary_avg;
