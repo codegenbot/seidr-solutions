@@ -6,11 +6,11 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> palindrome(n * 2);
+    std::vector<int> result(n);
     for (int i = 0; i < n; ++i) {
-        palindrome[i] = palindrome[n * 2 - i - 1] = i;
+        result[i] = i % 2;
     }
-    return palindrome;
+    return result;
 }
 
 int main() {
