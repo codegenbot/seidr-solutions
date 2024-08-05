@@ -1,10 +1,8 @@
 #include <string>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 std::string calculate_binary_avg(int n, int m) {
-    assert(calculate_binary_avg(5, 5) == "101");
-
     if (n > m) {
         return "-1";
     }
@@ -14,7 +12,8 @@ std::string calculate_binary_avg(int n, int m) {
         sum += i;
     }
 
-    int rounded_avg = std::round((double)sum / (m - n + 1));
+    int rounded_avg;
+    rounded_avg = std::round((double)sum / (m - n + 1));
 
     std::string binary_avg = "";
     while (rounded_avg > 0) {
@@ -24,3 +23,5 @@ std::string calculate_binary_avg(int n, int m) {
 
     return binary_avg;
 }
+
+// Remove the main function definition here
