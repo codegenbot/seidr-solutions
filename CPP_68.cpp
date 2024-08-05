@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -17,7 +18,8 @@ std::vector<int> pluck(std::vector<int> arr) {
 
     if (smallest_even == -1) {
         return {};
-    } else {
+    } 
+    else {
         return {smallest_even};
     }
 }
