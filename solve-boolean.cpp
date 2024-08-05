@@ -1,11 +1,16 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string s;
-    cin >> s;
+    std::string input;
+    std::cin >> input;
     
-    if (s == "t") {
-        cout << "True" << endl;
+    if (input == "T" || input == "t") {
+        std::cout << "True" << std::endl;
+    } else if (input == "F" || input == "f") {
+        std::cout << "False" << std::endl;
     } else {
-        cout << "False" << endl;
+        std::cout << "Invalid input" << std::endl;
     }
     
     return 0;
