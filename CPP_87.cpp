@@ -1,8 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b){
     return a == b;
 }
 
@@ -24,7 +20,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
     return result;
 }
 
-int main() {
-    assert(isEqual(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+int main(){
+    assert (isEqual(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
     return 0;
 }
