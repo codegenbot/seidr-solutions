@@ -1,12 +1,14 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+
+using namespace std;
 
 int main() {
-    std::string text, target;
-    std::cin >> target >> text;
+    string text, target;
+    cin >> target >> text;
     
-    std::vector<int> indices;
+    vector<int> indices;
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
@@ -14,7 +16,7 @@ int main() {
     }
     
     for (int idx : indices) {
-        std::cout << idx << " ";
+        cout << idx << " ";
     }
     
     return 0;
