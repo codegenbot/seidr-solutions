@@ -7,5 +7,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-numbers = [3, 7, 2, 5]  # Predefined list for testing
-print(sum_product(numbers))
+# For testing purposes, provide input directly within the code
+input_numbers = [2, 4, 5]
+print(sum_product(input_numbers))
