@@ -1,13 +1,14 @@
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto &str : strings) {
         if (str.find(substring) != std::string::npos) {
@@ -17,7 +18,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-int main(){
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+int main() {
+    assert(is_same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+
     return 0;
 }
