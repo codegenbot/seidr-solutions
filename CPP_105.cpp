@@ -4,8 +4,6 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 std::vector<std::string> by_length(std::vector<int> arr) {
     // Function implementation remains the same
 }
