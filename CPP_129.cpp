@@ -1,12 +1,23 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-    // Your code here
+#include <vector>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool issame(int a, int b){
-    // Your code here
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> res;
+    for (int i = 0; i < k; ++i) {
+        for (const auto& row : grid) {
+            for (int val : row) {
+                res.push_back(val);
+            }
+        }
+    }
+    return res;
 }
 
-int main(){
-    // Your code here
-    return 0; 
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
