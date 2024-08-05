@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iostream>
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
@@ -20,11 +20,9 @@ vector<int> findLeaders(const vector<int>& nums) {
 int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
     vector<int> result = findLeaders(nums);
-
     for (int num : result) {
         cout << num << " ";
     }
     cout << endl;
-
     return 0;
 }
