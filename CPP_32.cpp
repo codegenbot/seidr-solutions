@@ -6,8 +6,8 @@ double poly(const vector<double>& coefficients, double x) {
     for (size_t i = 0; i < coefficients.size(); ++i) {
         result += coefficients[i] * pow(x, i);
     }
-    return result;
-}
+    return result;    
+} 
 
 double find_zero(const vector<double>& coeffs) {
     double a = coeffs[0];
