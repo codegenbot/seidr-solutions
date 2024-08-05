@@ -3,7 +3,7 @@
 int bowlingScore(string s) {
     int score = 0;
     bool lastRoll = false;
-    
+
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             score += 30;
@@ -22,9 +22,9 @@ int bowlingScore(string s) {
             score += thisFrameScore;
             lastRoll = false;
         }
-        
+
         if (!lastRoll) continue;
-        
+
         if (i != 9 && s[i+1] == 'X') {
             score += 10;
             i++;
@@ -34,6 +34,6 @@ int bowlingScore(string s) {
             score += thisFrameScore;
         }
     }
-    
+
     return score;
 }
