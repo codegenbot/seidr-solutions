@@ -1,5 +1,5 @@
 std::string solveBoolean(std::string s) {
-    stack<char> st;
+    std::stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -7,7 +7,7 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) return "False";
             char c = st.top(); st.pop();
-            if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
+            if ((c == 'T' || c == 't') && (s[i+1] == 'F' || s[i+1] == 'f'))
                 return "False";
         } else {
             st.push(s[i]);

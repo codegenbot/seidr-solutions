@@ -1,28 +1,38 @@
+#include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-std::string spinWords(const std::string& input) {
-    std::string output = "";
-    std::stringstream ss(input);
-    std::string word;
+using namespace std;
 
-    while (ss >> word) {
-        if (word.length() >= 5)
-            std::reverse(word.begin(), word.end());
-        output += word + " ";
+string spinWords(string input) {
+    string output = "";
+    int i = 0;
+    while (i < input.length()) {
+        if (input[i] == ' ') {
+            output += " ";
+            i++;
+        } else {
+            int j = i;
+            while (j < input.length() && input[j] != ' ') {
+                j++;
+            }
+            string word = input.substr(i, j - i);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            output += word;
+            i = j;
+        }
     }
-    return output.substr(0, output.size() - 1); // remove trailing space
+    return output;
 }
 
 int main() {
-    int test_cases;
-    cin >> test_cases;
+    string input;
+    cin >> input;
 
-    for (int i = 0; i < test_cases; i++) {
-        std::string input;
-        getline(cin, input);
-        cout << spinWords(input) << endl;
-    }
+    cout << spinWords(input) << endl;
 
     return 0;
 }
