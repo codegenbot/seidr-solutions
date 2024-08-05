@@ -3,14 +3,14 @@
 
 int basement(std::vector<int> nums) {
     int sum = 0;
-    int i; // declare i here
+    int i;
     for (i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if (sum <= 0) {
-            return i;
+        if (sum < 0) {
+            return i + 1;
         }
     }
-    return i;
+    return i + 1;
 }
 
 int main() {
