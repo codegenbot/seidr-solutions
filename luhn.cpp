@@ -1,21 +1,16 @@
-#include <vector>
-using namespace std;
-
-int luhn(const vector<int>& card) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    bool alt = false;
+    bool alternate = false;
 
-    for (auto i = card.rbegin(); i != card.rend(); ++i) {
-        if (!alt) {
-            sum += *i;
-        } else {
-            int temp = *i * 2;
-            if (temp > 9) {
-                temp -= 9;
-            }
-            sum += temp;
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
+        if (alternate) {
+            digit *= 2;
+            if (digit > 9)
+                digit -= 9;
         }
-        alt = !alt;
+        sum += digit;
+        alternate = !alternate;
     }
 
     return sum;
