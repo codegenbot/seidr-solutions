@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
