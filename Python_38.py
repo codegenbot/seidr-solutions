@@ -6,6 +6,9 @@ def decode_cyclic(s: str):
 # Read input from the user
 input_str = input("Enter the string to decode: ")
 
+# Ensure input string is separated by spaces
+input_str = ' '.join(input_str)
+
 # Call the function with user input
 result = decode_cyclic(input_str)
 
