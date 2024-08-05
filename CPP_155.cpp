@@ -1,6 +1,12 @@
 #include <vector>
 #include <cassert>
 
+std::vector<int> even_odd_count(int n) {
+    int evens = n/2;
+    int odds = n - evens;
+    return {evens, odds};
+}
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     
@@ -12,6 +18,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{1, 0}, std::vector<int>{1, 0}));
-    return 0;
+    assert(issame(even_odd_count(0), {1, 0}));
 }
