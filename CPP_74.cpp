@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+using namespace std;
+
 int totalChars(vector<string> lst) {
     int total = 0;
     for (string str : lst) {
@@ -12,3 +18,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     return lst2;
 }
+
+bool issame(vector<string> a, vector<string> b);
