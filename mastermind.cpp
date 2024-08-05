@@ -16,6 +16,7 @@ int mastermind(string code, string guess) {
     for (char c : code) {
         codeCount[c - '0']++;
     }
+
     for (int j = 0; j < 4; ++j) {
         if (code[j] == guess[j]) {
             black++;
