@@ -19,7 +19,10 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> output = rolling_max({3, 2, 3, 100, 3});
-    assert(output == vector<int>({3, 3, 3, 100, 100}));
+    vector<int> original = {3, 2, 3, 100, 3};
+    vector<int> expected = {3, 3, 3, 100, 100};
+    vector<int> result = rolling_max(original);
+    assert(result == expected);
+
     return 0;
 }
