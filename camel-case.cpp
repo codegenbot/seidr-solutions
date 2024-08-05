@@ -2,9 +2,9 @@ int main() {
     int t;
     std::cin >> t;
     while (t--) {
-        std::string s; // Declare s as a string
+        std::string s; 
         std::cin >> s;
-        std::cout << camelCase(s) << std::endl; // Prefix std::
+        std::cout << camelCase(s) << std::endl; 
     }
     return 0;
 }
