@@ -2,14 +2,15 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
 
     int blackPegs = 0, whitePegs = 0;
-    std::vector<int> codeFreq(6, 0);
-    std::vector<int> guessFreq(6, 0);
+    vector<int> codeFreq(6, 0);
+    vector<int> guessFreq(6, 0);
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -21,11 +22,11 @@ int main() {
     }
 
     for (int i = 0; i < 6; ++i) {
-        whitePegs += std::min(codeFreq[i], guessFreq[i]);
+        whitePegs += min(codeFreq[i], guessFreq[i]);
     }
 
-    std::cout << whitePegs << std::endl;
-    std::cout << blackPegs << std::endl;
+    cout << whitePegs << endl;
+    cout << blackPegs << endl;
 
     return 0;
 }
