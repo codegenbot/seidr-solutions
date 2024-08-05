@@ -20,8 +20,9 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (codeCount[guess[i] - '0'] > 0) {
-            black++;
+        } else {
+            int count = codeCount[guess[i] - '0'];
+            black += (count > 0);
             codeCount[guess[i] - '0']--;
         }
     }
