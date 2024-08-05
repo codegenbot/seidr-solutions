@@ -1,6 +1,9 @@
 #include <vector>
 #include <cassert>
 
+#ifndef UNIQUE_IDENTIFIER
+#define UNIQUE_IDENTIFIER
+
 int can_arrange(std::vector<int> arr);
 
 int can_arrange(std::vector<int> arr){
@@ -12,6 +15,8 @@ int can_arrange(std::vector<int> arr){
     }
     return maxIndex;
 }
+
+#endif
 
 int main(){
    assert (can_arrange(std::vector<int>{}) == -1);
