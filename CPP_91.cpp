@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int is_bored(std::string S){
     int count = 0;
