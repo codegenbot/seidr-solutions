@@ -2,8 +2,9 @@ def add(x: int, y: int) -> int:
     return x + y
 
 try:
-    x, y = map(int, input().split())
+    user_input = input().split()
+    x, y = map(int, user_input)
     result = add(x, y)
     print(result)
 except ValueError:
-    print("Please provide two integer values separated by a space.")
+    print("Input values must be integers separated by space")
