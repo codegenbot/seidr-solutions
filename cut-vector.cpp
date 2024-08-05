@@ -6,8 +6,11 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    for(int i = 0; cin >> n; i++) {
+    while (cin >> n) {
         nums.push_back(n);
+    }
+    if (cin.eof()) {
+        cin.clear();
     }
     int sum = 0;
     for (int num : nums) {
