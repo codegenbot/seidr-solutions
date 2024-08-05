@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int n = numbers.size();
@@ -19,12 +23,6 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> input = {3, 2, 3, 100, 3};
-    vector<int> expected_output = {3, 3, 3, 100, 100};
-    
-    vector<int> result = rolling_max(input);
-    
-    assert(result == expected_output);
-
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
