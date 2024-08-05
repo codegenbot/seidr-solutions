@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,9 +18,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> select_words(std::string words, int index) {
-    std::vector<std::string> selected_words;
-    std::string word = "";
+vector<string> select_words(string words, int index) {
+    vector<string> selected_words;
+    string word = "";
     for (char c : words) {
         if (c == ' ') {
             if (!word.empty()) {
@@ -41,5 +43,5 @@ std::vector<std::string> select_words(std::string words, int index) {
     return selected_words;
 }
 
-assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
+assert(issame(select_words("a b c d e f", 1), vector<string>{"b", "c", "d", "f"}));
 return 0;
