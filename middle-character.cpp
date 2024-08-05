@@ -1,9 +1,8 @@
-Here is the solution:
+Here is the solution in C++:
 
 string middleCharacter(string s) {
-    int n = s.length();
-    if (n % 2 == 1)
-        return string(1, s[n / 2]);
+    int length = s.length();
+    if (length % 2 == 1)
+        return string(1, s[(length - 1) / 2]);
     else
-        return string(2, s[(n - 1) / 2]) + s[n / 2];
-}
+        return string(2, s[length / 2 - 1] + s[length / 2]);
