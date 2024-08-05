@@ -11,5 +11,5 @@ int luhn(const std::vector<int>& input) {
         alternate = !alternate;
     }
 
-    return sum % 10 == 0;
+    return sum;
 }
