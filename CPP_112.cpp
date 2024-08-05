@@ -11,15 +11,15 @@ bool issame(std::vector<string> a, std::vector<string> b){
 }
 
 std::vector<string> reverse_delete(string s, string c){
-    std::string result = "";
+    string result = "";
     for(char ch : s){
-        if(c.find(ch) == std::string::npos){
+        if(c.find(ch) == string::npos){
             result += ch;
         }
     }
-    std::string reverse_result = result;
+    string reverse_result = result;
     std::reverse(reverse_result.begin(), reverse_result.end());
     return {result, (result == reverse_result) ? "True" : "False"};
 }
 
-assert(issame(reverse_delete("mamma", "mia"), {"", "True"});
+assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
