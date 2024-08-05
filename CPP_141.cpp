@@ -1,4 +1,10 @@
-int digit_count = 0;
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digit_count = 0;
     int dot_count = 0;
     int dot_index = -1;
     for (int i = 0; i < file_name.size(); i++) {
