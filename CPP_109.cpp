@@ -5,20 +5,23 @@
 
 using namespace std;
 
-bool move_one_ball(const vector<int>& arr) {
+bool move_one_ball(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        reverse(arr.begin(), arr.end());
+        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
 
 int main() {
-    assert(move_one_ball({1, 2, 3, 4}) == true);
-    assert(move_one_ball({3, 4, 1, 2}) == false);
+    vector<int> arr1 = {1, 2, 3, 4};
+    vector<int> arr2 = {3, 4, 1, 2};
+
+    assert(move_one_ball(arr1) == true);
+    assert(move_one_ball(arr2) == false);
 
     return 0;
 }
