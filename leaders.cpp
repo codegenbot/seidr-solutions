@@ -3,24 +3,29 @@
 #include <iostream>
 
 int main() {
-    std::vector<int> leaders;
-    std::vector<int> numbers = {5, 3, 20, 15, 8};
+    std::vector<int> leaders(const std::vector<int>& nums) {
+        std::vector<int> result;
+        int maxRight = INT_MIN;
 
-    int maxRight = numbers.back();
-    leaders.push_back(maxRight);
-
-    for (int i = numbers.size() - 2; i >= 0; i--) {
-        if (numbers[i] >= maxRight) {
-            maxRight = numbers[i];
-            leaders.push_back(maxRight);
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            if (nums[i] >= maxRight) {
+                result.push_back(nums[i]);
+                maxRight = nums[i];
+            }
         }
+
+        std::reverse(result.begin(), result.end());
+        return result;
     }
 
-    std::reverse(leaders.begin(), leaders.end());
+    // Example usage
+    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> result = leaders(nums);
 
-    for (int leader : leaders) {
+    for (const int& leader : result) {
         std::cout << leader << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
