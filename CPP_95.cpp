@@ -3,7 +3,7 @@
 #include <cctype>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
-    if(dict.empty()) return false;
+    if(dict.size() == 0) return false;
 
     bool hasLower = true, hasUpper = true;
     for(auto it = dict.begin(); it != dict.end(); ++it) {
