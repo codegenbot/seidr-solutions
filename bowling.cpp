@@ -1,8 +1,11 @@
-int score(string s) {
+#include <iostream>
+#include <string>
+
+int score(std::string s) {
     int total = 0;
     int frame = 1;
     int i = 0;
-    
+
     while (frame <= 10) {
         if (s[i] == 'X') {
             total += 10;
@@ -19,13 +22,13 @@ int score(string s) {
         }
         frame++;
     }
-    
+
     return total;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
     return 0;
 }
