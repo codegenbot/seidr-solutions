@@ -15,9 +15,11 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int x;
-    cin >> x;
-    if (even_odd_count(x)==(even_odd_count(155))) {
-        cout << "Counts are same";
+    int num = 123456;
+    vector<int> result = even_odd_count(num);
+    if(std::equal(result.begin(), result.end(), counts.begin(), counts.end(), issame)) {
+        // Output the result
     }
+
+    return 0;
 }
