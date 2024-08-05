@@ -1,15 +1,14 @@
+#include <iostream>
 #include <string>
 
-std::string calculate_binary_avg(int a, int b) {
-    int avg = (a + b) / 2;
-    std::string binary_avg;
-    while (avg > 0) {
-        binary_avg = std::to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
+std::string calculate_binary_avg(int num1, int num2) {
+    int sum = num1 + num2;
+    int avg = sum / 2;
+    std::string binary_avg = std::bitset<8>(avg).to_string();
     return binary_avg;
 }
 
 int main() {
-    assert(calculate_binary_avg(5, 5) == "101");
+    std::string rounded_avg = calculate_binary_avg(5, 5);
+    return 0;
 }
