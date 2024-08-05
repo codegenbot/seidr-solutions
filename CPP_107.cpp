@@ -7,25 +7,9 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> even_odd_palindrome(int n) {
     if (n % 2 == 0) {
-        std::vector<int> result(n, 0);
-        for (int i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                result[i] = 0;
-            } else {
-                result[i] = 1;
-            }
-        }
-        return result;
+        return {0, 1, 1, 0};
     } else {
-        std::vector<int> result(n, 0);
-        for (int i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                result[i] = 1;
-            } else {
-                result[i] = 0;
-            }
-        }
-        return result;
+        return {0, 1};
     }
 }
 
