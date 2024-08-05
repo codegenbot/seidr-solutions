@@ -18,8 +18,3 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 
     return islower || isupper; // Change to islower and isupper
 }
-
-int main() {
-    // main function implementation if needed
-    return 0;
-}
