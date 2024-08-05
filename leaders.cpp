@@ -6,29 +6,22 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
     
-    for(int i=0; i<n-1; i++){
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++){
-            if(arr[j] >= arr[i]){
-                isLeader = false;
-                break;
-            }
-        }
-        if(isLeader) {
+    int maxRight = arr[n-1];
+    for(int i=n-2; i>=0; i--){
+        if(arr[i] >= maxRight){
             leaders.push_back(arr[i]);
+            maxRight = arr[i];
         }
     }
-    
-    leaders.push_back(arr[n-1]); // The rightmost element is always a leader.
     
     return leaders;
 }
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2};
-    vector<int> leadersRes = leaders(arr);
-    for(int i=0; i<leadersRes.size(); i++) {
-        cout << leadersRes[i] << " ";
+    vector<int> arr = {16, 17, 4, 3, 5, 2, 3, 7, 1, 6};
+    vector<int> leadersVec = leaders(arr);
+    for(int leader : leadersVec) {
+        cout << leader << " ";
     }
     return 0;
 }
