@@ -11,7 +11,3 @@ bool is_prime(long long n){
     }
     return true;
 }
-
-long long num;
-cin >> num;
-cout << (is_prime(num) ? "true" : "false") << endl;
