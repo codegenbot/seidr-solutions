@@ -3,7 +3,7 @@
 #include <cassert>
 
 int closest_integer(double input_num) {
-    return lround(input_num);
+    return static_cast<int>(round(input_num));
 }
 
 int main() {
