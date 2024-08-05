@@ -1,8 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
