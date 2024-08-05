@@ -8,8 +8,9 @@ double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proport
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall;
         
-        if (proportionOfSnowMeltingPerHour > 0)
-            totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0;
+        if (proportionOfSnowMeltingPerHour > 0) {
+            totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
+        }
     }
     
     return totalSnow;
