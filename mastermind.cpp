@@ -1,6 +1,7 @@
 #include <string>
+#include <tuple>
 
-tuple<int, int> mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -12,13 +13,17 @@ tuple<int, int> mastermind(string code, string guess) {
 
     for (int i = 0; i < 6; i++) {
         int count = 0;
+        int codeCount = 0;
         for (int j = 0; j < 4; j++) {
             if (guess[j] == 'A' + i) {
                 count++;
             }
+            if (code[j] == 'A' + i) {
+                codeCount++;
+            }
         }
-        white += min(count, tolower(count('A' + i - 'A')) - black;
+        white += std::min(count, codeCount) - black;
     }
 
-    return make_tuple(white, black);
+    return std::make_tuple(white, black);
 }
