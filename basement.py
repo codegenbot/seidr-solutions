@@ -1,10 +1,5 @@
-Here is a Python solution for the problem:
-
 def basement(vector):
-    total = 0
-    index = 0
-    while True:
-        total += vector[index]
-        if total < 0:
-            return index
-        index += 1
+    for i in range(len(vector)):
+        if sum(vector[:i+1]) < 0:
+            return i
+    return -1
