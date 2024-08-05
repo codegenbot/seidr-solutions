@@ -1,4 +1,4 @@
-#include <string>
+#include <string> 
 #include <cmath>
 
 std::string calculate_binary_avg(int n, int m) {
