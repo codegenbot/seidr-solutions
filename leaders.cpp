@@ -26,14 +26,12 @@ int main() {
     vector<int> nums;
     int num;
     
-    // Input loop
     while (cin >> num) {
         nums.push_back(num);
     }
     
     vector<int> leaders = findLeaders(nums);
     
-    // Output
     for (int leader : leaders) {
         cout << leader << " ";
     }
