@@ -5,10 +5,12 @@
 
 using namespace std;
 
-bool move_one_ball(vector<int>& arr) {
+bool solve(vector<int>& arr) {
     int n = arr.size();
+    vector<int> sortedArr = arr;
+    sort(sortedArr.begin(), sortedArr.end());
     for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
+        if (arr == sortedArr) {
             return true;
         }
         rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
@@ -17,8 +19,8 @@ bool move_one_ball(vector<int>& arr) {
 }
 
 int main() {
-    assert(move_one_ball({1, 2, 3, 4}) == true);
-    assert(move_one_ball({3, 4, 1, 2}) == false);
+    assert(solve({1, 2, 3, 4}) == true);
+    assert(solve({3, 4, 1, 2}) == false);
 
     return 0;
 }
