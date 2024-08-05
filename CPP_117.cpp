@@ -34,4 +34,9 @@ vector<string> select_words(const string& s, int n) {
 
     return result;
 }
-```
+
+int main() {
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+
+    return 0;
+}
