@@ -6,7 +6,8 @@ using namespace std;
 
 string toCamelCase(string str) {
     string result = "";
-    for (int i = 0; i < str.length(); i++) {
+    int i = 0;
+    while (i < str.length()) {
         if (str[i] == '-') {
             i++;
             while (i < str.length() && str[i] == ' ') {
@@ -14,13 +15,18 @@ string toCamelCase(string str) {
             }
             result += toupper(str[i]);
         } else if (str[i] == ' ') {
-            continue;
+            if (!result.empty()) {
+                result[0] = tolower(str[++i]);
+            } else {
+                result += tolower(str[i]);
+            }
         } else {
-            if (result.length() > 0) {
+            if (!result.empty()) {
                 result[0] = tolower(str[i]);
             } else {
                 result += tolower(str[i]);
             }
+            i++;
         }
     }
     return result;
