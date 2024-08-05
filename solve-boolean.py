@@ -1,13 +1,15 @@
+Here's the solution to the problem:
+
 def solve_boolean(s):
-    if s == "T":
+    if s == 'T':
         return True
-    elif s == "F":
+    elif s == 'F':
         return False
-    elif "&" in s and "|" in s:
-        raise ValueError("Invalid expression")
-    elif "&" in s:
-        parts = s.split("&")
-        return all(eval(part) for part in parts)
-    elif "|" in s:
-        parts = s.split("|")
-        return any(eval(part) for part in parts)
+    elif '&' in s:
+        a, b = s.split('&')
+        return solve_boolean(a) and solve_boolean(b)
+    elif '|' in s:
+        a, b = s.split('|')
+        return solve_boolean(a) or solve_boolean(b)
+
+print(solve_boolean(input()))
