@@ -1,3 +1,4 @@
+```
 #include <vector>
 using namespace std;
 
@@ -13,8 +14,7 @@ int findFirstNegativeIndex(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {-2, 3, -4};
-    int result = findFirstNegativeIndex(nums);
-    cout << "The first negative index is: " << result << endl;
+    vector<int> nums = {1, -2, 3, -4};
+    cout << findFirstNegativeIndex(nums) << endl;
     return 0;
 }
