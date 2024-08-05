@@ -3,9 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
     lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s){ return s.length() % 2 != 0; }), lst.end());
@@ -18,7 +16,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst){
     return lst;
 }
 
-int main(){
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
 }
+
+// int main(){
+//     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string>{"cc", "dd", "aaaa", "bbbb"}));
+//     return 0;
+// }
