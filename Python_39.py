@@ -9,9 +9,9 @@ def is_prime(num):
 
 def prime_fib(n: int):
     fib = [0, 1]
-    while len(fib) < n + 1:
+    while len(fib) < n:
         fib.append(fib[-1] + fib[-2])
-
-    primes = [num for num in fib if is_prime(num)]
-
-    return primes[n - 1]
+    for num in range(n):
+        if is_prime(fib[num]):
+            if num == n - 1:
+                return fib[num]
