@@ -1,44 +1,23 @@
-int whitePegs(int a[], int b[]) {
-    int count = 0;
-    for (int i = 0; i < 6; i++) {
-        if ((a[i] == 1 && b[i] == 0) || (a[i] == 0 && b[i] == 1)) {
-            count++;
+int mastermind(string code, string guess) {
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    // Count the number of black pegs (correct color and correct place)
+    for(int i = 0; i < 4; ++i) {
+        if(code[i] == guess[i]) {
+            ++blackPegs;
+            code[i] = 'X'; // mark the peg as found
+            guess[i] = 'Y'; // mark the peg as found in guess
         }
     }
-    return count;
-}
 
-int blackPegs(int a[], int b[]) {
-    int count = 0;
-    for (int i = 0; i < 6; i++) {
-        if (a[i] == b[i]) {
-            count++;
+    // Count the number of white pegs (correct color, wrong place)
+    for(int i = 0; i < 4; ++i) {
+        if(code.find(guess[i]) != string::npos) {
+            --code.erase(code.find(guess[i])).size();
+            ++whitePegs;
         }
     }
-    return count;
-}
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    vector<char> a(4), b(4);
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == 'B') a[i] = 1; else if (code[i] == 'O') a[i] = 2;
-        else if (code[i] == 'G') a[i] = 3; else if (code[i] == 'Y') a[i] = 4;
-        else if (code[i] == 'W') a[i] = 5;
-
-        if (guess[i] == 'B') b[i] = 1; else if (guess[i] == 'O') b[i] = 2;
-        else if (guess[i] == 'G') b[i] = 3; else if (guess[i] == 'Y') b[i] = 4;
-        else if (guess[i] == 'W') b[i] = 5;
-    }
-
-    int whitePegsCount = whitePegs(a, b);
-    int blackPegsCount = blackPegs(a, b);
-
-    cout << blackPegsCount << endl;
-    cout << whitePegsCount << endl;
-
-    return 0;
+    return blackPegs << 2 | whitePegs;
 }
