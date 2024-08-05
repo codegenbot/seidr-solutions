@@ -1,39 +1,22 @@
-```
-#include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-string spinWords(string input) {
-    string output = "";
-    int i = 0;
-    while (i < input.length()) {
-        if (input[i] == ' ') {
-            output += " ";
-            i++;
-        } else {
-            int j = i;
-            while (j < input.length() && input[j] != ' ') {
-                j++;
+std::string spinWords(std::string str) {
+    std::string result = str;
+    int wordStart = 0;
+    for(int i=0; i<=str.length(); i++) {
+        if(i == str.length() || str[i] == ' ') {
+            std::string word = str.substr(wordStart, i-wordStart);
+            if(word.length() >= 5) {
+                result = result.replace(result.find(word), word.length(), std::string(word.rbegin(), word.rend()));
             }
-            string word = input.substr(i, j - i);
-            if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
-            }
-            output += word;
-            i = j;
+            wordStart = i+1;
         }
     }
-    return output;
+    return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-
-    cout << spinWords(input) << endl;
-
+    std::cout << spinWords("this is another test") << std::endl;
     return 0;
 }
