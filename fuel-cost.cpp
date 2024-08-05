@@ -3,7 +3,7 @@
 int fuelCost(vector<int> nums) {
     int sum = 0;
     for (int num : nums) {
-        int result = static_cast<int>(floor((double)num / 3)) - 2;
+        int result = static_cast<int>(std::floor((double)num / 3)) - 2;
         sum += result;
     }
     return sum;
