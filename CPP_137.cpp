@@ -1,16 +1,16 @@
-#include <boost/any.hpp>
+#include <any>
 #include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
-boost::any compare_one(const boost::any& a, int b) {
-    return (b == 1) ? a : boost::any("None");
+std::any compare_one(const std::any& a, int b) {
+    return (b == 1) ? a : "None";
 }
 
 int main() {
-    boost::any result = compare_one(std::string("1"), 1);
+    std::any result = compare_one(std::string("1"), 1);
 
-    assert(boost::any_cast<std::string>(result) == "1");
+    assert(std::any_cast<std::string>(result) == "1");
 
     return 0;
 }
