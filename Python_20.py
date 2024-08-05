@@ -1,12 +1,12 @@
-from typing import List, Tuple
-
-def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_min_diff_pair(numbers):
     numbers.sort()
-    min_diff = float("inf")
-    result = (0.0, 0.0)
-    for i in range(len(numbers) - 1):
-        diff = numbers[i + 1] - numbers[i]
-        if diff < min_diff:
-            min_diff = diff
-            result = (numbers[i], numbers[i + 1])
-    return result
+    min_diff = min(numbers[i + 1] - numbers[i] for i in range(len(numbers) - 1)
+    )
+    result = [(numbers[i], numbers[i + 1])
+              for i in range(len(numbers) - 1)
+              if numbers[i + 1] - numbers[i] == min_diff]
+    return result[0]
+
+input_numbers = list(map(int, input().split()))
+output = find_min_diff_pair(input_numbers)
+print(output)
