@@ -1,25 +1,20 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-vector<int> even_odd_count(int num) {
-    vector<int> counts = {0, 0};
-    string numStr = to_string(abs(num));
-    for (char c : numStr) {
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> count_even_odd_digits(int num) {
+    std::vector<int> counts(2, 0);
+    std::string num_str = std::to_string(std::abs(num));
+    
+    for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
             counts[0]++;
         } else {
             counts[1]++;
         }
     }
+    
     return counts;
-}
-
-int main() {
-    int num = 123456;
-    vector<int> result = even_odd_count(num);
-    if(std::equal(result.begin(), result.end(), counts.begin(), counts.end(), issame)) {
-        // Output the result
-    }
-
-    return 0;
 }
