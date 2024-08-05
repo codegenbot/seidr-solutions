@@ -1,5 +1,4 @@
 #include <string>
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -12,17 +11,37 @@ int mastermind(string code, string guess) {
     }
 
     // Count correct colors in correct places (black pegs)
-    map<char, int> codeCount;
+    int code_count[6] = {0};
+    int guess_count[6] = {0};
+
     for (char c : code) {
-        codeCount[c]++;
+        code_count[c - 'A']++;
+    }
+    for (char c : guess) {
+        guess_count[c - 'A']++;
     }
 
-    for (int j = 0; j < 4; ++j) {
-        if (code[j] == guess[j]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             black++;
-        } else if (codeCount[guess[j]] > 0) {
-            white++;
-            codeCount[guess[j]]--;
+        } else {
+            if (guess_count[code[i] - 'A'] > 0 && code_count[code[i] - 'A'] > 1) {
+                white++;
+            } else {
+                black++;
+            }
+            --guess_count[code[i] - 'A'];
+            --code_count[code[i] - 'A'];
+        }
+    }
+
+    // Count remaining pegs
+    for (int i = 0; i < 6; ++i) {
+        if (code_count[i]) {
+            white += code_count[i];
+        }
+        if (guess_count[i]) {
+            black += guess_count[i];
         }
     }
 
