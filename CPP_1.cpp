@@ -10,7 +10,7 @@ vector<string> separate_paren_groups(string paren_string) {
     string current_group;
     int open_braces = 0;
 
-    for (char c : paren_string) {   
+    for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
             if (open_braces > 1) {
