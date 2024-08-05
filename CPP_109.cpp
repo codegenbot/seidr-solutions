@@ -7,13 +7,12 @@ using namespace std;
 
 bool move_one_ball(const vector<int>& arr) {
     int n = arr.size();
+    vector<int> temp = arr;
     for (int i = 0; i < n; ++i) {
-        vector<int> arr_copy = arr;
-        rotate(arr_copy.begin(), arr_copy.begin() + 1, arr_copy.end());
-        
-        if (is_sorted(arr_copy.begin(), arr_copy.end())) {
+        if (is_sorted(temp.begin(), temp.end())) {
             return true;
         }
+        rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend());
     }
     return false;
 }
