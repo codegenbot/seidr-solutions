@@ -6,8 +6,8 @@ int basement(std::vector<int> nums) {
     int i; // declare i here
     for (i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        if (sum <= 0) {
-            return i + 1;
+        if (sum < 0) {
+            return i;
         }
     }
     return i + 1;
