@@ -2,6 +2,8 @@
 #include <cmath>
 #include <cassert>
 
+std::string calculate_binary_avg(int n, int m);
+
 std::string calculate_binary_avg(int n, int m) {
     int rounded_avg;
 
@@ -26,6 +28,5 @@ std::string calculate_binary_avg(int n, int m) {
 }
 
 int main() {
-    assert(calculate_binary_avg(5, 5) == "101"); // Change 'rounded_avg' to 'calculate_binary_avg'
-    return 0;
+    assert(calculate_binary_avg(5, 5) == "101");
 }
