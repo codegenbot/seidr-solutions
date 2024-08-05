@@ -4,7 +4,6 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
@@ -13,18 +12,15 @@ int mastermind(string code, string guess) {
         }
     }
 
-    // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        bool found = false;
+        int count = 0;
         for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j]) {
-                found = true;
-                break;
+            if (guess[i] == code[j]) {
+                count++;
             }
         }
-        if (!found) {
-            white++;
-        }
+        white += count - black;
     }
 
     return white, black;
+}
