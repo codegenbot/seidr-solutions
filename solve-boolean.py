@@ -13,8 +13,6 @@ def solve_boolean(expression):
                 result &= True
             elif char == '|':
                 result |= True
-            elif char == 'T':
-                result &= True
-            elif char == 'F':
-                result = False
+            elif char not in ['T', 'F']:
+                raise ValueError("Invalid character in expression")
         return result
