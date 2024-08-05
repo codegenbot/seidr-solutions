@@ -1,11 +1,8 @@
-#include <vector>
-#include <cassert>
+#include<vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Add comparison logic here
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> tri(int n) {
+bool tri(int n) {
     std::vector<int> result;
     if (n >= 0) {
         result.push_back(3);
@@ -23,4 +20,6 @@ std::vector<int> tri(int n) {
     return result;
 }
 
-assert(issame(tri(1), {1, 3}));
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your implementation here
+}
