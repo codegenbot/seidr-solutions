@@ -1,5 +1,3 @@
-def check(f):
+def check(func):
     l = [1, 2, 3, 4, 5]
-    print(f(l))
-
-check(increment_list)
+    return func(l)
