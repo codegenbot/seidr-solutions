@@ -8,7 +8,7 @@ int main() {
     double bounciness = h1 / h0;
     double total_distance = h0 + h1;
     for (int i = 2; i <= n; ++i) {
-        total_distance += 2 * h1 * pow(bounciness, i);
+        total_distance += 2 * h1 * std::pow(bounciness, i);
     }
     std::cout << total_distance << std::endl;
     return 0;
