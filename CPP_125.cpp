@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -20,5 +21,14 @@ std::vector<std::string> split_words(const std::string& s) {
 }
 
 int main() {
-    assert(issame(split_words(""), std::vector<std::string>{}));
+    std::string input_string;
+    std::getline(std::cin, input_string);
+
+    std::vector<std::string> words = split_words(input_string);
+
+    for (const std::string& word : words) {
+        std::cout << word << std::endl;
+    }
+
+    return 0;
 }
