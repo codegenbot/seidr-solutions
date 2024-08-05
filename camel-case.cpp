@@ -6,27 +6,18 @@ using namespace std;
 
 string toCamelCase(string str) {
     string result = "";
-    bool firstWord = true;
+    bool nextUpper = true;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
-            if (!firstWord) {
-                result[0] = tolower(str[i]);
-            } else {
-                result += toupper(str[i]);
-                firstWord = false;
-            }
+            nextUpper = true;
         } else if (str[i] == ' ') {
             continue;
         } else {
-            if (!firstWord) {
-                result[0] = tolower(str[i]);
-            } else {
+            if (nextUpper) {
                 result += toupper(str[i]);
-                firstWord = false;
+                nextUpper = false;
+            } else {
+                result += tolower(str[i]);
             }
         }
     }
@@ -37,7 +28,7 @@ int main() {
     string str;
     while (true) {
         cin >> str;
-        getline(cin, str);
+        getline(cin, str); 
         cout << toCamelCase(str) << endl;
     }
     return 0;
