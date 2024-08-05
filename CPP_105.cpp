@@ -1,21 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <cassert>
+bool issame(int, int);
 
-vector<string> by_length(vector<int> arr);
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
-}
-
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int>){
     vector<int> sorted_arr;
     vector<string> result;
     map<int, string> digit_map = {
@@ -38,4 +23,8 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
+}
+
+bool issame(int a, b){
+    return a == b;
 }
