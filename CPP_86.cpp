@@ -1,6 +1,5 @@
 string result = "";
     string word = "";
-    
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
@@ -10,11 +9,7 @@ string result = "";
             word += c;
         }
     }
-    
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
-    }
-    
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
