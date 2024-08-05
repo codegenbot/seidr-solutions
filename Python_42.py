@@ -1,5 +1,8 @@
 def check(func):
-    def custom_logic(lst):
-        new_lst = func(lst)
-        return sum(new_lst)
-    return custom_logic
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        if all(isinstance(x, int) for x in result):
+            return result
+        else:
+            return "Error: List should only contain integers."
+    return wrapper
