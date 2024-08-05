@@ -1,8 +1,8 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
