@@ -33,7 +33,7 @@ std::vector<std::string> select_words(std::string words, int index) {
             word += c;
         }
     }
-
+    
     if (!word.empty()) {
         selected_words.push_back(word);
     }
