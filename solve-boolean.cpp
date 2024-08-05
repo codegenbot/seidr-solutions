@@ -1,8 +1,9 @@
+```c++
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    stack<char> st; 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -24,9 +25,6 @@ bool solveBoolean(string s) {
     }
     while (!st.empty()) {
         st.pop();
-    }
-    if(st.size() > 0) {
-        return false;
     }
     return false;
 }
