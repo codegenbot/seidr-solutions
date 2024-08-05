@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -25,4 +24,3 @@ int main() {
     cout << calculateTotalDistance(bouncinessIndex, numberOfBounces) << endl;
 
     return 0;
-}
