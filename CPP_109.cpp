@@ -1,13 +1,18 @@
 #include <vector>
 #include <algorithm>
 
-bool solve(std::vector<int>& arr) {
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rbegin() + n);
     }
     return false;
+}
+
+int main() {
+    assert (move_one_ball({})==true);
+    return 0;
 }
