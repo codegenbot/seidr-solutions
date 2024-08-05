@@ -24,6 +24,6 @@ std::string calculate_binary_avg(int n, int m) {
 }
 
 int main() {
-    assert (calculate_binary_avg(5, 5) == "101");
+    assert(calculate_binary_avg(5, 5) == "101");
     return 0;
 }
