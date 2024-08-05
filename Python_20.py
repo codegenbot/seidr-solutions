@@ -8,3 +8,6 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+numbers = list(map(int, input().split()))
+print(find_min_difference(numbers))
