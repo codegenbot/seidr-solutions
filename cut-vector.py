@@ -1,15 +1,20 @@
-n = int(input())
-a = [int(input()) for _ in range(n)]
+def cut_vector(input_vector):
+    total_sum = sum(input_vector)
+    current_sum = 0
+    min_diff = float("inf")
+    cut_index = 0
 
-diff = abs(sum(a) - 2 * max(a))
-cut_index = 0
-prefix_sum = 0
-for i in range(n):
-    prefix_sum += a[i]
-    new_diff = abs(sum(a) - 2 * prefix_sum)
-    if new_diff <= diff:
-        diff = new_diff
-        cut_index = i
+    for i in range(len(input_vector)):
+        current_sum += input_vector[i]
+        diff = abs(current_sum - (total_sum - current_sum))
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
 
-print(a[: cut_index + 1])
-print(a[cut_index + 1 :])
+    return input_vector[: cut_index + 1], input_vector[cut_index + 1 :]
+
+
+input_vector = list(map(int, input().split()))
+subvector1, subvector2 = cut_vector(input_vector)
+print(*subvector1)
+print(*subvector2)
