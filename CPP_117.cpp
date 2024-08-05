@@ -3,45 +3,33 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 std::vector<std::string> select_words(std::string words, int index){
-    std::vector<std::string> selected_words;
-    std::string word = "";
-    for(char c : words){
-        if(c == ' '){
-            if(!word.empty()){
-                if(index != 0){
-                    --index;
+    std::vector<std::string> result;
+    std::string temp = "";
+    for (char c : words) {
+        if (c == ' ') {
+            if (!temp.empty()) {
+                if (index > 0) {
+                    index--;
                 } else {
-                    selected_words.push_back(word);
+                    result.push_back(temp);
                 }
-                word = "";
+                temp.clear();
             }
         } else {
-            word += c;
+            temp += c;
         }
     }
-    
-    if(!word.empty()){
-        selected_words.push_back(word);
+    if (!temp.empty() && index == 0) {
+        result.push_back(temp);
     }
-
-    return selected_words;
+    return result;
 }
 
 int main(){
-    assert (issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
     return 0;
 }
