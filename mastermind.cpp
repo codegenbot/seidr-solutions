@@ -19,11 +19,10 @@ std::pair<int, int> mastermind(string code, string guess) {
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
                 found = true;
-                code[i] = ' ';
                 break;
             }
         }
-        if (!found) black++;
+        if (!found) white++;
     }
 
     // Count the remaining correct colors in wrong positions
