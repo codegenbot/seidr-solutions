@@ -18,4 +18,4 @@ int main() {
     std::cout << std::boolalpha << has_close_elements(a, 0.5);
 
     return 0;
-} 
+}
