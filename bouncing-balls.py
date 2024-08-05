@@ -1,13 +1,14 @@
-h0 = float(input())
-hf = float(input())
-n = int(input())
+def bouncing_balls():
+    h = float(input())
+    hb = float(input())
+    bi = hb / h
+    n = int(input())
+    distance = 0
+    for i in range(n):
+        distance += (h + bi) * 2**i
+        if i > 0:
+            h *= bi
+    return str(round(distance, 4))
 
-bi = hf / h0
 
-distance = 0
-for _ in range(n):
-    distance += 2 * (h0 + hf) ** 0.5
-    h0, hf = hf, bi * hf
-
-print(bi)
-print(distance)
+print(bouncing_balls())
