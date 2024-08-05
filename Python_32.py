@@ -1,11 +1,12 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients should be even.")
-    a = xs[-1]
-    b = xs[-2]
-    return -a / b
+    largest_non_zero_index = 0
+    for i in range(len(xs)):
+        if xs[i] != 0:
+            largest_non_zero_index = i
+    a = xs[largest_non_zero_index]
+    b = xs[largest_non_zero_index - 1]
+    return -b / a
 
-if __name__ == "__main__":
-    xs = list(map(int, input().split()))
-    print(find_zero(xs))
+# Example usage
+print(round(find_zero([1, 2]), 2))  # -0.5
+print(round(find_zero([-6, 11, -6, 1]), 2))  # 1.0
