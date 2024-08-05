@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Include the header for assert function
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
@@ -21,5 +21,5 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
 }
 
 int main(){
-    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"", "True"})); // Include <vector> in the assert statement
 }
