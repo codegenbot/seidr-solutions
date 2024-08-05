@@ -1,5 +1,5 @@
 namespace std {
-    vector<int> tri(int n) {
+    std::vector<int> tri(int n) {
         return {n, n + 2};
     }
 
