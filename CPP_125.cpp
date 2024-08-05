@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <algorithm> // Add this include for std::transform and std::equal
 
 using namespace std;
 
 vector<string> split_words(string txt);
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b); // Function declaration
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -36,7 +36,9 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(const vector<string>& a, const vector<string>& b){
+    return std::equal(a.begin(), a.end(), b.begin()); // Function definition
+}
 
 int main(){
     assert(issame(split_words(""), vector<string>{"0"}));
