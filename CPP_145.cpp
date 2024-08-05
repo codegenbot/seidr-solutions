@@ -2,13 +2,11 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> points){
-    sort(points.begin(), points.end());
+std::vector<int> order_by_points(std::vector<int> points){
+    std::sort(points.begin(), points.end());
     return points;
 }
