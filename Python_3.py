@@ -1,6 +1,8 @@
 def below_zero(operations):
-    count = 0
+    current_sum = 0
+    count_below_zero = 0
     for num in operations:
-        if num < 0:
-            count += 1
-    return count
+        current_sum += num
+        if current_sum < 0:
+            count_below_zero += 1
+    return count_below_zero
