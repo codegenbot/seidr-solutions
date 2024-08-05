@@ -1,3 +1,5 @@
+int main();
+
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
@@ -25,5 +27,3 @@ string string_to_md5(const string& text) {
 
     return string(mdString);
 }
-
-int main();
