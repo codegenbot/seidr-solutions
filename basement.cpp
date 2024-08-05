@@ -6,18 +6,15 @@ int basement(std::vector<int> nums) {
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i;
+            return i + 1;
         }
     }
-    return 0;
+    return i + 1;
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    std::cout << basement(nums) << std::endl;
+    std::vector<int> nums = {2, -3, 8, -1, -5};
+    int result = basement(nums);
+    std::cout << result << std::endl;
     return 0;
 }
