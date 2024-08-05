@@ -1,23 +1,39 @@
+#include <string>
+
 int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
+    int white = 0;
+    int black = 0;
 
-    // Count the number of black pegs (correct color and correct place)
-    for(int i = 0; i < 4; ++i) {
-        if(code[i] == guess[i]) {
-            ++blackPegs;
-            code[i] = 'X'; // mark the peg as found
-            guess[i] = 'Y'; // mark the peg as found in guess
+    // Count the number of correct colors in wrong positions
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+            code[i] = ' ';
+            guess[i] = ' ';
         }
     }
 
-    // Count the number of white pegs (correct color, wrong place)
-    for(int i = 0; i < 4; ++i) {
-        if(code.find(guess[i]) != string::npos) {
-            --code.erase(code.find(guess[i])).size();
-            ++whitePegs;
+    // Count the number of correct colors in right positions
+    for (int i = 0; i < 4; ++i) {
+        bool found = false;
+        for (int j = 0; j < 4; ++j) {
+            if (code[i] == guess[j] && !found) {
+                black++;
+                found = true;
+            }
         }
     }
 
-    return blackPegs << 2 | whitePegs;
+    // Count the remaining correct colors in wrong positions
+    for (int i = 0; i < 4; ++i) {
+        int count = 0;
+        for (int j = 0; j < 4; ++j) {
+            if (code[i] == guess[j]) {
+                count++;
+            }
+        }
+        white += count - black;
+    }
+
+    return black, white;
 }
