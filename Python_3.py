@@ -5,7 +5,7 @@ def below_zero(operations):
         if balance < 0:
             return True
     return False
-
+    
 # Read input from user
 operations = list(map(int, input().split()))
 
