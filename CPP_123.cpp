@@ -18,8 +18,3 @@ std::vector<int> get_odd_collatz(int n) {
     std::sort(result.begin(), result.end());
     return result;
 }
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
-}
