@@ -1,5 +1,6 @@
 #include <string>
 #include <cmath>
+#include <cassert>
 
 std::string calculate_binary_avg(int n, int m) {
     if (n > m) {
@@ -20,4 +21,10 @@ std::string calculate_binary_avg(int n, int m) {
     }
     
     return binary_avg;
+}
+
+int main() {
+    assert(calculate_binary_avg(5, 5) == "101");
+
+    return 0;
 }
