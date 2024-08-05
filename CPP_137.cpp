@@ -29,7 +29,7 @@ int main() {
     boost::any a = 10;
     boost::any b = 20;
     boost::any result = max_value(a, b);
-
+    
     if (result.type() == typeid(int) || result.type() == typeid(float)) {
         std::cout << boost::any_cast<int>(result) << std::endl;
     } else {
