@@ -17,10 +17,8 @@ std::vector<float> get_positive(const std::vector<float>& v) {
 }
 
 int main() {
-    // Example usage of get_positive function
     std::vector<float> input = {1.5, -2.4, 3.7, -1.2, 5.0};
     std::vector<float> output = get_positive(input);
-    // Output the positive numbers from the input vector
     for (float num : output) {
         std::cout << num << " ";
     }
