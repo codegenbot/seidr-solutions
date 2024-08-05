@@ -1,8 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -10,10 +9,10 @@ bool issame(std::std::vector<int> a, std::std::vector<int> b){
     return true;
 }
 
-std::vector<int> unique_digits(std::std::vector<int> x){
-    std::std::vector<int> result;
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for(auto num : x){
-        std::std::vector<int> digits;
+        std::vector<int> digits;
         while(num > 0){
             int digit = num % 10;
             if(std::find(digits.begin(), digits.end(), digit) == digits.end()){
