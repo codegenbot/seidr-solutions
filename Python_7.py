@@ -1,2 +1,2 @@
-def filter_strings(strings, substring):
-    return [s for s in strings if substring in s]  #This line should be replaced with def check(function): function(strings, substring)
+def filter_by_substring(strings, substring):
+    return [s for s in strings if substring in s]
