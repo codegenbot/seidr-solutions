@@ -9,4 +9,5 @@ int can_arrange(std::vector<int> arr){
     }
     return largestIndex;
 }
+
 assert(can_arrange({}) == -1);
