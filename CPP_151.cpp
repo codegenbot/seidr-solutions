@@ -5,7 +5,7 @@
 void double_the_difference(const std::vector<float>& lst, long long& odd_sum) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::fmod(num, 1) == 0 && ((int)num) % 2 != 0) {
+        if (num > 0 && std::fmod(num, 1.0f) == 0 && ((int)num) % 2 != 0) {
             sum += (long long)num * num;
         }
     }
