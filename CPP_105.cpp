@@ -25,6 +25,6 @@ vector<string> by_length(vector<int>){
     return result;
 }
 
-bool issame(int a, b){
+bool issame(int a, int b){
     return a == b;
 }
