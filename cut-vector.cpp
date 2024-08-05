@@ -6,8 +6,11 @@
 int main() {
     std::vector<int> nums;
     int n;
-    while (std::cin >> n) {
-        nums.push_back(n);
+    while (std::cin.good()) {
+        std::cin >> n;
+        if (!std::cin.fail()) {
+            nums.push_back(n);
+        }
     }
 
     int idx = 0;
