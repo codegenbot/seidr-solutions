@@ -3,9 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-string solve(string s){
+std::string solve(std::string s){
     int n = s.length();
     bool hasLetter = false;
     for(int i=0; i<n; i++){
@@ -15,12 +13,13 @@ string solve(string s){
         }
     }
     if(!hasLetter){
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
 
-int main() {
+int main(){
     assert(solve("#ccc") == "#CCC");
+    // Additional test cases can be added here
     return 0;
 }
