@@ -1,11 +1,11 @@
 Here is the solution:
 
-double probability(int n, int m) {
-    if (n < m) {
-        return 0;
+double diceGame(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            total += 1.0 / (n * m);
+        }
     }
-    double total = pow(n + m - 1, 2);
-    double peter = pow(n, 2);
-    double colin = pow(m, 2);
-    return (peter - colin) / total;
+    return 1.0 - total;
 }
