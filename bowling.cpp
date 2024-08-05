@@ -1,21 +1,27 @@
-int bowlingScore(string input) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    int rollCount = 0;
-
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') {
-            score += 10 + currentRoll;
-            currentRoll = 0;
-            rollCount++;
-        } else if (input[i] == '/') {
-            score += 10 - currentRoll;
-            currentRoll = 0;
-            rollCount++;
-        } else {
-            currentRoll++;
+    bool newRoll = true;
+    for (char c : s) {
+        if (c == '/') {
+            score += getBones(cats);
+            cats = 0;
+            newRoll = true;
+        } else if (c >= '0' && c <= '9') {
+            cats = cats * 10 + (c - '0');
+            newRoll = false;
         }
     }
-
     return score;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    string s;
+    cin.ignore();
+    for(int i=0; i<n; ++i) {
+        getline(cin, s);
+        cout << bowlingScore(s) << endl;
+    }
+    return 0;
 }
