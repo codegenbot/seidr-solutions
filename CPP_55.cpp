@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cassert>
 
 int fib(int n) {
     if(n <= 1)
@@ -7,6 +7,7 @@ int fib(int n) {
 }
 
 int main() {
-    std::cout << fib(12) << std::endl;
     return 0;
 }
+
+assert(fib(12) == 144);
