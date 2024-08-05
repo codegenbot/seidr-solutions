@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::any compare_one(const std::any& a, int b) {
-    return (b == 1) ? a : std::any(std::string("None"));
+    return (b == 1) ? a : std::any("None");
 }
 
 int main() {
