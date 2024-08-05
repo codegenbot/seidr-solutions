@@ -1,11 +1,12 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
+    for(size_t i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -24,7 +25,7 @@ std::vector<int> factorize(int n){
     return factors;
 }
 
-int contest_main(){
+int main(){
     assert(issame(factorize(3 * 2 * 3), std::vector<int>{2, 3, 3}));
     
     return 0;
