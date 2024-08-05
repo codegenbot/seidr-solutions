@@ -35,5 +35,5 @@ int mastermind(string code, string guess) {
         white += count - black;
     }
 
-    return black, white;
+    return white, black;
 }
