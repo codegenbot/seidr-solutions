@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-  
+
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     float total = 0.0;
     for (int i = 0; i < prices.size(); i++) {
@@ -23,7 +23,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-  
+
     float result = calculateTotalPrice(prices, discounts);
     cout << result << endl;
 
