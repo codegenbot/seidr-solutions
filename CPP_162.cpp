@@ -26,7 +26,10 @@ string string_to_md5(const string& text) {
     return string(mdString);
 }
 
-int main_MD5() {
+// Add linker flags -lssl -lcrypto when compiling
+// Example compile command: g++ -o md5_example md5_example.cpp -lssl -lcrypto
+
+int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
