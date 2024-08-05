@@ -1,16 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
 
-    for (char c : paren_string) {   
+    for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
             if (open_braces > 1) {
@@ -30,14 +23,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    
-    return 0;
 }
