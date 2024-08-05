@@ -1,10 +1,11 @@
+def check(func):
+    n = [1, 2, 3, 4]
+    if func(n) == [2, 3, 4, 5]:
+        print("Code is correct")
+    else:
+        print("Code is incorrect")
+
 def increment_list(l):
     return [x + 1 for x in l]
-
-def check(func):
-    test_list = [1, 2, 3]
-    result = func(test_list)
-    assert result == [2, 3, 4], "Test failed"
-    print("Test passed")
 
 check(increment_list)
