@@ -1,5 +1,5 @@
-```
-bool solveBoolean(string s) {
+```cpp
+bool evaluate(string s) {
     stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
@@ -8,7 +8,7 @@ bool solveBoolean(string s) {
             }
             if (st.empty()) return false;
             char c = st.top(); st.pop();
-            if ((c == 'T' || c == 't') && (s[i+1] == 'F' || s[i+1] == 'f'))
+            if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
                 return false;
         } else {
             st.push(s[i]);
@@ -21,5 +21,5 @@ bool solveBoolean(string s) {
         if ((c == 'F' || c == 'f') && (s.size() % 2 != 1)) 
             return false;
     }
-    return true;
+    return s.size() % 2 == 0;
 }
