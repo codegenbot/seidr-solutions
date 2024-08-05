@@ -1,4 +1,4 @@
-numbers = [8, 3, 11, 6, 9]
-threshold = 2
+numbers = [5, 8, 12, 3, 6]
+threshold = 4
 result = check_numbers(numbers, threshold)
 print(result)
