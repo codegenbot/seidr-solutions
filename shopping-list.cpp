@@ -1,7 +1,8 @@
-#include <iostream>
-#include <iomanip>
 #include <vector>
 using namespace std;
+
+#include <iostream>
+#include <iomanip>
 
 double shoppingList(double price[], double discount[], int n) {
     double total = 0;
