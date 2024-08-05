@@ -1,40 +1,33 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-std::vector<int> tri(int n);
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+vector<int> tri(int n); // Function declaration
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main(){
     assert(issame(tri(1), {1, 3}));
-    
     return 0;
 }
 
-std::vector<int> tri(int n){
-    std::vector<int> result;
+vector<int> tri(int n){
+    vector<int> result;
     if(n == 0){
         result.push_back(0);
     } else if(n == 1){
+        result.push_back(3);
+    } else if(n == 2){
         result.push_back(1);
         result.push_back(3);
     } else {
         result.push_back(1);
         result.push_back(3);
-
-        for(int i = 2; i <= n; ++i){
+        result.push_back(2);
+        for(int i = 3; i <= n; ++i){
             if(i % 2 == 0){
                 result.push_back(1 + i / 2);
             } else {
