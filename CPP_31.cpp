@@ -13,10 +13,9 @@ bool is_prime(int n) {
 }
 
 int main() {
-    // Test cases
     std::cout << std::boolalpha;
-    std::cout << is_prime(7) << std::endl; // true
-    std::cout << is_prime(10) << std::endl; // false
+    std::cout << is_prime(7) << std::endl;
+    std::cout << is_prime(10) << std::endl;
 
     return 0;
 }
