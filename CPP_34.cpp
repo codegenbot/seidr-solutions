@@ -12,7 +12,4 @@ std::vector<int> removeDuplicates(std::vector<int>& l) {
     return l;
 }
 
-int main() {
-    assert(issame(removeDuplicates(std::vector<int>({5, 3, 5, 2, 3, 3, 9, 0, 123})), std::vector<int>({0, 2, 3, 5, 9, 123}));
-    return 0;
-}
+assert(issame(removeDuplicates(std::vector<int>({5, 3, 5, 2, 3, 3, 9, 0, 123})), std::vector<int>({0, 2, 3, 5, 9, 123}));
