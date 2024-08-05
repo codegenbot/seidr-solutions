@@ -2,63 +2,39 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
     int min_diff = INT_MAX;
-    int cut_index = -1;
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 0; i < n; ++i) {
-        int sum_left = 0, sum_right = 0;
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i-1] - vec[i]);
         
-        for (int j = 0; j < i; ++j)
-            sum_left += vec[j];
-        
-        for (int j = i; j < n; ++j)
-            sum_right += vec[j];
-        
-        if (sum_left == sum_right) {
-            return {{vec[0]}, vec.substr(1)};
-        }
-        
-        int diff = abs(sum_left - sum_right);
-        if (diff < min_diff) {
+        if (diff <= min_diff) {
             min_diff = diff;
-            cut_index = i;
+            res.first = vector<int>(vec.begin(), vec.begin() + i);
+            res.second = vector<int>(vec.begin() + i, vec.end());
         }
     }
     
-    vector<int> left = {vec[0]};
-    for (int i = 0; i < cut_index; ++i)
-        left.push_back(vec[i]);
-    
-    vector<int> right = vec.substr(cut_index);
-    return {left, right};
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
-    
     vector<int> vec(n);
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < n; i++) {
         cin >> vec[i];
-    
-    pair<vector<int>, vector<int>> res = cutVector(vec);
-    
-    cout << "[";
-    for (int i = 0; i < res.first.size(); ++i) {
-        if (i == res.first.size() - 1)
-            cout << res.first[i];
-        else
-            cout << res.first[i] << ", ";
     }
-    cout << "], [";
-    for (int i = 0; i < res.second.size(); ++i) {
-        if (i == res.second.size() - 1)
-            cout << res.second[i];
-        else
-            cout << res.second[i] << ", ";
+    
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    for (auto x : result.first) {
+        cout << x << " ";
     }
-    cout << "0]" << endl;
+    cout << endl;
+    for (auto x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
     
     return 0;
 }
