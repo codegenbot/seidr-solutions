@@ -1,24 +1,37 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+#include <stack>
+#include <string>
+
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for(int i=0; i<expression.length(); i++){
+        if(expression[i] == '&') {
+            while(!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (st.empty()) return "True";
-            char c = st.top(); st.pop();
-            if ((c == 'T' || c == 't') && s[i+1] == 'F' || s[i+1] == 'f')
-                return "True";
-        } else {
-            st.push(s[i]);
+            if(s.empty())
+                return false;
+        } else if(expression[i] == '|') {
+            while(!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if(s.empty())
+                return true;
+        } else if(expression[i] != 'T' && expression[i] != 'F'){
+            if(expression[i] == '&')
+                s.push('&');
+            else
+                s.push('|');
+        } else{
+            while(!s.empty()) {
+                s.pop();
+            }
+            return expression[i] == 'T';
         }
     }
-    while (!st.empty()) {
-        char c = st.top(); st.pop();
-        if ((c == 'T' || c == 't') && (s.size() % 2 != 0)) 
-            return "True";
-        if ((c == 'F' || c == 'f') && (s.size() % 2 != 1)) 
-            return "False";
+    while(!s.empty()) {
+        s.pop();
     }
-    return s.size() % 2 == 0 ? "True" : "False";
+    return true;
 }
