@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <string> // Include string header
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
