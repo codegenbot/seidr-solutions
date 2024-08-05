@@ -3,16 +3,17 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> solve(int n) {
-    std::vector<int> result(n);
+vector<int> solve(int n) {
+    vector<int> result(n);
     for (int i = 0; i < n; ++i) {
-        result[i] = (i % 2 == 0) ? std::accumulate(result.begin(), result.begin() + i + 1, 1, std::multiplies<int>())
-                                : std::accumulate(result.begin(), result.begin() + i + 1, 0);
+        result[i] = (i % 2 == 0) ? accumulate(result.begin(), result.begin() + i + 1, 1, multiplies<int>())
+                                : accumulate(result.begin(), result.begin() + i + 1, 0);
     }
     return result;
 }
