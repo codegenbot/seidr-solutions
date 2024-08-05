@@ -1,31 +1,22 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words = {""};
-    for (char c : str) {
-        if (c == '-') {
-            words.back() += " ";
-            words.push_back("");
+void camelCase() {
+    string s;
+    cin >> s;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '-') {
+            if (i > 0 && (s[i - 1] == ' ' || s[i - 1] == '-')) continue;
+            string word = s.substr(i + 1);
+            cout << std::toupper(word[0]);
+            for (int j = 1; j < word.size(); j++) {
+                cout << std::tolower(word[j]);
+            }
+            i += word.size() - 1;
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            words.back() += c;
+            cout << std::tolower(s[i]);
         }
     }
-    std::string result = "";
-    for (const auto& word : words) {
-        if (!word.empty()) {
-            if (!result.empty())
-                result += char(std::toupper(word[0]));
-            result += word.substr(1);
-        }
-    }
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "CamelCase version: " << kebabToCamel(input) << "\n";
-    return 0;
 }
