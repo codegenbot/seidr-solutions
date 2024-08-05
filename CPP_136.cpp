@@ -29,7 +29,6 @@ std::vector<int> largest_smallest_integer(std::vector<int> lst) {
     result[1] = min_pos == INT_MAX ? 0 : min_pos;
     
     return result;
-
 }
 
 int main(){
