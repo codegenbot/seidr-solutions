@@ -1,5 +1,5 @@
-strings = ["apple", "banana", "cherry", "date", "grape"]
-substring = "an"
+strings = ["apple", "banana", "cherry", "date"]
+substring = "e"
 
 
 def filter_strings(strings, substring):
