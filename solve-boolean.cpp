@@ -1,27 +1,15 @@
-```c++
 bool solveBoolean(std::string expression) {
-    int n = expression.length();
     bool result = true;
-    for (int i = 0; i < n; i++) {
-        if (expression[i] == 'T')
-            return true;
-        else if (expression[i] == 'F')
-            return false;
-        else if (expression[i] == '&') {
-            if (i + 1 < n && expression[i+1] == '&')
-                i++;
-            else if (i + 1 < n && expression[i+1] == '|')
-                result = true;
+    for(int i=0; i<expression.length(); i++){
+        if(expression[i] == '&') {
+            result &= (i > 0 && (expression[i-1] == 'T' || expression[i-1] == '(')) ? true : false;
+        } else if(expression[i] == '|') {
+            result |= (i > 0 && (expression[i-1] == 'F' || expression[i-1] == '(')) ? false : true;
+        } else if(expression[i] != 'T' && expression[i] != 'F'){
+            if(expression[i] == '&')
+                result &= (result);
             else
-                result = false;
-        } 
-        else if (expression[i] == '|') {
-            if (i + 1 < n && expression[i+1] == '|')
-                i++;
-            else if (i + 1 < n && expression[i+1] == '&')
-                result = true;
-            else
-                result = false;
+                result |= (!result);
         }
     }
     return result;
