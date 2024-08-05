@@ -15,14 +15,14 @@ std::pair<int, int> mastermind(string code, string guess) {
 
     // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        bool found = false;
+        int found = 0;
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
-                found = true;
-                break;
+                found++;
+                guess[j] = ' ';
             }
         }
-        if (!found) white++;
+        black += found;
     }
 
     // Count the remaining correct colors in wrong positions
