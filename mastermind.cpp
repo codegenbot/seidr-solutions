@@ -1,28 +1,44 @@
-int mastermind(string code, string guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    map<char, int> codeMap;
-    for (char c : code) {
-        codeMap[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            codeMap[code[i]]--;
-            blackPegs++;
+int whitePegs(int a[], int b[]) {
+    int count = 0;
+    for (int i = 0; i < 6; i++) {
+        if ((a[i] == 1 && b[i] == 0) || (a[i] == 0 && b[i] == 1)) {
+            count++;
         }
     }
+    return count;
+}
 
-    for (int i = 0; i < 4; i++) {
-        for (int j = i + 1; j < 4; j++) {
-            if (code[i] == guess[j] && codeMap[code[i]] > 0) {
-                codeMap[code[i]]--;
-                whitePegs++;
-                break;
-            }
+int blackPegs(int a[], int b[]) {
+    int count = 0;
+    for (int i = 0; i < 6; i++) {
+        if (a[i] == b[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    return make_pair(blackPegs, whitePegs).second;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+
+    vector<char> a(4), b(4);
+
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == 'B') a[i] = 1; else if (code[i] == 'O') a[i] = 2;
+        else if (code[i] == 'G') a[i] = 3; else if (code[i] == 'Y') a[i] = 4;
+        else if (code[i] == 'W') a[i] = 5;
+
+        if (guess[i] == 'B') b[i] = 1; else if (guess[i] == 'O') b[i] = 2;
+        else if (guess[i] == 'G') b[i] = 3; else if (guess[i] == 'Y') b[i] = 4;
+        else if (guess[i] == 'W') b[i] = 5;
+    }
+
+    int whitePegsCount = whitePegs(a, b);
+    int blackPegsCount = blackPegs(a, b);
+
+    cout << blackPegsCount << endl;
+    cout << whitePegsCount << endl;
+
+    return 0;
 }
