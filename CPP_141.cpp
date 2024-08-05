@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -11,7 +10,7 @@ bool is_valid_extension(const string& extension) {
 
 string file_name_check(string file_name) {
     int count_digits = 0;
-    int dot_index = file_name.find('.');
+    size_t dot_index = file_name.find('.');
     if (dot_index == string::npos || dot_index == 0 || dot_index == file_name.size() - 1) {
         return "No";
     }
@@ -34,6 +33,7 @@ string file_name_check(string file_name) {
 
 int main() {
     assert(file_name_check("s.") == "No");
-
+    // Add more test cases as needed
+    
     return 0;
 }
