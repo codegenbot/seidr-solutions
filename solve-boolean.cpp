@@ -1,20 +1,37 @@
-#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool result = true;
-    for (int i = 0; i < s.length(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == 'T') {
             return true;
-        }
-        else if (s[i] == 'F') {
+        } else if (s[i] == 'F') {
             return false;
+        } else if (s[i] == '&') {
+            result &= evaluate(s, i + 1);
+        } else if (s[i] == '|') {
+            result |= evaluate(s, i + 1);
         }
-        else if (s[i] == '&') {
-            result &= true;
-        }
-        else if (s[i] == '|') {
-            result |= true;
+        i++;
+    }
+    return result;
+}
+
+bool evaluate(string s, int &i) {
+    bool result = true;
+    while (i < s.length()) {
+        if (s[i] == 'T') {
+            return true;
+        } else if (s[i] == 'F') {
+            return false;
+        } else if (s[i] == '&') {
+            i++;
+            result &= evaluate(s, i);
+        } else if (s[i] == '|') {
+            i++;
+            result |= evaluate(s, i);
         }
     }
     return result;
