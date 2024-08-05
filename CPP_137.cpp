@@ -8,7 +8,7 @@ boost::any compare_one(const boost::any& a, int b) {
 }
 
 int main() {
-    boost::any result = compare_one(std::string("1"), 1);
+    boost::any result = compare_one("1", 1);
 
     assert(boost::any_cast<std::string>(result) == "1");
 
