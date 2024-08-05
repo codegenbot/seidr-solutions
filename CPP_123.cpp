@@ -1,14 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> get_odd_collatz(int n) {
+vector<int> odd_numbers(int n) {
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
@@ -30,10 +22,4 @@ vector<int> get_odd_collatz(int n) {
     sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    
-    return 0;
 }
