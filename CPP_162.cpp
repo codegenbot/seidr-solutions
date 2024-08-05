@@ -1,22 +1,24 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+
+// Include necessary headers
 #include <openssl/md5.h>
 
+// Define string_to_md5 function
 std::string string_to_md5(const std::string& input) {
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, input.c_str(), input.size());
+    MD5_CTX context;
+    MD5_Init(&context);
+    MD5_Update(&context, input.c_str(), input.length());
 
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5_Final(result, &ctx);
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5_Final(digest, &context);
 
-    std::stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(result[i]);
-    }
+    char md5Result[2*MD5_DIGEST_LENGTH + 1];
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++)
+        sprintf(&md5Result[i*2], "%02x", (unsigned int)digest[i]);
 
-    return ss.str();
+    return std::string(md5Result);
 }
 
 int main() {
@@ -25,3 +27,5 @@ int main() {
     std::cout << string_to_md5(input) << std::endl;
     return 0;
 }
+
+// Add necessary code outside main function
