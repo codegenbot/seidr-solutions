@@ -5,11 +5,13 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+vector<string> filter_by_substring(vector<string> strings, string substring);
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> filter_by_substring(const vector<string>& strings, const string& substring){
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for (const auto &str : strings) {
         if (str.find(substring) != string::npos) {
