@@ -8,10 +8,11 @@ int main() {
 
     std::vector<double> vec1(n);
     std::vector<double> vec2(n);
-    
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
+
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
@@ -22,7 +23,7 @@ int main() {
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance;
+    std::cout << distance << std::endl;
 
     return 0;
 }
