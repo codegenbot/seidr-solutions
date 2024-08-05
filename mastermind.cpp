@@ -19,13 +19,12 @@ int mastermind(string code, string guess) {
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
                 found = true;
-                code[i] = ' ';
-                guess[j] = ' ';
+                code[j] = ' ';
                 break;
             }
         }
         if (!found) black++;
     }
 
-    return static_cast<int>(black), black;
+    return black, white;
 }
