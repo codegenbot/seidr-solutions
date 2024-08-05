@@ -8,7 +8,7 @@ bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b){
 }
 
 std::vector<int> make_a_pile(int n){
-    std::pmr::vector<int> result;
+    std::vector<int> result;
     result.push_back(n);
     for(int i = 1; i < n; ++i){
         if(n % 2 == 0){
