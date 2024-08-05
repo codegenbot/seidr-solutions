@@ -1,5 +1,5 @@
 #include <string>
-#include <cassert> 
+#include <cassert>
 #include <cmath>
 
 std::string calculate_binary_avg(int n, int m) {
@@ -14,7 +14,7 @@ std::string calculate_binary_avg(int n, int m) {
         sum += i;
     }
 
-    int rounded_avg = std::round((double)sum / (m - n + 1)); 
+    int rounded_avg = std::round((double)sum / (m - n + 1));
 
     std::string binary_avg = "";
     while (rounded_avg > 0) {
