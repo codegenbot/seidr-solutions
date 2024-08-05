@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 using namespace std;
 
@@ -13,9 +13,7 @@ int basement(vector<int>& v) {
 }
 
 int main() {
-    vector<int> v = {-2, -3, 4, -1, -2, 1, 5, -3};
-    int result = basement(v);
-    if (result == -1) cout << "No such index found." << endl;
-    else cout << "The first negative sum index is: " << result << endl;
+    vector<int> v = {-5, 2, -3, 7, 4};
+    cout << "The first basement index is: " << basement(v) << endl;
     return 0;
 }
