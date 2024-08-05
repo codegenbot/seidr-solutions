@@ -5,7 +5,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product_result *= num
     return sum_result, product_result
 
-
 if __name__ == "__main__":
     numbers = [int(num) for num in input().split()]
     result = sum_product(numbers)
