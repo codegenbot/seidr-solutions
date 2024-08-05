@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::vector<int>(a) == b;
+    return std::vector<int>(a) == std::vector<int>(b);
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -17,4 +17,10 @@ std::vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     std::sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(is_same(get_odd_collatz(1), {1}));
+
+    return 0;
 }
