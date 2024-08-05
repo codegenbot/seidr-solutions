@@ -10,7 +10,7 @@ int bowlingScore(string s) {
             lastRoll = true;
         } else if (s[i] == '/') {
             int nextCharIndex = s.find('/', i);
-            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i + 1, nextCharIndex - i - 1)) * 2 : 10;
+            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i, nextCharIndex - i)) * 2 : 10;
             score += thisFrameScore;
             lastRoll = true;
         } else {
@@ -25,15 +25,14 @@ int bowlingScore(string s) {
 
         if (!lastRoll) continue;
 
-        if (i != 9 && s[i + 1] == 'X') {
+        if (i != 9 && s[i+1] == 'X') {
             score += 10;
             i++;
-        } else if (s[i + 1] == '/') {
+        } else if (s[i+1] == '/') {
             int nextCharIndex = s.find('/', i + 1);
-            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i + 2, nextCharIndex - i - 2)) : 10;
+            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i + 1, nextCharIndex - i - 1)) : 10;
             score += thisFrameScore;
         }
     }
 
     return score;
-}
