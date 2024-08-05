@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -9,9 +8,9 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int pennies = cents; // adjust for quarters
+    int pennies = cents; 
 
-    int total_cents = quarters * 25 + pennies; // add up the quarter and penny contributions
+    int total_cents = quarters * 25 + pennies; 
     int dimes = (total_cents - pennies) / 10;
     pennies = (total_cents - pennies) % 10;
 
