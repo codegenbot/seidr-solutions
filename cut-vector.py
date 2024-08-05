@@ -9,6 +9,6 @@ for i, num in enumerate(vector):
         if running_sum == half_sum or abs(running_sum - half_sum) < abs(
             running_sum - num - half_sum
         ):
-            print(*vector[: i + 1])
-            print(*vector[i + 1 :])
+            print(*vector[:i+1])
+            print(*vector[i+1:])
             break
