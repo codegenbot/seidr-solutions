@@ -22,7 +22,7 @@ std::vector<int> f(int n) {
 }
 
 int main() {
-  std::vector<int> res = f(5);
-  assert(issame(res, {0, 1, 2, 6, 24}));
-  return 0;
+    std::vector<int> res = f(5);
+    assert(issame(res, {0, 1, 2, 6, 24}));
+    return 0;
 }
