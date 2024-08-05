@@ -19,7 +19,7 @@ double find_zero(const std::vector<double>& coeffs){
 int main(){
     std::vector<double> coeffs = {1.0, -2.0, 1.0}; // example coefficients of x^2 - 2x + 1
     double solution = find_zero(coeffs);
-    assert(solution); 
+    assert(solution);
     
     return 0;
 }
