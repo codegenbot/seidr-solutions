@@ -1,5 +1,4 @@
 nums = list(map(int, input().split()))
-n = len(nums)
 
 total_sum = sum(nums)
 half_sum = total_sum // 2
@@ -11,7 +10,7 @@ for num in nums:
 best_diff = float("inf")
 best_idx = -1
 
-for i in range(1, n):
+for i in range(1, len(nums)):
     diff = abs(prefix_sums[i] - (total_sum - prefix_sums[i]))
     if diff < best_diff:
         best_diff = diff
