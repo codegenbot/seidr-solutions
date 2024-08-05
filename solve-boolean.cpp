@@ -2,7 +2,8 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st; 
+    stack<char> st;
+    st.push(''); // initialize the stack with a dummy value
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
