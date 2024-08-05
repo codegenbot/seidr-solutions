@@ -1,12 +1,12 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> derivative(const std::vector<float>& v) {
-    // Implement derivative calculation here
-    return std::vector<float>();
+std::vector<float> derivative(const std::vector<float>& vec) {
+    // Implement derivative function logic here
+    return vec;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
 
