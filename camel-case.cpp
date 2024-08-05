@@ -1,29 +1,23 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
+std::string kebabToCamel(std::string str) {
     std::string result = "";
-    size_t pos = 0;
+    bool capitalizeNext = true;
 
-    while (pos < str.size()) {
-        if (str.find('-', pos) != std::string::npos) {
-            result += topper(str.substr(pos, str.find('-', pos)));
-            pos = str.find('-', pos);
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            result += topper(str.substr(pos));
+            result += tolower(c);
         }
-        pos = str.find(' ', pos) + 1;
     }
 
     return result;
-}
-
-std::string topper(const std::string& str) {
-    if (str.size() == 0)
-        return "";
-    if (str[0] >= 'a' && str[0] <= 'z')
-        return (char)(str[0] - 32) + str.substr(1);
-    return str;
 }
 
 int main() {
