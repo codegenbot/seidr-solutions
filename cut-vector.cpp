@@ -1,41 +1,49 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
+    
+    if (n == 0) {
+        res.push_back({});
+        res.push_back({});
+        return res;
+    }
+    
+    for (int i = 1; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        for (int j = i; j < n; j++) {
+            rightSum += v[j];
+        }
+        
+        if (leftSum == rightSum) {
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
+            return res;
+        } else if (abs(leftSum - rightSum) < abs(leftSum - rightSum - v[i])) {
+            res.push_back({v.begin(), v.begin() + i});
+            res.push_back({v.begin() + i, v.end()});
+            return res;
         }
     }
-
-    return {{vec.begin(), vec.begin() + cutIndex}, {vec.begin() + cutIndex, vec.end()}};
+    
+    res.push_back({{1}});
+    res.push_back(v);
+    return res;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
+    vector<int> v = {1};
+    vector<vector<int>> result = cutVector(v);
+    for (auto &vec : result) {
+        for (int num : vec) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
-
-    auto result = cutVector(vec);
-
-    for (const auto& x : result.first) {
-        std::cout << x << " ";
-    }
-    std::cout << "\n";
-
-    for (const auto& x : result.second) {
-        std::cout << x << " ";
-    }
-    std::cout << "\n";
-
     return 0;
 }
