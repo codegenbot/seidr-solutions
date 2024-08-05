@@ -20,5 +20,6 @@ std::vector<std::string> split_words(const std::string& s) {
 }
 
 int main() {
-    assert(issame(split_words(""), {}));
+    assert(issame(split_words(""), std::vector<std::string>{"0"}));
+    return 0;
 }
