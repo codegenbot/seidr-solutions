@@ -34,7 +34,7 @@ vector<int> parse_nested_parens(string paren_string){
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())(()))"), {4}));
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
     
     return 0;
 }
