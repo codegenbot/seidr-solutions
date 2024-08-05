@@ -13,7 +13,7 @@ int closest_integer(int input_num) {
 int main() {
     double input_num;
     std::cin >> input_num;
-  
+
     int input_num_int = static_cast<int>(input_num);
 
     std::cout << closest_integer(input_num);
