@@ -1,6 +1,5 @@
-```cpp
 std::string solveBoolean(std::string s) {
-    std::stack<char> st;
+    stack<char> st;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
@@ -22,4 +21,3 @@ std::string solveBoolean(std::string s) {
             return "False";
     }
     return "True";
-}
