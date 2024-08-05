@@ -14,7 +14,7 @@ int findFirstNegativeIndex(vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {-2, 3, 5, -7, 8};
+    vector<int> nums = {-2, 3, -4};
     int result = findFirstNegativeIndex(nums);
     if (result != -1) {
         cout << "First negative index: " << result << endl;
