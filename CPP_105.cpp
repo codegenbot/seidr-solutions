@@ -1,8 +1,5 @@
-#include <map>
-#include <algorithm>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
