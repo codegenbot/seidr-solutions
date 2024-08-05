@@ -42,7 +42,7 @@ bool issame(const vector<string>& a, const vector<string>& b){
 }
 
 int main(){
-    assert(issame(split_words(""), vector<string>{"0"}));
+    assert(issame(split_words(""), vector<string>{ "0" }));
     
     return 0;
 }
