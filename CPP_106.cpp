@@ -2,6 +2,7 @@
 #include <numeric>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -19,4 +20,9 @@ std::vector<int> solve(int n) {
 std::vector<int> f(int n) {
     return solve(n);
 }
-```
+
+int main() {
+    std::vector<int> res = f(5);
+    assert(issame(res, {0, 1, 2, 6, 24}));
+    return 0;
+}
