@@ -6,10 +6,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == "(" or char == ")":
             temp += char
+        elif temp:
+            result.append(temp)
+            temp = ""
         else:
-            if len(temp) > 0:
-                result.append(temp)
-                temp = ""
-    if len(temp) > 0:
-        result.append(temp)
+            result.append(char)
     return result
