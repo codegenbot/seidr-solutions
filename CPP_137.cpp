@@ -1,8 +1,12 @@
 #include <boost/any.hpp>
-#include <boost/type_index.hpp>
 #include <string>
+#include <cassert>
+#include <boost/algorithm/string.hpp>
+
 using namespace std;
-if(a.type() == boost::typeindex::type_id<int>() && b.type() == boost::typeindex::type_id<int>()){
+using namespace boost;
+
+if(a.type() == typeid(int) && b.type() == typeid(int)){
     if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
         return a;
     } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
@@ -10,7 +14,7 @@ if(a.type() == boost::typeindex::type_id<int>() && b.type() == boost::typeindex:
     } else {
         return "None";
     }
-} else if(a.type() == boost::typeindex::type_id<float>() && b.type() == boost::typeindex::type_id<float>()){
+} else if(a.type() == typeid(float) && b.type() == typeid(float)){
     if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
         return a;
     } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
@@ -18,9 +22,11 @@ if(a.type() == boost::typeindex::type_id<int>() && b.type() == boost::typeindex:
     } else {
         return "None";
     }
-} else if(a.type() == boost::typeindex::type_id<string>() && b.type() == boost::typeindex::type_id<string>()){
-    float a_float = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
-    float b_float = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, ".");
+} else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    boost::replace_all(boost::any_cast<string>(a), ",", ".");
+    boost::replace_all(boost::any_cast<string>(b), ",", ".");
+    float a_float = stof(boost::any_cast<string>(a));
+    float b_float = stof(boost::any_cast<string>(b));
     if(a_float > b_float){
         return a;
     } else if(a_float < b_float){
