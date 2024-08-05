@@ -20,9 +20,9 @@ int mastermind(string code, string guess) {
         if (code[j] == guess[j]) {
             black++;
         } else {
-            for (int i = 0; i < 6; ++i) {
-                if (codeCount[i] && guess[j] - '0' == i) {
-                    codeCount[i]--;
+            for (int k = 0; k < 6; ++k) {
+                if (codeCount[k] && code[k] == guess[j]) {
+                    codeCount[k]--;
                     black++;
                     break;
                 }
