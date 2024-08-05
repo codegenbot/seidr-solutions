@@ -6,22 +6,22 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<float> vec1(n);
+    std::vector<long double> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
-    std::vector<float> vec2(n);
+    std::vector<long double> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
 
-    float sum = 0.0f;
+    long double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
+        sum += static_cast<long double>((vec1[i] - vec2[i]) * (vec1[i] - vec2[i]));
     }
 
-    float distance = std::sqrt(sum);
+    long double distance = std::sqrt(sum);
     std::cout << distance << std::endl;
 
     return 0;
