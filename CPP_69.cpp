@@ -1,16 +1,10 @@
-int result = -1;
+int search(const std::vector<int>& lst) {
+    int maxFreq = -1;
     for (int num : lst) {
-        if (num > 0 && num <= lst.size()) {
-            int count = 0;
-            for (int n : lst) {
-                if (n == num) {
-                    count++;
-                }
-            }
-            if (count >= num && num > result) {
-                result = num;
-            }
+        int freq = std::count(lst.begin(), lst.end(), num);
+        if (num > freq && freq > maxFreq) {
+            maxFreq = freq;
         }
     }
-    return result;
+    return maxFreq > 0 ? maxFreq : -1;
 }
