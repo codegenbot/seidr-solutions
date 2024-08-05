@@ -5,14 +5,11 @@ int luhn(const std::vector<int>& input) {
     bool alternate = false;
 
     for (int i = input.size() - 1; i >= 0; --i) {
-        int digit = input[i];
-        if (alternate) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
-        }
+        int digit = input[i] * (alternate ? 2 : 1);
+        if (digit > 9) digit -= 9;
         sum += digit;
         alternate = !alternate;
     }
 
-    return sum;
+    return sum % 10 == 0;
 }
