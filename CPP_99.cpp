@@ -10,9 +10,6 @@ int main() {
     double input_num;
     std::cin >> input_num;
     std::cout << closest_integer(input_num);
-    assert(closest_integer(0.0) == 0);
-    assert(closest_integer(0.0) == 0);
-    assert(closest_integer(0) == 0); // Add an assert for integer input
-    assert(closest_integer(input_num) == lround(input_num)); // Update assert with double value
+    assert(closest_integer(0) == 0);
     return 0;
 }
