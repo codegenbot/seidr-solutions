@@ -1,8 +1,12 @@
-starting_height = float(input())
-first_bounce_height = float(input())
+h0 = float(input())
+hf1 = float(input())
+bounciness_index = hf1 / h0
+
 num_bounces = int(input())
 
-bounciness_index = first_bounce_height / starting_height
-total_distance = (1 + bounciness_index) ** num_bounces - 1
+distance = 0
+for _ in range(num_bounces):
+    distance += 2 * (hf1 - h0) + h0
+    h0, hf1 = hf1, hf1 * bounciness_index
 
-print(total_distance)
+print("%.3f" % (2 * (hf1 - h0) + h0))
