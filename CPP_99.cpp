@@ -2,15 +2,14 @@
 #include <cmath>
 #include <cassert>
 
-int closest_integer(double num) {
+int closestInteger(double num) {
     return lround(num);
 }
 
 int main() {
     double num;
     std::cin >> num;
-    int result = closest_integer(num);
-    std::cout << result;
-    assert(closest_integer(num) == result);
+    std::cout << closestInteger(num);
+    assert(closestInteger(0.0) == 0);
     return 0;
 }
