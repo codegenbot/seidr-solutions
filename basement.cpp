@@ -19,5 +19,5 @@ int main() {
     vector<int> test2 = {5, -4, -7, 9, 8};
     cout << basement(test2) << endl;
 
-    return basement({0, 1});
+    return 0;
 }
