@@ -22,7 +22,7 @@ std::string reverse_delete(const std::string &s, const std::string &c) {
 int main() {
     std::string input1, input2;
     std::cin >> input1 >> input2;
-
+    
     std::vector<std::string> vec1 = {input1};
     std::vector<std::string> vec2 = {input2};
 
