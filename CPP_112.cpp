@@ -20,5 +20,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
+    std::string s, c;
+    std::cin >> s >> c;
+    std::vector<std::string> result = reverse_delete(s, c);
+    
+    for(const auto& str : result) {
+        std::cout << str << " ";
+    }
+    
     return 0;
 }
