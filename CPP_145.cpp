@@ -8,8 +8,3 @@ vector<int> order_by_points(vector<int> nums) {
     });
     return nums;
 }
-
-int main() {
-    vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-    return 0;
-}
