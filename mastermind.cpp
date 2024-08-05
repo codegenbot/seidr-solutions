@@ -1,5 +1,4 @@
 #include <string>
-#include <algorithm>
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -21,5 +20,5 @@ int mastermind(string code, string guess) {
         white += min(count, code.count('A' + i)) - black;
     }
 
-    return {white, black};
+    return make_tuple(white, black);
 }
