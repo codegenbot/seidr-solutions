@@ -1,13 +1,17 @@
 #include <vector>
-#include <climits>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-vector<int> pluck(vector<int> arr);
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
 
-int main() {
-    // Main function implementation if needed
+    return true;
 }
 
 vector<int> pluck(vector<int> arr){
