@@ -18,7 +18,8 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    leaders.push_back(arr.back());
+    // Rightmost element is always a leader
+    leaders.push_back(arr[n-1]);
     
     return leaders;
 }
