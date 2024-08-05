@@ -14,3 +14,4 @@ int luhn(const std::vector<int>& card) {
         }
     }
     return sum;
+}
