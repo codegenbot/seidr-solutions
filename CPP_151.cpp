@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cmath>
 
-void double_the_difference(const std::vector<float>& lst, long long& odd_sum) {
+long long double_the_difference(const std::vector<float>& lst, long long& odd_sum) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && std::fmod(num, 1) == 0 && ((int)num) % 2 != 0) {
@@ -10,6 +10,7 @@ void double_the_difference(const std::vector<float>& lst, long long& odd_sum) {
         }
     }
     odd_sum = sum;
+    return sum;
 }
 
 int main() {
