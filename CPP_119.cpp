@@ -1,5 +1,10 @@
-int cnt = 0;
-    for (const string& s : lst) {
+#include <string>
+#include <vector>
+#include <cassert>
+
+std::string match_parens(const std::vector<std::string>& lst) {
+    int cnt = 0;
+    for (const std::string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 cnt++;
@@ -12,4 +17,9 @@ int cnt = 0;
         }
     }
     return cnt == 0 ? "Yes" : "No";
+}
+
+int main() {
+    assert(match_parens({")", "("}) == "Yes");
+    return 0;
 }
