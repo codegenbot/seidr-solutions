@@ -8,9 +8,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> split_words(std::string str){
     std::vector<std::string> words;
-    
     std::string word;
-    for (const char& c : str){
+    for (char c : str) {
         if (c == ' ') {
             if (!word.empty()) {
                 words.push_back(word);
@@ -23,7 +22,6 @@ std::vector<std::string> split_words(std::string str){
     if (!word.empty()) {
         words.push_back(word);
     }
-    
     return words;
 }
 
