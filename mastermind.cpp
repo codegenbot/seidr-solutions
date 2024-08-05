@@ -1,9 +1,6 @@
-#include <vector>
-using namespace std;
-
-int whitePegs(string code, string guess) {
+int whitePegs(int code[], int guess[]) {
     int count = 0;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             count++;
         }
@@ -11,26 +8,23 @@ int whitePegs(string code, string guess) {
     return count;
 }
 
-int blackPegs(string code, string guess) {
+int blackPegs(int code[], int guess[]) {
     int count = 0;
-    vector<char> codeVector(code.begin(), code.end());
-    for (int i = 0; i < 4; ++i) {
-        if (codeVector[i] == guess[i]) {
-            codeVector[i] = '#';
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[0] || guess[i] == code[1] || 
+            guess[i] == code[2] || guess[i] == code[3]) {
             count++;
         }
     }
-    for (char c : codeVector) {
-        if (c != '#') {
-            return 0;
-        }
-    }
-    return count;
+    return count - whitePegs(code, guess);
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    int code[4], guess[4];
+    for (int i = 0; i < 4; i++) {
+        cin >> code[i];
+        cin >> guess[i];
+    }
     cout << blackPegs(code, guess) << endl;
     cout << whitePegs(code, guess) << endl;
     return 0;
