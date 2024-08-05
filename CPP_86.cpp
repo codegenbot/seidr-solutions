@@ -24,6 +24,7 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    assert(anti_shuffle("edaprmit ncdeeos") == "compare andsort");
+    assert(anti_shuffle("hello friend") == "ehllo definr");
+
     return 0;
 }
