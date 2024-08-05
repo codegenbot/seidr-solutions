@@ -1,27 +1,23 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    bool newRoll = true;
-    for (char c : s) {
-        if (c == '/') {
-            score += getBones(cats);
-            cats = 0;
-            newRoll = true;
-        } else if (c >= '0' && c <= '9') {
-            cats = cats * 10 + (c - '0');
-            newRoll = false;
+    int currentFrame = 0;
+    for (char c : input) {
+        if (c == 'X') {
+            score += 30;
+            currentFrame++;
+        } else if (c == '/') {
+            score += 10 - (int)(input[currentFrame].str() - '0');
+            currentFrame++;
+        } else {
+            int spare = int(c - '0');
+            if (currentFrame < 9) {
+                // If it's not the last frame and we have a spare, calculate for the next frame
+                score += spare + 10;
+            } else {
+                // If it's the last frame and we have a spare, just add the spare
+                score += spare;
+            }
         }
     }
     return score;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    string s;
-    cin.ignore();
-    for(int i=0; i<n; ++i) {
-        getline(cin, s);
-        cout << bowlingScore(s) << endl;
-    }
-    return 0;
 }
