@@ -2,9 +2,13 @@
 #include <utility>
 #include <cassert>
 
-std::pair<int, int> sum_product(const std::pair<int, int>& numbers) {
-    int sum = numbers.first + numbers.second;
-    int product = numbers.first * numbers.second;
+std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+    int sum = 0;
+    int product = 1;
+    for (int num : numbers) {
+        sum += num;
+        product *= num;
+    }
     return {sum, product};
 }
 
