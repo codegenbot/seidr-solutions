@@ -1,8 +1,7 @@
-#include <iostream>
 #include <string>
-using namespace std;
+#include <vector>
 
-tuple<int, int> mastermind(string code, string guess) {
+std::tuple<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -19,8 +18,8 @@ tuple<int, int> mastermind(string code, string guess) {
                 count++;
             }
         }
-        white += min(count, to_string(code).find(('A' + i)) != string::npos ? to_string(code).count(to_string('A' + i)) : 0) - black;
+        white += std::min(count, code.count('A' + i)) - black;
     }
 
-    return make_tuple(white, black);
+    return std::make_tuple(white, black);
 }
