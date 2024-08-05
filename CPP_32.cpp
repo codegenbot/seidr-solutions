@@ -12,7 +12,7 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 bool find_zero(const std::vector<double>& coeffs){
-    return std::abs(poly(coeffs, -coeffs[1]/coeffs[0])) < 1e-3;
+    return std::abs(poly(coeffs, -coeffs[1] / coeffs[0])) < 1e-3;
 }
 
 int main(){
