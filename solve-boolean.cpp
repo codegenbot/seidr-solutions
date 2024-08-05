@@ -1,38 +1,43 @@
-Here is the solution:
+bool evaluateBoolean(string expression) {
+    bool result = false;
+    stack<char> opstack;
 
-string solveBoolean(string expression) {
-    stack<char> s;
-    for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            while (!s.empty() && s.top() != '&') {
-                s.pop();
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!opstack.empty() && opstack.top() == '|') {
+                opstack.pop();
             }
-            if (s.empty()) {
-                return "True";
+            if (!opstack.empty()) {
+                result = false;
             } else {
-                s.pop();
+                result = true;
             }
-        } else if (expression[i] == '&') {
-            s.push('&');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            while (!s.empty() && s.top() != '|') {
-                s.pop();
+            opstack.push('&');
+        } else if (expression[i] == '|') {
+            while (!opstack.empty()) {
+                opstack.pop();
             }
-            if (s.empty()) {
-                return "True";
+            if (opstack.empty()) {
+                result = expression[i+1] != 'F';
             } else {
-                s.pop();
+                bool left = false;
+                if (opstack.top() == '&') {
+                    left = true;
+                }
+                if (expression[i+1] == 'T') {
+                    result = left;
+                } else {
+                    result = !left;
+                }
+                i++;
             }
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            while (!s.empty()) {
-                s.pop();
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            if (opstack.top() == '|') {
+                opstack.pop();
             }
-            return "False";
+            result = expression[i] != 'F';
         }
     }
-    if (s.empty()) {
-        return "True";
-    } else {
-        return "False";
-    }
+
+    return result;
 }
