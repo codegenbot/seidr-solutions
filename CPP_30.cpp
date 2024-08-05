@@ -1,14 +1,13 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> get_positive(const std::vector<float>& input) {
+std::vector<float> get_positive(const std::vector<float>& v) {
     std::vector<float> result;
-    for (float num : input) {
+    for (float num : v) {
         if (num > 0) {
             result.push_back(num);
         }
@@ -17,13 +16,12 @@ std::vector<float> get_positive(const std::vector<float>& input) {
 }
 
 int main() {
-    // Test the get_positive function
-    std::vector<float> test_vec = {1.5, -2.3, 3.7, -4.1, 5.2};
-    std::vector<float> positive_nums = get_positive(test_vec);
-
-    for (float num : positive_nums) {
+    // Example usage of get_positive function
+    std::vector<float> input = {1.5, -2.4, 3.7, -1.2, 5.0};
+    std::vector<float> output = get_positive(input);
+    // Output the positive numbers from the input vector
+    for (float num : output) {
         std::cout << num << " ";
     }
-
     return 0;
 }
