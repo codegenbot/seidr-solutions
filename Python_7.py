@@ -1,7 +1,9 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-def check(filter_strings):
+def check(function):
     strings = ["apple", "banana", "cherry"]
-    substring = "an"
-    return filter_strings(strings, substring)
+    substring = "app"
+    return function(strings, substring)
+
+check(filter_strings)
