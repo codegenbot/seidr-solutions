@@ -1,8 +1,3 @@
 def sort_third(l: list):
-    return sorted(
-        [
-            elem
-            for sublist in [sorted(l[i : i + 3]) for i in range(0, len(l), 3)]
-            for elem in sublist
-        ]
-    )
+    padded_l = l + [None] * (3 - len(l) % 3)
+    return [elem for sublist in [sorted(padded_l[i : i + 3]) for i in range(0, len(padded_l), 3)] for elem in sublist if elem is not None]
