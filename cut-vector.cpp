@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <numeric>
+#include <cmath>
 #include <climits>
 
 using namespace std;
@@ -9,6 +11,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
+    
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
@@ -21,7 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         leftSum += nums[i];
         rightSum -= nums[i];
-        int currentDiff = std::abs(leftSum - rightSum);
+        int currentDiff = abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -29,10 +32,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
-        cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     for (int i = cutIndex + 1; i < n; ++i) {
-        cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
     
     return 0;
