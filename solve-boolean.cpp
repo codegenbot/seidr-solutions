@@ -1,30 +1,16 @@
-```c++
 bool solveBoolean(std::string expression) {
-    int i = 0;
-    while(i < expression.length()) {
-        if(expression[i] == '&') {
-            i++;
-            if(i >= expression.length() || expression[i] != '&')
-                return false;
-            i++;
-        } else if(expression[i] == '|') {
-            i++;
-            if(i >= expression.length() || expression[i] != '|')
-                return true;
-            i++;
-        } else if(expression[i] == 'T' || expression[i] == 'F') {
-            int j = i + 1;
-            while(j < expression.length() && (expression[j] == '&' || expression[j] == '|')) {
-                if(expression[j] == '&')
-                    return false;
-                if(expression[j] == '|')
-                    return true;
-                j++;
-            }
-            return expression[i] == 'T';
-        } else {
-            i++;
+    bool result = true;
+    for(int i=0; i<expression.length(); i++){
+        if(expression[i] == 'T') result = true;
+        else if(expression[i] == 'F') result = false;
+        else if(expression[i] == '&') {
+            while(i+1 < expression.length() && expression[i+1] == '&') i++;
+            while(i+1 < expression.length() && expression[i+1] == '|') i++;
+        }
+        else if(expression[i] == '|') {
+            while(i+1 < expression.length() && expression[i+1] == '|') i++;
+            while(i+1 < expression.length() && expression[i+1] == '&') i++;
         }
     }
-    return true;
+    return result;
 }
