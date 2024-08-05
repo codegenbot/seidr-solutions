@@ -7,6 +7,10 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> count(2, 0);
     for (int i = 1; i <= n; ++i) {
