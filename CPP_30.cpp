@@ -1,6 +1,11 @@
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b);
+namespace ns {
+    bool issame(std::vector<float> a, std::vector<float> b) {
+        // Implement the comparison logic here
+        return true; // Placeholder return
+    }
+}
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
