@@ -1,6 +1,3 @@
-from typing import List
-
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    result = []
-    result.extend(numbers)
-    return [item for sublist in zip(result, [delimiter] * (len(result)-1)) for item in sublist] + [result[-1]]
+numbers = list(map(int, input().split()))
+delimiter = int(input())
+print(intersperse(numbers, delimiter))
