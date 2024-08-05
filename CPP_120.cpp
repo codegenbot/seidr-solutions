@@ -4,10 +4,11 @@
 
 using namespace std;
 
-vector<int> maximum(vector<int> arr, int k){
-    sort(arr.begin(), arr.end(), greater<int>());
-    arr.resize(k);
-    return arr;
+vector<int> maximum(const vector<int>& arr, int k){
+    vector<int> sortedArr = arr;
+    sort(sortedArr.begin(), sortedArr.end(), greater<int>());
+    sortedArr.resize(k);
+    return sortedArr;
 }
 
 int main(){
