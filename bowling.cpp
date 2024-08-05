@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 int bowlingScore(string s) {
@@ -5,10 +6,8 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            string firstPart = s.substr(0, i);
-            string secondPart = s.substr(i + 1);
-            int firstPin = stoi(firstPart);
-            int secondPin = stoi(secondPart);
+            int firstPin = stoi(s.substr(0, i));
+            int secondPin = stoi(s.substr(i + 1, i - i - 1));
             if (firstPin + secondPin == 10) {
                 score += 10;
                 currentFrame++;
@@ -17,13 +16,12 @@ int bowlingScore(string s) {
                 currentFrame++;
             }
         } else if (s[i] == 'X') {
-            score += 30;
+            score += 10;
             currentFrame++;
         } else if (s[i] == ' ') {
             i++; // skip the space
         } else {
-            string part = s.substr(i);
-            int pins = stoi(part);
+            int pins = stoi(s.substr(i));
             if (pins < 10) {
                 score += pins;
                 currentFrame++;
