@@ -1,8 +1,4 @@
 #include <vector>
-#include <algorithm>
-#include <cmath>
-#include <cassert>
-#include <iostream>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     std::sort(numbers.begin(), numbers.end());
