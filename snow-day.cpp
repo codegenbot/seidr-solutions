@@ -1,14 +1,15 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = 0;
+    double totalSnow = initialSnow;
     
+    // Calculate the amount of snow that will fall during each hour
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall;
         
+        // Calculate how much snow melts per hour and subtract it from the total
         if (proportionOfSnowMeltingPerHour > 0) {
             totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
             initialSnow = totalSnow; 
