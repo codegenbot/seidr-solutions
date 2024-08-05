@@ -19,15 +19,8 @@ bool move_one_ball(const vector<int>& arr) {
 }
 
 int main() {
-    // Read input from the user
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
-    }
-
-    // Call the function and output the result
-    cout << (move_one_ball(input) ? "true" : "false") << endl;
+    assert(move_one_ball({1, 2, 3, 4}) == true);
+    assert(move_one_ball({3, 4, 1, 2}) == false);
 
     return 0;
 }
