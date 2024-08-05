@@ -2,10 +2,10 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::vector<int>(a) == std::vector<int>(b);
+    return a == b;
 }
 
-std::vector<int> solve(int n) {
+std::vector<int> f(int n) {
     std::vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
@@ -14,8 +14,7 @@ std::vector<int> solve(int n) {
                 factorial *= j;
             }
             result[i] = factorial;
-        }
-        else {
+        } else {
             int sum = 0;
             for (int j = 1; j <= i; ++j) {
                 sum += j;
@@ -26,11 +25,7 @@ std::vector<int> solve(int n) {
     return result;
 }
 
-std::vector<int> f(int n) {
-    return solve(n);
-}
-
 int main() {
-    assert(issame(f(5), solve(5)));
+    assert(issame(f(5), f(5)));
     return 0;
 }
