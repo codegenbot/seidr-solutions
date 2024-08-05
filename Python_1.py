@@ -5,12 +5,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     temp = ""
     for char in paren_string:
         if char == "(" or char == ")":
+            temp += char
+        else:
             if temp:
                 result.append(temp)
-            result.append(char)
-            temp = ""
-        else:
-            temp += char
+                temp = ""
     if temp:
-        result.append(temp)
+        result.append(temp)  # Append the last group of parentheses
     return result
