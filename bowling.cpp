@@ -1,28 +1,37 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll1, roll2, prevRolls = 0;
-
-    for (int i = 0; i < s.length(); i++) {
-        if (isdigit(s[i])) {
-            if (i + 1 < s.length() && isdigit(s[i + 1])) {
-                // Two rolls
-                int roll = (s[i] - '0') * 10 + (s[i + 1] - '0');
-                prevRolls += roll;
-                if (prevRolls > 10) {
-                    score += 10 + prevRolls - 10;
-                    prevRolls = 0;
-                }
-            } else {
-                // One roll
-                int roll = s[i] - '0';
-                prevRolls += roll;
-            }
+    bool lastRoll = false;
+    
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
+            score += 30;
+            lastRoll = true;
         } else if (s[i] == '/') {
-            // Strike or spare
-            score += 10 + prevRolls;
-            prevRolls = 0;
+            int nextCharIndex = s.find('/', i);
+            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i, nextCharIndex - i)) * 2 : 10;
+            score += thisFrameScore;
+            lastRoll = true;
+        } else {
+            int thisFrameScore = 0;
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] == '/') break;
+                thisFrameScore += (s[j] - '0');
+            }
+            score += thisFrameScore;
+            lastRoll = false;
+        }
+        
+        if (!lastRoll) continue;
+        
+        if (i != 9 && s[i+1] == 'X') {
+            score += 10;
+            i++;
+        } else if (s[i+1] == '/') {
+            int nextCharIndex = s.find('/', i + 1);
+            int thisFrameScore = (nextCharIndex != string::npos) ? stoi(s.substr(i + 1, nextCharIndex - i - 1)) : 10;
+            score += thisFrameScore;
         }
     }
-
+    
     return score;
 }
