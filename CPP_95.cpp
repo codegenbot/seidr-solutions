@@ -1,20 +1,19 @@
 #include <unordered_map>
-#include <cassert>
-#include <cctype> // Add this header for islower and isupper functions
+#include <cctype>
 
 bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
     if(dict.empty()) return false;
 
-    bool islower = true, isupper = true; // Change variable names
-    for(auto const& pair : dict) {
+    bool isLower = true, isUpper = true;
+    for(const auto& pair : dict) {
         for(char c : pair.first) {
-            if(std::islower(c)) { // Use std::islower instead of islower
-                isupper = false; // Change to isupper
-            } else if(std::isupper(c)) { // Use std::isupper instead of isupper
-                islower = false; // Change to islower
+            if(std::islower(c)) {
+                isUpper = false;
+            } else if(std::isupper(c)) {
+                isLower = false;
             }
         }
     }
 
-    return islower || isupper; // Change to islower and isupper
+    return isLower || isUpper;
 }
