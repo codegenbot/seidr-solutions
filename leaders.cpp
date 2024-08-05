@@ -23,16 +23,12 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 int main() {
     std::vector<int> nums;
     int num;
+    char nonNumeric;
     
     std::cout << "Enter numbers separated by spaces, end with non-numeric input:" << std::endl;
     
     while (std::cin >> num) {
         nums.push_back(num);
-    }
-    
-    if (std::cin.fail() && !std::cin.eof()) {
-        std::cin.clear();
-        std::cin.ignore();
     }
 
     std::vector<int> result = findLeaders(nums);
