@@ -3,7 +3,7 @@
 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
@@ -50,4 +50,3 @@ int main() {
         cout << x << " ";
     }
     return 0;
-}

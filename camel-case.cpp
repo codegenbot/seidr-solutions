@@ -1,35 +1,35 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
+std::string kebabToCamel(const std::string& str) {
+    std::string result = "";
+    size_t pos = 0;
 
-    for (char c : s) {
-        if (c == '-') {
-            if (!first)
-                result += char(toupper(c));
-            else
-                first = false;
-        } else if (c == ' ') {
-            if (!first)
-                result += char(toupper(c));
-            else
-                first = false;
+    while (pos < str.size()) {
+        if (str.find('-', pos) != std::string::npos) {
+            result += topper(str.substr(pos, str.find('-', pos)));
+            pos = str.find('-', pos);
         } else {
-            if (first)
-                first = false;
-            result += c;
+            result += topper(str.substr(pos));
         }
+        pos = str.find(' ', pos) + 1;
     }
 
     return result;
 }
 
+std::string topper(const std::string& str) {
+    if (str.size() == 0)
+        return "";
+    if (str[0] >= 'a' && str[0] <= 'z')
+        return (char)(str[0] - 32) + str.substr(1);
+    return str;
+}
+
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
     }
     return 0;
 }
