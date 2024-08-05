@@ -7,13 +7,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    std::sort(grid.begin(), grid.end(), [](const auto& a, const auto& b) {
-        return a[0] < b[0]; 
-    });
+    std::sort(grid.begin(), grid.end());
     return grid.at(k);
 }
 
 int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 1), {3, 2}));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 1), {1, 3}));
     return 0;
 }
