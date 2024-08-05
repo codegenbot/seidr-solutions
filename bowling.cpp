@@ -5,11 +5,9 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            string firstPart = s.substr(0, i);
-            string secondPart = s.substr(i + 1);
-            int firstPins = stoi(firstPart.substr(0, firstPart.find('/')));
-            int secondPins = stoi(secondPart);
-            score += firstPins + secondPins;
+            int firstPin = stoi(s.substr(0, i));
+            int secondPin = stoi(s.substr(i + 1));
+            score += (firstPin + secondPin);
             currentFrame++;
         } else if (s[i] == 'X') {
             score += 10;
