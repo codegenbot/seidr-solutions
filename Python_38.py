@@ -10,4 +10,4 @@ while True:
         print(result)
         break
     else:
-        print("Input should contain space-separated groups of three characters each. Please try again.")
+        print("Input should contain space-separated groups of three characters each. Try again.")
