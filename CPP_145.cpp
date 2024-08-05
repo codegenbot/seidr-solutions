@@ -13,6 +13,6 @@ std::vector<int> order_by_points(std::vector<int> points){
 
 int main(){
     std::vector<int> result = order_by_points({0, 6, 6, -76, -21, 23, 4});
-    assert(issame(result, {-76, -2, 0, 4, 23, 6, 6}));
+    assert(issame(result, {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
