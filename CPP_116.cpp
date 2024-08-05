@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b); // Added std:: before vector<int>
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
@@ -17,11 +17,10 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Modified to use std::vector<int> instead of vector<int>
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() { // Changed return type from bool to int
+void main() {
     assert(issame(sort_array({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
-    return 0;
 }
