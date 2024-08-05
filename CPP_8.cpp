@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> sum_product(vector<int> numbers){
+pair<int, int> sum_product(vector<int> numbers){
     int sum = 0;
     int product = 1;
     
@@ -13,11 +13,11 @@ vector<int> sum_product(vector<int> numbers){
         product *= num;
     }
     
-    return {sum, product}; // Return a vector with sum and product
+    return make_pair(sum, product);
 }
 
 int main() {
-    assert(sum_product({10}) == vector<int>{10, 10}); 
+    assert(sum_product({10}) == make_pair(10, 10));
     
     return 0;
 }
