@@ -5,6 +5,7 @@ def check_numbers_threshold(numbers, threshold):
             return True
     return False
 
+# Call the function to execute the code
 numbers = [5, 10, 15, 20]
 threshold = 5
 result = check_numbers_threshold(numbers, threshold)
