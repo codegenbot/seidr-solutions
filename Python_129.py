@@ -26,4 +26,4 @@ def minPath(grid, k):
             if path:
                 return path
 
-    return []
+    return []  # Return an empty list if no path is found
