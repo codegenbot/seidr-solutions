@@ -2,21 +2,22 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
+    for (char c : guess) {
         int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == 'A' + i) {
+        for (char d : code) {
+            if (c == d) {
                 count++;
             }
         }
-        white += min(count, code.count('A' + i)) - black;
+        if (count > 1 || count == 1 && black > 0) continue;
+        white++;
     }
 
-    return make_tuple(white, black);
+    return {white, black};
 }
