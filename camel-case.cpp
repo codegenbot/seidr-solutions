@@ -1,39 +1,35 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == '-') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
+        }
+    }
 
-string toCamelCase(string str) {
-    string result = "";
-    bool uppercaseNext = true;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
-            uppercaseNext = true;
-        } else if (str[i] == ' ') {
-            continue;
+    std::string result;
+    for (const auto& word : words) {
+        if (!result.empty()) {
+            result += std::string(1, char(std::toupper(word[0])));
+            result.erase(0, 1);
         } else {
-            if (uppercaseNext) {
-                result += toupper(str[i]);
-                uppercaseNext = false;
-            } else {
-                result += tolower(str[i]);
-            }
+            result = word;
         }
     }
     return result;
 }
 
 int main() {
-    string str;
-    while (true) {
-        cin >> str;
-        getline(cin, str);
-        cout << toCamelCase(str) << endl;
+    int t;
+    std::cin >> t;
+    while (t--) {
+        std::string s; 
+        std::cin >> s;
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }
