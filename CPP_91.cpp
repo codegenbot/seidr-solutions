@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 #include <string>
 
@@ -15,6 +16,7 @@ int is_bored(std::string S){
     return count;
 }
 
-#include <cassert>
-
-assert(is_bored("You and I are going for a walk") == 0);
+int main(){
+    std::cout << is_bored("You and I are going for a walk") << std::endl;
+    return 0;
+}
