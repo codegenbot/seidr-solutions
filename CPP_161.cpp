@@ -1,19 +1,20 @@
-#include <algorithm>
-#include <cctype>
+#include <iostream>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
-std::string solve(std::string s) {
-    for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+using namespace std;
+
+string solve(string s){
+    int n = s.length();
+    bool hasLetter = false;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
-    if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
+    if(!hasLetter){
         reverse(s.begin(), s.end());
     }
     return s;
