@@ -5,12 +5,12 @@ using namespace std;
 
 vector<int> tri(int n); // Function declaration
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){ // Corrected function signature
     return a == b;
 }
 
 int main(){
-    assert(issame(tri(1), {1, 3}));
+    assert(issame(tri(1), {1, 3})); // Assertion test case
     return 0;
 }
 
