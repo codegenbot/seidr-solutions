@@ -1,10 +1,15 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::getline(std::cin, s);
+
     if (s.size() % 2 == 0) {
-        cout << s.substr(s.size() / 2 - 1, 2);
+        std::cout << s.substr(s.size() / 2 - 1, 2);
     } else {
-        cout << s[s.size() / 2];
+        std::cout << s[s.size() / 2];
     }
+
     return 0;
 }
