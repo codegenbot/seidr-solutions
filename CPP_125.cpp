@@ -1,8 +1,18 @@
 #include <vector>
 #include <string>
+#include <cassert>
+#include <cctype>
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
+}
+
+vector<string> split_words(string txt);
+
+int main(){
+    assert(issame(split_words(""), {"0"}));
+    
+    return 0;
 }
 
 vector<string> split_words(string txt){
@@ -31,10 +41,4 @@ vector<string> split_words(string txt){
         result.push_back(to_string(oddCount));
     }
     return result;
-}
-
-int main(){
-    assert(issame(split_words(""), {"0"}));
-    
-    return 0;
 }
