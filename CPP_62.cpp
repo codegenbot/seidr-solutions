@@ -2,13 +2,9 @@
 #include <cassert>
 
 std::vector<float> derivative(const std::vector<float>& v){
-    if (v.size() <= 1) {
-        return {};
-    }
-
-    std::vector<float> result(v.size()-1);
+    std::vector<float> result(v.size() - 1);
     for (size_t i = 1; i < v.size(); ++i) {
-        result[i-1] = v[i] * i;
+        result[i - 1] = v[i] - v[i - 1];
     }
     return result;
 }
