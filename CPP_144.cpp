@@ -1,5 +1,9 @@
 #include <string>
-#include <cassert>
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
 
 bool simplify(std::string x, std::string n) {
     int num1 = std::stoi(x.substr(0, x.find('/')));
@@ -7,11 +11,10 @@ bool simplify(std::string x, std::string n) {
     int num2 = std::stoi(n.substr(0, n.find('/')));
     int den2 = std::stoi(n.substr(n.find('/') + 1));
 
-    return (num1 * den2 == num2 * den1);
-}
+    int num = num1 * num2;
+    int den = den1 * den2;
 
-int main() {
-    assert(simplify("1/5", "1/5") == false);
+    int common = gcd(num, den);
 
-    return 0;
+    return den / common == 1;
 }
