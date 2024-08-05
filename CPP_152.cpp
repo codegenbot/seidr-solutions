@@ -23,8 +23,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
+/*int main() {
     assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     std::cout << "Test Passed!\n";
     return 0;
-}
+}*/
