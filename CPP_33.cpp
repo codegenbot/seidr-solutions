@@ -3,7 +3,7 @@ vector<int> sort_third(vector<int> l);
 vector<int> sort_third(vector<int> l) {
     vector<int> l_divisible_by_three;
     vector<int> l_not_divisible_by_three;
-    
+
     for (int i = 0; i < l.size(); i++) {
         if (l[i] % 3 == 0) {
             l_divisible_by_three.push_back(l[i]);
@@ -11,9 +11,9 @@ vector<int> sort_third(vector<int> l) {
             l_not_divisible_by_three.push_back(l[i]);
         }
     }
-    
+
     sort(l_divisible_by_three.begin(), l_divisible_by_three.end());
-    
+
     vector<int> result;
     int j = 0, k = 0;
     for (int i = 0; i < l.size(); i++) {
@@ -25,6 +25,6 @@ vector<int> sort_third(vector<int> l) {
             k++;
         }
     }
-    
+
     return result;
 }
