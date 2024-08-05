@@ -21,7 +21,6 @@ int main() {
     vector<int> nums = {16, 17, 4, 3, 5, 2};
     vector<int> result = findLeaders(nums);
 
-    // Output the leaders
     for (int num : result) {
         cout << num << " ";
     }
