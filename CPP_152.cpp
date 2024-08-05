@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <memory>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -16,8 +17,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>({1, 2, 3, 5}), std::vector<int>({1, 2, 3, 5})) == true);
-    assert(issame(std::vector<int>({1, 2, 3, 5}), std::vector<int>({1, 2, 3, 4})) == false);
+    assert(issame({1, 2, 3, 5}, {1, 2, 3, 5}) == true);
+    assert(issame({1, 2, 3, 5}, {1, 2, 3, 4}) == false);
     std::cout << "Tests Passed!\n";
     return 0;
 }
