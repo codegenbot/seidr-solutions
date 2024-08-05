@@ -4,7 +4,7 @@
 
 int main() {
     std::string text, target;
-    std::cin >> target >> text;
+    std::cin >> text >> target;
     
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
@@ -13,8 +13,8 @@ int main() {
         pos = text.find(target, pos + 1);
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
-        std::cout << indices[i] << " ";
+    for (int idx : indices) {
+        std::cout << idx << " ";
     }
     
     return 0;
