@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <numeric>
+#include <climits> // Include for INT_MAX
+#include <numeric> // Include for std::accumulate
 
 int main() {
     std::vector<int> nums;
