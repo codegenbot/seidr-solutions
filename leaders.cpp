@@ -29,7 +29,7 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-
+    
     if (std::cin.fail() && !std::cin.eof()) {
         std::cin.clear();
         std::cin.ignore();
