@@ -1,7 +1,6 @@
 from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    numbers = list(map(int, input().split()))
     max_numbers = []
     current_max = float("-inf")
     for num in numbers:
