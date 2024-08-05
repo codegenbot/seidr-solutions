@@ -1,3 +1,5 @@
+Here is the Python function to solve this problem:
+
 def middle_character(s):
     length = len(s)
     if length % 2 == 0:
