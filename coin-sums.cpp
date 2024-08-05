@@ -16,8 +16,8 @@ int main() {
 
     cout << quarters << endl;
     cout << dimes << endl;
-    cout << pennies/5 << endl;
-    cout << pennies%5 << endl;
+    cout << pennies / 5 << endl;
+    cout << pennies % 5 << endl;
 
     return 0;
 }
