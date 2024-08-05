@@ -20,6 +20,5 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    // Add your code for input and function calls here
     return 0;
 }
