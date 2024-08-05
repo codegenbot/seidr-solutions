@@ -13,15 +13,4 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
     return false;
 }
 
-int main() {
-    std::vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    double threshold = 0.5;
-
-    if (has_close_elements(a, threshold)) {
-        std::cout << "Close elements found within the threshold." << std::endl;
-    } else {
-        std::cout << "No close elements found within the threshold." << std::endl;
-    }
-
-    return 0;
-}
+std::vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
