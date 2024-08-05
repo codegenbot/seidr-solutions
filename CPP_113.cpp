@@ -1,13 +1,30 @@
-vector<string> odd_count(vector<string> lst) {
-    vector<string> result;
-    for (string s : lst) {
-        int count = 0;
+#include <iostream>
+#include <vector>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> count_odd_elements(std::vector<std::string> lst) {
+    std::vector<std::string> result;
+    for (std::string s : lst) {
+        int odd_count = 0;
         for (char c : s) {
             if ((c - '0') % 2 != 0) {
-                count++;
+                odd_count++;
             }
         }
-        result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.");
+        result.push_back("the number of odd elements " + std::to_string(odd_count) + " in the string " + s + " of the input.");
     }
     return result;
+}
+
+int main() {
+    assert(issame(count_odd_elements({"271", "137", "314"}), {
+        "the number of odd elements 1 in the string 271 of the input.",
+        "the number of odd elements 2 in the string 137 of the input.",
+        "the number of odd elements 2 in the string 314 of the input."
+    }));
+    
+    return 0;
 }
