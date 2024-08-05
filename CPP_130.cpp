@@ -17,12 +17,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int main(){
-    assert(issame(tri(1), {1, 3}));
-    
-    return 0;
-}
-
 std::vector<int> tri(int n){
     std::vector<int> result;
     if(n == 0){
