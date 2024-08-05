@@ -1,7 +1,10 @@
 def find_zero(xs: list):
-    if len(xs) < 2:
-        return "Input list must have at least two elements"
-        
+    n = len(xs) - 1
     a = xs[-1]
     b = xs[-2]
     return -a / b
+
+if __name__ == "__main__":
+    xs = list(map(int, input().split()))
+    result = find_zero(xs)
+    print(result)
