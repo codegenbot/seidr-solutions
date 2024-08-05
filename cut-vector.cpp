@@ -11,7 +11,7 @@ int main() {
     }
 
     int idx = 0;
-    int diff = std::numeric_limits<int>::max();
+    int diff = INT_MAX;
     for (int i = 1; i < nums.size(); ++i) {
         int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
