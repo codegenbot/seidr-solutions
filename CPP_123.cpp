@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
-vector<int> result;
+vector<int> odd_numbers(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
@@ -21,3 +22,4 @@ vector<int> result;
     sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
+}
