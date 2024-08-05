@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
@@ -9,7 +8,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> make_a_pile(int start) {
     std::vector<int> result;
     for (int i = 0; i < 8; ++i) {
-        result.push_back(start + 2 * i);
+        result.push_back(start + i * 2);
     }
     return result;
 }
