@@ -21,8 +21,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::string input_s, input_c;
-    std::cout << "Enter string s and string c:" << std::endl;
-    std::cin >> input_s >> input_c;
+    std::cout << "Enter string s: ";
+    std::cin >> input_s;
+    std::cout << "Enter string c: ";
+    std::cin >> input_c;
 
     std::vector<std::string> a = {"abc", "def"};
     std::vector<std::string> b = {"ghi", "jkl"};
