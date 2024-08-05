@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     numbers = [int(x) for x in input().split()]
     sum_result = sum(numbers) if numbers else 0
