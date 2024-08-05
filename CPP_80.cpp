@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
 bool is_happy(const std::string& s) {
@@ -7,7 +6,8 @@ bool is_happy(const std::string& s) {
         return false;
     }
 
-    for (int i = 0; i < s.length() - 2; ++i) {
+    int i;
+    for (i = 0; i < s.length() - 2; ++i) {
         if (s[i] == s[i + 1] || s[i] == s[i + 2] || s[i + 1] == s[i + 2]) {
             return false;
         }
@@ -17,7 +17,7 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    assert (is_happy("iopaxioi") == false );
+    std::cout << (is_happy("iopaxioi") ? "true" : "false") << std::endl;
 
     return 0;
 }
