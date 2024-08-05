@@ -1,18 +1,28 @@
-int whitePegs(int a[], int b[]) {
+#include <vector>
+using namespace std;
+
+int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 6; i++) {
-        if ((a[i] == 1 && b[i] == 0) || (a[i] == 0 && b[i] == 1)) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             count++;
         }
     }
     return count;
 }
 
-int blackPegs(int a[], int b[]) {
+int blackPegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 6; i++) {
-        if (a[i] == b[i]) {
+    vector<char> codeVector(code.begin(), code.end());
+    for (int i = 0; i < 4; ++i) {
+        if (codeVector[i] == guess[i]) {
+            codeVector[i] = '#';
             count++;
+        }
+    }
+    for (char c : codeVector) {
+        if (c != '#') {
+            return 0;
         }
     }
     return count;
@@ -21,24 +31,7 @@ int blackPegs(int a[], int b[]) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    vector<char> a(4), b(4);
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == 'B') a[i] = 1; else if (code[i] == 'O') a[i] = 2;
-        else if (code[i] == 'G') a[i] = 3; else if (code[i] == 'Y') a[i] = 4;
-        else if (code[i] == 'W') a[i] = 5;
-
-        if (guess[i] == 'B') b[i] = 1; else if (guess[i] == 'O') b[i] = 2;
-        else if (guess[i] == 'G') b[i] = 3; else if (guess[i] == 'Y') b[i] = 4;
-        else if (guess[i] == 'W') b[i] = 5;
-    }
-
-    int whitePegsCount = whitePegs(a, b);
-    int blackPegsCount = blackPegs(a, b);
-
-    cout << blackPegsCount << endl;
-    cout << whitePegsCount << endl;
-
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
