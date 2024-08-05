@@ -12,6 +12,4 @@ std::vector<int> sort_third(const std::vector<int>& vec) {
     return result;
 }
 
-/**************************************************************************
- * Do NOT include the main function here. (remove the main function)
- **************************************************************************/
+```
