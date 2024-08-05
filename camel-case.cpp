@@ -16,10 +16,10 @@ string kebabToCamel(string str) {
         } else if (str[i] == ' ') {
             continue;
         } else {
-            if (!result.empty()) { 
-                result += tolower(str[i]); 
+            if (!result.empty()) {
+                result += tolower(str[i]);
             } else {
-                result += toupper(str[i]); 
+                result += toupper(str[i]);
             }
         }
     }
