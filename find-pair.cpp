@@ -1,14 +1,14 @@
 #include <vector>
 using namespace std;
 
-pair<int, int> findPair(vector<int>& vec, int target) {
-    unordered_map<int, int> map;
-    for (int i = 0; i < vec.size(); i++) {
-        int num = vec[i];
-        if (map.count(target - num)) {
-            return {target - num, num};
+vector<int> findPair(vector<int>& nums, int target) {
+    unordered_map<int, int> numMap;
+    for (int num : nums) {
+        int complement = target - num;
+        if (numMap.count(complement)) {
+            return {complement, num};
         }
-        map[num] = i;
+        numMap[num] = 1;
     }
-    return {-1, -1}; // or throw an exception
+    return {};
 }
