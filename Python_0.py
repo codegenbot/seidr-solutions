@@ -7,5 +7,5 @@ def check_numbers(numbers, threshold):
 
 
 # Call the function with appropriate arguments
-result = check_numbers([1, 4, 7, 10, 15], 3)
+result = check_numbers([1, 3, 6, 10], 3)
 print(result)
