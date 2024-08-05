@@ -1,5 +1,5 @@
 from typing import List
-from itertools import chain
+from itertools import chain, zip_longest
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    return list(chain.from_iterable(zip(numbers, [delimiter] * len(numbers)))[:-1])
+    return [elem for elem in chain.from_iterable(zip_longest(numbers, [delimiter] * len(numbers), fillvalue=None)) if elem is not None]
