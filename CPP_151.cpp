@@ -16,4 +16,3 @@ std::vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
 long long odd_sum = 0;
 double_the_difference(lst, odd_sum);
 assert(odd_sum == 35);
-return 0;
