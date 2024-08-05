@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
-std::string encrypt(std::string s);
+std::string encrypt(std::string s); // Function declaration
 
 int main() {
     assert(encrypt("a") == "e");
+    // Add more test cases if needed
     return 0;
 }
 
