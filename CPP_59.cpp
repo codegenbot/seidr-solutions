@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cassert>
+
 int largest_prime_factor(int n) {
     int factor = 2;
     while (n > 1) {
