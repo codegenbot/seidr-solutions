@@ -1,8 +1,7 @@
-from typing import List
-
-
-def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+def complete_code(numbers, delimiter):
     result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    return result[:-1]
+    for num in numbers[:-1]:
+        result.extend([num, delimiter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
