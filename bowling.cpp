@@ -1,22 +1,21 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int rolls = 0;
-
     for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            // Split the string into two parts, convert them to integers and sum them up
-            int firstRoll = stoi(string(1, s[i - 1])) * 10 + stoi(string(1, s[i + 1]));
-            score += max(firstRoll / 10, 10);
+        if (input[i] == 'X') {
+            score += 30;
+        } else if (input[i] == '/') {
+            continue;
         } else {
-            // Calculate the score for a strike or spare
-            if (s[i] == 'X') {
-                score += 10 + bowlingScore(s.substr(i + 1)) - rolls;
-            } else if (stoi(string(1, s[i])) + stoi(string(1, s[i + 1])) < 11) {
-                score += 10;
-                rolls++;
+            int currentFrameScore = 0;
+            int nextRoll = input.find('/', i);
+            if (nextRoll != string::npos) {
+                currentFrameScore = 10 - (input[nextRoll - 1] - '0');
             }
+            for (int j = i; j < nextRoll; j++) {
+                currentFrameScore += input[j] - '0';
+            }
+            score += currentFrameScore;
         }
     }
-
     return score;
 }
