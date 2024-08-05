@@ -11,7 +11,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
+std::vector<int> even_odd_count(int n) {
+    if(n % 2 == 0) {
+        return {0, 1};
+    } else {
+        return {1, 0};
+    }
+}
+
 int main() {
-    assert(issame(std::vector<int>{1, 0}, std::vector<int>{1, 0}));
-    return 0;
+    assert(issame(even_odd_count(0), {1, 0}));
 }
