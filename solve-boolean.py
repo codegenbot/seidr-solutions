@@ -1,15 +1,17 @@
+```
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression and "|" in expression:
+    elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        result = True if expression[0] == "T" else False
-        for op, value in zip(["&", "|"], [expression[1:2], expression[3:]]):
-            if op == "&":
-                result = result and (value == "T")
-            elif op == "|":
-                result = result or (value == "T")
-    return result
+        result = True
+        for op, val in zip(['&', '|'], [False, True]):
+            while op * 2 + 1 in (i for i in range(len(expression))):
+                if val:
+                    expression = expression.replace(op*2+1, 'T')
+                else:
+                    expression = expression.replace(op*2+1, 'F')
+        return eval('True' if expression == 'T' else 'False')
