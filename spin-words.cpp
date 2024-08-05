@@ -1,4 +1,4 @@
-```
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -20,7 +20,7 @@ string spinWords(string input) {
             }
             string word = input.substr(i, j - i);
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                std::reverse(word.begin(), word.end());
             }
             output += word;
             i = j;
@@ -30,9 +30,11 @@ string spinWords(string input) {
 }
 
 int main() {
+    // Read the input from user
     string input;
     cin >> input;
 
+    // Call the function and print the output
     cout << spinWords(input) << endl;
 
     return 0;
