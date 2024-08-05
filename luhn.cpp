@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int main() {
@@ -10,12 +11,12 @@ int main() {
 
     int sum = 0;
     for (int i = 14; i >= 0; i -= 2) {
-        int doubled = digits[i] * 2;
-        sum += (doubled > 9) ? doubled - 9 : doubled;
-    }
-    
-    for (int i = 15; i >= 0; i -= 2) {
-        sum += digits[i];
+        if (digits[i] * 2 > 9) {
+            sum += digits[i] * 2 - 9;
+        } else {
+            sum += digits[i] * 2;
+        }
+        sum += digits[i + 1];
     }
 
     cout << sum << endl;
