@@ -13,7 +13,7 @@ std::vector<int> make_a_pile(int n){
         if(n % 2 == 0){
             n += 2;
         } else {
-          n += 1;
+            n += 1;
         }
         result.push_back(n);
     }
