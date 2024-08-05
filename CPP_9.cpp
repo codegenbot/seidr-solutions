@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 bool rolling_max(std::vector<int> numbers);
 
-int main() {
+bool main() {
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
@@ -24,5 +24,5 @@ bool rolling_max(std::vector<int> numbers){
         }
         result.push_back(max_val);
     }
-    return issame(numbers, result);
+    return issame(result, numbers);
 }
