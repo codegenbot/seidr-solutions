@@ -8,10 +8,16 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int> test1 = {1, 2, 3};
-    std::vector<int> test2 = {1, 2, 3};
+    std::vector<int> l1 = {1, 2, 3, 4, 5};
+    std::vector<int> l2 = {3, 4, 5, 6, 7};
 
-    bool same = issame(test1, test2);
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
 
-    return 0;
+    std::vector<int> result;
+    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
+    
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    
+    return result;
 }
