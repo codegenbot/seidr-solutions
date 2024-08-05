@@ -8,15 +8,18 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
-            }
+    map<char, int> code_map;
+    map<char, int> guess_map;
+
+    for (int i = 0; i < 4; ++i) {
+        code_map[code[i]]++;
+        guess_map[guess[i]]++;
+    }
+
+    for (auto &p : code_map) {
+        if (p.second > 0 && guess_map[p.first] > p.second - black) {
+            white += p.second - black;
         }
-        if (count > 1 || count == 1 && black > 0) continue;
-        white++;
     }
 
     return {white, black};
