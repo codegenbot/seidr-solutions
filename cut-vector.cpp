@@ -1,39 +1,42 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
-#include <cmath>
 
 int main() {
     std::vector<int> nums;
     int num;
-    
+
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
-    int diff = INT_MAX;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
+
+    int target = sum / 2;
+    int prefix_sum = 0;
     int idx = -1;
-    
-    for (int i = 1; i < n; ++i) {
-        int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
-        
-        if (std::abs(left_sum - right_sum) < diff) {
-            diff = std::abs(left_sum - right_sum);
+
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        if (prefix_sum >= target) {
             idx = i;
+            break;
         }
     }
-    
-    for (int i = 0; i < idx; ++i) {
-        std::cout << nums[i] << std::endl;
+
+    std::vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    std::vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+
+    for (int num : subvector1) {
+        std::cout << num << std::endl;
     }
-    
-    std::cout << std::endl;
-    
-    for (int i = idx; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+
+    for (int num : subvector2) {
+        std::cout << num << std::endl;
     }
-    
+
     return 0;
 }
