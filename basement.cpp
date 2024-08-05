@@ -1,3 +1,4 @@
+```
 #include <vector>
 using namespace std;
 
@@ -9,12 +10,11 @@ int findFirstNegativeIndex(vector<int>& nums) {
             return i;
         }
     }
-    return -1; // or any other default value you want to return
+    return -1;
 }
 
 int main() {
-    vector<int> input = {1,-2,3,10,4,-5,100};
-    int result = findFirstNegativeIndex(input);
-    cout << "First negative index is: " << result << endl;
+    vector<int> numbers = {-5, 3, 2, -4, 9, 6};
+    cout << "First negative index is: " << findFirstNegativeIndex(numbers) << endl;
     return 0;
 }
