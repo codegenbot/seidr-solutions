@@ -32,7 +32,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -49,5 +49,5 @@ pair<vector<int>, vector<int>> main() {
     for (const auto &x : res.second) {
         cout << x << " ";
     }
-    return {0, 0};
+    return 0;
 }
