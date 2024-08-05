@@ -2,10 +2,18 @@
 #include <algorithm>
 #include <cassert>
 
-bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (!isEqual(a[i], b[i])) return false;
     }
     return true;
 }
