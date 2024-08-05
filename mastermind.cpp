@@ -15,13 +15,16 @@ int mastermind(string code, string guess) {
 
     // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
+        bool found = false;
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
-                count++;
+                found = true;
+                break;
             }
         }
-        white += (count - black);
+        if (!found) {
+            white++;
+        }
     }
 
-    return static_cast<int>(white), static_cast<int>(black);
+    return black, white;
