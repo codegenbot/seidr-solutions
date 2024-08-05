@@ -1,6 +1,7 @@
+def increment_list(l):
+    return [x + 1 for x in l]
+
 def check(func):
-    test_list = [1, 2, 3]
-    if func(test_list) == [2, 3, 4]:
-        print("Function works correctly")
-    else:
-        print("Function does not work correctly")
+    assert func([1, 2, 3]) == [2, 3, 4]
+
+check(increment_list)
