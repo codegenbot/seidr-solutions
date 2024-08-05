@@ -1,5 +1,3 @@
-#include <iostream>
-#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -10,6 +8,9 @@ float shoppingList(float price[], float discount[], int n) {
     }
     return total;
 }
+
+#include <iostream>
+#include <iomanip>
 
 int main() {
     int n;
