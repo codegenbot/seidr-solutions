@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 #include <iostream>
 
 std::string decimal_to_binary(int decimal){
