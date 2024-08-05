@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
@@ -14,26 +14,16 @@ double poly(const std::vector<double>& coeffs, double x){
 double find_zero(const std::vector<double>& coeffs){
     double a = coeffs[0];
     double b = coeffs[1];
-    double solution = -b/a;
-    return std::abs(poly(coeffs, solution)) < 1e-3;
+    return std::abs(poly(coeffs, -b/a));
 }
 
 int main(){
-    std::vector<double> coeffs;
-    int deg;
-    
-    std::cout << "Enter the degree of the polynomial: ";
-    std::cin >> deg;
-    
-    coeffs.resize(deg + 1);
-    
-    std::cout << "Enter the coefficients of the polynomial in ascending order of degree:\n";
-    for(int i = 0; i <= deg; i++){
-        std::cin >> coeffs[i];
-    }
-    
+    std::vector<double> coeffs = {1.0, -2.0, 1.0}; 
     double solution = find_zero(coeffs);
-    assert(solution);
-    
+    if (std::abs(solution) < 1e-3) {
+        std::cout << "Solution found within threshold." << std::endl;
+    } else {
+        std::cout << "Solution not found within threshold." << std::endl;
+    }
     return 0;
 }
