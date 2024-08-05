@@ -6,7 +6,7 @@ int closestInteger(double num) {
 }
 
 int main() {
-    assert(closestInteger(5.7) == 6);
-    
+    assert(closestInteger(4.5) == 5);
+    assert(closestInteger(3.2) == 3);
     return 0;
 }
