@@ -1,9 +1,7 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string file_name_check(string file_name) {
+std::string file_name_check(const std::string& file_name) {
     int digit_count = 0;
     int dot_count = 0;
     int dot_index = -1;
@@ -17,20 +15,13 @@ string file_name_check(string file_name) {
     }
     
     if (digit_count > 3 || dot_count != 1 || dot_index == 0 || dot_index == file_name.size() - 1) {
-        return "No";
+        return std::string("No");
     }
     
     string extension = file_name.substr(dot_index + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
+        return std::string("No");
     }
     
-    return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    // Additional test cases can be added here
-
-    return 0;
+    return std::string("Yes");
 }
