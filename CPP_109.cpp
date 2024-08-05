@@ -19,6 +19,7 @@ bool move_one_ball(const vector<int>& arr) {
 }
 
 int main() {
+    // Read input from user
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -26,8 +27,10 @@ int main() {
         cin >> arr[i];
     }
 
+    // Process the input
     bool result = move_one_ball(arr);
 
+    // Output the result
     cout << (result ? "true" : "false") << endl;
 
     return 0;
