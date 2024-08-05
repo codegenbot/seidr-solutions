@@ -1,23 +1,29 @@
-def bowling_score(s):
-    frames = []
+def calculate_bowling_score(input_string):
+    score = 0
+    frame = 1
     i = 0
-    for _ in range(10):
-        if s[i] == "X":
-            frames.append(10)
+    while frame <= 10:
+        if input_string[i] == "X":
+            score += 10
+            score += calculate_strike_bonus(input_string, i)
+            i += 1
+        elif input_string[i] == "/":
+            score += 10 - int(input_string[i - 1])
             i += 1
         else:
-            if s[i + 1] == "/":
-                frames.append(10)
-            else:
-                frames.append(int(s[i]))
-                i += 1
-            if s[i] == "X":
-                frames[-1] += 10
-            else:
-                frames[-1] += int(s[i])
+            score += int(input_string[i])
         i += 1
-    return sum(frames)
+        frame += 1
+    return score
 
 
-s = input()
-print(bowling_score(s))
+def calculate_strike_bonus(input_string, i):
+    if input_string[i + 2] == "X":
+        return 20
+    elif input_string[i + 2] == "/":
+        return 10
+    return int(input_string[i + 1]) + int(input_string[i + 2])
+
+
+input_string = input()
+print(calculate_bowling_score(input_string))
