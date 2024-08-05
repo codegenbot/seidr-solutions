@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -16,13 +17,15 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    double sum = 0.0; 
     for (int i = 0; i < n; ++i) {
         sum += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
     double distance = std::sqrt(sum);
-    std::cout << distance << std::endl;
+
+    // Output with required precision
+    std::cout << std::fixed << std::setprecision(13) << distance << std::endl;
 
     return 0;
 }
