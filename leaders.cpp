@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -18,20 +17,4 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     std::reverse(leaders.begin(), leaders.end());
     
     return leaders;
-}
-
-int main() {
-    std::vector<int> nums;
-    int input;
-    while (std::cin >> input) {
-        nums.push_back(input);
-    }
-
-    std::vector<int> result = findLeaders(nums);
-
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-
-    return 0;
 }
