@@ -13,7 +13,7 @@ bool issame(const std::vector<int> &a, const std::vector<int> &b){
     return true;
 }
 
-vector<int> factorize(int n){
+std::vector<int> factorize(int n){
     std::vector<int> factors;
     for(int i = 2; i <= n; i++){
         while(n % i == 0){
