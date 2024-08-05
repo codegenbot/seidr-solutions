@@ -1,5 +1,7 @@
 double diceGame(int n, int m) {
-    double totalCombinations = (double)n*m;
-    double petersWins = (n-1)*m + n*(m-1);
-    return petersWins/totalCombinations;
+    double sum = 0;
+    for (int i = 1; i < n; i++) {
+        sum += 1 / (i * m);
+    }
+    return sum;
 }
