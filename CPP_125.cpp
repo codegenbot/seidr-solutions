@@ -15,11 +15,13 @@ std::vector<std::string> split_words(const std::string& s) {
     while (iss >> word) {
         words.push_back(word);
     }
+    if(words.empty()){
+        words.push_back("0");
+    }
 
     return words;
 }
 
 int main() {
     assert(issame(split_words(""), std::vector<std::string>{"0"}));
-    return 0;
 }
