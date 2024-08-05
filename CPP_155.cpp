@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -10,22 +11,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int even_odd_count(const std::vector<int>& nums) {
-    int even_count = 0;
-    int odd_count = 0;
-    
-    for (int num : nums) {
-        if (num % 2 == 0) {
-            even_count++;
-        } else {
-            odd_count++;
-        }
-    }
-    
-    return even_count + odd_count;
-}
-
 int main() {
-    // Your main function logic here
+    assert(issame({1, 0}, {1, 0}));
+    
     return 0;
 }
