@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <pair>
+#include <ostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
@@ -32,7 +32,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     return {left, right};
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     cin >> n;
     vector<int> v(n);
@@ -49,5 +49,5 @@ int main() {
     for (const auto &x : res.second) {
         cout << x << " ";
     }
-    return 0;
+    return {0, 0};
 }
