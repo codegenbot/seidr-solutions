@@ -13,7 +13,7 @@ int can_arrange(std::vector<int> arr){
     return maxIndex;
 }
 
-int main(){
+int main(int argc, char* argv[]){
    assert (can_arrange(std::vector<int>{}) == -1);
    return 0;
 }
