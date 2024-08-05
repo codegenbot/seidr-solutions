@@ -20,16 +20,17 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::string input1, input2;
-    std::cin >> input1 >> input2;
+    std::string input_s, input_c;
+    std::cout << "Enter string s and string c:" << std::endl;
+    std::cin >> input_s >> input_c;
 
-    std::vector<std::string> vec1 = {input1};
-    std::vector<std::string> vec2 = {input2};
+    std::vector<std::string> a = {"abc", "def"};
+    std::vector<std::string> b = {"ghi", "jkl"};
 
-    bool areSame = issame(vec1, vec2);
-    std::vector<std::string> result = reverse_delete(input1, input2);
+    bool is_same = issame(a, b);
+    std::cout << (is_same ? "True" : "False") << std::endl;
 
-    std::cout << "Issame result: " << (areSame ? "True" : "False") << std::endl;
+    std::vector<std::string> result = reverse_delete(input_s, input_c);
     for (const auto &res : result) {
         std::cout << res << std::endl;
     }
