@@ -18,7 +18,7 @@ string string_to_md5(const string& text) {
     EVP_DigestFinal_ex(context, digest, &digest_len);
     EVP_MD_CTX_free(context);
 
-    char mdString[33]{};
+    char mdString[33];
     for (unsigned int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
