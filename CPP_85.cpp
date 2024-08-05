@@ -11,7 +11,15 @@ int add(std::vector<int> lst) {
     return sum;
 }
 
+struct Solver {
+    void solve() {
+        assert(add({4, 4, 6, 8}) == 12);
+    }
+};
+
 int main() {
-    assert(add({4, 4, 6, 8}) == 12);
+    Solver solver;
+    solver.solve();
+    
     return 0;
 }
