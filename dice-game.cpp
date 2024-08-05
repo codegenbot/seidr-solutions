@@ -1,5 +1,3 @@
 double diceGame(int n, int m) {
-    double totalOutcomes = n*m;
-    double favorableOutcomes = n-m+1;
-    return favorableOutcomes/totalOutcomes;
+    return (n - 1.0) / (n * m);
 }
