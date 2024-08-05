@@ -24,7 +24,7 @@ int main() {
         cin >> discounts[i];
         discounts[i] = 100 - discounts[i];
     }
-  
+
     float result = calculateTotalPrice(prices, discounts);
     cout << result << endl;
 
