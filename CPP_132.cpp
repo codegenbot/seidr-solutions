@@ -7,5 +7,5 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-    return count < str.size() && count > 0;
+    return count == 0;
 }
