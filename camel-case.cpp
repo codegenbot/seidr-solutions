@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string toCamelCase(string str) {
     string result = "";
     for (int i = 0; i < str.length(); i++) {
@@ -20,12 +14,4 @@ string toCamelCase(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    string str;
-    while (cin >> str) {
-        cout << toCamelCase(str) << endl;
-    }
-    return 0;
 }
