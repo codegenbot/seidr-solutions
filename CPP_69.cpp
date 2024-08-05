@@ -1,17 +1,16 @@
-int maxFreq = -1;
+int result = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int elem : lst) {
-            if (elem == num) {
-                freq++;
+        if (num > 0 && num <= lst.size()) {
+            int count = 0;
+            for (int n : lst) {
+                if (n == num) {
+                    count++;
+                }
+            }
+            if (count >= num && num > result) {
+                result = num;
             }
         }
-        if (num > freq && freq > maxFreq) {
-            maxFreq = freq;
-        }
     }
-    if (maxFreq > 0) {
-        return maxFreq;
-    }
-    return -1;
+    return result;
 }
