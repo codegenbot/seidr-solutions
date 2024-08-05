@@ -14,7 +14,7 @@ double poly(const std::vector<double>& coeffs, double x){
 bool find_zero(const std::vector<double>& coeffs){
     double a = coeffs[0];
     double b = coeffs[1];
-    return poly(coeffs, -b/a) == 0;  // Check for zero-crossing
+    return poly(coeffs, -b/a) == 0;  // Compare with 0 instead of absolute value
 }
 
 int main(){
