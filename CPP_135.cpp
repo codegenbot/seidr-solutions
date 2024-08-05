@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -13,7 +14,21 @@ int can_arrange(std::vector<int> arr){
     return maxIndex;
 }
 
-int main(int argc, char* argv[]){
-   assert (can_arrange(std::vector<int>{}) == -1);
-   return 0;
+void solve(){
+    std::vector<int> arr;
+    int n, input;
+    
+    std::cin >> n;
+    for(int i = 0; i < n; i++){
+        std::cin >> input;
+        arr.push_back(input);
+    }
+    
+    int result = can_arrange(arr);
+    std::cout << result << std::endl;
+}
+
+int main(){
+    solve();
+    return 0;
 }
