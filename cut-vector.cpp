@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits> // Include for INT_MAX
-#include <numeric> // Include for std::accumulate
+#include <climits>
+#include <numeric>
 
 int main() {
     std::vector<int> nums;
@@ -11,7 +11,7 @@ int main() {
     }
 
     int idx = 0;
-    int diff = INT_MAX;
+    int diff = std::numeric_limits<int>::max();
     for (int i = 1; i < nums.size(); ++i) {
         int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
