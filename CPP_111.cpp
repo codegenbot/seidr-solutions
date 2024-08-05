@@ -1,3 +1,22 @@
+#include <iostream>
+#include <sstream>
+#include <map>
+#include <cassert>
+
+using namespace std;
+
+map<char, int> histogram(string test);
+
+int main_custom_name() {
+    if(histogram("a") == map<char, int>{{'a', 1}}) {
+        cout << "Test passed" << endl;
+    } else {
+        cout << "Test failed" << endl;
+    }
+
+    return 0;
+}
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
