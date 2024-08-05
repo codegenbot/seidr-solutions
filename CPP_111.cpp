@@ -8,9 +8,7 @@ using namespace std;
 map<char, int> histogram(string test);
 
 int main() {
-    // Test cases
     assert(histogram("a") == map<char, int>{{'a', 1}});
-    // Add more test cases if needed
 
     return 0;
 }
