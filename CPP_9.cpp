@@ -1,10 +1,15 @@
-vector<int> rolling_max(vector<int> numbers){
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int n = numbers.size();
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++) {
         int max_val = numbers[i];
-        for(int j=i+1; j<n; j++){
-            if(numbers[j] > max_val){
+        for (int j = i + 1; j < n; j++) {
+            if (numbers[j] > max_val) {
                 max_val = numbers[j];
             }
         }
