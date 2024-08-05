@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
-#include <openssl/evp.h>
-#include <openssl/err.h>
+#include <sstream>
+#include <iomanip>
 #include <cassert>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -13,20 +13,14 @@ string string_to_md5(const string& text) {
     }
 
     unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX* context = EVP_MD_CTX_new();
-    OpenSSL_add_all_algorithms();
-    OPENSSL_config(NULL);
-    EVP_DigestInit_ex(context, EVP_md5(), NULL);
-    EVP_DigestUpdate(context, text.c_str(), text.length());
-    EVP_DigestFinal_ex(context, digest, NULL);
-    EVP_MD_CTX_free(context);
+    MD5((const unsigned char*)text.c_str(), text.length(), digest);
 
-    char mdString[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << hex << setw(2) << setfill('0') << (int)digest[i];
     }
 
-    return string(mdString);
+    return ss.str();
 }
 
 int main() {
