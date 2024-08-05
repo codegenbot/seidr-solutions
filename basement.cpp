@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
