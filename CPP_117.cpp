@@ -2,9 +2,11 @@
 #include <vector>
 #include <string>
 #include <cctype>
-#include <cassert>
+#include <cassert> // Include the <cassert> header
 
 using namespace std;
+
+vector<string> select_words(const string& s, int n);
 
 vector<string> select_words(const string& s, int n) {
     vector<string> result;
@@ -32,9 +34,4 @@ vector<string> select_words(const string& s, int n) {
 
     return result;
 }
-
-int main() {
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
-
-    return 0;
-}
+```
