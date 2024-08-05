@@ -2,16 +2,19 @@
 #include <string>
 #include <any>
 #include <cassert>
+#include <string>
 #include <string_view>
 
 std::any compare_one(const std::any& a, int b) {
-    return (b == 1) ? a : "None";
+    if(a.type() == typeid(std::string)){
+        return (b == 1) ? std::any_cast<std::string>(a) : std::string("None");
+    } else {
+        return (b == 1) ? std::any_cast<std::string_view>(a) : "None";
+    }
 }
 
 int main() {
-    std::any result = compare_one(std::string("1"), 1);
-
-    assert(std::any_cast<std::string>(result) == "1");
+    assert(std::any_cast<std::string_view>(compare_one(std::string("1"), 1)) == "1");
 
     return 0;
 }
