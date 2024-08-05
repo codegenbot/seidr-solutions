@@ -5,8 +5,10 @@ int bowlingScore(string s) {
     int currentFrame = 1;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '/') {
-            int firstPin = stoi(s.substr(0, i));
-            int secondPin = stoi(s.substr(i + 1));
+            string firstPart = s.substr(0, i);
+            string secondPart = s.substr(i + 1);
+            int firstPin = stoi(firstPart);
+            int secondPin = stoi(secondPart);
             if (firstPin + secondPin == 10) {
                 score += 10;
                 currentFrame++;
@@ -20,7 +22,8 @@ int bowlingScore(string s) {
         } else if (s[i] == ' ') {
             i++; // skip the space
         } else {
-            int pins = stoi(s.substr(i));
+            string part = s.substr(i);
+            int pins = stoi(part);
             if (pins < 10) {
                 score += pins;
                 currentFrame++;
