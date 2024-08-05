@@ -2,9 +2,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+namespace std {}
+
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
