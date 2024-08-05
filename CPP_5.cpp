@@ -2,12 +2,12 @@
 #include <cassert>
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b){
-    if(a.size() != b.size()) {
+    if(a.size() != b.size()){
         return false;
     }
-      
-    for(size_t i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -28,6 +28,6 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
 
 int main(){
     assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-    
+
     return 0;
 }
