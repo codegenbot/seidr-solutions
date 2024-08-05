@@ -1,6 +1,9 @@
 def below_zero(operations):
-    negative_count = sum(1 for num in operations if num < 0)
-    return negative_count
+    count = 0
+    for num in operations:
+        if num < 0:
+            count += 1
+    return count
 
 operations = list(map(int, input().split()))
 result = below_zero(operations)
