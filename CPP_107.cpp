@@ -6,7 +6,7 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    return {0, 1};
+    return std::vector<int>{0, 1};
 }
 
 int main() {
