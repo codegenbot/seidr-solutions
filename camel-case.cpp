@@ -1,22 +1,35 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-void camelCase() {
-    string s;
-    cin >> s;
+std::string camelCase(std::string input) {
+    std::string output;
+    bool firstWord = true;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == '-') {
-            if (i > 0 && (s[i - 1] == ' ' || s[i - 1] == '-')) continue;
-            string word = s.substr(i + 1);
-            cout << std::toupper(word[0]);
-            for (int j = 1; j < word.size(); j++) {
-                cout << std::tolower(word[j]);
+    for (char c : input) {
+        if (c == '-') {
+            output.push_back(char(toupper(input[++input.find(c)])));
+            while (input.find('-') != input.npos) {
+                input.erase(input.find('-'), 1);
             }
-            i += word.size() - 1;
-        } else if (s[i] == ' ') {
-            continue;
+        } else if (!firstWord && !std::isspace(c)) {
+            output.push_back(char(toupper(c)));
+        } else if (!firstWord) {
+            output.push_back(c);
         } else {
-            cout << std::tolower(s[i]);
+            firstWord = false;
+            if (c != ' ') {
+                output.push_back(char(tolower(c)));
+            }
         }
     }
+
+    return output;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase representation is: " << camelCase(input) << std::endl;
+    return 0;
 }
