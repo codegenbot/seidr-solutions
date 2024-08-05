@@ -10,7 +10,7 @@ int main() {
 
     bounciness_index = first_bounce_height / start_height;
 
-    total_distance = start_height * (1 - std::pow(bounciness_index, num_bounces + 1)) / (1 - bounciness_index);
+    total_distance = start_height * (1 + bounciness_index) * (1 - std::pow(bounciness_index, num_bounces)) / (1 - bounciness_index);
 
     std::cout << std::setprecision(14) << total_distance;
 
