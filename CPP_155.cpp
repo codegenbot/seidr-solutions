@@ -10,9 +10,22 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int even_odd_count(std::vector<int> arr, int& even_count, int& odd_count);
+int even_odd_count(const std::vector<int>& nums) {
+    int even_count = 0;
+    int odd_count = 0;
+    
+    for (int num : nums) {
+        if (num % 2 == 0) {
+            even_count++;
+        } else {
+            odd_count++;
+        }
+    }
+    
+    return even_count + odd_count;
+}
 
 int main() {
-    // Function call or other code logic using even_odd_count
+    // Your main function logic here
     return 0;
 }
