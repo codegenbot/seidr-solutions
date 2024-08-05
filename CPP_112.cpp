@@ -2,15 +2,8 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 bool issame(const vector<string>& a, const vector<string>& b);
-
-vector<string> reverse_delete(string s, string c);
-
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
-}
 
 vector<string> reverse_delete(string s, string c){
     string result = "";
@@ -25,6 +18,6 @@ vector<string> reverse_delete(string s, string c){
 }
 
 int main() {
-    assert (issame(reverse_delete("mamma", "mia") , {"amm", "False"}));
+    assert(issame(reverse_delete("mamma", "mia") , {"amm", "False"}));
     return 0;
 }
