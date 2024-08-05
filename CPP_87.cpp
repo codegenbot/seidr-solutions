@@ -6,12 +6,12 @@ bool isEqual(const std::vector<std::vector<int>>& a, const std::vector<std::vect
     return a == b;
 }
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& lst, int x) {
     std::vector<std::vector<int>> result;
-    for (int i = 0; i < lst.size(); ++i) {
-        for (int j = 0; j < lst[i].size(); ++j) {
+    for (size_t i = 0; i < lst.size(); ++i) {
+        for (size_t j = 0; j < lst[i].size(); ++j) {
             if (lst[i][j] == x) {
-                result.push_back({i, j});
+                result.push_back({static_cast<int>(i), static_cast<int>(j)});
             }
         }
     }
