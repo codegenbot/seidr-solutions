@@ -1,14 +1,25 @@
-if (!target.empty() && text.size() >= target.size()) {
-    size_t pos = text.find(target, 0);
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::string text, target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
     
-    if (!target.empty()) {
+    std::vector<int> indices;
+    if (text.size() >= target.size()) {
+        size_t pos = text.find(target, 0);
+        
         while (pos != std::string::npos) {
             indices.push_back(pos);
             pos = text.find(target, pos + 1);
         }
-    } else {
-        for (size_t i = 0; i < text.size(); ++i) {
-            indices.push_back(i);
-        }
     }
+    
+    for (int idx : indices) {
+        std::cout << idx << " ";
+    }
+    
+    return 0;
 }
