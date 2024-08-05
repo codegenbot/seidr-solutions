@@ -1,22 +1,11 @@
-def solve_boolean(expression):
-    def evaluate(expression):
-        stack = []
-        for char in expression[::-1]:
-            if char == '&':
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(a and b)
-            elif char == '|':
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(a or b)
-            else:
-                stack.append(char == 'T')
-        return stack[0]
-
-    if expression in ['t', 'T']:
+def solve_boolean(input_str):
+    if input_str == "T":
         return True
-    elif expression in ['f', 'F']:
+    elif input_str == "F":
         return False
-    else:
-        return evaluate(expression)
+    elif "&" in input_str:
+        a, b = input_str.split("&")
+        return solve_boolean(a) and solve_boolean(b)
+    elif "|" in input_str:
+        a, b = input_str.split("|")
+        return solve_boolean(a) or solve_boolean(b)
