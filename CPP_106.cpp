@@ -19,3 +19,4 @@ std::vector<int> solve(int n) {
 std::vector<int> f(int n) {
     return solve(n);
 }
+```
