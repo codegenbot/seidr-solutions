@@ -1,7 +1,3 @@
-#include <vector>
-#include <climits>
-#include <cassert>
-
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
     int max_neg = INT_MIN;
