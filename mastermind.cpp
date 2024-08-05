@@ -1,6 +1,8 @@
+```cpp
 #include <string>
+#include <pair>
 
-int mastermind(string code, string guess) {
+std::pair<int, int> mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -15,26 +17,17 @@ int mastermind(string code, string guess) {
 
     // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        int match = 0;
+        bool found = false;
         for (int j = 0; j < 4; ++j) {
             if (code[i] == guess[j]) {
-                match++;
-                guess[j] = ' ';
+                found = true;
+                break;
             }
         }
-        black += match;
-    }
-
-    // Count the remaining correct colors in wrong positions
-    for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j]) {
-                count++;
-            }
+        if (!found) {
+            white++;
         }
-        white += count - black;
     }
 
-    return black, white;
+    return std::make_pair(white, black);
 }
