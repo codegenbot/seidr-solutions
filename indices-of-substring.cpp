@@ -23,3 +23,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
