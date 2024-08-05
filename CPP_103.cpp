@@ -25,9 +25,9 @@ std::string calculate_binary_avg(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    
+
     std::string result = calculate_binary_avg(n, m);
     std::cout << result;
-    
+
     return 0;
 }
