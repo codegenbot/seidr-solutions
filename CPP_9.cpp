@@ -6,11 +6,12 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> rolling_max(std::vector<int> numbers){
-    std::vector<int> result(numbers.size());
-    int max_val = numbers[0];
-    for (int i = 0; i < numbers.size(); i++) {
+    std::vector<int> result;
+    int n = numbers.size();
+    int max_val = -1;
+    for(int i=0; i<n; i++){
         max_val = std::max(max_val, numbers[i]);
-        result[i] = max_val;
+        result.push_back(max_val);
     }
     return result;
 }
