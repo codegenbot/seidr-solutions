@@ -2,10 +2,12 @@
 using namespace std;
 
 int basement(vector<int>& nums) {
-    int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        if (sum < 0) return i;
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += nums[j];
+            if (sum < 0) return j;
+        }
     }
     return -1;
 }
@@ -17,5 +19,5 @@ int main() {
     vector<int> test2 = {5, -4, -7, 9, 8};
     cout << basement(test2) << endl;
 
-    return 0;
+    return basement({0, 1, -2, 3, 10});
 }
