@@ -9,11 +9,11 @@ int basement(std::vector<int> nums) {
             return i + 1;
         }
     }
-    return nums.size();
+    return 0;
 }
 
 int main() {
-    std::vector<int> nums = {0, 80, -22, -86};
+    std::vector<int> nums = {2, -3, 8, -1, -5};
     int result = basement(nums);
     std::cout << result << std::endl;
     return 0;
