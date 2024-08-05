@@ -25,4 +25,3 @@ int skjkasdkd(std::vector<int> lst){
     
     return sumDigits;
 }
-```
