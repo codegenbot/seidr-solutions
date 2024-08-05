@@ -4,17 +4,12 @@
 using namespace std;
 
 double vectorDistance(int n) {
-    float a[n], b[n];
-    
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
+        double x1, x2;
+        cin >> x1 >> x2;
+        sum += pow(x2 - x1, 2);
     }
-    
-    double sum = 0.0;
-    for (int i = 0; i < n; i++) {
-        sum += pow(b[i] - a[i], 2);
-    }
-    
     return sqrt(sum);
 }
 
