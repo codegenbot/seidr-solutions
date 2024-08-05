@@ -1,10 +1,12 @@
 #include <vector>
 #include <string>
-#include <cassert>
-#include <cctype>
+#include <algorithm> // Add this include for std::transform and std::equal
+
+using namespace std;
 
 vector<string> split_words(string txt);
-bool issame(vector<string> a, vector<string> b);
+
+bool issame(const vector<string>& a, const vector<string>& b);
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -34,12 +36,12 @@ vector<string> split_words(string txt){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+bool issame(const vector<string>& a, const vector<string>& b){
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main(){
-    assert(issame(split_words(""), {"0"}));
+    assert(issame(split_words(""), vector<string>{"0"}));
     
     return 0;
 }
