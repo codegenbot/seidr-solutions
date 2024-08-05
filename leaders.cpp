@@ -8,7 +8,7 @@ vector<int> leaders(vector<int>& arr) {
     for(int i=n-1; i>=0; i--) {
         bool is_leader = true;
         for(int j=i+1; j<n; j++) {
-            if(arr[i] <= arr[j]) {
+            if(arr[i] < arr[j]) {
                 is_leader = false;
                 break;
             }
