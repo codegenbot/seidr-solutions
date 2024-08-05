@@ -24,8 +24,10 @@ std::vector<int> largest_smallest_integer(std::vector<int> lst) {
 int main() {
     std::vector<int> input = {-6, -4, -4, -3, -100, 1};
     std::vector<int> expected_output = {-100, 1};
+    
+    std::vector<int> output = largest_smallest_integer(input);
 
-    assert(largest_smallest_integer(input) == expected_output);
-
+    assert(output == expected_output);
+    
     return 0;
 }
