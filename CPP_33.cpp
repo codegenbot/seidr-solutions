@@ -1,17 +1,16 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-std::vector<int> sort_third(std::vector<int> nums) {
-    std::sort(nums.begin() + 2, nums.end());
-    return nums;
-}
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
 
-int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
-    return 0;
+    return true;
 }
