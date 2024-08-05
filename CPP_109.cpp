@@ -16,22 +16,20 @@ bool solve(vector<int>& arr) {
 }
 
 bool move_one_ball(const vector<int>& arr) {
-    vector<int> new_arr = arr;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] + 1 == arr[i + 1]) {
-            swap(new_arr[i], new_arr[i + 1]);
-            break;
+    int n = arr.size();
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[i - 1]) {
+            return false;
         }
     }
-
-    return solve(new_arr);
+    return true;
 }
 
 int main() {
     assert(solve({1, 2, 3, 4}) == true);
     assert(solve({3, 4, 1, 2}) == false);
 
-    assert(move_one_ball({1, 3, 2, 4}) == true);
+    assert(move_one_ball({1, 2, 3, 4}) == true);
 
     return 0;
 }
