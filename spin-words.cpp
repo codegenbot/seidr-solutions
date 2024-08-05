@@ -1,14 +1,38 @@
-std::string spinWords(std::string str) {
-    std::string result = str;
-    int wordStart = 0;
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
-            std::string word = str.substr(wordStart, i-wordStart);
-            if(word.length() >= 5) {
-                result = result.replace(result.find(word), word.length(), std::string(word.rbegin(), word.rend()));
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            wordStart = i+1;
+            result += word + " ";
+            word = "";
+        } else {
+            word += str[i];
         }
     }
+
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+
     return result;
+}
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
+    return 0;
 }
