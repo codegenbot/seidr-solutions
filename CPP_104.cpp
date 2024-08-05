@@ -1,34 +1,34 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for(int num : x){
-        bool hasEvenDigit = false;
+std::vector<int> unique_digits(std::vector<int> x) {
+    std::vector<int> result;
+    for (int num : x) {
         int temp = num;
-        while(temp > 0){
-            int digit = temp % 10;
-            if(digit % 2 == 0){
+        bool hasEvenDigit = false;
+        while (temp > 0) {
+            if (temp % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
             temp /= 10;
         }
-        if(!hasEvenDigit){
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
@@ -37,6 +37,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    // Solution code for contest problem goes here
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
