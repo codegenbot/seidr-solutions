@@ -27,7 +27,7 @@ std::vector<int> intersperse(const std::vector<int>& numbers, int delimiter){
 }
 
 int main(){
-    assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2})[0] == 1);
+    assert(is_same(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}) == std::vector<int>({1}));
     
     return 0;
 }
