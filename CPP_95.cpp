@@ -19,6 +19,9 @@ bool check_dict_case(const std::unordered_map<std::string, int>& dict) {
 }
 
 int main() {
-    // main function implementation if needed
+    // Example main function for testing
+    std::unordered_map<std::string, int> dict = {{"Hello", 5}, {"World", 3}};
+    assert(check_dict_case(dict) == true);
+
     return 0;
 }
