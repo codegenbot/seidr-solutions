@@ -12,5 +12,4 @@ def indices_of_substring():
     for idx in indices:
         print(idx)
 
-
 indices_of_substring()
