@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+
 int main() {
     int n, target;
     cin >> n;
@@ -10,8 +16,8 @@ int main() {
     map<int, int> mp;
     for (int i = 0; i < n; i++) {
         if (mp.find(target - nums[i]) != mp.end()) {
-            cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
+            cout << target - nums[i] << endl; // Fix order
+            cout << nums[i] << endl; // Fix order
             break;
         }
         mp[nums[i]] = i;
