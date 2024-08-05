@@ -1,7 +1,8 @@
+#include <algorithm>
 #include <string>
 
 int vowels_count(std::string s){
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
     char lastChar = s.back();
     for(char c : s){
