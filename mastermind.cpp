@@ -14,7 +14,7 @@ std::tuple<int, int> mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 6; i++) {
         int count = 0;
         for (int j = 0; j < 4; j++) {
-            if (guess[j] == ('A' + i)) {
+            if (guess[j] == 'A' + i) {
                 count++;
             }
         }
