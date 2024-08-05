@@ -21,20 +21,17 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> numbers;
-    int num;
-    std::cout << "Enter positive integers (enter a non-positive value to stop):\n";
-    
-    while (std::cin >> num && num > 0) {
-        numbers.push_back(num);
+    std::vector<int> nums;
+    int input;
+    while (std::cin >> input) {
+        nums.push_back(input);
     }
-    
-    std::vector<int> result = findLeaders(numbers);
-    
-    std::cout << "Leaders in the vector are: ";
-    for (int leader : result) {
-        std::cout << leader << " ";
+
+    std::vector<int> result = findLeaders(nums);
+
+    for (int num : result) {
+        std::cout << num << " ";
     }
-    
+
     return 0;
 }
