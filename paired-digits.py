@@ -1,2 +1,2 @@
-def paired_digits(s):
-    return sum(int(d) for d in s if d * 2 in s)
+def sum_paired_digits(digits):
+    return sum(int(digit) for digit in digits if digit * 2 in digits)
