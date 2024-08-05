@@ -1,14 +1,14 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+#include <algorithm>
+#include <cassert>
+#include <string>
+#include <cctype>
+
+std::string solve(const std::string &s) {
+    std::string result = s;
+    for (char &c : result) {
+        if (std::islower(c)) {
+            c = std::toupper(c);
         }
     }
-    if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
-        reverse(s.begin(), s.end());
-    }
-    return s;
+    return result;
 }
