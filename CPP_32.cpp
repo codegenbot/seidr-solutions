@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <cassert>
-#include <iostream> // Add this line for assert
+#include <iostream>
 
 double poly(const std::vector<double>& coeffs, double x){
     double result = 0.0;
