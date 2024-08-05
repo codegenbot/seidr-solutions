@@ -1,8 +1,12 @@
-#include <iostream>
+Here is the solution:
 
+#include <iostream>
 using namespace std;
 
-void coinSums(int cents) {
+int main() {
+    int cents;
+    cin >> cents;
+    
     int quarters = cents / 25;
     cents %= 25;
     
@@ -18,15 +22,6 @@ void coinSums(int cents) {
     cout << dimes << endl;
     cout << nickles << endl;
     cout << pennies << endl;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    for(int i=0; i<n; ++i) {
-        int cents;
-        cin >> cents;
-        coinSums(cents);
-    }
+    
     return 0;
 }
