@@ -5,26 +5,17 @@
 #include <cassert>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::map<int, std::string> mapping = {
-        {1, "One"},
-        {2, "Two"},
-        {3, "Three"},
-        {4, "Four"},
-        {5, "Five"},
-        {6, "Six"},
-        {7, "Seven"},
-        {8, "Eight"},
-        {9, "Nine"}
-    };
+    std::map<int, std::string> numStringMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
+                                               {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"},
+                                               {9, "Nine"}};
 
     std::vector<std::string> result;
     for (int num : arr) {
-        auto it = mapping.find(num);
-        if (it != mapping.end()) {
+        auto it = numStringMap.find(num);
+        if (it != numStringMap.end()) {
             result.push_back(it->second);
         }
     }
-
     return result;
 }
 
