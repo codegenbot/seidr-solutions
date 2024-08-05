@@ -12,15 +12,16 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 bool find_zero(const std::vector<double>& coeffs){
-    if(coeffs.size() < 2) return false;
     double a = coeffs[0];
     double b = coeffs[1];
     return std::abs(poly(coeffs, -b/a)) < 1e-3;
 }
 
 int main(){
-    std::vector<double> coeffs = {1.0, -2.0, 1.0};
-    bool solution = find_zero(coeffs);
+    std::vector<double> coeffs = {1.0, -2.0, 1.0}; 
+    coeffs.push_back(3.0);
+    bool solution;
+    solution = find_zero(coeffs);
     assert(solution);
     return 0;
 }
