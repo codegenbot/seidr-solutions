@@ -1,10 +1,8 @@
-#include <algorithm>
-
-int next_smallest(std::vector<int> lst) {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2)
-        return None;
-    std::sort(lst.begin(), lst.end());
+        return -1;
+    sort(lst.begin(), lst.end());
     if (lst[0] == lst[1])
-        return None;
+        return -1;
     return lst[1];
 }
