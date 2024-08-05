@@ -2,17 +2,17 @@ if (arr.empty()) {
         return -32768;
     }
 
-    int product = 1, sum = 0;
+    int sum = 0;
+    int product = 1;
+
     for (int num : arr) {
         if (num > 0) {
-            product *= 1;
+            sum += num;
         } else if (num < 0) {
+            sum -= num;
             product *= -1;
-        } else {
-            product *= 0;
         }
-        sum += abs(num);
     }
 
-    return product * sum;
+    return sum * product;
 }
