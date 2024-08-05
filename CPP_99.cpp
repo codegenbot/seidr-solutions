@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <string>
 
 int closestInteger(double num) {
     return lround(num);
