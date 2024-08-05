@@ -6,16 +6,20 @@ using namespace std;
 
 string toCamelCase(string str) {
     string result = "";
-    bool capitalizeNext = true;
-    for (int i = 0; i < str.length(); i++) {
+    int i = 0;
+    while (i < str.length()) {
         if (str[i] == '-') {
-            capitalizeNext = true;
+            i++;
+            while (i < str.length() && str[i] == ' ') {
+                i++;
+            }
+            result += toupper(str[i]);
         } else if (str[i] == ' ') {
+            i++;
             continue;
         } else {
-            if (capitalizeNext) {
-                result += toupper(str[i]);
-                capitalizeNext = false;
+            if (result.length() > 0) {
+                result[0] = tolower(str[i]);
             } else {
                 result += tolower(str[i]);
             }
