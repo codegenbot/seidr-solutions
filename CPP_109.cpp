@@ -2,10 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
-bool solve(vector<int>& arr) {
+bool move_one_ball(vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (is_sorted(arr.begin(), arr.end())) {
@@ -17,8 +16,8 @@ bool solve(vector<int>& arr) {
 }
 
 int main() {
-    assert(solve({1, 2, 3, 4}) == true);
-    assert(solve({3, 4, 1, 2}) == false);
+    assert(move_one_ball(std::vector<int>{1, 2, 3, 4}) == true);
+    assert(move_one_ball(std::vector<int>{3, 4, 1, 2}) == false);
 
     return 0;
 }
