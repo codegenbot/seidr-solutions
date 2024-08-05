@@ -15,7 +15,6 @@ string toCamelCase(string str) {
             }
             result += toupper(str[i]);
         } else if (str[i] == ' ') {
-            i++;
             continue;
         } else {
             if (result.length() > 0) {
