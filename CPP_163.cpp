@@ -17,6 +17,6 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 int main() {
     assert(issame(generate_integers(17, 89), {}));
-    
+
     return 0;
 }
