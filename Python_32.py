@@ -1,5 +1,6 @@
 def find_zero():
-    xs = [int(input()) for _ in range(3)]
+    print("Enter the list of integers separated by spaces:")
+    xs = list(map(int, input().split()))
     n = len(xs)
     a = xs[-1]
     b = xs[-2] + a
