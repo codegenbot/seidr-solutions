@@ -5,12 +5,9 @@ def solve_boolean(expression):
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == "&":
-                result &= eval("True" if next_char == "T" else "False")
-            elif char == "|":
-                result |= eval("True" if next_char == "T" else "False")
-            next_char = char
-        return result
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (bool(left) and bool(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
