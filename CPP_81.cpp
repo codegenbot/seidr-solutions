@@ -1,9 +1,9 @@
 #include <vector>
-#include <string> // Include string header
+#include <string>
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b); // Correct function signature
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
