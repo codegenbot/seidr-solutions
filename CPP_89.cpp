@@ -3,7 +3,7 @@ string encrypt(string s){
     for(char c : s){
         if(isalpha(c)){
             char base = islower(c) ? 'a' : 'A';
-            encrypted += ((c - base + 2 * 2) % 26) + base;
+            encrypted += (c - base + 2 * 2) % 26 + base;
         } else {
             encrypted += c;
         }
