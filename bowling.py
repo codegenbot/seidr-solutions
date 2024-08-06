@@ -1,11 +1,14 @@
-```
+Here is the solution:
+
 def bowling_score(frames):
     score = 0
     for i in range(10):
-        if '/' in frames[i*2:i*2+2]:
-            x1, x2 = map(int, re.findall('\d', frames[i*2:i*2+2]))
-            if i < 9:
-                score += max(x1, 10-x2) + sum(max(0, min(x1, 10)-min(1, x2)) for _ in range(min(x1, 10)-min(1, x2)+1))
+        if '/' in frames[i]:
+            frame_parts = [int(x) for x in frames[i].split('/')]
+            if len(frame_parts) == 2:
+                score += sum(frame_parts)
+            else:
+                score += max(frame_parts) + 10
         else:
-            score += int(frames[i*2:i*2+2]) * 10
+            score += int(frames[i])
     return score
