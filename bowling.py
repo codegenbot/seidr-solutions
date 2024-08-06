@@ -1,20 +1,11 @@
 ```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frames = s.split('/')
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            if int(frames[i]) == 10:
-                score += 10 + (10 if i < 9 and frames[i+1] == 'X' else 0)
-            elif len(frames) - i > 1 and frames[i+1].isdigit() and sum(map(int, frames[i:i+2])) == 10:
-                score += 10
-            else:
-                score += int(frames[i])
-        elif frames[i] == 'X':
+    for i in range(10):
+        if '/' in frames[i*2:i*2+2]:
+            x1, x2 = map(int, re.findall('\d', frames[i*2:i*2+2]))
             if i < 9:
-                score += 10 + int(frames[i+1])
-            else:
-                score += 10
-        elif len(frames) - i > 1 and frames[i+1].isdigit() and int(frames[i]) + int(frames[i+1]) == 10:
-            score += 10
+                score += max(x1, 10-x2) + sum(max(0, min(x1, 10)-min(1, x2)) for _ in range(min(x1, 10)-min(1, x2)+1))
+        else:
+            score += int(frames[i*2:i*2+2]) * 10
     return score
