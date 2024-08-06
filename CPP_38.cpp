@@ -1,11 +1,11 @@
-string decode_cyclic(string str){
+string decode_cyclic(string encoded_str) { 
+    int len = encoded_str.length();
     string output;
-    int i;
-    for (i=0; i*3<str.length(); i++) {
-        string x = str.substr(i*3, 3);
-        if (x.length() == 3) 
-            x = x[2] + x.substr(0, 2);
-        output += x;
+    for (int i = 0; i * 3 < len; i++) {
+        string str = encoded_str.substr(i * 3, 3);
+        if (str.length() == 3) 
+            str = str[2] + str.substr(0, 2);
+        output += str;
     }
     return output;
 }
