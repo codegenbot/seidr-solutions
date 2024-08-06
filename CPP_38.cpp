@@ -2,15 +2,17 @@
 #include <cassert>
 
 std::string encode_cyclic(const std::string &str) {
-    return str;
+    std::string encoded_str = str;
+    encoded_str += str[0];
+    return encoded_str;
 }
 
 std::string decode_cyclic(const std::string &str) {
-    return str;
+    return str.substr(0, str.length() - 1);
 }
 
 int main() {
-    std::string str = ""; // Declare the str variable
+    std::string str = "";
     char chr = 'a';
     str += chr;
 
