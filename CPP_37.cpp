@@ -2,25 +2,26 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+std::vector<float> sort_even(std::vector<float> vec) {
+    std::vector<float> even;
+    for (float num : vec) {
+        if (static_cast<int>(num) % 2 == 0) {
+            even.push_back(num);
+        }
+    }
+    std::sort(even.begin(), even.end());
+    std::reverse(even.begin(), even.end());
+    size_t index = 0;
+    for (size_t i = 0; i < vec.size(); ++i) {
+        if (static_cast<int>(vec[i]) % 2 == 0) {
+            vec[i] = even[index++];
+        }
+    }
+    return vec;
 }
 
-std::vector<float> sort_even(std::vector<float> nums) {
-    std::vector<float> even_nums;
-    for (const auto& num : nums) {
-        if (static_cast<int>(num) % 2 == 0) {
-            even_nums.push_back(num);
-        }
-    }
-    std::sort(even_nums.begin(), even_nums.end());
-    size_t idx = 0;
-    for (size_t i = 0; i < nums.size(); ++i) {
-        if (static_cast<int>(nums[i]) % 2 == 0) {
-            nums[i] = even_nums[idx++];
-        }
-    }
-    return nums;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
