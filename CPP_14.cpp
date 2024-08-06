@@ -22,7 +22,7 @@ int main() {
     std::cin >> input_str;
 
     std::vector<std::string> prefixes = all_prefixes(input_str);
-    for (const auto& prefix : prefixes) {
+    for (const auto &prefix : prefixes) {
         std::cout << prefix << " ";
     }
     
