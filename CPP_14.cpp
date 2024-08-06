@@ -1,9 +1,8 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <iostream>
 
-std::vector<std::string> all_prefixes(std::string str) {
+std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
     std::string prefix;
     for (char c : str) {
@@ -13,16 +12,8 @@ std::vector<std::string> all_prefixes(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 int main() {
@@ -33,6 +24,6 @@ int main() {
     for (const auto& prefix : prefixes) {
         std::cout << prefix << " ";
     }
-    
+
     return 0;
 }
