@@ -9,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> filter_integers(std::list<std::any> values) {
     std::vector<int> result;
-    for (auto val : values) {
+    for (const auto& val : values) {
         if (auto int_val = std::any_cast<int>(&val)) {
             result.push_back(*int_val);
         }
