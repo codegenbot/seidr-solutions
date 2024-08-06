@@ -1,14 +1,16 @@
-def bowling(score):
-    score_per_frame = [0] * 10
-    for i in range(len(score)):
-        if score[i].isdigit():
-            if score[i + 1].isdigit():
-                score_per_frame[int(i / 2)] += int(score[i : i + 2])
+def bowling_score(game):
+    score = 0
+    for i in range(10):
+        if "/" in game[i * 2 : i * 2 + 2]:
+            strike = False
+            if game[i * 2] == "X":
+                strike = True
+            if game[i * 2 + 1] == "X" or game[i * 2 + 1] == "/":
+                score += 10 + (10 - int(game[i * 2])) if not strike else 10 + 10
+            elif game[i * 2 + 1] == "5":
+                score += 15 if not strike else 15
             else:
-                score_per_frame[int(i / 2)] += int(score[i])
-        elif score[i] == "X":
-            score_per_frame[int(i / 2)] = 10 + (10 - i % 2)
-        elif score[i] == "/":
-            if score[i - 1].isdigit():
-                score_per_frame[int((i - 1) / 2)] += 10 - int(score[i - 1])
-    return sum(score_per_frame)
+                score += 10 + int(game[i * 2])
+        else:
+            score += sum([int(x) for x in game[i * 2 : i * 2 + 2]])
+    return score
