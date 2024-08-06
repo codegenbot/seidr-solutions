@@ -1,9 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+vector<int> remove_duplicates(vector<int> numbers) {
+    sort(numbers.begin(), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
