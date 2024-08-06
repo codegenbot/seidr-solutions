@@ -11,6 +11,6 @@ int main() {
     std::cin >> a >> b;
     int result = add(a, b);
     std::cout << "Result of adding " << a << " and " << b << " is: " << result << std::endl;
-
+    
     return 0;
 }
