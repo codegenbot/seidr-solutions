@@ -1,12 +1,14 @@
+Here is the solution to the problem:
+
 ```
-def indices_of_substring(text, target):
+def indices_of_substring(text):
     result = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos != -1:
-            result.append(pos)
-            start = pos + 1
-        else:
-            break
-    return result
+    for i in range(len(text)):
+        if text[i:].startswith(input()):
+            while True:
+                pos = text[i:].find(input())
+                if pos == -1: 
+                    break
+                result.append(i + pos)
+                i += pos + len(input())
+    return sorted(result)
