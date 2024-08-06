@@ -14,9 +14,17 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-    assert(pairs_sum_to_zero({1, 2, -2, -1}) == true);
-    assert(pairs_sum_to_zero({0, 0, 0, 0}) == true);
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+    
+    if (pairs_sum_to_zero(input)) {
+        std::cout << "We found two numbers that sum up to zero." << std::endl;
+    } else {
+        std::cout << "No two numbers sum up to zero." << std::endl;
+    }
 
     return 0;
 }
