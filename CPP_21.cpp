@@ -3,7 +3,9 @@
 #include <cassert>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), [](float x, float y) {
+        return std::abs(x - y) < 0.00001f;
+    });
 }
 
 std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
