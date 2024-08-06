@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cassert>
+
 int greatest_common_divisor(int a, int b) {
     if (b == 0) 
         return a;
@@ -6,5 +9,6 @@ int greatest_common_divisor(int a, int b) {
 
 int main() {
     assert(greatest_common_divisor(144, 60) == 12);
+    // Add additional test cases as needed
     return 0;
 }
