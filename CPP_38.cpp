@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
 std::string encode_cyclic(std::string str){
@@ -27,9 +26,9 @@ std::string decode_cyclic(std::string str){
 int main() {
     std::string str, chr;
     std::cin >> str >> chr;
-    str = str + chr;
+    str += chr;
     std::string encoded_str = encode_cyclic(str);
-    std::assert(decode_cyclic(encoded_str) == str);
+    assert(decode_cyclic(encoded_str) == str);
     std::cout << "Test passed" << std::endl;
     return 0;
 }
