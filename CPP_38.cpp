@@ -20,7 +20,7 @@ std::string decode_cyclic(const std::string &str) {
 }
 
 int main() {
-    std::string str = ""; 
+    std::string str = "";
     str += 'a';
 
     std::string encoded_str = encode_cyclic(str);
