@@ -1,17 +1,17 @@
 ```
-def bowling_score(frames):
+def bowling_score(score_string):
     score = 0
-    roll = 0
-    for frame in frames:
-        if '/' in frame:
-            first_roll = int(frame.split('/')[0])
-            second_roll = int(frame.split('/')[-1].split('X')[0]) if 'X' not in frame else 10
-            score += min(10, first_roll + second_roll)
-            roll += 2 if 'X' in frame or frame[0] == '/' else 1
-        elif 'X' in frame:
-            score += 10
-            roll += 1
+    rolls = list(map(int, re.sub('[/-]', '', score_string)))
+    for i in range(10):
+        if rolls[i*2] == 10:
+            score += 30
+            rolls_index = (i*2)+1
+            while rolls_index < (i*2)+3:
+                score += rolls[rolls_index]
+                rolls_index += 1
+        elif rolls[i*2] + rolls[(i*2)+1] > 10:
+            bonus = 10 - rolls[i*2]
+            score += 10 + bonus
         else:
-            score += int(frame)
-            roll += 1
-    return score if roll == 10 else score + (10 - roll) * 10
+            score += rolls[i*2] + rolls[(i*2)+1]
+    return score
