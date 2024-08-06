@@ -9,34 +9,32 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-
+    
     int diff = INT_MAX;
     int idx = -1;
-
-    int i = 0;
-    while (cin >> num) {
+    
+    while (cin >> num && num != -1) {
         nums.push_back(num);
 
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        int len = nums.size();
+        int left_sum = accumulate(nums.begin(), nums.begin() + len, 0);
+        int right_sum = accumulate(nums.begin() + len, nums.end(), 0);
 
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
-            idx = i;
+            idx = len;
         }
-
-        i++;
     }
-
-    for (i = 0; i < idx; ++i) {
+    
+    for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
-
+    
     cout << endl;
-
-    for (i = idx; i < nums.size(); ++i) {
+    
+    for (int i = idx; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
