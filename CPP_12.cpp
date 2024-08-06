@@ -1,4 +1,12 @@
-if (strings.empty()) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string longest(const vector<string>& strings) {
+    if (strings.empty()) {
         return "None";
     }
     
@@ -10,4 +18,9 @@ if (strings.empty()) {
     }
     
     return longest_str;
+}
+
+int main() {
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    return 0;
 }
