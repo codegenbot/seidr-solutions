@@ -6,4 +6,4 @@ def leaders(arr):
         if arr[i] >= arr[i + 1]:
             result.append(arr[i])
 
-    return list(reversed(result))
+    return result[::-1]
