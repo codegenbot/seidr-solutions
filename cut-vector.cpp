@@ -7,13 +7,13 @@
 using namespace std;
 
 int main() {
-    cout << "Enter positive integers, -1 to end input:" << endl;
-
     vector<int> nums;
     int num;
     
     int diff = INT_MAX;
-    int idx = 0;
+    int idx = -1;
+    
+    cout << "Enter positive integers followed by -1 to indicate end of input:" << endl;
     
     while (cin >> num) {
         if (num == -1) {
@@ -22,12 +22,12 @@ int main() {
         
         nums.push_back(num);
 
-        int left_sum = accumulate(nums.begin(), nums.begin() + idx, 0);
-        int right_sum = accumulate(nums.begin() + idx, nums.end(), 0);
+        int left_sum = accumulate(nums.begin(), nums.begin() + nums.size(), 0);
+        int right_sum = accumulate(nums.begin() + nums.size(), nums.end(), 0);
 
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
-            ++idx;
+            idx = nums.size();
         }
     }
     
