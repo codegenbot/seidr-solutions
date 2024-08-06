@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> incr_list(const vector<int>& l) {
-    vector<int> result = l;
+    vector<int> result = l; // Create a copy of the input vector
     for (int i = 0; i < result.size(); ++i) {
         result[i]++;
     }
