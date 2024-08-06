@@ -12,6 +12,5 @@ void sort_even(std::vector<float>& vec) {
 int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(vec);
-    // vec will now contain the sorted even numbers
     return 0;
 }
