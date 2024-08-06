@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even_values;
     std::vector<float> result;
@@ -26,10 +30,6 @@ std::vector<float> sort_even(std::vector<float> l) {
     }
 
     return result;
-}
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
 }
 
 int main() {
