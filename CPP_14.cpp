@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> prefixes;
