@@ -1,9 +1,6 @@
+#include <utility>
 #include <vector>
-#include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
