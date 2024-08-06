@@ -7,6 +7,10 @@ vector<int> incr_list(vector<int> l) {
     return l;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
     // Main code here
     return 0;
