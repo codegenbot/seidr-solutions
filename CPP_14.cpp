@@ -12,7 +12,7 @@ std::vector<std::string> all_prefixes(std::string str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string>) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,4 +22,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         }
     }
     return true;
+}
+
+int main() {
+    assert(issame(all_prefixes("WWW"), { "W", "WW", "WWW" }));
+    return 0;
 }
