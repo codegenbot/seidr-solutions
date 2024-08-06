@@ -1,7 +1,12 @@
 def mastermind(code, guess):
-    code_count = [0] * 6
-    for c in code:
-        code_count[ord(c) - ord("B")] += 1
-    white = sum(min(count, guess.count(c)) for count, c in zip(code_count, "BOYYGG"))
-    black = sum(a == b for a, b in zip(code, guess))
-    return str(white), str(black)
+    black = 0
+    white = 0
+    code_set = set(code)
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+            code_set.remove(guess[i])
+        elif guess[i] in code_set:
+            white += 1
+            code_set.remove(guess[i])
+    return str(black) + "\n" + str(white)
