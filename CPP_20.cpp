@@ -1,21 +1,16 @@
-#include <utility>
 #include <vector>
+#include <utility>
+#include <cmath>
 
-bool issame(std::pair<float, float> a, std::pair<float, float> b);
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return (a.first == b.first && a.second == b.second);
+}
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    // Implementation of the function issame
+void find_closest_elements(std::vector<float>& data, int k) {
+    // Implementation for finding closest elements in the vector
 }
 
 int main() {
-    std::vector<float> vec1 = {1.1, 2.2};
-    std::vector<float> vec2 = {3.3, 4.4};
-
-    if (issame(vec1, vec2)) {
-        // Handle case when vectors are the same
-    } else {
-        // Handle case when vectors are different
-    }
-
+    // Call find_closest_elements function here
     return 0;
 }
