@@ -22,6 +22,6 @@ int main() {
     std::vector<int> b = filter_integers({1, 2, 3, 4, 5});
   
     assert(issame(a, b));
-
+    
     return 0;
 }
