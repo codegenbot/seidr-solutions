@@ -1,19 +1,17 @@
-```
-def bowling_score(frames):
+Here is the solution:
+
+def bowling_score(game):
     score = 0
+    rolls = list(map(int, game.replace('/', '')))
     for i in range(10):
-        if '/' in frames[i*2:i*2+2]:
-            first_roll = int(frames[i*2:i*2].lstrip('X'))
-            second_roll = int(frames[i*2+1:i*2+2].lstrip('X'))
-            score += 10
-        elif frames[i*2:i*2].startswith('X'):
-            score += 10
-            if i < 9:
-                for j in range(i+1, 10):
-                    if '/' in frames[j*2:j*2+2]:
-                        score += sum(map(int, frames[j*2:j*2].lstrip('X')))
-                    else:
-                        score += int(frames[j*2:j*2])
-        else:
-            score += first_roll + second_roll
+        if i < len(rolls) and rolls[i] == 10:
+            score += 10 + (i+1)*10
+            rolls = rolls[:i] + rolls[i+1:]
+        elif i < len(rolls):
+            first_roll = rolls[i]
+            if i+1 < len(rolls) and rolls[i+1] + rolls[i] == 10:
+                score += 10
+                rolls = rolls[:i] + rolls[i+2:]
+            else:
+                score += first_roll + (10 - first_roll if first_roll < 10 else 0)
     return score
