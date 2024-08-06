@@ -3,15 +3,18 @@
 
 using namespace std;
 
+vector<int> incr_list(const vector<int>& l);
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> incr_list(const vector<int>& l) {
-    vector<int> result;
-    for (int i = 0; i < l.size(); ++i) {
-        result.push_back(l[i] + 1);
+    vector<int> result = l;
+    for (int i = 0; i < result.size(); ++i) {
+        result[i]++;
     }
     return result;
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
