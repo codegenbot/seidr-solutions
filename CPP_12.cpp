@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+#include<iostream>
+#include<vector>
+#include<string>
+#include<cassert>
 
 using namespace std;
 
@@ -20,5 +20,7 @@ string longest(const vector<string>& strings) {
     return longest_str;
 }
 
-assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-return 0;
+int main() {
+    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    return 0;
+}
