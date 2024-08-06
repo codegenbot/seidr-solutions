@@ -24,9 +24,9 @@ std::string decode_cyclic(const std::string &str) {
 }
 
 int main() {
-    std::string str = ""; // Declare str here
-    str += 'a'; // Append 'a' directly
+    std::string str = ""; 
+    str += 'a'; 
 
-    std::string encoded_str = encode_cyclic(str); // Change string to std::string
-    assert(decode_cyclic(encoded_str) == str); // Ensure str is in scope for assertion
+    std::string encoded_str = encode_cyclic(str); 
+    assert(decode_cyclic(encoded_str) == str); 
 }
