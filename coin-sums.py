@@ -1,11 +1,14 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    pennies_needed = cents
-    num_coins = [0, 0, 0, 0]
+    return min(
+        [
+            (cents // coin) + (cents % coin > 0),
+            (cents // (coin * 2)) + (cents % (coin * 2) > 0),
+            (cents // (coin * 4)) + (cents % (coin * 4) > 0),
+            (cents // (coin * 8)) + (cents % (coin * 8) > 0),
+        ]
+        for coin in coins
+    )
 
-    for coin in coins:
-        while pennies_needed >= coin:
-            pennies_needed -= coin
-            num_coins[coins.index(coin)] += 1
 
-    return num_coins[3], num_coins[2], num_coins[1], num_coins[0]
+print(*coin_sums(int(input())))
