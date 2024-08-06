@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    
-    return a == b;
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return a.first == b.first && a.second == b.second;
 }
