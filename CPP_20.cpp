@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 std::vector<float> find_closest_elements(std::vector<float> arr) {
     std::sort(arr.begin(), arr.end());
