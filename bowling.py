@@ -6,18 +6,17 @@ def bowling_score(frames):
         if frames[frame_index] == 'X':
             score += 30
             frame_index += 1
-        elif frames[frame_index] == '/':
-            strike = True
-            while strike:
-                if frames[frame_index + 1] == 'X' or frames[frame_index + 1] == '/':
-                    score += 10 + int(frames[frame_index + 2])
-                    frame_index += 3
-                    strike = False
-                else:
-                    score += 10 + int(frames[frame_index + 1])
-                    frame_index += 2
-                    strike = False
-        else:
-            score += int(frames[frame_index]) + int(frames[frame_index + 1])
-            frame_index += 2
+        elif frames[frame_index].isdigit():
+            strike = False
+            if len(frames) - frame_index >= 2 and frames[frame_index:frame_index+2][0] == '/':
+                strike = True
+            if not strike:
+                score += int(frames[frame_index])
+                frame_index += 1
+            else:
+                score += int(frames[frame_index].lstrip('/'))
+                frame_index += 2
+        elif '/' in frames[frame_index]:
+            score += int(frames[frame_index].split('/')[0]) + int(frames[frame_index].split('/')[1])
+            frame_index += 1
     return score
