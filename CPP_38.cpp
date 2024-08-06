@@ -3,12 +3,18 @@
 
 std::string str = "a"; 
 std::string encode_cyclic(std::string str) {
-    // Perform cyclic encoding logic here
-    return str + str;
+    std::string encoded_str = str;
+    for (char& c : encoded_str) {
+        c = (c == 'z') ? 'a' : c + 1;
+    }
+    return encoded_str;
 }
 std::string decode_cyclic(std::string str) {
-    // Perform cyclic decoding logic here
-    return str.substr(0, str.size() / 2);
+    std::string decoded_str = str;
+    for (char& c : decoded_str) {
+        c = (c == 'a') ? 'z' : c - 1;
+    }
+    return decoded_str;
 }
 std::string encoded_str = encode_cyclic(str); 
 assert(decode_cyclic(encoded_str) == str);
