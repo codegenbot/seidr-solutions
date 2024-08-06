@@ -1,11 +1,11 @@
 #include <string>
 #include <cassert>
 
-std::string encode_cyclic(std::string str) {
+std::string encode_cyclic(const std::string &str) {
     return str;
 }
 
-std::string decode_cyclic(std::string str) {
+std::string decode_cyclic(const std::string &str) {
     return str;
 }
 
@@ -15,5 +15,4 @@ int main() {
     str += chr;
     std::string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
-    return 0;
 }
