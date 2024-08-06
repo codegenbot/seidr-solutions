@@ -2,28 +2,28 @@
 #include <cassert>
 
 std::string encode_cyclic(const std::string &str) {
-    std::string encoded = str;
-    for (char &c : encoded) {
+    std::string encodedStr = str;
+    for (char &c : encodedStr) {
         if (c != 'z') c++;
         else c = 'a';
     }
-    return encoded;
+    return encodedStr;
 }
 
 std::string decode_cyclic(const std::string &str) {
-    std::string decoded = str;
-    for (char &c : decoded) {
+    std::string decodedStr = str;
+    for (char &c : decodedStr) {
         if (c != 'a') c--;
         else c = 'z';
     }
-    return decoded;
+    return decodedStr;
 }
 
 int main() {
-    std::string str;
+    std::string str = "";
     char chr = 'a';
     str += chr;
 
     std::string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
+    assert(decode_cyclic(encoded_str) == str); 
 }
