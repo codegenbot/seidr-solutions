@@ -2,12 +2,24 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> parse_music(const std::string& music) {
-    // Implement the logic to parse the music string and return a vector<int>
+std::vector<int> parse_music(const std::string& music){
+    std::vector<int> beats;
+    // Complete the function implementation here
+    return beats;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // Implement the logic to compare two vectors of integers
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main(){
