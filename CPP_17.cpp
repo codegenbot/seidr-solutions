@@ -1,10 +1,9 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
@@ -15,10 +14,10 @@ std::vector<int> parse_music(std::string music_string){
         if (music_string[i] == 'o') {
             beats.push_back(4);
         } else if (music_string[i] == '|') {
-            if (beats.size() > 0 && music_string[i - 1] == 'o') {
+            if (music_string[i - 1] == 'o') {
                 beats.back() = 2;
             } else {
-                beats.push_back(1);
+                beats.back() = 1;
             }
         }
     }
