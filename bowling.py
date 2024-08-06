@@ -1,15 +1,23 @@
 ```
-def bowling_score(s):
+def bowling_score(game):
     score = 0
-    for i in range(10):
-        if s[i] == 'X':
-            score += 30
-        elif s[i].isdigit():
-            score += int(s[i])
-        else:
-            first_roll, second_roll = map(int, s[i-1:i+2].lstrip('/'))
-            if s[i] == '/':
-                score += first_roll + 10
+    frame = 1
+    for i in range(0, len(game), 2):
+        if game[i].isdigit() and game[i+1].isdigit():
+            if int(game[i]) == 10:
+                score += 10 + 10
+                frame += 1
             else:
-                score += first_roll + second_roll
+                score += int(game[i]) + int(game[i+1])
+                frame += 1
+        elif game[i] == 'X':
+            score += 10 + 10
+            frame += 1
+        else:
+            if game[i].isdigit() and game[i+1].isdigit():
+                score += int(game[i]) + int(game[i+1])
+                frame += 1
+            else:
+                score += int(game[i])
+                frame += 1
     return score
