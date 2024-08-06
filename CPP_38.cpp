@@ -1,18 +1,23 @@
 string encode_cyclic(string str) {
+    int len = str.length();
     string encoded_str;
-    for (int i = 0; i < str.length(); i++) {
-        encoded_str += str[i] + str[(i + 2) % str.length()] + str[(i + 1) % str.length()];
+    for (int i = 0; i * 3 < len; i++) {
+        string substr = str.substr(i * 3, 3);
+        if (substr.length() == 3) 
+            substr = substr[1] + substr[2] + substr[0];
+        encoded_str += substr;
     }
     return encoded_str;
 }
 
-string decode_cyclic(string encoded_str) { 
+string decode_cyclic(string encoded_str) {
+    int len = encoded_str.length();
     string output;
-    for (int i = 0; i * 3 < encoded_str.length(); i++) {
-        string str = encoded_str.substr(i * 3, 3);
-        if (str.length() == 3) 
-            str = str[2] + str.substr(0, 2);
-        output += str[2] + str.substr(0, 2);
+    for (int i = 0; i * 3 < len; i++) {
+        string substr = encoded_str.substr(i * 3, 3);
+        if (substr.length() == 3) 
+            substr = substr[2] + substr.substr(0, 2);
+        output += substr;
     }
     return output;
 }
