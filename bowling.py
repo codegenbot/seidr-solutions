@@ -1,16 +1,18 @@
-```
-def bowling_score(frames):
+Here is the solution:
+
+def bowling_score(input_string):
     score = 0
-    frame_count = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            score += 10
-        elif len(frame) > 1:
-            strike = (len(frame) == 2 and frame[0] == 'X')
-            spare = (frame_count < 9 and score + 1 + int(frame[0]) + int(frame[-1]) <= 10)
-            if strike or spare:
-                score += 10
+    for i in range(0, len(input_string), 2):
+        if input_string[i].isdigit():
+            strike = False
+            if input_string[i+1] == 'X':
+                strike = True
+                score += 10 + (10 * (len(input_string) - i - 1))
             else:
-                score += sum(map(int, frame))
-        frame_count += 1
+                score += int(input_string[i]) + int(input_string[i+1])
+        elif input_string[i] == '-':
+            continue
+        else:
+            score += int(input_string[i])
+
     return score
