@@ -8,9 +8,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> nums) {
+std::vector<float> sort_even(const std::vector<float>& nums) {
     std::vector<float> even_nums;
-    for (float num : nums) {
+    for (const float& num : nums) {
         if (static_cast<int>(num) % 2 == 0) {
             even_nums.push_back(num);
         }
