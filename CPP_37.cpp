@@ -31,3 +31,9 @@ std::vector<float> sort_even(std::vector<float> l) {
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 3, 8, 5, 2, 4, 11, 12, 23, -10}));
+
+    return 0;
+}
