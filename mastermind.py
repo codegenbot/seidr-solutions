@@ -1,11 +1,8 @@
-Here is the solution:
-
 def mastermind(code, guess):
-    white = 0
-    black = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        elif str(code[i]) in str(guess):
-            white += 1
-    return black, white
+    white = sum(c in guess for c in code)
+    black = sum(
+        (c1 == c2) and (i // 4 == j // 4)
+        for i, c1 in enumerate(code)
+        for j, c2 in enumerate(guess)
+    )
+    return str(black), str(white)
