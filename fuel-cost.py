@@ -1,2 +1,2 @@
-def fuel_cost(arr):
-    return sum((i // 3) - 2 for i in arr)
+def fuel_cost(lst):
+    return sum((x // 3 - 2) for x in lst)
