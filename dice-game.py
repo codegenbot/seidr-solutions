@@ -1,2 +1,2 @@
-def prob_dice_game(n, m):
-    return (n - 1) / n * m / (m + n - 2)
+def dice_game(n, m):
+    return 1 - (n / (n + m))
