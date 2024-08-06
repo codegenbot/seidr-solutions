@@ -1,2 +1,6 @@
-def fuel_cost(v):
-    return sum((x // 3) - 2 for x in v)
+Here is the Python solution:
+
+def fuel_cost(n):
+    return sum((i//3)-2 for i in map(int, input().split()))
+
+print(fuel_cost(input()))
