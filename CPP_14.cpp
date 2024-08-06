@@ -4,13 +4,11 @@
 
 using namespace std;
 
-vector<string> all_prefixes(string str);
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> all_prefixes(string str) {
+vector<string> all_prefixes(string str){
     vector<string> result;
     string prefix = "";
     for (char c : str) {
