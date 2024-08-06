@@ -1,16 +1,17 @@
-def bowling_score(game):
+```
+def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if "/" in game[i * 2 : i * 2 + 2]:
-            strike = False
-            if game[i * 2] == "X":
-                strike = True
-            if game[i * 2 + 1] == "X" or game[i * 2 + 1] == "/":
-                score += 10 + (10 - int(game[i * 2])) if not strike else 10 + 10
-            elif game[i * 2 + 1] == "5":
-                score += 15 if not strike else 15
-            else:
-                score += 10 + int(game[i * 2])
+    roll = 0
+    for frame in frames:
+        if '/' in frame:
+            first_roll = int(frame.split('/')[0])
+            second_roll = int(frame.split('/')[-1].split('X')[0]) if 'X' not in frame else 10
+            score += min(10, first_roll + second_roll)
+            roll += 2 if 'X' in frame or frame[0] == '/' else 1
+        elif 'X' in frame:
+            score += 10
+            roll += 1
         else:
-            score += sum([int(x) for x in game[i * 2 : i * 2 + 2]])
-    return score
+            score += int(frame)
+            roll += 1
+    return score if roll == 10 else score + (10 - roll) * 10
