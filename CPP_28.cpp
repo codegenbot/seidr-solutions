@@ -26,7 +26,7 @@ int main(){
 
     std::string concatenated = concatenate(strings);
     std::cout << "Concatenated string: " << concatenated << std::endl;
-    
+
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
 
     return 0;
