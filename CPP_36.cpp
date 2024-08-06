@@ -1,6 +1,7 @@
+#include <iostream>
 #include <cassert>
 
-int count_lucky_sevens(int n) {
+int fizz_buzz(int n) {
     int count = 0;
     for (int i = 1; i < n; i++) {
         if (i % 11 == 0 || i % 13 == 0) {
@@ -17,6 +18,6 @@ int count_lucky_sevens(int n) {
 }
 
 int main() {
-    assert(count_lucky_sevens(100000) == 8026);
+    assert(fizz_buzz(100000) == 8026);
     return 0;
 }
