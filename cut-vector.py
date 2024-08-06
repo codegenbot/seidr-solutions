@@ -1,13 +1,22 @@
-Here is the Python solution:
-
+```
 def cut_vector(vector):
     min_diff = float('inf')
-    cut_index = -1
+    split_point = 0
+    
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-    return vector[:cut_index], vector[cut_index:]
+        
+        if left_sum == right_sum:
+            return vector[:i], vector[i:]
+        elif abs(left_sum - right_sum) < min_diff:
+            min_diff = abs(left_sum - right_sum)
+            split_point = i
+            
+    left_sum = sum(vector[:split_point])
+    right_sum = sum(vector[split_point:])
+    
+    if left_sum == right_sum:
+        return vector[:split_point], vector[split_point:]
+    else:
+        return vector[:split_point], vector[split_point:]
