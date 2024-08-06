@@ -1,12 +1,17 @@
-def bowling_score(s):
-    score = 0
-    roll = 0
-    for i in range(10):
-        if "/" in s[i * 2 : i * 2 + 1]:
-            first_roll = int(s[i * 2 : i * 2].strip("/"))
-            second_roll = int(s[i * 2 + 1].strip("/"))
-            score += min(first_roll, 10) + min(second_roll, 10 - first_roll)
+```
+def bowling(score):
+    score = score.replace('/', '')
+    frames = [int(x) if x.isdigit() else 10 for x in score]
+    total_score = 0
+    frame_number = 1
+    while frames:
+        if frames[0] == 10:  # Strike
+            total_score += 10 + (frames[1] + frames[2]) if len(frames) > 1 else 10
+            frames = frames[2:]
+        elif sum(frames[:2]) >= 10:  # Spare
+            total_score += 10 + frames[-1]
+            frames = frames[2:]
         else:
-            score += min(int(s[i * 2].strip("X")), 10) + roll
-            roll = 10 if i < 9 and s[i * 2].strip("X") == "X" else 0
-    return score
+            total_score += sum(frames[:2])
+            frames = frames[2:]
+    return total_score
