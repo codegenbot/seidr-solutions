@@ -1,13 +1,10 @@
 def luhn(card):
-    card = [int(x) for x in str(card)]
-    result = sum(
-        [
-            (
-                card[i]
-                if i % 2 == 0
-                else 2 * card[i] if 2 * card[i] >= 10 else 2 * card[i] - 9
-            )
-            for i in range(16)
-        ]
-    )
-    return result
+    card = [int(i) for i in card.split()]
+    sum_check = 0
+    for i in range(len(card)):
+        if i % 2 == 1:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+        sum_check += card[i]
+    return sum_check
