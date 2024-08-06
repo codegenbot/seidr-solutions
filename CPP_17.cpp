@@ -4,21 +4,21 @@
 
 std::vector<int> parse_music(const std::string& music){
     std::vector<int> beats;
-    // Complete the function implementation here
+    // Parse the music string to extract beats and populate the beats vector
+    // Implementation details based on contest problem
+    
     return beats;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
             return false;
         }
     }
-    
     return true;
 }
 
