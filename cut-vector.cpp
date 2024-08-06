@@ -28,13 +28,13 @@ int main() {
         i++;
     }
 
-    for (int i = 0; i < idx; ++i) {
+    for (i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
 
     cout << endl;
 
-    for (int i = idx; i < nums.size(); ++i) {
+    for (i = idx; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
 
