@@ -28,12 +28,6 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-namespace std {
-    bool operator ==(const std::vector<float>& a, const std::vector<float>& b) {
-        return a == b;
-    }
-}
-
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
