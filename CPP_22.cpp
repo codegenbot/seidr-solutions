@@ -5,12 +5,12 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& val : values) {
         if (const int* int_val = any_cast<int>(&val)) {
             result.push_back(*int_val);
@@ -19,4 +19,13 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-```
+int main() {
+    vector<int> a = {1, 2, 3, 4};
+  
+    list<any> values = {1, 2, 3, 4, 5};
+    vector<int> b = filter_integers(values);
+
+    assert(issame(a, b));
+
+    return 0;
+}
