@@ -12,4 +12,7 @@ int fizz_buzz(int n) {
     return count;
 }
 
-assert(fizz_buzz(100000) == 8026);
+int main() {
+    assert(fizz_buzz(100000) == 8026);
+    return 0;
+}
