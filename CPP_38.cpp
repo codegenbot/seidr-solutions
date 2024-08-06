@@ -24,8 +24,9 @@ std::string decode_cyclic(std::string str){
 }
 
 int main() {
-    std::string str, chr, encoded_str;
+    std::string str, chr;
     std::cin >> str >> chr;
+    std::string encoded_str;
     str = str + chr;
     encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str + chr);
