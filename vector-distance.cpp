@@ -17,7 +17,7 @@ int main() {
         std::cin >> vec2[i];
     }
 
-    double sum = 0.0;
+    double sum = 0.0; // Change float to double
     for (int i = 0; i < n; ++i) {
         double diff = vec1[i] - vec2[i];
         sum += diff * diff;
