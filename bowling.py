@@ -1,13 +1,11 @@
 ```
 def bowling_score(frames):
     score = 0
-    for i in range(10):
-        if '/' in frames[i]:
-            left, right = map(int, re.split('/', frames[i]))
-            if left == 10:
-                score += 10 + sum(map(int, frames[i+1:i+2])) 
-            else: 
-                score += left + right
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            score += 30
+        elif frames[i] == '/':
+            score += 10 + int(frames[i+1])
         else:
-            score += int(frames[i])
+            score += sum(map(int, frames[i:i+2]))
     return score
