@@ -10,8 +10,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num || !cin.eof()) {
+    while (cin >> num) {
         nums.push_back(num);
+        if (cin.eof()) break; // Add this line to terminate input loop at EOF
     }
     
     int n = nums.size();
