@@ -26,8 +26,9 @@ std::string decode_cyclic(std::string str){
 int main() {
     std::string str, chr;
     std::cin >> str >> chr;
+    std::string encoded_str;
     str = str + chr;
-    std::string encoded_str = encode_cyclic(str);
+    encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
     std::cout << "Test passed" << std::endl;
     return 0;
