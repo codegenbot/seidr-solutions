@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -12,6 +13,7 @@ std::string make_palindrome(std::string str){
 }
 
 int main() {
-    assert (make_palindrome("jerry") == "jerryrrej");
+    assert(make_palindrome("jerry") == "jerryrrej");
+    std::cout << "Test passed!";
     return 0;
 }
