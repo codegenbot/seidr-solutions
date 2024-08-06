@@ -13,19 +13,15 @@ int main() {
     int diff = INT_MAX;
     int idx = -1;
     
-    while (cin >> num) {
-        if (num == -1) {
-            break;
-        }
-        
+    for (int i = 0; cin >> num && !cin.eof(); ++i) {
         nums.push_back(num);
 
-        int left_sum = accumulate(nums.begin(), nums.begin() + nums.size(), 0);
-        int right_sum = accumulate(nums.begin() + nums.size(), nums.end(), 0);
+        int left_sum = accumulate(nums.begin(), nums.begin() + i + 1, 0);
+        int right_sum = accumulate(nums.begin() + i + 1, nums.end(), 0);
 
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
-            idx = nums.size();
+            idx = i + 1;
         }
     }
     
