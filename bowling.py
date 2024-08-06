@@ -1,17 +1,15 @@
-Here is the solution:
-
-def bowling_score(frames):
+```
+def bowling_score(s):
+    frames = [list(map(int, re.findall('\d', i))) for i in s.split('/')]
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            score += 30
-        elif frames[i] == '/':
-            score += 10 + int(frames[i+1])
-        else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i+1])
-            if first_roll + second_roll == 10:
-                score += 10 + first_roll
+    for i, frame in enumerate(frames):
+        if len(frame) == 1:
+            score += 10
+        elif sum(frame) >= 10:
+            if len(frame) == 2 and sum(frame) == 10:
+                score += 10
             else:
-                score += first_roll + second_roll
+                score += sum(frame)
+        else:
+            score += sum(frame)
     return score
