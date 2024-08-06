@@ -10,14 +10,14 @@ int main() {
     vector<int> nums;
     int num;
     
-    int n = 0;
-    while (cin >> num && cin.peek() != '\n') {
-        nums.push_back(num);
-        n++;
-    }
-    
     int diff = INT_MAX;
     int idx = -1;
+    
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+    
+    int n = nums.size();
     
     for (int i = 1; i < n; ++i) {
         int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
