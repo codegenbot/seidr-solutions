@@ -1,4 +1,4 @@
-Here is the solution:
-
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+def leaders(v):
+    return [
+        v[i] for i in range(len(v) - 1, -1, -1) if all(x <= v[i] for x in v[i + 1 :])
+    ]
