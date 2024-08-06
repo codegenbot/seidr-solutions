@@ -2,11 +2,11 @@
 #include <cassert>
 
 std::string encode_cyclic(const std::string &str) {
-    return str + str;
+    return str + str; // Return double of input string
 }
 
 std::string decode_cyclic(const std::string &str) {
-    return str.substr(0, str.size() / 2);
+    return str.substr(0, str.size() / 2); // Return the first half of input string
 }
 
 int main() {
