@@ -13,7 +13,7 @@ int main() {
     int diff = INT_MAX;
     int idx = -1;
     
-    while (cin >> num) {
+    while (cin >> num || !cin.eof()) {
         nums.push_back(num);
 
         int len = nums.size();
@@ -23,10 +23,6 @@ int main() {
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
             idx = len;
-        }
-        
-        if (cin.eof()) {
-            break;
         }
     }
     
