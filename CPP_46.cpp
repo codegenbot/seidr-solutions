@@ -1,5 +1,3 @@
-#include <cassert>
-
 int fib4(int n) {
     if (n == 0) return 0;
     if (n == 1) return 0;
@@ -17,10 +15,4 @@ int fib4(int n) {
     }
 
     return sum;
-}
-
-int main() {
-    assert(fib4(12) == 386);
-
-    return 0;
 }
