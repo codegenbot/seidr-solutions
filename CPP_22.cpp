@@ -2,6 +2,7 @@
 #include <list>
 #include <any>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int main() {
     std::list<std::any> values = {1, 2, 3, 4, 5};
     std::vector<int> b = filter_integers(values);
 
-    assert(a == b);
+    assert(issame(a, b));
 
     return 0;
 }
