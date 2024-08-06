@@ -13,7 +13,11 @@ int main() {
     int diff = INT_MAX;
     int idx = -1;
     
-    for (int i = 0; cin >> num; !cin.eof(), ++i) {
+    for (int i = 0; ; ++i) {
+        cin >> num;
+        if (cin.eof()) {
+            break;
+        }
         nums.push_back(num);
 
         int left_sum = accumulate(nums.begin(), nums.begin() + i + 1, 0);
