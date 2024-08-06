@@ -1,3 +1,11 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
 map<string, int> numeral_map = {
     {"zero", 0},
     {"one", 1},
