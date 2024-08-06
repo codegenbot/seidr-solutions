@@ -1,5 +1,14 @@
-def leaders(a):
-    leaders = [
-        a[i] for i in range(len(a) - 1, -1, -1) if all(a[i] >= x for x in a[i + 1 :])
-    ]
-    return leaders
+def leaders(arr):
+    n = len(arr)
+    leader_arr = []
+
+    for i in range(n - 1, -1, -1):
+        is_leader = True
+        for j in range(i + 1, n):
+            if arr[i] < arr[j]:
+                is_leader = False
+                break
+        if is_leader:
+            leader_arr.append(arr[i])
+
+    return leader_arr[::-1]
