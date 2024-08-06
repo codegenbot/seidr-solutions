@@ -4,10 +4,8 @@
 
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> prefixes;
-    std::string prefix;
-    for (char c : str) {
-        prefix += c;
-        prefixes.push_back(prefix);
+    for (int i = 1; i <= str.size(); ++i) {
+        prefixes.push_back(str.substr(0, i));
     }
     return prefixes;
 }
@@ -26,4 +24,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    return 0;
 }
