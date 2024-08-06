@@ -1,7 +1,9 @@
 def leaders(arr):
-    leaders = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leaders.append(arr[i])
-            arr.pop()
-    return reversed(leaders)
+    n = len(arr)
+    result = [arr[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            result.insert(0, arr[i])
+
+    return result
