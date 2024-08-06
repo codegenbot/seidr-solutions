@@ -3,12 +3,12 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+std::bool issame(std::std::vector<int> a, std::std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> parse_music(std::string music_string){
-    std::vector<int> beats;
+std::std::vector<int> parse_music(std::string music_string){
+    std::std::vector<int> beats;
     int length = music_string.size();
     for (int i = 0; i < length; ++i) {
         if (music_string[i] == 'o') {
