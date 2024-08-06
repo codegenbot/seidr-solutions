@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 #include <cassert>
 
 std::vector<float> find_closest_elements(std::vector<float> arr) {
@@ -20,13 +19,13 @@ std::vector<float> find_closest_elements(std::vector<float> arr) {
     return closest_elements;
 }
 
-bool is_same(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    assert(is_same(result, {2.2, 3.1}));
+    assert(issame(result, {2.2, 3.1}));
     std::cout << "Test passed!";
     return 0;
 }
