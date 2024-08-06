@@ -1,9 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <utility>
 
-bool issame(std::pair<float, float> a, std::pair<float, float> b);
+bool std::issame(std::pair<float, float> a, std::pair<float, float> b);
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
