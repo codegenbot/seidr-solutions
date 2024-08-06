@@ -3,27 +3,30 @@
 #include <string>
 
 std::string camelCase(const std::string& str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-
+    std::vector<std::string> words = {""};
     for (char c : str) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            words.back() += c;
+        } else if (c == ' ') {
+            words.push_back("");
         } else {
-            result += tolower(c);
+            words.back() += c;
         }
     }
-
+    std::string result = "";
+    for (int i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result[0] = toupper(result[0]);
+        }
+        result += words[i];
+    }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::cout << camelCase("nospaceordash") << std::endl;
+    std::cout << camelCase("two-words") << std::endl;
+    std::cout << camelCase("two words") << std::endl;
+    std::cout << camelCase("all separate words") << std::endl;
     return 0;
 }
