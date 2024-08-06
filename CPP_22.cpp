@@ -19,11 +19,11 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 
 int main() {
     std::vector<int> a = {1, 2, 3, 4};
-  
+
     std::list<std::any> values = {1, 2, 3, 4, 5};
     std::vector<int> b = filter_integers(values);
 
     assert(issame(a, b));
 
     return 0;
-}  
+}
