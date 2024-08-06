@@ -9,10 +9,10 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
+
     int diff = INT_MAX;
     int idx = -1;
-    
+
     while (cin >> num && !cin.eof()) {
         nums.push_back(num);
 
@@ -25,16 +25,16 @@ int main() {
             idx = len;
         }
     }
-    
+
     for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
-    
+
     cout << endl;
-    
+
     for (int i = idx; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
-    
+
     return 0;
 }
