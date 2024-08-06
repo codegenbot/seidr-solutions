@@ -2,6 +2,7 @@
 #include <cassert>
 
 std::string encode_cyclic(const std::string &str);
+
 std::string decode_cyclic(const std::string &str);
 
 int main() {
