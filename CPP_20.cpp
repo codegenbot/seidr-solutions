@@ -3,18 +3,15 @@
 #include <cassert>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<float> find_closest_elements(std::vector<float> nums) {
-    // Implement logic to find closest elements
-    // For example, sorting and selecting neighboring elements
-    return {nums[1], nums[2]};
-}
-
-int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
-    std::cout << "Test passed!";
-    return 0;
+    std::vector<float> result;
+    std::sort(nums.begin(), nums.end());
+    for (size_t i = 1; i < nums.size(); ++i) {
+        if (result.empty() || (nums[i] - nums[i - 1] < result.back() - result.front())) {
+            result.clear();
+            result.push_back(nums[i - 1]);
+            result.push_back(nums[i]);
+        }
+    }
+    return result;
 }
