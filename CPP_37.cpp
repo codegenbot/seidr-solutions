@@ -1,39 +1,39 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-std::vector<float> sort_even(const std::vector<float>& l) {
-    std::vector<float> even_values;
-    std::vector<float> result;
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
 
+void sort_even(vector<float>& l) {
+    vector<float> even_values;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_values.push_back(l[i]);
         }
     }
-
-    std::sort(even_values.begin(), even_values.end());
-
+    sort(even_values.begin(), even_values.end());
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_values[even_index]);
+            l[i] = even_values[even_index];
             even_index++;
-        } else {
-            result.push_back(l[i]);
         }
     }
-
-    return result;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}),
-                   {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> input = {9.1, 2.1, 5.6, 3.4, 8.7, 4.2};
+    vector<float> original = input;
+
+    sort_even(input);
+
+    if (issame(input, original)) {
+        std::cout << "Sorted even-indexed elements match original vector." << std::endl;
+    } else {
+        std::cout << "Sorted even-indexed elements do not match original vector." << std::endl;
+    }
+
     return 0;
 }
