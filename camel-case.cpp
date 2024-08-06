@@ -1,29 +1,21 @@
-Here is the solution:
-
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(std::string s) {
-    std::string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : s) {
+std::string kebabToCamelCase(const std::string& input) {
+    std::string output = "";
+    for (char c : input) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
-        } else {
-            result += tolower(c);
+            output += c + c;
+        } else if (output.empty() || output.back() != '-') {
+            output += c;
         }
     }
-    
-    return result;
+    return output;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << kebabToCamel(s) << std::endl;
+    std::string input;
+    std::cin >> input;
+    std::cout << kebabToCamelCase(input) << std::endl;
     return 0;
 }
