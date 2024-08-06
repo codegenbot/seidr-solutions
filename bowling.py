@@ -1,15 +1,36 @@
-def bowling_score(frames):
+Here is the Python solution for the bowling problem:
+
+```python
+def bowling_score(bowling_game):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
-            score += 30
-        elif frames[i : i + 2].count("X") == 2:
-            score += int(frames[i - 1]) + 10
-        else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i + 1].replace("/0", "/"))
-            if second_roll > 0:
-                score += first_roll + second_roll
+    roll = 0
+    frame = 1
+    for char in bowling_game:
+        if char.isdigit():
+            if len(char) > 1:
+                if int(char) == 10:
+                    score += 10 + (9 - frame) * 2
+                    frame += 1
+                    continue
+                score += int(char) + (9 - frame) * 2
+                roll = int(char)
+                frame += 1
             else:
-                score += first_roll + 10
+                if roll < 10:
+                    score += min(int(char), 10 - roll) + (9 - frame) * 2
+                    roll += min(int(char), 10 - roll)
+                    frame += 1
+                else:
+                    score += int(char) + (9 - frame) * 2
+                    frame += 1
+        elif char == 'X':
+            if roll < 10:
+                score += 10 + (9 - frame) * 2
+                roll = 10
+                frame += 1
+            else:
+                score += 10 + (9 - frame) * 2
+                frame += 1
+        elif char == '/':
+            continue
     return score
