@@ -1,17 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+// Change vector<int> to std::vector<int> in function signature and comparison in issame function
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::sort(numbers.begin(), numbers.end());
-    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
-    return numbers;
-}
-
+// Add 'std::' before 'vector<int>' in issame function and remove 'assert' in main
 int main(){
     std::vector<int> expected = {1, 4, 5};
     std::vector<int> result = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
