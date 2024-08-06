@@ -1,6 +1,7 @@
 #include <vector>
 #include <list>
 #include <any>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -20,7 +21,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 int main() {
     std::vector<int> a = {1, 2, 3, 4};
     std::vector<int> b = filter_integers({1, 2, 3, 4, 5});
-    
+  
     assert(issame(a, b));
 
     return 0;
