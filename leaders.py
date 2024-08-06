@@ -1,9 +1,8 @@
-def leaders(input_list):
-    n = len(input_list)
-    result = [input_list[n - 1]]
+Here is the Python code for the problem:
 
-    for i in range(n - 2, -1, -1):
-        if input_list[i] >= input_list[n - 1]:
-            result.append(input_list[i])
-            n = i
-    return list(reversed(result))
+def leaders(arr):
+    return [x for i, x in enumerate(reversed(arr)) if all(x >= arr[j] for j in range(i+1, len(arr)))]
+
+# Example usage:
+input_arr = list(map(int, input().split()))
+print(leaders(input_arr))
