@@ -1,28 +1,30 @@
-Here is the solution:
-
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result = "";
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == '-') {
-            size_t len = i - start;
-            if (len > 0) {
-                result += std::string(1, toupper(str[start + len - 1])) + std::string(len - 1, tolower);
+string kebabToCamel(string s) {
+    string result = "";
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == '-') {
+            if (result != "") {
+                result[0] = toupper(result[0]);
             }
-            start = i + 1;
+            if (i < s.length()) {
+                result += tolower(s.substr(i));
+            }
+        } else {
+            result += tolower(s[i]);
         }
     }
     return result;
 }
 
 int main() {
-    std::cout << kebabToCamel("nospaceordash") << std::endl;
-    std::cout << kebabToCamel("two-words") << std::endl;
-    std::cout << kebabToCamel("two words") << std::endl;
-    std::cout << kebabToCamel("all separate words") << std::endl;
+    string input;
+    while (true) {
+        cout << "Enter a string in kebab-case (or 'quit' to stop): ";
+        cin >> input;
+        if (input == "quit") break;
+        cout << kebabToCamel(input) << endl;
+    }
     return 0;
 }
