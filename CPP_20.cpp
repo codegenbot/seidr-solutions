@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <algorithm>
+#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> arr) {
     std::sort(arr.begin(), arr.end());
@@ -19,7 +20,7 @@ std::vector<float> find_closest_elements(std::vector<float> arr) {
     return closest_elements;
 }
 
-bool issame(const std::vector<float> &a, const std::vector<float> &b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
