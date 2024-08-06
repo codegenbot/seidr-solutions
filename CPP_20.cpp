@@ -1,6 +1,6 @@
-#include <utility>
 #include <vector>
+#include <cmath>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
+    return a.first == b.first && a.second == b.second;
 }
