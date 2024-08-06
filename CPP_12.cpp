@@ -20,7 +20,5 @@ string longest(const vector<string>& strings) {
     return longest_str;
 }
 
-int main() {
-    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    return 0;
-}
+assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+return 0;
