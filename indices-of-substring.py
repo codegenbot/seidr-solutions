@@ -1,10 +1,2 @@
-def indices_of_substring(text):
-    result = []
-    index = 0
-    while True:
-        try:
-            index = text.index(input(), index)
-            result.append(index)
-        except ValueError:
-            break
-    return result
+def indices_of_substring(text, target):
+    return [i for i in range(len(text)) if text.startswith(target, i)]
