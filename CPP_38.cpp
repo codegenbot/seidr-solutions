@@ -1,38 +1,34 @@
 #include <iostream>
-#include <string>
 #include <cassert>
 
-using namespace std;
-
-string encode_cyclic(string str) {
-    int len = str.length();
-    string encoded_str = "";
-    for (int i = 0; i < len; i++) {
-        encoded_str += char((str[i] + 3 - 'a') % 26 + 'a');
+std::string encode_cyclic(std::string str){
+    std::string output;
+    for (int i=0; i*3<str.length(); i++) {
+        std::string x = str.substr(i*3, 3);
+        if (x.length() == 3) 
+            x = x[2] + x.substr(0, 2);
+        output += x;
     }
-    return encoded_str;
+    return output;
 }
 
-string decode_cyclic(string str) {
-    int len = str.length();
-    string decoded_str = "";
-    for (int i = 0; i < len; i++) {
-        decoded_str += char((str[i] - 3 - 'a' + 26) % 26 + 'a');
+std::string decode_cyclic(std::string str){
+    std::string output;
+    for (int i=0; i*3<str.length(); i++) {
+        std::string x = str.substr(i*3, 3);
+        if (x.length() == 3) 
+            x = x[1] + x[2] + x[0];
+        output += x;
     }
-    return decoded_str;
+    return output;
 }
 
 int main() {
-    string input_str;
-    cin >> input_str;
-    
-    string encoded_str = encode_cyclic(input_str);
-    cout << "Encoded: " << encoded_str << endl;
-    
-    string decoded_str = decode_cyclic(encoded_str);
-    cout << "Decoded: " << decoded_str << endl;
-    
-    assert(decoded_str == input_str);
-    
+    std::string str, chr;
+    std::cin >> str >> chr;
+    str += chr;
+    std::string encoded_str = encode_cyclic(str);
+    assert(decode_cyclic(encoded_str) == str);
+    std::cout << "Test passed" << std::endl;
     return 0;
 }
