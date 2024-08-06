@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool std::vector<float> issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
     return std::vector<float>(a) == std::vector<float>(b);
 }
 
@@ -15,3 +15,6 @@ std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     }
     return result;
 }
+
+assert(std::vector<float>::issame(rescale_to_unit({12.0f, 11.0f, 15.0f, 13.0f, 14.0f}), {0.25f, 0.0f, 1.0f, 0.5f, 0.75f}));
+
