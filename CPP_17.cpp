@@ -13,7 +13,8 @@ std::vector<int> parse_music(std::string music_string){
     for (int i = 0; i < length; ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (music_string[i] == '|') {
+        }
+        else if (music_string[i] == '|') {
             if (i > 0 && music_string[i - 1] == 'o') {
                 beats.back() = 2;
             } else {
