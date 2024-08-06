@@ -10,12 +10,11 @@ int main() {
     vector<int> nums;
     int num;
     
-    int n = 0;
-    while (cin >> num) {
+    while (cin >> num || !cin.eof()) {
         nums.push_back(num);
-        n++;
     }
     
+    int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
     
