@@ -1,8 +1,8 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+using namespace std;
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> even_values;
