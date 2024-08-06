@@ -26,4 +26,4 @@ int main() {
     assert(issame(a, b));
 
     return 0;
-}  
+}
