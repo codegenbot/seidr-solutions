@@ -1,7 +1,3 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    return a == b;
-}
-
 vector<float> sort_even(const vector<float>& l) {
     vector<float> even_values;
     vector<float> result;
