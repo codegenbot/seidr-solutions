@@ -1,23 +1,11 @@
-Here is the solution to the problem:
+def cut_vector(lst):
+    if len(lst) == 1:
+        return lst[0], []
 
-def cut_vector(vector):
-    min_diff = float('inf')
-    cut_point = 0
-    left_sum = 0
-    
-    for i in range(len(vector)):
-        right_sum = sum(vector[i+1:])
-        
-        if left_sum == right_sum:
-            return vector[:i+1], vector[i+1:]
-        
-        diff = abs(left_sum - right_sum)
-        
-        if diff < min_diff:
-            min_diff = diff
-            cut_point = i
-    
-    left_vector = vector[:cut_point]
-    right_vector = vector[cut_point:]
-    
-    return left_vector, right_vector
+    left_sum = sum(lst[: len(lst) // 2])
+    right_sum = sum(lst[len(lst) // 2 :])
+
+    if left_sum >= right_sum:
+        return lst[: len(lst) // 2 + 1], lst[len(lst) // 2 :]
+    else:
+        return lst[: len(lst) // 2], lst[len(lst) // 2 :]
