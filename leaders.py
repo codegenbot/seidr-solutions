@@ -1,8 +1,8 @@
-Here is the Python code for the problem:
+def leaders(input_vector):
+    leaders_list = [input_vector[-1]]
 
-def leaders(arr):
-    return [x for i, x in enumerate(reversed(arr)) if all(x >= arr[j] for j in range(i+1, len(arr)))]
+    for i in range(len(input_vector) - 2, -1, -1):
+        if input_vector[i] >= input_vector[i + 1]:
+            leaders_list.append(input_vector[i])
 
-# Example usage:
-input_arr = list(map(int, input().split()))
-print(leaders(input_arr))
+    return reversed(leaders_list)
