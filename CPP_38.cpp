@@ -1,23 +1,34 @@
-string encode_cyclic(string decoded_str) {
-    int len = decoded_str.length();
-    string output;
-    for (int i = 0; i * 3 < len; i++) {
-        string str = decoded_str.substr(i * 3, 3);
-        if (str.length() == 3) 
-            str = str.substr(1, 2) + str[0];
-        output += str;
+#include <iostream>
+#include <cassert>
+
+std::string encode_cyclic(std::string str){
+    std::string output;
+    for (int i=0; i*3<str.length(); i++) {
+        std::string x = str.substr(i*3, 3);
+        if (x.length() == 3) 
+            x = x[2] + x.substr(0, 2);
+        output += x;
     }
     return output;
 }
 
-string decode_cyclic(string encoded_str) { 
-    int len = encoded_str.length();
-    string output;
-    for (int i = 0; i * 3 < len; i++) {
-        string str = encoded_str.substr(i * 3, 3);
-        if (str.length() == 3) 
-            str = str[2] + str.substr(0, 2);
-        output += str;
+std::string decode_cyclic(std::string str){
+    std::string output;
+    for (int i=0; i*3<str.length(); i++) {
+        std::string x = str.substr(i*3, 3);
+        if (x.length() == 3) 
+            x = x[1] + x[2] + x[0];
+        output += x;
     }
     return output;
+}
+
+int main() {
+    std::string str, chr;
+    std::cin >> str >> chr;
+    str = str + chr;
+    std::string encoded_str = encode_cyclic(str);
+    assert(decode_cyclic(encoded_str) == str);
+    std::cout << "Test passed" << std::endl;
+    return 0;
 }
