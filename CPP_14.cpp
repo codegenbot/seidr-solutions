@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> prefixes;
     std::string prefix;
