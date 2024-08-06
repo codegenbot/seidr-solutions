@@ -7,24 +7,27 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
+    cout << "Enter positive integers, -1 to end input:" << endl;
+
+    vector<int> nums;
+    int num;
     
     int diff = INT_MAX;
-    int idx = -1;
+    int idx = 0;
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+    while (cin >> num) {
+        if (num == -1) {
+            break;
+        }
+        
+        nums.push_back(num);
+
+        int left_sum = accumulate(nums.begin(), nums.begin() + idx, 0);
+        int right_sum = accumulate(nums.begin() + idx, nums.end(), 0);
 
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
-            idx = i;
+            ++idx;
         }
     }
     
@@ -34,7 +37,7 @@ int main() {
     
     cout << endl;
     
-    for (int i = idx; i < n; ++i) {
+    for (int i = idx; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
     
