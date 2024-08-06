@@ -9,6 +9,17 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> parse_music(std::string music_string);
 
+int main() {
+    std::string music_string = "o||o";
+    std::vector<int> beats = parse_music(music_string);
+
+    for (int beat : beats) {
+        std::cout << beat << " ";
+    }
+
+    return 0;
+}
+
 std::vector<int> parse_music(std::string music_string){
     std::vector<int> beats;
     int length = music_string.size();
