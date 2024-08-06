@@ -1,2 +1,2 @@
-def roll_higher(n, m):
-    return (n - m) / (n + m)
+def prob_peter_beats_colin(n, m):
+    return (n - 1) / (n * m)
