@@ -1,14 +1,18 @@
-def bowling(score):
-    score_per_frame = [0] * 10
-    for i in range(len(score)):
-        if score[i].isdigit():
-            if score[i + 1].isdigit():
-                score_per_frame[int(i / 2)] += int(score[i : i + 2])
-            else:
-                score_per_frame[int(i / 2)] += int(score[i])
-        elif score[i] == "X":
-            score_per_frame[int(i / 2)] = 10 + (10 - i % 2)
-        elif score[i] == "/":
-            if score[i - 1].isdigit():
-                score_per_frame[int((i - 1) / 2)] += 10 - int(score[i - 1])
-    return sum(score_per_frame)
+Here is the Python solution:
+
+def bowling_game(score):
+    score = list(map(int, re.sub('[^0-9]', '', score)))
+    total_score = 0
+    roll = 0
+    frame = 1
+    while roll < len(score):
+        if score[roll] == 10:
+            total_score += 10 + (score[roll+1] if roll+2 <= len(score) else 0)
+            roll += 2
+        elif score[roll] + score[roll+1] >= 10:
+            total_score += 10
+            roll += 2
+        else:
+            total_score += score[roll] + score[roll+1]
+            roll += 2
+    return total_score
