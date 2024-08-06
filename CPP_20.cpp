@@ -1,6 +1,14 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
+#include <cassert>
+#include <algorithm>
 
-bool issame(std::pair<float, float> a, std::pair<float, float> b) {
-    return std::abs(a.first - b.first) < 0.00001 && std::abs(a.second - b.second) < 0.00001;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    std::cout << "Test passed!";
+    return 0;
 }
