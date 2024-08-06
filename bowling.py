@@ -1,13 +1,13 @@
 def bowling_score(frames):
     score = 0
-    roll = list(map(int, frames.replace("/", "")))
-    for i in range(0, len(roll), 2):
-        if roll[i] == 10:
-            score += roll[i]
-            score += roll[i + 1]
-        elif sum(roll[i : i + 2]) < 10:
-            score += roll[i]
-            score += roll[i + 1]
+    roll = 0
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            score += 10 + (10 - int(frame)) * 2
         else:
-            score += sum(roll[i : i + 2])
+            if int(frame[0]) + int(frame[1]) == 10:
+                score += 10 + roll
+            else:
+                score += sum(map(int, frame))
+                roll = 10 - sum(map(int, frame))
     return score
