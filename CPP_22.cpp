@@ -1,8 +1,8 @@
 #include <vector>
 #include <list>
+#include <iostream>
 #include <boost/any.hpp>
-
-bool issame(std::vector<int> a, std::vector<int> b);
+#include <cassert>
 
 std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
@@ -14,11 +14,11 @@ std::vector<int> filter_integers(std::list<boost::any> values){
     return result;
 }
 
-int main() {
-    std::list<boost::any> values = {1, 2, "abc", 3.5, 4, 5};
-    std::vector<int> filtered_values = filter_integers(values);
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
-    assert(issame(filtered_values, {1, 2, 4, 5}));
-
+int main(){
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
