@@ -1,17 +1,9 @@
-Here is the solution to the problem:
-
-def bowling_score(frames):
-    score = 0
-    for i, frame in enumerate(frames.split('/')):
-        if frame == 'X':
-            score += 30
-        elif frame == '':
-            if frames[i-1] == 'X' or len(frames.split('/')[i-1]) > 1:
-                score += 20 + int(frames.split('/')[i-1].split('X')[0])
-            else:
-                score += 20
-        elif frame[0] == 'X':
-            score += 10 + int(frame[1:])
+def bowling_game(score):
+    score = [0] * 10
+    frames = list(map(int, re.sub("[X/-]", "0", score).split("/")))
+    for i in range(0, len(frames), 2):
+        if frames[i : i + 2].count("0") == 1:
+            score[int(i / 2)] = frames[i] + frames[(i + 1) % 2]
         else:
-            score += sum(int(part) for part in frame)
-    return score
+            score[int(i / 2)] = sum(frames[i : i + 2])
+    return sum(score)
