@@ -1,5 +1,1 @@
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool issame(std::std::vector<int> a, std::std::vector<int> b){
