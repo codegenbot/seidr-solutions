@@ -12,30 +12,30 @@ int main() {
     
     int diff = INT_MAX;
     int idx = -1;
+    int i = 0;
     
-    for (int i = 0; cin >> num; ++i) {
-        if (cin.eof()) {
-            break;
-        }
+    while (cin >> num) {
         nums.push_back(num);
 
-        int left_sum = accumulate(nums.begin(), nums.begin() + i + 1, 0);
-        int right_sum = accumulate(nums.begin() + i + 1, nums.end(), 0);
-
+        int left_sum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int right_sum = accumulate(nums.begin() + i, nums.end(), 0);
+        
         if (abs(left_sum - right_sum) < diff) {
             diff = abs(left_sum - right_sum);
-            idx = i + 1;
+            idx = i;
         }
+        
+        i++;
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
+    for (int j = 0; j < idx; ++j) {
+        cout << nums[j] << endl;
     }
     
     cout << endl;
     
-    for (int i = idx; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+    for (int j = idx; j < nums.size(); ++j) {
+        cout << nums[j] << endl;
     }
     
     return 0;
