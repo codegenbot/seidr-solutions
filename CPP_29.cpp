@@ -2,17 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+using namespace std;
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -24,15 +14,28 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string prefix = "b";
-    
+    vector<string> strings = {"apple", "banana", "apricot", "avocado"};
+    string prefix = "ap";
+
     vector<string> filtered_strings = filter_by_prefix(strings, prefix);
     
     for (const string& str : filtered_strings) {
         cout << str << " ";
     }
-    
+
+    vector<string> a = {"hello", "world"};
+    vector<string> b = {"hello", "world"};
+
+    if (issame(a, b)) {
+        cout << "\nVectors a and b are the same.";
+    } else {
+        cout << "\nVectors a and b are different.";
+    }
+
     return 0;
 }
