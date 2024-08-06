@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> prefixes;
@@ -23,4 +23,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         }
     }
     return true;
+}
+
+int main() {
+    std::string input_str;
+    std::cin >> input_str;
+
+    std::vector<std::string> prefixes = all_prefixes(input_str);
+    for (const auto& prefix : prefixes) {
+        std::cout << prefix << " ";
+    }
+    
+    return 0;
 }
