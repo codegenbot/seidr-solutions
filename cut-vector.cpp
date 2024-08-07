@@ -14,6 +14,9 @@ int main() {
     int idx = -1;
     
     while (cin >> num) {
+        if (cin.eof()) {
+            break;
+        }
         nums.push_back(num);
 
         int len = nums.size();
