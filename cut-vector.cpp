@@ -13,9 +13,11 @@ int main() {
     int diff = INT_MAX;
     int idx = -1;
     
-    while (cin >> num && !cin.eof()) {
+    while (cin >> num) {
         nums.push_back(num);
-
+        cin.clear();
+        cin.ignore();
+        
         int len = nums.size();
         int left_sum = accumulate(nums.begin(), nums.begin() + len, 0);
         int right_sum = accumulate(nums.begin() + len, nums.end(), 0);
