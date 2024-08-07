@@ -24,7 +24,7 @@ int main() {
             diff = abs(left_sum - right_sum);
             idx = len;
         }
-
+        
         if(cin.peek() == '\n') break;
     }
     
