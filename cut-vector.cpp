@@ -13,7 +13,8 @@ int main() {
     int diff = INT_MAX;
     int idx = -1;
     
-    while (cin >> num && cin.good()) {
+    while (cin.good()) {
+        cin >> num;
         nums.push_back(num);
 
         int len = nums.size();
