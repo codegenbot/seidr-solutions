@@ -28,16 +28,4 @@ int main() {
             idx = len;
         }
     }
-    
-    for (int i = 0; i < idx; ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    cout << endl;
-    
-    for (int i = idx; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
-    }
-    
-    return 0;
 }
