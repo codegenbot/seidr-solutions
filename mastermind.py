@@ -4,4 +4,4 @@ def mastermind(code, guess):
     black_pegs = sum(1 for a, b in zip(code_chars, guess_chars) if a == b)
     unique_code_chars = set(code_chars)
     white_pegs = sum(1 for c in unique_code_chars if code_chars.count(c) > guess_chars.count(c))
-    return str(black_pegs), str(white_pegs)
+    return str(white_pegs), str(black_pegs)
