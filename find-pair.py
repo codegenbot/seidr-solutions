@@ -1,10 +1,7 @@
-```
-def find_pair(nums):
-    target = int(input())
-    num_dict = {}
-    for num in nums[1:]:
-        complement = target - num
-        if complement in num_dict:
-            return str(complement) + '\n' + str(num)
-        num_dict[num] = True
-    return None
+def find_pair(n):
+    t = int(input())
+    num_list = list(map(int, input().split()))
+    for i in range(len(num_list)):
+        for j in range(i + 1, len(num_list)):
+            if num_list[i] + num_list[j] == t:
+                return "\n".join(map(str, [num_list[i], num_list[j]]))
