@@ -1,4 +1,3 @@
-```
 def luhn(card):
     sum = 0
     for i, c in enumerate(card):
