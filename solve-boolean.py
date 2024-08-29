@@ -5,27 +5,7 @@ def solve_boolean(expression):
         return False
     elif '&' in expression:
         left, right = expression.split('&')
-        left = left.strip()
-        right = right.strip()
-        if left[0] == '(' and left[-1] == ')':
-            left = solve_boolean(left)
-        else:
-            left = solve_boolean(left)
-        if right[0] == '(' and right[-1] == ')':
-            right = solve_boolean(right)
-        else:
-            right = solve_boolean(right)
-        return left and right
+        return not (solve_boolean(left) and solve_boolean(right)) if '|' in left or '|' in right else solve_boolean(left) and solve_boolean(right)
     elif '|' in expression:
         left, right = expression.split('|')
-        left = left.strip()
-        right = right.strip()
-        if left[0] == '(' and left[-1] == ')':
-            left = solve_boolean(left)
-        else:
-            left = solve_boolean(left)
-        if right[0] == '(' and right[-1] == ')':
-            right = solve_boolean(right)
-        else:
-            right = solve_boolean(right)
-        return left or right
+        return solve_boolean(left) or solve_boolean(right)
