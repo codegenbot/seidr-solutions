@@ -1,9 +1,16 @@
-```
 def solve_boolean(expression):
-    if "&" in expression or "|" in expression:
-        a, op, b = expression.split("(")[0].rpartition(")")
-        return bool(solve_boolean(a)) and (op == "&" and bool(solve_boolean(b))) or (op == "|" and not bool(solve_boolean(b)))
-    elif expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        ops = []
+        for char in expression:
+            if char in '&|':
+                ops.append(char)
+            else:
+                result = (result & bool(char)) if char == '&' else (result | bool(char))
+        return result
