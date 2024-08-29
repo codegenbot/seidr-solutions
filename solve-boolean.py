@@ -11,4 +11,4 @@ def solve_boolean(expression):
         return solve_boolean(left) or solve_boolean(right)
 
 expression = input()
-print(solve_boolean(expression))
+print(solve.Boolean(expression))
