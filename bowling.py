@@ -1,3 +1,4 @@
+```python
 def bowling_score(frames):
     score = 0
     roll = 0
@@ -6,7 +7,7 @@ def bowling_score(frames):
             score += 10
             roll += 2
         elif frame == "/":
-            continue  # ignore the final slash
+            continue  
         elif len(frame) == 1:
             score += int(frame)
         elif len(frame) == 2:
