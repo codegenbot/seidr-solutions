@@ -1,3 +1,7 @@
-def dice_game(n, m):
-    same_or_lower = sum(i * (n - 1) for i in range(1, min(n, m)))
-    return (m + same_or_lower) / (n * m)
+def probability(n, m):
+    total = n * m
+    p_count = 0
+    for i in range(1, min(n, m) + 1):
+        if i < m - m + i:
+            p_count += 1
+    return p_count / total
