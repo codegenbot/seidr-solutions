@@ -1,17 +1,14 @@
-def cipher(s1, s2):
-    result = ""
-    for c in s1:
-        if c in s2:
-            index = s2.index(c)
-            result += s1[index]
-        else:
-            result += c
-    return result
+def decipher_ciphertext(ciphertext):
+    cipher_map = [0] * 256
+    for i in range(2):
+        for c1, c2 in zip(input(), input()):
+            cipher_map[ord(c1)] = ord(c2)
+
+    plaintext = ""
+    for c in input():
+        plaintext += chr(cipher_map[ord(c)])
+
+    return plaintext
 
 
-# get input from user
-s1 = input()
-s2 = input()
-message = input()
-
-print(cipher(s1, s2))
+print(decipher_ciphertext())
