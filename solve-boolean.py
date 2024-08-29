@@ -1,19 +1,14 @@
-```
 def solve_boolean(expression):
-    global previous_char
-    previous_char = ''
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (previous_char == 'T')
-            elif char == '|':
-                result |= (previous_char == 'T')
-            global previous_char; previous_char = char
-        return result
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return solve_boolean(left) and solve_boolean(right)
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
 
-print(solve_boolean('f|t&f|t|t|t&t|t'))  # Returns True
+expression = input()
+print(solve_boolean(expression))
