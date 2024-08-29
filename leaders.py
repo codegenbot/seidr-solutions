@@ -1,4 +1,3 @@
-```python
 def leaders(arr):
     n = len(arr)
     leader = []
