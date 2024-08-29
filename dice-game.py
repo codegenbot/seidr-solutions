@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     p = (n - 1) / n
     c = (m - 1) / m
