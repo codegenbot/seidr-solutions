@@ -8,9 +8,13 @@ def solve_boolean(expression):
         raise ValueError("Invalid operation")
     else:
         result = True
-        for char in expression:
-            if char == '&':
-                result &= (expression[expression.index(char) + 1] == 'T')
-            elif char == '|':
-                result |= (expression[expression.index(char) + 1] == 'T')
+        i = 0
+        while i < len(expression):
+            if expression[i] == '&':
+                i += 1
+                result &= (expression[i] == 'T')
+            elif expression[i] == '|':
+                i += 1
+                result |= (expression[i] == 'T')
+            i += 1
         return result
