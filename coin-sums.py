@@ -1,11 +1,9 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    output = []
-    
-    for coin in reversed(coins):
-        while cents >= coin:
-            cents -= coin
-            output.append(coin // 100)
-    
-    return output + [0] * (4 - len(output))
+    results = []
+    for i in range(4 + 1):
+        count = cents // coins[i]
+        if count > 0:
+            results.append(count)
+            cents %= coins[i]
+    return results
