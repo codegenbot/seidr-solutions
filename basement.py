@@ -1,6 +1,6 @@
-def basement(lst):
+def basement(indexes):
     total = 0
-    for i, num in enumerate(lst):
+    for i, num in enumerate(indexes):
         total += num
         if total < 0:
             return i
