@@ -4,7 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-print(gcd(73285, 266286))
+# test cases
 print(gcd(1, 1))
 print(gcd(4, 400000))
 print(gcd(54, 24))
