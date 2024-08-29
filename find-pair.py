@@ -1,13 +1,11 @@
-def find_pair(nums):
-    num_dict = {}
-    for num in nums[1:]:
-        complement = target - num
-        if complement in num_dict:
-            return str(num) + "\n" + str(complement)
-        num_dict[num] = True
-    return "No two sum up to the target value."
+Here's the Python solution:
 
+n = int(input())
+nums = [int(num) for num in input().split()]
+target_sum = int(input())
 
-target = int(input())
-nums = [int(x) for x in input().split()]
-print(find_pair([len(nums), *map(int, nums)]))
+for i in range(n):
+    for j in range(i + 1, n):
+        if nums[i] + nums[j] == target_sum:
+            print(nums[i])
+            print(nums[j])
