@@ -1,34 +1,26 @@
-```
-def bowling_score(game):
-    score = 0
-    frame_num = 1
-    for bowl in game:
-        if bowl == 'X':  # strike
-            score += 10 + (10 * frame_num)
-            frame_num += 1
-        elif bowl == '/':
-            first_bowl = int(game[game.index(bowl) - 1])
-            second_bowl = 10 - first_bowl
-            score += first_bowl + second_bowl
-            frame_num += 1
-        else:
-            if frame_num < 10: 
-                if len(bowls_to_score(frame_num)) == 2:
-                    first_bowl = int(bowl)
-                    second_bowl = 10 - first_bowl
-                    score += first_bowl + second_bowl
-                elif bowl != '0':
-                    score += int(bowl)                    
-            frame_num += 1    
-    return score
+Here is the solution:
 
-def bowls_to_score(frame):
-    result = []
-    for i in range(1, frame+1):
-        if game[i*10-1] == 'X' or game[(i*10)+9] == '/':
-            result.append('X')
+def bowling_score(rolls):
+    score = 0
+    roll_index = 0
+    for frame in range(1, 11):
+        if rolls[roll_index] == 'X':
+            score += 10 + (10 - int(rolls[roll_index+1].split('/')[0])) * 2
+            roll_index += 2
+        elif rolls[roll_index].split('/')[0] == '10':
+            score += 10 + int(rolls[roll_index+1].split('/')[0])
+            roll_index += 2
         else:
-            first_bowl = int(game[(i*10)-1])
-            second_bowl = 10 - first_bowl
-            result.extend([str(first_bowl), str(second_bowl)])
-    return result
+            strike = False
+            while not strike:
+                if rolls[roll_index].split('/')[0] != 'X' and int(rolls[roll_index].split('/')[0]) < 10:
+                    score += int(rolls[roll_index].split('/')[0])
+                    roll_index += 1
+                elif rolls[roll_index].split('/')[0] == '10':
+                    score += 10
+                    break
+                else:
+                    score += 10
+                    strike = True
+                    break
+    return score
