@@ -1,6 +1,6 @@
 def kebab_to_camel(s):
     return (
-        "".join(word.capitalize() for word in s.split("-"))
+        "".join(word.capitalize() for word in s.replace("-", " ").split())
         if " " not in s
-        else " ".join(word.capitalize() for word in s.split())
+        else s
     )
