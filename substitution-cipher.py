@@ -1,12 +1,12 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
-    i = j = 0
-    while i < len(message):
-        if j < len(cipher1) and message[i] == cipher1[j]:
-            result += cipher2[j]
-            j += 1
+    for char in message:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
+        elif char in cipher2:
+            index = cipher2.index(char)
+            result += cipher1[index]
         else:
-            result += message[i]
-        i += 1
+            result += char
     return result
