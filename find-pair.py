@@ -1,10 +1,12 @@
-def find_pair(n, nums):
-    seen = set()
-    for num in nums:
-        remaining = target - num
-        if remaining in seen:
-            return f"{num} {remaining}"
-        seen.add(num)
+Here is the solution in Python:
 
+def find_pair():
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return str(nums[i]) + '\n' + str(nums[j])
 
-print(find_pair(int(input()), [int(x) for x in input().split()]))
+print(find_pair())
