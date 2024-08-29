@@ -3,6 +3,6 @@ def shopping_list():
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
     total_price = sum(price - (price * discount) / 100 for price, discount in zip(prices, discounts))
-    return f"{total_price:.1f}"
+    return format(total_price, ".1f")
 
 print(shopping_list())
