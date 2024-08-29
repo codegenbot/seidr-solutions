@@ -1,3 +1,4 @@
+```Python
 def mastermind(code, guess):
     count_black = 0
     count_white = 0
