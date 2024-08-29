@@ -1,4 +1,3 @@
-```Python
 def bowling_score(s):
     score = 0
     i = 0
