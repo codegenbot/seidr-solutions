@@ -1,7 +1,10 @@
-def leaders(nums):
-    result = [nums[-1]]
-    for i in range(len(nums) - 2, -1, -1):
-        if nums[i] >= nums[-1]:
-            result.insert(0, nums[i])
-            nums[-1] = nums[i]
-    return result
+```
+def leaders(arr):
+    n = len(arr)
+    leaders_list = [arr[n - 1]]
+
+    for i in range(n - 2, -1, -1):
+        if max(arr[i:]) > arr[i]:
+            leaders_list.insert(0, arr[i])
+
+    return leaders_list
