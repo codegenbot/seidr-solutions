@@ -12,7 +12,5 @@ def coin_sums(cents):
     if cents <= 0:
         return [0, 0, 0, 0]
     return min(results, key=lambda x: (x[0] + x[1] + x[2] + x[3]))
-
-
 cents = int(input())
 print(*coin_sums(cents))
