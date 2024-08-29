@@ -1,34 +1,26 @@
-```
-def bowling_score(game):
+Here is the solution:
+
+def bowling_score(rolls):
     score = 0
-    roll = 0
-    frame = 1
-    while frame <= 10:
-        if game[roll] == 'X':
-            score += 30
-            roll += 1
-            frame += 1
-        elif game[roll:roll+2].isdigit():
-            strike_frame = int(game[roll:roll+2])
-            score += strike_frame
-            roll += 2
-            if frame < 10:
-                if game[roll] == 'X':
-                    score += 30
-                    roll += 1
-                    frame += 1
-                elif game[roll:roll+2].isdigit():
-                    spare_frame = int(game[roll:roll+2])
-                    score += spare_frame
-                    roll += 2
-                    frame += 1
+    roll_index = 0
+    for frame in range(1, 11):
+        if rolls[roll_index] == 'X':
+            score += 10 + (10 - int(rolls[roll_index+1].split('/')[0])) * 2
+            roll_index += 2
+        elif rolls[roll_index].split('/')[0] == '10':
+            score += 10 + int(rolls[roll_index+1].split('/')[0])
+            roll_index += 2
         else:
-            if game[roll] == '/':
-                bonus = 10 - int(game[roll-1])
-                score += bonus
-                roll += 3
-            elif game[roll:roll+2].isdigit():
-                score += int(game[roll:roll+2])
-                roll += 2
-                frame += 1
+            strike = False
+            while not strike:
+                if rolls[roll_index].split('/')[0] != 'X' and int(rolls[roll_index].split('/')[0]) < 10:
+                    score += int(rolls[roll_index].split('/')[0])
+                    roll_index += 1
+                elif rolls[roll_index].split('/')[0] == '10':
+                    score += 10
+                    break
+                else:
+                    score += 10
+                    strike = True
+                    break
     return score
