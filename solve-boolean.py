@@ -1,16 +1,17 @@
-Here's the solution:
+Here is the Python solution for the given problem:
 
-def solve_boolean(input_str):
-    stack = []
-    for char in input_str + '&':
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '|':
-            a, b = stack.pop(), stack.pop()
-            stack.append(a or b)
-        elif char == '&':
-            a, b = stack.pop(), stack.pop()
-            stack.append(a and b)
-    return stack[0]
+def solve(input_str):
+    if input_str == 'T':
+        return True
+    elif input_str == 'F':
+        return False
+    elif '&' in input_str:
+        result = True
+        for operand in input_str.split('&'):
+            result = result and bool(operand)
+        return result
+    elif '|' in input_str:
+        result = False
+        for operand in input_str.split('|'):
+            result = result or bool(operand)
+        return result
