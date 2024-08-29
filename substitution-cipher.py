@@ -1,14 +1,16 @@
-def substitution_cipher():
-    s1 = input().strip()
-    s2 = input().strip()
-    s3 = input().strip()
-
-    deciphered_message = ""
-    for char in s3:
-        if char in s1:
-            index = s1.index(char)
-            deciphered_message += s2[index]
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    result = ""
+    for char in message:
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            result += cipher_text2[index]
         else:
-            deciphered_message += char
+            result += char
+    return result
 
-    return deciphered_message
+
+# Test cases
+print(substitution_cipher("hello", "olleh", "hello"))  # Output: olleh
+print(substitution_cipher("jgh", "hjg", "jhj"))
+print(substitution_cipher("az", "za", "aaz"))  # Output: zz
+print(substitution_cipher("el", "le", "eeeee"))
