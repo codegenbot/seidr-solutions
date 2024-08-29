@@ -1,13 +1,9 @@
-```
-def substitution_cipher(cipher_key1, cipher_key2, message):
+def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
-        if char.isalpha():
-            if char.isupper():
-                base = ord('A')
-            else:
-                base = ord('a')
-            result += chr((ord(char) - base + (cipher_key2.index(cipher_key1[cipher_key2.index(char)]))) % 26 + base)
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
             result += char
     return result
