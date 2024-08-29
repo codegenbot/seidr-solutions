@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -6,17 +5,7 @@ def solve_boolean(expression):
         return False
     elif '&' in expression:
         left, right = expression.split('&')
-        if left.strip() == 'T' and right.strip() == 'T':
-            return True
-        elif left.strip() == 'T' or right.strip() == 'T':
-            return True
-        else:
-            return False
+        return not (solve_boolean(left) and solve_boolean(right)) if '|' in left or '|' in right else solve_boolean(left) and solve_boolean(right)
     elif '|' in expression:
         left, right = expression.split('|')
-        if left.strip() == 'F' and right.strip() == 'F':
-            return False
-        elif left.strip() == 'F' or right.strip() == 'F':
-            return False
-        else:
-            return True
+        return solve_boolean(left) or solve_boolean(right)
