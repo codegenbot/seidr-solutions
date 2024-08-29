@@ -1,20 +1,11 @@
-def solveBoolean(input_str):
-    if input_str == 'T':
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input_str == 'F':
+    elif expression == "F":
         return False
-    elif '&' in input_str and '|' in input_str:
-        for op in '&|':
-            if op in input_str:
-                if op == '&':
-                    a, b = input_str.split(op)
-                    return solveBoolean(a) and solveBoolean(b)
-                else:
-                    a, b = input_str.split(op)
-                    return solveBoolean(a) or solveBoolean(b)
-    elif '&' in input_str:
-        a, b = input_str.split('&')
-        return solveBoolean(a) and solveBoolean(b)
-    elif '|' in input_str:
-        a, b = input_str.split('|')
-        return solveBoolean(a) or solveBoolean(b)
+    elif "&" in expression:
+        a, b = expression.split("&")
+        return bool(solve_boolean(a) and solve_boolean(b))
+    elif "|" in expression:
+        a, b = expression.split("|")
+        return bool(solve.Boolean(solve_boolean(a)) or solve.Boolean(solve_boolean(b)))
