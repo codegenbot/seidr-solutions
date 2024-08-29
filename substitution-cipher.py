@@ -1,3 +1,11 @@
-def substitution_cipher(cipher_text1, cipher_text2, text):
-    mapping = {cipher_text1[i]: cipher_text2[i] for i in range(len(cipher_text1))}
-    return "".join([mapping.get(c, c) for c in text])
+def substitution_cipher(text1, text2, text3):
+    cipher = {}
+    for char1, char2 in zip(text1, text2):
+        cipher[char1] = char2
+    result = ""
+    for char in text3:
+        if char in cipher:
+            result += cipher[char]
+        else:
+            result += char
+    return result
