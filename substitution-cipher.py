@@ -1,11 +1,9 @@
-Here is the solution:
-
-def substitute_cipher(cipher_string1, cipher_string2, message):
+def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
-        if char in cipher_string1:
-            index = cipher_string1.index(char)
-            result += cipher_string2[index]
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
             result += char
     return result
