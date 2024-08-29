@@ -1,13 +1,24 @@
 def solve_boolean(expression):
-    if expression == "T":
+    def boolean_operator(operator, a, b):
+        if operator == "|":
+            return a or b
+        elif operator == "&":
+            return a and b
+
+    if expression == "t":
         return True
-    elif expression == "F":
+    elif expression == "f":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid operation")
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return not (solve_boolean(a) and solve_boolean(b))
-    elif "|" in expression:
-        a, b = expression.split("|")
-        return solve_boolean(a) or solve_boolean(b)
+    else:
+        result = True
+        i = 0
+        while i < len(expression):
+            if expression[i] in ["|", "&"]:
+                operator = expression[i]
+                a = expression[i - 1] == "t"
+                b = expression[i + 1] == "t"
+                result = boolean_operator(operator, a, b)
+                i += 2
+            else:
+                i += 1
+        return result
