@@ -1,5 +1,6 @@
+```
 def luhn(card_num):
-    card_num = [int(x) for x in str(card_num).replace(' ', '")]
+    card_num = [int(x) for x in str(card_num).replace(' ', '')]
     total_sum = 0
     for i, num in enumerate(card_num):
         if i % 2 == 1:
