@@ -9,5 +9,4 @@ def bouncing_balls():
 
     print(format(total_distance, ".4f"))
 
-
 bouncing_balls()
