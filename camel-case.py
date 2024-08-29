@@ -1,2 +1,6 @@
-def camel_case(input_string):
-    return ' '.join(word.capitalize() for word in input_string.split()) if '-' not in input_string else ' '.join(word[0].upper() + word[1:].lower() if i > 0 else word.lower() for i, word in enumerate(map(str.strip, input_string.split('-'))))
+Here is the solution:
+
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.split()) if '-' in s else s.replace('-', ' ').title()
+
+print(camel_case(input()))
