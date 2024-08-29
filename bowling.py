@@ -11,7 +11,7 @@ def bowling_score(game):
             score += strike
             roll += 1
         else:
-            first_roll, second_roll = map(int, frame)
+            first_roll, second_roll = map(int, frame.split(''))
             if first_roll == 10:
                 score += 10 + second_roll
                 roll += 2
