@@ -1,5 +1,14 @@
-def kebab_to_camel(kebab_string):
-    return "".join(
-        word.capitalize() if i > 0 else word
-        for i, word in enumerate(kebab_string.replace("-", " ").split())
+def kebab_to_camel(s):
+    return (
+        "".join(word.capitalize() for word in s.split(" ") if s.count("-") > 0)
+        .replace("-", " ")
+        .strip()
+        .replace(
+            " ", "".join(word.capitalize() for word in s.split(" ") if s.count("-") > 0)
+        )
+        .camelCase
     )
+
+
+input_str = input()
+print(kebab_to_camel(input_str))
