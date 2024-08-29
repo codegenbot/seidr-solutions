@@ -1,6 +1,7 @@
-```
-def basement(input_list):
-    for i in range(len(input_list)):
-        if sum(input_list[:i+1]) < 0:
+def basement(nums):
+    total_sum = 0
+    for i in range(len(nums)):
+        total_sum += nums[i]
+        if total_sum < 0:
             return i
     return -1
