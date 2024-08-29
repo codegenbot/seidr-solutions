@@ -5,12 +5,16 @@ def mastermind(code, guess):
 
     black_pegs = 0
     white_pegs = 0
-    code_chars = [char for char in code]
-    for i, char in enumerate(guess):
-        if code[i] == char:
+    for i in range(4):
+        if code[i] == guess[i]:
             black_pegs += 1
-        elif code_counts[ord(char) - ord("A")] > 0 and char not in code_chars[:i]:
-            code_counts[ord(char) - ord("A")] -= 1
+        elif code_counts[ord(guess[i]) - ord("A")] > 0:
+            code_counts[ord(guess[i]) - ord("A")] -= 1
             white_pegs += 1
+
+    for i in range(6):
+        if code_counts[i] > 0:
+            white_pegs += code_counts[i]
+            code_counts[i] = 0
 
     return str(white_pegs) + "\n" + str(black_pegs)
