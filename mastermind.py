@@ -1,17 +1,7 @@
-def get_clue(code, guess):
-    black = 0
-    white = 0
+def mastermind(code, guess):
     code_count = [0] * 6
-    guess_count = [0] * 6
-
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        else:
-            code_count[ord(code[i]) - ord("A")] += 1
-            guess_count[ord(guess[i]) - ord("A")] += 1
-
-    for i in range(6):
-        white = min(white + code_count[i], guess_count[i])
-
-    return str(black) + "\n" + str(white)
+    for c in code:
+        code_count[ord(c) - 65] += 1
+    black_pegs = sum([min(code_count[ord(c) - 65], guess.count(c)) for c in guess])
+    white_pegs = len(guess) - black_pegs
+    return str(white_pegs), str(black_pegs)
