@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     s_height = float(input())
     first_bounce = float(input())
