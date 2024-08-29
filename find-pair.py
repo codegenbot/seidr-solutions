@@ -1,10 +1,16 @@
-def find_pair(n, numbers):
-    for i in range(n):
-        for j in range(i + 1, n):
-            if numbers[i] + numbers[j] == int(input()):
-                return f"{numbers[i]} {numbers[j]}"
+Here's the solution:
+
+def find_pair(n, nums):
+    seen = {}
+    for num in nums:
+        if num * -1 in seen:
+            return str(num) + '\n' + str(num*-1)
+        else:
+            seen[num] = True
     return "No pair found"
 
-
-n = int(input())
-print(find_pair(n, list(map(int, input().split()))))
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    nums = list(map(int, input().split()))
+    print(find_pair(n, nums))
