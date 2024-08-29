@@ -1,11 +1,11 @@
 def solve_boolean(s):
-    if s == "T":
-        return True
-    elif s == "F":
-        return False
-    elif "&" in s:
-        a, b = s.split("&")
-        return solve_boolean(b) and solve_boolean(a)
-    elif "|":
-        a, b = s.split("|", 1)
-        return solve_boolean(b) or solve_boolean(a)
+    while "&" in s or "|" in s:
+        if "&" in s and "|" in s:
+            raise ValueError("Invalid expression")
+        elif "&" in s:
+            a, b = s.split("&")
+            s = str(bool(a)) + b
+        elif "|" in s:
+            a, b = s.split("|")
+            s = str(bool(a)) + b
+    return eval(s)
