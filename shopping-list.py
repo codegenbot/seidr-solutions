@@ -7,4 +7,5 @@ def shopping_list():
     )
     return round(total_price, 2)
 
+
 print(shopping_list())
