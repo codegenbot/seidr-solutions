@@ -10,6 +10,6 @@ def bowling_score(frames):
         else:
             score += 10
             roll += 1
-            if roll < 10 and (frames_list.index(str(frame)) + 1 < len(frames_list) and str(frame)[0].isdigit()):
-                score += int(str(frame)[0])
+            if roll < 10 and (frames_list.index(str(frame)) + 1 < len(frames_list) and str(frame)[1].isdigit()):
+                score += int(str(frame)[1])
     return score
