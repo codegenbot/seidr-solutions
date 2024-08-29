@@ -6,20 +6,23 @@ def bowling_score(frames):
         if frames[i] == "X":
             score += 10
             i += 1
-            if i < len(frames) and frames[i] in "/X":
-                score += int(frames[i])
-                i += 1
-            elif i < len(frames):
-                score += int(frames[i])
+            if i < len(frames) and frames[i] == "X":
+                score += 10 + int(frames[i+1])
                 i += 2
+            elif i < len(frames) and frames[i] == "/":
+                score += 10 + int(frames[i+1])
+                i += 2
+            else:
+                score += 10 + int(frames[i+1]) + int(frames[i+2])
+                i += 3
         elif frames[i] == "/":
-            score += 10
-            i += 1
-            if i < len(frames) and frames[i] in "123456789":
-                score += int(frames[i])
-                i += 1
-        else:
-            frame_score = int(frames[i]) + (0 if i+1 >= len(frames) or frames[i+1] in "/X" else int(frames[i+1]))
-            score += frame_score
+            score += 10 + int(frames[i+1])
             i += 2
+        else:
+            if len(frames) > i+1 and frames[i+1] == "X" or frames[i+1] == "/":
+                score += 10 + int(frames[i])
+                i += 2
+            else:
+                score += 10 + int(frames[i]) + int(frames[i+1])
+                i += 2
     return score
