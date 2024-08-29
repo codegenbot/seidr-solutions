@@ -1,4 +1,3 @@
-```
 def bowling_score(s):
     score = 0
     frames = [int(x) if x.isdigit() else 10 if x == 'X' else 10 - i for i, x in enumerate(s) if x != '-']
