@@ -7,9 +7,14 @@ def solve_boolean(expression):
         raise ValueError("Invalid expression")
     else:
         result = True
+        op = None
         for char in expression:
-            if char == '&':
-                result &= eval(input("Enter a boolean value (T/F): "))
+            if char == 'T':
+                result = True
+            elif char == 'F':
+                result = False
+            elif char == '&':
+                op = &
             elif char == '|':
-                result |= eval(input("Enter a boolean value (T/F): "))
-        return result
+                op = |
+        return eval(f"result {op}")
