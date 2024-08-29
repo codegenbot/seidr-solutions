@@ -7,3 +7,5 @@ def bouncing_balls():
     total_distance = ((2 ** num_bounces) + (2 ** (num_bounces - 1))) * start_height
 
     return f"{total_distance:.6f}"
+
+print(bouncing_balls())
