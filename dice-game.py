@@ -1,2 +1,5 @@
-def dice_game(n, m):
-    return 1 - (n + m - 2) / (n * m)
+n = int(input())
+m = int(input())
+
+p = n / (n + m)
+print(f"{p:.4f}")
