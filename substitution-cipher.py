@@ -1,16 +1,11 @@
 ```
-def decipher_cipher(cipher_string1, cipher_string2, message):
-    cipher_map = {}
-    for i in range(len(cipher_string1)):
-        if cipher_string1[i] != cipher_string2[i]:
-            continue
-        cipher_map[cipher_string1[i]] = cipher_string2[i]
-
-    deciphered_message = ""
+def decipher_cipher(cipher_a, cipher_b, message):
+    result = ""
     for char in message:
-        if char in cipher_map:
-            deciphered_message += cipher_map[char]
+        if char in cipher_a:
+            for i in range(len(cipher_a)):
+                if cipher_a[i] == char:
+                    result += cipher_b[i]
         else:
-            deciphered_message += char
-
-    return deciphered_message
+            result += char
+    return result
