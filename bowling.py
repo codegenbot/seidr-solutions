@@ -14,15 +14,14 @@ def bowling_score(game):
                 score += first_roll + second_roll
                 roll += 2
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1:])
+            first_roll, second_roll, third_roll = map(int, frame)
             if first_roll == 10:
-                score += 10 + second_roll
-                roll += 2
+                score += 10 + second_roll + third_roll
+                roll += 3
             elif second_roll == 10:
                 score += first_roll + 10
                 roll += 2
             else:
-                score += first_roll + second_roll
-                roll += 2
+                score += first_roll + second_roll + third_roll
+                roll += 3
     return score
