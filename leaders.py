@@ -3,7 +3,6 @@ def leaders(arr):
     leaders_list = [arr[n - 1]]
 
     for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[i + 1]:
-            leaders_list.insert(0, arr[i])
+        leaders_list.append(arr[i] if arr[i] >= arr[i + 1] else None)
 
-    return leaders_list
+    return [x for x in reversed(leaders_list) if x is not None]
