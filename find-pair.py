@@ -1,16 +1,13 @@
-Here's the solution:
-
-def find_pair(n, nums):
-    seen = {}
-    for num in nums:
-        if num * -1 in seen:
-            return str(num) + '\n' + str(num*-1)
-        else:
-            seen[num] = True
-    return "No pair found"
-
-t = int(input())
-for _ in range(t):
+def find_pair():
     n = int(input())
-    nums = list(map(int, input().split()))
-    print(find_pair(n, nums))
+    pairs = [list(map(int, input().split())) for _ in range(n)]
+    target = int(input())
+
+    for pair in pairs:
+        if sum(pair) == target:
+            return " ".join(map(str, pair))
+
+    return "No such pair found"
+
+
+print(find_pair())
