@@ -1,14 +1,9 @@
 def mastermind(code, guess):
-    count_black = 0
-    count_white = 0
-    code_counts = [0] * 6
+    white = 0
+    black = 0
     for i in range(4):
         if code[i] == guess[i]:
-            count_black += 1
-        else:
-            code_counts[ord(guess[i]) - ord("A")] += 1
-    for i in range(4):
-        if code[i] != guess[i] and code_counts[ord(code[i]) - ord("A")] > 0:
-            count_white += 1
-            code_counts[ord(code[i]) - ord("A")] -= 1
-    return str(count_black) + "\n" + str(count_white)
+            black += 1
+        elif code.count(guess[i]) > 0:
+            white += 1
+    return str(black) + "\n" + str(white)
