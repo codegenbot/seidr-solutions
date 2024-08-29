@@ -10,6 +10,9 @@ def bouncing_balls():
     for _ in range(num_bounces):
         total_distance += 2 * height
         height *= bounciness_index
-        height *= bounciness_index
+        height *= bounciness_index  # <--- Add this line
 
     print(format(total_distance, ".4f"))
+
+
+bouncing_balls()
