@@ -4,7 +4,7 @@ def find_pair():
     target = int(input())
     num_dict = {}
     for i in range(len(nums)):
-        if target - nums[i] in num_dict:
-            return f"{target - nums[i]} {nums[i]}"
+        if (target - nums[i]) in num_dict:
+            print(f"{target - nums[i]} {nums[i]}")
         else:
             num_dict[nums[i]] = i
