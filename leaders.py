@@ -1,3 +1,3 @@
 ```
 def leaders(input):
-    return [x for x in reversed(input) if all(x >= y for y in input[input.index(x) + 1:])]
+    return [x for i, x in reversed(list(enumerate(input))) if all(x >= input[j] for j in range(i + 1, len(input)))]
