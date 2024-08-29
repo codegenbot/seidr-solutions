@@ -1,18 +1,18 @@
-def bowling_score(s):
+def bowling_game(game):
+    frames = game.split("/")
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit():
-            x = int(s[i])
-            if i + 1 < len(s) and s[i + 1].isdigit():
-                y = int(s[i + 1])
-                score += min(x, 10) + min(y, 10)
-            else:
-                score += min(x, 10) + 10
-        elif s[i] == "X":
-            score += 10 + (10 if frame < 9 else 0)
-            frame += 1
-        elif s[i] == "-":
-            score += 10
-        frame += 1
+    for i, frame in enumerate(frames):
+        if frame.isdigit():
+            strike_or_spare = None
+            score += int(frame)
+            if i < len(frames) - 1 and frames[i + 1].isdigit():
+                strike_or_spare = "strike"
+            elif i < len(frames) - 2 and frames[i + 2].isdigit():
+                strike_or_spare = "spare"
+            if strike_or_spare:
+                score += int(
+                    next(frame for frame in frames[i + 1 : i + 3] if frame.isdigit())
+                )
+        else:
+            score += int(frame[0])
     return score
