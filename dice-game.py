@@ -1,8 +1,2 @@
-def roll_prob(n, m):
-    return (n - m) / (n + m - 1)
-
-
-n = int(input())
-m = int(input())
-
-print(roll_prob(n, m))
+def dice_game(n, m):
+    return (n - 1) / (n + m - 2)
