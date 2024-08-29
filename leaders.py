@@ -1,9 +1,2 @@
 def leaders(arr):
-    n = len(arr)
-    leaders_list = [arr[n - 1]]
-    
-    for i in range(n-2, -1, -1):
-        if arr[i] >= min(arr[i+1:]):
-            leaders_list.insert(0, arr[i])
-            
-    return leaders_list
+    return [x for i, x in reversed(list(enumerate(arr))) if all(y <= x for y in arr[:i]) and all(x >= y for y in arr[i + 1 :])]
