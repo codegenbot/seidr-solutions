@@ -1,7 +1,15 @@
-def find_pair(n):
-    nums = [int(x) for x in input().split()]
-    target = int(input())
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return "{}\n{}".format(nums[i], nums[j])
+def find_pair(target):
+    n = int(input())
+    nums = list(map(int, input().split()))
+    nums.sort()
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        if current_sum == target:
+            print(*[str(nums[left]), str(nums[right])])
+            break
+        elif current_sum < target:
+            left += 1
+        else:
+            right -= 1
