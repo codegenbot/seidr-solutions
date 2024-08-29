@@ -1,2 +1,7 @@
-def snow_day(hours, initial_snow, snow_fall_rate, melting_rate):
-    return round(initial_snow + hours * snow_fall_rate - hours * melting_rate, 6)
+def snow_day(hours, initial_snow, rate_of_fall, melt_rate):
+    total_snow = initial_snow
+    for _ in range(hours):
+        total_snow += rate_of_fall
+        if total_snow > 0:
+            total_snow *= 1 - melt_rate
+    return round(total_snow, 6)
