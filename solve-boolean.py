@@ -4,8 +4,6 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression:
-        left, right = expression.split("&")
-        return not (bool(solve_boolean(left)) and bool(solve_boolean(right)))
+        return all(c == "T" for c in expression)
     elif "|" in expression:
-        left, right = expression.split("|")
-        return bool(solve_boolean(left)) or bool(solve_boolean(right))
+        return any(c == "T" for c in expression)
