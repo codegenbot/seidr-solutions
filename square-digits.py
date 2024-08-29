@@ -1,5 +1,5 @@
-```
-def square_digits(n):
-    return ''.join(str(int(i) ** 2) for i in str(n))
+def main():
+    def square_digits(n):
+        return ''.join(str(int(i) ** 2) for i in str(n))
 
-print(square_digits(91109))
+    print(square_digits(91109))
