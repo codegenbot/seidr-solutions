@@ -7,7 +7,7 @@ def bowling_score(bowling_input):
             score += 10
         else:
             first_roll = int(roll[0])
-            second_roll = int(roll[-1])
+            second_roll = int(roll[-1])  # Changed to [1] as you want the last character
             if first_roll + second_roll == 10:
                 score += 10
             elif first_roll == 10:
