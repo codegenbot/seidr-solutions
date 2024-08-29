@@ -1,5 +1,3 @@
-Here is the solution:
-
 def basement(arr):
     total = 0
     for i in range(len(arr)):
