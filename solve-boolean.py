@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def eval_expression(expression):
         if expression == "T":
