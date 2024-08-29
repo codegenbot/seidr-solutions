@@ -1,2 +1,11 @@
+Here is the solution:
+
 def leaders(arr):
-    return [x for i, x in enumerate(reversed(arr)) if all(y <= x for y in arr[i + 1 :])]
+    return [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:])]
+
+# test cases
+print(leaders([0]))
+print(leaders([1, 0]))
+print(leaders([1, 451]))
+print(leaders([2, 1000, 0]))
+print(leaders([2, 0, 1000]))
