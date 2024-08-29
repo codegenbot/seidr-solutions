@@ -1,18 +1,14 @@
-Here is the Python solution for the problem:
+try:
+    a = int(input())
+    b = int(input())
 
-def gcd(m, n):
-    while n:
-        m, n = n, m % n
-    return abs(m)
+    print(gcd(a, b))
 
-def indices_of_substring(text, target):
-    result = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos != -1:
-            result.append(pos)
-            start = pos + 1
-        else:
-            break
-    return result
+    text = input()
+    target = input()
+
+    print(indices_of_substring(text, target))
+except ValueError:
+    print("Invalid input. Please enter valid integers for GCD calculation.")
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
