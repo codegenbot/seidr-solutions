@@ -1,4 +1,6 @@
-Here is the Python solution for the problem:
-
-def dice_game(n, m):
-    return (n-1) / (n*m - 1) if n > m else (m-1) / (n*m - 1)
+def solve():
+    n = int(input())
+    m = int(input())
+    if n < m:
+        return 0.0
+    return (n - 1) / (n * m)
