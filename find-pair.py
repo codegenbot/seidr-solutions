@@ -7,4 +7,5 @@ def find_pair(target):
             return "{} {}".format(complement, num)
         num_set.add(num)
 
+
 print(find_pair(int(input())))
