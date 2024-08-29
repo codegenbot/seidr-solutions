@@ -1,9 +1,5 @@
-Here is the Python solution for the problem:
-
-def basement_index(arr):
-    total = 0
-    for i in range(len(arr)):
-        total += arr[i]
-        if total < 0:
+def basement(input_list):
+    for i in range(len(input_list)):
+        if sum(input_list[: i + 1]) < 0:
             return i
     return -1
