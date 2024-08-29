@@ -1,28 +1,33 @@
-```
 def bowling_score(frames):
     score = 0
-    i = 0
-    while i < len(frames):
+    prev_frame = None
+    frame_scores = []
+    for i in range(0, len(frames), 2):
         if frames[i] == "X":
-            score += 10
-            i += 1
-            if i < len(frames) and frames[i] == "X":
-                score += 10 + int(frames[i+1])
-                i += 2
-            elif i < len(frames) and frames[i] == "/":
-                score += 10 + int(frames[i+1])
-                i += 2
-            else:
-                score += 10 + int(frames[i+1]) + int(frames[i+2])
-                i += 3
+            if i < 9:
+                if frames[i + 1] == "/":
+                    score += 10
+                    frame_scores.append(10)
+                else:
+                    score += (
+                        10
+                        + int(frames[i + 1])
+                        + (int(frames[i + 2]) if i + 2 < len(frames) else 0)
+                    )
+                    frame_scores.append(10 + int(frames[i + 1]))
+            elif i == len(frames) - 2 or frames[i + 1] == "X":
+                score += 10 + 10 + (int(frames[i + 2]) if i + 2 < len(frames) else 0)
+                frame_scores.append(
+                    20 + int(frames[i + 2]) if i + 2 < len(frames) else 20
+                )
         elif frames[i] == "/":
-            score += 10 + int(frames[i+1])
-            i += 2
+            score += 10 + int(frames[i + 1])
+            frame_scores.append(10 + int(frames[i + 1]))
         else:
-            if len(frames) > i+1 and frames[i+1] == "X" or frames[i+1] == "/":
+            if i < 9 and frames[i + 1] != "X" and frames[i + 1] != "/":
+                score += 10 + int(frames[i]) + int(frames[i + 1])
+                frame_scores.append(10 + int(frames[i]) + int(frames[i + 1]))
+            elif i == len(frames) - 2 or (i < 9 and frames[i + 1] == "X"):
                 score += 10 + int(frames[i])
-                i += 2
-            else:
-                score += 10 + int(frames[i]) + int(frames[i+1])
-                i += 2
+                frame_scores.append(10 + int(frames[i]))
     return score
