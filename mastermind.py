@@ -1,4 +1,3 @@
-```Python
 def mastermind(code, guess):
     code_counts = [0] * 6
     for char in code:
