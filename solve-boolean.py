@@ -6,6 +6,6 @@ def solve_boolean(s):
     elif "&" in s:
         a, b = s.split("&")
         return solve_boolean(b) and solve_boolean(a)
-    elif "|" in s:
-        a, b = s.split("|")
+    elif "|":
+        a, b = s.split("|", 1)
         return solve_boolean(b) or solve_boolean(a)
