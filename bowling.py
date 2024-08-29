@@ -1,36 +1,40 @@
 ```
 def bowling_score(game):
     score = 0
-    frame = 1
-    for i in range(0, len(game), 2):
-        if game[i] == 'X':
-            if frame < 10:
-                score += 30
+    roll = 0
+    for frame in game.split('/'):
+        if len(frame) == 1:
+            if int(frame) == 10:
+                score += 10 + 10
+                continue
             else:
-                score += 10
-            frame += 1
-        elif game[i] == '/':
-            first_roll = int(game[:i].count('X')) * 10 + int(game[:i].count('/')) * 10 // 2
-            second_roll = 10 - first_roll
-            if frame < 9:
+                score += int(frame)
+                roll += 1
+        elif len(frame) == 2:
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            if first_roll + second_roll == 10:
                 score += first_roll + second_roll
+                roll += 1
             else:
-                score += first_roll + max(second_roll, 10)
-            frame += 1
+                score += first_roll
+                roll += 1
+                if second_roll != 0:
+                    if roll < 9:
+                        third_roll = int(game[game.index(frame) + len(frame) + 1])
+                        if third_roll == 10:
+                            score += second_roll + third_roll
+                            roll += 2
+                        else:
+                            score += second_roll + third_roll
+                            roll += 3
+                    else:
+                        score += second_roll
         else:
-            first_roll = int(game[i])
-            second_roll = 10 - int(first_roll)
-            if frame == 10:
-                if game[i+1] != 'X':
-                    score += first_roll + min(second_roll, int(game[i+1]))
-                else:
-                    score += first_roll + 10
-            elif frame < 9:
-                score += first_roll + second_roll
-            else:
-                if game[i+1] == 'X':
-                    score += first_roll + 10
-                else:
-                    score += first_roll + min(second_roll, int(game[i+1]))
-            frame += 1
+            first_roll = int(frame[0])
+            second_roll = int(frame[1])
+            third_roll = int(frame[2])
+            if first_roll + second_roll + third_roll == 30:
+                score += first_roll + second_roll + third_roll
+                roll += 3
     return score
