@@ -1,15 +1,19 @@
-def bowling_score(game):
+```
+def bowling_score(s):
     score = 0
-    roll = [int(x) if x.isdigit() else 10 if x == "X" else 0 for x in game]
-    frame = []
-    while roll:
-        frame.append(roll[:2] or [0, 0])
-        roll = roll[1:]
-    for i, f in enumerate(frame):
-        score += sum(f)
-        if f[0] + f[1] == 10:
-            try:
-                score += frame[i + 1][0]
-            except IndexError:
-                pass
+    strike_count = 0
+    for i in range(0, len(s), 1):
+        if s[i] == "X":
+            score += 10
+            strike_count += 1
+        elif s[i] == "/":
+            score += 10
+        else:
+            if s[i].isdigit():
+                if strike_count > 0:
+                    strike_count -= 1
+                elif i < len(s) - 1 and s[i + 1].isdigit():
+                    score += int(s[i:i+2])
+                else:
+                    score += int(s[i])
     return score
