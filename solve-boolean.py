@@ -1,11 +1,11 @@
-def solve.Boolean(expression):
-    if expression == 'T':
+def solve_boolean(bool_expr):
+    if bool_expr == "T":
         return True
-    elif expression == 'F':
+    elif bool_expr == "F":
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve.Boolean(left) and solve.Boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve.Boolean(left) or solve.Boolean(right)
+    elif "&" in bool_expr:
+        a, b = bool_expr.split("&")
+        return bool(a) and bool(b)
+    else:
+        a, b = bool_expr.split("|")
+        return bool(a) or bool(b)
