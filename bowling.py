@@ -1,21 +1,28 @@
 ```
-def bowling_game(score_string):
-    frames = [list(map(int, list(filter(str.isdigit, frame)))) for frame in re.split('[-\/X]', score_string)]
-    total_score = 0
-    frame_num = 1
-    for i in range(len(frames)):
-        if len(frames[i]) == 2 and max(frames[i]):
-            if frames[i][0] + frames[i][1] < 10:
-                total_score += max(frames[i])
-            else:
-                total_score += 10
-        elif len(frames[i]) == 1:
-            total_score += frames[i][0]
+def bowling_game(frames):
+    score = 0
+    roll = 0
+    for i in range(10):
+        if frames[i].isdigit():
+            roll += int(frames[i])
         else:
-            strike = 10 - frames[i-1][0]
-            if i > 1 and frames[i-2].count(10):
-                total_score += strike + max(frames[i])
-            else:
-                total_score += strike
-        frame_num += 1
-    return total_score
+            if roll > 0:
+                score += 10 + roll
+                roll = 0
+            elif frames[i] == 'X':
+                score += 10
+                roll = 0
+            elif '-' in frames[i]:
+                split_frames = frames[i].split('-')
+                left_split, right_split = map(int, split_frames)
+                if right_split < 10:
+                    score += left_split + right_split
+                else:
+                    score += 10 + left_split
+                    roll = right_split - 10
+            elif '/':
+                split_frames = list(map(int, frames[i].split('/')))
+                score += sum(split_frames)
+    if roll > 0:
+        score += roll
+    return score
