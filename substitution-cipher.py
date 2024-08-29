@@ -1,13 +1,10 @@
-def decipher(input_cipher, target):
-    deciphered = ""
-    for char in target:
-        if len(input_cipher) > 0 and len(input_cipher[0]) > 0:
-            index = ord(char) - ord("a")
-            deciphered += input_cipher[1][index % len(input_cipher[1])]
+```
+def decipher_cipher(cipher_a, cipher_b, message):
+    mapping = {cipher_a[i]: cipher_b[i] for i in range(min(len(cipher_a), len(cipher_b)))}
+    result = ""
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
         else:
-            deciphered += char
-    return deciphered
-
-
-cipher_input, cipher_output, target_message = input().split()
-print(decipher(cipher_input + cipher_output, target_message))
+            result += char
+    return result
