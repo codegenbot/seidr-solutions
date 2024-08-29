@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     global previous_char
     previous_char = ''
@@ -15,4 +16,4 @@ def solve_boolean(expression):
             global previous_char; previous_char = char
         return result
 
-print(solve_boolean('f|t&f|t|t|t&t|t'))
+print(solve_boolean('f|t&f|t|t|t&t|t'))  # Returns True
