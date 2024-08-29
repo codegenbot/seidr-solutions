@@ -1,3 +1,2 @@
-```
-def square_digits(n):
-    return "".join(str((ord(c) - 48) ** 2) for c in str(n))
+def square_digits(n): 
+    return "".join(str((int(i) - 48)**2) for i in str(n))
