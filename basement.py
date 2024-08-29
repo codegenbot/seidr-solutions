@@ -1,7 +1,4 @@
-Here is the Python solution:
-
-def basement(arr):
-    for i in range(len(arr)):
-        total = sum(arr[:i+1])
-        if total < 0:
+def basement(v):
+    for i in range(len(v)):
+        if sum(v[:i+1]) < 0:
             return i
