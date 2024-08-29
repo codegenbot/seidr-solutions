@@ -1,10 +1,10 @@
 ```
 def substitution_cipher(cipher1, cipher2, message):
-    result = ""
+    deciphered_message = ""
     for char in message:
-        if char.isalpha():
-            index = ord(char.upper()) - 65 if char.isupper() else ord(char.lower()) - 97
-            result += cipher2[index] if char.isupper() else cipher2[index].lower()
+        if char in cipher1:
+            index = cipher1.index(char)
+            deciphered_message += cipher2[index]
         else:
-            result += char
-    return result
+            deciphered_message += char
+    return deciphered_message
