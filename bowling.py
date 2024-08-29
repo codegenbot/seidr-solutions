@@ -1,26 +1,21 @@
+```
 def bowling_score(frames):
     score = 0
-    frame_scores = []
     for i in range(0, len(frames), 2):
-        if frames[i] == "X":
-            if i < 9:
-                if frames[i + 1] == "/":
-                    score += 30
-                    frame_scores.append(30)
-                else:
-                    score += 10 + int(frames[i + 1])
-                    frame_scores.append(10 + int(frames[i + 1]))
-        elif frames[i] == "/":
-            score += 10 + int(frames[i + 1])
-            frame_scores.append(10 + int(frames[i + 1]))
+        if frames[i] == 'X':
+            score += 30
+        elif frames[i] == '/':
+            score += 10 + int(frames[i+1])
         else:
-            if i < 9 and frames[i + 1] != "X" and frames[i + 1] != "/":
-                score += 10 + int(frames[i]) + int(frames[i + 1])
-                frame_scores.append(10 + int(frames[i]) + int(frames[i + 1]))
-            elif i < 9:
-                score += 10 + int(frames[i])
-                frame_scores.append(10 + int(frames[i]))
-    if len(frame_scores) == 10 and sum(frame_scores) == 300:
-        return 300
-    else:
-        return score
+            frame_score = 0
+            for j in range(int(frames[i])):
+                if frames[i+j+1] == 'X':
+                    frame_score += 10 + (10 - j)
+                    break
+                elif frames[i+j+1] == '/':
+                    frame_score += 10 + int(frames[i+j+2]) - j
+                    break
+                else:
+                    frame_score += int(frames[i+j+1])
+            score += frame_score
+    return score
