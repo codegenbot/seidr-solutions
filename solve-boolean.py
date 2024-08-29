@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     def eval_expression(expression):
         if expression == "T":
@@ -11,7 +10,5 @@ def solve_boolean(expression):
         elif "|" in expression:
             a, b = expression.split("|")
             return eval_expression(a) or eval_expression(b)
-        else:
-            return bool(int(expression))
 
     return eval_expression(expression)
