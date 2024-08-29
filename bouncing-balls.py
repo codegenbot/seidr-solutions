@@ -1,4 +1,10 @@
-bouncing_balls = lambda: [float(input()) for _ in range(2)] + [int(input())]
-bounciness_index, height_after_first_bounce, num_bounces = bouncing_balls()
-total_distance = ((1 + bounciness_index) ** num_bounces - 1) / bounciness_index
-print(format(total_distance, ".6g"))
+def bouncing_balls(start_height, first_bounce, num_bounces):
+    bounciness = first_bounce / start_height
+    total_distance = 0
+    height = first_bounce
+
+    for _ in range(num_bounces - 1):
+        height *= bounciness
+        total_distance += 2 * height
+
+    return str(format(total_distance, ".3f"))
