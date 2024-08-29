@@ -1,4 +1,3 @@
-```
 def basement(arr):
     total = sum(arr)
     if total < 0:
