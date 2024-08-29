@@ -14,3 +14,5 @@ def solve_boolean(expression):
                 result |= (previous_char == 'T')
             global previous_char; previous_char = char
         return result
+
+print(solve_boolean('f|t&f|t|t|t&t|t'))
