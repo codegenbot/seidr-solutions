@@ -1,2 +1,6 @@
-def roll_probability(n, m):
-    return (m - 1) / n if m < n else 1 - (n - 1) / m
+def dice_game(n, m):
+    if n < m:
+        return 0.0
+    if m < n:
+        return (n - m) / (n)
+    return 0.5
