@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     if len(vector) == 1:
         return [vector], []
@@ -15,4 +14,4 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
 
-    return vector[: cut_index + 1], vector[cut_index:]
+    return vector[:cut_index + 1], vector[cut_index:]
