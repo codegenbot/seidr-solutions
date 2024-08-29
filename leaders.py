@@ -1,3 +1,4 @@
+Here is a Python function that solves the problem:
+
 def leaders(a):
-    n = len(a)
-    return [a[i] for i in range(n) if all(x <= a[i] for x in a[i + 1 :])]
+    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
