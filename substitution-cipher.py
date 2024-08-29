@@ -1,4 +1,11 @@
-def decipher(cipher_a, cipher_b, text):
-    mapping = {char: cipher_b[i] for i, char in enumerate(cipher_a)}
-    result = "".join(mapping.get(char, char) for char in text)
+def substitution_cipher(cipher_text1, cipher_text2, text):
+    result = ""
+    for char in text:
+        if char.isalpha():
+            ascii_offset = 97 if char.islower() else 65
+            result += chr(
+                (ord(cipher_text1[text.index(char)]) - ascii_offset) % 26 + ascii_offset
+            )
+        else:
+            result += char
     return result
