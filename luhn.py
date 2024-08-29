@@ -1,12 +1,10 @@
-Here is the solution:
-
-def luhn(card_number):
-    total = 0
-    for i in range(len(card_number)):
-        digit = int(card_number[16-i-1])
+def luhn(card_num):
+    card_num = [int(i) for i in str(card_num).replace(" ", "")]
+    res = 0
+    for i, v in enumerate(card_num):
         if i % 2 == 1:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        total += digit
-    return total
+            v *= 2
+            if v > 9:
+                v -= 9
+        res += v
+    return res
