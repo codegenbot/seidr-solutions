@@ -1,11 +1,6 @@
-def substitution_cipher(cipher_map, message):
-    return "".join(
-        [cipher_map[i] if i < len(cipher_map) else "" for i in range(len(message))]
-    )
-
-
-cipher1 = input()
-cipher2 = input()
-message = input()
-
-print(substitution_cipher(cipher2, cipher1))
+def decipher_cipher(cipher_key1, cipher_key2, message):
+    key = {
+        cipher_key1[i]: cipher_key2[i]
+        for i in range(min(len(cipher_key1), len(cipher_key2)))
+    }
+    return "".join(key.get(char) if char in key else char for char in message)
