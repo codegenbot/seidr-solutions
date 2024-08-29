@@ -27,3 +27,5 @@ def bowling_score(s):
                 s = s[2:]
         frame += (1 if s[0] in ['/X'] else 2)
     return score
+
+print(bowling_score(input("Enter the string representing the individual bowls in a 10-frame round of 10 pin bowling: ")))
