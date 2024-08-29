@@ -1,2 +1,4 @@
-def paired_digits(s):
-    return sum(int(digit) for digit in s if digit * 2 in s)
+def paired_digits(digits):
+    return sum(
+        int(digit) for i, digit in enumerate(digits) if i > 0 and digit == digits[i - 1]
+    )
