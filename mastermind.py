@@ -1,7 +1,7 @@
 def mastermind(code, guess):
     code_counts = [0] * 6
     code_dict = {}
-    
+
     for char in code:
         if char not in code_dict:
             code_dict[char] = 1
@@ -11,7 +11,7 @@ def mastermind(code, guess):
 
     black_pegs = 0
     white_pegs = 0
-    
+
     for c, g in zip(code, guess):
         if c == g:
             black_pegs += 1
