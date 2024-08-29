@@ -1,2 +1,3 @@
-def leaders(a):
-    return [x for i, x in enumerate(reversed(a)) if all(x >= a[j] for j in range(i+1, len(a)))]
+def leaders(arr):
+    leaders = [arr[i] for i in range(len(arr)-1,-1,-1) if all(j <= arr[i] for j in arr[i+1:])]
+    return leaders
