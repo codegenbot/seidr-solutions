@@ -1,34 +1,25 @@
 def bowling_score(frames):
     score = 0
-    next_frame = ""
-    for i in range(len(frames)):
+    frame_scores = []
+    i = 0
+    while i < len(frames):
         if frames[i] == "X":
             score += 10
+            frame_scores.append(10)
             if i < len(frames) - 1:
-                next_frame = frames[i + 1]
-                if next_frame == "X":
-                    score += 10
-                    next_frame = frames[i + 2]
-                elif next_frame == "/":
-                    score += 10
-                    next_frame = frames[i + 3]
-                else:
-                    score += int(next_frame)
+                score += int(frames[i + 1].replace("/", ""))
+                frame_scores.append(int(frames[i + 1].replace("/", "")))
+            if i < len(frames) - 2:
+                score += int(frames[i + 2].replace("/", ""))
+                frame_scores.append(int(frames[i + 2].replace("/", "")))
         elif frames[i] == "/":
-            if i < len(frames) - 1 and frames[i + 1].isdigit():
-                score += 10 + int(frames[i + 1])
-                continue
             score += 10
+            frame_scores.append(10)
+            score += int(frames[i + 1].replace("/", ""))
+            frame_scores.append(int(frames[i + 1].replace("/", "")))
         else:
-            score += int(frames[i])
-        if i < len(frames) - 1:
-            next_frame = frames[i + 1]
-            if next_frame == "X":
-                score += 10
-                if i < len(frames) - 2 and frames[i + 2].isdigit():
-                    score += int(frames[i + 2])
-            elif next_frame == "/":
-                score += 10
-        if i >= len(frames) - 2:
-            break
+            score_frame = sum(map(int, frames[i:i+2].split("/")))
+            score += score_frame
+            frame_scores.append(score_frame)
+        i += 2
     return score
