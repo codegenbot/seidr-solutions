@@ -1,19 +1,11 @@
-```Python
 def bowling_score(s):
     score = 0
-    frames = [int(x) if x.isdigit() else 10 if x == 'X' else 10 - int(x) if x[0] == '/' else 0 for x in s.split()]
-    strike_count = 0
-    spare_count = 0
-    for i, frame in enumerate(frames):
-        if frame == 10:  # strike
-            score += 10 + (strike_count * 2) + (spare_count * 3)
-            strike_count += 1
-        elif frame < 10:  # non-strike or spare
-            if sum([frames[i-1], frame]) == 10:  # spare
-                score += 10 + frames[i+1] if i < len(frames) - 1 else 10
-                spare_count += 1
-            else:
-                score += frame
-        elif frame > 10:  # not possible, skip it
-            pass
+    frames = [int(x) if x.isdigit() else 10 if x == 'X' else 10 - i for i, x in enumerate(s) if x != '-']
+    for i in range(len(frames)):
+        if frames[i] == 10:  
+            score += 10 + (9 - i) * 10
+        elif len(frames[i:]) >= 1 and sum(frames[i : i + 2]) <= 10:  
+            score += sum(frames[i:i+2])
+        else:  
+            score += sum(frames[i:i+2])
     return score
