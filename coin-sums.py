@@ -4,7 +4,7 @@ def coin_sums(cents):
     results = [0, 0, 0, 0]
     remain_cents = cents
     for coin in coins:
-        count = min(remain_cents // coin, 99)  # 99 max coins per type
+        count = min(remain_cents // coin, 99)  
         results[coins.index(coin)] = count
         remain_cents -= count * coin
     return tuple(results)
