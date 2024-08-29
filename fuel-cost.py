@@ -1,5 +1,2 @@
-def calculate_fuel_cost(fuel_costs):
-    total = 0
-    for cost in fuel_costs:
-        total += (cost // 3) - 2
-    return total
+def fuel_cost(fuel_list):
+    return sum((i // 3 - 2) for i in fuel_list)
