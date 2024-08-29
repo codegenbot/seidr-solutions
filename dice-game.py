@@ -1,3 +1,2 @@
-```
-def dice_game(n, m):
-    return 1 / m
+def roll_dice(n, m):
+    return (n - 1) / (m + n - 1)
