@@ -1,8 +1,7 @@
-```python
 def probability(n, m):
-    total = n * m
-    p_count = 0
-    for i in range(1, min(n, m) + 1):
-        if i < m - m + i:
-            p_count += 1
-    return p_count / total
+    if n < m:
+        return 0.0
+    elif n == m:
+        return 0.5
+    else:
+        return sum(1/n for _ in range(m-1)) + (m - 1) / n
