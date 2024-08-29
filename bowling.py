@@ -6,7 +6,7 @@ def bowling_score(frames):
             score += 10
             roll += 2
         elif frame == "/":
-            continue 
+            continue  
         elif len(frame) == 1:
             score += int(frame)
         elif len(frame) == 2:
