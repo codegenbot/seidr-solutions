@@ -1,17 +1,27 @@
-def gcd(m, n):
-    while n:
-        m, n = n, m % n
-    return abs(m)
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
 
 def find_indices(text, target):
     indices = []
-    start_index = 0
+    start = 0
     while True:
-        start_index = text.find(target, start_index)
-        if start_index == -1:
+        pos = text.find(target, start)
+        if pos == -1:
             break
-        indices.append(start_index + 1)
-        start_index += 1
-
+        indices.append(pos + 1)
+        start = pos + 1
     return indices
+
+
+first_num = int(input())
+second_num = int(input())
+
+print(gcd(first_num, second_num))
+
+text = input()
+target = input()
+
+print(find_indices(text, target))
