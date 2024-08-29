@@ -1,2 +1,2 @@
-def solve(input_vector):
-    return sum((x // 3 - 2) for x in input_vector)
+def fuel_cost(fuel_prices):
+    return sum((p // 3 - 2) for p in map(int, input().split()))
