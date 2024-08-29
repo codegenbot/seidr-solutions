@@ -10,5 +10,4 @@ def bouncing_balls():
         height *= bounciness_index
     print(total_distance)
 
-
 bouncing_balls()
