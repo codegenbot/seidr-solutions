@@ -8,5 +8,6 @@ def coin_sums(cents):
         remain_cents -= count * coin
     return tuple(results)
 
+
 c = int(input())
 print(*coin_sums(c))
