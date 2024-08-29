@@ -1,5 +1,5 @@
 ```
-def '')(def bowling_score(frames):
+def """"" bowling_score(frames):
     score = 0
     for i in range(10):
         if frames[i] == 'X':
