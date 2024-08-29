@@ -1,9 +1,5 @@
-def camel_case(s):
-    return (
-        "".join(
-            word.capitalize() if i > 0 else word for i, word in enumerate(s.split("-"))
-        )
-        .replace("-", " ")
-        .strip()
-        .capitalize()
-    )
+def kebab_to_camel(kebab_str):
+    if "-" in kebab_str:
+        return " ".join(word.capitalize() for word in kebab_str.split("-"))
+    else:
+        return kebab_str
