@@ -1,6 +1,4 @@
 def mastermind(code, guess):
-    white = sum(c1 == c2 for c1, c2 in zip(code, guess)) - sum(
-        i == j for i, j in zip(code, guess)
-    )
-    black = sum(i == j for i, j in zip(code, guess))
-    return str(black), str(white)
+    white = sum([1 for c in zip(code, guess) if c[0] == c[1]])
+    black = 4 - len(set(guess) & set(code))
+    return str(white), str(black)
