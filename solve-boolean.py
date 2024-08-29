@@ -1,21 +1,31 @@
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        if left.strip() == "":
-            return not solve_boolean(right).strip()
-        elif right.strip() == "":
-            return not solve_boolean(left).strip()
+    elif '&' in expression:
+        left, right = expression.split('&')
+        left = left.strip()
+        right = right.strip()
+        if left[0] == '(' and left[-1] == ')':
+            left = solve_boolean(left)
         else:
-            return not (solve_boolean(left) and solve_boolean(right))
-    elif "|" in expression:
-        left, right = expression.split("|")
-        if left.strip() == "":
-            return solve_boolean(right).strip()
-        elif right.strip() == "":
-            return solve_boolean(left).strip()
+            left = solve_boolean(left)
+        if right[0] == '(' and right[-1] == ')':
+            right = solve_boolean(right)
         else:
-            return solve_boolean(left) or solve_boolean(right)
+            right = solve_boolean(right)
+        return left and right
+    elif '|' in expression:
+        left, right = expression.split('|')
+        left = left.strip()
+        right = right.strip()
+        if left[0] == '(' and left[-1] == ')':
+            left = solve_boolean(left)
+        else:
+            left = solve_boolean(left)
+        if right[0] == '(' and right[-1] == ')':
+            right = solve_boolean(right)
+        else:
+            right = solve_boolean(right)
+        return left or right
