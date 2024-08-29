@@ -9,4 +9,5 @@ def shopping_list():
         total_price += price
     print(format(total_price, ".2f"))
 
+
 shopping_list()
