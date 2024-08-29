@@ -18,7 +18,4 @@ def indices_of_substring(text, target):
 a = int(input())
 b = int(input())
 print(gcd(a, b))
-text = input()
-target = input()
-for index in indices_of_substring(text, target):
-    print(index)
+print(*indices_of_substring(input(), input()), sep='\n')
