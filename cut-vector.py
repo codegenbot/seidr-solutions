@@ -9,7 +9,8 @@ def cut_vector(nums):
 
         if i == len(nums) - 1:
             return nums[:i], nums[i:]
-        elif left_sum == right_sum:
+
+        if left_sum == right_sum:
             return nums[:i], nums[i:]
         elif abs(left_sum - right_sum) < min_diff:
             min_diff = abs(left_sum - right_sum)
