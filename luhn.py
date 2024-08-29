@@ -1,4 +1,3 @@
-```
 def luhn(card):
     card = list(map(int, card[1:]))
     for i in range(len(card)):
