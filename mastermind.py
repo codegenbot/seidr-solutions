@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     code_chars = [c for c in code]
     guess_chars = [c for c in guess]
