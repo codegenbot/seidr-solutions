@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -13,5 +12,5 @@ def solve_boolean(expression):
             if char in '&|':
                 ops.append(char)
             else:
-                result = (result & bool(char)) if char == '&' else (result | bool(char))
+                result = (result & bool(eval(f"bool({char})"))) if char == '&' else (result | eval(f"bool({char})"))
         return result
