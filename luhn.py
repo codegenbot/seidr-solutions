@@ -1,10 +1,4 @@
-```
-def luhn_sum(digits):
-    total = 0
-    for i, digit in enumerate(reversed(digits)):
-        if (i % 2) == 1:
-            digit *= 2
-            if digit > 9:
-                digit -= 9
-        total += digit
-    return total
+def luhn(card):
+    card = list(map(int, card.split()))
+    result = sum(sum(divmod(d * 2, 10)) + d for i, (d) in enumerate(card) if i % 2 == 0)
+    return str(result)
