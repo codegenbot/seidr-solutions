@@ -5,17 +5,13 @@ def solve_boolean(expression):
         return False
     elif '&' in expression:
         left, right = expression.split('&')
-        if left == 'F' and right == 'F':
-            return False
-        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
-            return False
+        if '|' in left:
+            return solve_boolean(left.replace('|', '&')) and solve_boolean(right)
         else:
-            return True
+            return solve_boolean(left) and solve_boolean(right)
     elif '|' in expression:
         left, right = expression.split('|')
-        if left == 'F' and right == 'F':
-            return False
-        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
-            return True
+        if '&' in left:
+            return solve_boolean(left.replace('&', '|')) or solve_boolean(right)
         else:
-            return True
+            return solve_boolean(left) or solve_boolean(right)
