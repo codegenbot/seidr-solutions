@@ -1,26 +1,30 @@
 ```
 def bowling_score(frames):
     score = 0
-    next_frame = ""
-    for i in range(len(frames)):
+    frame_scores = []
+    for i in range(0, len(frames), 2):
         if frames[i] == "X":
-            score += 10
             if i < 9:
-                next_frame = frames[i+1]
-        elif frames[i] == "/":
-            frame_score = int(frames[i+1])
-            score += 10 + frame_score
-        else:
-            if i < 9 and frames[i+1] in "X/":
-                bonus = 0
-                if frames[i+1] == "X":
-                    next_frame = frames[i+2]
-                    bonus = 10 + int(next_frame) + int(frames[i+3])
-                elif frames[i+1] == "/":
-                    frame_score = int(frames[i+2])
-                    bonus = 10 + frame_score
-                score += 10 + int(frames[i]) + bonus
+                if frames[i + 1] == "/":
+                    score += 30
+                    frame_scores.append(10)
+                else:
+                    score += 10 + int(frames[i + 1]) + (10 if i + 2 < len(frames) and frames[i + 2] in ["X", "/"] else 0)
+                    frame_scores.append(10 + int(frames[i + 1]))
             else:
-                frame_score = int(frames[i]) + int(frames[i+1])
-                score += frame_score
-    return score
+                score += 10 + 10 + (10 if i + 2 < len(frames) and frames[i + 2] == "X" else 0)
+                frame_scores.extend([10, 10])
+        elif frames[i] == "/":
+            score += 10 + int(frames[i + 1])
+            frame_scores.append(10 + int(frames[i + 1]))
+        else:
+            if i < 9 and frames[i + 1] != "X" and frames[i + 1] != "/":
+                score += 10 + int(frames[i]) + int(frames[i + 1])
+                frame_scores.append(10 + int(frames[i]) + int(frames[i + 1]))
+            elif i < 9:
+                score += 10 + int(frames[i])
+                frame_scores.append(10 + int(frames[i]))
+    if len(frame_scores) == 10 and sum(frame_scores) == 300:
+        return 300
+    else:
+        return score
