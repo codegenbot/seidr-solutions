@@ -13,7 +13,6 @@ def indices_of_substring(text, target):
                 if text[j:j+len(target)] != target: break 
                 result.append(j) 
                 j += 1 
-
     return result
 
 print(gcd(1, 1))
