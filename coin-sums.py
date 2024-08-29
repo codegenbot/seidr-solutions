@@ -1,6 +1,5 @@
 ```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
     quarters = cents // 25
     cents %= 25
     dimes = cents // 10
@@ -11,8 +10,8 @@ def coin_sums(cents):
     return quarters, nickles, dimes, pennies
 
 cents = int(input())
-quarters, nickels, dimes, pennies = coin_sums(cents)
-print(pennies)
-print(nickels)
-print(dimes)
+quarters, nickles, dimes, pennies = coin_sums(cents)
 print(quarters)
+print(nickles)
+print(dimes)
+print(pennies)
