@@ -3,10 +3,7 @@ def bowling_score(s):
     frame = 1
     for i in range(0, len(s), 2):
         if s[i] == 'X':
-            if frame < 9:
-                score += 10 + 10
-            else:
-                score += 10
+            score += 10 + (10 if frame < 9 else 0)
             frame += 1
         elif s[i] == '/':
             first_roll = int(s[i-1])
