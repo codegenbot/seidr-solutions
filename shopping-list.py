@@ -1,9 +1,6 @@
-Here is the Python solution for the problem:
-
-```
-n = int(input())
-price = list(map(float, input().split()))
-discount = list(map(float, input().split()))
-
-total_price = sum(i - i * (j / 100) for i, j in zip(price, discount))
-print("{:.1f}".format(total_price))
+def shopping_list(prices, discounts):
+    total_price = 0.0
+    for i in range(len(prices)):
+        discounted_price = prices[i] * (1 - discounts[i] / 100)
+        total_price += discounted_price
+    return round(total_price, 1)
