@@ -1,13 +1,7 @@
-def find_pair(nums):
-    num_dict = {}
-    for num in nums[1:]:
-        complement = target - num
-        if complement in num_dict:
-            return str(num) + "\n" + str(complement)
-        num_dict[num] = True
-    return "No two sum up to the target value."
-
-
-target = int(input())
-nums = [int(x) for x in input().split()]
-print(find_pair([len(nums), *map(int, nums)]))
+def find_pair(input_list):
+    target = int(input())
+    for i in range(len(input_list)):
+        for j in range(i + 1, len(input_list)):
+            if input_list[i] + input_list[j] == target:
+                return str(input_list[i]) + "\n" + str(input_list[j])
+    return "No pair found"
