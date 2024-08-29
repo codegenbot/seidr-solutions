@@ -1,24 +1,26 @@
-```
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    for frame in game.split('/'):
-        if len(frame) == 1:
-            score += 10
-            roll += 1
-        elif len(frame) == 2:
-            strike = int(frame[0]) + int(frame[1])
-            score += strike
-            roll += 1
+    frame_scores = []
+    for i in range(0, len(frames), 2):
+        if frames[i] == "X":
+            if i < 9:
+                if frames[i + 1] == "/":
+                    score += 30
+                    frame_scores.append(30)
+                else:
+                    score += 10 + int(frames[i + 1])
+                    frame_scores.append(10 + int(frames[i + 1]))
+        elif frames[i] == "/":
+            score += 10 + int(frames[i + 1])
+            frame_scores.append(10 + int(frames[i + 1]))
         else:
-            first_roll, second_roll = map(int, frame)
-            if first_roll == 10:
-                score += 10 + second_roll
-                roll += 2
-            elif second_roll == 10:
-                score += first_roll + 10
-                roll += 2
-            else:
-                score += first_roll + second_roll
-                roll += 2
-    return score
+            if i < 9 and frames[i + 1] != "X" and frames[i + 1] != "/":
+                score += 10 + int(frames[i]) + int(frames[i + 1])
+                frame_scores.append(10 + int(frames[i]) + int(frames[i + 1]))
+            elif i < 9:
+                score += 10 + int(frames[i])
+                frame_scores.append(10 + int(frames[i]))
+    if len(frame_scores) == 10 and sum(frame_scores) == 300:
+        return 300
+    else:
+        return score
