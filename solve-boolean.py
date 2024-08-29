@@ -1,19 +1,15 @@
-Here's the solution:
-
-def solve_boolean(s):
-    stack = []
-    result = False
-    
-    for c in s:
-        if c == 'T':
-            result = True
-        elif c == 'F':
-            result = False
-        elif c == '&':
-            stack.append(result)
-            result = False
-        elif c == '|':
-            b = stack.pop()
-            result = result and b
-        
+```
+def solve(input):
+    result = True
+    i = 0
+    while i < len(input):
+        if input[i] == '&':
+            result &= bool(input[i+1]) == True
+            i += 2
+        elif input[i] == '|':
+            result |= bool(input[i+1]) == True
+            i += 2
+        else:
+            result = bool(input[i]) == True
+            i += 1
     return result
