@@ -1,10 +1,9 @@
 ```
-import math
-
 def gcd(a, b):
-    if b == 0:
-        return a
-    return math.gcd(a, b)
+    while b != 0:
+        a, b = b, a % b
+    return abs(a) if a != 0 else 1
+
 
 print(gcd(1, 1))
 print(gcd(4, 400000))
