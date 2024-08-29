@@ -1,18 +1,19 @@
-```
-def bowling_score(bowling_input):
+```Python
+def bowling_score(s):
     score = 0
-    frame = 0
-    for roll in bowling_input.split('/'):
-        if len(roll) == 1:
-            score += 10
-        else:
-            first_roll = int(roll[0])
-            second_roll = int(roll[1])
-            if first_roll + second_roll == 10:
-                score += 10
-            elif first_roll == 10:
-                score += 10 + second_roll
+    frames = [int(x) if x.isdigit() else 10 if x == 'X' else 10 - int(x) if x[0] == '/' else 0 for x in s.split()]
+    strike_count = 0
+    spare_count = 0
+    for i, frame in enumerate(frames):
+        if frame == 10:  # strike
+            score += 10 + (strike_count * 2) + (spare_count * 3)
+            strike_count += 1
+        elif frame < 10:  # non-strike or spare
+            if sum([frames[i-1], frame]) == 10:  # spare
+                score += 10 + frames[i+1] if i < len(frames) - 1 else 10
+                spare_count += 1
             else:
-                score += first_roll + second_roll
-        frame += 1
+                score += frame
+        elif frame > 10:  # not possible, skip it
+            pass
     return score
