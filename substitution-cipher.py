@@ -1,6 +1,9 @@
-def substitution_cipher(cipher_text1, cipher_text2, text_to_decipher):
-    deciphered_text = ""
-    for char in text_to_decipher:
-        index = ord(char.lower()) - ord('a')
-        deciphered_text += cipher_text2[index].lower() if char.islower() else cipher_text2[index].upper()
-    return deciphered_text
+def substitution_cipher(cipher1, cipher2, message):
+    result = ""
+    for char in message:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
+        else:
+            result += char
+    return result.upper()

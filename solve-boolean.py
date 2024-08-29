@@ -1,14 +1,11 @@
-def solve_boolean(expression):
-    if expression == 'T':
+def solve_boolean(input_str):
+    if input_str == "T":
         return True
-    elif expression == 'F':
+    elif input_str == "F":
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-
-expression = input()
-print(solve_boolean(expression))
+    elif "&" in input_str:
+        left, right = input_str.split("&")
+        return bool(left) and solve_boolean(right)
+    elif "|" in input_str:
+        left, right = input_str.split("|")
+        return bool(left) or solve_boolean(right)
