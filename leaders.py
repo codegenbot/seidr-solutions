@@ -1,4 +1,10 @@
-Here is a Python function that solves the problem:
+def leaders(arr):
+    n = len(arr)
+    result = [arr[-1]]
 
-def leaders(a):
-    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            result.append(arr[i])
+            arr[-1] = arr[i]
+
+    return reversed(result)
