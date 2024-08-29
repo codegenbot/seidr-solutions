@@ -1,13 +1,10 @@
-def find_pair(n):
-    nums = [int(x) for x in input().split()]
-    target = int(input())
-    num_dict = {}
-    for num in nums:
-        if target - num in num_dict:
-            return "{} {}".format(target - num, num)
-        num_dict[num] = True
+def find_pair(n, numbers):
+    for i in range(n):
+        for j in range(i + 1, n):
+            if numbers[i] + numbers[j] == int(input()):
+                return f"{numbers[i]} {numbers[j]}"
     return "No pair found"
 
 
 n = int(input())
-print(find_pair(n))
+print(find_pair(n, list(map(int, input().split()))))
