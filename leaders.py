@@ -1,11 +1,9 @@
-Here is the solution:
+def leaders(input):
+    n = len(input)
+    leaders_list = [input[n - 1]]
 
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:])]
+    for i in range(n - 2, -1, -1):
+        if input[i] >= input[i + 1]:
+            leaders_list.insert(0, input[i])
 
-# test cases
-print(leaders([0]))
-print(leaders([1, 0]))
-print(leaders([1, 451]))
-print(leaders([2, 1000, 0]))
-print(leaders([2, 0, 1000]))
+    return leaders_list
