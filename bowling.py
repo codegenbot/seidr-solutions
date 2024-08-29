@@ -1,24 +1,18 @@
-```
-def bowling_score(bowling_string):
-    frames = [list(map(int, re.findall('\d', frame))) for frame in [bowling_string[i:i+2] for i in range(0, len(bowling_string), 2)]]
+def bowling_score(s):
     score = 0
-    strike = 0
-    spare = False
-    
-    for i in range(len(frames)):
-        if i < 9 and frames[i][1] == 'X':
-            strike += 10
-            score += sum(frames[i])
-        elif len(frames) - i > 2 and frames[i][0] + frames[i][1] == '10' and not spare:
-            score += 10 + sum(frames[i+1:i+3])
-            spare = True
-        else:
-            score += sum(frames[i])
-    
-    if strike < 2:
-        if spare:
+    frame = 1
+    for i in range(0, len(s), 2):
+        if s[i].isdigit():
+            x = int(s[i])
+            if i + 1 < len(s) and s[i + 1].isdigit():
+                y = int(s[i + 1])
+                score += min(x, 10) + min(y, 10)
+            else:
+                score += min(x, 10) + 10
+        elif s[i] == "X":
+            score += 10 + (10 if frame < 9 else 0)
+            frame += 1
+        elif s[i] == "-":
             score += 10
-        elif len(frames) - 9 > 0:
-            score += sum(frames[-1])
-    
+        frame += 1
     return score
