@@ -1,7 +1,9 @@
+import math
+
 def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
+    if b == 0:
+        return a
+    return math.gcd(a, b)
 
 print(gcd(1, 1))
 print(gcd(4, 400000))
