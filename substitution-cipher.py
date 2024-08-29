@@ -1,12 +1,10 @@
-def substitution_cipher():
-    cipher_map = [chr(ord(s1[i]) - ord(s1[0]) + ord(s2[i])) for i in range(len(s1))]
-    return "".join(
-        [
-            cipher_map.index(c) < len(s1) and cipher_map[cipher_map.index(c)] or c
-            for c in s3
-        ]
-    )
-
-
-s1, s2, s3 = input().strip().split("\n")
-print(substitution_cipher())
+```
+def substitution_cipher(cipher1, cipher2, message):
+    result = ""
+    for char in message:
+        if char.isalpha():
+            index = ord(char.upper()) - 65 if char.isupper() else ord(char.lower()) - 97
+            result += cipher2[index] if char.isupper() else cipher2[index].lower()
+        else:
+            result += char
+    return result
