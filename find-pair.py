@@ -1,18 +1,13 @@
-```
-def find_pair(n):
-    a = list(map(int, input().split()))
-    a.sort()
-    for i in range(len(a)-1):
-        l, r = 0, len(a) - 1
-        while l < r:
-            s = a[l] + a[r]
-            if s == n:
-                print(*[a[i], a[r]])
-                return
-            elif s < n:
-                l += 1
-            else:
-                r -= 1
+def find_pair():
+    n = int(input())
+    nums = [int(x) for x in input().split()]
+    target = int(input())
+    num_dict = {}
+    for i in range(len(nums)):
+        if target - nums[i] in num_dict:
+            print(f"{target - nums[i]} {nums[i]}")
+        else:
+            num_dict[nums[i]] = i
 
-n = int(input())
-find_pair(n)
+
+find_pair()
