@@ -5,6 +5,6 @@ def find_pair():
     num_dict = {}
     for i in range(len(nums)):
         if target - nums[i] in num_dict:
-            return f"{target - nums[i]} {nums[i]}"
+            return f"{target - nums[i]} {nums[i]}" 
         else:
             num_dict[nums[i]] = i
