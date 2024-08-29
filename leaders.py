@@ -1,4 +1,3 @@
-```python
 def leaders(arr):
     leaders = []
     max_seen = arr[-1]  
