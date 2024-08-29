@@ -1,5 +1,5 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]  
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickles, pennies
     results = []
     for i in range(cents // 25 + 1):
         remaining_cents = cents - i * 25
