@@ -1,11 +1,4 @@
-```
-def decipher_cipher(cipher_a, cipher_b, message):
-    result = ""
-    for char in message:
-        if char in cipher_a:
-            for i in range(len(cipher_a)):
-                if cipher_a[i] == char:
-                    result += cipher_b[i]
-        else:
-            result += char
+def decipher(cipher_a, cipher_b, text):
+    mapping = {char: cipher_b[i] for i, char in enumerate(cipher_a)}
+    result = "".join(mapping.get(char, char) for char in text)
     return result
