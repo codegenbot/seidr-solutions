@@ -1,11 +1,18 @@
 ```
-def cut_vector(vector):
-    for i in range(len(vector)):
-        left_sum = sum(vector[:i+1])
-        right_sum = sum(vector[i+1:])
-        if abs(left_sum - right_sum) < min(abs(left_sum), abs(right_sum)):
-            return [vector[:i+1], vector[i+1:]]
-    return [vector, []]
+def cut_vector(nums):
+    min_diff = float("inf")
+    split_index = 0
 
+    for i in range(1, len(nums)):
+        left_sum = sum(nums[:i])
+        right_sum = sum(nums[i:])
 
-print(cut_vector([4, 634, 3894, 4247, 3749]))
+        if i == len(nums) - 1:
+            return nums[:i], nums[i:]
+        elif left_sum == right_sum:
+            return nums[:i], nums[i:]
+        elif abs(left_sum - right_sum) < min_diff:
+            min_diff = abs(left_sum - right_sum)
+            split_index = i
+
+    return nums[:split_index], nums[split_index:]
