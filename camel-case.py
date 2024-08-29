@@ -1,2 +1,2 @@
 def kebab_to_camel(s):
-    return ''.join(word.capitalize() for word in s.split('-')) if ' ' not in s else s.join(word.capitalize() for word in s.split('-')).replace('-', '') + s[s.index(' ') + 1:].capitalize()
+    return ''.join(word.capitalize() for word in s.split('-')) if ' ' not in s else s.join(word.capitalize().replace('-', '') + word[1:].capitalize() if i > 0 else word.capitalize() for i, word in enumerate(s.split('-')))
