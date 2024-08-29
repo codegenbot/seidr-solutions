@@ -7,15 +7,13 @@ def solve_boolean(expression):
         left, right = expression.split('&')
         if left == 'F' and right == 'F':
             return False
-        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
-            return False
         else:
-            return True
+            return solve_boolean(left) and solve_boolean(right)
     elif '|' in expression:
         left, right = expression.split('|')
-        if left == 'F' and right == 'F':
+        if left == 'T' or right == 'T':
+            return True
+        elif left == 'F' and right == 'F':
             return False
-        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
-            return True
         else:
-            return True
+            return solve_boolean(left) or solve_boolean(right)
