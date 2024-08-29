@@ -1,9 +1,17 @@
-def find_pair(n, numbers):
-    seen = set()
-    for num in numbers:
-        if (target := n - num) in seen:
-            return str(num) + "\n" + str(target)
-        seen.add(num)
+def find_pair(n):
+    a = [int(x) for x in input().split()]
+    t = int(input())
+    a.sort()
+    left, right = 0, len(a) - 1
+    while left < right:
+        if a[left] + a[right] == t:
+            print(*[a[left], a[right]])
+            return
+        elif a[left] + a[right] < t:
+            left += 1
+        else:
+            right -= 1
 
 
-print(find_pair(int(input()), [int(x) for x in input().split()]))
+n = int(input())
+find_pair(n)
