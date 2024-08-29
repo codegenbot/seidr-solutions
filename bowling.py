@@ -1,18 +1,9 @@
-```
-def bowling_score(bowling_input):
+def bowling_score(s):
     score = 0
-    frame = 0
-    for roll in bowling_input.split('/'):
-        if len(roll) == 1:
-            score += 10
+    frames = [int(x) for x in re.findall("\d+", s)]
+    for i in range(len(frames)):
+        if len(frames[i:]) >= 2 and sum(frames[i : i + 2]) == 10:
+            score += 10 + (10 - sum(frames[i : i + 2])) * (9 - i)
         else:
-            first_roll = int(roll[0])
-            second_roll = int(roll[1])
-            if first_roll + second_roll == 10:
-                score += 10
-            elif first_roll == 10:
-                score += 10 + second_roll
-            else:
-                score += first_roll + second_roll
-        frame += 1
+            score += frames[i]
     return score
