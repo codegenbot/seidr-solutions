@@ -1,5 +1,3 @@
-Here's the Python code for the problem:
-
 ```
 def gcd(a, b):
     while b != 0:
@@ -7,15 +5,15 @@ def gcd(a, b):
     return abs(a)
 
 def indices_of_substring(text, target):
-    result = []
+    indices = []
     i = 0
     while i < len(text):
-        pos = text.find(target)
-        if pos == -1:
+        j = text.find(target, i)
+        if j == -1:
             break
-        result.append(pos + 1)
-        i += pos + 1
-    return result
+        indices.append(j)
+        i = j + 1
+    return indices
 
 a = int(input())
 b = int(input())
