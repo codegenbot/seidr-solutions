@@ -1,21 +1,21 @@
-def solve_boolean(input_str):
-    if input_str == "T":
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif input_str == "F":
+    elif expression == 'F':
         return False
-    elif "&" in input_str:
-        operands = input_str.split("&")
-        if len(operands) > 2:
+    elif '&' in expression:
+        left, right = expression.split('&')
+        if left == 'F' and right == 'F':
             return False
-        for op in operands:
-            if op not in ["T", "F"]:
-                return False
-        return all(op == "T" for op in operands)
-    elif "|" in input_str:
-        operands = input_str.split("|")
-        if len(operands) > 2:
+        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
             return False
-        for op in operands:
-            if op not in ["T", "F"]:
-                return False
-        return any(op == "T" for op in operands)
+        else:
+            return True
+    elif '|' in expression:
+        left, right = expression.split('|')
+        if left == 'F' and right == 'F':
+            return False
+        elif (left == 'T' and right == 'F') or (left == 'F' and right == 'T'):
+            return True
+        else:
+            return True
