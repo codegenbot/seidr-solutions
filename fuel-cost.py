@@ -1,4 +1,8 @@
+import math
 def fuel_cost():
+    total_fuel = 0
     n = int(input())
-    nums = list(map(int, input().split()))
-    return sum((num // 3) - 2 for num in nums)
+    for _ in range(n):
+        num = int(input())
+        total_fuel += math.floor(num / 3) - 2
+    return total_fuel
