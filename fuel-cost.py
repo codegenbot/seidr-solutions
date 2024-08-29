@@ -1,4 +1,3 @@
-```
 import math
 
 def calculate_fuel_cost(fuel_costs):
