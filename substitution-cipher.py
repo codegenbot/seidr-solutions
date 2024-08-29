@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
     mapping = {char: cipher2[i] for i, char in enumerate(cipher1)}
