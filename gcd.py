@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def gcd(a, b):
     while b != 0:
