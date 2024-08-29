@@ -1,3 +1,8 @@
-```
 def leaders(arr):
-    return [x for i, x in reversed(list(enumerate(arr))) if all(y <= x for y in arr[:i]) and all(x >= y for y in arr[i + 1 :])]
+    leaders = []
+    max_seen = arr[-1]  
+    for x in reversed(arr):
+        if x >= max_seen:  
+            max_seen = x
+            leaders.append(x)
+    return list(reversed(leaders))
