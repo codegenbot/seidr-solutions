@@ -1,12 +1,8 @@
-```python
-def camel_case(input_str):
-    words = input_str.split('-')
-    output_str = ''
-    first_word = True
-    for word in words:
-        if not first_word:
-            output_str += word.capitalize()
-        else:
-            output_str += word
-            first_word = False
-    print(output_str)
+def camel_case(s):
+    return " ".join(segment.capitalize() for segment in s.split())
+
+print(camel_case("camel-case example-test-string"))
+print(camel_case("nospaceordash"))
+print(camel_case("two-words"))
+print(camel_case("two words"))
+print(camel_case("all separate words"))
