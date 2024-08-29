@@ -20,9 +20,9 @@ def mastermind(code, guess):
             code_counts[ord(g) - ord("A")] -= 1
 
     for i in range(6):
-        while code_counts[i] > 0 and code_dict.get(chr(i + ord('A'))):
+        while code_counts[i] > 0 and code_dict.get(chr(i + ord("A"))):
             code_counts[i] -= 1
-            code_dict[chr(i + ord('A'))] -= 1
+            code_dict[chr(i + ord("A"))] -= 1
             if code_counts[i] == 0:
                 break
 
