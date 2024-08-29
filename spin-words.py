@@ -1,3 +1,4 @@
+```
 def spin_words(sentence):
     words = [word.strip('.,!?') for word in sentence.split()]
     result = []
