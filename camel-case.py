@@ -1,14 +1,5 @@
-def kebab_to_camel(s):
-    return (
-        "".join(word.capitalize() for word in s.split(" ") if s.count("-") > 0)
-        .replace("-", " ")
-        .strip()
-        .replace(
-            " ", "".join(word.capitalize() for word in s.split(" ") if s.count("-") > 0)
-        )
-        .camelCase
+def camel_case(s):
+    result = s.title().replace("-", "")
+    return " ".join(
+        [result[:1]] + [word.capitalize() for word in result[1:].split(" ")]
     )
-
-
-input_str = input()
-print(kebab_to_camel(input_str))
