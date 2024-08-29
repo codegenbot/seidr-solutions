@@ -1,16 +1,6 @@
+```python
 def camel_case(input_str):
-    output_str = ""
-    temp_str = ""
-    for char in input_str:
-        if char != '-':
-            temp_str += char
-        else:
-            if temp_str != "":
-                output_str += temp_str.capitalize()
-                temp_str = ""
-    if temp_str != "":
-        output_str += temp_str.capitalize()
-    return output_str
+    return ''.join(word.capitalize() for word in input_str.replace('-', ' ').split()) if ' ' in input_str else input_str.replace('-', '').capitalize()
 
 input_str = input()
 print(camel_case(input_str))
