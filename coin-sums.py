@@ -1,12 +1,20 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    results = [0, 0, 0, 0]
-    remain_cents = cents
-    for coin in coins:
-        count = min(remain_cents // coin, 99)  
-        results[coins.index(coin)] = count
-        remain_cents -= count * coin
-    return tuple(results)
+    if cents > 99: 
+        return "Cents should be less than 100"
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickles, pennies
+    results = []
+    for i in range(cents // 25 + 1):
+        remaining_cents = cents - i * 25
+        if remaining_cents % 10 == 0:
+            quarter_count = i
+            dime_count = remaining_cents // 10
+            nickle_count = (remaining_cents % 10) // 5
+            penny_count = (remaining_cents % 5)
+            results.append([quarter_count, dime_count, nickle_count, penny_count])
+    if not results:
+        return "No solution found"
+    return min(results, key=lambda x: (x[0] + x[1] + x[2] + x[3]))
 
-c = int(input())
-print(*coin_sums(c))
+
+cents = int(input())
+print(*coin_sums(cents))
