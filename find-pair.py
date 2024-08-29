@@ -1,8 +1,11 @@
-def find_pair(nums):
+def find_pair(target):
+    nums = [int(num) for num in input().split()]
     num_set = set()
-    for num in nums[1:]:
+    for num in nums:
         complement = target - num
         if complement in num_set:
-            return str(num) + "\n" + str(complement)
+            return "{} {}".format(complement, num)
         num_set.add(num)
-    return "No pair found"
+
+
+print(find_pair(int(input())))
