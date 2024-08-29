@@ -1,7 +1,2 @@
-def prob():
-    n = int(input())
-    m = int(input())
-    return (n - 1) / (n * m)
-
-
-print(prob())
+def roll_probability(n, m):
+    return (m - 1) / n if m < n else 1 - (n - 1) / m
