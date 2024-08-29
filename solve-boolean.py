@@ -1,17 +1,20 @@
-```
 def solve_boolean(expression):
-    def eval_expression(expression):
-        if expression == "T":
-            return True
-        elif expression == "F":
-            return False
-        elif "&" in expression:
-            a, b = expression.split("&")
-            return eval_expression(a) and eval_expression(b)
-        elif "|" in expression:
-            a, b = expression.split("|")
-            return eval_expression(a) or eval_expression(b)
-        else:
-            return bool(expression)
-
-    return eval_expression(expression)
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        op = None
+        for char in expression:
+            if char == 'T':
+                result = True
+            elif char == 'F':
+                result = False
+            elif char == '&':
+                op = &
+            elif char == '|':
+                op = |
+        return eval(f"result {op}")
