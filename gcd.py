@@ -2,7 +2,10 @@ try:
     a = int(input())
     b = int(input())
 
-    print(gcd(a, b))
+    if (a <= 0) or (b <= 0):
+        print("Invalid input. Please enter positive integers for GCD calculation.")
+    else:
+        print(gcd(a, b))
 
     text = input()
     target = input()
