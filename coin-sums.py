@@ -1,8 +1,6 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    return [cents // coin for coin in coins]
+    return min([(cents // coin) + (cents % coin > 0), 0, 0, 0] for coin in coins)
 
-input_value = int(input())
-output = coin_sums(input_value)
-print(*output)
+
+print(*coin_sums(int(input())))
