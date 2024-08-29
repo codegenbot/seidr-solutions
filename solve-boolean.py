@@ -3,6 +3,8 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid operation")
     elif "&" in expression:
         a, b = expression.split("&")
         return not (solve_boolean(a) and solve_boolean(b))
