@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frame_count = 1
@@ -12,4 +11,3 @@ def bowling_score(frames):
         elif first_roll + second_roll < 11:  
             score += first_roll + second_roll
             frame_count -= 1
-    return score
