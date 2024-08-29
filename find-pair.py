@@ -1,8 +1,9 @@
+```
 def find_pair(n):
     a = list(map(int, input().split()))
     a.sort()
     for i in range(len(a)-1):
-        l, r = 0, len(a) - 1
+        l, r = i, len(a) - 1
         while l < r:
             s = a[l] + a[r]
             if s == n:
@@ -12,3 +13,6 @@ def find_pair(n):
                 l += 1
             else:
                 r -= 1
+
+n = int(input())
+find_pair(n)
