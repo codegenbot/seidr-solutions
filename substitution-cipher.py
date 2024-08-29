@@ -1,11 +1,12 @@
-def substitution_cipher(text1, text2, text3):
-    cipher = {}
-    for char1, char2 in zip(text1, text2):
-        cipher[char1] = char2
-    result = ""
-    for char in text3:
-        if char in cipher:
-            result += cipher[char]
+def substitution_cipher(cipher_text1, cipher_text2, text):
+    deciphered_message = ""
+    for char in text:
+        if char.isalpha():
+            index = ord(char.lower()) - 97
+            deciphered_char = cipher_text2[index]
+            deciphered_message += (
+                deciphered_char.upper() if char.isupper() else deciphered_char
+            )
         else:
-            result += char
-    return result
+            deciphered_message += char
+    return deciphered_message
