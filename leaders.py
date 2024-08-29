@@ -1,3 +1,9 @@
 ```
 def leaders(input):
-    return [x for x in input if all(y <= x for y in input[input.index(x) + 1:])]
+    result = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            result.append(input[i])
+            max_right = input[i]
+    return list(reversed(result))
