@@ -1,6 +1,6 @@
-def substitution_cipher(cipher1, cipher2, text):
-    cipher_dict = {cipher1[i]: cipher2[i] for i in range(len(cipher1))}
-    deciphered_text = "".join(
-        [cipher_dict[char] if char in cipher_dict else char for char in text]
-    )
-    return deciphered_text
+def substitution_cipher(string1, string2, string3):
+    mapping = {}
+    for char1, char2 in zip(string1, string2):
+        if char1 not in mapping:
+            mapping[char1] = char2
+    return "".join(mapping.get(char, char) for char in string3)
