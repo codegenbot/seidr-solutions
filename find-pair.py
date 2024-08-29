@@ -1,13 +1,5 @@
 def find_pair(n, nums):
-    seen = set()
-    for num in nums:
-        target = n - num
-        if target in seen:
-            return str(num) + "\n" + str(target)
-        seen.add(num)
-    return "No pair found"
-
-
-n = int(input())
-nums = list(map(int, input().split()))
-print(find_pair(n, nums))
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] + nums[j] == int(input()):
+                return str(nums[i]) + "\n" + str(nums[j])
