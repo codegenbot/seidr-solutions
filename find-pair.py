@@ -1,11 +1,17 @@
-def find_pair(target):
-    num_set = set()
-    for num in input().split():
-        if num.isdigit():  
-            complement = target - int(num)
-            if complement in num_set:
-                return "{} {}".format(complement, num)
-            num_set.add(int(num))
+def find_pair(n):
+    a = list(map(int, input().split()))
+    a.sort()
+    for i in range(len(a)-1):
+        l, r = 0, len(a) - 1
+        while l < r:
+            s = a[l] + a[r]
+            if s == n:
+                print(*[a[i], a[r]])
+                return
+            elif s < n:
+                l += 1
+            else:
+                r -= 1
 
-
-print(find_pair(int(input())))
+n = int(input())
+find_pair(n)
