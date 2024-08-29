@@ -1,5 +1,6 @@
 def leaders(a):
-    leaders_list = [
-        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+    return [
+        a[i]
+        for i in range(len(a) - 1, -1, -1)
+        if all(a[i] >= a[j] for j in range(i + 1, len(a)))
     ]
-    return leaders_list
