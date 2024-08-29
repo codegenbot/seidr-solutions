@@ -1,7 +1,9 @@
-def leaders(a):
-    n = len(a)
-    leaders_list = [a[n - 1]]
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            leaders_list.append(a[i])
-    return list(reversed(leaders_list))
+def leaders(integers):
+    n = len(integers)
+    result = []
+
+    for i in range(n - 1, -1, -1):
+        if all(integers[i] >= integers[j] for j in range(i + 1, n)):
+            result.append(integers[i])
+
+    return result[::-1]
