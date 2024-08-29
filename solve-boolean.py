@@ -11,7 +11,5 @@ def solve_boolean(expression):
         elif "|" in expression:
             a, b = expression.split("|")
             return eval_expression(a) or eval_expression(b)
-        else:
-            return bool(expression)
 
     return eval_expression(expression)
