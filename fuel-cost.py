@@ -1,5 +1,3 @@
 ```
-import math
-
-def calculate_fuel_cost(fuel_costs):
-    return sum(math.floor(fuel / 3) - 2 for fuel in fuel_costs)
+def fuel_cost(vector):
+    return sum((v // 3 - 2) for v in vector)
