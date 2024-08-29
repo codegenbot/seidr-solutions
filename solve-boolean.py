@@ -1,23 +1,21 @@
-def solve(input_str):
-    def or_(a, b):
-        return a or b
+Here is the solution for the problem:
 
-    def and_(a, b):
-        return a and b
-
-    bool_values = {"T": True, "F": False}
-
-    def parse_bool(bool_str):
-        if bool_str in bool_values:
-            return bool_values[bool_str]
-        for i in range(len(bool_str) - 1):
-            if bool_str[i] in ["|", "&"]:
-                return or_(
-                    parse_bool(bool_str[:i]),
-                    and_(
-                        parse_bool(bool_str[i + 1 :]),
-                        parse_bool("T" if bool_str[i + 2 :] == "T" else "F"),
-                    ),
-                )
-
-    return parse_bool(input_str)
+def solve_boolean(expression):
+    stack = []
+    result = False
+    
+    for char in expression + '|':
+        if char == 'T':
+            stack.append(True)
+        elif char == 'F':
+            stack.append(False)
+        elif char == '&':
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(a and b)
+        elif char == '|':
+            a = stack.pop()
+            b = stack.pop()
+            stack.append(a or b)
+    
+    return stack[0]
