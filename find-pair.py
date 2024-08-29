@@ -1,9 +1,13 @@
-```
 def find_pair(nums):
-    target = int(input())
-    for i in range(len(nums)):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return str(nums[i]) + '\n' + str(nums[j])
+    num_dict = {}
+    for num in nums[1:]:
+        complement = target - num
+        if complement in num_dict:
+            return str(num) + "\n" + str(complement)
+        num_dict[num] = True
+    return "No two sum up to the target value."
 
-print(find_pair([int(x) for x in input().split()]))
+
+target = int(input())
+nums = [int(x) for x in input().split()]
+print(find_pair([len(nums), *map(int, nums)]))
