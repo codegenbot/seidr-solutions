@@ -1,9 +1,8 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    counts = [0] * len(coins)
+    return list(map(lambda x: cents // x, coins))
 
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            counts[i] += 1
-    return counts[3], counts[2], counts[1], counts[0]
+
+# Test cases
+for c in [1, 2, 3, 4, 5]:
+    print(*coin_sums(c))
