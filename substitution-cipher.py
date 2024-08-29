@@ -1,14 +1,14 @@
-Here is the solution:
-
 def substitution_cipher():
-    a = input()
-    b = input()
-    c = input()
-    result = ""
-    for char in c:
-        if char in a:
-            index_a = a.index(char)
-            result += b[index_a]
-        else:
-            result += char
-    return result
+    cipher_map = [c for c1, c2 in zip(input(), input())]
+    message = input()
+    return "".join(
+        [c for c in message if c in cipher_map]
+        + [
+            cipher_map[0] if c not in cipher_map else ""
+            for c in message
+            if c not in cipher_map
+        ]
+    )
+
+
+print(substitution_cipher())
