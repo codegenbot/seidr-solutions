@@ -1,4 +1,6 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = {c1: c2 for c1, c2 in zip(input1, input2)}
-    output = "".join(cipher[c] if c in cipher else c for c in input3)
-    return output
+def substitution_cipher(cipher_string1, cipher_string2, message):
+    cipher = {
+        cipher_string1[i]: cipher_string2[i]
+        for i in range(min(len(cipher_string1), len(cipher_string2)))
+    }
+    return "".join([cipher.get(char, char) for char in message])
