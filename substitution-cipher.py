@@ -1,9 +1,6 @@
 def substitution_cipher(cipher1, cipher2, message):
+    mapping = {char: cipher2[i] for i, char in enumerate(cipher1)}
     result = ""
     for char in message:
-        if char in cipher1:
-            index = [i for i, x in enumerate(cipher1) if x == char][0]
-            result += cipher2[index]
-        else:
-            result += char
+        result += mapping.get(char, char)
     return result
