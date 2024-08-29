@@ -1,3 +1,4 @@
+```Python
 def mastermind(code, guess):
     code_counts = [0] * 6
     code_dict = {}
