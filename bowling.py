@@ -1,40 +1,26 @@
 ```
 def bowling_score(game):
     score = 0
-    roll = 0
-    for frame in game.split('/'):
-        if len(frame) == 1:
-            if int(frame) == 10:
-                score += 10 + 10
-                continue
-            else:
-                score += int(frame)
-                roll += 1
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            if first_roll + second_roll == 10:
-                score += first_roll + second_roll
-                roll += 1
-            else:
-                score += first_roll
-                roll += 1
-                if second_roll != 0:
-                    if roll < 9:
-                        third_roll = int(game[game.index(frame) + len(frame) + 1])
-                        if third_roll == 10:
-                            score += second_roll + third_roll
-                            roll += 2
-                        else:
-                            score += second_roll + third_roll
-                            roll += 3
-                    else:
-                        score += second_roll
+    frame = 1
+    for bowl in game:
+        if bowl == 'X':
+            score += 10 + (10 if frame < 9 else 0)
+            frame += 1
+        elif bowl == '/':
+            score += 10
+            frame += 1
+        elif bowl.isdigit():
+            strike = False
+            for next_bowl in game[game.index(bowl)+1:]:
+                if next_bowl.isdigit() and len(next_bowls) < 2:
+                    break
+                if next_bowl == 'X':
+                    score += int(bowl) + 10
+                    frame += 1
+                    strike = True
+                    break
+            if not strike:
+                score += int(bowl) + int(game[game.index(bowl)+1])
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = int(frame[2])
-            if first_roll + second_roll + third_roll == 30:
-                score += first_roll + second_roll + third_roll
-                roll += 3
+            score += int(bowl)
     return score
