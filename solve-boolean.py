@@ -1,4 +1,3 @@
-```Python
 def solve_boolean(s):
     while "&" in s or "|" in s:
         if "&" in s and "|" in s:
