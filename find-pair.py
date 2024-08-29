@@ -1,13 +1,10 @@
-def find_pair():
+```
+def find_pair(target):
     n = int(input())
-    pairs = [list(map(int, input().split())) for _ in range(n)]
-    target = int(input())
+    nums = list(map(int, input().split()))
+    for i in range(n):
+        for j in range(i+1, n):
+            if nums[i] + nums[j] == target:
+                return str(nums[i]) + '\n' + str(nums[j])
 
-    for pair in pairs:
-        if sum(pair) == target:
-            return " ".join(map(str, pair))
-
-    return "No such pair found"
-
-
-print(find_pair())
+print(find_pair(int(input())))
