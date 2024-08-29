@@ -1,14 +1,9 @@
 def cut_vector(vector):
-    if len(vector) <= 2:
-        return vector[0], vector[0:] if len(vector) == 1 else vector[:1] + [vector[-1]]
+    if len(vector) == 1:
+        return [vector], [0]
 
-    left = right = sum(vector)
+    left_sum = sum(vector[:i+1]) for i in range(len(vector))]
+    min_diff = min(abs(sum(vector[:i+1]) - sum(vector[i:]))) for i in range(len(vector))])
+    split_idx = left_sum.index(min(left_sum)) if min(left_sum) else 0
 
-    for i in range(1, len(vector)):
-        left_diff = abs(left - sum(vector[:i]))
-        right_diff = abs(right - sum(vector[i:]))
-
-        if left_diff <= right_diff:
-            return vector[:i], vector[i:]
-        else:
-            return vector[: i + 1], vector[i:]
+    return [vector[:split_idx+1]], [vector[split_idx:]]
