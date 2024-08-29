@@ -1,3 +1,14 @@
-def substitution_cipher(s1, s2, s3):
-    cipher = {c1: c2 for c1, c2 in zip(s1, s2)}
-    return "".join(cipher.get(c, c) for c in s3)
+Here is the solution:
+
+def substitution_cipher():
+    a = input()
+    b = input()
+    c = input()
+    result = ""
+    for char in c:
+        if char in a:
+            index_a = a.index(char)
+            result += b[index_a]
+        else:
+            result += char
+    return result
