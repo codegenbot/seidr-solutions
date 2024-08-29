@@ -1,4 +1,3 @@
-```
 def leaders(a):
     max_seen = a[-1]
     leaders = [a[-1]]
