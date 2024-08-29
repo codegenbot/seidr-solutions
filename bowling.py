@@ -1,7 +1,6 @@
 def bowling_score(frames):
     score = 0
     roll = 0
-    frames = frames.replace("-", "/")
     for frame in frames.split("/"):
         if len(frame) == 1:
             score += int(frame)
