@@ -4,14 +4,17 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text) - len(target) + 1):
-        if text[i:i+len(target)] == target:
-            result.append(i)
+    for i in range(len(text)):
+        if text.startswith(target): 
+            j = 0
+            while True:
+                j = text.find(target, i)
+                if j == -1: break
+                result.append(j)
+                i = j + len(target)
     return result
-
 
 print(gcd(1, 1))
 print(gcd(4, 4000000))
