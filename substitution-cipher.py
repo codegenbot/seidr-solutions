@@ -1,13 +1,14 @@
-```
-def decipher_cipher(cipher1, cipher2, message):
-    mapping = {}
-    for i in range(len(cipher1)):
-        if cipher1[i] != cipher2[i]:
-            mapping[cipher1[i]] = cipher2[i]
-    result = ""
-    for char in message:
-        if char in mapping:
-            result += mapping[char]
+def substitution_cipher():
+    s1 = input().strip()
+    s2 = input().strip()
+    s3 = input().strip()
+
+    deciphered_message = ""
+    for char in s3:
+        if char in s1:
+            index = s1.index(char)
+            deciphered_message += s2[index]
         else:
-            result += char
-    return result
+            deciphered_message += char
+
+    return deciphered_message
