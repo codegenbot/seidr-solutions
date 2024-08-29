@@ -1,11 +1,10 @@
-def find_pair(target):
-    nums = [int(num) for num in input().split()]
-    num_set = set()
-    for num in nums:
-        complement = target - num
-        if complement in num_set:
-            return "{} {}".format(complement, num)
-        num_set.add(num)
-
-
-print(find_pair(int(input())))
+def find_pair():
+    n = int(input())
+    nums = [int(x) for x in input().split()]
+    target = int(input())
+    num_dict = {}
+    for i in range(len(nums)):
+        if target - nums[i] in num_dict:
+            return f"{target - nums[i]} {nums[i]}" 
+        else:
+            num_dict[nums[i]] = i
