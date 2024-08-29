@@ -1,7 +1,10 @@
+Here is the Python solution for the problem:
+
 def leaders(arr):
-    leaders_list = [arr[-1]]
-    for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leaders_list.append(arr[i])
-            arr.pop()
-    return leaders_list[::-1]
+    return [arr[i] for i in range(len(arr)-1,-1,-1) if all(x <= arr[i] for x in arr[i+1:])]
+
+# Do not remove this line
+if __name__ == "main":
+    input_str = input()
+    array = list(map(int, input_str.split()))
+    print(*leaders(array), sep='\n')
