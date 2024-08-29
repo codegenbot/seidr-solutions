@@ -1,17 +1,20 @@
-Here is the Python solution for the given problem:
-
-def solve(input_str):
+def solveBoolean(input_str):
     if input_str == 'T':
         return True
     elif input_str == 'F':
         return False
+    elif '&' in input_str and '|' in input_str:
+        for op in '&|':
+            if op in input_str:
+                if op == '&':
+                    a, b = input_str.split(op)
+                    return solveBoolean(a) and solveBoolean(b)
+                else:
+                    a, b = input_str.split(op)
+                    return solveBoolean(a) or solveBoolean(b)
     elif '&' in input_str:
-        result = True
-        for operand in input_str.split('&'):
-            result = result and bool(operand)
-        return result
+        a, b = input_str.split('&')
+        return solveBoolean(a) and solveBoolean(b)
     elif '|' in input_str:
-        result = False
-        for operand in input_str.split('|'):
-            result = result or bool(operand)
-        return result
+        a, b = input_str.split('|')
+        return solveBoolean(a) or solveBoolean(b)
