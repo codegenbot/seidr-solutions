@@ -1,11 +1,8 @@
-Here is the Python solution:
-
-def find_pair(n):
-    s = list(map(int, input().split()))
-    for i in range(len(s)):
-        for j in range(i+1, len(s)):
-            if s[i] + s[j] == int(input()):
-                return str(s[i]) + '\n' + str(s[j])
-
-n = int(input())
-print(find_pair(n))
+def find_pair(nums):
+    num_set = set()
+    for num in nums[1:]:
+        complement = target - num
+        if complement in num_set:
+            return str(num) + "\n" + str(complement)
+        num_set.add(num)
+    return "No pair found"
