@@ -1,7 +1,6 @@
-def basement(nums):
-    total_sum = 0
-    for i in range(len(nums)):
-        total_sum += nums[i]
-        if total_sum < 0:
+```
+def basement(lst):
+    for i in range(len(lst)):
+        if sum(lst[:i+1]) < 0:
             return i
     return -1
