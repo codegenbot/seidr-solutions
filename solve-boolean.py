@@ -1,10 +1,10 @@
 def solve_boolean(expression):
-    def parse_expression(e):
-        if e == "T":
-            return True
-        elif e == "F":
-            return False
-        elif e in ["|", "&"]:
-            return any(parse_expression(x) for x in expression.split(e))
-
-    return parse_expression(expression)
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    else:
+        return bool(eval("T" if expression == "|" else "F" + expression))
