@@ -1,8 +1,7 @@
-```
 def validate_tweet(tweet):
-    if len(tweet) == 0:
+    if not tweet.strip():
         return "You didn't type anything"
-    elif sum(c.isalnum() for c in tweet) > 140:
+    elif len(tweet) > 140 or any(not c.isalnum() for c in tweet):
         return "Too many characters"
     else:
-        return f"Your tweet has {sum(c.isalnum() for c in tweet)} characters"
+        return f"Your tweet has {len(tweet)} characters"
