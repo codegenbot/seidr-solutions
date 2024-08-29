@@ -11,7 +11,10 @@ def mastermind(code, guess):
     for i in range(4):
         if code[i] == guess[i]:
             black_pegs += 1
-        elif guess_counts[ord(guess[i]) - ord("B")] < code_counts[ord(code[i]) - ord("B")]:
+        elif (
+            guess_counts[ord(guess[i]) - ord("B")]
+            < code_counts[ord(code[i]) - ord("B")]
+        ):
             white_pegs += 1
         code_counts[ord(code[i]) - ord("B")] -= 1
         guess_counts[ord(guess[i]) - ord("B")] -= 1
