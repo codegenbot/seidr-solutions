@@ -1,3 +1,4 @@
+```python
 def probability(n, m):
     total = n * m
     p_count = 0
