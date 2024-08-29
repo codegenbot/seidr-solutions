@@ -10,6 +10,7 @@ def coin_sums(cents):
 
     return num_coins[3], num_coins[2], num_coins[1], num_coins[0]
 
+
 cents = int(input())
 pennies, nickels, dimes, quarters = coin_sums(cents)
 print(quarters)
