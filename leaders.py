@@ -1,10 +1,8 @@
-```
 def leaders(arr):
     n = len(arr)
     leaders_list = [arr[n - 1]]
 
     for i in range(n - 2, -1, -1):
-        if max(arr[i:]) > arr[i]:
-            leaders_list.insert(0, arr[i])
+        leaders_list.insert(0, arr[i] if max(arr[i:]) > arr[i] else None)
 
-    return leaders_list
+    return [x for x in leaders_list if x is not None]
