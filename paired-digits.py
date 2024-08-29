@@ -1,10 +1,6 @@
-Here is the Python solution for the problem:
-
-def paired_digits(s):
-    return sum(int(digit) for digit in s if s[s.index(digit)+1] == digit)
-
-print(paired_digits('99'))  # prints: 9
-print(paired_digits('88'))  # prints: 8
-print(paired_digits('77'))  # prints: 7
-print(paired_digits('55'))  # prints: 5
-print(paired_digits('44'))  # prints: 4
+def paired_digits(digit_str):
+    total = 0
+    for i in range(len(digit_str) - 1):
+        if digit_str[i] == digit_str[i + 1]:
+            total += int(digit_str[i])
+    return total
