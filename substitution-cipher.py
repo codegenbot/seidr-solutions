@@ -1,11 +1,14 @@
 Here is the solution:
 
-def substitution_cipher(cipher1, cipher2, message):
+def substitution_cipher():
+    a = input()
+    b = input()
+    c = input()
     result = ""
-    for char in message:
-        if char in cipher1:
-            index = cipher1.index(char)
-            result += cipher2[index]
+    for char in c:
+        if char in a:
+            index_a = a.index(char)
+            result += b[index_a]
         else:
             result += char
     return result
