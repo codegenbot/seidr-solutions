@@ -12,6 +12,3 @@ def find_pair(n):
                 l += 1
             else:
                 r -= 1
-
-n = int(input())
-find_pair(n)
