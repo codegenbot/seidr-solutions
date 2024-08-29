@@ -3,4 +3,8 @@ def substitution_cipher(cipher1, cipher2, text):
     return deciphered
 
 
-print(substitution_cipher(input(), input(), input()))
+cipher1 = input()
+cipher2 = input()
+text = input()
+
+print(substitution_cipher(cipher1, cipher2, text))
