@@ -1,12 +1,11 @@
-```
-def find_pair():
-    n = int(input())
-    arr = [int(x) for x in input().split()]
-    target = int(input())
+Here's the Python solution:
 
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] + arr[j] == target:
-                return str(arr[i]) + "\n" + str(arr[j])
+n = int(input())
+nums = [int(num) for num in input().split()]
+target_sum = int(input())
 
-print(find_pair())
+for i in range(n):
+    for j in range(i + 1, n):
+        if nums[i] + nums[j] == target_sum:
+            print(nums[i])
+            print(nums[j])
