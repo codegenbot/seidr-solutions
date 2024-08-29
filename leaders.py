@@ -1,10 +1,2 @@
-def leaders(arr):
-    n = len(arr)
-    leader = []
-
-    for i in range(n - 1, -1, -1):
-        leader.append(arr[i])
-        while i > 0 and arr[i] >= arr[i + 1]:
-            i -= 1
-
-    return leader[::-1]
+def leaders(input_vector):
+    return [input_vector[i] for i in range(len(input_vector)-1, -1, -1) if all(x <= input_vector[i] for x in input_vector[i+1:])]
