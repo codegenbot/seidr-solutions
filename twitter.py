@@ -1,7 +1,7 @@
-def validate_tweet(tweet):
-    if len(tweet) > 140:
-        return "Too many characters"
-    elif len(tweet) == 0:
+def validate_tweet(t):
+    if len(t) == 0:
         return "You didn't type anything"
+    elif len(t) > 140:
+        return "Too many characters"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        return f"Your tweet has {len(t)} characters"
