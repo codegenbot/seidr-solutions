@@ -1,6 +1,12 @@
-def substitution_cipher(cipher_text1, cipher_text2, message):
-    cipher = {cipher_text1[i]: cipher_text2[i] for i in range(len(cipher_text1))}
-    deciphered_message = "".join(
-        [cipher[char] if char in cipher else char for char in message]
+def substitution_cipher(cipher, message):
+    deciphered = "".join(
+        [cipher[i] if i < len(cipher) else "" for i in range(len(message))]
     )
-    return deciphered_message
+    return deciphered
+
+
+cipher1 = input()
+cipher2 = input()
+message = input()
+
+print(substitution_cipher(cipher1, message))
