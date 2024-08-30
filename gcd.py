@@ -41,9 +41,7 @@ class SuffixTrie:
 
 def indices_of_substring(text, target):
     suffix_tire = SuffixTrie()
-    suffix_tire.insert(
-        text + "$" * len(target)
-    )  # Add a unique character at the end of each substring
+    suffix_tire.insert(text + "$" * len(target))
     return suffix_tire.query(target + "$")
 
 
