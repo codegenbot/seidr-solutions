@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = len(map(float, input().split()))
     prices = list(map(float, input().split()))[:n]
