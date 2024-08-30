@@ -4,5 +4,5 @@ def paired_digits(s):
 print(paired_digits('99'))  
 print(paired_digits('88'))  
 print(paired_digits('77'))  
-print(paired_digits('55'))  
+print(paid_digits('55'))  
 print(paired_digits('44'))
