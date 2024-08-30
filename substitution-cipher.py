@@ -1,13 +1,7 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = {}
-    for i in range(min(len(input1), len(input2))):
-        cipher[input1[i]] = input2[i]
-
-    result = ""
-    for char in input3:
-        if char in cipher:
-            result += cipher[char]
-        else:
-            result += char
-
-    return result
+def substitution_cipher():
+    cipher = [list(x) for x in zip(input(), input())]
+    message = input()
+    deciphered_message = "".join(
+        [cipher[i][0] if i < len(cipher[0]) else "" for i in range(len(message))]
+    )
+    return deciphered_message
