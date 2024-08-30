@@ -5,10 +5,11 @@ def gcd(a, b):
     return abs(a)
 
 def indices_of_substring(text, target):
-    if not text or not target:
-        return []
     result = []
     start_index = 0
+    if len(target) == 0 or not isinstance(text, str) or not isinstance(target, str):
+        print("Invalid input")
+        return
     while True:
         pos = text.find(target, start_index)
         if pos == -1:
@@ -19,7 +20,10 @@ def indices_of_substring(text, target):
 
 a = int(input())
 b = int(input())
-print(gcd(a, b))
+if a < 0 or b < 0:
+    print("Invalid input")
+else:
+    print(gcd(a, b))
 
 text = input()
 target = input()
