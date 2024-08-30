@@ -17,5 +17,10 @@ def bowling_score(rolls):
                 roll_index += 1
             else:
                 score += first_roll
-                roll_index += 1
+                if rolls[roll_index+1] != 'X' and str(first_roll) + '/' not in rolls[:roll_index+3]:
+                    second_roll = int(rolls[roll_index+1])
+                    score += second_roll
+                    roll_index += 2
+                else:
+                    roll_index += 1
     return score
