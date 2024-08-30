@@ -5,12 +5,12 @@ def bowling_score(bowling):
         if bowling[i] == 'X':
             score += 10
             if frame < 9 and bowling[i+2].isdigit():
-                score += int(bowling[i+1]) + int(bowling[i+2])
+                score += int(bowling[i+1])
             frame += 1
         elif bowling[i] == '/':
             first_roll = int(bowling[:i].count('X')) * 10
             second_roll = 10 - int(bowling[i+1])
-            score = first_roll + second_roll
+            score = score + first_roll + second_roll
             frame += 1
         else:
             if bowling[i] != '0':
