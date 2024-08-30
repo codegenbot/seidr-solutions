@@ -1,9 +1,11 @@
-def substitution_cipher():
-    cipher_mapping = [chr(ord(i1) - ord(i0)) for i0, i1 in zip(input(), input())]
-    message = input()
-    return "".join(
-        [
-            cipher_mapping[ord(c) - 97] if c.islower() else cipher_mapping[ord(c) - 65]
-            for c in message
-        ]
-    )
+def substitution_cipher(string1, string2, s):
+    cipher = {}
+    for i in range(len(string1)):
+        cipher[string1[i]] = string2[i]
+    deciphered_message = ""
+    for char in s:
+        if char in cipher:
+            deciphered_message += cipher[char]
+        else:
+            deciphered_message += char
+    return deciphered_message
