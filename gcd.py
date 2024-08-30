@@ -6,7 +6,7 @@ def gcd(a, b):
 
 
 def indices_of_substring(text, target):
-    if not target or len(target) == 0:
+    if not text or not target:
         return []
     result = []
     start_index = 0
@@ -21,10 +21,7 @@ def indices_of_substring(text, target):
 
 a = int(input())
 b = int(input())
-if a < 0 or b < 0:
-    print("Error: Both numbers must be positive.")
-else:
-    print(gcd(a, b))
+print(gcd(a, b))
 
 text = input()
 target = input()
