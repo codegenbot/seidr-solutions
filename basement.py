@@ -1,7 +1,8 @@
-def basement(arr):
+Here is a possible solution in Python:
+
+def basement(lst):
     total = 0
-    for i, num in enumerate(arr):
-        total += num
+    for i, x in enumerate(lst):
+        total += x
         if total < 0:
             return i
-    return -1
