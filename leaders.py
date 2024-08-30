@@ -1,9 +1,11 @@
 ```
-def leaders(input_vector):
-    leaders = []
-    max_right = input_vector[-1]
-    for i in range(len(input_vector) - 1, -1, -1):
-        if input_vector[i] >= max_right:
-            leaders.append(input_vector[i])
-            max_right = input_vector[i]
-    return list(reversed(leaders))
+def leaders(input):
+    output = [input[-1]]
+    max_right = input[-1]
+
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= max_right:
+            output.insert(0, input[i])
+            max_right = input[i]
+
+    return output
