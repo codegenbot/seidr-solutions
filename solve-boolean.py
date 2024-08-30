@@ -7,19 +7,14 @@ def solveBoolean(expression):
             return True
         elif node == "F":
             return False
-        left, operator, right = node.partition(operator)
-        return {
-            "|": lambda: evaluate(left) or evaluate(right),
-            "&": lambda: evaluate(left) and evaluate(right)
-        }[operator]()
+        elif node in "|&":
+            operator = node
+            i = expression.index(operator)
+            left = evaluate(expression[:i])
+            right = evaluate(expression[i+1:])
+            if operator == "|":
+                return left or right
+            else:
+                return left and right
 
-    operators = "|&"
-    result = True
-    for i in range(len(expression)):
-        if expression[i] in operators:
-            left, operator, right = expression[:i], expression[i], expression[i+1:]
-            result = {
-                "|": lambda: evaluate(left) or evaluate(right),
-                "&": lambda: evaluate(left) and evaluate(right)
-            }[operator]()
-    return result
+    return evaluate(expression)
