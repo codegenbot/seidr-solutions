@@ -1,3 +1,4 @@
+```
 def solveBoolean(expression):
     def evaluate(node):
         if node.isdigit():
@@ -6,9 +7,14 @@ def solveBoolean(expression):
             return True
         elif node == "F":
             return False
-        elif node in ["|", "&"]:
-            i = expression.index(node)
+        elif node in "|&":
+            operator = node
+            i = expression.index(operator)
             left = evaluate(expression[:i])
-            return (node == "|" and left or right) or (node == "&" and left and right)
+            right = evaluate(expression[i+1:])
+            if operator == "|":
+                return left or right
+            else:
+                return left and right
 
     return evaluate(expression)
