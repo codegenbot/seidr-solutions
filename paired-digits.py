@@ -1,4 +1,6 @@
-Here is the solution:
-
 def paired_digits(s):
-    return sum(int(d) for d in s if s[s.index(d)+1] == d)
+    total_sum = 0
+    for i in range(len(s) - 1):
+        if s[i] == s[i+1]:
+            total_sum += int(s[i])
+    return total_sum
