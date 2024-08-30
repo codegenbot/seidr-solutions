@@ -3,7 +3,8 @@ def spin_words(s):
     result = []
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1] + " ")
+            half = len(word) // 2
+            result.append(word[half:] + word[:half][::-1])
         else:
-            result.append(word + " ")
-    return " ".join(result).strip()
+            result.append(word)
+    return " ".join(result)
