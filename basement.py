@@ -1,5 +1,5 @@
-def basement(vec):
-    for i in range(len(vec)):
-        if sum(vec[: i + 1]) < 0:
+def basement(nums):
+    for i in range(len(nums)):
+        if sum(nums[: i + 1]) < 0:
             return i
     return -1
