@@ -1,7 +1,7 @@
 frames = input("Enter the individual bowls (e.g., 1/2X/3-4/5-X etc.): ")
 def bowling_score(frames):
     score = 0
-    for i, frame in enumerate(frames.split('/')):
+    for i, frame in enumerate(map(str, frames.split('/'))):
         if len(frame) == 1:
             score += 10
         elif 'X' in frame:
