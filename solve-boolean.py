@@ -1,11 +1,15 @@
 ```
-def solveBoolean(inputStr):
-    if inputStr == "T":
+def solveBoolean(expression):
+    if expression == 'T':
         return True
-    elif inputStr == "F":
+    elif expression == 'F':
         return False
-    elif len(inputStr) > 1:
-        if inputStr[0] == "&" and inputStr[1] == "&":
-            return solveBoolean(inputStr[2:]) and solveBoolean(inputStr[:2])
-        elif inputStr[0] == "|" and inputStr[1] == "|":
-            return solveBoolean(inputStr[2:]) or solveBoolean(inputStr[:2])
+    elif '&' in expression:
+        a, b = expression.split('&')
+        return solveBoolean(a) and solveBoolean(b)
+    else:
+        a, b = expression.split('|')
+        return solveBoolean(a) or solveBoolean(b)
+
+expression = input()
+print(solveBoolean(expression))
