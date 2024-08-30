@@ -1,3 +1,4 @@
+```
 def solve_boolean(s):
     def bool_to_val(c):
         return c == 'T'
