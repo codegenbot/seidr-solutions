@@ -1,20 +1,21 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters_needed = cents // 25
-    remaining_cents = cents % 25
-    dimes_needed = remaining_cents // 10
-    remaining_cents %= 10
-    nickels_needed = remaining_cents // 5
-    remaining_cents %= 5
-    pennies_needed = remaining_cents
+    quarter_count = dime_count = nickel_count = penny_count = 0
+    for coin in sorted(coins, reverse=True):
+        while cents >= coin:
+            cents -= coin
+            if coin == 25: quarter_count += 1
+            elif coin == 10: dime_count += 1
+            elif coin == 5:   nickel_count += 1
+            else:            penny_count += 1
 
-    return quarters_needed, dimes_needed, nickels_needed, pennies_needed
+    return quarter_count, dime_count, nickel_count, penny_count
 
 
 cents = int(input())
-quarters_needed, dimes_needed, nickels_needed, pennies_needed = coin_sums(cents)
-print(quarters_needed)
-print(dimes_needed)
-print(nickels_needed)
-print(pennies_needed)
+quarter_count, dime_count, nickel_count, penny_count = coin_sums(cents)
+print(quarter_count)
+print(dime_count)
+print(nickel_count)
+print(penny_count)
