@@ -1,9 +1,15 @@
-def substitution_cipher(cipher_text1, cipher_text2, message):
+def substitution_cipher():
+    cipher1 = input()
+    cipher2 = input()
+    message = input()
+
+    cipher_dict = {}
+    for i in range(len(cipher1)):
+        if cipher1[i] not in cipher_dict:
+            cipher_dict[cipher1[i]] = cipher2[i]
+
     deciphered_message = ""
     for char in message:
-        index = ord(char) - 97
-        if index >= len(cipher_text1):
-            deciphered_message += char
-        else:
-            deciphered_message += cipher_text2[index]
+        deciphered_message += cipher_dict.get(char, char)
+
     return deciphered_message
