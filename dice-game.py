@@ -1,11 +1,4 @@
-```
-import math
 def dice_game(n, m):
-    if n < m:
-        return 0
-    else:
-        numerator = 0
-        denominator = n * m
-        for i in range(m+1):
-            numerator += (n - i)
-        return numerator / denominator
+    total_outcomes = n * m
+    favorable_outcomes = sum(1 for _ in range(m - 1))
+    return favorable_outcomes / total_outcomes
