@@ -1,4 +1,3 @@
-```Python
 def substitution_cipher():
     cipher1 = input()
     cipher2 = input()
