@@ -1,10 +1,8 @@
-Here is the solution:
+def leaders(arr):
+    n = len(arr)
+    leaders_vector = [arr[n - 1]]
 
-def leaders(input_vector):
-    result = []
-    max_right = input_vector[-1]
-    for i in range(len(input_vector) - 1, -1, -1):
-        if input_vector[i] >= max_right:
-            result.append(input_vector[i])
-            max_right = input_vector[i]
-    return list(reversed(result))
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            leaders_vector.append(arr[i])
+    return list(reversed(leaders_vector))
