@@ -1,8 +1,3 @@
+```
 def camel_case(s):
-    result = ""
-    for group in s.split("-"):
-        if not result:
-            result += group.capitalize()
-        else:
-            result += group.capitalize().capitalize()
-    return result
+    return "".join(part.capitalize() if i > 0 else part for i, part in enumerate(s.split("-")))
