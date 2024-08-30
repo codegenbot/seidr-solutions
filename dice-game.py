@@ -1,2 +1,11 @@
+```
+import math
 def dice_game(n, m):
-    return max((n-m)/n, (m-1)/m)
+    if n < m:
+        return 0
+    else:
+        numerator = 0
+        denominator = n * m
+        for i in range(m+1):
+            numerator += (n - i)
+        return numerator / denominator
