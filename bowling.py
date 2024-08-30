@@ -7,11 +7,16 @@ def bowling_score(score):
     for i in range(len(frames)):
         if i < len(frames)-1 and frames[i] == 10:
             total += 10 + frames[i+1]
-            roll += 1
+            roll += 2
             i += 1
         elif i < len(frames)-1 and frames[i] != 10:
-            total += min(frames[i], 10) + (10 - frames[i]) if roll > 0 else 0
-            roll = max(roll, 1)
+            if roll > 0 and frames[i] + frames[i+1] >= 10:
+                total += 10
+                roll = 1
+                i += 1
+            else:
+                total += min(frames[i], 10)
+                roll += (10 - frames[i]) if roll == 1 else 1
         else:
             total += frames[i]
     return total
