@@ -1,4 +1,3 @@
-```
 def bowling_score(rolls):
     score = 0
     roll_index = 0
@@ -12,8 +11,9 @@ def bowling_score(rolls):
             roll_index += 2
         else:
             first_roll = int(rolls[roll_index])
+            score += first_roll
             if rolls[roll_index+1] == 'X':
-                score += first_roll + 10
+                score += 10
                 roll_index += 1
             elif '/' in rolls[roll_index+1:roll_index+3]:
                 second_roll = int(rolls[roll_index+1:roll_index+2].replace('/', '-'))
