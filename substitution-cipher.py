@@ -1,6 +1,5 @@
-def solve(input_str):
-    message, cipher = input_str.split("\n")[:2]
-    deciphered_message = "".join(
-        c[0] if c in zip(message, cipher) else " " for c in message
+def substitution_cipher(cipher1, cipher2, text):
+    deciphered = "".join(
+        [cipher2[i] if i < len(cipher2) else "" for i in range(len(text))]
     )
-    return deciphered_message
+    return deciphered
