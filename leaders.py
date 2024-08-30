@@ -5,6 +5,6 @@ def leaders(input):
     for i in range(len(input) - 2, -1, -1):
         if input[i] >= max_right:
             max_right = input[i]
-            output.append(max_right)
+            output.insert(0, max_right)
 
-    return output[::-1]
+    return output
