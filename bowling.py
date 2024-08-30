@@ -1,13 +1,19 @@
-def bowling_score(frames):
+def bowling_game(input_string):
     score = 0
-    for i in range(len(frames) // 2 + len(frames) % 2):
-        if frames[2 * i] == "X":
-            score += 30
-        elif frames[2 * i] in ["/10"]:
-            if i < 9 and frames[2 * i + 1] == "/":
-                score += int(frames[2 * i - 1].replace("/", "")) + 10 + (30 - 10)
-            else:
-                score += 10 + int(frames[2 * i - 1].replace("/", ""))
-        else:
-            score += sum(map(int, frames[2 * i : 2 * i + 2].split("/")))
+    roll = []
+    for char in input_string:
+        if char.isdigit():
+            roll.append(int(char))
+        elif char == "/":
+            if len(roll) < 2:
+                return "Invalid game string"
+            total_pins = sum(roll)
+            if total_pins < 10:
+                return "Invalid game string"
+            score += max(10 - total_pins, 0) * 10
+            roll = []
+    if len(roll) > 0:
+        return "Invalid game string"
+    total_pins = sum(roll)
+    score += min(total_pins, 10) * 10
     return score
