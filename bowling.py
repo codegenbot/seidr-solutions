@@ -9,11 +9,11 @@ def bowling_score(frames):
             if i < 9:  
                 score += 10 + frames[i+1] + frames[i+2]
             else:
-                score += 10 + max(frames[:i])  
+                score += 10 + max(frames[:i]) 
             strike_count += 1
         elif str(roll) == "0":  
             if i < 9 and strike_count > 2:
-                score += 10 + max(frames[:i])  
+                score += 10 + max(frames[:i]) 
             else:
                 score += 10 + frames[i-1] + frames[i-2]
         elif len(str(roll)) == 2:  
