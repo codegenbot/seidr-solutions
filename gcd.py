@@ -27,8 +27,7 @@ def indices_of_substring(text, target):
             return []
     return indices
 
-a = gcd(0, 0)
-
+a = gcd(0, 0)  
 text = input()
 target = input()
 
