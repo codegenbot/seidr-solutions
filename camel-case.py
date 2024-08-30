@@ -1,14 +1,10 @@
-def camel_case(s):
-    return (
-        "".join(word.capitalize() for word in s.split(" "))
-        if " " in s
-        else s.replace("-", "").capitalize()
-    )
+def kebab_to_camel(s):
+    return "".join(word.capitalize() for word in s.split("-") if word)
 
 
 while True:
     try:
-        s = input()
-        print(camel_case(s))
-    except KeyboardInterrupt:
+        user_input = input("input: ")
+        print(f"output: {kebab_to_camel(user_input)}")
+    except (KeyboardInterrupt, EOFError):
         break
