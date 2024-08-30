@@ -1,7 +1,7 @@
 ```
 def leaders(input):
     output = []
-    max_right = input[-1]
+    max_right = input[0]
     for num in input:
         if num >= max_right:
             output.append(num)
