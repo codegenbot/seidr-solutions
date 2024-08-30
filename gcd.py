@@ -1,20 +1,14 @@
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+Here is the completed code:
 
+def gcd(m, n):
+    while n != 0:
+        m, n = n, m % n
+    return abs(m)
 
-def indices_of_substring(text, target):
-    indices = []
-    current_index = 0
-    while current_index < len(text):
-        pos = text.find(target)
-        if pos == -1:
-            break
-        indices.append(pos + 1)
-        current_index = pos + 1
-    return indices
+text = input()
+target = input()
 
+indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
 print(gcd(int(input()), int(input())))
-print(indices_of_substring(input(), input()))
+print(indices)
