@@ -10,8 +10,11 @@ def bowling_score(score):
             roll += 1
             i += 1
         elif i < 9 and frames[i] != 10:
-            total += min(frames[i], 10) + (10 - frames[i]) if roll > 0 else 0
-            roll = max(roll, 1)
+            if roll == 1:
+                total += min(frames[i], 10)
+            else:
+                total += min(frames[i], 10 - frames[i-1])
+            roll = max(roll, 2) if roll > 0 else 1
         else:
             total += frames[i]
     return total
