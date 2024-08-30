@@ -1,7 +1,13 @@
-def substitution_cipher():
-    cipher = [ord(c2) - ord(c1) for c1, c2 in zip(input(), input())]
-    message = input()
-    return "".join(
-        chr((ord(c) + cipher[i % len(cipher)]) % 256).lower() if c.isalpha() else c
-        for i, c in enumerate(message)
-    )
+```
+def substitution_cipher(cipher1, cipher2, message):
+    mapping = {}
+    for char in range(len(cipher1)):
+        if cipher1[char] != cipher2[char]:
+            mapping[cipher1[char]] = cipher2[char]
+    result = ""
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
+        else:
+            result += char
+    return result
