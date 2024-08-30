@@ -1,8 +1,6 @@
+```
 def solve_boolean(expression):
-    operators = {
-        "&": lambda x, y: bool(x) and bool(y),
-        "|": lambda x, y: bool(x) or bool(y),
-    }
+    operators = {"&": lambda x, y: bool(x) and bool(y), "|": lambda x, y: bool(x) or bool(y)}
     stack = []
     for char in expression:
         if char in "TF":
