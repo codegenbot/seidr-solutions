@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     deciphered_message = ""
     for char in message:
@@ -8,9 +7,3 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             deciphered_message += char
     return deciphered_message
-
-cipher1 = input("Enter the first string: ")
-cipher2 = input("Enter the second string: ")
-message = input("Enter the message to be decrypted: ")
-
-print(substitution_cipher(cipher1, cipher2, message))
