@@ -1,3 +1,8 @@
 def camel_case(s):
-    words = s.split('-')
-    return ''.join(w.capitalize() if i > 0 else w.lower() for i, w in enumerate(words))
+    result = ''
+    for i,word in enumerate(s.split('-')):
+        if i > 0:
+            result += word.capitalize()
+        else:
+            result += word
+    return result
