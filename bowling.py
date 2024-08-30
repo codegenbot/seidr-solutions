@@ -1,30 +1,13 @@
-```
-def bowling_score(score_string):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    frame = 1
-    
-    for char in score_string:
-        if char.isdigit():
-            roll = int(char)
-        elif char == '/':
-            if roll > 10:
-                return 'Invalid input'
-            else:
-                score += min(roll, 10) * 10
-                if roll < 10:
-                    score += next(i for i in range(min(roll, 10), 11))
-                roll = 0
-        elif char == 'X':
+    for i in range(len(frames) // 2 + len(frames) % 2):
+        if frames[2 * i] == "X":
             score += 30
-            roll = 0
-            frame -= 1
-        elif char.lower() == 'x':
-            if frame > 9:
-                return 'Invalid input'
+        elif frames[2 * i] in ["/10"]:
+            if i < 9 and frames[2 * i + 1] == "/":
+                score += int(frames[2 * i - 1].replace("/", "")) + 10 + (30 - 10)
             else:
-                score += 10
-                roll = 0
-                frame -= 1
-    
+                score += 10 + int(frames[2 * i - 1].replace("/", ""))
+        else:
+            score += sum(map(int, frames[2 * i : 2 * i + 2].split("/")))
     return score
