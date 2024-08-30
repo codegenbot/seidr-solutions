@@ -1,16 +1,16 @@
+```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == 't':
         return True
-    elif expression == 'F':
+    elif expression == 'f':
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        stack = []
-        for char in reversed(expression):
-            if char in ['&', '|']:
-                b1, b2 = bool(stack.pop()), bool(stack.pop())
-                stack.append(b1 and b2 if char == '&' else b1 or b2)
-            elif char in ['T', 'F']:
-                stack.append(char == 'T')
-        return stack[0]
+        result = True
+        for char in expression:
+            if char == '&':
+                result &= bool(next(iter(char)))
+            elif char == '|':
+                result |= bool(next(iter(char)))
+        return result
