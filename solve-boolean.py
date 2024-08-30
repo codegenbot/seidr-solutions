@@ -1,18 +1,11 @@
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == "t":
         return True
-    elif expression == "F":
+    elif expression == "f":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    else:
-        for op, val in re.findall(r"([|&])", expression):
-            if op == "&":
-                expression = eval(
-                    f"({val} and {expression.replace(val, 'T').replace('&', '&')})"
-                )
-            elif op == "|":
-                expression = eval(
-                    f"({val} or {expression.replace(val, 'F').replace('|', '|')})"
-                )
-        return eval(expression)
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (bool(solve_boolean(left)) and bool(solve_boolean(right)))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(solve_boolean(left)) or bool(solve_boolean(right))
