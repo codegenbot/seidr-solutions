@@ -1,11 +1,23 @@
-Here is the solution in Python:
-
-def solve(input):
-    if input == 'T':
+def solve_boolean(input_string):
+    if input_string == "T":
         return True
-    elif input == 'F':
+    elif input_string == "F":
         return False
-    elif input[0] == '&':
-        return solve(input[1:]) and bool(int(input[0]))
-    elif input[0] == '|':
-        return solve(input[1:]) or bool(int(input[0]))
+    elif "&" in input_string:
+        operands = input_string.split("&")
+        result = True
+        for operand in operands:
+            if operand == "T":
+                result = True
+            else:
+                result = False
+                break
+        return result
+    elif "|" in input_string:
+        operands = input_string.split("|")
+        result = False
+        for operand in operands:
+            if operand == "T":
+                result = True
+                break
+        return result
