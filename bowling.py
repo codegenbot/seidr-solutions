@@ -1,4 +1,3 @@
-```
 def bowling_score(rolls):
     score = 0
     roll_index = 0
