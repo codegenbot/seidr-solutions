@@ -1,9 +1,9 @@
-def substitution_cipher(cipher_text1, cipher_text2, message):
-    deciphered_message = ""
-    for char in message:
-        index = ord(char) - 97
-        if index >= len(cipher_text1):
-            deciphered_message += char
-        else:
-            deciphered_message += cipher_text2[index]
-    return deciphered_message
+def substitution_cipher():
+    cipher_mapping = [chr(ord(i1) - ord(i0)) for i0, i1 in zip(input(), input())]
+    message = input()
+    return "".join(
+        [
+            cipher_mapping[ord(c) - 97] if c.islower() else cipher_mapping[ord(c) - 65]
+            for c in message
+        ]
+    )
