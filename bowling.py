@@ -8,12 +8,8 @@ def bowling_score(rolls):
             roll_index += 1
         elif '/' in rolls[roll_index:roll_index+2]:
             first_roll, second_roll = map(int, rolls[roll_index:roll_index+2].replace('/', '').split())
-            if first_roll + second_roll == 10:
-                score += first_roll + second_roll
-                roll_index += 2
-            else:
-                score += first_roll
-                roll_index += 1
+            score += first_roll + second_roll
+            roll_index += 2
         else:
             first_roll = int(rolls[roll_index])
             if first_roll == 10:
