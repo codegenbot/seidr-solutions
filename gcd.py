@@ -1,20 +1,48 @@
-```
 def gcd(a, b):
-    if a == 0:
-        return abs(b)
-    elif b == 0:
-        return abs(a)
     while b != 0:
         a, b = b, a % b
-    return a
+    return abs(a)
+
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_string = False
+
+
+class SuffixTrie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, s):
+        node = self.root
+        for char in s:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_string = True
+
+    def query(self, s):
+        node = self.root
+        for char in s:
+            if char not in node.children:
+                return []
+            node = node.children[char]
+        result = []
+        self._query(node, "", result)
+        return result
+
+    def _query(self, node, prefix, result):
+        if node.is_end_of_string:
+            result.append(len(prefix))
+        for char in node.children:
+            self._query(node.children[char], prefix + char, result)
 
 
 def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+    suffix_tire = SuffixTrie()
+    suffix_tire.insert(text + "$" * len(target))
+    return suffix_tire.query(target + "$")
 
 
 a = int(input())
