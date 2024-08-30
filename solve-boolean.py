@@ -10,6 +10,6 @@ def solve_boolean(s):
             left, right = expr.split('|')
             return eval_expr(left) or eval_expr(right)
         else:
-            return bool_to_val(s)
+            return bool_to_val(s[0])
 
     return eval_expr(s)
