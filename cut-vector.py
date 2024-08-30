@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     min_diff = abs(sum(vector[:1]) - sum(vector[1:]))
     split_index = 0
