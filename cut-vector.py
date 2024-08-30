@@ -11,6 +11,5 @@ def cut_vector(vector):
             min_diff = diff
             cut_index = i
     if cut_index != -1:
-        return vector[: cut_index + 1], vector[cut_index:]
-    else:
-        return [vector[0]], vector[1:]
+        return vector[: cut_index + 1], vector[cut_index + 1 :]
+    return [vector[0]], []
