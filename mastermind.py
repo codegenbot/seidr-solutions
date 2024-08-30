@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     B_O = [c for c in code if c in ["B", "O"]]
     O_B = [c for c in code if c in ["O", "B"]]
