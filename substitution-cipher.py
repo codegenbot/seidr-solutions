@@ -1,16 +1,27 @@
-```
 def substitution_cipher():
-    s1 = input()
-    s2 = input()
-    message = input()
+    ciphertext = input()
+    deciphertext1 = input()
+    deciphertext2 = input()
 
-    result = ""
-    for char in message:
-        if char in s1:
-            index = s1.index(char)
-            result += s2[index]
+    ciphered_message = ""
+    for char in ciphertext:
+        if char.isalpha():
+            if char.islower():
+                pos = ord(char) - 97
+                if deciphertext1[pos] == "a":
+                    ciphered_message += deciphertext2[pos].lower()
+                else:
+                    ciphered_message += deciphertext2[pos]
+            else:
+                pos = ord(char) - 65
+                if deciphertext1[pos] == "A":
+                    ciphered_message += deciphertext2[pos].upper()
+                else:
+                    ciphered_message += deciphertext2[pos]
         else:
-            result += char
-    print(result)
+            ciphered_message += char
 
-substitution_cipher()
+    return ciphered_message
+
+
+print(substitution_cipher())
