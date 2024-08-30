@@ -1,9 +1,13 @@
-def substitution_cipher(encode_map, decode_map, text):
+def substitution_cipher(cipher1, cipher2, message):
+    cipher = {}
+    for i in range(len(cipher1)):
+        cipher[cipher1[i]] = cipher2[i]
+
     result = ""
-    for char in text:
-        if char in encode_map:
-            index = encode_map.index(char)
-            result += decode_map[index]
+    for char in message:
+        if char in cipher:
+            result += cipher[char]
         else:
             result += char
+
     return result
