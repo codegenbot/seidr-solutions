@@ -1,21 +1,22 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    coin_counts = {'quarters': 0, 'dimes': 0, 'nickels': 0, 'pennies': 0}
+    quarter_count = dime_count = nickel_count = penny_count = 0
 
-    for coin in sorted(coins, reverse=True): 
+    for coin in sorted(coins, reverse=True):
         while cents >= coin:
-            coins_per_type = cents // coin
-            cents %= coin
-            if coin == 25:
-                coin_counts['quarters'] += coins_per_type
-            elif coin == 10:
-                coin_counts['dimes'] += coins_per_type
-            elif coin == 5:
-                coin_counts['nickels'] += coins_per_type
-            else:
-                coin_counts['pennies'] += coins_per_type
+            cents -= coin
+            if coin == 25: quarter_count += 1
+            elif coin == 10: dime_count += 1
+            elif coin == 5: nickel_count += 1
+            else: penny_count += 1
 
-    return {key: value for key, value in sorted(coin_counts.items())}
+    return quarter_count, dime_count, nickel_count, penny_count
+
 
 cents = int(input())
-print(*list(coin_sums(cents).values()))
+quarter_count, dime_count, nickel_count, penny_count = coin_sums(cents)
+print(quarter_count)
+print(dime_count)
+print(nickel_count)
+print(penny_count)
