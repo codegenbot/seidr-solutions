@@ -32,5 +32,4 @@ a = gcd(0, 0)
 text = input()
 target = input()
 
-print(gcd(a, b))
 print(indices_of_substring(text, target))
