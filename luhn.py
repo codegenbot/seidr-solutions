@@ -1,9 +1,4 @@
-def luhn(card):
-    card = [int(x) for x in card.split()]
-    result = sum(
-        [
-            x if i % 2 == 0 else x * 2 if x * 2 > 9 else x * 2 - 9
-            for i, x in enumerate(card)
-        ]
-    )
-    return str(result)
+Here is the solution:
+
+def luhn(vector):
+    return sum(int(d) * 2 if i % 2 else int(d) for i, d in enumerate(reversed(vector))) % 10
