@@ -1,18 +1,11 @@
-def solve_boolean(expression):
-    if expression == "T":
+Here is the solution in Python:
+
+def solve(input):
+    if input == 'T':
         return True
-    elif expression == "F":
+    elif input == 'F':
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    else:
-        for op, val in re.findall(r"([|&])", expression):
-            if op == "&":
-                expression = eval(
-                    f"({val} and {expression.replace(val, 'T').replace('&', '&')})"
-                )
-            elif op == "|":
-                expression = eval(
-                    f"({val} or {expression.replace(val, 'F').replace('|', '|')})"
-                )
-        return eval(expression)
+    elif input[0] == '&':
+        return solve(input[1:]) and bool(int(input[0]))
+    elif input[0] == '|':
+        return solve(input[1:]) or bool(int(input[0]))
