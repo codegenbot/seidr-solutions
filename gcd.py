@@ -13,17 +13,17 @@ def indices_of_substring(text, target):
             i += 1
         else:
             i += 1
-    return indices if len(indices) > 0 else [-1]
+    return indices
 
 
 def main():
-    a = int(input())
-    b = int(input())
-    print(gcd(a, b))
+    try:
+        a = int(input("Enter first number: "))
+        b = int(input("Enter second number: "))
+        print(gcd(a, b))
 
-    text = input()
-    target = input()
-    print(indices_of_substring(text, target))
-
-
-main()
+        text = input("Enter the text: ")
+        target = input("Enter the target substring: ")
+        print(indices_of_substring(text, target))
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
