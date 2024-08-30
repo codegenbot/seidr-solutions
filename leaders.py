@@ -1,10 +1,11 @@
 ```
 def leaders(input):
-    output = []
+    output = [input[-1]]
     max_right = input[-1]
-    for i in range(len(input)-1, -1, -1):
+
+    for i in range(len(input) - 2, -1, -1):
         if input[i] >= max_right:
-            output.append(max_right)
+            output.insert(0, input[i])
             max_right = input[i]
-    output.append(max_right)
-    return output[::-1]
+
+    return output
