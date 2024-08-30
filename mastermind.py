@@ -1,4 +1,3 @@
-```
 def get_clue(code, guess):
     black = 0
     white = 0
