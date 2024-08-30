@@ -1,6 +1,12 @@
-def find_pair(n, nums):
-    seen = {}
-    for num in nums:
-        if num * 2 - n in seen:
-            return str(num) + "\n" + str(num * 2 - n)
-        seen[num] = True
+def find_pair(nums):
+    num_dict = {}
+    for num in nums[1:]:
+        complement = target - num
+        if complement in num_dict:
+            return str(complement) + "\n" + str(num)
+        num_dict[num] = True
+    return "No pair found"
+
+
+target = int(input())
+print(find_pair([len(str(target)), *map(int, input().split()), int(input())]))
