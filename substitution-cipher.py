@@ -1,13 +1,8 @@
-def substitution_cipher(cipher1, cipher2, message):
-    cipher = {}
-    for i in range(len(cipher1)):
-        cipher[cipher1[i]] = cipher2[i]
-
-    result = ""
-    for char in message:
-        if char in cipher:
-            result += cipher[char]
-        else:
-            result += char
-
-    return result
+def substitution_cipher():
+    key1, key2 = input(), input()
+    cipher = {k: v for k, v in zip(key1, key2)}
+    message = input()
+    return "".join(
+        cipher.get(c.lower(), c) if c.isalpha() else c
+        for c in message
+    )
