@@ -5,6 +5,7 @@ def fizz_buzz(n):
             result += "Fizz"
         if i % 5 == 0:
             result += "Buzz"
-        if not result:
-            result = str(i)
-        print(result)
+        if not (i % 3 == 0 or i % 5 == 0):
+            result += str(i)
+        result += "\n"
+    return result
