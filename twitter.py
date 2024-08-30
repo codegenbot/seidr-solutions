@@ -1,6 +1,4 @@
-Here is the solution:
-
-def twitter(tweet):
+def validate_tweet(tweet):
     if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
