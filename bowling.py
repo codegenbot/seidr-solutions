@@ -1,21 +1,16 @@
-Here is the Python solution:
-
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit():
-            if s[i+1].isdigit():
-                score += int(s[i:i+2])
-            else:
-                score += int(s[i])
-                if s[i+1] == 'X':
-                    score += 10 + (10 - frame)
-                elif s[i+1] == '/':
-                    score += 10
-        elif s[i] == 'X':
-            score += 10
-            frame += 1
-        elif s[i] == '/':
-            score += 10
+    frame_num = 1
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            strike = True
+            spare = False
+        elif len(frame) > 1 and "X" in frame:
+            strike = True
+            spare = False
+        else:
+            roll1, roll2 = map(int, frame.split('-'))
+            score += roll1 + roll2
+            frame_num += 1
+
     return score
