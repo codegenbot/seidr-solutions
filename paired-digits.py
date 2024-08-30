@@ -1,4 +1,3 @@
-```
 from itertools import groupby
 
 def paired_digits(s):
