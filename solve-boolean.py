@@ -1,3 +1,4 @@
+```
 def solveBoolean(expression):
     def evaluate(node):
         if node.isdigit():
