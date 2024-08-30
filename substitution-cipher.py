@@ -1,5 +1,8 @@
 def substitution_cipher(cipher1, cipher2, message):
-    mapping = {cipher1[i]: cipher2[i] for i in range(len(cipher1)) if cipher1[i] != cipher2[i]}
+    mapping = {}
+    for a, b in zip(cipher1, cipher2):
+        if a != b:
+            mapping[a] = b
     result = ""
     for char in message:
         if char in mapping:
