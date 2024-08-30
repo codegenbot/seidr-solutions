@@ -1,11 +1,11 @@
-Here is the solution in Python:
-
-def solve(input):
-    if input == 'T':
+def solve(input_str):
+    if input_str == "t":
         return True
-    elif input == 'F':
+    elif input_str == "f":
         return False
-    elif input[0] == '&':
-        return solve(input[1:]) and bool(int(input[0]))
-    elif input[0] == '|':
-        return solve(input[1:]) or bool(int(input[0]))
+    elif "&" in input_str:
+        left, right = input_str.split("&")
+        return bool(int(left)) and bool(int(right))
+    elif "|" in input_str:
+        left, right = input_str.split("|")
+        return bool(int(left)) or bool(int(right))
