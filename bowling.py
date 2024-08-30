@@ -1,5 +1,5 @@
-````
-def bowling_score(rolls):
+```
+"""def bowling_score(rolls):
     score = 0
     roll_index = 0
     for frame in range(10):
@@ -24,3 +24,4 @@ def bowling_score(rolls):
                 score += first_roll + int(rolls[roll_index+1])
                 roll_index += 2
     return score
+"""
