@@ -1,18 +1,15 @@
 ```
 def coin_sums(cents):
-    coins = [25, 10, 5, 1] 
-    coins_used = [0, 0, 0, 0]
-    
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            coins_used[i] += 1
-    
-    return coins_used[3], coins_used[2], coins_used[1], coins_used[0]
+    coins = [25, 10, 5, 1]
+    res = [0, 0, 0, 0]
+    i = len(coins) - 1
+    while cents > 0:
+        if cents >= coins[i]:
+            count = min(cents // coins[i], res[i] + (cents % coins[i] == 0))
+            cents -= coins[i] * count
+            res[i] += count
+        i -= 1
+    return tuple(res)
 
-cents = int(input())
-quarters, nickles, dimes, pennies = coin_sums(cents)
-print(pennies)
-print(dimes)
-print(nickles)
-print(quarters)
+c = int(input())
+print(*coin_sums(c))
