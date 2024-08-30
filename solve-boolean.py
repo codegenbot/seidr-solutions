@@ -1,13 +1,11 @@
-Here is the solution:
-
 def solveBoolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solveBoolean(left) and solveBoolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solveBoolean(left) or solveBoolean(right)
+    elif "&" in expression:
+        a, b = expression.split("&")
+        return solveBoolean(a) and solveBoolean(b)
+    elif "|" in expression:
+        a, b = expression.split("|")
+        return solveBoolean(a) or solveBoolean(b)
