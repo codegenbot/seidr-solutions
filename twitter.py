@@ -2,12 +2,15 @@
 import re
 
 def validate_tweet(tweet):
-    if len(re.sub(r'[^a-zA-Z0-9\s]', '', tweet)) > 140:
+    if len(tweet.strip()) > 140:
         return "Too many characters"
-    elif len(tweet) == 0:
+    elif not tweet.strip():
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        if re.match('^[a-zA-Z0-9\s\(\)\*\-\.\,\'\"\/\_\|\=\+\$\%\+\[\]\{\}]+$', tweet):
+            return f"Your tweet has {len(tweet)} characters"
+        else:
+            return "Too many special characters"
 
 print(validate_tweet(""))
 print(validate_tweet("1"))
