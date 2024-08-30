@@ -1,9 +1,11 @@
-```
-def cut_vector(vector):
-    left_sum = sum(vector[:i]) for i in range(len(vector))
-    min_diff = min(abs(left_sum - sum(vector[i:])) for i in range(len(vector)))
-    
-    result_left = vector[:np.argmin([abs(left_sum - sum(vector[i:])) for i in range(len(vector))])]
-    result_right = vector[np.argmin([abs(left_sum - sum(vector[i:])) for i in range(len(vector))):]]
+Here is the solution in Python:
 
-    return result_left, result_right
+def cut_vector(nums):
+    min_diff = float('inf')
+    split_index = 0
+    for i in range(1, len(nums)):
+        diff = abs(sum(nums[:i]) - sum(nums[i:]))
+        if diff < min_diff:
+            min_diff = diff
+            split_index = i
+    return nums[:split_index], nums[split_index:]
