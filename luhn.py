@@ -1,4 +1,10 @@
-Here is the solution:
-
-def luhn(vector):
-    return sum(2 * int(digit) if i % 2 != 0 else int(digit) for i, digit in enumerate(map(str, vector))) - sum(int(i) // 10 + int(i) % 10 for i in (str(2 * int(digit)) if i % 2 != 0 else str(int(digit)) for i, digit in enumerate(map(str, vector)))) if max(map(int, vector)) > 4 else sum(map(int, vector))
+def luhn(card):
+    sum = 0
+    for i in range(len(card)):
+        digit = int(card[i])
+        if i % 2 == 1:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        sum += digit
+    return str(sum)
