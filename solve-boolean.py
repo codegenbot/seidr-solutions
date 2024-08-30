@@ -1,16 +1,16 @@
-```
-def solve.Boolean(expression):
-    def evaluate_expression(s):
-        if s == 'T':
-            return True
-        elif s == 'F':
-            return False
-        elif s[0] == '&':
-            return evaluate_expression(s[1:]) and evaluate_expression(s[2:])
-        elif s[0] == '|':
-            return evaluate_boolean_or(s)
-    def evaluate_boolean_or(s):
-        if '&' in s or '|' in s:
+def solve_boolean(expression):
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression or '|' in expression:
+        if '&' in expression and not all(c in expression for c in '&') or '|' in expression and not all(c in expression for c in '|'):
             raise ValueError("Invalid expression")
-        return any(evaluate_expression(c) for c in s)
-    return evaluate_expression(expression)
+    else:
+        result = True
+        for char in expression:
+            if char == '&':
+                result &= eval('True' if char == 'T' else 'False')
+            elif char == '|':
+                result |= eval('True' if char == 'T' else 'False')
+        return result
