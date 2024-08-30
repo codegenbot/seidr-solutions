@@ -5,5 +5,5 @@ def middle_character(s):
     else:
         return s[length//2]
 
-print(middle_character("abcd"))  # Output: "cd"
-print(middle_character("abcde"))  # Output: "c"
+print(middle_character("abcd"))  
+print(middle_character("abcde"))
