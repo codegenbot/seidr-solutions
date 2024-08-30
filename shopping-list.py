@@ -8,5 +8,4 @@ def shopping_list():
 
     return total_price
 
-
 print(shopping_list())
