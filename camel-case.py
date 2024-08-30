@@ -1,10 +1,9 @@
-def kebab_to_camel(s):
-    return "".join(word.capitalize() for word in s.split("-") if word)
+```
+def camel_case(s):
+    return ''.join(word.capitalize() for word in s.replace("-", " ").split())
 
-
-while True:
-    try:
-        user_input = input("input: ")
-        print(f"output: {kebab_to_camel(user_input)}")
-    except (KeyboardInterrupt, EOFError):
-        break
+# test cases
+print(camel_case("nospaceordash"))  # nospaceordash
+print(camel_case("two-words"))      # twoWords
+print(camel_case("two words"))      # two words
+print(camel_case("all separate words"))  # all separate words
