@@ -13,5 +13,4 @@ def coin_sums():
     print(dimes)
     print(pennies)
 
-
 coin_sums()
