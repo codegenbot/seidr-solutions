@@ -8,5 +8,3 @@ def solve_boolean(expression):
             return all(evaluate(p) for p in part.split("&"))
         elif "|" in part:
             return any(evaluate(p) for p in part.split("|"))
-
-    return evaluate(expression)
