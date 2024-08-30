@@ -1,9 +1,7 @@
 ```
 import re
-
 def validate_tweet(tweet):
-    tweet = re.sub(r'[^a-zA-Z0-9\s\(\)\.\,\?\!\:\;\'\"]', '\g<0>', tweet)
-    if len(tweet) > 140:
+    if not re.match("^[a-zA-Z0-9_\\s]+$", tweet):
         return "Too many characters"
     elif len(tweet) == 0:
         return "You didn't type anything"
