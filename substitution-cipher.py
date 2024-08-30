@@ -1,7 +1,3 @@
-def substitution_cipher():
-    cipher = [list(x) for x in zip(input(), input())]
-    message = input()
-    deciphered_message = "".join(
-        [cipher[i][0] if i < len(cipher[0]) else "" for i in range(len(message))]
-    )
-    return deciphered_message
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    cipher = str.maketrans({c: cipher_text2[i] for i, c in enumerate(cipher_text1)})
+    return message.translate(cipher)
