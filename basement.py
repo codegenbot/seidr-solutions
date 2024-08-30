@@ -1,4 +1,3 @@
-```python
 def basement(lst):
     current_sum = 0
     for i in range(len(lst)):
