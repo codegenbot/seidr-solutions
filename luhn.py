@@ -1,14 +1,11 @@
 ```Python
-def luhn(card):
-    card = [int(x) for x in str(card)]
-    total = 0
-    for i, num in enumerate(card):
-        if (i % 2) == 1:
-            num *= 2
-            if num > 9:
-                num -= 9
-            total += num 
-        else:
-            total += num
-
-    return total
+def luhn(card_number):
+    sum = 0
+    for i in range(len(card_number)):
+        digit = int(card_number[i])
+        if (i % 2 == 1) and (len(card_number)-1)%2!=0:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        sum += digit
+    return sum
