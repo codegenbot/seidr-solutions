@@ -1,5 +1,14 @@
-```
 def camel_case(s):
-    return ''.join(word.capitalize() for word in s.split() if '-' not in word) + ''.join(word[0].upper() + word[1:] for word in s.split('-') if len(word) > 1)
+    return (
+        "".join(word.capitalize() for word in s.split(" "))
+        if " " in s
+        else s.replace("-", "").capitalize()
+    )
 
-print(camel_case(input()))
+
+while True:
+    try:
+        s = input()
+        print(camel_case(s))
+    except KeyboardInterrupt:
+        break
