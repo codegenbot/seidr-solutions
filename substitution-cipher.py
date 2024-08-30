@@ -1,13 +1,3 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = {}
-    for i in range(min(len(input1), len(input2))):
-        cipher[input1[i]] = input2[i]
-
-    result = ""
-    for char in input3:
-        if char in cipher:
-            result += cipher[char]
-        else:
-            result += char
-
-    return result
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    cipher = str.maketrans({c: cipher_text2[i] for i, c in enumerate(cipher_text1)})
+    return message.translate(cipher)
