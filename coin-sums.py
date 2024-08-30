@@ -5,18 +5,15 @@ def coin_sums(cents):
 
     for coin in sorted(coins, reverse=True):
         while cents >= coin:
+            cents -= coin
             if coin == 25:
                 quarter_count += 1
-                cents -= 25
             elif coin == 10:
                 dime_count += 1
-                cents -= 10
             elif coin == 5:
                 nickel_count += 1
-                cents -= 5
             else:
                 penny_count += 1
-                cents -= 1
 
     return quarter_count, dime_count, nickel_count, penny_count
 
