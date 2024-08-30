@@ -1,9 +1,12 @@
 def substitution_cipher(cipher1, cipher2, message):
-    cipher_dict = {char: cipher2[i] for i, char in enumerate(cipher1)}
+    mapping = {}
+    for char in zip(cipher1, cipher2):
+        if char[0] != char[1]:
+            mapping[char[0]] = char[1]
     result = ""
     for char in message:
-        if char in cipher_dict:
-            result += cipher_dict[char]
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
     return result
