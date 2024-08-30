@@ -1,4 +1,3 @@
-```
 def camel_case(s):
     result = ""
     for group in s.split("-"):
