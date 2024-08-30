@@ -1,4 +1,3 @@
-```Python
 def fizz_buzz(x):
     result = ""
     if x % 3 == 0:
