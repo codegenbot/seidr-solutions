@@ -1,8 +1,9 @@
-def substitution_cipher():
-    key1, key2 = input(), input()
-    cipher = {k: v for k, v in zip(key1, key2)}
-    message = input()
-    return "".join(
-        cipher.get(c.lower(), c) if c.isalpha() else c
-        for c in message
-    )
+def substitution_cipher(cipher1, cipher2, message):
+    mapping = dict(zip(cipher1, cipher2))
+    result = ""
+    for char in message:
+        if char in mapping:
+            result += mapping[char]
+        else:
+            result += char
+    return result
