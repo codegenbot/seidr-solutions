@@ -10,7 +10,7 @@ def bowling_score(bowling):
         elif bowling[i] == '/':
             first_roll = int(bowling[:i].count('X')) * 10
             second_roll = 10 - int(bowling[i+1])
-            score = score + first_roll + second_roll
+            score += first_roll + second_roll
             frame += 1
         else:
             if bowling[i] != '0':
