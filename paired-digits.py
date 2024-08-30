@@ -1,2 +1,5 @@
+```
+from itertools import groupby
+
 def paired_digits(s):
-    return sum(int(digit) for digit in s if s[s.index(digit) + 1] == digit)
+    return sum(int(digit) * len(list(g)) for _, g in groupby(s))
