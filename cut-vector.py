@@ -15,7 +15,6 @@ def cut_vector(vector):
             min_diff = diff
             split_index = i
 
-    # Special case when the input vector is a palindrome
     if sum(vector) % 2 == 0 and len(vector) > 1:
         half_sum = sum(vector) // 2
         for i in range(len(vector)):
