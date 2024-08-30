@@ -1,19 +1,20 @@
-def bowling_score(frames):
+```
+def bowling_score(game):
     score = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
-            if i < 9:
-                if frames[i + 1].isdigit():
-                    score += 30
-                else:
-                    score += 20 + int(frames[i + 1][0])
-            elif i == 9:
+    frame = 0
+    for roll in game.replace('/', ''):
+        if roll.isdigit():
+            if len(roll) == 1:
                 score += 10
-        elif frames[i : i + 2] == "XX":
-            score += 30
-        elif frames[i].isdigit() and frames[i + 1].isdigit():
-            if int(frames[i]) + int(frames[i + 1]) < 10:
-                score += int(frames[i]) * 2
+                frame += 1
             else:
-                score += 10 + int(frames[i + 1])
+                score += int(roll)
+                frame += 1
+        elif roll == 'X':
+            score += 10
+            frame += 1
+        elif roll in ['-', '/']:
+            if frame < 9:
+                score += 10
+                frame += 1
     return score
