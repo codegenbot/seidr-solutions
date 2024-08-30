@@ -17,7 +17,7 @@ def solveBoolean(expression):
     result = True
     for i in range(len(expression)):
         if expression[i] in operators:
-            left, operator, right = expression[:i+1], expression[i], expression[i+1:]
+            left, operator, right = expression[:i], expression[i], expression[i+1:]
             result = {
                 "|": lambda: evaluate(left) or evaluate(right),
                 "&": lambda: evaluate(left) and evaluate(right)
