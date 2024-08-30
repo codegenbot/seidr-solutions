@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     result = True
     for char in expression:
