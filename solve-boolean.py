@@ -10,6 +10,6 @@
                 left, right = expr.split('|')
                 return eval_expr(left) or eval_expr(right)
             else:
-                return bool_to_val(s[0]) and not s[1:]
+                return bool_to_val(s)
 
         return eval_expr(s)
