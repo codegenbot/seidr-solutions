@@ -1,2 +1,2 @@
-def dice_game(n, m):
+def prob_higher(n, m):
     return (n - 1) / (n * m)
