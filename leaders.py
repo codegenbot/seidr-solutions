@@ -1,4 +1,6 @@
-Here is the completed code:
-
-def leaders(integers):
-    return [integer for i, integer in enumerate(reversed(integers)) if all(j <= integer for j in integers[i+1:])]
+def leaders(input_vector):
+    return [
+        x
+        for i, x in enumerate(reversed(input_vector))
+        if all(x >= y for y in input_vector[i + 1 :])
+    ]
