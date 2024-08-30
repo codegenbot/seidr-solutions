@@ -1,19 +1,11 @@
-def bowling_game(input_string):
+def bowling_score(s):
     score = 0
-    roll = []
-    for char in input_string:
-        if char.isdigit():
-            roll.append(int(char))
-        elif char == "/":
-            if len(roll) < 2:
-                return "Invalid game string"
-            total_pins = sum(roll)
-            if total_pins < 10:
-                return "Invalid game string"
-            score += max(10 - total_pins, 0) * 10
-            roll = []
-    if len(roll) > 0:
-        return "Invalid game string"
-    total_pins = sum(roll)
-    score += min(total_pins, 10) * 10
+    rolls = s.replace("/", "-").replace("X", "33").split("-")
+    for i in range(0, 10):
+        if len(rolls[i]) == 1:
+            score += 10
+        elif rolls[i] == "33":
+            score += 30
+        else:
+            score += sum(map(int, rolls[i]))
     return score
