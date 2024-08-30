@@ -1,12 +1,9 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarter_count = 0
-    nickel_count = 0
-    dime_count = 0
-    penny_count = 0
+    quarter_count = dime_count = nickel_count = penny_count = 0
 
-    for coin in reversed(coins):
+    for coin in coins:
         while cents >= coin:
             cents -= coin
             if coin == 25:
