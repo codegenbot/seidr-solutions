@@ -1,5 +1,6 @@
 ```
 import re
+
 def validate_tweet(tweet):
     if len(re.sub(r'[^a-zA-Z0-9\s]', '', tweet)) > 140:
         return "Too many characters"
