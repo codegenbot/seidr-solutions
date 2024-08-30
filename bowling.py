@@ -1,18 +1,34 @@
-```
-def bowling_score(bowling):
+Here is the solution:
+
+def bowling_score(rolls):
     score = 0
-    frame = 1
-    for i in range(len(bowling)):
-        if bowling[i] == 'X':
-            score += 10 + (10 if frame < 9 and bowling[i+2].isdigit() else 0)
-            frame += 1
-        elif bowling[i] == '/':
-            first_roll = int(bowling[:i].count('X')) * 10
-            second_roll = 10 - int(bowling[i+1])
-            score += first_roll + second_roll
-            frame += 1
+    roll_index = 0
+    for frame in range(1, 11):
+        if len(rolls[roll_index:]) < 2:
+            if len(rolls[roll_index:]) == 1:
+                score += int(rolls[roll_index])
+            break
+        if rolls[roll_index] == 'X':
+            score += 10
+            roll_index += 1
+        elif rolls[roll_index].isdigit():
+            first_roll = int(rolls[roll_index])
+            roll_index += 1
+            if len(rolls[roll_index:]) >= 2 and rolls[roll_index-1] != 'X' and str(first_roll) + rolls[roll_index] == '10':
+                score += 10
+                roll_index += 1
+            else:
+                score += first_roll
+                if len(rolls[roll_index:]) >= 2 and int(rolls[roll_index]) + int(rolls[roll_index+1]) > 9:
+                    score += int(rolls[roll_index])
+                    roll_index += 2
+                elif len(rolls[roll_index:]) >= 2 and rolls[roll_index] == '0':
+                    break
         else:
-            if bowling[i] != '0':
-                score += int(bowling[i])
-                frame += (1 if frame < 9 and bowling[i+2].isdigit() else 0)
+            if str(first_roll) + rolls[roll_index] == '10':
+                score += 10
+                roll_index += 2
+            else:
+                score += first_roll + int(rolls[roll_index])
+                roll_index += 2
     return score
