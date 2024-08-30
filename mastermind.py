@@ -1,12 +1,11 @@
-def get_clue(code, guess):
-    black = 0
-    white = 0
-    for c in code:
-        if c == guess[0]:
-            white += 1
-        elif c in str(guess):
-            white -= 1
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-    return str(black), str(white)
+def mastermind(code, guess):
+    black_pegs = 0
+    white_pegs = 0
+
+    for c, g in zip(code, guess):
+        if c == g:
+            black_pegs += 1
+        elif g in code:
+            white_pegs += 1
+
+    return str(black_pegs) + "\n" + str(white_pegs)
