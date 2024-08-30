@@ -1,4 +1,10 @@
-def snow_day(hours, snow_ground, rate_snow_fall, melting_rate):
+Here is the solution in Python:
+
+def snow_day(hours, initial_snow, rate_snow_fall, melting_rate):
+    total_snow = 0.0
     for _ in range(hours):
-        snow_ground += rate_snow_fall - snow_ground * melting_rate
-    return round(snow_ground, 8)
+        total_snow += rate_snow_fall
+        if total_snow > initial_snow:
+            excess = (total_snow - initial_snow)
+            total_snow -= excess * melting_rate
+    return round(total_snow, 9)
