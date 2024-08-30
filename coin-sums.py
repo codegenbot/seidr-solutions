@@ -1,4 +1,3 @@
-```
 def coin_sums():
     num_cents = int(input())
     quarters = num_cents // 25
