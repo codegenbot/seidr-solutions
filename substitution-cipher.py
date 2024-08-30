@@ -1,13 +1,6 @@
-```
-def substitution_cipher(cipher1, cipher2, message):
-    mapping = {}
-    for char in range(len(cipher1)):
-        if cipher1[char] != cipher2[char]:
-            mapping[cipher1[char]] = cipher2[char]
-    result = ""
-    for char in message:
-        if char in mapping:
-            result += mapping[char]
-        else:
-            result += char
-    return result
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    cipher = {cipher_text1[i]: cipher_text2[i] for i in range(len(cipher_text1))}
+    deciphered_message = "".join(
+        [cipher[char] if char in cipher else char for char in message]
+    )
+    return deciphered_message
