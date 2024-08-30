@@ -1,18 +1,13 @@
 def solve_boolean(expression):
-    if expression == 't':
-        return True
-    elif expression == 'f':
-        return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid expression')
-    else:
-        result = True
-        parts = expression.split('&')
-        for part in parts:
-            if not part.strip():
-                continue
-            if '|' in part:
-                result = any(solve_boolean(p) for p in part.split('|'))
+    stack = []
+    for char in expression[::-1]:
+        if char in ['T', 'F']:
+            stack.append(char == 'T')
+        elif char in ['|', '&']:
+            second_operand = stack.pop()
+            first_operand = stack.pop()
+            if char == '|':
+                stack.append(first_operand or second_operand)
             else:
-                result = result and solve_boolean(part)
-        return result
+                stack.append(first_operand and second_operand)
+    return stack[0]
