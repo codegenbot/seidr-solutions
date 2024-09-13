@@ -1,26 +1,30 @@
-This repository contains solutions to Program Synthesis Benchmark 2 [[Helmuth Kelly GECCO 2021]](https://arxiv.org/abs/2106.06086) written fully autonomously by the OpenAI Codex model with the use of [Synthesize Execute Instruct Debug Rank](https://github.com/vadim0x60/seidr) [[Liventsev, Grishina GECCO 2023]](https://arxiv.org/abs/2304.10423) framework with different hyperparameters in different programming languages.
+# SEIDR solutions
 
-For example, to find a solution of `fizz-buzz` in Python produced by SEIDR with tree arity 10 and prompt 6, run
+This repository contains solutions to PSB-2 and HumanEval benchmarks written fully with the use of [Synthesize Execute Instruct Debug Rank](https://github.com/vadim0x60/seidr) framework. See papers Liventsev et.al. "[Fully Autonomous Programming with Large Language Models](https://dl.acm.org/doi/10.1145/3583131.3590481)" and Grishina et.al. "Fully Autonomous Programming using Iterative Multi-Agent Debugging with Large Language Models" for more information.
 
-```
-git checkout bf10_promptid6
-cat fizz-buzz.py
-```
+## Experimental matrix
 
-For a solution of `find-pairs` in C++ with tree arity of 1000 (infinity) and prompt 9 run 
+Included experiments span:
+* 2 datasets: [PSB-2](https://zenodo.org/records/5084812) and [HumanEval](https://github.com/openai/human-eval)
+* 2 primary models: [llama3](https://ai.meta.com/blog/meta-llama-3/) and [gpt-3.5-turbo](https://platform.openai.com/docs/models/gpt-3-5-turbo) and a few experiments with other models.
+* Different tree arity settings, i.e. number of drafts per prompt, explanations per program and repairs per explanation.
+* 2 parent selection methods: tournament selection and lexicase selection
 
-```
-git checkout bf1000_promptid9
-cat find-pairs.cpp
-```
+## How to explore this repository
 
-This can be done for tree arities of 1, 10, 100 and 100, prompt ids 1-10 and languages Python and C++. For more information on what tree arity is, what prompt ids stand for, why tree arity of 1000 is equivalent to infinity and other details of the experiment design, please see the paper.
-
-*Nota Bene:* SEIDR is an iterative program synthesis method and [our implementation thereof](https://github.com/vadim0x60/seidr) follows the human tradition of commiting intermediate candidate solutions to the working repository. As a result, this repository is history-aware can be used to study the pathways taken by the LLM-driven framework on the way to the final solution. Just run
+Every experiment has 2 corresponding branches in this repository that can be accessed via a command like
 
 ```
-git checkout bf{bf}_promptid{promptid}
-git log -p -- {problem}.{cpp/py}
+git checkout {humaneval|psb2}_{model_name}_{drafts_per_prompt}x{explanations_per_program}x{repairs_per_explanation}{_lexicase}
 ```
 
-Please reach out if you run an interesting analysis of our data or need help running one.
+for the master branch, and
+
+```
+git checkout {humaneval|psb2}_{model_name}_{drafts_per_prompt}x{explanations_per_program}x{repairs_per_explanation}{_lexicase}_dev
+```
+
+for the development branch.
+
+During the experiment, SEIDR commited every program it generated in the search process to the development branch. If this program received higher test scores than all programs before it, it was commited to the master branch as well.
+Hence, one can explore the evolution of solution candidates by exploring the history of the corresponding branch, for example, with the `git log` command.
